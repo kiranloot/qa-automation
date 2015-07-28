@@ -7,4 +7,4 @@ Feature: Admin Subscriptions Page
             When the admin user visits the admin page
             And logs in as an admin
             And updates the subscription's information
-        Then The updated information should be reflected when the user views the subscription
+        Then the updated information should be reflected when the user views the subscription
