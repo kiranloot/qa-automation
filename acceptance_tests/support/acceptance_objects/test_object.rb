@@ -6,6 +6,7 @@ class Test
  require_relative 'heroku_object'
  require 'yaml'
  require 'pry'
+ require 'faker'
  attr_accessor :user, :pages, :current_page, :test_data
  include Capybara::DSL
  include RSpec::Matchers
@@ -99,8 +100,7 @@ class Test
 #Remove middle man
  def get_valid_signup_information
   @user.password = @test_data["signup"]["valid_pw"]
-  @user.email = @test_data["signup"]["valid_email"]
-  update_test_data("valid_email")
+  @user.email = { Faker::Internet.user_name + "_unreg@mailinator.com" }
  end
 
  def is_at(page)
