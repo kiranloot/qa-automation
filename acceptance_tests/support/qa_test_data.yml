@@ -1,6 +1,6 @@
 ---
 signup:
-  valid_email: lctest#1056@mailinator.com
+  valid_email: lctest#1060@mailinator.com
   valid_pw: password
   invalid_email: bad_email@fake.com
   invalid_pw: short
@@ -44,8 +44,8 @@ locators:
 user:
   email_sequence: 1
 emails:
-  registered_no_prior: regnoprior1635@mailinator.com
-  registered_with_active: activesub2142@mailinator.com
+  registered_no_prior: regnoprior1639@mailinator.com
+  registered_with_active: activesub2149@mailinator.com
 plan_cost:
   1: 19.95
   3: 57.75

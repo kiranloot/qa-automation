@@ -1,7 +1,0 @@
-<%=
-    if (GlobalConstants::SOLDOUT_AMIIBO || "true" == request.GET['soldout'] || !@stock_remains)
-        render "sold_out"
-    else
-        render "sold_in"
-    end
-%>

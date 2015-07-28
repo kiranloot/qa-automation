@@ -1,7 +1,0 @@
-<ul class='unstyled side-nav'>
-  <li <%= 'class=active' if current_page?(user_accounts_path) %>><a href='<%= user_accounts_path %>'><%= t('user_accounts.navigation.account_info') %></a></li>
-  <li <%= 'class=active' if current_page?(user_accounts_subscriptions_path)  %>><a href='<%= user_accounts_subscriptions_path %>'><%= t('user_accounts.navigation.subscriptions') %></a></li>
-  <li <%= 'class=active' if current_page?(user_accounts_store_credits_path) %>>
-    <a href='<%= user_accounts_store_credits_path %>'><%= t('user_accounts.navigation.store_credits') %></a>
-  </li>
-</ul>

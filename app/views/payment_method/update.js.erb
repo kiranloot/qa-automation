@@ -1,7 +1,0 @@
-<% if @error_messages %>
-  LootCrate.Flash("<%= @error_messages %>", 'error');
-<% else %>
-  $("#collapseTwo<%= @subscription.id %> .panel-body .pmbb-view").html("<%= j render 'user_accounts/payment_method', subscription: @subscription, billing_address: @subscription.billing_address %>");
-<% end %>
-
-

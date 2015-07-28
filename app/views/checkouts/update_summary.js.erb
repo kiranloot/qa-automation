@@ -1,8 +1,0 @@
-LootCrate.common['checkouts-coupon'].start({
-  total:         "<%= number_to_currency(@checkout.total, locale: :en) %>",
-  valid:         <%= @checkout.coupon.valid? ? true : false %>,
-  discount:      "<%= number_to_currency(@checkout.coupon_discount_amount, locale: :en) %>",
-  taxRate:      <%= @checkout.tax_rate %>,
-  taxCharge: "<%= number_to_currency(@checkout.tax_charges_after_discount, locale: :en) %>",
-  taxRegion: "<%= @checkout.tax_region %>"
-});
