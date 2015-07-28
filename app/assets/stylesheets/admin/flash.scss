@@ -1,0 +1,13 @@
+body.admin {
+  .errorExplanation {
+    &.alert {
+      a.close {
+       display: none;
+      }
+    }
+
+    p, li {
+      color: #e45353;
+    }
+  }
+}

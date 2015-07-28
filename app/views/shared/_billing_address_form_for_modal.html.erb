@@ -1,0 +1,75 @@
+<div class="white-bg">
+  <div class="container base spacer">
+
+    <div id="edit_account_info_modal">
+
+      <div class="row">
+        <div class="col-md-12">
+          <h3>EDIT PAYMENT INFO</h3>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 edit-container">
+
+          <%= simple_form_for(billing_address, :html => {:class => 'card_form form-vertical', :role => 'form' }) do |f| %>
+            <%= hidden_field_tag :subscription_id, subscription.id  %>
+            <%= f.error_notification %>
+
+            <div class="form-inputs">
+              <div class="row">
+                <div class="col-md-12">
+                  <%= f.input :full_name, :label => "Name on Card" %>
+
+                  <%= f.simple_fields_for :credit_card, billing_address.credit_card do |cc| %>
+                    <%= cc.input :number, :label => "Credit Card Number", :required => true %>
+                    <%= cc.input :cvv, :label => "Card Security Code (CVV)", :required => true %>
+                    <%= cc.input :expiration, as: :date, start_year: Date.today.year, end_year: Date.today.year + 10, discard_day: true, order: [:month, :year], label: "Card Expiration", required: true %>
+                  <% end %>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <%= f.input :line_1, :label => "Billing Address 1" %>
+                  <%= f.input :line_2, :label => "Billing Address 2" %>
+
+                  <div class="col-md-12 no-space">
+                    <div class="col-md-6 no-space">
+                      <%= f.input :city, :label => "Billing City" %>
+                    </div>
+                    <div class="col-md-3">
+                      <%= f.input :zip, :label => "Zip Code" %>
+                    </div>
+                    <div class="col-md-3">
+                      <%= f.input :state, :collection => state_options(billing_address.country), :prompt => "PLEASE SELECT", :label => "Billing State" %>
+                    </div>
+                  </div>
+
+                  <%= f.input :country, as: :country, collection: country_options, priority: %w(US CA), prompt: "PLEASE SELECT", class: "country_selector", label: "Billing Country" %>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <div class="col-md-8 back">
+                <%= link_to "Back", :back %>
+              </div>
+
+              <div class="col-md-4">
+                <%= f.button :submit, "Update", :class => 'btn btn-secondary btn-utag',
+                  'data-utag-user' => "#{current_user.id}",
+                  'data-utag-email' => "#{current_user.email}",
+                  'data-utag-event' => 'user_update'
+                %>
+              </span>
+            </div>
+          <% end %>
+
+        </div>
+      </div>
+
+      <div class="col-md-3 hidden-xs hidden-sm"></div>
+    </div>
+
+  </div>
+</div>

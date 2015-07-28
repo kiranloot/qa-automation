@@ -1,0 +1,111 @@
+#existing-customer-container , #new-customer-container {
+  @include error;
+  @include valid;
+  text-align: center;
+  min-height: 500px;
+  padding-top: 46px;
+  @media (max-width:767px) {
+    padding-top: 20px;
+  }
+
+  .existing-customer {
+    h6 {
+      @extend .hide;
+    }
+  }
+
+  input , button {
+    width: 289px;
+    text-align: center;
+  }
+
+  .createTitle {
+    color: $gray-9;
+    font-size: 24px;
+    font-weight: 600;
+    height: 20px;
+    line-height: 20px;
+  }
+
+  .fbLogin, .social-signin-links{
+    margin: 16px 0;
+  }
+
+  .fb-login {
+    background-color: rgb(57, 100, 176);
+    border-color: rgb(255, 255, 255);
+    border-style: none;
+    border-width: 0px;
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 300;
+    height: 45px;
+    letter-spacing: 3px;
+    line-height: 21px;
+    text-decoration: none;
+    text-transform: uppercase;
+    vertical-align: middle;
+
+    .fb-login-icon {
+      left: -16px;
+      position: relative;
+    }
+  }
+
+  .newOr {
+    color: rgb(115, 115, 113);
+    font-size: 13px;
+    font-weight: normal;
+    margin-bottom: 16px;
+  }
+
+  .newFormDiv, .oldFormDiv{
+    input {
+      font-size: 10pt;
+      color: #777777;
+      border: 4px solid #dedede;
+      background-color: #dedede;
+    }
+
+    button, input.btn{
+      color: $white;
+      background: $orange;
+      font-size: 12px;
+      margin-top: 42px;
+      border-color: $orange;
+    }
+  }
+
+  .newBumper {
+    margin-top: 20px;
+    .loginTrigger, .newTrigger {
+      color: rgb(123, 122, 120);
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 600;
+
+      .goOrange {
+        line-height: 20px;
+        color: $orange;
+      }
+    }
+
+    .newTerms {
+      color: rgb(123, 122, 120);
+      font-size: 11px;
+      font-weight: 300;
+      height: 32px;
+      letter-spacing: 0.3296000063419342px;
+      line-height: 16px;
+      margin-left: 88.84375px;
+      margin-right: 88.84375px;
+      margin-top: 12px;
+      max-width: 292px;
+      text-align: center;
+      width: 292px;
+    }
+  }
+}

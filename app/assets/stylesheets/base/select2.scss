@@ -1,0 +1,106 @@
+/*
+ * Select2
+ */
+
+.select2-container {
+  &.select2 {
+    background-color: $gray-4;
+
+    a.select2-choice {
+      color: $gray-2;
+      background-color: $gray-4;
+      height: 44px;
+      line-height: 36px;
+      border: 0;
+      padding: 0 0 0 10px;
+      background-image: none;
+      border: 4px solid $gray-4;
+      // Border Radius
+      -webkit-border-radius: 0;
+      border-radius: 0;
+      // Border Box
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      // Box Shadow
+      -webkit-box-shadow: none;
+      box-shadow: none;
+
+      .select2-arrow {
+        width: 22px;
+        background: transparent;
+        border: 0;
+        background-repeat: no-repeat !important;
+        background-position: 50% 50% !important;
+        background-size: 40px 40px !important;
+
+        &:after {
+          font-family: 'lootcrate-icons';
+          content: '\e80c';
+        }
+      }
+    }
+
+    &.valid {
+      a.select2-choice {
+        .select2-arrow {
+          b {
+           /*  background-image: image-url('valid.png') !important; */
+            background-repeat: no-repeat !important;
+            background-position: 50% 50% !important;
+            background-size: 40px 40px !important;
+          }
+        }
+      }
+    }
+
+    &.error {
+      a.select2-choice {
+        border: 4px solid #e45353 !important;
+
+        .select2-arrow {
+          b {
+            /* background-image: image-url('invalid.png') !important; */
+            background-repeat: no-repeat !important;
+            background-position: 50% 50% !important;
+            background-size: 40px 40px !important;
+            /* background-image: none; */
+          }
+        }
+      }
+    }
+
+    &.select2-container-active, &.select2-dropdown-open {
+      a.select2-choice {
+        background-color: white;
+
+        .select2-arrow b {
+          background-image: none !important;
+        }
+      }
+    }
+  }
+}
+
+.select2-drop {
+  .select2-search {
+    input[type=text] {
+      padding: 0 10px;
+      height: 33px !important;
+      margin-top: 4px;
+    }
+  }
+}
+
+.select2-drop-active {
+  border: 4px solid $gray-4;
+  border-top: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+
+  .select2-highlighted {
+    .select2-result-label {
+      background-color: #C8C6CC;
+    }
+  }
+}

@@ -1,0 +1,4 @@
+zeus: echo "Starting Zeus..." && zeus start &> /dev/null
+web: sleep 1 && zeus s
+redis: redis-server
+sidekiq: bundle exec sidekiq

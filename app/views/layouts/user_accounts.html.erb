@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang=<%= I18n.locale %>>
+  <head>
+    <%= render 'layouts/head', showcountdowntimer: show_countdown_timer? %>
+    <%= javascript_include_tag "application_user_accounts" %>
+    <%= stylesheet_link_tag 'application_user_accounts', media: 'all' %>
+  </head>
+  <body id="<%= page_id %>" class="<%= controller_name %> <%= action_name %>" data-no-turbolink>
+    <%= render 'layouts/navigation' %>
+    <%= render 'layouts/messages' %>
+    <%= render partial: 'shared/tealium_udo', locals: {data: @tealium_udo} %>
+    <%= render partial: 'shared/tealium_utag', locals: {data: @tealium_udo} %>
+
+    <div class='main-content'>
+      <div data-hook='account_summary' class='account-summary'>
+        <div class='container'>
+          <div class='row'>
+            <h1 class="account-header">Manage Account</h1>
+            <%= render 'user_accounts/manage_account_nav' %>
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= render 'layouts/footer' %>
+    <%= render 'shared/login_modal' %>
+    <%= render 'shared/register_modal' %>
+  </body>
+</html>

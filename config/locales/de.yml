@@ -1,0 +1,916 @@
+# Sample localization file for German. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+de:
+  subscribe: ABONNIEREN
+  select: WÄHLEN
+  edit: Bearbeiten
+  update: Aktualisieren
+  back: Zurück
+  continue: Weiter
+  referer_friend: Freund(in) anwerben
+  upgrade: Upgrade
+  remove_cancelation: Stornierung entfernen
+  cancel_subscription: Abonnement kündigen
+  add_subscription: Abonnement hinzufügen
+  submit: Senden
+  join: Beitreten
+  updated_successfully: Erfolgreich aktualisiert
+  please_select: Bitte wählen
+  sign_up: Registrieren
+  reset_password: Passwort zurücksetzen
+  forgot_password: Passwort Vergessen?
+  change_my_password: Mein Passwort ändern
+  register: Registrieren
+  login: Einloggen
+  create_account: Konto Erstellen
+
+  about_us:
+    title: "Was ist Loot Crate&trade;?"
+    content: "Loot Crate&trade; wurde 2012 von einem Unternehmerteam von Computerfreaks und Gamern gegründet, die der Meinung waren, dass Online-Einzelhandel der Sinn für Gemeinschaft, Interaktivität und Mysterium fehlte, die wir bei Shows wie PAX und Comic-Con so toll fanden. Jeden Monat sendet Loot Crate &trade;eine themenbezogene Mystery-Box der besten Computerfreak-, Gaming- und Popkultur an eine Abonnentenbasis von mehr als 100.000 Plünderern, den sogenannten Lootern. Wir betonen phänomenalen Support und Inhalt und integrieren Zubehör von einigen der renommiertesten Unternehmen für Unterhaltung und Verbraucherprodukte weltweit."
+    subcontent: "Folgen Sie uns auf Facebook, Instagram, Twitter, Reddit und YouTube, um verbunden zu bleiben und mit unserer tollen Gemeinde zu kommunizieren. Frohes Plündern!"
+
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: "Es existiert bereits ein Konto mit dieser E-Mail-Adresse."
+        subscription:
+          attributes:
+            coupon_code:
+              invalid: "Ungültiger Gutscheincode."
+
+  addresses:
+    billing_address:
+      edit_payment_info: ZAHLUNGSINFORMATION BEARBEITEN
+      name_on_card: Name auf Karte
+      credit_card_number: Kreditkartennummer
+      card_security_code: Karten-Sicherheitscode (CVV)
+      card_expiration: Karten-Ablaufdatum
+      billing_address_1: Rechnungsadresse 1
+      billing_address_2: Rechnungsadresse 2
+      billing_city: Rechnungsort
+      billing_state: Bundesland/Provinz
+      billing_country: Rechnungsland
+      zip_code: Postleitzahl
+    shipping_address:
+      edit_shipping_info: VERSANDINFORMATION BEARBEITEN
+      first_name: Vorname
+      last_name: Nachname
+      shipping_address_1: Versandadresse 1
+      shipping_address_2: Versandadresse 2
+      shipping_city: Versandort
+      shipping_country: Versandland
+      state: Bundesland/Provinz
+      zip_code: Postleitzahl
+
+  amiibo:
+    sold_out: "amiibo™ SCHATZKARTONS<br><span>SIND AUSVERKAUFT!</span>"
+    no_longer_available: "Es tut uns leid, unsere amiibo™ Schatzkartons sind nicht länger verfügbar. Aber es kommen glücklicherweise bald mehr epische Deals! Melden Sie sich bei unserem Newsletter an und bleiben Sie auf dem Laufenden mit den neuesten Plünder-Intels und Deals!"
+    warning: 'Die gezeigten Abbildungen entsprechen nicht tatsächlichen Größen und Designs können variieren. Kompatibilität und Funktionalität von amiibo kann je nach Spiel variieren.<br>Besuchen Sie <a href="http://amiibo.com" target="_blank">amiibo.com</a> für spezifische Einzelheiten, wie jedes amiibo funktioniert.'
+    save: "SPAREN SIE %{money} USD!"
+    three_weekly_payments: 3 WÖCHENTLICHE ZAHLUNGEN
+    payment: "%{money} USD/Woche + %{shipping} USD S&H"
+    total_price: "Gesamtpreis: %{price} USD"
+    bills_weekly: Wöchentliche Abrechnung
+    bills_once: Einmalige Abrechnung
+    three_shipped_crates: "3 Schatzkartons: Versand einmal wöchentlich"
+    space_out: Verteilen Sie Ihre Zahlungen!
+    one_time_payment: EINMALZAHLUNG
+    what_you_get:
+      title: WAS SIE ERHALTEN
+      week_1: Woche 1
+      week_1_content: "Sie erhalten 4 amiibo&#0153; Figuren, einen sammelbaren Mini-Mag sowie einen EXKLUSIVEN Sticker und ein Armband!"
+      week_2: Woche 2
+      week_2_content: "Sie erhalten 4 amiibo&#0153; Figuren, einen sammelbaren Mini-Mag sowie einen exklusiven Beutel mit Kordelzug!"
+      week_3: Woche 3
+      week_3_content: "Sie erhalten die letzten 2 amiibo&#0153; Figuren, einen sammelbaren Mini-Mag und ein äußerst seltenes T-Shirt!"
+    how_it_works:
+      title: WIE ES FUNKTIONIERT
+      step_1: "1. Schritt: Plan auswählen"
+      step_2: "2. Schritt: Wöchentliche Lieferungen"
+      step_3: "3. Schritt: Genießen Sie Ihre Beute!"
+      best_plan: "Wählen Sie den Plan, der Ihnen am besten gefällt"
+      select_one_time: Wählen Sie Einmalzahlung und sparen Sie
+      first_crate_ships: Ihr erster Schatzkarton wird am 20. versendet
+      following_crates: Die darauffolgenden Schatzkartons kommen jede Woche
+      enjoy_exclusive_items: Genießen Sie Ihre exklusiven Artikel
+      share_your_experience: Teilen Sie Ihre Erfahrungen online
+
+  checkouts:
+    you_have_existing_subscriptions: 'Sie haben bestehende Abonnements, besuchen Sie Ihre <a href="/user_accounts">Account-Seite</a>, um Ihre derzeitigen Abonnements zu verwalten.'
+    monthly_cost: Monatliche Kosten
+    coupon_savings: Gutschein-Einsparungen
+    todays_total: "Heutige Gesamtsumme"
+    ca_sales_tax: "%{state}Mehrwertsteuer (%{percentage})"
+    first_renewal: "Erste Verlängerung am %{billing_date}"
+    then_first_renewal: "(dann %{renewal_cost} bei erster Verlängerung am %{billing_date})"
+    coupon: Gutschein
+    sh_included: "(S&amp;H inklusive)"
+    subscription_details: Details des Abonnements
+    free_bonus_gift: Kostenloses Bonusgeschenk
+    retail_value: EINZELHANDELSWERT 15.00 USD
+    shirt_size: T-Shirt Größe
+    select_your_size: Wählen Sie Ihre Größe
+    hint: "Einige, aber nicht alle Schatzkartons enthalten ein T-Shirt. <span>T-Shirt Größentabelle <a href='#' class='circle circle-question-mark' id='tshirt-popover'>?</a></span>"
+    plans:
+      total: "Estimate %{total}"
+    shipping_information:
+      title: Versandinformation
+      first_name: Vorname
+      last_name: Nachname
+      shipping_address_1: Versandadresse Zeile 1
+      street_address_1_placeholder: 'Straße, Postfach'
+      shipping_address_2: Versandadresse Zeile 2
+      street_address_2_placeholder: 'Apartment, Suite, Einheit, Gebäude, Stockwerk etc.'
+      country_link: 'Land <a id="not_my_country" href="#">Nicht Ihr Land? Hier klicken zum Ändern</a>'
+      shipping_city: Versandort
+      postal_code: "%{postal_code} Code"
+    billing_information:
+      title: RECHNUNGSINFORMATION
+      name_on_card: Name auf Karte
+      credit_card_number: Kreditkartennummer
+      card_expiration: Karten-Ablaufdatum
+      card_security_code: 'Karten-Sicherheitscode (CVV) <a id="cvv-popover" class="circle circle-question-mark" href="#" data-original-title="" title="">?</a>'
+      cvv_popover: 3 Zahlen auf der Rückseite Ihrer Karte
+      use_shipping_address: Versandadresse benutzen
+      billing_address_1: Rechnungsadresse 1
+      billing_address_2: Rechnungsadresse 2
+      billing_country: Rechnungsland
+      billing_city: Rechnungsort
+      billing_state: "Rechnungs%{state}"
+      billing_postal_code: "Rechnungs%{postal_code}-Code"
+      coupon_code: Gutschein-Code
+      validate_coupon: Gutschein validieren
+    subscriptions:
+      months:
+        one: Monat
+        other: Monate
+    codes:
+      postal: Postleitzahl
+    states:
+      state: Zustand
+
+  community:
+    title: Gemeinde
+    twitter: Twitter
+    twitter_content: Machen Sie mit bei der Looter-Gemeinde auf Twitter.
+    instagram: Instagram
+    instagram_content: Checken Sie Looter-Fotos auf Ihrem Instagram-Feed.
+    facebook: Facebook
+    facebook_content: "Bleiben Sie auf dem Laufenden mit den neuesten Loot Crate&trade; Intels."
+    tumblr: Tumblr
+    tumblr_content: "Sehen Sie sich die Dinge an, die uns im Web gefallen."
+
+  contact_us:
+    title: Wie können wir helfen?
+    general_questions: "Allgemeine Fragen?"
+    question_link: "Wenn Sie Fragen haben, hat unser <a href='https://help.lootcrate.com'>Hilfe</a> Antworten! Wenn Sie weitere Hilfe benötigen, <a href='https://help.lootcrate.com/hc/en-us/requests/new'>kontaktieren Sie unser Support-Team!</a>!"
+    supplier_or_publisher: "Sind Sie ein Lieferant oder Werbe Verleger?"
+    supplier_link: "Wenn Sie möchten, eine Partnerschaft mit Loot Crate & Handel gefallen; auf Produkte oder Werbung, an unser Team <a href='partner'>HIER</a>!"
+    press_inquiry: Drücken Anfrage?
+    press_link: "Kontaktieren Sie unser PR-Team <a href='media_inquiries'>HIER</a>!"
+    send_letter: Schreiben Sie uns!
+    address: "3401 Pasadena Ave. Los Angeles, CA 90031"
+
+  controllers:
+    application:
+      unauthorized_access: Nicht autorisierter Zugriff!
+    billing_address:
+      successfully_updated: Die Rechnungsadresse wurde erfolgreich aktualisiert.
+    shipping_address:
+      successfully_updated: "Ihre Versandadresse wurde erfolgreich aktualisiert! Alle Aktualisierungen, die nach dem 5. eines Monats durchgeführt werden, finden Niederschlag im Schatzkarton des nächsten Monats."
+    subscription:
+      successfully_cancel_end_of_term: "Das Abonnement wurde erfolgreich so eingerichtet, dass es mit Laufzeitende erlischt."
+      failed_cancel_end_of_term: "Es wurde versäumt, das Abonnement so einzurichten, dass es mit Laufzeitende erlischt. Bitte kontaktieren Sie den Support."
+      successfully_cancel_end_of_period: Kündigung nach Ablauf der Frist wurde erfolgreich gelöscht.
+      failed_cancel_end_of_period: "Es wurde versäumt, die Kündigung nach Ablauf der Frist zu löschen. Bitte kontaktieren Sie den Kundendienst."
+      subscription_successfuly_reactivated: Abonnement erfolgreich reaktiviert. Willkommen zurück!
+      subscription_successfuly_upgraded: Abonnement erfolgreich nachgerüstet.
+      subscription_failed_upgraded: Upgrade des Abonnements fehlgeschlagen. Bitte aktualisieren Sie Ihre Rechnungsinformation und versuchen Sie es erneut.
+      successfully_skipped_a_month: Sie haben erfolgreich einen Monat übersprungen.
+      failed_skipped_a_month: Überspringen eines Monats fehlgeschlagen. Bitte kontaktieren Sie den Kundendienst.
+      successfully_updated_personal_information: Persönliche Daten erfolgreich aktualisiert
+    user_account:
+      user_updated: Benutzer aktualisiert.
+      unable_update_user: Kann Benutzer nicht aktualisieren.
+
+  email:
+    reset_password_instructions: Anleitung zur Passwortwiederherstellung
+    subscription_purchase_confirmation: Willkommen bei Loot Crate
+    active_account: Aktivieren Sie Ihren Loot Crate Account
+    subscription_cancellation: Kündigung des Abonnements
+    remove_subscription_cancellation: Anhängende Kündigung entfernt
+    reactivated_subscription: Abonnement reaktiviert
+    subscription_upgraded: Abonnement nachgerüstet
+
+  errors:
+    page:
+      not_found: "Die Seite nach der Sie suchen, existiert nicht.<br>Es kann sein, dass Sie die Adresse falsch eingegeben haben oder dass die Seite verlegt wurde."
+      internal_error: "Hmmm – etwas stimmt nicht <span>500 Error. Die Seite nach der Sie suchen, scheint verlegt bzw. gelöscht worden sein oder existiert nicht</span>"
+      banner:
+        title: "Ein monatlicher Karton mit <strong>Computerfreak &amp; Gamer Zubehör</strong>"
+        subtitle: 'Mitgliedschaft in einer aktiven, wachsenden Gemeinde. Chance, eine Mega-Beute mit 2.000 USD+ zu gewinnen'
+    attributes:
+      email:
+        invalid: "Eine gültige E-Mail-Adresse ist erforderlich."
+    messages:
+      blank: "Dies ist ein Pflichtfeld."
+
+  footer:
+    want_epic_deals: 'Sie wollen epische Deals + Looter Intel?'
+    epic_geek: 'Episches Zubehör für Computerfreaks + Gamer'
+    epic_geek_content: "Loot Crate&trade; liefert das Beste an Computerfreak + Gaming Zubehör. Sammlerstücke, Kleidung, Tech Gadgets, Kunst und anderes episches Zubehör, es ist wie Comic-Con im Karton!"
+    copyright: "Copyright &copy; %{year} Loot Crate"
+    your_email_address: Ihre E-Mail-Adresse
+    about:
+      title: Über
+      links:
+        our_mission: Unsere Mission
+        subscribe: Abonnieren
+        how_it_works: Wie es funktioniert
+        community: Gemeinde
+        contest_winners: Gewinner des Wettbewerbs
+        lc_magazine: LC Magazine
+        careers: Karriere
+    socialize:
+      title: Soziale Kontakte
+      links:
+        facebook: Facebook
+        twitter: Twitter
+        youtube: YouTube
+        instagram: Instagram
+        tumblr: Tumblr
+    support:
+      title: Support
+      links:
+        faq_and_help_center: 'FAQ & Hilfe'
+        terms_and_conditions: 'Allgemeine Geschäftsbedingungen'
+        privacy_policy: Datenschutzrichtlinie
+        contact: Kontakt
+
+  friend_share:
+    start_sharing: Mit dem Teilen beginnen
+    terms_and_conditions: Allgemeine Nutzungsbedingungen
+    limited_edition: Limited-Edition 10-disc Marvel Cinematic Universe Blue-Ray Pack
+    each_participant: Jeder Teilnehmer hat Anspruch auf die Verlosung von 6 Monaten kostenlosem Loot Crate
+    content:
+      "Looter, vereinigt Euch! Es ist an der Zeit, mit Freunden ein Team zu bilden und Geld zu verdienen, die zu einem Schatzkarton beitragen oder vielleicht sogar heroische Preise zu gewinnen. Werben Sie Ihre Freunde für Loot Crate, um zu beginnen. <br />
+      <br /> Jeder, der erfolgreich einen Freund anwirbt, verdient 5 USD für einen Schatzkarton, vier Anwerbungen ergeben einen freien Schatzkarton! Der Top-Anwerber dieses Monats gewinnt eine Spielekonsole seiner Wahl, die nächstbesten Fünf gewinnen ein Limited-Edition 10-disc Marvel Cinematic Universe Blu-Ray Pack. Alle anderen Anwerber haben Anspruch auf die Verlosung von 6 Monaten kostenlosem Loot Crate. <br />
+      <br /> Sie müssen kein aktueller Abonnent von Loot Crate sein, um einen Freund anwerben zu können, das Super Looter Team-up ist für jedermann!"
+    first_prize: "Xbox One mit 1 Jahr Xbox Live <strong>oder</strong> PS4 mit 1 Jahr Playstation Plus"
+    second_prize: "Battlestar Galactica: The Complete Series"
+    third_prize: 'Borderlands 7" Geschwätz Abbildung'
+
+  header:
+    title: "Loot Crate&trade; – Monatlicher Computerfreak und Gamer Abonnement-Karton"
+
+  helpers:
+    view: ansehen
+    currently_unavailable: Derzeit nicht verfügbar
+    reactivate: Reaktivieren
+    pending_cancellation: Anhängende Stornierung
+
+  how_it_works:
+    title: Wie es funktioniert
+    subtitle1: "LOOT CRATE BEITRETEN&trade;"
+    subtext1: Wählen Sie Ihren Plan und kündigen Sie jederzeit.
+    subtitle2: WIR KURATIEREN EPISCHE ARTIKEL
+    subtext2: "Wir kooperieren mit großen Marken, um jeden Monat ein episches Erlebnis zu liefern!"
+    subtitle3: SIE ERHALTEN BEUTE!
+    subtext3: "Unbox Ihre Kiste und teilen Sie Ihre Erfahrungen mit dem Looter Gemeinschaft."
+    extratext3: "Plus, werden Sie automatisch eingetragen, um eine monatliche Mega Crate gewinnen!"
+    megacrate_winners:
+      title: "Jeden Monat gewinnt ein glückliches Mitglied einen Mega-Schatzkarton im Wert von mehr als 2.000 USD!"
+      subtitle: "Inhalt umfasst:"
+      subtext1: "&#9679;&nbsp;&nbsp;Exklusives Sammlerstück."
+      subtext2: "&#9679;&nbsp;&nbsp;Tech Gadgets und Spielsysteme."
+      subtext3: "&#9679;&nbsp;&nbsp;Kleidung und Zubehör wie Laptop-Taschen, Kapuzenpullover und Hüte."
+      subtext4: "&#9679;&nbsp;&nbsp;Und andere Artikel, die so groß und episch sind, dass sie nicht in unsere monatlichen Kartons passen!"
+
+  international:
+    welcome: 'Willkommen internationale Freunde!'
+    select_your_country: "Wir freuen uns, dass Sie dabei sind, wählen Sie Ihr Land aus der nachfolgenden Liste, um zu beginnen."
+    countries:
+      australia: Australien
+      canada: Kanada
+      denmark: Dänemark
+      finland: Finnland
+      france: Frankreich
+      germany: Deutschland
+      ireland: Irland
+      netherlands: Niederlande
+      norway: Norwegen
+      new_zealand: Neuseeland
+      sweden: Schweden
+      united_kingdom: Großbritannien
+
+  media_inquiry:
+    title: Medienanfragen
+    contact_lootcrate: "Kontakt Loot Crate&trade; PR-Team"
+    first_name: Vorname
+    last_name: Nachname
+    company: Unternehmen
+    email: E-Mail
+    phone: Telefon
+    website: Website
+    which_represent_your_organization: "Welche am besten repräsentiert Ihrer Organisation?"
+    any_details: "Alle zusätzlichen Details Wir wissen sollten?"
+    none: keiner
+    options:
+      charity: Nächstenliebe
+      website: Webseite
+      magazine: Magazin
+      podcast: Podcast
+      venue_event: Veranstaltungsort / Veranstaltungsfläche
+      television_network: Television Network
+      radio_station: Radiosender
+      entertainment_media: Unterhaltung / Medien Unternehmen
+
+  megacrate_winners:
+    title: Mega-Schatzkarton Gewinner
+    subtitle: "JEDEN MONAT GEWINNT EIN GLÜCKLICHES MITGLIED EINEN MEGA-SCHATZKARTON IM WERT VON MEHR ALS 2.000 USD!"
+    subtext: "Exklusive Sammlerstücke, Tech Gadgets, Spielsysteme, Kleidung und Accessoires und andere Artikel, die so groß und episch sind, dass sie nicht in unsere monatlichen Kartons passen!"
+    february: FEBRUAR
+    march: MÄRZ
+    april: APRIL
+    may: MAI
+    winners:
+      february:
+        name: Michelle B.
+        prize: "DJI Phantom 2 Vision Quadrophonie, Diemel Idea Builder 3D Drucker, das Oculus Rift Development Kit 2, LEGO Minecraft Crafting Box, LEGO Minecraft The Mine, LEGO Minecraft The Ender Dragon."
+      march:
+        name: Matt P.
+        prize: "Razer Blade full HD Gaming Laptop, einen GAEMS M155 Performance Gaming Monitor + Backpack Bundle und eine Motorola Moto 360 Smart Watch."
+      april:
+        name: Wesley S.
+        prize: 'ASUS VS248H-P 24" Full-HD LED-lit LCD Monitor x 2, Razer BlackWidow Chroma Clicky Mechanical Gaming Keyboard, Razer DeathAdder Chroma Gaming Mouse, Custom Witcher 3 Wrapped iBuyPower PC, GUNNAR Intercept Colors, EVGA GeForce GTX 980 Superclocked ACX 2.0, The Witcher 3: Wild Hunt.'
+      may:
+        name: Hannah S.
+        prize: "Team Fortress 2 Buff Banner Backpack, Team Fortress 2 Archimedes Plush, Team Fortress 2 Red Team Scarf &amp; Blu Team Scarf, Team Fortress 2 Bandolier Scarf, Team Fortress 2 Blind Box Portable Mercs 3&quot; Vinyl Figures (Set of 12), Team Fortress 2 Vinyl Keycaps &#45; Team Fortress 2 Logo, DC Comics A Visual History (Updated Edition), HBO's Game of Thrones: 7&quot; Iron Throne Replica, Signed Rick and Morty script, Signed Rick and Morty skateboard, Kotobukiya ArtFX &#43; Avengers Age of Ultron Hulkbuster Iron Man Statue, PlayStation 4 Limited Edition Batman: Arkham Knight 500GB Bundle."
+
+  meter:
+    select_a_plan: Wählen Sie Plan
+    sign_up: Anmelden
+    checkout: Auschecken
+
+  modals:
+    login:
+      welcome_back: Willkommen Zurück!
+      not_a_looter: Kein Looter?
+      login_with_facebook: Mit Facebook einloggen
+      or: oder
+      email_address: E-Mail-Adresse
+      password: Passwort
+      log_in: Einloggen
+    register:
+      join_looter_comunity: "Schließen Sie sich der Plünderer Gemeinde!"
+      join_looter_comunity_access: "Schließen Sie sich der Plünderer Gemeinde und erhalten Sie Zugang zu epischen Geek + Gamergang!"
+      almost_there: Sie sind fast da
+      start_profile: "Beginnen Sie Ihren Loot Crate Profil, indem Sie ein Passwort."
+      back: "&#8592; zurück"
+      already_a_looter: Sie sind bereits Looter
+      email_address: E-Mail-Adresse
+      password: Passwort
+
+  months:
+    january: Januar
+    february: Februar
+    march: März
+    april: April
+    may: Mai
+    june: Juni
+    july: Juli
+    august: August
+    september: September
+    october: Oktober
+    november: November
+    december: Dezember
+
+  navigation:
+    login: Einloggen
+    logout: Ausloggen
+    toggle_navigation: Navigation umschalten
+    my_account: Mein Account
+    manage_account: Account verwalten
+    quote: "Bestellen Sie bis zum 19. um 21.00 Uhr PT, um die Beute für %{month} zu erhalten. Das Angebot endet im</span><span class='visible-xs-inline hidden-sm-inline hidden-md-inline hidden-lg-inline'>%{month} die Schatzkartons verschwinden</span><span id='countdown'> schnell</span>!"
+    more: Mehr
+    ship_to: Versand nach
+    links:
+      subscribe: Abonnieren
+      how_it_works: Wie es funktioniert
+      past_crates: Vergangene Schatzkartons
+      share: Teilen
+      account_info: Accountinfo
+      subscriptions: Abonnements
+      store_credits: Ladengutschriften
+    side_nav:
+      about_us: Über Uns
+      help_center: Hilfezentrum
+      privacy_policy: Datenschutz-Bestimmungen
+      terms: Bedingungen
+      contact: Kontakt
+
+  newsletter:
+    modal:
+      title: "Willst du exklusiven Zugang zu <br/> <span class = 'top'> epische Sales &amp;? </span><br /><span> Plünderer intel?</ span>"
+      privacy: "100% Privatsphäre garantiert. <a target='_blank' href='http://www.lootcrate.com/privacy_policy'>Datenschutz</a>"
+      placeholder: E-Mail Adresse
+      send_me_exclusive_deals: SENDEN SIE MIR exklusive Angebote!
+
+  number:
+    currency:
+      format:
+        delimiter: "."
+        format: "%u%n"
+        precision: 2
+        separator: "."
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "€"
+
+  partner:
+    partner_with_lootcrate: "Zusammenarbeit mit Loot Crate&trade;"
+    thank_you: BESTEN DANK!
+    get_back_asap: WIR WERDEN UNS SO BALD WIE MÖGLICH BEI IHNEN MELDEN!
+    first_name: Vorname
+    last_name: Nachname
+    company: Unternehmen
+    email: E-Mail
+    phone: Telefon
+    website: Website
+    tell_us_more: Erzählen Sie uns mehr!
+    contacting: "Ich kontaktiere Loot Crate, weil..."
+    none: keiner
+    what_is_your_focus: Was ist Ihr Fokus?
+    options:
+      have_products: Ich möchte ein Produkt (e) in einer Box vorgestellt haben
+      provide_advertising: Ich möchte Werbeplatzierung an Crate Loot liefern
+      co_branded: Ich möchte eine Co-Branding-Kiste Angebot vorschlagen
+      provide_marketing: Ich möchte Marketing-Technologie bereitzustellen, um Kisten Loot
+      propose_marketing: Ich möchte einen Marketing-Swap Möglichkeit, Crate Loot vorschlagen
+      provide_services: Ich möchte professionelle Business-Dienstleistungen für Crate Loot liefern
+      media_publishing: Medien-Publishing
+      toys_and_games: 'Spielwaren und Spiele'
+      video_gaming: Videospiele
+      craft_and_activity: 'Handwerk und Aktivität'
+      sporting_goods: Sportartikel
+      electronics: Elektronik
+      novelty_items: Innovative Neuheiten
+      publishing: Verlagswesen
+      stationery: Schreibmaterial
+      party_items: Partyartikel
+      wall_art: Wandkunst
+      home_decor: Inneneinrichtung
+      home_office: Heimbüro
+      collectibles: Sammlerstücke
+      automotive: Automobil
+      food_confection: Nahrungsmittel/Konfekt
+      health_personal_care: Gesundheit/Körperpflege
+      pet: Haustiere
+      apparel: Kleidung
+      accessories: Accessoires
+      footwear: Fußbekleidung
+
+  past_crates:
+    title: VERGANGENE SCHATZKARTONS
+    subtitle: "Versäumen Sie die nächsten nicht!"
+    dont_miss_out: "Versäumen Sie die nächsten Schatzkartons nicht!"
+    join_now: JETZT BEITRETEN!
+    crate_theme:
+      april: "SCHATZKARTON APRIL<br>THEMA: FANTASIE"
+      march: "SCHATZKARTON MÄRZ<br>THEMA: VERDECKT"
+      february: "SCHATZKARTON FEBRUAR<br>THEMA: SPIELEN"
+      january: "SCHATZKARTON JANUAR<br>THEMA: RÜCKLAUF"
+      december: "SCHATZKARTON DEZEMBER<br>THEMA: JUBILÄUM"
+      november: "SCHATZKARTON NOVEMBER<br>THEMA: SCHLACHT"
+      october: "SCHATZKARTON OKTOBER<br>THEMA: ANGST"
+      september: "SCHATZKARTON SEPTEMBER<br>THEMA: GALAKTISCH"
+      august: "SCHATZKARTON AUGUST<br>THEMA: HELDEN"
+      july: "SCHATZKARTON JULI<br>THEMA: SCHURKEN"
+
+  payment_completed:
+    thank_you: "Vielen Dank für Ihr Abonnement!"
+    warning: "Warnung: Klicken Sie nicht auf „Zurück“ in Ihrem Browser. Dies generiert ein neues Abonnement."
+    any_questions: 'Wenn Sie Fragen haben, besuchen Sie bitte unser <a class="amiibo-link" href="http://help.lootcrate.com" target="_blank">Help Center</a>.'
+    thanks_for_signing_up: "Vielen Dank für Ihre Anmeldung!"
+    share_unique_referral: "Klicken Sie unten, um Ihren einmaligen Werbelink zu teilen:"
+    here_is_yout_link: "Hier ist Ihr Link: %{link}"
+    earn_credit: "Gewinnen Sie einen Kredit von 5 USD für Ihr Abonnement, wenn Ihre Freunde sich registrieren!"
+    referer_friends: "Werben Sie Freunde und erhalten Sie einen <span class='orange'>Kredit von 5 USD</span> <br />für jede erfolgreiche Einladung."
+    share_the_fun: "Teilen Sie den Spaß mit Ihren Freunden:"
+    ordering_our_special_edition: "Vielen Dank für das Bestellen unserer Schatzkartons Sonderausgabe amiibo™!<br>Der erste wird bald den Weg zu Ihnen antreten!"
+
+  plan:
+    one_months: 1 Monate planen
+    three_months: 3 Monate planen
+    six_months: 6 Monate planen
+    twelve_months: 1 Jahr planen
+
+  privacy_policy:
+    title: Datenschutzrichtlinie
+    what_information_collect: "Welche Daten erheben wir?"
+    information_collect: "Wir erheben Daten von Ihnen, wenn Sie sich auf unserer Website registrieren, eine Bestellung aufgeben, unseren Newsletter abonnieren, eine Umfrage beantworten oder ein Formular ausfüllen. Wenn Sie bestellen oder sich auf unserer Website registrieren, wie jeweils anwendbar, können Sie gebeten werden, Ihren Namen, die E-Mail-Adresse, Postadresse, Telefonnummer oder Kreditkarteninformation einzugeben. Sie können unsere Website jedoch auch anonym besuchen."
+    what_information_use: "Wofür verwenden wir Ihre Daten?"
+    information_use: "Alle Informationen, die wir von Ihnen sammeln, können auf eine der folgenden Arten verwendet werden:"
+    information_use_content:
+      "<li>Zur Personalisierung Ihrer Erfahrung. Ihre Daten helfen uns, Ihre individuellen Bedürfnisse besser zu beantworten.</li>
+      <li>Zur Verbesserung unserer Website. Wir streben stets danach, unsere Website-Angebote basierend auf der Information und dem Feedback, das wir von Ihnen erhalten, zu verbessern.</li>
+      <li>Zur Verbesserung unseres Kundendienstes. Ihre Daten helfen uns, Ihre Kundendienstanfragen und Support-Bedürfnisse effektiver zu beantworten.</li>
+      <li>Zur Verarbeitung von Transaktionen.</li>
+      <li>Ihre Daten werden unabhängig davon, ob sie öffentlich oder privat sind, ohne Ihre Zustimmung weder verkauft noch ausgetauscht, transferiert oder an irgendein anderes Unternehmen – aus welchen Gründen auch immer – weitergegeben, ausgenommen für den ausdrücklichen Zweck der Lieferung des erbetenen Produkts oder der Dienstleistung.</li>
+      <li>Zu Zwecken der Administration eines Wettbewerbs, einer Promotion, einer Umfrage oder anderer Funktionen der Website.</li>
+      <li>Zum regelmäßigen Versand von E-Mails.</li>
+      <li>Die E-Mail-Adresse, die Sie zur Bearbeitung von Bestellungen bereitstellen, kann dazu verwendet werden, Ihnen Information und Aktualisierungen zu Ihrer Bestellung zu senden, außerdem gelegentliche Unternehmensneuigkeiten, Updates, im Zusammenhang stehende Produkt- oder Serviceinformation etc.</li>"
+    how_we_protect_information: "Wie schützen wir Ihre Daten?"
+    protect_information_content:
+      "<p>Wir implementieren eine Reihe von Sicherheitsmaßnahmen, um die Sicherheit Ihrer personenbezogenen Daten zu wahren, wenn Sie eine Bestellung aufgeben, oder Ihre persönlichen Daten eingeben, übermitteln oder auf diese zugreifen.</p>
+      <p>Wir bieten die Verwendung eines sicheren Servers. Sämtliche bereitgestellte sensible und Kreditkarten-Daten werden über Secure Socket Layer (SSL)-Technologie übermittelt und dann in die Datenbank unseres Zahlungsportalanbieters verschlüsselt, um nur für jene zugänglich zu sein, die ein spezielles Zugriffsrecht zu solchen Systemen besitzen und verpflichtet sind, diese Information vertraulich zu behandeln.</p>
+      <p>Nach einer Transaktion werden Ihre privaten Daten (Kreditkarten, Sozialversicherungsnummern, Finanzen etc.) nicht auf unseren Servern gespeichert.</p>"
+    do_we_use_cookies: "Verwenden wir Cookies?"
+    do_we_use_cookies_content: "<p>Ja. Cookies sind kleine Dateien, die eine Website oder deren Service-Provider über Ihren Webbrowser auf die Festplatte Ihres Computers überträgt (sofern Sie dies zulassen) und die es den Systemen der Website oder des Providers ermöglichen, Ihren Browser zu erkennen und bestimmte Informationen zu erfassen und aufzuzeichnen. Wir verwenden Cookies dazu, die Artikel in Ihrem Warenkorb aufzuzeichnen und zu bearbeiten, Ihre Präferenzen zu verstehen und für zukünftige Besuche zu speichern, und aggregierte Daten über Site-Traffic und Website-Interaktion zu kompilieren, damit wir in Zukunft bessere Website-Erfahrung und Tools zur Verfügung stellen können.  Wir beauftragen möglicherweise Drittanbieter, uns beim besseren Verständnis der Besucher unserer Website zu unterstützen. Diese Serviceanbieter dürfen die in unserem Namen erhobenen Daten nur dazu verwenden, uns bei der Führung und Verbesserung unseres Geschäfts behilflich zu sein.</p>"
+    do_we_disclose_information: "Geben wir irgendwelche Daten an Dritte weiter?"
+    do_we_disclose_information_content: "<p>Wir verkaufen, handeln bzw. übertragen Ihre personenbezogenen Informationen nicht an externe Stellen.  Dies schließt die vertrauenswürdigen Dritten aus, die uns helfen, unsere Website zu betreiben, unsere Geschäfte zu führen und Ihnen diesen Service hier anbieten zu können, so sie zustimmen, diese Daten vertraulich zu behandeln. Wir dürfen auch Ihre Daten freigeben, wenn wir glauben, dass die Freigabe dem Gesetz angemessen ist, unsere Siterichtlinien befolgt oder unsere oder andere Rechte, Eigentum oder Sicherheit schützt. Nicht persönlich identifizierbare Informationen über Besucher können jedoch Dritten zu Marketing-, Werbe- oder anderen Zwecken zur Verfügung gestellt werden</p>"
+    third_party_links: Links von Dritten
+    third_party_links_content:
+      "<p>Gelegentlich bieten wir nach eigenem Ermessen Produkte oder Dienste Dritter auf unserer Website an.  Diese Websites Dritter verfügen über separate und unabhängige Datenschutzrichtlinien. Wir übernehmen daher keine Verantwortung oder Haftung für Inhalte und Aktivitäten dieser verlinkten Websites. Dennoch sind wir bestrebt, die Integrität unserer Website zu schützen und zu begrüßen Feedback über diese Sites.</p>
+      <b>Erfüllen des kalifornischen Online-Datenschutzgesetzes</b>
+      <p>Da wir Ihre Privatsphäre schützen möchten, haben wir die notwendigen Vorkehrungen getroffen, um das kalifornische Online-Datenschutzgesetz zu erfüllen. Daher geben wir Ihre persönlichen Informationen ohne Ihr Einverständnis nicht an Dritte weiter. </p>
+      <p>Als Bestandteil des kalifornischen Online-Datenschutzgesetzes können alle Benutzer unserer Website jederzeit jedwede Änderungen an ihren Daten durchführen, indem sie in ihr Kontrollpanel einloggen und die Seite „Profil bearbeiten“ öffnen.</p>
+      <b>Erfüllen des kalifornischen Online-Datenschutzgesetzes für Kinder</b>
+      <p>Wir stimmen mit den Anforderungen der COPPA (Childrens Online Privacy Protection Act) überein und sammeln keinerlei Informationen von Personen unter 13 Jahren. Unsere Website, Produkte und Dienstleistungen richten sich generell an Personen, die mindestens 13 Jahre alt sind. <a href='mailto:info@lootcrate.com'>info@lootcrate.com</a></p>"
+    terms_conditions: "Allgemeine Nutzungsbedingungen"
+    terms_conditions_content:
+      "<p>Besuchen Sie bitte auch den Bereich über unsere Nutzungsbedingungen, die Nutzung, Haftungsausschlüsse und -beschränkungen für die Nutzung unserer Website darlegen, unter <%= link_to main_app.terms_conditions_url, main_app.terms_conditions_path %> Ihre Zustimmung Durch die Nutzung unserer Website stimmen Sie unserer Datenschutzrichtlinie zu.</p>
+      <b>Änderungen an unserer Datenschutzrichtlinie</b>
+      <p>Wenn wir unsere Datenschutzrichtlinie in unserem Ermessen ändern, werden wir diese Änderungen auf dieser Seite veröffentlichen.</p>"
+    contacting_us: Kontakt
+    contacting_us_content:
+      "<p>Falls Sie hinsichtlich dieser Datenschutzrichtlinie Fragen haben, können Sie uns unter der nachfolgenden Adresse kontaktieren.</p>
+      <p>Loot Crate&trade;<br>3401 Pasadena Avenue<br>Los Angeles, CA 90031</p>
+      <p><a href='mailto:weloveyou@lootcrate.com'>weloveyou@lootcrate.com</a><br><a href='%{root_url}'>%{link_url}</a></p>"
+
+  registrations:
+    login:
+      welcome_back: Willkommen Zurück!
+      not_a_looter: Kein Looter?
+      login_with_facebook: Facebook einloggen
+      or: oder
+      email_address: E-Mail-Adresse
+      password: Passwort
+      log_in: Einloggen
+      new_user: Neuer Nutzer?
+    register:
+      already_member: Schon Mitglied ?
+      email_address: E-Mail-Adresse
+      password: Passwort
+      register_with_facebook: Mit Facebook registrieren
+      create_password: Passwort Erstellen
+      terms: "Mit einem Klick auf Benutzerkonto erstellen, geben Sie an, dass Sie gelesen haben und verstehen, unsere Datenschutzrichtlinien und Nutzungsbedingungen"
+
+  sold_out:
+    current_month: SEPTEMBER
+    next_month: OKTOBER
+    crates_are_sold_out: "%{current_month} SCHATZKARTONS SIND AUSVERKAUFT!"
+    join_our_waitlist: "Tragen Sie sich in unserer Warteliste ein und gehören Sie zu den Ersten, die erfahren, wenn der %{next_month} Schatzkarton zur Verfügung steht!"
+    email: E-Mail
+
+  subscriptions:
+    edit_personal_info: Persönliche Information bearbeiten
+    upgrade_preview:
+      have_best_plan: Sie haben bereits den besten Plan!
+      remove_pending_cancelattions: Bitte löschen Sie Ihre anhängigen Stornierungen, bevor Sie ein Upgrade durchführen.
+      back_to_subscription: Zurück zur Registrierung
+      upgrade_your_subscription: "FÜHREN SIE EIN UPGRADE <span class='hidden-xs hideSmall'>IHRES</span> ABONNEMENTS DURCH "
+      extra_awesome: GÖNNEN SIE SICH ETWAS BESONDERES.
+      product_price: "Produktpreis:"
+      tax_included: "*gegebenenfalls inklusive Steuer"
+      prorated_amount: "Anteiliger Betrag:"
+      payment_due: "Bezahlung fällig:"
+      product: "Produkt:"
+      savings: "Ersparnis:"
+      total_payment: "Gesamtzahlung:"
+      retail_value: Einzelhandelswert
+      retail_value_price: 15 USD
+      limited_time_offer: ZEITLICH BEGRENZTES ANGEBOT
+      upgrade_details: IHRE UPGRADE-DETAILS
+      includes_bonus_gift: "Umfasst <span class='hideSmall hidden-sm hidden-xs'>Bonus</span>geschenk!"
+      receive_bonus_gift: Erhalten Sie dieses Bonusgeschenk!
+      upgrade_now: JETZT UPGRADE DURCHFÜHREN
+      to_one_year_subscription: auf ein Abonnement für 1 Jahr
+    countdowntimer:
+      ships_in: wird versendet in
+      days: Tagen
+      hours: Stunden
+      mins: Minuten
+    summary:
+      coupon: Gutschein
+      monthly_cost: Monatliche Kosten
+      tax: "%{state}Mehrwertsteuer (%{percentage})"
+      todays_total: "Heutige Gesamtsumme"
+      renewal: "(dann %{total} bei erster Verlängerung am %{date})"
+      existing_subscription: 'Sie haben bestehende Abonnements, besuchen Sie Ihre <a href="/user_accounts" class="black">Account-Seite</a>, um Ihre derzeitigen Abonnements zu verwalten.'
+    cancellation:
+      title: "ES TUT UNS LEID, DASS SIE UNS VERLASSEN"
+      confirm: KÜNDIGUNG BESTÄTIGEN
+      confirm_message: "<p>Ihr %{plan} wird am %{next_assessment} gekündigt.</p>"
+      note: "<p><strong>Hinweis</strong>: Sie werden weiterhin Ihre noch verbleibenden Schatzkartons erhalten.</p>"
+      alert_message: Sind Sie sicher, dass Sie Ihr Abonnement kündigen möchten?
+    reactivation:
+      title: REAKTIVIEREN SIE IHR ABONNEMENT
+      validate_coupon: Gutschein validieren
+    coupon:
+      invalid_coupon: Ungültiger Gutschein
+      coupon_processed: Gutschein verarbeitet
+      batmobile_key_chain: Schlüsselanhänger Batmobile hinzugefügt
+      slave_key_chain: Schlüsselanhänger Slave I hinzugefügt
+      imperial_star_key_chain: Schlüsselanhänger Imperial Star Destroyer hinzugefügt
+      no_good_to_me: NOGOODTOMEDEAD
+      slickdeals: SLICKDEALS
+      join_the_empire: JOINTHEEMPIRE
+
+  terms_conditions:
+    title: Terms + Conditions
+    content:
+      '<p>By using, accessing, or purchasing from this website ("Site"), which is owned and operated by Loot Crate, Inc. (herein referred to as "Loot Crate" or "Loot Crate&trade;"), you acknowledge that you have read, understood, and agree to the following Terms of Service ("Terms" or "Agreement"). If, at any time, you do not agree to these Terms, please do not use this Site. Loot Crate&trade; reserves the right to revise these Terms at any time by updating this posting. Please read and review these Terms periodically. As a condition of your use of this Site, you agree that you are at least 18 years of age or are visiting the Site under the supervision of an adult or guardian and that you possess the authority to enter into a binding legal agreement. We grant you a personal, limited, non-transferable non-exclusive, license to access and use the Site via a browser. We reserve the right to revise the products and services available on the Site and to impose rules for and limits on use of the Site or to restrict your access to part, or all, of the Site without notice. We reserve the right to revoke your access at any time for any reason, including as a result of a violation of these Terms, without notice.</p>
+      <p>Loot Crate&trade; reserves the right to change these terms &amp; conditions of use at any time without notice.</p>
+      <p>By accessing or using any part of the site, you accept these terms, without limitation or qualification. You may not use any portion of the site if you do not agree with all of the terms set forth below. Price information found on this site is subject to change without notice.</p>
+      <p>We grant you a personal, limited, non-transferable non-exclusive, license to access and use the Site. We reserve the right, in our sole discretion and without notice to you, to revise the products and services available on the Site and to change, suspend or discontinue any aspect of the Site and we will not be liable to you or to any third party for doing so. We may also impose rules for and limits on use of the Site or restrict your access to part, or all, of the Site without notice or penalty. Your continued use of the Site will constitute your acceptance of any such changes.</p>'
+    use_website:
+      "<b>Use of the Website</b><p>We give you permission to access and use the Site for your personal use, and to copy, distribute, and transmit the content of this Site only to the extent that such copying, distribution, and transmission is automatically done through your browser software incidentally to using the Site for your personal use. No mechanized or other systematic process for harvesting information from this Site for any purpose, including without limitation, any commercial purpose, is permitted. Any other use, including but not limited to the reproduction, distribution, display or transmission of the content of this Site is strictly prohibited, unless authorized in writing. You further agree not to change or delete any proprietary notices from materials downloaded from this Site. You may print a copy of the information displayed on this Site for your personal use. That means, that except as set forth above, you may not modify, reformat, copy, display, distribute, transmit, publish, license, create derivative works from, transfer or sell any information obtained by your use of this Site. This restriction means, among other things, that you may not mirror on your own website any portion of this Site or display through your own website any results pages or other information from this Site without express written permission. For the avoidance of doubt, you acknowledge and agree that your access to and use of the Site does not give you any right to use the name, likeness, image, signature, biographical information or any other rights of publicity or intellectual property of our celebrity spokespersons found on the Site.</p>
+      <p>We reserve the right to change any information, features and functions of the Site without prior notice. We may deny you access to all or part of the Site without prior notice if you engage in any conduct or activities that we determine, in our sole discretion, violate this Agreement, our rights or the rights of any third party.</p>
+      <p>We may assign you a password and account identification to enable you to access and use certain portions of this Site. Each time you use a password or identification, you will be deemed to be authorized to access and use the Site in a manner consistent with these Terms and Loot Crate&trade; has no obligation to investigate the authorization or source of any such access or use of the Site.</p>
+      <p>You will be solely responsible for all access to and use of this site by anyone using the password and identification originally assigned to your whether or not such access to and use of the this site is actually authorized by you, including without limitation, all communications and transmissions and all obligations (including without limitation financial obligations) incurred through such access or use.</p>
+      <p>You are solely responsible for protecting the security and confidentiality of the password and identification assigned to you. You shall immediately notify Loot Crate&trade; of any unauthorized use of your password or identification or any other breach or threatened breach of this Site's security.</p>
+      <p>You may receive emails regarding your account or promotions for special offers, including third party offers.</p>"
+    registration_membership:
+      "<b>Registration and Membership</b><p>Monthly crates for Loot Crate and Level Up subscriptions are shipped to your address at the price listed. You may receive emails regarding your account or promotions for special offers, including third party offers. You can cancel your membership anytime without charge by contacting Customer Support. Please refer to the Help Center for further details.</p>"
+    billing_payments:
+      "<b>Billing and Payments</b><p>As a Member, you agree to the following benefits and Terms:</p>
+      <p>You must provide us and keep us up to date with accurate contact and payment information, including name, shipping address, and credit or debit card number. We save your payment information for ease of future shipments and charges. All such personal information is subject to the Privacy Policy. You are responsible for any fees or charges your issuing bank or credit card provider may charge you. If your payment to us is returned for any reason, we may bill your account again directly and seek payment by another method including a mailed statement. Any account changes made after the 5th of each month should not be expected to reflect on the subscription until the following shipping period.</p>"
+    contract:
+      subscription:
+        '<b class="terms">YOUR SUBSCRIPTION CONTRACT</b><p class="terms">BY PURCHASING ANY SUBSCRIPTION, YOU ACKNOWLEDGE THAT YOUR SUBSCRIPTION HAS AN INITIAL AND RECURRING PAYMENT FEATURE AND YOU ACCEPT RESPONSIBILITY FOR ALL RECURRING CHARGES PRIOR TO CANCELLATION. YOUR SUBSCRIPTION WILL BE AUTOMATICALLY EXTENDED FOR SUCCESSIVE PERIODS, AT THE THEN-CURRENT SUBSCRIPTION RATE. TO CANCEL YOUR SUBSCRIPTION AT ANY TIME, YOU MUST DO ONE OF THE FOLLOWING  AT LEAST 48 HOURS PRIOR TO YOUR NEXT SCHEDULED RENEWAL DATE TO AVOID CHARGE: UPDATE YOUR USER ACCOUNT AT LOOTCRATE.COM,  EMAIL SUPPORT AT WELOVEYOU@LOOTCRATE.COM, OR MAIL US AT LOOT CRATE&trade;, 3401 PASADENA AVE, LOS ANGELES, CA 90031. ALL SUBSCRIPTIONS THAT ARE STARTED BETWEEN THE 6TH AND THE 19TH OF ANY GIVEN MONTH WILL AUTOMATICALLY HAVE THEIR RENEWAL DATE MOVED TO THE 5TH OF THE FOLLOWING SUBSCRIPTION PERIOD. IF YOU CANCEL, YOU MAY USE YOUR SUBSCRIPTION UNTIL THE END OF YOUR THEN-CURRENT SUBSCRIPTION TERM. LOOT CRATE&trade; MAY SUBMIT PERIODIC CHARGES (E.G., MONTHLY) WITHOUT FURTHER AUTHORIZATION FROM YOU, UNTIL YOU PROVIDE PRIOR NOTICE THAT YOU HAVE TERMINATED THIS AUTHORIZATION OR WISH TO CHANGE YOUR PAYMENT METHOD WITHIN THE 48-HOUR NOTICE REQUIREMENT.</p>
+        <p class="terms">IF YOU CANCEL YOUR SUBSCRIPTION, YOU WILL NOT BE ELIGIBLE FOR A PRORATED REFUND OF ANY PORTION OF THE SUBSCRIPTION FEE PAID FOR THE THEN-CURRENT SUBSCRIPTION PERIOD. WE RESERVE THE RIGHT TO REVOKE YOUR SUBSCRIPTION AT ANY TIME. RETURNS WITH THE REQUEST OF A REFUND WILL BE REFUNDED THE PAID FOR SUBSCRIPTION COST MINUS THE SHIPPING AND IS AT THE DISCRETION OF CUSTOMER SUPPORT. MEMBERSHIP IS VOID WHERE PROHIBITED BY LAW.</p>
+        <b>Product Information; Limitation on Quantities</b>
+        <p>Excluding any content which may be submitted by Members from time to time, we strive to ensure that the information on the Site is complete and reliable. Certain information may contain pricing errors, typographical errors and other errors or inaccuracies which we may correct without liability. We also reserve the right to limit quantities purchased by Members and to revise, suspend, or terminate an event or promotion at any time without notice (including after an order has been submitted and/or acknowledged). We do not guarantee that all products described on our Site will be available.</p>'
+      risk_loss:
+        "<b>Risk of Loss</b>
+        <p>Any merchandise purchased from our Site will be shipped by a third party carrier. As a result, title and risk of loss or damage for such merchandise will pass to you upon our delivery to the carrier. All missing or damaged shipments or items must be reported within 30 days of shipping to qualify for a replacement or refund based on product availability. If the product is available, a replacement will be shipped and a refund will not be issued or considered. Damaged items must be reported and include a photo in the ticket submission. Damaged items will be reviewed by the support agent and a replacement will be issued only for damaged products and does not cover or include packaging of said item.  Blemishes to packaging will not be considered as part of a damaged item. All refunds will be at the discretion of customer support.</p>"
+      copyright:
+        "<b>Copyright</b>
+        <p>The technology underlying, and the entire content included in, the Site, including but not limited to text, graphics or code is copyrighted as a collective work under the United States and other copyright laws, and is the property of Loot Crate&trade; and is protected by copyright and other intellectual property or proprietary rights. The collective work includes works that are licensed to Loot Crate&trade;. Copyright 2012, 2013, 2014, 2015 Loot Crate. All rights reserved. We do not investigate to determine if such works are accurate nor can we provide assurance that all such works are free of typographical errors. We cannot guarantee information displayed on this Site to be 100% accurate.</p>"
+      trademark:
+        "<b>Trademarks</b>
+        <p>All trademarks, service marks, and trade names of Loot Crate&trade; on the Site are trademarks or registered trademarks of Loot Crate&trade;, or of their respective owners.</p>"
+      user_content:
+        "<b>User Generated Content</b>
+        <p>By sharing, submitting and uploading any of your data including but not limited to photographs, images, video, music, art, or comments, you grant Loot Crate&trade; a worldwide, non-exclusive, royalty-free, sub-licensable and transferable license to use, reproduce, prepare derivative works of, display and perform your user data in any legal manner for the benefit of Loot Crate&trade;. You acknowledge and agree that you are solely responsible for all the user data that you make available through Loot Crate&trade;. Accordingly, you represent and warrant that: (1) you have all rights, licenses, consents and releases necessary to grant Loot Crate&trade; the required rights to disseminate any user data, (2) neither your data nor your posting, uploading, publication, submission or transmittal of this data or Loot Crate&trade; use of your uploaded data (or any portion thereof) on, through or by the means of Loot Crate&trade; will infringe, misappropriate or violate a third partys' patent, copyright, trademark, trade secret, moral rights or other intellectual property rights or rights of publicity or privacy or result in the violation of any applicable law or regulation.</p>"
+      warranty_disclaimer:
+        '<b>Warranty Disclaimer</b>
+        <p>Except as otherwise specifically provided, the site and the products offered on the site are provided on as "as is" and "as available" basis without warranties or any kind, whether express or implied. To the fullest extent permissible pursuant to applicable law, Loot Crate&trade; disclaims all warranties, express or implied, including, but not limited to, implied warranties of merchantability and fitness for a particular purpose and non-infringement. Loot Crate&trade; does not represent or warrant that the functions contained on the site will be uninterrupted or error-free, that the defects will be corrected, or that the site or the server that makes the site available are free or viruses or other harmful components. Loot Crate&trade; does not make any warrantees or representations regarding the use of the materials on the site in terms of their correctness, accuracy, adequacy, usefulness, timeliness, reliability or otherwise. Applicable Law may not allow limitations or exclusions on warranties, so the above limitations may not apply to you. </p>'
+      limitation_liabibility:
+        "<b>Limitation of Liability</b>
+        <p>Neither Loot Crate&trade; nor its celebrity spokespersons shall be liable for any indirect, incidental, special or consequential damages that result from the use of, or the inability to use, the site or materials on or provided through the site, even if Loot Crate&trade; has been advised of the possibility of such damages. In no event will Loot Crate's&trade; liability to you exceed the amounts that you paid to Loot Crate&trade; in connection with your Loot Crate&trade; membership. Applicable law may not allow the limitation of exclusion of liability or incidental or consequential damages, so the above limitation or exclusion may not apply to you.</p>
+        <p>In the event a product is listed at an incorrect price or with incorrect information due to typographical error or error in pricing or product information received from our suppliers, Loot Crate&trade; shall have the right to refuse or cancel any orders placed for product listed at the incorrect price. Loot Crate&trade; shall have the right to refuse or cancel any such orders whether or not the order has been confirmed and your credit card charged. If your credit card has already been charged for the purchase and your order is canceled, Loot Crate&trade; shall immediately issue a credit to your credit card account in the amount of the charge.</p>
+        <p>Loot Crate&trade; has no liability on injury or damage caused by products within the crate. Solely responsible by brand or manufacturer.</p>
+        <p>These Terms are applicable to you upon your accessing the Site. These Terms, or any part of them, may be modified or terminated by Loot Crate&trade; without notice at any time, for any reason. The provisions relating to Copyrights, Trademark, Disclaimer, Limitation of Liability, Indemnification, and Miscellaneous, shall in all events survive any termination of these Terms and your use of the Site.</p>"
+    dispute_resolution:
+      consent:
+        "<b class=\"terms\">DISPUTE RESOLUTION</b><p class=\"terms\">EITHER YOU OR LOOT CRATE&trade; (THE \"COMPANY\") MAY, WITHOUT THE OTHER'S CONSENT, ELECT MANDATORY, BINDING ARBITRATION FOR ANY CLAIM, DISPUTE, PROCEEDING, OR CONTROVERSY BETWEEN YOU AND THE COMPANY NO MATTER WHAT THE LEGAL THEORY (CONTRACT, TORT, INTENTIONAL TORT, FRAUD, AGENCY, NEGLIGENCE, STATUTORY OR REGULATORY PROVISIONS, OR ANY OTHER SOURCES OF LAW) OR REMEDY SOUGHT (DAMAGES, INJUNCTION, FINES, PENALTIES, OR OTHERWISE) (\"CLAIMS\"). \"CLAIMS\" INCLUDE DISPUTES OVER THE APPLICATION, ENFORCEABILITY, OR INTERPRETATION OF THIS ARBITRATION PROVISION. ALTERNATIVELY, CLAIMS MAY BE BROUGHT IN SMALL CLAIMS COURT WHERE APPLICABLE. CLAIMS MUST BE BROUGHT IN YOUR AND THE COMPANY'S NAMES ONLY AND NOT ON ANY CLASS ACTION, REPRESENTATIVE, OR PRIVATE ATTORNEY GENERAL BASIS. NO ARBITRATOR OR COURT WILL BE ABLE TO CONSOLIDATE MULTIPLE PARTIES CLAIMS OR AWARD RELIEF FOR OR AGAINST ANYONE WHO IS NOT A PARTY TO THE ACTION. YOU AGREE TO USE YOUR BEST EFFORTS NOT TO ALLOW ANY OTHER PERSON TO BRING ANY CLAIM OR SEEK ANY RECOVERY IN YOUR NAME. CLAIMS WILL BE GOVERNED BY THE LAW OF THE STATE OF CALIFORNIA, EXCEPT THAT ALL CLAIMS MUST BE BROUGHT WITHIN ONE (1) YEAR AFTER THE CLAIM AROSE OR BE FOREVER BARRED.</p>
+        <p class=\"terms\">IF YOU BELIEVE YOU HAVE A CLAIM YOU MUST NOTIFY THE COMPANY (WITHIN ONE YEAR OF THE CLAIM ACCRUING) BY COMPLETING THE FORM AT <a href=\"https://help.lootcrate.com/hc/en-us/requests/new\" target=\"_blank\">HTTPS://HELP.LOOTCRATE.COM</a>. THE COMPANY MAY THEN OFFER TO SETTLE YOUR CLAIM. IF THE CLAIM IS NOT RESOLVED WITHIN THIRTY (30) DAYS OF YOUR NOTIFICATION YOU MAY THEN INVOKE ARBITRATION BY FILING A DEMAND FOR ARBITRATION WITH JAMS, WHICH SHALL BE GOVERNED BY THE JAMS STREAMLINED ARBITRATION RULES &amp; PROCEDURES, AVAILABLE AT <a href=\"//WWW.JAMSADR.COM/FILES/UPLOADS/DOCUMENTS/JAMS-RULES/JAMS_STREAMLINED_ARBITRATION_RULES-2009.PDF\" target=\"_blank\">WWW.JAMSADR.COM/FILES/UPLOADS/DOCUMENTS/JAMS-RULES/JAMS_STREAMLINED_ARBITRATION_RULES-2009.PDF</a>. IN THE EVENT OF ARBITRATION THE COMPANY WILL REIMBURSE ALL ADMINISTRATIVE, FILING, AND ARBITRATOR COSTS FOR NON-FRIVOLOUS CLAIMS. (IF THE ARBITRATOR DETERMINES THE ARBITRATION IS FRIVOLOUS, THE ARBITRATOR MAY REQUIRE THE CLAIMANT TO PAY ALL SUCH COSTS). IF A CLAIM IS FOR $10,000 OR LESS, YOU MAY ELECT, SUBJECT TO THE CONSENT OF THE ARBITRATOR, WHETHER TO HAVE THE ARBITRATION CONDUCTED IN THE COUNTY IN WHICH YOU RESIDE, THE COUNTY IN WHICH YOU ARE BILLED, BY TELEPHONE, OR ONLY BY WRITTEN SUBMISSIONS. IN THE EVENT YOU RECEIVE AN ARBITRATION AWARD GREATER THAN THE COMPANY'S LAST SETTLEMENT OFFER THE COMPANY WILL PAY YOU EITHER YOUR AWARD, OR $250, WHICHEVER IS GREATER. HOWEVER, IF YOU RECEIVE AN AWARD LESS THAN OR EQUAL TO THE COMPANY'S LAST SETTLEMENT OFFER THE ARBITRATOR MAY CONSIDER THAT FACT IN DETERMINING WHETHER THE ARBITRATION WAS FRIVOLOUS.</p>
+        <p class=\"terms\">YOU MAY OPT OUT OF THIS ARBITRATION PROVISION BY SENDING WRITTEN NOTICE TO LOOT CRATE&trade;, 3401 PASADENA AVE, LOS ANGELES, CA 90031, ATTN: CHRIS DAVIS, WITHIN 60 DAYS OF YOUR PURCHASE. <u>BY NOT OPTING OUT YOU ARE WAIVING THE RIGHT TO CLAIM RESOLUTION BY COURT OR JURY, OTHER THAN SMALL CLAIMS COURT IF AVAILABLE IN YOUR JURISDICTION, AND YOU ARE ALSO AGREEING NOT PARTICIPATE IN ANY CLASS, REPRESENTATIVE, OR PRIVATE ATTORNEY GENERAL ACTION.</u> ANY PORTION OF THIS ARBITRATION AGREEMENT THAT IS HELD LEGALLY UNENFORCEABLE IS SEVERABLE AND THE REMAINDER WILL BE ENFORCED. THIS ARBITRATION AGREEMENT IS TO BE INTERPRETED UNDER THE FEDERAL ARBITRATION ACT.</p>"
+      taxes:
+        "<b>Taxes</b>
+        <p>Your total price will include the price of the product plus any applicable sales tax; such state and local sales tax is based on the shipping address and the sales tax rate in effect at the time you purchase the product. We will charge tax only in states where the goods sold over the internet is taxable.</p>"
+      international:
+        "<b>International Use</b>
+        <p>We control and operate the Site from the United States. We make no representation that materials on the Site are appropriate or available for use outside the United States. If you choose to access this Site from outside the United States, you do so at your own initiative and are responsible for compliance with local laws, if and to the extent local laws are applicable. All pricing is in United State dollars. Any subscriptions under an incorrect plan will be canceled and any applicable charges refunded without notice to the subscriber. </p>"
+      notice:
+        "<b>Notice</b>
+        <p>Loot Crate&trade; may deliver notice to you by means of e-mail, a general notice on this Site, or by other reliable method.</p>"
+      use_of_site:
+        "<b>Use of Site</b>
+        <p>Use of the Site for any illegal or unauthorized purpose is strictly prohibited.</p>"
+      indemnification:
+        "<b>Indemnification</b>
+        <p>You agree to indemnify, defend, and hold harmless Loot Crate&trade;, its officers, directors, employees, agents, licensors and suppliers from and against all losses, liabilities, expenses, damages, and costs, including reasonable attorneys' fees, resulting from any violation of these Terms, or any activity related to use of the Site (including negligent or wrongful conduct) by you or any other person accessing the Site using your Internet account.</p>"
+      privacy:
+        "<b>Privacy</b>
+        <p>Registration data and certain other information about you are subject to our Privacy Policy.</p>
+        <p>You understand that the technical processing and transmission of this Site may involve (a) transmissions over various networks; and (b) changes to conform and adapt to technical requirements of connecting networks or devices.</p>
+        <p>Third-Party Links: In an attempt to provide increased value to our visitors, Loot Crate&trade; may link to sites operated by third parties. However, Loot Crate&trade; has no control over these linked sites, all of which have separate privacy and data collection practices, independent of Loot Crate&trade;. These linked sites are only for your convenience and therefore you access them at your own risk. Nonetheless, Loot Crate&trade; seeks to protect the integrity of its Site and the links placed upon it and therefore requests any feedback on not only its own Site, but for sites it links to as well (including if a specific link does not work).</p>
+        <p>Miscellaneous: Your use of the Site is governed in all respects by the laws of the state of California, USA, without regard to choice of law provisions, except to the extent that federal law applies. These Terms evidences a transaction involving interstate commerce, and the United States Arbitration Act shall apply in all cases and govern the interpretation and enforcement of the arbitration rules and arbitration proceedings. Any claims arising out of, relating to, or connected with these Terms or your use of the Site and Loot Crate's&trade; services must be asserted individually in binding arbitration administered by the American Arbitration Association (AAA) in accordance with its Commercial Arbitration Rules and the AAA Supplementary Procedures for Consumer-Related Disputes. The arbitrator shall not conduct any form of class or collective arbitration nor join or consolidate claims by or for individuals. The Arbitrator, and not any federal, state, or local court or agency, shall have exclusive authority to resolve any dispute relating to the interpretation, applicability, enforceability or formation of these Terms including, but not limited to, any claim that all or any part of these Terms is void or voidable. Judgment on the award rendered by the arbitrator may be entered in any court of competent jurisdiction. There are only two exceptions to this arbitration agreement. First, if we reasonably believe that you have in any manner violated or threatened to violate our intellectual property rights, you agree that we would be irreparably harmed by such violation or use and that we may seek injunctive or other appropriate relief in any court of competent jurisdiction. Second, any claim of $500 or less may, at the option of the claiming party, be resolved in small claims court in Los Angeles County, California, if the claim and the parties are within the jurisdiction of the small claims court. By agreeing to these Terms, you hereby irrevocably waive any right you may have to a court trial (other than small claims court) or to serve as a representative, as a private attorney general, or in any other representative capacity, or to participate as a member of a class of claimants, in any lawsuit, arbitration or other proceeding filed against us and/or related third parties. You acknowledge that this means that you may not have access to a court or jury.</p>
+        <p>Any cause of action or claim you may have with respect to the Site must be commenced within one (1) year after the claim or cause of action arises or is barred forever. Failure to insist upon or enforce strict performance of any provision of these Terms shall not be construed as a waiver of any provision or right.</p>
+        <p>These Terms constitute the entire agreement between you and Loot Crate&trade; with regard to your use of the Site. Neither the course of conduct between the parties nor trade practice shall act to modify any of these Terms. Loot Crate&trade; may assign its rights and duties under this Agreement to any party at any time without notice to you.</p>"
+      referer_program:
+        "<h3>Loot Crate&trade; Refer-a-Friend Program</h3>
+        <p>As a Refer-a-Friend member (a \"Referrer\"), you are subject to Loot Crate's&trade; Terms of Use and Loot Crate\'s&trade; Privacy Policy (both available on our website), as well as the following additional Terms &amp; Conditions for Loot Crate\'s&trade; Refer-a-Friend program:</p>
+        <p>Qualified Referral. A Qualified Referral is defined as a purchase made at <a href=\"http://www.lootcrate.com\">www.lootcrate.com</a> by a person (a \"Referred Customer\") who arrives to our website by clicking your Refer-a-Friend program link. You are limited to one Qualified Referral for each Referred Customer; in other words, additional/repeat purchases made by a Referred Customer are not counted as additional Qualified Referrals.</p>
+        <p>Referred Customer. The Referred Customer and the Referrer cannot be the same person. The Referred Customer must have a different email address, along with different billing and shipping information from the Referrer.</p>
+        <p>Referral Rewards. For you to earn referral rewards as a Referrer, the Referred Customer must complete an order greater than $20 in total value, minus all fees including taxes, discounts, shipping, returns, chargebacks, fraudulent payments, and/or other 3rd party fees.</p>
+        <p>Reward Payments. Rewards are payable in increments of $5 unless explicitly noted. There is no maximum Qualified Referrals that can be earned per calendar. As a Referrer, you are responsible for any and all tax liability resulting from Referral Rewards.</p>
+        <p>Eligibility. Eligibility is limited to individuals only. Loot Crate\'s&trade; Refer-a-Friend Program cannot be used by businesses for affiliate lead generation as determined in Loot Crate\'s&trade; sole discretion.</p>
+        <p>No Spam. You must comply with all up-to-date \"SPAM\" laws. For example, emails must be created and distributed in a personal manner and bulk email distribution is strongly discouraged. Any distribution of your referral link that could constitute unsolicited commercial email or \"spam\" under any applicable law or regulation is expressly prohibited and will be grounds for immediate termination of your account and exclusion from Loot Crate\'s&trade; Refer-a-Friend program.</p>
+        <p>Right to Close Accounts. Loot Crate\'s&trade; reserves the right to close the account(s) of any Referrer and/or Referred Customer and to request proper payment if the Referrer and/or Referred Customer attempts to use the Loot Crate&trade; Refer-a-Friend program in a questionable manner or breaches any of these Terms &amp; Conditions or is in violation of any law, statute or governmental regulation.</p>
+        <p>Right to Cancel Program or Change Terms. Loot Crate&trade; reserves the right to cancel the Refer-a-Friend Program or to change these Terms &amp; Conditions at any time in its sole discretion. Any unclaimed referral rewards will be forfeited at that time.</p>"
+    official_rules:
+      "<h3>Loot Crate&trade; Mega Crate Sweepstakes</h3>
+      <b>OFFICIAL RULES</b>
+      <p><b>SPONSOR.</b> Loot Crate&trade; Mega Crate (the \"Sweepstakes\") is sponsored by Loot Crate, Inc. (\"Loot Crate\"), 3401 Pasadena Avenue, Los Angeles, CA 90031</p>
+      <b>ELIGIBILITY. NO PURCHASE NECESSARY TO ENTER OR WIN. PURCHASE DOES NOT INCREASE YOUR CHANCE OF WINNING.</b>
+      <p>Sweepstakes open to permanent, legal residents of Australia, Canada, Denmark, Finland, France, Germany, Ireland, Netherlands, Norway, New Zealand, Sweden, United Kingdom, and the United States who are eighteen (18) years of age or older at the time of entry. Officers, directors, agents and employees of Sponsor, subsidiaries, affiliates and advertising and promotion agencies, and any other entity involved in the development or administration of this Sweepstakes, and members of their immediate families (spouses, parents, children, and siblings and their respective spouses, regardless of where they reside) and/or those living in the same household of each, whether or not related, are not eligible to enter or win the Sweepstakes. All applicable federal, state, and local laws and regulations apply. Void where prohibited. Sweepstakes begins on the 1st of the month at 12:01 a.m. PST, and ends at 11:59 p.m. EST on the last day of the month. The contest continues every month. (the \"Sweepstakes Period\").</p>
+      <b>HOW TO ENTER.</b>
+      <b>Entry as a Loot Crate&trade; Subscriber:</b>
+      <p>To enter the Sweepstakes as a Loot Crate&trade; subscriber, no action is necessary as long as the account is currently paid and active. If there is a dispute as to the identity of an entrant who made a potentially winning entry, Sponsor will deem that the entry was made by the authorized account holder of the email address. The \"authorized account holder\" is defined as the natural person to whom the email address is assigned by an internet service provider, online service provider or other organization (e.g., business, educational institution, etc.) that is responsible for assigning email addresses for the domain associated with the submitted email address. </p>
+      <b>To Enter by Mail:</b>
+      <p> To enter the Sweepstakes by mail, hand print your first and last name, street address, city, state/province, zip/postal code, country, daytime telephone number, e-mail address, and verify age eligibility on a 3\"x5\" card or postcard, and mail your completed card with the above stated required information to: \"Loot Crate&trade; MEGA CRATE,\" Loot Crate, Inc., 3401 Pasadena Avenue, Los Angeles, CA, 90031.</p>
+      <p>By correctly completing any of the foregoing, you will receive one (1) entry into the Sweepstakes subject to the terms of these Official Rules. Limit one (1) entry per person, household address and/or unique email address during the Sweepstakes Period, regardless of the method(s) of entry. Any entries received in excess of this maximum will be disqualified. ALL MAIL-IN ENTRIES MUST BE POSTMARKED BY THE 25th of the month TO BE ELIGIBLE FOR THE SWEEPSTAKES. </p>
+      <b>WINNER SELECTION AND NOTIFICATION. </b>
+      <p>Beginning on or about the 1st of the month one (1) winner will be randomly generated and chosen by Sponsor from among all eligible entries. Sponsor will make at least two (2) attempts to notify each potential winner via email address submitted at the time of entry. Each potential winner may be required to execute and return an affidavit of eligibility, release of liability, an IRS W-9 form, and, except where prohibited, publicity release (collectively, \"Sweepstakes Documents\") within thirty (30) days of accepting the prize. Noncompliance within this time period will result in disqualification, and, time permitting, an alternate potential winner(s) may be selected from the remaining eligible entries. If a potential winner cannot be reached, if he/she is found to be ineligible, if he/she cannot or does not comply with these Official Rules, or if his/her prize or prize notification is returned as undeliverable, potential winner will be disqualified and, time permitting, an alternate potential winner may be selected from the remaining eligible entries received. Odds of winning depend upon the total number of eligible entries received. Once all required Sweepstakes Documents have been correctly completed and received from a potential winner, per these Official Rules, the potential winner shall be an official \"Prize Winner\" of the Contest. Prizes are not transferable, assignable, or redeemable for cash. No substitution for a prize (or parts thereof) by a Prize Winner will be allowed. If necessary, due to unavailability for any reason, a comparable prize will be awarded at the sole discretion of the Sponsor. All Federal, state and local tax liabilities related to the value of the prize awarded are the responsibility of the Prize Winners. </p>
+      <b>PRIZES:</b>
+      <p>One (1) Grand Prize will be awarded. Grand Prize winner will receive one (1) Mega Crate prize pack comprised of collectibles, apparel, limited edition items and other gear as selected by the Sponsor and published online and via newsletter every month.. </p>
+      <b>CONDITIONS.</b>
+      <p> All entries become the property of Sponsor and will not be acknowledged or returned. Entry constitutes permission (except where prohibited by law) to use entrant\'s name, city, state, likeness, image, photograph, and/or voice for purposes of advertising, promotion, and publicity in any and all media now or hereafter known, throughout the world in perpetuity, without additional compensation, notification, permission or approval. By entering the Sweepstakes, each entrant agrees for entrant and for entrant\'s heirs, executors, and administrators: (a) to release and hold harmless Sponsor, all prize providers, and each of their respective affiliates, subsidiaries, advertising and promotion agencies, and any other person or entity involved in the development or administration of the Sweepstakes, and each of their respective directors, officers, employees and assigns (collectively, \"Released Parties\") from any liability, illness, injury, death, loss, litigation, or damage that may occur, directly or indirectly, whether caused by negligence or not, from such entrant's participation in the Sweepstakes and/or his/her acceptance, possession, use, or misuse of prize or any portion thereof (including any travel related thereto); (b) to indemnify Released Parties from any and all liability resulting or arising from the Sweepstakes and to hereby acknowledge that Released Parties have neither made nor are in any manner responsible or liable for any warranty, representation, or guarantee, express or implied, in fact or in law, relative to any prize, including express warranties provided exclusively by prize suppliers that are sent along with any prize; (c) if selected as a winner, to the posting of such entrant's name on Facebook , Twitter and/or www.lootcrate.com, and the use by Released Parties of such name, and entrant's voice, image, and/or likeness for publicity, promotional, and advertising purposes in any and all media now or hereafter known, throughout the world in perpetuity, without additional compensation, notification, permission or approval and, upon request, to the giving of consent, in writing, to such use; and (d) to be bound by these Official Rules and to waive any right to claim any ambiguity or error herein or in the Sweepstakes itself, and to be bound by all decisions of Sponsor, which are binding and final. Failure to comply with these conditions may result in disqualification from the Sweepstakes.</p>
+      <b>ADDITIONAL TERMS.</b>
+      <p> Sponsor reserves the right to permanently disqualify any person it believes has intentionally violated these Official Rules. Any attempt to deliberately damage the Sweepstakes or the operation thereof is unlawful and subject to legal action by Sponsor, who may seek damages to the fullest extent permitted by law. The failure of Sponsor to comply with any provision of these Official Rules due to an act of God, hurricane, war, fire, riot, earthquake, terrorism, act of public enemies, actions of governmental authorities outside of the control of Sponsor (excepting compliance with applicable codes and regulations), or other \"force majeure\" event will not be considered a breach of these Official Rules. Released Parties assume no responsibility for any injury or damage to entrants' or to any other person's computer relating to or resulting from entering or downloading materials or software in connection with the Sweepstakes. Released Parties are not responsible for telecommunications, network, electronic, technical, or computer failures of any kind; for inaccurate transcription of entry information; for errors in any promotional or marketing materials or in these Official Rules; for any human or electronic error; or for entries that are stolen, misdirected, garbled, delayed, lost, late, damaged, or returned. Sponsor reserves the right to cancel, modify, or suspend the Sweepstakes or any element thereof (including, without limitation, these Official Rules) without notice in any manner and for any reason (including, without limitation, in the event of any unanticipated occurrence that is not fully addressed in these Official Rules). In the event of cancellation, modification, or suspension, Sponsor reserves the right to select a winner or winners, in its sole discretion, in a random drawing(s) from among all eligible, non-suspect entries received prior to the time of the event warranting such cancellation, modification, or suspension. Notice of such cancellation, modification, or suspension will be posted at www.lootcrate.com . Sponsor may prohibit any entrant or potential entrant from participating in the Sweepstakes, if such entrant or potential entrant shows a disregard for these Official Rules; acts with an intent to annoy, abuse, threaten, or harass any other entrant, Sponsor, or Sponsor's agents or representatives; or behaves in any other disruptive manner (as determined by Sponsor in its sole discretion).</p>
+      <p>DISPUTES: THE SWEEPSTAKE IS GOVERNED BY, AND WILL BE CONSTRUED IN ACCORDANCE WITH, THE LAWS OF THE STATE OF CALIFORNIA, AND THE FORUM AND VENUE FOR ANY DISPUTE SHALL BE IN LOS ANGELES, CA. IF THE CONTROVERSY OR CLAIM IS NOT OTHERWISE RESOLVED THROUGH DIRECT DISCUSSIONS OR MEDIATION, IT SHALL THEN BE RESOLVED BY FINAL AND BINDING ARBITRATION ADMINISTERED BY A SINGLE ARBITRATOR OF SPONSOR\'S SOLE CHOICE. THE REMEDY FOR ANY CLAIM SHALL BE LIMITED TO ACTUAL DAMAGES, AND IN NO EVENT SHALL ANY PARTY BE ENTITLED TO RECOVER PUNITIVE, EXEMPLARY, CONSEQUENTIAL, OR INCIDENTAL DAMAGES, INCLUDING ATTORNEY\'S FEES OR OTHER SUCH RELATED COSTS OF BRINGING A CLAIM, OR TO RESCIND THIS AGREEMENT OR SEEK INJUNCTIVE OR ANY OTHER EQUITABLE RELIEF.</p>
+      <p class=\"terms\">DISPUTE RESOLUTION: EITHER YOU OR LOOT CRATE&trade; (THE \"COMPANY\") MAY, WITHOUT THE OTHER'S CONSENT, ELECT MANDATORY, BINDING ARBITRATION FOR ANY CLAIM, DISPUTE, PROCEEDING, OR CONTROVERSY BETWEEN YOU AND THE COMPANY NO MATTER WHAT THE LEGAL THEORY (CONTRACT, TORT, INTENTIONAL TORT, FRAUD, AGENCY, NEGLIGENCE, STATUTORY OR REGULATORY PROVISIONS, OR ANY OTHER SOURCES OF LAW) OR REMEDY SOUGHT (DAMAGES, INJUNCTION, FINES, PENALTIES, OR OTHERWISE) (\"CLAIMS\"). \"CLAIMS\" INCLUDE DISPUTES OVER THE APPLICATION, ENFORCEABILITY, OR INTERPRETATION OF THIS ARBITRATION PROVISION. ALTERNATIVELY, CLAIMS MAY BE BROUGHT IN SMALL CLAIMS COURT WHERE APPLICABLE. CLAIMS MUST BE BROUGHT IN YOUR AND THE COMPANY'S NAMES ONLY AND NOT ON ANY CLASS ACTION, REPRESENTATIVE, OR PRIVATE ATTORNEY GENERAL BASIS. NO ARBITRATOR OR COURT WILL BE ABLE TO CONSOLIDATE MULTIPLE PARTIES' CLAIMS OR AWARD RELIEF FOR OR AGAINST ANYONE WHO IS NOT A PARTY TO THE ACTION. YOU AGREE TO USE YOUR BEST EFFORTS NOT TO ALLOW ANY OTHER PERSON TO BRING ANY CLAIM OR SEEK ANY RECOVERY IN YOUR NAME. CLAIMS WILL BE GOVERNED BY THE LAW OF THE STATE OF CALIFORNIA, EXCEPT THAT ALL CLAIMS MUST BE BROUGHT WITHIN ONE (1) YEAR AFTER THE CLAIM AROSE OR BE FOREVER BARRED.</p>
+      <p class=\"terms\">IF YOU BELIEVE YOU HAVE A CLAIM YOU MUST NOTIFY THE COMPANY (WITHIN ONE YEAR OF THE CLAIM ACCRUING) BY COMPLETING THE FORM AT <a href=\"https://help.lootcrate.com/hc/en-us/requests/new\" target=\"_blank\">HTTPS://HELP.LOOTCRATE.COM</a>. THE COMPANY MAY THEN OFFER TO SETTLE YOUR CLAIM. IF THE CLAIM IS NOT RESOLVED WITHIN THIRTY (30) DAYS OF YOUR NOTIFICATION YOU MAY THEN INVOKE ARBITRATION BY FILING A DEMAND FOR ARBITRATION WITH JAMS, WHICH SHALL BE GOVERNED BY THE JAMS STREAMLINED ARBITRATION RULES &amp; PROCEDURES, AVAILABLE AT <a href=\"//WWW.JAMSADR.COM/FILES/UPLOADS/DOCUMENTS/JAMS-RULES/JAMS_STREAMLINED_ARBITRATION_RULES-2009.PDF\" target=\"_blank\">WWW.JAMSADR.COM/FILES/UPLOADS/DOCUMENTS/JAMS-RULES/JAMS_STREAMLINED_ARBITRATION_RULES-2009.PDF</a>. IN THE EVENT OF ARBITRATION THE COMPANY WILL REIMBURSE ALL ADMINISTRATIVE, FILING, AND ARBITRATOR COSTS FOR NON-FRIVOLOUS CLAIMS. (IF THE ARBITRATOR DETERMINES THE ARBITRATION IS FRIVOLOUS, THE ARBITRATOR MAY REQUIRE THE CLAIMANT TO PAY ALL SUCH COSTS). IF A CLAIM IS FOR $10,000 OR LESS, YOU MAY ELECT, SUBJECT TO THE CONSENT OF THE ARBITRATOR, WHETHER TO HAVE THE ARBITRATION CONDUCTED IN THE COUNTY IN WHICH YOU RESIDE, THE COUNTY IN WHICH YOU ARE BILLED, BY TELEPHONE, OR ONLY BY WRITTEN SUBMISSIONS. IN THE EVENT YOU RECEIVE AN ARBITRATION AWARD GREATER THAN THE COMPANY'S LAST SETTLEMENT OFFER THE COMPANY WILL PAY YOU EITHER YOUR AWARD, OR $250, WHICHEVER IS GREATER. HOWEVER, IF YOU RECEIVE AN AWARD LESS THAN OR EQUAL TO THE COMPANY'S LAST SETTLEMENT OFFER THE ARBITRATOR MAY CONSIDER THAT FACT IN DETERMINING WHETHER THE ARBITRATION WAS FRIVOLOUS.</p>
+      <p class=\"terms\">YOU MAY OPT OUT OF THIS ARBITRATION PROVISION BY SENDING WRITTEN NOTICE TO LOOT CRATE&trade;, 3401 PASADENA AVE, LOS ANGELES, CA 90031, ATTN: CHRIS DAVIS, WITHIN 60 DAYS OF YOUR PURCHASE. <u>BY NOT OPTING OUT YOU ARE WAIVING THE RIGHT TO CLAIM RESOLUTION BY COURT OR JURY, OTHER THAN SMALL CLAIMS COURT IF AVAILABLE IN YOUR JURISDICTION, AND YOU ARE ALSO AGREEING NOT PARTICIPATE IN ANY CLASS, REPRESENTATIVE, OR PRIVATE ATTORNEY GENERAL ACTION.</u> ANY PORTION OF THIS ARBITRATION AGREEMENT THAT IS HELD LEGALLY UNENFORCEABLE IS SEVERABLE AND THE REMAINDER WILL BE ENFORCED. THIS ARBITRATION AGREEMENT IS TO BE INTERPRETED UNDER THE FEDERAL ARBITRATION ACT.</p>
+      <b>WINNERS LIST/OFFICIAL RULES:</b>
+      <p>After confirmations of winners and prizes have been claimed, winners will be announced on Loot Crate\'s&trade; social media channels and/or online at www.lootcrate.com.</p>
+      <b>Privacy.</b>
+      <p>Any information collected by registering to enter the Sweepstakes shall be used only in a manner consistent with these Official Rules and with the Sponsor's privacy policy available at www.lootcrate.com.</p>"
+
+  user_accounts:
+    title: Accountinfo
+    subtitle: Persönliche Details
+    full_name: Voller Name
+    email: E-Mail
+    password: Passwort
+    password_characters: "************"
+    select_a_subscription: "Wählen Sie ein Abonnement"
+    navigation:
+      account_info: Accountinfo
+      subscriptions: Abonnements
+      store_credits: Ladengutschriften
+    modals:
+      password:
+        title: Passwort
+        current_password: Derzeitiges Passwort
+        new_password: Neues Passwort
+        new_password_confirmation: Bestätigung neues Passwort
+      name:
+        title: Voller Name
+      email:
+        title: E-Mail
+    store_credits:
+      title: Freund(in) anwerben
+      subtitle: "Erhalten Sie 5 USD für Ihren Account für jeden Freund, den Sie anwerben"
+      dollars_earned: Verdiente Dollar
+      friends_joined: Beigetretene Freunde
+      get_free_loot: Freund(in) anwerben – Gratisbeute erhalten!
+    subscriptions:
+      title: Abonnements
+      membership_plan: MITGLIEDSCHAFTSPLAN
+      plan: Plan
+      next_billing_date: Datum nächste Rechnung
+      status: Status
+      no_active_subscriptions: Kein aktiver Abonnent!
+      no_active_subscriptions_content: "Sie verfügen derzeit über keine aktiven Abonnements (%{email}). Klicken Sie unten, um einen Plan hinzuzufügen."
+      tracking: "Tracking (%{shipment})"
+      plan_type: Plan Type
+      saving: Einsparung
+      personal_info:
+        title: Persönliche Information
+        email: E-Mail
+        shirt_size: Hemdgröße
+      payment_info:
+        title: Zahlungsinfo
+        cc: "Kreditkartennummer"
+      billing_address:
+        title: Rechnungsadresse
+        credit_card_number: Kreditkartennummer
+        line_1: Adresszeile 1
+        line_2: Adresszeile 2
+        city: Ort
+        state: Bundesland/Provinz
+        country: Land
+        zip_code: Postleitzahl
+      shipping_address:
+        title: Versandadresse
+        first_name: Vorname
+        last_name: Nachname
+        line_1: Adresszeile 1
+        line_2: Adresszeile 2
+        city: Ort
+        state: Bundesland/Provinz
+        country: Land
+        zip_code: Postleitzahl
+      upgradable_subscriptions:
+        your_gift: Ihr Geschenk!
+        year_plan: Einjahresplan
+        you_receive: "Wenn Sie jetzt ein Upgrade zu einem Abonnement für 1 Jahr durchführen, erhalten Sie <span class='hidden-xs'>dieses</span><span class='hidden-lg hidden-md hidden-sm'></span> kostenlose Loot Crate T-Shirt"
+        which_plan: Welchen Plan wollen Sie nachrüsten?
+      next_bill_date:
+        title: Datum nächste Rechnung
+        next_bill: Nächste Rechnung
+        pending_cancellation: "Anhängende Stornierung am %{bill_date}"
+      looter_info:
+        title: Plünderer info
+        subscription_name: Abonnement Name
+        shirt_size: T-Shirt Größe
+      payment_method:
+        title: Zahlungsmethode
+        name_on_card: Name auf der Karte
+        credit_card_number: Kreditkartennummer
+        cvv: CVV
+        card_security_code: Kartenprüfnummer (CVV)
+        card_expiration: Kartenverfalls
+
+  welcome:
+    mainbanner:
+      title: "Ein monatlicher Karton mit <strong>Computerfreak &amp; Gamer Zubehör</strong>"
+      subtitle1: "<span class='orange'>40 USD+ Einzelhandelswert</span> in jedem Schatzkarton!"
+      subtitle2: "Mitgliedschaft in einer aktiven, wachsenden Gemeinde."
+      subtitle3: "Chance, einen Mega-Schatzkarton im Wert von <span class='orange'>2.000 USD+ zu gewinnen!<span>"
+      join: 'Treten Sie 217.837 Computerfreaks + Gamern wie IHNEN bei!'
+      join_now: JETZT BEITRETEN
+      price: 27
+      total: "<span class='pricing-text'>Estimated</span> %{total}"
+    themereveal:
+      header: "THEMA DIESES MONATS: RÜCKLAUF!"
+      main_text: "NICHT VERPASSEN!"
+      sub_text: "Mit Beginn des Jahres 2015 vor der Tür wollten wir, dass der erste Schatzkarton des Jahres die Computerfreaks und Gaming-Ikonen der Vergangenheit zelebriert. Machen Sie mit bei unserem RÜCKLAUF, wir geben Ihnen EXKLUSIVE Artikel aus Star Wars, Voltron und mehr! Außerdem ein exklusives, lizensiertes Shirt und eine vom Retro-Gaming inspirierte Mashup-Figur!"
+    timer:
+      main_text: COUNTDOWN BIS ZUM NÄCHSTEN SCHATZKARTON
+      days: TAGE
+      hours: STUNDEN
+      minutes: MINUTEN
+    press:
+      title: Drücken Erwähnungen
+      awesomer_quote: Erhalten Sie jeden Monat einen Karton voller Spaß und unerwartetem Gamer-Zubehör – im Wert von mehr als 40 USD!
+      readwrite_quote: "Nein, Sie sind nicht gestorben und im Himmel. Das ist noch besser. Sie erhalten Beute von Loot Crate&trade;, einen monatlichen Computerfreak-und-Gamer Abonnement-Karton -- einen Abonnement-Karton, den Sie tatsächlich gebrauchen können."
+      geek_quote: "Die Jungs bei Loot Crate&trade; haben es zu ihrer Aufgabe gemacht, all das Zeug für Computerfreaks und Gamer da draußen zu finden und Ihnen davon jeden Monat einen Karton voll zu schicken."
+      curse_quote: An eingeführte Marken und aufstrebende Unternehmen wird gleichermaßen herangetreten, um Computerfreaks das bereits Geliebte und frische neue Beute auf dem Markt zu bringen.
+      wired_quote: "Dies ist ein Abonnement-Service, der anders ist als alle anderen – die Betonung liegt bei humorvollen und ungewöhnlichen Artikeln mit einem starken Reiz für Computerfreaks."
+      mtvgeek_quote: "Jeder mag es, wenn ein mysteriöser Karton voll geekiger Beute an die Haustür geliefert wird, richtig?"
+    plan_box:
+      includes_bonus_gift: Enthält Bonusgeschenk
+      total_price: 'Gesamtpreis:'
+      recurring: wiederkehrend
+      total_price: 'Total Price Estimate: '
+      plans:
+        price: "<p>Local Currency Estimate</p> %{price}"
+        one_month:
+          price: 27
+          total: 27
+        three_month:
+          price: 25
+          total: 75
+        six_month:
+          price: 24
+          total: 145
+        twelve_month:
+          price: 23
+          total: 280
+    learn_more:
+      what_you_get: Was Sie erhalten ...
+      handpicked_epic_items: Erhalten Sie jeden Monat 6 bis 8 handverlesene epische Artikel!
+      join_community: Treten Sie unserer aktiven Gemeinde von Lootern bei
+      megacrate_raffle: "Automatische Teilnahme an unserer Mega-Schatzkarton Verlosung mit einem Wert von über <span>2.000 US-Dollar!</span>"
+      domestic:
+        one_month:
+          title: Abonnement für 1 Monat
+          content: "Erhalten Sie jeden Monat einen epischen Schatzkarton ohne jeglichen Langzeitplan. Mit unserem Plan für 1 Monat können Sie jederzeit kündigen und erhalten die gleichen Vergünstigungen wie bei unseren Plänen für 3 und 6 Monate! Sie erhalten jeden Monat 6 bis 8 epische Produkte, nehmen automatisch an unserem monatlichen Gewinnspiel um einen Mega-Schatzkarton teil und treten unserer Gemeinde erstaunlicher Plünderer bei."
+        three_month:
+          title: Abonnement für 3 Monate
+          content: "Bereit, einige epische Beuten zu erhalten UND einiges zu sparen? Sparen Sie 3 Dollar bei unserem beliebtesten Plan für 3 Monate! Sie erhalten jeden Monat 6 bis 8 epische Produkte, nehmen automatisch an unserem monatlichen Gewinnspiel um einen Mega-Schatzkarton teil und treten unserer Gemeinde erstaunlicher Plünderer bei."
+          subtitle: "Sparen Sie <span>2,10 Dollar!</span>"
+        six_month:
+          title: Abonnement für 6 Monate
+          content: "Sie wollen mehr sparen bei unserem monumentalsten Abonnementplan? Sparen Sie 10 Dollar beim Abonnieren unseres Plans für 6 Monate! Sie erhalten jeden Monat 6 bis 8 epische Produkte, nehmen automatisch an unserem monatlichen Gewinnspiel um einen Mega-Schatzkarton teil und treten unserer Gemeinde erstaunlicher Plünderer bei."
+          subtitle: "Sparen Sie <span>10 Dollar!</span>"
+        twelve_month:
+          title: Abonnement für 1 Jahr
+          content: "Sie wollen mehr sparen bei unserem monumentalsten Abonnementplan? Sparen Sie 24 Dollar beim Abonnieren unseres Plans für 1 Jahr! Sie erhalten jeden Monat 6 bis 8 epische Produkte, nehmen automatisch an unserem monatlichen Gewinnspiel um einen Mega-Schatzkarton teil und treten unserer Gemeinde erstaunlicher Plünderer bei."
+          subtitle: "Sparen Sie <span>24 Dollar!</span>"
+      international:
+        one_month:
+          title: Abonnement für 1 Monat
+          content: "Erhalten Sie jeden Monat einen epischen Schatzkarton ohne jeglichen Langzeitplan. Mit unserem Plan für 1 Monat können Sie jederzeit kündigen und erhalten die gleichen Vergünstigungen wie bei unseren Plänen für 3 und 6 Monate! Sie erhalten jeden Monat 6 bis 8 epische Produkte, nehmen automatisch an unserem monatlichen Gewinnspiel um einen Mega-Schatzkarton teil und treten unserer Gemeinde erstaunlicher Plünderer bei."
+        three_month:
+          title: Abonnement für 3 Monate
+          content: "Bereit, einige epische Beuten zu erhalten UND einiges zu sparen? Sparen Sie 5,85 Dollar bei unserem beliebtesten Plan für 3 Monate! Sie erhalten jeden Monat 6 bis 8 epische Produkte, nehmen automatisch an unserem monatlichen Gewinnspiel um einen Mega-Schatzkarton teil und treten unserer Gemeinde erstaunlicher Plünderer bei."
+          subtext: "Sparen Sie <span>5,85 Dollar!</span>"
+        six_month:
+          title: Abonnement für 6 Monate
+          content: "Sie wollen mehr sparen bei unserem monumentalsten Abonnementplan? Sparen Sie 17,70 Dollar beim Abonnieren unseres Plans für 6 Monate! Sie erhalten jeden Monat 6 bis 8 epische Produkte, nehmen automatisch an unserem monatlichen Gewinnspiel um einen Mega-Schatzkarton teil und treten unserer Gemeinde erstaunlicher Plünderer bei."
+          subtext: Sparen Sie <span>17,70 Dollar!</span>
+        twelve_month:
+          title: Abonnement für 1 Jahr
+          content: "Sie wollen mehr sparen bei unserem monumentalsten Abonnementplan? Sparen Sie 47,40 Dollar beim Abonnieren unseres Plans für 1 Jahr! Sie erhalten jeden Monat 6 bis 8 epische Produkte, nehmen automatisch an unserem monatlichen Gewinnspiel um einen Mega-Schatzkarton teil und treten unserer Gemeinde erstaunlicher Plünderer bei."
+          subtext: "Sparen Sie <span>47,40 Dollar!</span>"

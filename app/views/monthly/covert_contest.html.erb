@@ -1,0 +1,435 @@
+<% content_for :title, 'Covert Contest' %>
+	<nav role="navigation" class="navbar navbar-fixed-top">
+    <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header clearMargin">
+	        <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+	            <span class="sr-only">Toggle navigation</span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	        </button>
+	        <!-- <a href="#" class="navbar-brand">Brand</a> -->
+	    </div>
+	    <!-- Collection of nav links and other content for toggling -->
+	    <div id="navbarCollapse" class="row mainNav  collapse navbar-collapse">
+	    	<div class="container">
+
+	    		<div class="row">
+	    			<ul class="nav navbar-nav navbar-left clearMargin lootLogo col-xs-2 col-sm-2 col-md-2 col-lg-2">
+	              <li><%= image_tag("logo.png", alt:'lootcrate', class:'lootCrate') %></li>
+	          </ul>
+
+	          <ul class="clearMargin col-lg-10 munNav">
+              <li class="col-xs-12 col-sm-1 col-md-1 col-lg-1" data-target="pane5"><nav class="munnyGo">VOTE</nav></li>
+              <li class="col-xs-12 col-sm-1 col-md-1 col-lg-1" data-target="pane5"><nav class="munnyGo mEntries">ENTER</nav></li>
+           <!--    <li class="col-xs-12 col-sm-1 col-md-1 col-lg-1" data-target="pane4"><nav class="munnyGo mJudges">JUDGES</nav></li> -->
+              <li class="col-xs-12 col-sm-1 col-md-1 col-lg-1" data-target="pane3"><nav class="munnyGo mPrizes">PRIZES</nav></li>
+              <li class="col-xs-12 col-sm-1 col-md-1 col-lg-1" data-target="pane2"><nav class="munnyGo mContest">CONTEST</nav></li>
+              <li class="col-xs-12 col-sm-1 col-md-1 col-lg-1" data-target="pane1"><nav class="munnyGo mHome">HOME</nav></li>
+	          </ul>
+	          <!-- <ul class="nav navbar-nav navbar-right">
+	              <li><a href="#">Login</a></li>
+	          </ul> -->
+	        </div>
+	      </div>
+	    </div>
+	    <%= image_tag("logo.png", alt:'lootcrate', class:'lootCrateMob') %>
+    </div>
+</nav>
+
+<div class="topSpacer"></div>
+<div class="container-fluid munnyContainer" data-mvp="<%= image_path('most-votes.png') %>" data-jp="<%= image_path('judges-pick.png') %>">
+	<div class="row firstRow pane1">
+		<%= image_tag("covertcontest/cc_lazer.png", alt:'Munny', class:'lazer br lazer_03 img-responsive') %>
+		<%= image_tag("covertcontest/cc_lazer.png", alt:'Munny', class:'lazer br lazer_04 img-responsive') %>
+		<%= image_tag("covertcontest/cc_lootbox.png", alt:'Munny', class:'bigLoot img-responsive') %>
+		<%= image_tag("covertcontest/cc_lazer.png", alt:'Munny', class:'lazer lazer_01 img-responsive') %>
+		<%= image_tag("covertcontest/cc_lazer.png", alt:'Munny', class:'lazer lazer_02 img-responsive') %>
+
+		<div class="container">
+
+			<div class="col-md-12">
+				<div class="col-sm-8 col-md-6 col-lg-6 conZone center">
+
+							<div class="row conTitle">
+								EXCLUSIVE DIY CONTEST
+							</div>
+							<div class="row conLogo">
+								<div class=""><%= image_tag("covertcontest/cc_covert_text.png", alt:'Munny', class:'img-responsive center') %></div>
+								<div class="coCross bg">
+									<%= image_tag("covertcontest/cc_cross_big.png", alt:'Munny', class:'cross') %>
+								</div>
+								<div class="coCross sm">
+									<%= image_tag("covertcontest/cc_cross_small.png", alt:'Munny', class:'cross') %>
+								</div>
+							</div>
+							<div class="row coDate">
+								<ul class="inline clearMargin">
+									<li class="mDT">MAR 20</li> <li class="mDT"><div class="mDash">&mdash;</div></li> <li class="mDT">APR 20</li>
+								</ul>
+							</div>
+							<div class="row munText">
+								Agents of L.O.O.T., your mission is to infiltrate March’s
+								COVERT Crate and tell us what’s inside with a unique,
+								creative unboxing video!
+							</div>
+							<div class="row munButtons">
+								<ul class="col-md-12 center inline">
+									<li class="clearMargin clearPadding mBtnLeft">
+										<div class="conBtnEnter">
+											Enter Contest
+										</div>
+									</li>
+									<li class="clearMargin clearPadding mBtnRight">
+										<div class="conBtnPrizes">
+											View Prizes
+										</div>
+									</li>
+								</ul>
+							</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<!--  Pane 2 - Is go for gold -->
+	<div class="row secondRow pane2">
+		<div class="angleFun"></div>
+		<div class="container">
+			<div class="col-lg-12 ">
+				<!-- <div class="topSplash2 hidden-xs">
+						<%#= image_tag('judge-paint-splash-2.png', alt:'splash2', class:'tSplash') %>
+				</div> -->
+				<div class="pageTitle">
+					How to enter the contest.
+				</div>
+					<div class="col-sm-4 col-md-4 pTop">
+						<div class="pImage">
+							<%= image_tag('covertcontest/step-1-icon-p2.png', alt:'contest', class:'img-responsive center') %>
+						</div>
+						<div class="pContent">
+							Point and shoot! Film your<br>
+							Loot Crate Unboxing!
+						</div>
+					</div>
+					<div class="col-sm-4 col-md-4">
+						<div class="pImage">
+							<%= image_tag('covertcontest/step-2-icon-p2.png', alt:'contest', class:'img-responsive center') %>
+						</div>
+						<div class="pContent">
+							Come back here and upload your video
+							to our Loot Crate mainframe!
+						</div>
+					</div>
+					<div class="col-sm-4 col-md-4">
+						<div class="pImage">
+							<%= image_tag('covertcontest/step-3-icon-p2.png', alt:'contest', class:'img-responsive center') %>
+						</div>
+						<div class="pContent">
+							Got your sights set on an entry?
+							Vote for the videos you love!
+						</div>
+					</div>
+
+			</div>
+			<!-- <div class="p2Splash">
+				<%#= image_tag('white-drip-p2.png', alt:'contest') %>
+			</div> -->
+		</div>
+
+		<div class="angleFunBtm"></div>
+	</div>
+
+	<!--  Pane 3 - Is gopher gold -->
+	<div class="row pane3">
+		<div class="container">
+			<div class="col-md-12">
+				<div class="p3Gap">
+				</div>
+
+				<div class="row">
+					<div class="col-lg-4 center">
+						<div class="prizeHeader">Prizes</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4 center">
+						<div class="greenLip center"></div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="">
+							<div class="prizeImage">
+								<%= image_tag('covertcontest/covert_prize_set.png', alt:'contest', class:'img-responsive center') %>
+							</div>
+					</div>
+			</div>
+				<div class="row">
+					<div class="pageContent col-md-4 col-lg-4 col-md-offset-2 supahBig">
+							<div class="prizeBlock">
+								<div class="prizeTitle">Most Votes</div>
+								<div class="prizeDetails">
+											Lifetime supply of Loot Crate, GoPro HERO, 16 Gig SD Card
+								</div>
+							</div>
+					</div>
+					<div class="pageContent col-md-4 col-lg-4 col-lg-offset-0 supahBig">
+							<div class="prizeBlock">
+								<div class="prizeTitle">Best Overall</div>
+								<div class="prizeDetails">
+											Lifetime supply of Loot Crate, GoPro HERO, 16 Gig SD Card
+								</div>
+							</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="pageContent col-md-4 col-lg-4 col-md-offset-2">
+							<div class="prizeBlock">
+								<div class="prizeTitle">Best Produced</div>
+								<div class="prizeDetails">
+											Year Supply of Loot Crate, GoPro HERO, 16 Gig SD Card
+								</div>
+							</div>
+					</div>
+					<div class="pageContent col-md-4 col-lg-4 col-lg-offset-0">
+							<div class="prizeBlock">
+								<div class="prizeTitle">Best Kids</div>
+								<div class="prizeDetails">
+											Year Supply of Loot Crate, GoPro HERO, 16 Gig SD Card
+								</div>
+							</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="pageContent col-md-4 col-lg-4 col-md-offset-2">
+							<div class="prizeBlock">
+								<div class="prizeTitle">Best Animated</div>
+								<div class="prizeDetails">
+											Year Supply of Loot Crate, GoPro HERO, 16 Gig SD Card
+								</div>
+							</div>
+					</div>
+					<div class="pageContent col-md-4 col-lg-4 col-lg-offset-0">
+							<div class="prizeBlock">
+								<div class="prizeTitle">Best Home Video</div>
+								<div class="prizeDetails">
+											Year Supply of Loot Crate, GoPro HERO, 16 Gig SD Card
+								</div>
+							</div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+		<div class="angleFunBtm"></div>
+	</div>
+
+	<!--  Pane 4 - Is go for gold -->
+	<div class="row pane4 hidden">
+		<div class="angleFun"></div>
+		<div class="container ">
+			<div class="row">
+				<div class="col-xs-12 col-md-12">
+					<div class="topSplash col-xs-12 col-md-12 col-lg-12 center">
+						<%= image_tag('judge-paint-splash.png', alt:'splash', class:'tSplash hidden-xs') %>
+					</div>
+						<div class="judges col-xs-10 col-md-12 col-lg-12 center">
+							<%= image_tag('munny-judges.png', alt:'splash', class:'munJudges') %>
+						</div>
+						<div class="pageTitle">
+							The Judges
+						</div>
+				</div>
+			</div>
+			<div class="row topJRow">
+						<div class="col-sm-3 col-md-3">
+							<div class="jLogo" data-judge="Kidrobot">
+								<%= image_tag('kidrobot.jpg', alt:'contest') %>
+							</div>
+							<div class="jName">
+								Kid Robot
+							</div>
+						</div>
+						<div class="col-sm-3 col-md-3">
+							<div class="jLogo" data-judge="iam8bit">
+								<%= image_tag('iam8bit.jpg', alt:'contest') %>
+							</div>
+							<div class="jName">
+								iam8bit
+							</div>
+						</div>
+						<div class="col-sm-3 col-md-3">
+							<div class="jLogo" data-judge="Eve">
+								<%= image_tag('eveandtabitha.jpg', alt:'contest') %>
+							</div>
+							<div class="jName">
+								Eve Beauregard / Tabitha Lyons
+							</div>
+						</div>
+						<div class="col-sm-3 col-md-3">
+							<div class="jLogo" data-judge="IGN">
+								<%= image_tag('ign.jpg', alt:'contest') %>
+							</div>
+							<div class="jName">
+								IGN
+							</div>
+						</div>
+					</div>
+			<div class="row">
+						<div class="col-sm-3 col-md-3">
+							<div class="jLogo" data-judge="Meltdown">
+								<%= image_tag('meltdown.jpg', alt:'contest') %>
+							</div>
+							<div class="jName">
+								Meltdown
+							</div>
+						</div>
+						<div class="col-sm-3 col-md-3">
+							<div class="jLogo" data-judge="Zack">
+								<%= image_tag('zackandpeter.jpg', alt:'contest') %>
+							</div>
+							<div class="jName">
+								Zack Finfrock / Peter Weidman
+							</div>
+						</div>
+						<div class="col-sm-3 col-md-3">
+							<div class="jLogo" data-judge="Nerdist">
+								<%= image_tag('nerdist_v02.jpg', alt:'contest') %>
+							</div>
+							<div class="jName">
+								Nerdist
+							</div>
+						</div>
+						<div class="col-sm-3 col-md-3">
+							<div class="jLogo" data-judge="marissa">
+								<%= image_tag('marrisaanddani.jpg', alt:'contest') %>
+							</div>
+							<div class="jName">
+								Dani Bullis / Marissa Zaenger
+							</div>
+						</div>
+			</div>
+		</div>
+		<div class="angleFunBtm"></div>
+	</div>
+
+	<!--  Pane 5 - Is go for gold -->
+	<div class="row pane5">
+		<div class="angleFun"></div>
+		<div class="container ">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="pageTitle">
+						<span class="hideSmall"></span> Enter & Vote
+						<div class="ptPrint">
+								<%= image_tag('covertcontest/cc_fprint.png', alt:'contest', class:'img-responsive center') %>
+						</div>
+					</div>
+
+				</div>
+					<div class="row">
+						<div class="col-lg-4 center">
+							<div class="greenLip center"></div>
+						</div>
+					</div>
+					<div class="pRules col-xs-8 col-sm-10 center">
+						   Leave your mark by submitting a video below. And don’t forget to vote <span class="hideSmall"><br></span>
+						   for your favorite Covert unboxing videos
+					</div>
+					<div class="col-sm-11 col-md-11 center">
+
+
+							<div class="row catBottom">
+								<!-- <div data-gallery-embed="bocS1"></div> -->
+
+								<div class="row">
+									<div class="gleamGal" data-gallery-embed='eED9S'></div>
+
+								</div>
+
+							</div>
+					</div>
+			</div>
+		</div>
+	</div>
+	<div class="row paneSpace">
+
+	</div>
+	<!--  Pane 6 - Is go for gold -->
+	<div class="row pane6">
+		<div class="tranAnchor">
+			<%= image_tag('covertcontest/cc_anchor_p6.png', alt:'contest', class:'img-responsive center') %>
+		</div>
+		<div class="container ">
+
+			<div class="col-xs-10 center col-sm-10 col-md-12 col-lg-12">
+				<div class="row">
+
+				</div>
+				<div class="row footContent">
+					<div class="footCall col-sm-10 center" >
+						NOT A LOOTER?
+					</div>
+					<div class="footCall col-sm-10 center" >
+						<a href="//lootcrate.com" class="subNow">SUBSCRIBE NOW!</a>
+					</div>
+				</div>
+					<div class="row bottomMenu">
+						<div class="col-xs-12 col-sm-6 col-md-6 col-xs-offset-0 col-sm-offset-3 col-md-offset-3 TC">
+							<ul class="inline">
+								<li class="bRight">
+									<a target="_blank" href="//www.lootcrate.com/terms_conditions">Terms and Conditions</a>
+								</li>
+								<li>
+									Copyright Loot Crate 2015
+								</li>
+							</ul>
+						</div>
+					</div>
+			</div>
+		</div>
+		<div class="angleFun"></div>
+	</div>
+</div>
+<div class="lBg"></div>
+<div class="jBox" >
+	<div class="jScroll">
+		<div class="jSplat">
+			<%= image_tag('close-lbox.png', alt:'close-lbox') %>
+		</div>
+
+		<div class="jImage"></div>
+		<div class="jTitle"></div>
+		<div class="jBio"></div>
+	</div>
+</div>
+<div class="tc">
+	<div class="jSplat">
+		<%= image_tag('close-lbox.png', alt:'close-lbox') %>
+	</div>
+	<div class="tcTitle">
+				Contest Rules
+	</div>
+
+	You must be 13 years of age or older to enter. Entrants under 13 must get permission from a parent or guardian.
+	All designs must be on a 3” Mini Munny.
+	All entries must be submitted between 2/23/15 and 3/20/15.
+	All designs must be submitted to lootcrate.com/munnycontest
+	By entering, you agree to grant a perpetual, non-exclusive license to Loot
+	 Crate to use your design and username for any and all promotional
+	activity.
+	All winners (except for those in the Most Votes category) will be selected by a panel of judges.
+	Winners will be contacted by email. If you win and do not respond within 30 days, your prize is forfeit.
+	Winners will be announced on 3/28/15.
+	No purchase necessary. **
+	Loot Crate&trade; employees and families may not enter.
+	<br>
+	<br>
+	All winners must provide verifiable, visual proof that they are in possession of their submission before any prize can be awarded. “Proof” will be vetted at Loot Crate’s&trade; sole discretion.
+	<br>
+	<br>
+	**A subscription to Loot Crate&trade; is not required for entry. To enter without purchase, <a target="_blank" href="https://d2vgumyqjx047w.cloudfront.net/munny/blank_munny.jpg">download the blank Munny image here</a> to create a design.
+</div>

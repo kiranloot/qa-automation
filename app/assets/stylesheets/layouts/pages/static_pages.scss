@@ -1,0 +1,97 @@
+// ======== //
+// About us //
+// ======== //
+
+.about_us {
+  @include static_pages;
+
+  .video-container {
+    position: relative;
+    padding-top: 56%;
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+// ============== //
+// Privacy policy //
+// ============== //
+
+.privacy_policy {
+  @include static_pages;
+
+  ul.standard {
+    padding: 0 0 0 40px;
+    margin-bottom: 20px;
+
+    li {
+      padding: 0;
+      margin-bottom: 10px;
+      list-style-type: disc;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+// ================ //
+// Terms conditions //
+// ================ //
+
+.terms_conditions {
+  @include static_pages;
+}
+
+// ======= //
+// Contact //
+// ======= //
+
+.contact {
+  @include static_pages;
+
+  .contact-box {
+    @include border-box;
+    background-color: $gray-4;
+    padding: 30px;
+    line-height: 1em;
+    margin-bottom: 2px;
+
+    h3, p {
+      color: #7A7880;
+    }
+
+    h3 {
+      line-height: 1em;
+      margin: 0 0 7px 0;
+      text-transform: uppercase;
+    }
+
+    p {
+      padding: 0;
+      margin: 0;
+      line-height: 22px;
+    }
+  }
+}
+
+@media (max-width: 760px) {
+  .about_us, .privacy_policy, .terms_conditions, .contact {
+    .white-bg {
+      padding-top: 0;
+
+      .col-md-9 {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+      }
+    }
+  }
+}

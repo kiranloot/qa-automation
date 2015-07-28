@@ -1,0 +1,37 @@
+<div id="cosummarypricebreakdown">
+  <div class="subcription-month">
+      <div><b><%= @plan.title %></b></div>
+    <div><%= recurrent_fee(@plan) %></div>
+    <div><%= "First renewal on #{readjusted_next_billing_date.try(:strftime, '%B %d, %Y')}" %></div>
+  </div>
+
+  <div class="subscription-coupon hide">
+    <p><b>Coupon</b>
+      <span id='coupon-discount-amount'></span>
+    </p>
+  </div>
+
+  <div class="subscription-cost">
+    <p><b>Monthly Cost</b>
+      <span>
+        <b><%= number_to_currency(show_price_per_month(@plan), locale: :en) %></b> (S&amp;H Included)
+      </span>
+    </p>
+  </div>
+
+  <div class="subscription-tax <%= display_tax(@checkout.tax_rate) %>">
+    <p>
+      <span id='subscription-sales-tax'>
+        Sales Tax <%= @checkout.tax_region %> (<%= @checkout.tax_rate * 100 %>%) <%= number_to_currency @checkout.tax_charges_after_discount %>
+      </span>
+    </p>
+  </div>
+
+  <div class="subscription-total">
+    <p>Today's Total
+      <span id='subscription-today-total'>
+        <%= number_to_currency(@checkout.total) %>
+      </span>
+    </p>
+  </div>
+</div>

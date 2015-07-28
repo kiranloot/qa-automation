@@ -1,0 +1,76 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://chris%40lootcrate.com%2Ftoken:6NRHvlDRyzBFh29T2ACwFtbJxpSKGrwuCqvVBjtk@lootcrate1421885692.zendesk.com/api/v2/search?query=requester:howhmn%2B33333@gmail.com
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - ZendeskAPI API 1.5.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 23 Jan 2015 00:58:04 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Zendesk-Api-Version:
+      - v2
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Zendesk-Origin-Server:
+      - app19.pod2.sac1.zdsys.com
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Etag:
+      - W/"1f00c9585eaad4449fd77c5feb7c82df"
+      Cache-Control:
+      - must-revalidate, private, max-age=0
+      X-Request-Id:
+      - 7ea30fa26305448621d1f15ad1b8f3e2
+      X-Runtime:
+      - '0.114643'
+      X-Rack-Cache:
+      - miss
+      X-Zendesk-Request-Id:
+      - ae299c8060f351fae926
+      X-Content-Type-Options:
+      - nosniff
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA5VT227bMAz9FUHPqRO7uTR+6zds6MOGwaBl2mGrW3VJ1xb5
+        91FxO3jAgGFPkigd8vDo8F0GjFmnKNvv7zIHLVt5SsnHdr3WziUVIGG9beq7
+        u93+2FRvaAeMT5VyZg2e1udmnUg9YYrr27p6jM7KlaRBtrf1SuLPhMGC7krA
+        Zq1X8kwg23epTmAtlmKchBHR5aCw3IzBGV4vK5ncvIbyrqAvHFQBmdDQQWJs
+        s6l3N5v6pmm+bjbtbtvuNt84WfbDP9+kV8/lZk4x94+oSsL7nNAIjElYZwXv
+        vQvU5yiM0xwliBXnD/DS/S+GRVOBfCIWqJUPaAmMMDBZXgL6gKcibKAkYrZJ
+        gDg7nX2ClE0lHuZ9XAQFZzBCORvxOfOrIEov8IEubVTiC2d7ziQGmizFSMbF
+        6xlizIbLQSXuez55ruvYBmLMEwiE54xiQM0VEolegx14Q1GAJoYPRQJfEJRe
+        i1toOpUfLFzZRdLiS9EIFXlCy6rOIgfmyRJiuJphf9jUx7vjYcvA3BtKf7lg
+        mkwcceEeFyaw9AZFxkV4Ci7767mpD83+sN2wURzL0Tu2rysli79/rOToQjZd
+        cp7UAu+D6zWaReQEsSOraOAOGDqCjriSQ8ar8eaOEkwfWVWOyZluJNSfhSJz
+        jCOoK1MmQXYq7o6KhWaRsnXjiAEHyZ6OJwh838EUEPlj0oLvIuU8Zx23sGTa
+        B/6fK/PDfnvkxud57maDyxkkL6V3UDymn+wtD2fnYfo9BezBM7kc/wgqx26U
+        bX35BR3QYgooBAAA
+    http_version: 
+  recorded_at: Fri, 23 Jan 2015 00:58:05 GMT
+recorded_with: VCR 2.9.3

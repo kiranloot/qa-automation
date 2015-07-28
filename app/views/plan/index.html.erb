@@ -1,0 +1,48 @@
+<%
+  if ("CA" == cookies[:country])
+    twitterText = "Check out @lootcrate, I'm going for it! http://lootcrate.com/join"
+    facebookText = "Check out Loot Crate&trade;, I'm going for it! http://lootcrate.com/join"
+    partial = "welcome/chooseyourplan_CA"
+  else
+    twitterText = "Check out the @lootcrate plans, which one do you think I should get?! http://lootcrate.com/join"
+    facebookText = "Check out the Loot Crate&trade; plans, which one do you think I should get? http://lootcrate.com/join"
+    partial = "welcome/chooseyourplan_US"
+  end
+%>
+  <div class="white-bg">
+
+  <% if (GlobalConstants::SHOWCOUNTDOWN) %>
+    <%= render "subscriptions/countdowntimer_mini" %>
+  <% end %>
+
+  <!-- Choose Your Plan -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <%= render "shared/progress_bar", :step => 1 %>
+      </div>
+    </div>
+  </div>
+
+  <%= render "welcome/chooseyourplan" %>
+
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <div class="share-container" class="align-left">
+          <div class="share-icons">
+            <a class="twitter popup" onclick="return !window.open(this.href, 'Twitter', 'width=640,height=300')" href="http://twitter.com/share?text=<%= twitterText %>">
+              <div class="icon twittershare"></div>
+            </a>
+            <a href="javascript: publish_to_wall('http://lootcrate.com','<%= image_path("past-crates/april.jpg") %>','Loot Crate&trade;','The Epic Geek + Gaming Gear Subscription','<%= facebookText %>')">
+              <div class="icon facebookshare"></div>
+            </a>
+            <div class="share">Share Loot Crate&trade;!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,14 @@
+<% if not current_user.subscriptions.blank? %>
+  <div class='current-subscriptions'>
+    <div class="exc_container">
+      <ul>
+        <li class="listed subExc1">
+          <span class="exc subExclamation"><i class="fa fa-exclamation-circle fa-2x"></i></span>
+        </li>
+        <li class="listed subExc2">
+          You have existing subscriptions, visit your <a href="/user_accounts">account page</a> to manage your current subscriptions.
+        </li>
+      </ul>
+    </div>
+  </div>
+<% end %>

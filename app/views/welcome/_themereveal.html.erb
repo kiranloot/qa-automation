@@ -1,0 +1,28 @@
+<div class='themereveal white-bg'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-md-12 base hidden-below'>
+        <div class='howitworks-header' id='countdown-header-text'><%= t('welcome.themereveal.header') %></div>
+        <div class='bottom'>
+          <div class='row'>
+            <div class='col-md-6 join-span'>
+            <% if (GlobalConstants::SOLDOUT) %>
+              <a href='/sold_out'>
+            <% else %>
+              <a href='/join'>
+            <% end %>
+              <%= image_tag('theme-thumbnail-rewind.jpg', width: '450', alt: 'anniversary!', class: 'img-responsive') %>
+              </a>
+            </div>
+            <div class='col-md-6 dont-miss'>
+              <h3 id='countdown-main-text'><%= t('welcome.themereveal.main_text') %></h3>
+              <% if (GlobalConstants::SOLDOUT) %><a href='/sold_out'><% else %><a href='/join'><% end %>
+              <p id='countdown-sub-text'><%= t('welcome.themereveal.sub_text') %></p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,942 @@
+// ============ //
+// checkout-new //
+// ============ //
+
+.checkouts {
+  #new_checkout {
+    @include error;
+    @include valid;
+
+    .subTop {
+      padding: 0 30px;
+
+      .coSumImage {
+        @media (max-width: 425px) {
+          width: 100%;
+
+          img {
+            width: 100%;
+          }
+        }
+      }
+
+      .coSumBox {
+        .coSumPriceCopy{
+          padding-top: 0.5em;
+        }
+      }
+    }
+
+    section {
+      padding: 0 150px;
+      margin-bottom: 20px;
+
+      #cosummaryright {
+        padding-left: 35px;
+
+        p {
+          font-size: 1em;
+        }
+
+        .subscription-cost {
+          p {
+            span {
+              float: right;
+            }
+          }
+        }
+
+        .subscription-total {
+          border-top: 1px solid #bbb;
+          padding-top: 10px;
+          margin-top: 20px;
+
+          p {
+            font-weight: bold;
+            margin: 0;
+
+            span {
+              float: right;
+            }
+          }
+        }
+
+        @media (max-width: 425px) {
+          padding: 0;
+          width: 100%;
+        }
+      }
+    }
+
+    .checkout-left {
+      label, input, .select2, p {
+        display: block;
+        width: 100%;
+      }
+
+      label {
+        color: $gray-2;
+        font-weight: normal;
+        margin-bottom: 5px;
+
+        abbr {
+          cursor: pointer;
+          border-bottom: 0;
+          color: $orange;
+        }
+      }
+
+      #tshirt-popover-title,
+      #cvv-popover-title {
+        display: none;
+      }
+
+      .help-block span {
+        float: right;
+        font-weight: 600;
+        @media(max-width: 767px) {
+          display:block;
+          float:none;
+        }
+      }
+
+      #tshirt-popover-content,
+      #cvv-popover-content {
+        display: none;
+      }
+
+      .control-group {
+        margin-bottom: 10px;
+
+        #not_my_country {
+          font-size: 13px;
+        }
+      }
+
+      .use-shipping-address {
+        margin: 15px 0px;
+
+        #use-shipping-address-label {
+          width: 150px;
+          display: inline-block;
+        }
+
+        .billing {
+          float: left;
+          display: inline-block;
+
+          input[type=checkbox] {
+             content: image-url('m_checkbox.png');
+            /*content: url(/assets/m_checkbox.png);*/
+            padding-right: 7px;
+            position: absolute;
+            clip: rect(0,0,0,0);
+            clip: rect(0 0 0 0);
+          }
+
+          input[type="checkbox"] + label::before {
+            content: image-url('m_checkbox.png');
+            padding-right: 7px;
+          }
+
+          input[type="checkbox"]:checked + label::before {
+            content: image-url('m_checkbox_checked.png');
+            padding-right: 7px;
+          }
+        }
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      .coSumImage {
+        padding: 0;
+      }
+
+      .city, .state {
+        padding-right: 0;
+      }
+
+      #credit-card-expiration-date {
+        padding-left: 0;
+
+        #s2id_checkout_credit_card_expiration_date_2i,
+        #s2id_checkout_credit_card_expiration_date_1i {
+          display: inline-block;
+        }
+
+        #s2id_checkout_credit_card_expiration_date_2i {
+          width: 56%;
+          margin-right: 8px;
+        }
+
+        #s2id_checkout_credit_card_expiration_date_1i {
+          width: 35%;
+        }
+      }
+
+      #check-coupon {
+        padding-right: 0;
+
+        .coupon-search {
+          display: none;
+          position: absolute;
+          top: 41px;
+          right: 11px;
+        }
+      }
+
+      #validate-coupon {
+        margin-top: 25px;
+        padding: 7px;
+        background-color: #CBC6D8;
+        border-color: #CBC6D8;
+      }
+    }
+
+    .checkout-right {
+      padding: 30px;
+
+      .controls {
+        float: right;
+      }
+    }
+
+    h3 {
+      text-align: center;
+      margin: 20px 0;
+    }
+  }
+}
+
+@media (max-width: 979px) {
+  .checkouts {
+    #new_checkout {
+      section {
+        padding: 0;
+      }
+
+      .checkout-left {
+        #credit-card-expiration-date {
+          padding-left: 15px;
+          height: 85px;
+
+          #s2id_checkout_credit_card_expiration_date_2i {
+            width: 62%;
+            float: left;
+          }
+
+          #s2id_checkout_credit_card_expiration_date_1i {
+            width: 34%;
+            float: right;
+          }
+        }
+
+        #check-coupon, .city, .state {
+          padding-right: 15px;
+        }
+      }
+    }
+  }
+}
+
+// ============ //
+// checkout-alt //
+// ============ //
+
+#express_checkouts-new,
+#express_checkouts-create {
+  padding-top: 0;
+  ol, ul {
+    list-style: none;
+  }
+  .navbar, #footer {
+    display:none;
+  }
+  #validate-coupon {
+    margin-top: 25px;
+    padding: 7px;
+    background-color: #cbc6d8;
+    border-color: #cbc6d8;
+    &:focus {
+      outline:none;
+    }
+  }
+  #check-coupon {
+    .form-group {
+      margin-bottom:5px;
+    }
+  }
+  .toggleCoupon {
+    margin-bottom: 10px;
+  }
+  .row.coupon {
+    padding: 0 20px;
+  }
+  #checkout-region {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: -webkit-calc(100% + 300px);
+    width: calc(100% + 300px);
+    width: 100%;
+    background-color: $white;
+    backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    transition: transform 200ms cubic-bezier(.645, .045, .355, 1);
+      -webkit-transition: -webkit-transform 200ms cubic-bezier(.645, .045, .355, 1);
+    transform: translateX(0);
+      -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+    z-index: 9;
+    overflow-y: hidden;
+    height: 100%;
+  }
+
+  #three-step-region {
+    height: 100%;
+    float: left;
+    width: -webkit-calc(100% - 300px);
+    width: calc(100% - 300px);
+    width: 100%;
+    background: #fff;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+    .items,
+    .total {
+      border-top: 1px solid #e5e5e5;
+    }
+
+    .order-breakdown-region {
+      .order-summary {
+        margin: 0;
+        padding: 0 20px;
+      }
+      .showCoupon {
+        cursor: pointer;
+      }
+      dl {
+        padding: .5rem 0;
+        line-height: 1em;
+        color: #333;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: box;
+        display: flex;
+        padding: .1rem;
+        margin: 0 0 5px;
+        &.items {
+          padding-top: 1.5rem
+        }
+        &.total {
+          padding-top: 1rem;
+          margin-top: 1rem;
+          dd {
+            font-size:25px;
+          }
+        }
+        dt {
+          -webkit-box-flex: 1;
+          -o-box-flex: 1;
+          box-flex: 1;
+          -webkit-flex: 1;
+          -ms-flex: 1;
+          flex: 1;
+        }
+      }
+      dd {
+        font-weight: 400;
+        color: #333;
+      }
+      .subscription-coupon dd.valid {
+        color: $green;
+        &::before {
+          content: "";
+          width: 40px;
+          height: 40px;
+          background-image: image-url('valid.png') !important;
+          background-repeat: no-repeat !important;
+          background-position: top right !important;
+          background-size: 40px 40px !important;
+          margin-top:-10px;
+          position:absolute;
+          right:85px;
+        }
+      }
+      .order-summary.line-items-summary-active .line-items-summary {
+        border-bottom: 1px solid #e5e5e5;
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+      }
+      .order-summary.line-items-summary-active .show-line-items-summary {
+        color: #c9c9c9;
+      }
+      .order-summary.line-items-summary-active .show-line-items-summary .items:before {
+        border-top-color: #c9c9c9;
+      }
+    }
+    .header-checkout {
+      border-bottom: 1px solid #e5e5e5;
+      text-align: center;
+    }
+    .checkout-app {
+      height: 100%;
+      @media(max-width: 768px) {
+        .checkout-step {
+          float: none;
+          width: 100%;
+          height: auto;
+        }
+      }
+      @media(max-width: 767px) {
+        .checkout-step {
+          float: none;
+          width: 100%;
+          height: auto;
+          >div {
+            display:none;
+            &.active {
+              display:block;
+            }
+          }
+        }
+      }
+      &.stacked {
+        .checkout-step {
+          float: none;
+          width: 100%;
+          height: auto;
+          @media(max-width: 767px) {
+            >div {
+              padding: 2rem;
+            }
+          }
+        }
+        .click-guard {
+          min-height:100%;
+        }
+        .btn-step:not(.prev) { 
+          margin-top: 1rem;
+          margin-bottom:300px;
+        }
+        .back {
+          text-align: right;
+          position: relative;
+          display: block;
+          a {
+            line-height: 60px;
+          }
+          i {
+            color:$orange;
+          }
+        }
+        .order-breakdown-region > img {
+          text-align: center;
+          margin: 0 auto;
+        }
+        .subscription-coupon dd.valid {
+          &::before {
+            right:70px;
+          }
+        }
+        @media(max-width: 768px) {
+          .credit-card-form {
+            width: 400px;
+            margin: 0 auto;
+            input {
+              &.error,
+              &.valid {
+                background-position: right -5px !important;
+              }
+            }
+          }
+          .use-shipping-address {
+            > div {
+              text-align: center;
+              margin: 0 auto;
+            }
+            .billing {
+              float:none;
+            }
+          }
+        }
+        @media(max-width: 767px) {
+          .step-title-container {
+            margin:0 auto 3rem;
+          }
+          .credit-card-form {
+            padding: 60px 15px 10px;
+            margin: 0 auto;
+            width: 280px;
+            span.stripe {
+              top: 10px;
+            }
+            .card-fields {
+              height: 120px;
+              input {
+                height: 30px;
+                padding: 5px 10px;
+                &.error,
+                &.valid {
+                  background-position: right -5px !important;
+                }
+              }
+              #checkout_credit_card_number {
+                height: 30px;
+                margin-bottom: 0;
+              }
+              .select2-container {
+                padding-bottom: 0;
+              }
+              .select2-container.select2 a.select2-choice {
+                height: 30px;
+                margin-bottom: 0;
+                padding-top: 0;
+              }
+              .select2-container .select2-choice > .select2-chosen {
+                margin-top: -3px;
+              }
+              #checkout_billing_address_full_name {
+                margin-top: 7px;
+              }
+              .checkout_credit_card_number {
+                margin-bottom: 7px;
+                .input-append .form-control-feedback {
+                  top:-2px;
+                  right:0;
+                }
+              }
+              #s2id_checkout_credit_card_expiration_date_2i {
+                width:63%;
+              }
+              #s2id_checkout_credit_card_expiration_date_1i {
+                width:30%;
+                float:right;
+              }
+              .checkout_credit_card_expiration_date {
+                margin-top:0;
+              }
+              .form-group.error .help-inline {
+                font-size: 12px;
+                line-height: 1.2;
+                display:block;
+                padding-top: 5px;
+                display:none;
+              }
+            }
+          }
+          .select2-container.select2 a.select2-choice .select2-arrow {
+            margin-top: 2px;
+          }
+          .use-shipping-address {
+            margin-bottom:10px;
+            > div {
+              text-align: center;
+              margin:0 auto;
+            }
+            .billing {
+              float:none;
+            }
+          }
+          #validate-coupon {
+            margin-top:0;
+          }
+        }
+      }
+    }
+    .site-logo {
+      display: block;
+      margin: 0 auto;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    >div:before {
+      content: "";
+      display: table
+    }
+    >div:after {
+      content: "";
+      display: table;
+      clear: both
+    }
+    .checkout-step {
+      float: left;
+      height: 100%;
+      width: 33.3333%;
+      &:before {
+        content: ' ';
+      }
+      .click-guard {
+        width: 100%;
+        min-height: 875px;
+        display: block;
+        z-index: 5000;
+      }
+      &:before,
+      .click-guard {
+        top: 0;
+        left: 0;
+        height: 100%;
+        position: absolute;
+        opacity: .8;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+        filter: alpha(opacity=80);
+        background-color: $white;
+      }
+      >div {
+        padding: 3rem;
+        position:relative;
+      }
+      .step-title-container {
+        margin:0 auto 6rem;
+        text-align: center;
+      }
+      select, textarea,
+      input[type="text"],
+      input[type="password"],
+      input[type="datetime"],
+      input[type="datetime-local"],
+      input[type="date"],
+      input[type="month"],
+      input[type="time"],
+      input[type="week"],
+      input[type="number"],
+      input[type="email"],
+      input[type="url"],
+      input[type="search"],
+      input[type="tel"],
+      input[type="color"],
+      .uneditable-input {
+        background-color: $white;
+        border: 1px solid $gray;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        &:focus {
+          border: 1px solid $gray-1;
+        }
+      }
+      input,
+      .select2-container {
+        width:100%;
+        background-color: $white;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        border: 1px solid $gray;
+      }
+      .select2-container {
+        padding-bottom: 4px;
+        border: none;
+      }
+      input[type="submit"] {
+        width:auto;
+        background-color: $orange;
+        color: $white;
+        transition: all 0.25s ease;
+        border:4px solid $orange;
+
+        &:hover {
+          background-color: none;
+          background: none;
+          border:4px solid $orange;
+          color: $orange;
+          transition: all 0.25s ease;
+        }
+        &.disabled,
+        &[disabled] {
+          cursor: default;
+          background-color: $white !important;
+          background-image: none !important;
+          color: $orange !important;
+          opacity: .65 !important;
+          filter: alpha(opacity=65);
+          -webkit-box-shadow: none;
+          -moz-box-shadow: none;
+          box-shadow: none;
+        }
+      }
+      .select2-container.select2 a.select2-choice {
+        background-color:$white;
+        border:1px solid $gray;
+        box-shadow:none;
+        -webkit-box-shadow:none;
+        margin-bottom:-4px;
+        height:44px;
+        padding-top:3px;
+      }
+      .select2-container.select2-container-active a.select2-choice {
+        border: 1px solid $gray-1;
+      }
+      select.valid,
+      input.valid[type="text"],
+      input.valid[type="password"],
+      input.valid[type="datetime"],
+      input.valid[type="datetime-local"],
+      input.valid[type="date"],
+      input.valid[type="month"],
+      input.valid[type="time"],
+      input.valid[type="week"],
+      input.valid[type="number"],
+      input.valid[type="email"],
+      input.valid[type="url"],
+      input.valid[type="search"],
+      input.valid[type="tel"],
+      input.valid[type="color"] {
+        background-image: image-url('valid.png') !important;
+        background-repeat: no-repeat !important;
+        background-position: top right !important;
+        background-size: 40px 40px !important;
+        background-color: $white !important;
+      }
+      input.error {
+        border: 1px solid $red !important;
+        background-image: image-url('invalid.png');
+        background-repeat: no-repeat !important;
+        background-position: top right !important;
+        background-size: 40px 40px !important;
+        &:not(label) {
+          background-image: image-url('invalid.png') !important;
+        }
+      }
+      .form-group.error input,
+      .form-group.error select,
+      .form-group.error textarea,
+      .form-group.error .select2 {
+        border: 1px solid $red !important;
+        background-image: image-url('invalid.png') !important;
+        background-repeat: no-repeat !important;
+        background-position: right !important;
+        background-size: 40px 40px !important;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+      }
+      .form-group.error .checkbox,
+      .form-group.error .radio,
+      .form-group.error input,
+      .form-group.error select,
+      .form-group.error textarea,
+      .form-group.error label,
+      .form-group.error .help-inline,
+      .form-group.error .help-block {
+        color: $red;
+        + .form-control-feedback {
+          display:none;
+        }
+      }
+      .select2-container.select2.error a.select2-choice {
+        border: 1px solid #e45353 !important;
+        &:focus {
+          border: 1px solid $gray !important;
+        }
+      }
+      label abbr {
+        border-bottom: 0 none;
+        color: $orange;
+        cursor: pointer;
+      }
+      .active {
+        &:before {
+          display:none;
+        }
+        .btn-step {
+          opacity: 1;
+          -ms-filter: none;
+          -webkit-filter: none;
+          filter: none;
+        }
+      }
+      .btn-step {
+        opacity:0;
+        -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+        filter:alpha(opacity=0);
+      }
+    }
+    .step-title {
+      margin:0 auto;
+      color: #333;
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 1.1;
+      font-size:20px;
+      font-weight:600;
+        &:before {
+          content: '1';
+          display:inline-block;
+          left: 36%;
+          width: 20px;
+          height:20px;
+          text-indent: 0;
+          background-color: $gray-9;
+          color:$white;
+          font-size:16px;
+          font-weight: 300;
+          border-radius:50%;
+          text-align:center;
+          padding-top:2px;
+          margin-right:5px;
+        } 
+    }
+    .shipping-region {
+      .step-title {
+        &:before {
+          content: '1';
+        }
+      }
+    }
+    .billing-region {
+      .step-title {
+        &:before {
+          content: '2';
+        }
+      }
+    }
+    .review-region {
+      .step-title {
+        &:before {
+          content: '3';
+        }
+      }
+    }
+  }
+  .btn-step:not(.prev) {
+    margin-top: 2rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    &:focus, &:active {
+      background-color:$orange;
+      color:$white;
+      outline:none;
+      border: 4px solid $orange;
+    }
+    &.disabled {
+      cursor: default;
+      background-image: none !important;
+      opacity: .65 !important;
+      filter: alpha(opacity=65);
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+    }
+  }
+  .shipping-region {
+    .btn-step {
+      margin-top: 7.5rem;
+    }
+  }
+  .billing-region {
+    .btn-step {
+      margin-top: 6rem;
+    }
+    .credit-card-form {
+      display: block;
+      position: relative;
+      padding: 80px 15px 30px;
+      margin: 0 0 10px;
+      border: 0;
+      border-radius: 10px;
+      z-index: 2;
+      height: auto;
+      background: #e2e2e2;
+      .form-group {
+        margin-bottom:0;
+      }
+      .checkout_credit_card_number {
+        position:relative;
+        #checkout_credit_card_number {
+          padding-right: 42.5px;
+          &.error,
+          &.valid {
+            + .form-control-feedback {
+              display:none;
+            }
+          }
+        }
+        .input-append {
+          .form-control-feedback {
+            top:5px;
+            right: 5px;
+            color: $gray-10;
+          }          
+        }
+      }
+      .checkout_credit_card_expiration_date {
+        margin-top:20px;
+      }
+      #s2id_checkout_credit_card_expiration_date_2i {
+        width:65.5%;
+      }
+      #s2id_checkout_credit_card_expiration_date_1i {
+        width:29%;
+        float:right;
+      }
+      label[for=checkout_credit_card_expiration_date_2i] {
+        float: left;
+        vertical-align: bottom;
+        margin-top: 13px;
+        margin-right: 10px;
+      }
+      #checkout_billing_address_full_name {
+        margin-top: 20px;
+      }
+      .card-fields {
+        position:relative;
+        z-index: 1;
+        display:inline-block;
+        width:100%;
+      }
+      span.stripe {
+        left: 0;
+        top: 20px;
+        display: block;
+        width: 100%;
+        height: 32px;
+        position: absolute;
+        background: #27282a;
+      }
+      span.shine {
+        top: 0;
+        right: 0;
+        width: 84%;
+        height: 100%;
+        position: absolute;
+        display: block;
+        background: -webkit-linear-gradient(315deg, rgba(255, 255, 255, 0)0%, rgba(255, 255, 255, 0)54%, rgba(255, 255, 255, .1)55%, rgba(255, 255, 255, .1)100%);
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0)0%, rgba(255, 255, 255, 0)54%, rgba(255, 255, 255, .1)55%, rgba(255, 255, 255, .1)100%);
+      }
+    }
+    .use-shipping-address {
+      margin: 15px 0px 35px;
+      #use-shipping-address-label {
+        display: inline-block;
+        color:$gray-10;
+      }
+      .billing {
+        float: left;
+        display: inline-block;
+        input[type=checkbox] {
+          content: image-url('m_checkbox.png');
+          padding-right: 7px;
+          position: absolute;
+          clip: rect(0,0,0,0);
+          clip: rect(0 0 0 0);
+        }
+        input[type="checkbox"] + label::before {
+          content: image-url('m_checkbox.png');
+          padding-right: 7px;
+        }
+        input[type="checkbox"]:checked + label::before {
+          content: image-url('m_checkbox_checked.png');
+          padding-right: 7px;
+        }
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+<% displayable_shipment = display_current_monthly_crate(subscription) %>
+
+<% if displayable_shipment %>
+  <dt><%= t('user_accounts.subscriptions.tracking', shipment: displayable_shipment.month_year) %></dt>
+  <dd class='field'><%= link_to displayable_shipment.tracking_number, displayable_shipment.tracking_url %></dd>
+<% end %>

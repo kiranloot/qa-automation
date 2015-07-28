@@ -1,0 +1,105 @@
+<div class="container" style="overflow:hidden;">
+<div class="row upConfirm">
+  <div class="span8 clearMargin">
+    <div class="span3">
+        <!-- Billing Address -->
+        <h3>Billing Address</h3>
+        <div class="btnEdit">
+          <%= link_to("edit", '#', id: 'edit-billing-address') %>
+        </div>
+        <div class="checkout-left">
+          <div class="div-table">
+            <div class="div-table-row">
+              <div class="div-table-col"><span class="hidden-xs">Address Line 1</span><span class="visible-xs">Address 1</span></div>
+              <div class="div-table-col">
+                <%= subscription.billing_address.line_1 %>
+              </div>
+
+            </div>
+            <% if not subscription.billing_address.line_2.blank? %>
+            <div class="div-table-row">
+              <div class="div-table-col"><span class="hidden-xs">Address Line 2</span><span class="visible-xs">Address 2</span></div>
+              <div class="div-table-col">
+                <%= subscription.billing_address.line_2 %>
+              </div>
+              <div class="div-table-col"></div>
+            </div>
+            <% end %>
+            <div class="div-table-row">
+              <div class="div-table-col">
+                <%= subscription.billing_address.city %>,
+                <%= subscription.billing_address.readable_state %>
+                <%= subscription.billing_address.zip %>
+              </div>
+              <div class="div-table-col"></div>
+            </div>
+            <div class="div-table-row">
+              <div class="div"><b>Payment</b>:
+                <%= current_payment_info.credit_card.masked_card_number %>
+              </div>
+              <div class="div-table-col"></div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="span3 clearMargin">
+        <!-- Shipping Address -->
+        <h3>Shipping Address</h3>
+        <div class="btnEdit">
+          <%= link_to('edit', '#', id: 'edit-shipping-address') %>
+        </div>
+        <div class="checkout-left">
+
+          <div class="div-table">
+            <div class="div-table-row">
+              <div class="div-table-col">
+                <%= subscription.shipping_address.first_name %>
+                <%= subscription.shipping_address.last_name %>
+              </div>
+              <div class="div-table-col"></div>
+            </div>
+            <div class="div-table-row">
+              <div class="div-table-col">
+                <%= subscription.shipping_address.line_1 %>
+              </div>
+            </div>
+            <% if not subscription.shipping_address.line_2.blank? %>
+            <div class="div-table-row">
+              <div class="div-table-col"><span class="hidden-xs">Address Line 2</span><span class="visible-xs">Address 2</span></div>
+              <div class="div-table-col">
+                <%= subscription.shipping_address.line_2 %>
+              </div>
+              <div class="div-table-col"></div>
+            </div>
+            <% end %>
+            <div class="div-table-row">
+              <div class="div-table-col">
+                <%= subscription.shipping_address.city %>,
+                <%= subscription.shipping_address.readable_state %>
+                <%= subscription.shipping_address.zip %>
+              </div>
+              <div class="div-table-col"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+</div>
+<script>
+  // Render billing address edit form in modal content.
+  $('#edit-billing-address').click(function() {
+    $('#confirm-addresses').html("<%= j render partial: 'shared/billing_address_form_for_modal', locals: { billing_address: subscription.billing_address, subscription: subscription } %>")
+
+    // Hide reactivate link.
+    $('.modal-footer').hide();
+  });
+
+  // Render shipping address edit form in modal content.
+  $('#edit-shipping-address').click(function() {
+    $('#confirm-addresses').html("<%= j render partial: 'shared/shipping_address_form_for_modal', locals: { shipping_address: subscription.shipping_address, subscription: subscription } %>");
+
+    // Hide reactivate link.
+    $('.modal-footer').hide();
+  });
+</script>

@@ -1,0 +1,96 @@
+---
+signup:
+  valid_email: lctest#1052@mailinator.com
+  valid_pw: password
+  invalid_email: bad_email@fake.com
+  invalid_pw: short
+locators:
+  email_modal: 
+  modal: "#signin_modal > div > div > div.modal-header"
+  modal_pw: "//*[@id='password-credentials']"
+  modal_email: "//*[@id='register_step_one']"
+  modal_join: "#signin_modal > div > div > div.modal-footer > p > a"
+  modal_register: "//*[@id='register_step_two']/input"
+  flip_member: "//*[@id='new-customer']/div[5]/div[1]"
+  flip_join: "//*[@id='existing-customer-container']/div[3]/div/span"
+  shirt_dd: "#s2id_checkout_shirt_size"
+  shirt_size: input#s2id_autogen1_search
+  shirt_size_express: input#s2id_autogen3_search
+  first_name: checkout_shipping_address_first_name
+  last_name: checkout_shipping_address_last_name
+  ship_street: checkout_shipping_address_line_1
+  ship_street_2: checkout_shipping_address_line_2
+  ship_city: checkout_shipping_address_city
+  ship_state: "#s2id_autogen3_search"
+  ship_state_express: "#s2id_autogen1_search"
+  state_dd: "#select2-chosen-3"
+  state_dd_express: "#select2-chosen-1"
+  ship_zip: checkout_shipping_address_zip
+  name_on_card: checkout_billing_address_full_name
+  cc: checkout_credit_card_number
+  cvv: checkout_credit_card_cvv
+  billing_cb: billing
+  bill_street: checkout_billing_address_line_1
+  bill_city: checkout_billing_address_line_2
+  bill_state: s2id_autogen7_search
+  bill_state_dd: "#select2-chosen-7"
+  bill_zip: checkout_billing_address_zip
+  coupon_code: checkout_coupon_code
+  checkout_btn: checkout
+  upgrade_select: upgrade_plan_name
+  top_nav: "#navbar"
+  footer: "#footer > div.footer-bottom"
+  caret: "//*[@id='subscriptions-index']/div[6]/div[1]/div[1]/div/div/ul/li[6]/a/b"
+user:
+  email_sequence: 1
+emails:
+  registered_no_prior: regnoprior1626@mailinator.com
+  registered_with_active: activesub2131@mailinator.com
+plan_cost:
+  1: 19.95
+  3: 57.75
+  6: 113.7
+  12: 215.4
+ca_plan_cost:
+  1: 21.75
+  3: 62.95
+  6: 123.93
+  12: 234.79
+international_plan_cost:
+  1: 29.95
+  3: 84.0
+  6: 162.0
+  12: 312.0
+level_up_plan_cost:
+  socks:
+    one: 9.99
+    three: 28.47
+    six: 53.94
+  accessory:
+    one: 14.99
+    three: 43.47
+    six: 83.94
+us_plans:
+  1: 1-month-subscription
+  3: 3-month-subscription
+  6: 6-month-subscription
+  12: 12-month-subscription
+us_display_plans:
+  1: 1 Month Subscription
+  3: 3 Month Subscription
+  6: 6 Month Subscription
+  12: 1 Year Subscription
+international_plans:
+  ca:
+    1: ca-1-month-subscription
+    3: ca-3-month-subscription
+    6: ca-6-month-subscription
+    12: ca-12-month-subscription
+countries:
+  denmark: dk
+  germany: de
+  france: fn
+  finland: fi
+  austrailia: au
+promos:
+  multi_use: nousea

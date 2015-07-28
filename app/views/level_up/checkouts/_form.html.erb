@@ -1,0 +1,188 @@
+<div class='container'>
+  <div class='row'>
+    <div clas='col-md-12'>
+      <div class='white-bg checkout-bg'>
+        <%= simple_form_for(@checkout, url: level_up_checkouts_path(plan: params[:plan]), html: { class: 'card_form form-vertical form-validate', role: 'form' }, data: {token: ENV['RECURLY_PUBLIC_TOKEN']}) do |f| %>
+          <%= hidden_field_tag :plan, params[:plan] %>
+          <%= hidden_field_tag :secure_timestamp, params[:secure_timestamp] || Time.now.to_i %>
+          <%= hidden_field_tag :secure_nonce, params[:secure_nonce] || User.reset_password_token %>
+
+          <!-- variant -->
+          <%= hidden_field_tag 'variant_name', params[:variant_name] %>
+          <%= hidden_field_tag 'variant_id', params[:variant_id] %>
+
+          <section>
+            <div class='row'>
+              <div class='col-md-12 center'>
+                <div class='sub-details'>
+                  <h3><%= t('checkouts.subscription_details').upcase %></h3>
+                </div>
+              </div>
+            </div>
+
+            <div class='row'>
+              <div class='col-md-12 center checkout subTop checkout-left'>
+                <div class="col-md-6 col-ms-6 col-xs-6 coSumImage">
+                  <%= image_tag("levelup/checkouts/#{@checkout.plan.product.sku}.jpg", class: 'img-responsive') %>
+                </div>
+
+                <div id='cosummaryright' class='col-md-6 col-ms-6 col-xs-6 coSumBox'>
+                  <%= render 'summary' %>
+                </div>
+
+              </div>
+            </div>
+          </section>
+
+          <% shipping_country = @checkout.shipping_address_country %>
+
+          <section>
+            <div class='row'>
+              <div class='subForm col-md-12 center'>
+
+                <div class='col-md-12'>
+                  <div class='ribbon-container'>
+                    <div class='ribbon-left'></div>
+                    <div class='ribbon-base'><h3><%= t('checkouts.shipping_information.title').upcase %></h3></div>
+                  </div>
+                </div>
+
+                <div class='col-md-12 checkout-left'>
+                  <div class='row'>
+                    <div class='col-md-12'>
+                      <%= f.input :shipping_address_first_name,  :required => true, :label => t('checkouts.shipping_information.first_name') %>
+                    </div>
+                    <div class='col-md-12'>
+                      <%= f.input :shipping_address_last_name,  :required => true, :label => t('checkouts.shipping_information.last_name') %>
+                    </div>
+                  </div>
+
+                  <div class='row'>
+                    <div class='col-md-12'>
+                      <%= f.input :shipping_address_line_1, :required => true, :label => t('checkouts.shipping_information.shipping_address_1'), :placeholder => t('checkouts.shipping_information.street_address_1_placeholder') %>
+                    </div>
+                    <div class='col-md-12 clearPadding'>
+                      <%= f.input :shipping_address_line_2, :required => false, :label => t('checkouts.shipping_information.shipping_address_2'), :placeholder => t('checkouts.shipping_information.street_address_2_placeholder') %>
+                    </div>
+                  </div>
+
+                  <div class='row'>
+                    <div class='col-md-12'>
+                      <%= f.input :shipping_address_country, :input_html => { :class => 'select select2'}, collection: country_options(shipping_country), prompt: t(:please_select).upcase, label: t('checkouts.shipping_information.country_link').html_safe, selected: shipping_country %>
+                    </div>
+                  </div>
+
+                  <div class='row'>
+                    <div class='col-md-6 city'>
+                      <%= f.input :shipping_address_city, :required => true, :label => t('checkouts.shipping_information.shipping_city') %>
+                    </div>
+                    <div class='col-md-3 state'>
+                      <% if params[:checkout].present? %>
+                        <% c = params[:checkout][:shipping_address_country] %>
+                      <% else %>
+                        <% c = nil %>
+                      <% end %>
+                      <%= f.input :shipping_address_state, :collection => state_options(shipping_country), :selected => @shipping_info[:shipping_address_state], :prompt => t(:please_select).upcase, :label => "#{region_type(c || shipping_country)}", :input_html => { :class => 'select select2' }  %>
+                    </div>
+                    <div class='col-md-3'>
+                      <%= f.input :shipping_address_zip,  :required => true, :label => t('checkouts.shipping_information.postal_code', postal_code: postal_code_type(shipping_country)) %>
+                    </div>
+                  </div>
+                </div>
+
+                <div class='col-md-12'>
+                  <div class='ribbon-container'>
+                    <div class='ribbon-left'></div>
+                    <div class='ribbon-base'><h3><%= t('checkouts.billing_information.title') %></h3></div>
+                  </div>
+                </div>
+
+                <div class='col-md-12 checkout-left'>
+                  <div class='row'>
+                    <div class='col-md-12'>
+                      <%= f.input :billing_address_full_name, :label => t('checkouts.billing_information.name_on_card') %>
+                    </div>
+                  </div>
+
+                  <div class='row'>
+                    <div class='col-md-6'>
+                      <%= f.input :credit_card_number, :label => t('checkouts.billing_information.credit_card_number'), :required => true, :input_html => {:autocomplete => 'off'} %>
+                    </div>
+                    <div class='col-md-6' id='credit-card-expiration-date'>
+                      <%= f.input :credit_card_expiration_date, as: :date, start_year: Date.today.year, end_year: Date.today.year + 10, discard_day: true, order: [:month, :year], label: t('checkouts.billing_information.card_expiration'), required: true , :input_html => { :class => 'select select2' }, month_format_string: '%<number>02d - %{name}' %>
+                    </div>
+                  </div>
+
+                  <div class='row'>
+                    <div class='col-md-5'>
+                      <%= f.input :credit_card_cvv,  label: t('checkouts.billing_information.card_security_code').html_safe, :required => true, :input_html => {:autocomplete => 'off'} %>
+                        <div id='cvv-popover-content'>
+                          <%= t('checkouts.billing_information.cvv_popover') %>
+                        </div>
+                    </div>
+                  </div>
+
+                  <div class='row'>
+                    <div class='col-md-5 use-shipping-address'>
+                      <label id='use-shipping-address-label' for='billing'><%= t('checkouts.billing_information.use_shipping_address') %></label>
+                      <div class='billing'>
+                        <input type='checkbox' value='None' id='billing' name='billingtoo' checked='true' />
+                        <label for='billing'></label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <% if params[:checkout].present? %>
+                    <% c = params[:checkout][:billing_address_country] %>
+                  <% else %>
+                    <% c = nil %>
+                  <% end %>
+
+                  <div class='billToggle'>
+                    <div class='row'>
+                      <div class='col-md-12'>
+                        <%= f.input :billing_address_line_1, :label => t('checkouts.billing_information.billing_address_1') %>
+                      </div>
+                      <div class='col-md-12'>
+                        <%= f.input :billing_address_line_2, :label => t('checkouts.billing_information.billing_address_2') %>
+                      </div>
+                    </div>
+
+                    <div class='row'>
+                      <div class='col-md-12'>
+                        <%= f.input :billing_address_country, collection: country_options, :input_html => { :class => 'select select2'}, prompt: t(:please_select).upcase, label: t('checkouts.billing_information.billing_country'), selected: c || shipping_country %>
+                      </div>
+                    </div>
+
+                    <div class='row'>
+                      <div class='col-md-6 city'>
+                      <%= f.input :billing_address_city, :label => t('checkouts.billing_information.billing_city') %>
+                      </div>
+                      <div class='col-md-3 state'>
+                        <%= f.input :billing_address_state, :collection => state_options(c), :input_html => { :class => 'select select2'}, :prompt => t(:please_select).upcase, :label => t('checkouts.billing_information.billing_state', state: region_type(c || shipping_country)) %>
+                      </div>
+                      <div class='col-md-3'>
+                        <%= f.input :billing_address_zip, :label => t('checkouts.billing_information.billing_postal_code', postal_code: postal_code_type(c || shipping_country)) %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class='row'>
+              <div class='col-md-12 checkout-right'>
+                <div class='controls'>
+                  <p class='align-center'><%= t('checkouts.todays_total') %>: <span id="todays-total-subscribe" class="cototalprice"><%= number_to_currency(@checkout.total, locale: :en) %></span></p>
+                  <%= f.button :submit, t(:subscribe), id: 'checkout', :class => 'btn btn-secondary pull-right' %>
+                </div>
+              </div>
+            </div>
+
+          </section>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

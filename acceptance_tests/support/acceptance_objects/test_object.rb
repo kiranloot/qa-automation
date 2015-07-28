@@ -1,0 +1,298 @@
+class Test
+ require_relative 'user_object'
+ require_relative 'homepage_object'
+ require_relative 'signup_page_object'
+ require_relative 'wait_module'
+ require_relative 'heroku_object'
+ require 'yaml'
+ require 'pry'
+ attr_accessor :user, :pages, :current_page, :test_data
+ include Capybara::DSL
+ include RSpec::Matchers
+ include WaitForAjax
+
+ def initialize(test_data, start_page, pages)
+  @user = nil
+  @current_page = start_page
+  @test_data = test_data 
+  @pages = pages
+ end
+
+ def update_test_data(value)
+   should_write = true
+  if value == "valid_email"
+    data = increment_digits(@test_data["signup"][value])
+    @test_data["signup"][value] = data
+  elsif value == "email_sequence"
+    data = @test_data["user"][value]
+  elsif value == "registered_no_prior"
+    data = increment_digits(@test_data["emails"]["registered_no_prior"])
+    @test_data["emails"]["registered_no_prior"] = data
+  elsif  value == "registered_with_active"
+    data = increment_digits(@test_data["emails"]["registered_with_active"])
+    @test_data["emails"]["registered_with_active"] = data
+  else
+    should_write = false
+  end
+
+  if should_write 
+    File.open($env_test_data_file_path, 'w') {|f| f.write @test_data.to_yaml}
+  else
+    puts "Test data not updated: unrecognized data identifier."
+  end
+ end
+ 
+ def increment_digits(input_string)
+   working = input_string
+   values = working.split(/(\d+)/)
+   numbers = values[1].to_i
+   numbers += 1 
+   working = values[0] + numbers.to_s + values[2]
+   return working
+ end
+
+ def modal_signup
+   wait_for_ajax
+   @current_page.modal_signup(@user.email, @user.password, @test_data)
+   update_test_data("valid_email")
+ end
+#Move to parent page object
+ def is_logged_in?
+   assert_text("My Account")
+ end
+
+ def link_not_visible(link)
+   expect(page).to have_no_content(link)
+ end
+
+ def visit_page(page)
+   @current_page = @pages[page].new
+   @current_page.visit_page
+ end
+
+ def log_in_or_register
+   if (find(:css,"li.login_bar a").text == "My Account")
+     log_out
+   end
+   @current_page = SignupPage.new
+   @current_page.visit_page
+   for i in 0..2
+    if page.has_content?("LOGIN")
+       page.find(:xpath, @test_data["locators"]["flip_member"]).click
+       page.find(:xpath,"//*[@id='login_or_registration']")
+       break
+    end
+   end
+   enter_login_info
+   if !page.has_content?("SUBSCRIPTION DETAILS")
+     enter_email
+     enter_password
+     submit_signup
+   end
+ end
+#Move to parent page object
+ def log_out
+   click_link("My Account")
+   click_link("Log Out")
+   wait_for_ajax
+ end
+#Remove middle man
+ def get_valid_signup_information
+  @user.password = @test_data["signup"]["valid_pw"]
+  @user.email = @test_data["signup"]["valid_email"]
+  update_test_data("valid_email")
+ end
+
+ def is_at(page)
+   if @current_page.instance_of?(@pages[page])
+     return true
+   else
+     @current_page = @pages[page].new
+     if current_url == @current_page.base_url
+       return true
+     else
+       return false
+     end
+   end
+ end
+#Remove middle man
+ def get_invalid_signup_information
+   @user.password = @test_data["signup"]["invalid_pw"]
+   @user.email = @test_data["signup"]["invalid_email"]
+ end
+
+ def enter_email
+  @current_page.pop_email(@user.email)
+ end
+
+ def get_registered_email(has_prior)
+   if !has_prior
+     email =  @test_data["emails"]["registered_no_prior"]
+     update_test_data("registered_no_prior")
+   else 
+     email = @test_data["emails"]["registered_with_active"]
+     update_test_data("registered_with_active")
+   end
+   return email
+ end
+
+ def enter_password
+  @current_page.pop_password(@user.password)
+ end
+
+ def configure_user(type, with_string = nil)
+     if with_string != nil
+      @user = get_user_with(type, with_string)
+     else
+       @user = get_user_type(type)
+     end
+     @user.set_full_name
+ end
+ 
+ def get_user_type(type)
+   if type == "registered"
+     @user = FactoryGirl.build(:user, :registered)
+   elsif type == "unregistered"
+     @user = FactoryGirl.build(:user)
+   elsif type == "admin"
+     @user = FactoryGirl.build(:user, :admin)
+   else
+   end
+ end
+
+ def get_user_with(type, with_args)
+   setup_type = parse_with_args(with_args)
+   if type == "registered"
+     @user = FactoryGirl.build(:user, setup_type)
+   elsif type == "international"
+     setup
+   elsif type == "admin"
+     if setup_type == :subject_user
+       give_user_to_admin
+     else
+     end
+   else
+   end
+ end
+
+ def affiliate_working?
+   visit_page(:home)
+   @current_page.visit_with_affiliate(@user.affiliate.name)
+   expect(current_url).to eq("https:" + @user.affiliate.redirect_url)
+ end
+
+ def affiliate_created?
+   page.has_content?("Affiliate Details")
+   assert_text("Affiliate was successfully created.")
+   assert_text(@user.affiliate.name)
+   assert_text(@user.affiliate.redirect_url)
+ end
+
+ def enter_login_info
+   @current_page.enter_login_info(@user.email, @user.password)
+ end
+
+ def parse_with_args(arg_string)
+   args = arg_string.downcase
+   if args == "no prior subscription"
+     return :registered_no_prior
+   elsif args == "an active subscription"
+     return :registered_with_active
+   elsif /an? (.*?) address/.match(args)
+     a = /an? (.*?) address/.match(args)
+     address_type = a[1]
+     return get_address_trait(address_type)
+   elsif /an? (.*?) month subscription/.match(args)
+     m = /an? (.*?) month subscription/.match(args)
+     months = m[1]
+     return (months + "_month").to_sym
+   elsif args == 'a multi use promo code'
+     return :multi_use_promo
+   elsif args == "access to their info"
+     return :subject_user
+   elsif args == "a canceled subscription"
+     return :canceled
+   else
+     puts ("Unknown with args submitted to user configuration")
+   end
+ end
+
+ def get_address_trait(type)
+   type_hash = {"denmark" => :denmark, "uk" => :uk, "germany" => :germany,
+                "finland" => :finland, "france" => :france, "norway" => :norway,
+                "newzealand" => :new_zealand, "ireland" => :ireland,
+                "austrailia" => :austrailia, "netherlands" => :netherlands,
+                "sweden" => :sweden, "ie" => :ireland, "de" => :germany,
+                "dk" => :denmark, "nl" => :netherlands, "fr" => :france, 
+                "no" => :norway, "fi" => :finland, "nz" => :new_zealand,
+                "au" => :austrailia, "se" => "sweden", "gb" => :uk, 
+                "california" => :california}
+   if type != "random"
+     return type_hash[type]
+   else
+     possibilities = type_hash.values
+     return possibilities[rand(possibilities.size)]
+   end
+
+ end
+
+ def submit_signup
+   @current_page.submit_signup
+ end
+
+  def submit_information(adjective, type)
+    if type == 'signup' || type == 'registration'
+      if adjective == 'valid'
+        get_valid_signup_information
+      else
+        get_invalid_signup_information
+      end
+      enter_email
+      enter_password
+      submit_signup
+    elsif adjective == 'valid' && type =='subscription'
+      @user.submit_subscription_info
+    elsif adjective == 'invalid'
+      if type == "credit card"
+        @user.set_data_status(type, adjective)
+        @user.submit_subscription_info
+      end
+    elsif adjective == 'valid' && type == 'levelup'
+      @user.submit_levelup_subscription_info
+    elsif adjective == 'valid' && type == 'express_checkout'
+      @user.submit_express_checkout_info
+    end
+  end
+
+  def verify_email(type)
+    type.downcase!
+    type.strip!
+    @current_page = Mailinator.new
+    @current_page.visit_page
+    #the verify email function probably belongs in the mailinator object
+    @user.verify_email(type, current_page)
+  end
+
+  def give_user_to_admin
+    admin_user = FactoryGirl.build(:user, :admin)
+    admin_user.subject_user = @user
+    @user = admin_user
+  end
+
+  def set_subject_user
+    if @user.subject_user
+      @user = @user.subject_user
+    end
+  end
+
+  def setup_user_with_active_sub_rake
+    api = HerokuAPI.new
+    @user.email = api.create_user_with_active_sub
+    @user.target_plan('one')
+  end
+
+  def setup_user_with_canceled_sub_rake
+    api = HerokuAPI.new
+    @user.email = api.create_user_with_canceled_sub
+  end
+end

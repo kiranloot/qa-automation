@@ -1,0 +1,100 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://DFLe4nAkwg13WPSwqmWP:X@lootcratetest-braintree.chargify.com/subscriptions.xml
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <subscription>
+          <coupon_code nil="true"/>
+          <credit_card_attributes>
+            <billing_address>3401 Pasadena Ave</billing_address>
+            <billing_address_2></billing_address_2>
+            <billing_city>Los Angeles</billing_city>
+            <billing_country>US</billing_country>
+            <billing_state>CA</billing_state>
+            <billing_zip>90012</billing_zip>
+            <cvv>123</cvv>
+            <expiration_month type="integer">2</expiration_month>
+            <expiration_year type="integer">2014</expiration_year>
+            <first_name>Jeffrey</first_name>
+            <full_number>1</full_number>
+            <last_name>Leung</last_name>
+          </credit_card_attributes>
+          <customer_attributes>
+            <address>3401 Pasadena Ave</address>
+            <address_2></address_2>
+            <city>Los Angeles</city>
+            <country>US</country>
+            <email>nyasia@johns.org</email>
+            <first_name>Jeffrey</first_name>
+            <last_name>Leung</last_name>
+            <state>CA</state>
+            <zip>90012</zip>
+          </customer_attributes>
+          <next_billing_at nil="true"/>
+          <product_handle>1-month-subscription</product_handle>
+        </subscription>
+    headers:
+      Content-Type:
+      - application/xml
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 422
+      message: status code 422
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/xml; charset=utf-8
+      Date:
+      - Sun, 01 Feb 2015 01:39:53 GMT
+      P3p:
+      - CP="NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM"
+      Server:
+      - nginx + Phusion Passenger
+      Set-Cookie:
+      - _chargify_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFVEkiJWMxMjgwYmJiMDE4ZTYyODM4NzVjN2VlZTBiNDE5OGRhBjsAVEkiF3NlbGxlcl9jcmVkZW50aWFscwY7AEZJIgGAODE5NDNlYmNlNWQ0NDYyZjIyODgyYjZjZjYwOWFkMjQ1ZmI2MTNkZWNhZDkyNjBjNzAzNTAwMDU0NTJjODU5ODE0NzFjZTBlMDg0NjNhNzUxMGJjMjFkYjQ4NjI2N2E1OGQ4ZTUyNzVmOTY5YmMwMWQxMDhiZWZhMzg4ODc3NTcGOwBGSSIac2VsbGVyX2NyZWRlbnRpYWxzX2lkBjsARmkCADI%3D--fcc626df8cf611542bd8f505c90ff88940fb439f;
+        domain=.chargify.com; path=/; secure; HttpOnly
+      Status:
+      - 422 Unprocessable Entity
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Powered-By:
+      - Phusion Passenger
+      X-Rack-Cache:
+      - invalidate, pass
+      X-Ratelimit-Limit:
+      - '1000000'
+      X-Ratelimit-Remaining:
+      - '999983'
+      X-Ratelimit-Reset:
+      - '1422835200'
+      X-Request-Id:
+      - cd8219ee-1300-4530-b925-323d6a6e2405
+      X-Runtime:
+      - '0.081561'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Content-Length:
+      - '107'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <errors>
+          <error>Credit card: cannot be expired.</error>
+        </errors>
+    http_version: 
+  recorded_at: Sun, 01 Feb 2015 01:39:52 GMT
+recorded_with: VCR 2.9.3

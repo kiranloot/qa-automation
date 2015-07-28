@@ -1,0 +1,13 @@
+<% content_for :meta_tags do %>
+<meta name="sailthru.tags" content="subscription box, <%= @checkout.plan.display_name %>" />
+<meta name="sailthru.date" content="<%= Date.today.to_s %>" />
+<meta name="sailthru.description" content="<%= @checkout.plan.display_name %>" />
+<meta name="sailthru.image.full" content="<%= image_url_for_meta(@checkout.plan) %>"/>
+<meta name="sailthru.title" content="Checkout - <%= @checkout.plan.display_name %>" />
+<% end %>
+<%= render partial: 'shared/convertro_user_tag' %>
+<%= render 'form', checkout: @checkout, plan: @plan, coupon: @coupon,
+  coupon_in_dollars: @coupon_in_dollars, state: @state, tax: @tax,
+  today_total: @today_total, total: @total %>
+
+<%# TODO @nanigans_pixel.html_safe %>

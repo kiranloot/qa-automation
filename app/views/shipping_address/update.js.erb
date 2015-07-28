@@ -1,0 +1,5 @@
+<% if @error_messages.any? %>
+  LootCrate.Flash "<%= @error_messages.to_sentence %>", 'error'
+<% else %>
+  $("#collapseFour<%= @subscription.id %> .panel-body .pmbb-view").html("<%= j render 'user_accounts/shipping_address', shipping_address: @shipping_address %>");
+<% end %>

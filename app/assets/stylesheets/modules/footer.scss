@@ -1,0 +1,309 @@
+/*
+ * footer css
+ */
+
+#footer {
+
+  .container {
+    color: $gray-footer-content;
+  }
+
+  h4 {
+    line-height: 1em;
+    color: white;
+    margin: 0;
+  }
+
+  .footer-top {
+    background-color: $gray-footer;
+    line-height: 50px;
+    padding: 23px 30px;
+
+    h4 {
+      display: inline-block;
+      line-height: inherit;
+    }
+
+    form {
+      display: inline-block;
+      margin: 0;
+
+      input[type="email"] {
+        background-color: #323234;
+        border: 0;
+        width: 330px;
+        height: 50px;
+        line-height: 50px;
+        float: left;
+        color: $gray-2;
+        margin-left: 55px;
+
+        &::-webkit-input-placeholder {
+           color: $gray-2 !important;
+        }
+
+        &:-moz-placeholder { /* Firefox 18- */
+           color: $gray-2 !important;
+        }
+
+        &::-moz-placeholder {  /* Firefox 19+ */
+           color: $gray-2 !important;
+        }
+
+        &:-ms-input-placeholder {
+           color: $gray-2 !important;
+        }
+      }
+
+      button {
+        height: 50px;
+        float: left;
+      }
+    }
+  }
+
+  .footer-mid {
+    padding: 50px 30px;
+    background-color: #323234;
+
+    .container {
+
+      & > .pull-left,
+      & > .pull-right {
+        width: 50%;
+        @include border-box;
+
+        h4 {
+          margin-bottom: 20px;
+        }
+
+        p,
+        ul {
+          margin: 0;
+          padding: 0;
+          line-height: 1.8em;
+        }
+      }
+
+      & > .pull-left {
+
+        p {
+          max-width: 385px;
+          padding-right: 50px;
+          padding-bottom: 10px;
+        }
+      }
+
+      & > .pull-right {
+
+        .col {
+          float: left;
+          width: 33.3333333%;
+        }
+
+        ul li {
+          line-height: inherit;
+          white-space: nowrap;
+          list-style: none;
+
+          a {
+            color: inherit;
+          }
+        }
+      }
+    }
+
+    .footer-menu {
+      li {
+        padding: 10px;
+        list-style: none;
+        padding-left: 0;
+
+        img {
+          width: 150px;
+          height: auto;
+        }
+      }
+
+      h4, p {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .footer-bottom {
+    @include self-clear;
+    background-color: #242424;
+    padding: 20px 30px;
+
+    p {
+      line-height: 45px;
+      margin: 0;
+      padding: 0;
+    }
+
+    form {
+      margin: 0;
+    }
+
+    label {
+      margin: 0 5px 0 0;
+      line-height: 45px;
+    }
+
+    select {
+      margin: 0;
+    }
+
+    .country-selector {
+      width: 100%;
+      max-width: 150px;
+      line-height: 45px;
+      @media (max-width: 599px){
+        width:60px;
+        line-height:26px;
+      }
+      &.open, &:hover {
+        a.current-country {
+          .dropdownspan, .caret {
+            color: $white;
+          }
+        }
+      }
+
+      a.current-country {
+        &:hover {
+          color: $white;
+          .caret {
+            color: $white;
+          }
+        }
+        .dropdownspan,
+        .caret {
+          color: $gray-10;
+          &:hover {
+            color: $white;
+          }
+        }
+        img {
+          width: 35px;
+          height: 23px;
+        }
+      }
+
+      .dropdown-menu {
+        @media (max-width: 599px){
+          width:120px;
+          left: -40px;
+        }
+        a.flag-icon {
+          width: 60px;
+          height: 50px;
+
+          img {
+            width: 30px;
+            height: 19px;
+            border-radius: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width: 979px) {
+
+  #footer {
+
+    .container {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+
+  #footer .footer-top form input[type="email"] {
+    width: 200px;
+  }
+}
+
+@media (max-width: 767px) {
+
+  #footer {
+
+    .footer-mid .container .pull-left {
+      display: none;
+    }
+
+    .footer-mid .container .pull-right {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 720px) {
+
+  #footer {
+
+    .footer-top h4 {
+      line-height: 1em;
+      margin-bottom: 20px;
+    }
+
+    .footer-top form {
+      width: 100%;
+
+      input[type="email"] {
+        width: 70%;
+        margin-left: 0;
+      }
+
+      button {
+        width: 30%;
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+
+    .footer-mid {
+      padding: 30px;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+
+  #footer {
+
+    .footer-top h4 {
+      font-size: 17px;
+    }
+
+    .footer-mid .container > .pull-right .col {
+      width: 50%;
+
+      &.col-mid {
+        display: none;
+      }
+    }
+
+    .footer-bottom label {
+      display: none;
+    }
+  }
+}
+
+.arrowAlert {
+  position: relative;
+
+  .fa-arrow-right {
+    color: transparent;
+    position: absolute;
+    left: -20px;
+    top: 15px;
+  }
+}

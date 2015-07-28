@@ -1,0 +1,180 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://DFLe4nAkwg13WPSwqmWP:X@lootcratetest-braintree.chargify.com/subscriptions/7148185.xml
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/xml
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - must-revalidate, private, max-age=0
+      Content-Type:
+      - application/xml; charset=utf-8
+      Date:
+      - Tue, 09 Dec 2014 19:48:29 GMT
+      Etag:
+      - '"6633a14e6bb5ece32fb0023d7c67d45d"'
+      P3p:
+      - CP="NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM"
+      Server:
+      - nginx + Phusion Passenger
+      Set-Cookie:
+      - _chargify_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFVEkiJWQyNjhhYjc1MTZjZDMyYmU0MzU3ODFjZTcxMWI3NzVlBjsAVEkiF3NlbGxlcl9jcmVkZW50aWFscwY7AEZJIgGAMzI0YTA3Mzk0ZDQxM2RiYmRhMzdhNDA0NTQwZGQ1NTFkZDI5YmMyYTc1NDEzYzEyODhmYzE4MjY0NDhhMGY0Y2IwMDVmMWViMGVlNzBhMzgxMTgyZGUwNzI4YjY2YzA0YzFkYzkzYmRhOWZhZjBlMGMxMjA4OWQwMTY2Y2RmYzcGOwBGSSIac2VsbGVyX2NyZWRlbnRpYWxzX2lkBjsARmkCADI%3D--372c36dc83c8d71aab59f7084ab87dda390eaadf;
+        domain=.chargify.com; path=/; secure; HttpOnly
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Powered-By:
+      - Phusion Passenger
+      X-Rack-Cache:
+      - miss
+      X-Ratelimit-Limit:
+      - '1000000'
+      X-Ratelimit-Remaining:
+      - '999665'
+      X-Ratelimit-Reset:
+      - '1418169600'
+      X-Request-Id:
+      - 4a57f4c0-a343-41bd-bb9c-d1aef9ed4586
+      X-Runtime:
+      - '0.184831'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      X-Xss-Protection:
+      - 1; mode=block
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <subscription>
+          <activated_at type="datetime">2014-12-03T21:28:20-05:00</activated_at>
+          <balance_in_cents type="integer">0</balance_in_cents>
+          <cancel_at_end_of_period type="boolean" nil="true"/>
+          <canceled_at type="datetime" nil="true"/>
+          <cancellation_message nil="true"/>
+          <created_at type="datetime">2014-12-03T21:28:19-05:00</created_at>
+          <current_period_ends_at type="datetime">2015-01-03T21:28:19-05:00</current_period_ends_at>
+          <expires_at type="datetime" nil="true"/>
+          <id type="integer">7148185</id>
+          <next_assessment_at type="datetime">2015-01-03T21:28:19-05:00</next_assessment_at>
+          <payment_collection_method>automatic</payment_collection_method>
+          <snap_day nil="true"/>
+          <state>active</state>
+          <trial_ended_at type="datetime" nil="true"/>
+          <trial_started_at type="datetime" nil="true"/>
+          <updated_at type="datetime">2014-12-03T21:28:26-05:00</updated_at>
+          <current_period_started_at type="datetime">2014-12-03T21:28:19-05:00</current_period_started_at>
+          <previous_state>active</previous_state>
+          <signup_payment_id type="integer">77034259</signup_payment_id>
+          <signup_revenue>21.11</signup_revenue>
+          <delayed_cancel_at nil="true"/>
+          <coupon_code nil="true"/>
+          <total_revenue_in_cents type="integer">2111</total_revenue_in_cents>
+          <product_price_in_cents type="integer">1937</product_price_in_cents>
+          <product_version_number type="integer">1</product_version_number>
+          <payment_type>credit_card</payment_type>
+          <current_billing_amount_in_cents type="integer">2111</current_billing_amount_in_cents>
+          <customer>
+            <address>666 Stix Rvr</address>
+            <address_2 nil="true"/>
+            <city>Hell</city>
+            <country>US</country>
+            <created_at type="datetime">2014-12-03T21:28:19-05:00</created_at>
+            <email>email67@purp.com</email>
+            <first_name>El</first_name>
+            <id type="integer">7010769</id>
+            <last_name>Diablo</last_name>
+            <organization nil="true"/>
+            <phone nil="true"/>
+            <portal_customer_created_at type="datetime" nil="true"/>
+            <portal_invite_last_accepted_at type="datetime" nil="true"/>
+            <portal_invite_last_sent_at type="datetime" nil="true"/>
+            <reference nil="true"/>
+            <state>CA</state>
+            <updated_at type="datetime">2014-12-03T21:28:19-05:00</updated_at>
+            <verified type="boolean">false</verified>
+            <zip>90025</zip>
+          </customer>
+          <product>
+            <accounting_code>1month</accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-09-15T08:33:51-04:00</created_at>
+            <description>One Month Recurring Subscription to Loot Crate! (US Only)</description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>1-month-subscription</handle>
+            <id type="integer">3552899</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">1</interval>
+            <interval_unit>month</interval_unit>
+            <name>One Month Subscription</name>
+            <price_in_cents type="integer">1937</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params>id={customer_id}&amp;ref={customer_reference}&amp;sid={subscription_id}&amp;attributes={customer_attributes}</return_params>
+            <return_url>http://polar-waters-8702.herokuapp.com/payment_completed/index?pid=1</return_url>
+            <taxable type="boolean">true</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url>http://polar-waters-8702.herokuapp.com/payment_completed/index?</update_return_url>
+            <updated_at type="datetime">2014-09-15T08:33:51-04:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Monthly Subscription Design</description>
+              <handle>1993521</handle>
+              <id type="integer">442941</id>
+              <name>Loot Crate's Monthly Box</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">107657</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/f51026fbae84/1-month-subscription</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <credit_card>
+            <billing_address>666 Stix Rvr</billing_address>
+            <billing_address_2 nil="true"/>
+            <billing_city>Hell</billing_city>
+            <billing_country>US</billing_country>
+            <billing_state>CA</billing_state>
+            <billing_zip>90025</billing_zip>
+            <card_type>bogus</card_type>
+            <current_vault>bogus</current_vault>
+            <customer_id type="integer">7010769</customer_id>
+            <customer_vault_token nil="true"/>
+            <expiration_month type="integer">6</expiration_month>
+            <expiration_year type="integer">2023</expiration_year>
+            <first_name>El</first_name>
+            <id type="integer">4628330</id>
+            <last_name>Diablo</last_name>
+            <masked_card_number>XXXX-XXXX-XXXX-1</masked_card_number>
+            <vault_token>1</vault_token>
+            <payment_type>credit_card</payment_type>
+          </credit_card>
+        </subscription>
+    http_version: 
+  recorded_at: Tue, 09 Dec 2014 19:48:29 GMT
+recorded_with: VCR 2.9.3

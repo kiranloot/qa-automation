@@ -1,0 +1,106 @@
+#subscriptions-cancellation {
+  padding: 80px 0 0;
+  #navbar {
+    margin-bottom:15px;
+  }
+  .white-bg {
+    padding-top: 15px;
+  }
+  .quote-rotater {
+    display:none;
+  }
+  h1 {
+    margin-bottom:40px;
+    @media(max-width: 767px) {
+      margin-bottom: 15px;
+    }
+  }
+  p {
+    margin-bottom: 20px;
+    font-size: 15px;
+    @media(max-width: 768px) {
+      margin-bottom: 34px;
+    }
+    @media(max-width: 767px) {
+      margin-bottom: 15px;
+    }
+  }
+  p.img-hero {
+    @media(max-width: 768px) {
+      margin-bottom: 20px;
+    }
+  }
+  .btn.btn-skip {
+    margin: 0 0 0 20px;
+    @media(max-width: 768px) {
+      margin: 0 0 0 10px;
+    }
+    @media(max-width: 767px) {
+      margin: 0;
+      padding: 7px 11px;
+      margin-bottom: 10px;
+    }
+  }
+  .tools {
+    margin: 20px 0 20px 60px;
+    @media(max-width: 768px) {
+      margin: 20px 0 20px 0px;
+    }
+  }
+
+  #cancel-at-end-of-period {
+    display: inline-block;
+    color: #aeaeae!important;
+    background: #f3f3f3;
+    border: 1px solid #e7e7e7;
+    padding: 10px!important;
+    text-transform: uppercase;
+    text-decoration: none;
+    @media(max-width: 768px) {
+      font-size: 12px;
+    }
+  }
+  .sidebar {
+    background: #eff0f5;
+    border: 1px solid #e3e4ea;
+    img.sad-skippy {
+      margin: 40px auto;
+      text-align: center;
+      @media(max-width: 768px) {
+        margin: 20px auto;
+      }
+    }
+    h2 {
+      margin:0 10px 5px;
+      font-size: 28px;
+      @media(max-width: 768px) {
+        font-size: 20px;
+      }
+      @media(max-width: 767px) {
+        font-size: 24px;
+      }
+    }
+    >div {
+      background: $white;
+      margin: 10px 5px 5px;
+      padding: 20px 10px;
+      @media(max-width: 768px) {
+        padding: 10px 10px 5px;
+      }
+      p {
+        font-size: 15px;
+        margin-bottom: 10px;
+        @media(max-width: 768px) {
+          font-size: 14px;
+        }
+      }
+    }
+    + p {
+      text-align: center;
+      margin: 20px auto 0;
+      @media(max-width: 768px) {
+        margin: 25px auto 0;
+      }
+    }
+  }
+}

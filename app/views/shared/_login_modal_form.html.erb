@@ -1,0 +1,37 @@
+<div class="existing-customer">
+  <div data-hook='login_extras'>
+    <div class="fbLogin" data-hook='login_extras'>
+      <div class='social-signin-links'>
+        <%= link_to(user_omniauth_authorize_path(:facebook)) do %>
+          <button class='fb-login'>
+            <%= fa_icon 'facebook', base: 'square', class: 'fb-login-icon' %>
+            <%= t('modals.login.not_a_looter').upcase %>
+          </button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class='or'>
+    <%= t('modals.login.or').upcase %>
+  </div>
+
+  <div class='modal-form' data-hook='signin'>
+    <%= form_for 'user', url: user_session_path, html: { id: 'login-modal-form' } do |f| %>
+      <div data-hook="signup_inside_form" class="staticForm">
+        <p>
+          <%= f.email_field :email, id: 'user_email_modal', class: 'title modal-join required dianaTone oldEField', tabindex: 1, label: false, placeholder: t('modals.login.email_address').upcase %>
+        </p>
+        <div id="password-credentials">
+          <p>
+            <%= f.password_field :password, id: 'user_password_modal', class: 'title modal-join required dianaTone', tabindex: 2, label: false, placeholder: t('modals.login.password').upcase %>
+          </p>
+        </div>
+        <div class='emessages'></div>
+        <div class='messages'></div>
+        <p><%= f.submit t('modals.login.log_in'), class: 'btn btn-secondary modal-join oldLogBtn', tabindex: 3 %></p>
+      </div>
+    <% end %>
+  </div>
+
+</div>

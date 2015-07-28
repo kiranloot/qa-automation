@@ -1,0 +1,30 @@
+<div class="existing-customer">
+  <h6><%= t(:login) %></h6>
+
+  <div data-hook='login_extras'>
+    <div class='social-signin-links'>
+      <%= link_to(user_omniauth_authorize_path(:facebook)) do %>
+        <button class='fb-login'>
+          <%= fa_icon 'facebook', base: 'square', class: 'fb-login-icon' %>
+          <%= t('registrations.login.not_a_looter') %>
+        </button>
+      <% end %>
+    </div>
+  </div>
+  <div class="newOr"> <%= t('registrations.login.or') %> </div>
+  <div class="oldFormDiv" data-hook="signin">
+    <%= form_for 'user', url: user_session_path, html: { id: 'login-form' } do |f| %>
+      <div data-hook="signup_inside_form" class="staticForm">
+        <p>
+          <%= f.email_field :email, class: 'title join required', tabindex: 1, label: false, placeholder: t('registrations.login.email_address') %>
+        </p>
+        <div id="password-credentials">
+          <p>
+            <%= f.password_field :password, class: 'title join required', tabindex: 2, label: false, placeholder: t('registrations.login.password') %>
+          </p>
+        </div>
+        <p><%= f.submit t('registrations.login.log_in'), class: 'btn btn-secondary join', tabindex: 3 %></p>
+      </div>
+    <% end %>
+  </div>
+</div>

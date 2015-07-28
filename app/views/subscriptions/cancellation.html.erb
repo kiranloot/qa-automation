@@ -1,0 +1,5 @@
+<% if is_level_up?(@subscription) || @subscription.month_skipped %>
+  <%= render(partial: 'cancel_without_skip', locals: {subscription: @subscription, month_to_skip: @month_to_skip}) %>
+<% else %>
+  <%= render(partial: 'cancel_with_skip', locals: {subscription: @subscription, month_to_skip: @month_to_skip}) %>
+<% end %>

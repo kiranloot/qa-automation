@@ -1,0 +1,14 @@
+<!-- Instruction -->
+<h3>Instructions</h3>
+<ul>
+  <li>Must be a CSV file.</li>
+  <li>Must have required header on first row</li>
+  <li>Required header: chargify_subscription_id</li>
+  <li>Shirt size is defaulted to 'M M'. Please let the customer know that they need to change their shirt size.</li>
+</ul>
+
+<%= form_tag fix_missing_subscriptions_admin_subscriptions_path, multipart: true do %>
+  <label for="file">CSV List to Import</label>
+  <%= file_field_tag "file" %>
+  <%= submit_tag 'Fix' %>
+<% end %>

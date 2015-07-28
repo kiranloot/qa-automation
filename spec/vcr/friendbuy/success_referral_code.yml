@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://a41ad3d1-6a69-46d4-b012-be946f02cb5a:4cf32209-d435-407b-864b-a9423ba741f2@api.friendbuy.com/v1//referral_codes
+    body:
+      encoding: UTF-8
+      string: '{"customer":{"id":"78"},"campaign":{"id":13099}}'
+    headers:
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.0.15
+      Date:
+      - Wed, 11 Feb 2015 21:54:34 GMT
+      Content-Type:
+      - application/json
+      Connection:
+      - keep-alive
+      P3p:
+      - policyref="http://www.friendbuy.com/static/p3p.xml", CP="NOI CURa ADMa DEVa
+        TAIa OUR BUS IND UNI COM NAV"
+      Set-Cookie:
+      - current_shopper="5jo6NFVr88lKIs4fTT61tBVrhcY=?current_shopper_code=VmI4ODljMDY5LTUxM2UtNGIwMi05ODA1LTllMDk5Mjk3NWVkOApwMQou";
+        Domain=.friendbuy.com; expires=Tue, 12-May-2015 21:54:34 GMT; Max-Age=7776000;
+        Path=/
+      Content-Length:
+      - '280'
+    body:
+      encoding: UTF-8
+      string: '{"referral_code": "bQR-q", "customer": {"id": "78", "email": null},
+        "trackable_link": "http://fbuy.me/bQR-q", "type": "personal_url", "campaign":
+        {"created_at": "2015-02-03T17:10:44.698374-08:00", "referral_incentive": null,
+        "published": true, "id": 13099, "name": "PURL Widget"}}'
+    http_version: 
+  recorded_at: Wed, 11 Feb 2015 21:54:35 GMT
+recorded_with: VCR 2.9.3

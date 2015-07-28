@@ -1,0 +1,29 @@
+<div id='signin_modal' class='modal fade' tabindex='-1' role='dialog' aria-hidden='true'>
+ <div class='modal-dialog'>
+    <div class='modal-content'>
+
+      <div class='modal-header'>
+        <div class='modal-close' data-dismiss='modal'>
+          <i class='fa fa-times'></i>
+        </div>
+        <h2><%= t('modals.login.welcome_back') %></h2>
+      </div>
+
+      <div class='existing-customer modal-body' data-hook='login'>
+        <div class="modal-messages hide">
+          <p class="modal-error"></p>
+        </div>
+        <%= render :partial => 'shared/login_modal_form' %>
+      </div>
+
+      <div class='modal-footer'>
+        <p>
+          <%= t('modals.login.not_a_looter') %>
+          <%= link_to t(:join), '#', 'data-target' => '#register_modal', 'data-toggle' => 'modal', 'data-dismiss' => 'modal' %>
+        </p>
+        <%= link_to t(:forgot_password), new_password_path(User) %>
+      </div>
+
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>

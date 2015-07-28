@@ -1,0 +1,401 @@
+  <nav role="navigation" class="navbar navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header clearMargin">
+          <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <!-- <a href="#" class="navbar-brand">Brand</a> -->
+      </div>
+      <!-- Collection of nav links and other content for toggling -->
+      <div id="navbarCollapse" class="row mainNav  collapse navbar-collapse">
+        <div class="container">
+
+          <div class="row">
+            <ul class="nav navbar-nav navbar-left clearMargin lootLogo col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <li><%= image_tag("logo.png", alt:'lootcrate', class:'lootCrate img-responsive') %></li>
+            </ul>
+          
+            <ul class="clearMargin col-lg-10 munNav">
+              <!-- <li class="col-xs-12 col-sm-1 col-md-1 col-lg-1" data-target="pane5"><nav class="munnyGo">VOTE</nav></li> -->
+              <li class="col-xs-12 col-sm-1 col-md-1 col-lg-1" data-target="pane5"><nav class="munnyGo mEntries">ENTER</nav></li>
+           <!--    <li class="col-xs-12 col-sm-1 col-md-1 col-lg-1" data-target="pane4"><nav class="munnyGo mJudges">JUDGES</nav></li> -->
+              <li class="col-xs-12 col-sm-1 col-md-1 col-lg-1" data-target="pane3"><nav class="munnyGo mPrizes">PRIZES</nav></li>
+              <li class="col-xs-12 col-sm-1 col-md-1 col-lg-1" data-target="pane2"><nav class="munnyGo mContest">CONTEST</nav></li>
+              <li class="col-xs-12 col-sm-1 col-md-1 col-lg-1" data-target="pane1"><nav class="munnyGo mHome">HOME</nav></li>
+            </ul>
+            <!-- <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Login</a></li>
+            </ul> -->
+          </div>
+        </div>
+      </div>
+      <%= image_tag("logo.png", alt:'lootcrate', class:'lootCrateMob img-responsive') %>
+    </div>
+    <%= image_tag("logo.png", alt:'lootcrate', class:'lootCrateMob') %>
+  </div>
+</nav>
+
+<div class="topSpacer"></div>
+<div class="container-fluid munnyContainer">
+  <div class="row firstRow pane1">
+  
+  
+
+    <div class="container">
+
+      <div class="col-md-12 mouseFree">
+        <div class="col-sm-8 col-md-6 col-lg-6 banZone center">
+          
+              <div class="row banTitle">
+                EXCLUSIVE LOOT CRATE CONTEST
+              </div>
+              <div class="row banLogo">
+                <div class=""><%= image_tag("contest/cyber/logo.png", alt:'buildanarmy', class:'img-responsive') %></div>
+              </div>
+              <div class="row cyberHero">
+                <div class=""><%= image_tag("contest/cyber/optimus_solo.png", alt:'buildanarmy', class:'img-responsive') %></div>
+              </div>
+              <div class="row banDate">
+                <ul class="inline clearMargin">
+                  <li class="mDT">July 1</li> <li class="mDT"><div class="mDash">&mdash;</div></li> <li class="mDT">July 20</li>
+                </ul>
+              </div>
+              <div class="row banText center">
+                Greetings, User. Welcome to the Grid. A digital frontier. You have the power to transform it forever. Upload a fun, creative picture of you or a fellow User recreating the pose from the “Prime” t-shirt included in the CYBER crate! Use interesting backgrounds, cosplay or lighting to make your picture as dynamic and unique as possible!
+              </div>
+              <div class="row munButtons">
+                <ul class="col-md-12 center inline">
+                  <li class="clearMargin clearPadding mBtnLeft">
+                    <div class="banBtnEnter">
+                      Enter Contest
+                    </div>
+                  </li>
+                  <li class="clearMargin clearPadding mBtnRight">
+                    <div class="banBtnPrizes">
+                      View Prizes
+                    </div>
+                  </li>
+                </ul>
+              </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!--  Pane 2 - Is go for gold -->
+  <div class="row secondRow pane2">
+    <div class="angleFun"></div>
+    <div class="container">
+      <div class="col-lg-12 ">
+        <!-- <div class="topSplash2 hidden-phone">
+            <%#= image_tag('judge-paint-splash-2.png', alt:'splash2', class:'tSplash') %>
+        </div> -->
+        <div class="pageTitle">
+          How To Enter The Contest
+        </div>
+          <div class="col-sm-4 col-md-4 pTop">
+            <div class="cImage">
+              <%= image_tag('contest/cyber/discotron.png', alt:'contest') %>
+            </div>
+            <div class="pContent">
+              Take an awesome picture of <br>
+              you or a friend recreating the pose from the “Prime” t-shirt!
+
+            </div>
+          </div>
+          <div class="col-sm-4 col-md-4">
+            <div class="cImage">
+              <%= image_tag('buildanarmy/step-3-icon-p2.png', alt:'contest') %>
+            </div>
+            <div class="pContent">
+              Come back here <br>
+              and upload your photo!
+            </div>
+          </div>
+          <div class="col-sm-4 col-md-4">
+            <div class="cImage">
+              <%= image_tag('buildanarmy/step-2-icon-p2.png', alt:'contest') %>
+            </div>
+            <div class="pContent">
+              Share your entry on social media <br>
+              to get votes and additional contest entries!
+            </div>
+          </div>
+
+      </div>
+      <!-- <div class="p2Splash">
+        <%#= image_tag('white-drip-p2.png', alt:'contest') %>
+      </div> -->
+    </div>
+  
+    <div class="angleFunBtm"></div>
+  </div>
+
+  <!--  Pane 3 - Is gopher gold -->
+  <div class="row pane3">
+    <div class="container">
+      <div class="col-md-12">
+        <div class="p3Gap">
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 center">
+            <div class="prizeHeader">Prizes</div>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="pageContent col-xs-10 col-sm-8 col-lg-8 supahBig center">
+              <div class="prizeBlock">
+                <div class="prizeTitle">GRAND PRIZE</div>
+                <div class="prizeText">
+                  A Grand Prize will be awarded to the photo <br>with the Most Votes, the Judges’ Pick <br>and a Random Selection.
+                </div>
+                <br>
+                <br>
+                <ul class="prizeDetails">
+                      <li class="prize"> 
+                        Razer BlackWidow Chroma Stealth Keyboard
+                      </li>
+                      <li class="prize"> 
+                         Razer Kraken 7.1 Classic Headset
+                      </li>
+                      <li class="prize"> 
+                         Razer Ouroboros Wired/Wireless Gaming Mouse 
+                      </li>
+                      <li class="prize"> 
+                         Razer Firefly - Hard Gaming Mouse Mat 
+                      </li>
+                  
+                </ul>
+                <div class="row">
+                  <div class="col-sm-6 col-lg-6 center">
+                    <div class="wPrize"><%= image_tag('contest/cyber/cyber_prizes.jpg', alt:'Winning House', class:'whPrize img-responsive') %>
+                    </div>
+                  </div>
+                </div>
+                
+     
+              </div>
+          </div>
+          
+      
+        </div>
+        
+      </div>
+    </div>
+    <div class="angleFunBtm"></div>
+  </div>
+
+  <!--  Pane 4 - Is go for gold -->
+  <div class="row pane4 hidden">
+    <div class="angleFun"></div>
+    <div class="container ">
+      <div class="row">
+        <div class="col-xs-12 col-md-12">
+          <div class="topSplash col-xs-12 col-md-12 col-lg-12 center">
+            <%= image_tag('judge-paint-splash.png', alt:'splash', class:'tSplash hidden-phone') %>
+          </div>
+            <div class="judges col-xs-10 col-md-12 col-lg-12 center">
+              <%= image_tag('munny-judges.png', alt:'splash', class:'munJudges') %>
+            </div>
+            <div class="pageTitle">
+              The Judges
+            </div>
+        </div>
+      </div>
+      <div class="row topJRow">
+            <div class="col-sm-3 col-md-3">
+              <div class="jLogo" data-judge="Kidrobot">
+                <%= image_tag('kidrobot.jpg', alt:'contest') %>
+              </div>
+              <div class="jName">
+                Kid Robot
+              </div>
+            </div>
+            <div class="col-sm-3 col-md-3">
+              <div class="jLogo" data-judge="iam8bit">
+                <%= image_tag('iam8bit.jpg', alt:'contest') %>
+              </div>
+              <div class="jName">
+                iam8bit
+              </div>
+            </div>
+            <div class="col-sm-3 col-md-3">
+              <div class="jLogo" data-judge="Eve">
+                <%= image_tag('eveandtabitha.jpg', alt:'contest') %>
+              </div>
+              <div class="jName">
+                Eve Beauregard / Tabitha Lyons
+              </div>
+            </div>
+            <div class="col-sm-3 col-md-3">
+              <div class="jLogo" data-judge="IGN">
+                <%= image_tag('ign.jpg', alt:'contest') %>
+              </div>
+              <div class="jName">
+                IGN
+              </div>
+            </div>
+          </div>
+      <div class="row">
+            <div class="col-sm-3 col-md-3">
+              <div class="jLogo" data-judge="Meltdown">
+                <%= image_tag('meltdown.jpg', alt:'contest') %>
+              </div>
+              <div class="jName">
+                Meltdown
+              </div>
+            </div>
+            <div class="col-sm-3 col-md-3">
+              <div class="jLogo" data-judge="Zack">
+                <%= image_tag('zackandpeter.jpg', alt:'contest') %>
+              </div>
+              <div class="jName">
+                Zack Finfrock / Peter Weidman
+              </div>
+            </div>
+            <div class="col-sm-3 col-md-3">
+              <div class="jLogo" data-judge="Nerdist">
+                <%= image_tag('nerdist_v02.jpg', alt:'contest') %>
+              </div>
+              <div class="jName">
+                Nerdist
+              </div>
+            </div>
+            <div class="col-sm-3 col-md-3">
+              <div class="jLogo" data-judge="marissa">
+                <%= image_tag('marrisaanddani.jpg', alt:'contest') %>
+              </div>
+              <div class="jName">
+                Dani Bullis / Marissa Zaenger
+              </div>
+            </div>
+      </div>
+    </div>
+    <div class="angleFunBtm"></div>
+  </div>
+
+  <!--  Pane 5 - Is go for gold -->
+  <div class="row pane5">
+    <div class="angleFun"></div>
+    <div class="container ">
+      <div class="col-md-12">
+        <div class="row">
+        <!--  <div class="pageTitle"> -->
+            <!-- <span class="hideSmall"></span> Enter & Vote -->
+            <!-- <div class="ptPrint">
+                <%= image_tag('covertcontest/cc_fprint.png', alt:'contest') %>
+            </div>   -->
+          <!-- </div> -->
+        
+        </div>
+          <div class="row">
+            <div class="col-lg-4 center">
+              <!-- <div class="greenLip center"></div> -->
+            </div>
+          </div>
+          <div class="pRules col-xs-8 col-sm-10 center">
+          </div>
+          <div class="col-sm-11 col-md-11 center">
+            
+              
+              <div class="row catBottom">
+                <!-- <div data-gallery-embed="bocS1"></div> -->
+
+                <div class="row">
+                  <div class="gleamGal" data-gallery-embed='VFZa3'></div>
+
+                </div>
+
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="row paneSpace">
+
+  </div>
+  <!--  Pane 6 - Is go for gold -->
+  <div class="row pane6">
+    <div class="tranAnchor">
+      <%= image_tag('contest/cyber/optimus_solo.png', alt:'contest') %>
+    </div>
+    <div class="container ">
+
+      <div class="col-xs-10 center col-sm-10 col-md-12 col-lg-12">
+        <div class="row">
+        
+        </div>
+        <div class="row footContent">
+          <div class="footCall col-sm-10 center" >
+            NOT A LOOTER?
+          </div>
+          <div class="footCall col-sm-10 center" >
+            <a href="//lootcrate.com" class="subNow">SUBSCRIBE NOW!</a>
+          </div>
+        </div>
+          <div class="row bottomMenu">
+          
+              <div class="col-xs-12 col-sm-6 col-md-6 col-xs-offset-0 col-sm-offset-3 col-md-offset-3 TC">
+                <ul class="inline">
+                  <li class="bRight">
+                    <a target="_blank" href="//www.lootcrate.com/terms_conditions">Terms and Conditions</a>
+                  </li>
+                  <li>
+                    &copy; Copyright Loot Crate 2015
+                  </li>
+                 </ul>
+                </div>
+        
+          </div>
+          
+      </div>
+    </div>
+    <div class="angleFun"></div>
+  </div>
+</div>
+<div class="lBg"></div>
+<div class="jBox" >
+  <div class="jScroll">
+    <div class="jSplat">
+      <%= image_tag('close-lbox.png', alt:'close-lbox') %>
+    </div>
+
+    <div class="jImage"></div>
+    <div class="jTitle"></div>
+    <div class="jBio"></div>
+  </div>
+</div>
+<div class="tc">
+  <div class="jSplat">
+    <%= image_tag('close-lbox.png', alt:'close-lbox') %>
+  </div>
+  <div class="tcTitle">
+        Contest Rules
+  </div>
+
+  You must be 13 years of age or older to enter. Entrants under 13 must get permission from a parent or guardian.
+  All designs must be on a 3” Mini Munny.
+  All entries must be submitted between 2/23/15 and 3/20/15.
+  All designs must be submitted to lootcrate.com/munnycontest
+  By entering, you agree to grant a perpetual, non-exclusive license to Loot
+   Crate to use your design and username for any and all promotional
+  activity.
+  All winners (except for those in the Most Votes category) will be selected by a panel of judges.
+  Winners will be contacted by email. If you win and do not respond within 30 days, your prize is forfeit.
+  Winners will be announced on 3/28/15.
+  No purchase necessary. **
+  Loot Crate&trade; employees and families may not enter.
+  <br>
+  <br>
+  All winners must provide verifiable, visual proof that they are in possession of their submission before any prize can be awarded. “Proof” will be vetted at Loot Crate’s&trade; sole discretion.
+  <br>
+  <br>
+  **A subscription to Loot Crate&trade; is not required for entry. To enter without purchase, <a target="_blank" href="https://d2vgumyqjx047w.cloudfront.net/munny/blank_munny.jpg">download the blank Munny image here</a> to create a design.
+</div>

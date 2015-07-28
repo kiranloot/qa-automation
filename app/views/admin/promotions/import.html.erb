@@ -1,0 +1,42 @@
+<h3>Instructions</h3>
+<ul>
+  <li>
+    The file must be in CSV format.
+  </li>
+
+  <li>
+    Required headers:
+
+    name, description, starts_at ,ends_at, one_time_use, adjustment_amount, adjustment_type, conversion_limit, trigger_event, prefix, char_length, quantity, eligible_plans
+  </li>
+
+  <li>
+    Starts_at and ends_at fields: The field MUST be a text field, and should be in this format: MM-DD-YYYY (03-24-2015). If you are working with a promo import file in excel, be sure to double check that this is a text field.
+  </li>
+
+  <li>
+    If the value in the one_time_use column is FALSE, the promo will be created as a multiple use promo. If true, it will be created as a single use promo.  The char_length and quantity columns must be populated when the one_time_use column has the value TRUE. They should be left blank when this column has the value FALSE.
+  </li>
+
+  <li>
+    Adjustment_type: Fixed or Percentage
+  </li>
+
+  <li>
+    Adjustment_amount: Rounded to the tenth. (10.00 is $10.00 or 10%)
+  </li>
+
+  <li>
+    trigger_event: SIGNUP, REACTIVATION, UPGRADE (no coupon in upgrade for now). Can have multiple trigger_events. Must be separated by a carriage return, or newline.
+  </li>
+
+  <li>
+    The eligible plans column should contain the names of all the plans the promo should qualify for, separated by lines. (i.e. Carriage return, or newline). But still all in the same cell and row.
+  </li>
+</ul>
+
+<%= form_tag import_promotions_admin_promotions_path, multipart: true do %>
+  <label for="file">CSV List to Import</label>
+  <%= file_field_tag "file", required: true %>
+  <%= submit_tag 'Import' %>
+<% end %>

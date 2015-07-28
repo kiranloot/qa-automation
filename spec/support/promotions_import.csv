@@ -1,0 +1,1 @@
+name,description,starts_at,ends_at,one_time_use,adjustment_amount,adjustment_type,conversion_limit,trigger_event,prefix,char_length,quantity,eligible_plansPromo1,Promo1,03-10-2015,03-10-2016,TRUE,10,Fixed,,"SIGNUPREACTIVATION",test,10,10,"1-month-subscription3-month-subscription"

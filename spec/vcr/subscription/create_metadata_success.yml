@@ -1,0 +1,86 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://DFLe4nAkwg13WPSwqmWP:X@lootcratetest-braintree.chargify.com/subscriptions/7148185/metadata.xml
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <metadata>
+          <name>Month to Skip</name>
+          <value type="date">2014-12-01</value>
+        </metadata>
+    headers:
+      Content-Type:
+      - application/xml
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/xml; charset=utf-8
+      Date:
+      - Thu, 18 Dec 2014 05:56:51 GMT
+      Etag:
+      - '"1b00377aaf35e353f4de94cc7aa3b785"'
+      P3p:
+      - CP="NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM"
+      Server:
+      - nginx + Phusion Passenger
+      Set-Cookie:
+      - _chargify_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFVEkiJTQ0YzU0N2RhMzg5ZjE2YTJhOTBiOWI2NTI5MWE4ZjI3BjsAVEkiF3NlbGxlcl9jcmVkZW50aWFscwY7AEZJIgGAZjgzMmU3OTMzYjhjYjAwNGM2MzlkODBkNWQxM2Y5YjlkOGNhMzQ3OGFkM2NjOWEwNTNhZmVmZWNlNjRhZjgxOWU4NTgyYzdhMDFiNjhiYzAzNDU3ZDIzZTU2NzJkYmRmM2JiNmU1MTFjMTc0ODNhOWQ0YjFhMTQxMWMxMDJhYWYGOwBGSSIac2VsbGVyX2NyZWRlbnRpYWxzX2lkBjsARmkCADI%3D--f46c0d2c552b874bfdef77dec6c91af48f44679b;
+        domain=.chargify.com; path=/; secure; HttpOnly
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Powered-By:
+      - Phusion Passenger
+      X-Rack-Cache:
+      - invalidate, pass
+      X-Ratelimit-Limit:
+      - '1000000'
+      X-Ratelimit-Remaining:
+      - '999808'
+      X-Ratelimit-Reset:
+      - '1418947200'
+      X-Request-Id:
+      - a8d159b1-a97a-4906-9003-323d1cdcca3a
+      X-Runtime:
+      - '0.381137'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '231'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <metadata type="array">
+          <metadatum>
+            <resource-id type="integer">7148185</resource-id>
+            <value type="date">2014-12-01</value>
+            <name>Month to Skip</name>
+          </metadatum>
+        </metadata>
+    http_version: 
+  recorded_at: Thu, 18 Dec 2014 05:56:49 GMT
+recorded_with: VCR 2.9.3

@@ -1,0 +1,9 @@
+<script type="text/javascript">
+  $CVO = window.$CVO || [];
+  $CVO.push([ 'trackEvent', {
+    type: '<%= event_type %>',
+    id: '<%= transaction_id %>',
+    site: '<%= request.host %>',
+    amount: '<%= amount %>'
+  }]);
+</script>

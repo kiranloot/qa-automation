@@ -1,0 +1,251 @@
+// ========== //
+// Press Page //
+// ========== //
+
+.line-header {
+  text-align: center;
+  position: relative;
+
+  h4 {
+    color: #CECDD3;
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+    background-color: white;
+    display: inline-block;
+    line-height: 1em;
+    padding: 0 15px;
+  }
+
+  .gray {
+    background-color: $gray-4 !important;
+  }
+
+  .line {
+    width: 100%;
+    height: 1px;
+    background-color: #CECDD3;
+    top: 50%;
+    position: absolute;
+  }
+
+}
+
+div[data-hook="press_partial"] {
+
+  h4 {
+    margin: 35px 0;
+  }
+
+  .press-quote-container {
+    height: 165px;
+    padding: 0 20px;
+    @media (max-width:767px){
+      height:auto;
+      padding: 0 20px 20px;
+    }
+  }
+
+  p.press-quote {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    text-align: center;
+    line-height: 1.3em;
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+
+  .logo-bar {
+    background-color: $orange;
+    .container {
+      max-width: 960px;
+      @media (max-width: 770px) {
+        padding: 0;
+      }
+    }
+  }
+
+  ol.logo-list {
+    text-align: center;
+    list-style: none;
+
+    li {
+      overflow: hidden;
+      width: 20%;
+      float: left;
+      position: relative;
+      &.active a.white {
+        @include opacity-opaque;
+      }
+
+      &.active a.black {
+        @include opacity-transparent;
+      }
+
+      a {
+        display: block;
+        padding: 15px;
+        max-width: 100%;
+        @include border-box;
+
+        &.black,
+        &.white {
+          @include custom-transition(all, 0.6s, ease-in-out);
+        }
+
+        &.white {
+          position: absolute;
+          top: 0;
+          left: 0;
+          @include opacity-transparent;
+        }
+
+        &.black {
+          @include opacity-opaque;
+        }
+
+        img {
+          display: inherit;
+          margin: 0 auto;
+          position: relative;
+          top: 0;
+          max-width: 100%;
+          width: 164px;
+          height: 54px;
+          @media (max-width: 770px) {
+            width: auto;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+#press-carousel {
+  height: auto;
+  width: 575px;
+  margin: 0 auto;
+
+  .carousel-inner {
+    height: 100%;
+
+    .item {
+      height: inherit;
+      text-align: center;
+      //@include custom-transition(opacity, 0.6s, ease-in-out);
+
+      img {
+        max-height: 100%;
+        max-width: 260px;
+        display: block;
+        margin: 0 auto;
+      }
+
+      &.left.active,
+      &.right.active {
+        //@include opacity-transparent;
+      }
+
+      &.left.next,
+      &.right.next {
+        //@include opacity-opaque;
+      }
+    }
+  }
+
+  .slide-arrows-container {
+    position: absolute;
+    top: -50%;
+    width: inherit;
+    display: block;
+
+    .carousel-control {
+      background: none;
+      border: 0;
+      @include self-clear;
+
+      i {
+        width: 40px;
+        height: 40px;
+        margin: 0;
+        color: $gray-2;
+
+        &:before {
+          width: inherit;
+          height: inherit;
+          margin: 0;
+          line-height: 40px;
+          font-size: 34px;
+        }
+      }
+
+      &.left {
+        left: -30px;
+      }
+
+      &.right {
+        right: -30px;
+      }
+    }
+  }
+}
+
+h4.ldquo {
+  font-size: 30px;
+  line-height: 1em;
+  text-align: center;
+}
+
+// Responsive
+
+@media (max-width: 650px) {
+
+  #press-carousel {
+    height: auto;
+    width: auto;
+
+    .carousel-inner .item {
+      @include border-box;
+      padding: 0 10px;
+    }
+
+    .slide-arrows-container {
+      width: 100%;
+
+      .carousel-control.left {
+        left: 0;
+      }
+
+      .carousel-control.right {
+        right: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+
+  .line-header {
+    margin: 0 15px;
+  }
+
+  div[data-hook="homepage_subscriptions"] {
+
+    .logo-bar {
+      display: none;
+    }
+
+    .press-quote-container {
+      padding: 0 15px;
+    }
+
+    h4.ldquo {
+      margin: 20px 0;
+    }
+  }
+}

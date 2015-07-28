@@ -1,0 +1,15 @@
+<script>
+  window['friendbuy'] = window['friendbuy'] || [];
+  window['friendbuy'].push(['site', '<%= ENV["FRIENDBUY_SITE_ID"] %>']);
+  <% if current_user %>
+  window['friendbuy'].push(['track', 'customer',
+	  {
+	    id: '<%= current_user.id %>',
+	    email: '<%= current_user.email %>'
+	  }
+  ]);
+<% end %>
+  (function (f, r, n, d, b, y) {
+  	b = f.createElement(r), y = f.getElementsByTagName(r)[0];b.async = 1;b.src = n;y.parentNode.insertBefore(b, y);
+  })(document, 'script', '//djnf6e5yyirys.cloudfront.net/js/friendbuy.min.js');
+</script>

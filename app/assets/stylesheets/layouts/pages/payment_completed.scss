@@ -1,0 +1,57 @@
+// ======================= //
+// payment_completed-index //
+// ======================= //
+
+body.payment_completed {
+  padding: 70px 0 0;
+  @media(max-width: 767px) {
+    padding: 50px 0 0;
+  }
+  .navbar {
+    padding:15px 0;
+    @media(max-width: 767px) {
+      padding:15px 0 0;
+    }    
+  }
+  .quote-rotater {
+    display:none;
+  }
+  .payment-complete {
+    h1, h4, a {
+      text-align: center;
+    }
+    h5 {
+      text-align: center;
+    }
+    a {
+      display: block;
+      margin: 0 auto;
+      max-width: 230px;
+    }
+  }
+
+  #level-up-thanks {
+    h1 {
+      text-transform: uppercase;
+      font-family: "league-gothic";
+      padding-top:50px;
+      letter-spacing: 4px;
+      @media(max-width: 767px) {
+        padding-top:0;
+      }
+    }
+    h3 {
+      font-size: 18px;
+      font-weight:600;
+    }
+    ul {
+      list-style: none;
+      list-style-image: image-url("https://s3-us-west-2.amazonaws.com/lootcrate-general/images/checkmark-bullet.png");
+      padding-left: 30px;
+      li {
+        padding-left: 10px;
+        padding-bottom: 10px;
+      }
+    }
+  }
+}

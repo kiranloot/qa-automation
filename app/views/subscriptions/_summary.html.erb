@@ -1,0 +1,43 @@
+<div id="cosummarypricebreakdown">
+  <div class="subcription-month">
+    <p><%= month_subscription(plan) %></p>
+    <span><%= recurrent_fee(plan) %></span>
+  </div>
+
+  <% if coupon && coupon.valid? %>
+    <div class="subscription-coupon">
+      <p><%= t('subscriptions.summary.coupon') %>
+        <span><%= number_to_currency(coupon_in_dollars, locale: :en) %>
+        </span>
+      </p>
+    </div>
+  <% end %>
+
+  <div class="subscription-cost">
+    <p><%= t('subscriptions.summary.monthly_cost') %>
+      <span>
+        <%= number_to_currency(show_price_per_month(plan), locale: :en) %>
+      </span>
+    </p>
+  </div>
+
+  <% if tax %>
+    <div class="subscription-tax">
+      <p>
+        <%= t('subscriptions.summary.tax', state: state, percentage: number_to_percentage(9, precision: 1, locale: :en)) %>
+        <span>
+          <%= number_to_currency(tax, locale: :en) %>
+        </span>
+      </p>
+    </div>
+  <% end %>
+
+  <div class="subscription-total">
+    <p><%= t('subscriptions.summary.todays_total') %>
+      <span>
+        <%= number_to_currency(today_total, locale: :en) %>
+      </span>
+    </p>
+      <%= t('subscriptions.summary.renewal', total: total, date: readjusted_next_billing_date.to_date) %>
+  </div>
+</div>

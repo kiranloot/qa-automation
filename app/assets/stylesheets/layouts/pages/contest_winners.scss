@@ -1,0 +1,28 @@
+#contest_winners-index {
+
+  .white-bg {
+    @media(max-width: 767px) {
+      padding-top: 10px;
+    }
+    @media(max-width: 768px) {
+      padding-top: 20px;
+    }
+  }
+
+  .base {
+    .row > .col-sm-12 {
+      border-bottom: 1px solid #ccc; 
+      padding: 20px 20px 5px 20px;
+
+      @media(max-width: 767px) {
+        padding: 20px;
+      }
+    }
+    .row:last-child > .col-sm-12 {
+      border-bottom: none;
+    }
+    strong.winner {
+      color: $orange;
+    }
+  }
+}

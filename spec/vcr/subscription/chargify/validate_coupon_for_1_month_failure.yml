@@ -1,0 +1,174 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://DFLe4nAkwg13WPSwqmWP:X@lootcratetest-braintree.chargify.com/products/lookup.xml?handle=1-month-subscription
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/xml
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - must-revalidate, private, max-age=0
+      Content-Type:
+      - application/xml; charset=utf-8
+      Date:
+      - Thu, 19 Feb 2015 19:58:30 GMT
+      Etag:
+      - '"78fc99b597a9b06b86d98cb441307f27"'
+      P3p:
+      - CP="NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM"
+      Server:
+      - nginx + Phusion Passenger
+      Set-Cookie:
+      - _chargify_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFVEkiJTY1M2EzNDNkMjgwYmZjZGEwZGFiOTM4MWQwYjliZTMxBjsAVEkiF3NlbGxlcl9jcmVkZW50aWFscwY7AEZJIgGANzUyYjYyNjJjMmVhMDkyYWVhNTI1MWZlOTMxYjk5NjI1MGRiOGU0Mjg2NjM4NTRhOTk1YzdjNWI0MzdlYTA1ZjgxOWU1YjRjOTk0ODE1NmEyNjlhZDc0MGM0OTgxZTkwZjQwZjE2OWEyNjQzNTQ4MTNkNmYwYWRjODI0YjE2ZGYGOwBGSSIac2VsbGVyX2NyZWRlbnRpYWxzX2lkBjsARmkCADI%3D--325a028b34453522dddd120e4651c731ae6f90f2;
+        domain=.chargify.com; path=/; secure; HttpOnly
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Powered-By:
+      - Phusion Passenger
+      X-Rack-Cache:
+      - miss
+      X-Ratelimit-Limit:
+      - '1000000'
+      X-Ratelimit-Remaining:
+      - '999570'
+      X-Ratelimit-Reset:
+      - '1424390400'
+      X-Request-Id:
+      - 41e1cd61-b56e-4092-8214-897e3bb3564f
+      X-Runtime:
+      - '0.114455'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '1771'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <product>
+          <accounting_code>1month</accounting_code>
+          <archived_at type="datetime" nil="true"/>
+          <created_at type="datetime">2014-09-15T08:33:51-04:00</created_at>
+          <description>One Month Recurring Subscription to Loot Crate! (US Only)</description>
+          <expiration_interval type="integer" nil="true"/>
+          <expiration_interval_unit>never</expiration_interval_unit>
+          <handle>1-month-subscription</handle>
+          <id type="integer">3552899</id>
+          <initial_charge_in_cents type="integer" nil="true"/>
+          <interval type="integer">1</interval>
+          <interval_unit>month</interval_unit>
+          <name>One Month Subscription</name>
+          <price_in_cents type="integer">1995</price_in_cents>
+          <request_credit_card type="boolean">true</request_credit_card>
+          <require_credit_card type="boolean">true</require_credit_card>
+          <return_params></return_params>
+          <return_url>http://polar-waters-8702.herokuapp.com/payment_completed/index?pid=1</return_url>
+          <taxable type="boolean">true</taxable>
+          <trial_interval type="integer" nil="true"/>
+          <trial_interval_unit>month</trial_interval_unit>
+          <trial_price_in_cents type="integer" nil="true"/>
+          <update_return_url></update_return_url>
+          <updated_at type="datetime">2015-02-05T14:02:52-05:00</updated_at>
+          <product_family>
+            <accounting_code nil="true"/>
+            <description>Monthly Subscription Design</description>
+            <handle>1993521</handle>
+            <id type="integer">442941</id>
+            <name>Loot Crate's Monthly Box</name>
+          </product_family>
+          <public_signup_pages type="array">
+            <public_signup_page>
+              <id type="integer">107657</id>
+              <url>http://lootcratetest-braintree.chargify.com/subscribe/f51026fbae84/1-month-subscription</url>
+            </public_signup_page>
+          </public_signup_pages>
+        </product>
+    http_version: 
+  recorded_at: Thu, 19 Feb 2015 19:58:31 GMT
+- request:
+    method: get
+    uri: https://DFLe4nAkwg13WPSwqmWP:X@lootcratetest-braintree.chargify.com/coupons/validate.xml?coupon_code=invalidcode&product_family_id=442941
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/xml
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Cache-Control:
+      - no-cache, private
+      Content-Type:
+      - application/xml; charset=utf-8
+      Date:
+      - Thu, 19 Feb 2015 19:58:31 GMT
+      P3p:
+      - CP="NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM"
+      Server:
+      - nginx + Phusion Passenger
+      Set-Cookie:
+      - _chargify_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFVEkiJWMyOTQ2ZDgzNWFhY2RkY2NiNzYyOWU0NjJmMTQ5MjA2BjsAVEkiF3NlbGxlcl9jcmVkZW50aWFscwY7AEZJIgGAOTc3Yzc2MmQ5OWU3ZDI4ZDE0Y2M3N2U1NjdhOWNjNGRmZTllZjc4NjA2ZGQ4ZWU3MjdmMTA3NTE5M2YwOTk0ODQyZmVhYTdmNjE3MzAyNWEzNWY3NjM0YWQ1OTQ2YzY1Mjk2MjFmMmVkMDI0N2VjYTE1ZmJkMTU0OTM1MjBkOTgGOwBGSSIac2VsbGVyX2NyZWRlbnRpYWxzX2lkBjsARmkCADI%3D--819d9b8c32075fb4775bf35046dd5028baf33f0c;
+        domain=.chargify.com; path=/; secure; HttpOnly
+      Status:
+      - 404 Not Found
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Powered-By:
+      - Phusion Passenger
+      X-Rack-Cache:
+      - miss
+      X-Ratelimit-Limit:
+      - '1000000'
+      X-Ratelimit-Remaining:
+      - '999569'
+      X-Ratelimit-Reset:
+      - '1424390400'
+      X-Request-Id:
+      - 3d8a6057-30aa-4bd1-b974-7a39bbac4cbe
+      X-Runtime:
+      - '0.079427'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Content-Length:
+      - '105'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <hash>
+          <errors>Coupon code could not be found.</errors>
+        </hash>
+    http_version: 
+  recorded_at: Thu, 19 Feb 2015 19:58:31 GMT
+recorded_with: VCR 2.9.3

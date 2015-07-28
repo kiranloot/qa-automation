@@ -1,0 +1,474 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://DFLe4nAkwg13WPSwqmWP:X@lootcratetest-braintree.chargify.com/subscriptions/7288425.xml
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/xml
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - must-revalidate, private, max-age=0
+      Content-Type:
+      - application/xml; charset=utf-8
+      Date:
+      - Thu, 18 Dec 2014 05:59:04 GMT
+      Etag:
+      - '"e634fa3195c756369cd805fbb3f165f2"'
+      P3p:
+      - CP="NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM"
+      Server:
+      - nginx + Phusion Passenger
+      Set-Cookie:
+      - _chargify_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFVEkiJWRjMzNmMzhjYTc5ZGI5ZDA5ZTA2ZTE5YmMzY2NiYjUxBjsAVEkiF3NlbGxlcl9jcmVkZW50aWFscwY7AEZJIgGANGEwMDkwYjliYjE0Nzg0Y2ZkNGY5MTdjOGMxOTFiMzkyMzA5MTUxYmE4MDRlNjMzMTllZjU4NzQyOWQxNGU5ZmE4OTIwYTkyYzhkNzVhMWU5MTZiYjhiY2QyZjlmZjQ5ODZjZGU1Y2E0ZTdmNzQ1MTY1MWY3MjllM2IyZGYyZmUGOwBGSSIac2VsbGVyX2NyZWRlbnRpYWxzX2lkBjsARmkCADI%3D--14c1585021b15221184d7539a8202e0be2b2be4f;
+        domain=.chargify.com; path=/; secure; HttpOnly
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Powered-By:
+      - Phusion Passenger
+      X-Rack-Cache:
+      - miss
+      X-Ratelimit-Limit:
+      - '1000000'
+      X-Ratelimit-Remaining:
+      - '999803'
+      X-Ratelimit-Reset:
+      - '1418947200'
+      X-Request-Id:
+      - ec2a72cd-0400-4924-9175-3385c6de6c1e
+      X-Runtime:
+      - '0.213796'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      X-Xss-Protection:
+      - 1; mode=block
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <subscription>
+          <activated_at type="datetime">2014-12-17T19:54:59-05:00</activated_at>
+          <balance_in_cents type="integer">0</balance_in_cents>
+          <cancel_at_end_of_period type="boolean" nil="true"/>
+          <canceled_at type="datetime" nil="true"/>
+          <cancellation_message nil="true"/>
+          <created_at type="datetime">2014-12-17T19:54:58-05:00</created_at>
+          <current_period_ends_at type="datetime">2015-02-17T19:54:58-05:00</current_period_ends_at>
+          <expires_at type="datetime" nil="true"/>
+          <id type="integer">7288425</id>
+          <next_assessment_at type="datetime">2015-02-17T19:54:58-05:00</next_assessment_at>
+          <payment_collection_method>automatic</payment_collection_method>
+          <snap_day nil="true"/>
+          <state>active</state>
+          <trial_ended_at type="datetime" nil="true"/>
+          <trial_started_at type="datetime" nil="true"/>
+          <updated_at type="datetime">2014-12-18T00:50:15-05:00</updated_at>
+          <current_period_started_at type="datetime">2014-12-17T19:54:58-05:00</current_period_started_at>
+          <previous_state>active</previous_state>
+          <signup_payment_id type="integer">78649329</signup_payment_id>
+          <signup_revenue>21.11</signup_revenue>
+          <delayed_cancel_at nil="true"/>
+          <coupon_code nil="true"/>
+          <total_revenue_in_cents type="integer">2111</total_revenue_in_cents>
+          <product_price_in_cents type="integer">1937</product_price_in_cents>
+          <product_version_number type="integer">1</product_version_number>
+          <payment_type>credit_card</payment_type>
+          <current_billing_amount_in_cents type="integer">2111</current_billing_amount_in_cents>
+          <customer>
+            <address>3108 LASHBROOK AVENUE</address>
+            <address_2 nil="true"/>
+            <city>EL MONTE</city>
+            <country>US</country>
+            <created_at type="datetime">2014-12-17T19:54:58-05:00</created_at>
+            <email>howhmn@gmail.com</email>
+            <first_name>HAI</first_name>
+            <id type="integer">7149195</id>
+            <last_name>Nguyen</last_name>
+            <organization nil="true"/>
+            <phone nil="true"/>
+            <portal_customer_created_at type="datetime" nil="true"/>
+            <portal_invite_last_accepted_at type="datetime" nil="true"/>
+            <portal_invite_last_sent_at type="datetime" nil="true"/>
+            <reference nil="true"/>
+            <state>CA</state>
+            <updated_at type="datetime">2014-12-17T19:54:58-05:00</updated_at>
+            <verified type="boolean">false</verified>
+            <zip>91733</zip>
+          </customer>
+          <product>
+            <accounting_code>1month</accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-09-15T08:33:51-04:00</created_at>
+            <description>One Month Recurring Subscription to Loot Crate! (US Only)</description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>1-month-subscription</handle>
+            <id type="integer">3552899</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">1</interval>
+            <interval_unit>month</interval_unit>
+            <name>One Month Subscription</name>
+            <price_in_cents type="integer">1937</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params>id={customer_id}&amp;ref={customer_reference}&amp;sid={subscription_id}&amp;attributes={customer_attributes}</return_params>
+            <return_url>http://polar-waters-8702.herokuapp.com/payment_completed/index?pid=1</return_url>
+            <taxable type="boolean">true</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url>http://polar-waters-8702.herokuapp.com/payment_completed/index?</update_return_url>
+            <updated_at type="datetime">2014-09-15T08:33:51-04:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Monthly Subscription Design</description>
+              <handle>1993521</handle>
+              <id type="integer">442941</id>
+              <name>Loot Crate's Monthly Box</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">107657</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/f51026fbae84/1-month-subscription</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <credit_card>
+            <billing_address>3108 LASHBROOK AVENUE</billing_address>
+            <billing_address_2 nil="true"/>
+            <billing_city>EL MONTE</billing_city>
+            <billing_country>US</billing_country>
+            <billing_state>CA</billing_state>
+            <billing_zip>91733</billing_zip>
+            <card_type>bogus</card_type>
+            <current_vault>bogus</current_vault>
+            <customer_id type="integer">7149195</customer_id>
+            <customer_vault_token nil="true"/>
+            <expiration_month type="integer">12</expiration_month>
+            <expiration_year type="integer">2014</expiration_year>
+            <first_name>HAI</first_name>
+            <id type="integer">4739705</id>
+            <last_name>Nguyen</last_name>
+            <masked_card_number>XXXX-XXXX-XXXX-1</masked_card_number>
+            <vault_token>1</vault_token>
+            <payment_type>credit_card</payment_type>
+          </credit_card>
+        </subscription>
+    http_version: 
+  recorded_at: Thu, 18 Dec 2014 05:59:06 GMT
+- request:
+    method: put
+    uri: https://DFLe4nAkwg13WPSwqmWP:X@lootcratetest-braintree.chargify.com/subscriptions/7288425.xml
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <subscription>
+          <activated_at type="datetime">2014-12-17T16:54:59-08:00</activated_at>
+          <balance_in_cents type="integer">0</balance_in_cents>
+          <cancel_at_end_of_period nil="true"/>
+          <canceled_at nil="true"/>
+          <cancellation_message nil="true"/>
+          <coupon_code nil="true"/>
+          <created_at type="datetime">2014-12-17T16:54:58-08:00</created_at>
+          <current_billing_amount_in_cents type="integer">2111</current_billing_amount_in_cents>
+          <current_period_ends_at type="datetime">2015-02-17T16:54:58-08:00</current_period_ends_at>
+          <current_period_started_at type="datetime">2014-12-17T16:54:58-08:00</current_period_started_at>
+          <delayed_cancel_at nil="true"/>
+          <expires_at nil="true"/>
+          <id type="integer">7288425</id>
+          <next_assessment_at type="datetime">2015-02-17T16:54:58-08:00</next_assessment_at>
+          <next_billing_at type="datetime">2015-03-17T17:54:58-07:00</next_billing_at>
+          <payment_collection_method>automatic</payment_collection_method>
+          <payment_type>credit_card</payment_type>
+          <previous_state>active</previous_state>
+          <product_price_in_cents type="integer">1937</product_price_in_cents>
+          <product_version_number type="integer">1</product_version_number>
+          <signup_payment_id type="integer">78649329</signup_payment_id>
+          <signup_revenue>21.11</signup_revenue>
+          <snap_day nil="true"/>
+          <state>active</state>
+          <total_revenue_in_cents type="integer">2111</total_revenue_in_cents>
+          <trial_ended_at nil="true"/>
+          <trial_started_at nil="true"/>
+          <updated_at type="datetime">2014-12-17T21:50:15-08:00</updated_at>
+        </subscription>
+    headers:
+      Content-Type:
+      - application/xml
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/xml; charset=utf-8
+      Date:
+      - Thu, 18 Dec 2014 05:59:05 GMT
+      Etag:
+      - '"ce6d258a3a2784a76b041cbf26b3ad7a"'
+      Location:
+      - https://lootcratetest-braintree.chargify.com/subscriptions/7288425
+      P3p:
+      - CP="NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM"
+      Server:
+      - nginx + Phusion Passenger
+      Set-Cookie:
+      - _chargify_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFVEkiJWI5Mjk2ZDdhZGY4MzU2YWQ2MmM3YzMzNDZlMjI4YzhiBjsAVEkiF3NlbGxlcl9jcmVkZW50aWFscwY7AEZJIgGAYjYzNWM0YWM3MGI1ZDUxZGY5ZjIxNDg0NTM2ZTQ3MjdjNTM3NDk3MzI3NzNmY2EwNDEzMWRmMjQ3ODc1YWI1NjgwOWE1ODg3MDE4YzA5ZjgzZTYyNGVkNDZhZmZhY2VmMGFmYTBlMGVlZTIzNmU0YmM1M2I1YmMyOWJlZjAwZjYGOwBGSSIac2VsbGVyX2NyZWRlbnRpYWxzX2lkBjsARmkCADI%3D--99a809615d233a827593ea3b65230294c2a2139b;
+        domain=.chargify.com; path=/; secure; HttpOnly
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Powered-By:
+      - Phusion Passenger
+      X-Rack-Cache:
+      - invalidate, pass
+      X-Ratelimit-Limit:
+      - '1000000'
+      X-Ratelimit-Remaining:
+      - '999802'
+      X-Ratelimit-Reset:
+      - '1418947200'
+      X-Request-Id:
+      - ce183124-c722-4e42-a854-39e8a4b95147
+      X-Runtime:
+      - '0.610693'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      X-Xss-Protection:
+      - 1; mode=block
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <subscription>
+          <activated_at type="datetime">2014-12-17T19:54:59-05:00</activated_at>
+          <balance_in_cents type="integer">0</balance_in_cents>
+          <cancel_at_end_of_period type="boolean" nil="true"/>
+          <canceled_at type="datetime" nil="true"/>
+          <cancellation_message nil="true"/>
+          <created_at type="datetime">2014-12-17T19:54:58-05:00</created_at>
+          <current_period_ends_at type="datetime">2015-03-17T20:54:58-04:00</current_period_ends_at>
+          <expires_at type="datetime" nil="true"/>
+          <id type="integer">7288425</id>
+          <next_assessment_at type="datetime">2015-03-17T20:54:58-04:00</next_assessment_at>
+          <payment_collection_method>automatic</payment_collection_method>
+          <snap_day nil="true"/>
+          <state>active</state>
+          <trial_ended_at type="datetime" nil="true"/>
+          <trial_started_at type="datetime" nil="true"/>
+          <updated_at type="datetime">2014-12-18T00:59:05-05:00</updated_at>
+          <current_period_started_at type="datetime">2014-12-17T19:54:58-05:00</current_period_started_at>
+          <previous_state>active</previous_state>
+          <signup_payment_id type="integer">78649329</signup_payment_id>
+          <signup_revenue>21.11</signup_revenue>
+          <delayed_cancel_at nil="true"/>
+          <coupon_code nil="true"/>
+          <total_revenue_in_cents type="integer">2111</total_revenue_in_cents>
+          <product_price_in_cents type="integer">1937</product_price_in_cents>
+          <product_version_number type="integer">1</product_version_number>
+          <payment_type>credit_card</payment_type>
+          <customer>
+            <address>3108 LASHBROOK AVENUE</address>
+            <address_2 nil="true"/>
+            <city>EL MONTE</city>
+            <country>US</country>
+            <created_at type="datetime">2014-12-17T19:54:58-05:00</created_at>
+            <email>howhmn@gmail.com</email>
+            <first_name>HAI</first_name>
+            <id type="integer">7149195</id>
+            <last_name>Nguyen</last_name>
+            <organization nil="true"/>
+            <phone nil="true"/>
+            <portal_customer_created_at type="datetime" nil="true"/>
+            <portal_invite_last_accepted_at type="datetime" nil="true"/>
+            <portal_invite_last_sent_at type="datetime" nil="true"/>
+            <reference nil="true"/>
+            <state>CA</state>
+            <updated_at type="datetime">2014-12-17T19:54:58-05:00</updated_at>
+            <verified type="boolean">false</verified>
+            <zip>91733</zip>
+          </customer>
+          <product>
+            <accounting_code>1month</accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-09-15T08:33:51-04:00</created_at>
+            <description>One Month Recurring Subscription to Loot Crate! (US Only)</description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>1-month-subscription</handle>
+            <id type="integer">3552899</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">1</interval>
+            <interval_unit>month</interval_unit>
+            <name>One Month Subscription</name>
+            <price_in_cents type="integer">1937</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params>id={customer_id}&amp;ref={customer_reference}&amp;sid={subscription_id}&amp;attributes={customer_attributes}</return_params>
+            <return_url>http://polar-waters-8702.herokuapp.com/payment_completed/index?pid=1</return_url>
+            <taxable type="boolean">true</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url>http://polar-waters-8702.herokuapp.com/payment_completed/index?</update_return_url>
+            <updated_at type="datetime">2014-09-15T08:33:51-04:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Monthly Subscription Design</description>
+              <handle>1993521</handle>
+              <id type="integer">442941</id>
+              <name>Loot Crate's Monthly Box</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">107657</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/f51026fbae84/1-month-subscription</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <credit_card>
+            <billing_address>3108 LASHBROOK AVENUE</billing_address>
+            <billing_address_2 nil="true"/>
+            <billing_city>EL MONTE</billing_city>
+            <billing_country>US</billing_country>
+            <billing_state>CA</billing_state>
+            <billing_zip>91733</billing_zip>
+            <card_type>bogus</card_type>
+            <current_vault>bogus</current_vault>
+            <customer_id type="integer">7149195</customer_id>
+            <customer_vault_token nil="true"/>
+            <expiration_month type="integer">12</expiration_month>
+            <expiration_year type="integer">2014</expiration_year>
+            <first_name>HAI</first_name>
+            <id type="integer">4739705</id>
+            <last_name>Nguyen</last_name>
+            <masked_card_number>XXXX-XXXX-XXXX-1</masked_card_number>
+            <vault_token>1</vault_token>
+            <payment_type>credit_card</payment_type>
+          </credit_card>
+        </subscription>
+    http_version: 
+  recorded_at: Thu, 18 Dec 2014 05:59:07 GMT
+- request:
+    method: post
+    uri: https://DFLe4nAkwg13WPSwqmWP:X@lootcratetest-braintree.chargify.com/subscriptions/7288425/metadata.xml
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <metadata>
+          <name>Month to Skip</name>
+          <value type="date">2014-12-01</value>
+        </metadata>
+    headers:
+      Content-Type:
+      - application/xml
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/xml; charset=utf-8
+      Date:
+      - Thu, 18 Dec 2014 05:59:06 GMT
+      Etag:
+      - '"ec8f30f5ca5135ad90f920a82be101e1"'
+      P3p:
+      - CP="NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM"
+      Server:
+      - nginx + Phusion Passenger
+      Set-Cookie:
+      - _chargify_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFVEkiJTA1YWU3NGNlZTgzYmFhZDE0YmYwYTNiNjJhOTI0MzRjBjsAVEkiF3NlbGxlcl9jcmVkZW50aWFscwY7AEZJIgGAMGUwYzM0YTM3N2UwOWU3YjgxZTgyN2I2OWNiM2ZkYzlkM2NiM2RlOWVlNmE5YTc5MGVjZmM1MGU2Y2NiMTFlOTUwMmVhOGU4OWM1YWE1Mjg1MGU2NWUzMDg0Y2I4MjI5MTE2MmZmYzQ3MmEyNmY1NWJkMTQ5MDBiMTcwZTJiMmMGOwBGSSIac2VsbGVyX2NyZWRlbnRpYWxzX2lkBjsARmkCADI%3D--f9dc33047e48a43ce0caa2f2af1237e0e6bd5230;
+        domain=.chargify.com; path=/; secure; HttpOnly
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Powered-By:
+      - Phusion Passenger
+      X-Rack-Cache:
+      - invalidate, pass
+      X-Ratelimit-Limit:
+      - '1000000'
+      X-Ratelimit-Remaining:
+      - '999801'
+      X-Ratelimit-Reset:
+      - '1418947200'
+      X-Request-Id:
+      - e8a84c06-0e6a-400e-9343-406a704822fe
+      X-Runtime:
+      - '0.178504'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '231'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <metadata type="array">
+          <metadatum>
+            <resource-id type="integer">7288425</resource-id>
+            <value type="date">2014-12-01</value>
+            <name>Month to Skip</name>
+          </metadatum>
+        </metadata>
+    http_version: 
+  recorded_at: Thu, 18 Dec 2014 05:59:07 GMT
+recorded_with: VCR 2.9.3

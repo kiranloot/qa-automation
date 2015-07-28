@@ -1,0 +1,8 @@
+Welcome <%= @email %>!
+
+You can confirm your account email through the link below.
+
+<%= confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %>
+
+Thanks for being awesome,
+Team Loot Crate&trade;

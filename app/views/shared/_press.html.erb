@@ -1,0 +1,90 @@
+<div class="container">
+  <div class="line-header">
+    <div class="line"></div>
+    <h4><%= t('welcome.press.title') %></h4>
+  </div>
+
+  <!-- Carousel -->
+  <div id="press-carousel" class="carousel slide" data-ride="carousel" data-interval="9000">
+    <!-- Carousel Inner -->
+    <div class="carousel-inner">
+      <div class="active item"><%= image_tag "press/awesomer-black.png", size: "360x120" %></div>
+      <div class="item"><%= image_tag "press/geek-black.png", size: "360x120" %></div>
+      <div class="item"><%= image_tag "press/curse-black.png", size: "360x120" %></div>
+      <div class="item"><%= image_tag "press/readwrite-black.png", size: "360x120" %></div>
+      <div class="item"><%= image_tag "press/forbes-black.png", size: "360x120" %></div>
+    </div>
+    <!-- End Carousel Inner -->
+    <!-- Slide Arrows -->
+    <div class="container slide-arrows-container">
+      <a class="carousel-control left" href="#press-carousel" data-slide="prev"><i class="glyphicon glyphicon-menu-left"></i></a>
+      <a class="carousel-control right" href="#press-carousel" data-slide="next"><i class="glyphicon glyphicon-menu-right"></i></a>
+    </div>
+    <!-- End Arrows -->
+  </div>
+  <!-- End Carousel -->
+
+  <h4 class="ldquo"><i class="fa fa-quote-left"></i></h4>
+
+  <!-- Press Quotes -->
+  <div class="press-quote-container">
+
+    <p class="press-quote active" data-press-slide="0">
+      <%= t('welcome.press.awesomer_quote') %>
+    </p>
+
+    <p class="press-quote" data-press-slide="1">
+      <%= t('welcome.press.readwrite_quote').html_safe %>
+    </p>
+
+    <p class="press-quote" data-press-slide="2">
+      <%= t('welcome.press.geek_quote').html_safe %>
+    </p>
+
+    <p class="press-quote" data-press-slide="3">
+      <%= t('welcome.press.wired_quote') %>
+    </p>
+
+    <p class="press-quote" data-press-slide="4">
+      <%= t('welcome.press.mtvgeek_quote') %>
+    </p>
+
+  </div>
+  <!-- End Press Quotes -->
+
+</div>
+<!-- End Container -->
+
+<div class="logo-bar">
+  <div class="container">
+    <ol class="logo-list">
+
+      <li data-target="#press-carousel" data-slide-to="0" data-press-slide="0" class="active">
+        <a class="black" href="#"><%= image_tag "press/awesomer-white.png", size: "360x120" %></a>
+        <a class="white" href="#"><%= image_tag "press/awesomer-white.png", size: "360x120" %></a>
+      </li>
+
+      <li data-target="#press-carousel" data-slide-to="1" data-press-slide="1">
+        <a class="black" href="#"><%= image_tag "press/geek-white.png", size: "360x120" %></a>
+        <a class="white" href="#"><%= image_tag "press/geek-white.png", size: "360x120" %></a>
+      </li>
+
+      <li data-target="#press-carousel" data-slide-to="2" data-press-slide="2">
+        <a class="black" href="#"><%= image_tag "press/curse-white.png", size: "360x120" %></a>
+        <a class="white" href="#"><%= image_tag "press/curse-white.png", size: "360x120" %></a>
+      </li>
+
+      <li data-target="#press-carousel" data-slide-to="3" data-press-slide="3">
+        <a class="black" href="#"><%= image_tag "press/readwrite-white.png", size: "360x120" %></a>
+        <a class="white" href="#"><%= image_tag "press/readwrite-white.png", size: "360x120" %></a>
+      </li>
+
+      <li data-target="#press-carousel" data-slide-to="4" data-press-slide="4">
+        <a class="black" href="#"><%= image_tag "press/forbes-white.png", size: "360x120" %></a>
+        <a class="white" href="#"><%= image_tag "press/forbes-white.png", size: "360x120" %></a>
+      </li>
+
+    </ol>
+
+  </div>
+</div>

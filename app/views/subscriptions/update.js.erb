@@ -1,0 +1,8 @@
+<% if @error_messages %>
+  LootCrate.Flash "<%= @error_messages %>", 'error'
+<% else %>
+  $("#collapseOne<%= @subscription.id %> .panel-body .pmbb-view").html("<%= j render 'user_accounts/looter_info', subscription: @subscription %>");
+  $(".subscription-header-<%= @subscription.id %>").html("<%= j render 'user_accounts/subscription_name', subscription: @subscription %>");
+  $("#upgrade-promotion .upgradable-subscriptions").html("<%= j render 'user_accounts/promotion', upgradable_subscriptions: @upgradable_subscriptions %>");
+  $("#upgradeable-subscriptions").select2();
+<% end %>

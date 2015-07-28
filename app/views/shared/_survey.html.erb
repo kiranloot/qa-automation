@@ -1,0 +1,16 @@
+<div class="modal fade" id='survey_invite'>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h2>Success!</h2>
+        <p>Your subscription is cancelled, but we still love you!</p>
+        <p class="spacer">If you have a moment please take a quick survey to help us do better in the future.</p>
+        <%= link_to 'Take The Survey', surveys_cancellation_path(product_brand: params[:product_brand]), class: 'btn btn-secondary' %>
+
+        <div class="close-survey-link">
+          <%= link_to 'No thanks', user_accounts_subscriptions_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

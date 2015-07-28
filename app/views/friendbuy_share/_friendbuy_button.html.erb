@@ -1,0 +1,5 @@
+<script>
+  window['friendbuy'] = window['friendbuy'] || [];
+  window['friendbuy'].push(['widget', "<%= ENV['FRIENDBUY_EMAIL_CAMPAIGN_SPLASH_WIDGET'] %>", {configuration: {share_button:false}}]);
+</script>
+<%= link_to t('friend_share.start_sharing').upcase, '#', role: "button", class: "btn btn-secondary referathon-btn friendbuy-#{ENV['FRIENDBUY_EMAIL_CAMPAIGN_SPLASH_WIDGET']}" %>

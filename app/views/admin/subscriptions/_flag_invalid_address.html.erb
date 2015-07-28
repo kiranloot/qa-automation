@@ -1,0 +1,11 @@
+<div id="flag-address-button">
+  <% flag = subscription.shipping_address.flagged_invalid_at %>
+  <% if flag.nil? %>
+    <%= link_to 'Flag invalid shipping address', flag_admin_subscription_path, method: :put, class: 'flag-button button', data: {confirm: 'Flagging invalid address. Are you sure?'} %>
+  <% else %>
+    <p> 
+      <%= link_to 'Remove invalid shipping flag', unflag_admin_subscription_path, method: :put, class: 'button', data: {confirm: 'Removing invalid address flag on subscription.  Are you sure?'} %>
+      Shipping address flagged as invalid <b><%= (Date.today - flag.to_date).to_i %> days ago</b> (<%= flag.strftime('%c') %>) 
+    </p>
+  <% end %>
+</div>

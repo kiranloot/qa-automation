@@ -1,0 +1,221 @@
+
+<div id="checkout-region">
+  <div id="three-step-region" <%= error_decorator %>>
+    <div class="checkout-app">
+      <div class="header-checkout">
+        <a href="/" class="site-logo">
+          <img src="<%= image_path("logo-dark.png") %>" alt="Loot Crate" />
+        </a>
+      </div>
+
+      <%= simple_form_for(@checkout, url: express_checkouts_path, html: { class: 'card_form form-vertical form-validate', role: 'form' }) do |f| %>
+        <%= hidden_field_tag :plan, params[:plan] %>
+        <%= hidden_field_tag :secure_timestamp, params[:secure_timestamp] || Time.now.to_i %>
+        <%= hidden_field_tag :secure_nonce, params[:secure_nonce] || User.reset_password_token %>
+
+        <div class="shipping-region checkout-step">
+          <div class="active">
+            <span class="click-guard"></span>
+            <div class="step-title-container">
+              <h2 class="step-title">Shipping</h2>
+            </div>
+            <div class="address">
+              <div class="address-form">
+                <% shipping_country = @checkout.plan.country %>
+
+                <div class='row'>
+                  <div class='col-xs-6'>
+                    <%= f.input :shipping_address_first_name,  :required => true, label: false,  autofocus: true, :placeholder => 'First Name' %>
+                  </div>
+                  <div class='col-xs-6'>
+                    <%= f.input :shipping_address_last_name,  :required => true, label: false, :placeholder => 'Last Name' %>
+                  </div>
+                </div>
+
+                <div class='row'>
+                  <div class='col-xs-12'>
+                    <%= f.input :shipping_address_line_1,  :required => true, label: false, :placeholder => 'Address 1' %>
+                  </div>
+                  <div class='col-xs-12'>
+                    <%= f.input :shipping_address_line_2,  :required => false, label: false, :placeholder => 'Address 2 (optional)' %>
+                  </div>
+                </div>
+
+                <div class='row'>
+                  <div class='col-xs-12 city'>
+                    <%= f.input :shipping_address_city, :placeholder => 'City', :required => true, label: false %>
+                  </div>
+                </div>
+
+                <div class='row'>
+                  <div class='col-xs-4'>
+                    <% if params[:checkout].present? %>
+                      <% c = params[:checkout][:shipping_address_country] %>
+                    <% else %>
+                      <% c = nil %>
+                    <% end %>
+                    <%= f.input :shipping_address_state, :collection => state_options(c), :prompt => 'State', label: false, :input_html => { :class => 'select select2' }  %>
+                  </div>
+                  <div class='col-xs-4'>
+                    <%= f.input :shipping_address_zip,  :required => true, :placeholder => 'Zip Code', label: false %>
+                  </div>
+                  <div class='col-xs-4'>
+                    <%= f.input :shipping_address_country, :input_html => { :class => 'select select2'}, collection: country_options(shipping_country), prompt: "PLEASE SELECT", label: false, selected: shipping_country %>
+                  </div>
+                </div>
+
+                <div class='row'>
+                  <div class='col-xs-12'>
+                    <%= f.input :shirt_size, :as => :select, :collection => shirt_sizes, :input_html => { :class => 'select select2'}, :prompt => 'Select your shirt size', label:false %>
+                  </div>
+                </div>
+                <button type="button" data-step='2' class="btn btn-primary btn-step">Next</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="billing-region checkout-step">
+          <div>
+            <span class="click-guard"></span>
+            <div class="step-title-container">
+              <h2 class="step-title">Billing</h2>
+            </div>
+            <div class="credit-card">
+              <div class="card-flipper credit-card-form">
+                <fieldset id="incomplete-card">
+                  <span class="stripe"></span>
+                  <span class="shine"></span>
+                  <div class="card-fields">
+                    <div class="row">
+                      <div class="col-xs-8">
+                        <%= f.input :credit_card_number, label: false, :wrapper => :append do %>
+                          <%= f.input_field :credit_card_number, :placeholder => 'Card Number', :required => true, maxlength: 16, :autocomplete => 'off' %><span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                        <% end %>
+                      </div>
+                      <div class="col-xs-4">
+                        <%= f.input :credit_card_cvv, label: false, :placeholder => 'CVV', :required => true, :input_html => { :autocomplete => 'off' } %>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <%= f.input :credit_card_expiration_date, as: :date, start_year: Date.today.year, end_year: Date.today.year + 10, discard_day: true, order: [:month, :year], label: false, required: true , :input_html => { :class => 'select select2' }, month_format_string: '%<number>02d - %{name}' %>
+                      </div>
+                    </div>
+                    <%= f.input :billing_address_full_name, label: false, :placeholder => 'Name on card', :required => true %>
+                  </div>
+                </fieldset>
+              </div>
+
+              <div class='row'>
+                <div class='col-xs-12 use-shipping-address'>
+                  <div>
+                    <div class='billing'>
+                      <input type='checkbox' value='None' id='billing' name='billingtoo' checked='true' />
+                      <label for='billing'></label>
+                    </div>
+                    <label id='use-shipping-address-label' for='billing'>Use Shipping Address for Billing</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class='billToggle'>
+                <div class='row'>
+                  <div class='col-xs-12'>
+                    <%= f.input :billing_address_line_1, label: false, :placeholder => 'Billing Address 1' %>
+                  </div>
+                </div>
+                <div class='row'>
+                  <div class='col-xs-12'>
+                    <%= f.input :billing_address_line_2, label: false, :placeholder => 'Billing Address 2' %>
+                  </div>
+                </div>
+
+                <div class='row'>
+                  <div class='col-xs-12'>
+                    <%= f.input :billing_address_city, label: false, :placeholder => 'Billing City' %>
+                  </div>
+                </div>
+
+                <div class='row'>
+                  <div class='col-xs-4 state'>
+                    <%= f.input :billing_address_state, :collection => state_options(c), :input_html => { :class => 'select select2'}, :prompt => 'State', label: false %>
+                  </div>
+                  <div class='col-xs-4'>
+                    <%= f.input :billing_address_zip, label: false, :placeholder => 'Zip Code' %>
+                  </div>
+                  <div class='col-xs-4'>
+                    <%= f.input :billing_address_country, collection: country_options, :input_html => { :class => 'select select2'}, prompt: 'PLEASE SELECT', label: false, selected: c || shipping_country %>
+                  </div>
+                </div>
+              </div>
+              <div class="form-actions">
+                <div class="row">
+                  <div class="col-md-0 col-xs-3 back hidden-md hidden-lg">
+                    <i class="fa fa-caret-left"></i> <a href="#" data-step='1' class="btn-step prev">Back</a>
+                  </div>
+                  <div class="col-md-12 col-xs-6">
+                    <button type="button" data-step='3' class="btn btn-primary btn-step">Next</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-region checkout-step">
+          <div>
+            <span class="click-guard"></span>
+            <div class="step-title-container">
+              <h2 class="step-title">Finish Up</h2>
+            </div>
+            <div class="order-breakdown-region">
+              <img src="<%= image_path("checkout-finish.jpg") %>" alt="" class="img-responsive" />
+
+              <%= render 'steps_summary' %>
+
+              <div class="row coupon">
+                <div class="col-sm-12 toggleCoupon">
+                  <div class="showCoupon" for="couups">
+                    <img src="<%= image_path("m_checkbox.png") %>" class="checkImOff" />
+                    <img src="<%= image_path("m_checkbox_checked.png") %>" class="checkImOn" style="display:none;" /> Yes, I have a coupon
+                  </div>
+                </div>
+              </div>
+
+              <div class="row coupon hide">
+                <div class="col-sm-6" id="check-coupon">
+                  <div class="form-group string optional checkout_coupon_code">
+                    <div class="controls">
+                      <%= f.input :coupon_code, :label => 'Coupon Code' %>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <button id='validate-coupon' class='btn-secondary' data-plan="<%= @checkout.plan.name %>" data-tree="<%= (@checkout.new_record? || @checkout.braintree?) ? '1' : '0'%>">VALIDATE CODE</button>
+                  <div id='coupon-spinner' class='hide'><%= image_tag('spinner.gif') %></div>
+                </div>
+              </div>
+
+              <div class="row coupon">
+                <div class="col-xs-12">
+                  <div id="coupon-status"></div>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <div class="row">
+                  <div class="col-md-0 col-xs-3 back hidden-md hidden-lg">
+                    <i class="fa fa-caret-left"></i> <a href="#" data-step='2' class="btn-step prev">Back</a>
+                  </div>
+                  <div class="col-md-12 col-xs-6">
+                    <%= f.button :submit, 'Complete Order', id: 'checkout', :"data-step" => :done, :class => 'btn btn-primary btn-step' %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,192 @@
+#amiibo-index {
+  .main-content {
+    padding-top:0;
+  }
+}
+
+/* sold out */
+div.amiibo-bg {
+  background: $orange;
+  text-align: center;
+
+  img {
+    max-height: 400px;
+    background: $orange !important;
+    margin: 0 auto;
+  }
+}
+
+.amiibo-container {
+  margin-top: -155px;
+
+  .amiibo-relative {
+    position:relative;
+
+    .col-md-10 {
+      text-align:center;
+    }
+
+    .am-gray {
+      padding:20px; background:#222222; border: 20px white solid;
+
+      span{
+        color:#aaaaaa; font-size:1.0em; line-height:110%; padding-bottom:20px; font-weight:bold;
+      }
+      
+      #user_email{
+        color: $orange;
+      }
+
+      #user_email {
+        text-align:center;
+        width: 100%;
+      }
+
+      #am-figures {
+        padding:0 20px; color:#aaaaaa; font-size:.85em;
+
+        a {
+          color:#aaaaaa !important; text-decoration:underline;
+        }
+      }
+    }
+
+    .headerWhite {
+      text-transform:none;
+      span {
+        color:#aaaaaa;
+        font-weight:normal;
+      }
+    }
+
+    .form-actions {
+      padding: 19px 20px 20px;
+      margin-top: 22px;
+      margin-bottom: 22px;
+    }
+
+    input {
+      height: 44px;
+      font-size: 14px;
+      font-weight: normal;
+      line-height: 20px;
+      color:#33332e;
+    }
+    .am-figures {
+      padding: 0 20px;
+      color: #aaaaaa;
+      font-size: .85em;
+    }
+  }
+}
+
+#amiibo-lightbox-background {
+  position:fixed;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  padding:0;
+  background-color:rgba(0,0,0,.7);
+  display:none;
+  z-index:10000;
+  text-align:center;
+
+  .am-container {
+    width:100%; position:absolute; top:10%;
+  }
+
+  #lightbox {
+    padding:30px; float:none; margin:0 auto; background-color:black; border:3px solid #ddd; -webkit-border-radius:8px; -moz-border-radius:8px; border-radius:8px; overflow-y:auto; overflow-x:hidden;
+    
+    .am-logo {
+      padding:3px 0px 8px 0px; text-align:center;
+
+      img {
+        width:290px;
+      }
+
+      .am-left {
+        text-align:center;
+      }
+    }
+    .am-md-cont {
+      text-align:center;
+
+      p {
+        color:#faa51a !important; font-size:1.2em; font-weight:700; margin:25px 0 25px 0; line-height:100%;
+      }
+    }
+  }
+
+  #ajaxmessage {
+    color:#faa51a !important; font-size:1.2em; font-weight:700; margin:25px 0 25px 0; line-height:100%;
+  }
+}
+
+.amiibo-link {
+  color: #f06000 !important;
+  text-decoration: none;
+}
+/* sold in */
+.am-inf-pad{
+  padding: 30px 0;
+  h1 {
+    margin-left: 0; color: $darkness;
+  }
+}
+.am-inf-rel {
+  position:relative;
+}
+.am-bot {
+  margin-bottom: 0 !important;
+}
+.am-center{
+  text-align: center;
+}
+
+// amiibo sold in
+#amiibo-index {
+  .amiibo-container {
+    @media (max-width: 768px) { 
+      .ribbon-wrapper-green {
+        display: none;
+      }
+    }
+  .plan-details {
+      img {
+        width: 304px;
+        height: auto;
+      }
+
+      @media (max-width: 768px) { 
+        img {
+          width: 400px;
+        }
+      }
+    }
+    @media (max-width: 768px) {
+      .bottom {
+        text-align: center;
+        li {
+          list-style: none;
+        }
+      }
+      .amiibo-week {
+        img {
+          max-width: 440px;
+          height: auto;
+        }
+      }
+    }
+
+    @media(max-width: 980px) {
+      .base {
+        text-align: center;
+        li {
+          list-style: none;
+        }
+      }
+    }
+  }
+}

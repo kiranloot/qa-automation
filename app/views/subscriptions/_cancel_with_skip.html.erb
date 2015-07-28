@@ -1,0 +1,28 @@
+<div class='white-bg'>
+  <div class='container'>
+    <div class='row'>
+      <div class="col-sm-9">
+        <h1>You could just Skip a Month...</h1>
+        <p><strong>Here's another option:</strong> Now you can <span class="orange">Skip a Month</span> and come back in 30 days, refreshed and ready for your next Loot Crate!</p>
+        <p>You would <strong>Skip <%= month_year_to_friendly_date(@month_to_skip) %></strong> and get your next crate in <%= month_year_after_skip(@month_to_skip) %>.</p>
+        <p class="img-hero"><%= image_tag("#{(@month_to_skip_image)}-skip-cancel-hero.png", alt: 'Skip a month', class: 'img-responsive' ) %></p>
+        <div class='tools'>Excellent idea! Let's do that! <span class="visible-xs"><p></p></span>
+          <%= link_to('SKIP A MONTH', skip_a_month_subscription_path(@subscription), class: 'btn btn-secondary btn-skip', method: :put) %>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="sidebar">
+          <%= image_tag("sad-skippy.png", alt: 'Skip a month', class: 'img-responsive sad-skippy') %>
+          <h2>Really?</h2>
+          <h2>No More Loot?</h2>
+          <div>
+            <p>We're bummed if you have to go, but we understand.</p>
+            <p>Your <%= subscription.plan.readable_name %> will be cancelled on <%= subscription.next_assessment_at.try(:strftime, "%B %d, %Y") %>.</p>
+            <p>Please note: You will still receive your remaining crates owed.</p>
+          </div>
+        </div>
+        <p><%= link_to 'CANCEL SUBSCRIPTION', cancel_at_end_of_period_subscription_path(subscription), method: :put, id: 'cancel-at-end-of-period', data: { confirm: 'Are you sure you want to cancel your subscription?' }, class: 'cancellation-link' %></p>
+      </div>
+    </div>
+  </div>
+</div>

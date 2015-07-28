@@ -1,0 +1,200 @@
+<!-- Convertro Event Tag -->
+<%= render "convertro_sale_event_tag",
+  event_type: @tealium_udo.convertro_event_type,
+  transaction_id: @transaction_id,
+  amount: @revenue
+%>
+
+<!-- Pinterest tracking pixel -->
+<img height="1" width="1" alt="" src="https://ct.pinterest.com/?tid=zBv6XCSiVem"/>
+
+<!-- Friendbuy -->
+<script>
+  window['friendbuy'] = window['friendbuy'] || [];
+  window['friendbuy'].push(['track', 'order',
+    {
+      id: '<%=  @transaction_id %>',
+      amount: '<%= @revenue %>',
+      email: '<%= current_user.email %>',
+      new_customer: '<%= current_user.subscriptions.count == 1 ? true : false %>'
+    }
+  ]);
+  window['friendbuy'].push(['track', 'products',
+    [
+      {
+        sku: '<%= @plan.name %>',
+        price: '<%= @plan.cost.to_f %>',
+        quantity: 1
+      },
+    ]
+  ]);
+  window['friendbuy'].push(['widget', "<%= ENV['FRIENDBUY_CONVERSION_CAMPAIGN'] %>", {configuration: {share_button:false}}]);
+</script>
+
+<!-- Tealium -->
+<script>
+  var orderDetails = new Array();
+  var productDetails = new Array();
+  orderDetails['order_id'] = "<%= @transaction_id %>";
+  orderDetails['order_grand_total'] = "<%= @revenue %>";
+  orderDetails['order_shipping_amount'] = '';
+  orderDetails['country_code'] = "<%= cookies[:country] %>";
+  orderDetails['order_subtotal'] = "<%= @subtotal %>";
+  orderDetails['order_discount_amount'] =  "<%= @discount %>";
+  orderDetails['order_tax_amount'] = "<%= @tax %>";
+  orderDetails['order_type'] = 'subscription';
+
+  productDetails['product_id'] = ["<%= @plan.id %>"];
+  productDetails['product_sku'] = ["<%= @plan.name %>"];
+  productDetails['product_name'] = ["<%= @plan.name %>"];
+  productDetails['product_price'] = ["<%= @plan.cost %>"];
+  productDetails['product_quantity'] = ["1"];
+  productDetails['product_category'] = ["subscriptions"];
+
+  jQuery.extend(utag_data, orderDetails);
+  jQuery.extend(utag_data, productDetails);
+  utag_data['convertro_event_type'] = "<%= @tealium_udo.convertro_event_type %>"
+</script>
+
+<script>
+  window.optimizely = window.optimizely || [];
+  window.optimizely.push(['trackEvent', 'payment_completed', {'revenue': <%= @revenue_in_cents %>}]);
+</script>
+
+<!-- Analytics: Tracking -->
+<%= render 'facebook_conversion_tracking_pixel', revenue: @revenue %>
+<%= render 'has_offers_tracking', revenue: @revenue, customer_id: @customer_id %>
+
+<!-- Analytics: Conversion Tracking -->
+<%= render 'pandora_tracking_pixel' %>
+
+<script>
+  var url = '<%= @facebook_share_url %>';
+  var title = "Loot Crate&trade;";
+  function fbs_click(){u=url;t=title;window.open('//www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');return false;}
+</script>
+
+<!-- Google analytics - This only adds params that are unique to this pagina.  The call to add the google analy script is with the rest of the anal stuff in application.erb.html.erb.html.erb.wtf.sass.erb.lolwut?.erb -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_addTrans',
+    '<%= @transaction_id %>', //transactionId = required
+    '', //affiliation or store name
+    '<%= @revenue %>', //total - required
+    '', //tax
+    '', //shipping
+    '', //city
+    '', //state or province
+    '', //country
+    ]);
+  _gaq.push(['_addItem',
+    '<%= @transaction_id %>', // transaction id - required
+    '<%= @pid %>', // sku/code - required
+    '<%= @plan.product.name %>', // product name
+    '<%= @plan.product_brand %>', // category or variation
+    '<%= @unit_price %>', // unit-price - required
+    '1', // quantity - required
+    ]);
+  _gaq.push(['_trackTrans']);
+
+</script>
+
+<!-- HasOffers Tracking -->
+  <!-- Loot Crate Influencers and Affiliates -->
+  <!-- Removed due to ssl issues, (mis-matched cert, and mixed content) when using get.lootcrate <iframe src="//get.lootcrate.com/SL6?adv_sub=<%= @customerId %>&amount=<%= @revenue %>" scrolling="no" frameborder="0" width="1" height="1"></iframe> -->
+  <!-- Loot Crate Influencers and Affiliates -->
+  <iframe src="//lootcrate.go2cloud.org/SL6?adv_sub=<%= @customerId %>&amount=<%= @revenue %>" scrolling="no" frameborder="0" width="1" height="1"></iframe>
+  <!-- Offer Conversion: Fullscreen Partners -->
+  <iframe src="//lootcrate.go2cloud.org/SL1C" scrolling="no" frameborder="0" width="1" height="1"></iframe>
+  <!-- Offer Conversion: Loot Crate Special -->
+  <iframe src="//lootcrate.go2cloud.org/SL50" scrolling="no" frameborder="0" width="1" height="1"></iframe>
+  <!-- Offer Conversion: VIP Creators -->
+  <iframe src="//lootcrate.go2cloud.org/SL4y?adv_sub=<%= @customerId %>" scrolling="no" frameborder="0" width="1" height="1"></iframe>
+  <!-- Offer Conversion: Ongoing MCN -->
+  <iframe src="//lootcrate.go2cloud.org/SL52" scrolling="no" frameborder="0" width="1" height="1"></iframe>
+  <!-- Offer Conversion: LC Publishers -->
+  <iframe src="//lootcrate.go2cloud.org/SL5C" scrolling="no" frameborder="0" width="1" height="1"></iframe>
+<!-- // End HasOffers Tracking -->
+
+<!-- Perfect Audience - tracking script with conversion info (customerId and revenue) -->
+<script type="text/javascript">
+
+  (function() {
+  window._pa = window._pa || {};
+  _pa.orderId = "<%= @customer_id %>";
+  _pa.revenue = "<%= @revenue %>";
+  var pa = document.createElement('script'); pa.type = 'text/javascript'; pa.async = true;
+  pa.src = ('https:' == document.location.protocol ? 'https:' : 'http:') + "//tag.perfectaudience.com/serve/512687542c3eda0002000074.js";
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(pa, s);
+  })();
+
+</script>
+<!-- End Perfect Audience -->
+
+<!-- Set NewsletterLightbox cookie for purchase -->
+<script type="text/javascript">
+  var now = new Date();
+  var expiration_date = new Date( now.getTime() + (3*365*24*60*60*1000) ); // 3 year expiration for purchases
+  document.cookie = 'NewsletterLightbox=purchase;expires=' + expiration_date.toGMTString() + ';path=/';
+</script>
+<!-- End NewsletterLightbox cookie -->
+
+<% if @plan.is_amiibo? %>
+    <%= render "payment_completed_amiibo" %>
+<% else %>
+
+<div class='white-bg'>
+  <div class='container base spacer'>
+    <div class='row'>
+        <% if @plan.product.try(:brand) == 'Level Up' %>
+          <%= render "payment_completed_level_up" %>
+        <% else %>
+          <div class='col-md-12 payment-complete'>
+            <h1><%= t('payment_completed.thank_you') %></h1>
+            <h4><%= t('payment_completed.referer_friends').html_safe %></h4>
+            <%= link_to t(:referer_friend).upcase, '#', role: "button", class: "btn btn-secondary fbuy-share friendbuy-#{ENV['FRIENDBUY_CONVERSION_CAMPAIGN']}" %>
+            <h5 class="text-danger"><%= t('payment_completed.warning') %></h5>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>
+
+<% end %>
+
+<!-- LinkShare pixel -->
+<img src="//track.linksynergy.com/ep?mid=39940&ord=<%= @transaction_id %>&skulist=<%= @plan.id %>&qlist=1&amtlist=<%= @revenue_in_cents %>&cur=USD&namelist=<%= @plan.name %>">
+<!-- END LinkShare pixel -->
+
+<!-- Google Code for Loot Crate Customer Acquisition Conversion Page -->
+<!-- This was originally for a TrueView campaign 20130722, updated 20130725 - Patrick -->
+<script type="text/javascript">
+  /* <![CDATA[ */
+var google_conversion_id = 991061439;
+var google_conversion_language = "en";
+var google_conversion_format = "3";
+var google_conversion_color = "ffffff";
+var google_conversion_label = "hXrwCJm7jwcQv8vJ2AM";
+var google_conversion_value = 0;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+<noscript>
+  <div style="display:inline;">
+    <img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/991061439/?value=0&amp;label=hXrwCJm7jwcQv8vJ2AM&amp;guid=ON&amp;script=0"/>
+  </div>
+</noscript>
+
+<!-- Twitter conversion pixel -->
+<script src="//platform.twitter.com/oct.js" type="text/javascript"></script>
+<script type="text/javascript">
+  twttr.conversion.trackPid('l48yq');
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none;" alt="" src="https://analytics.twitter.com/i/adsct?txn_id=l48yq&p_id=Twitter" />
+</noscript>
+
+<%= @yotpo_pixel.html_safe %>
+
+
+

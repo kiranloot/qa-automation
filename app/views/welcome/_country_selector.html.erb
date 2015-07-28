@@ -1,0 +1,138 @@
+<% cache("country_selector_#{cookies[:country]}", expires_in: 1.hour) do %>
+
+<%
+  cookies[:country] = params[:country] if params[:country].present?
+  country_flag = "americanflag.jpg"
+
+  case cookies[:country]
+    when "AU"
+     country_flag = "australia_flag.jpg"
+    when "CA"
+     country_flag = "canada_flag.jpg"
+    when "DE"
+     country_flag = "de_flag.jpg"
+    when "DK"
+     country_flag = "dk_flag.jpg"
+    when "FI"
+     country_flag = "fi_flag.jpg"
+    when "FR"
+     country_flag = "fr_flag.jpg"
+    when "GB"
+     country_flag = "uk_flag.jpg"
+    when "IE"
+     country_flag = "ie_flag.jpg"
+    when "NL"
+     country_flag = "nl_flag.jpg"
+    when "NO"
+     country_flag = "no_flag.jpg"
+    when "NZ"
+     country_flag = "nz_flag.jpg"
+    when "SE"
+     country_flag = "se_flag.jpg"
+    when "US"
+     country_flag = "americanflag.jpg"
+  end
+%>
+
+<li class="country-selector dropdown">
+    <a href="#" class="current-country" data-toggle="dropdown">
+    <span class="dropdownspan">
+      <%= t('navigation.ship_to') %>
+    </span>
+    <span class="currentflag"><%= image_tag(country_flag, alt: "le flag", class: 'currentflag-img', size: '48x32') %></span>
+    <b class="caret"></b></a>
+    <ul class="dropdown-menu" role="menu">
+      <% if "AU" != cookies[:country] %>
+      <li>
+        <a class="flag-icon" href="<%= join_plan_helper_path(country: 'AU') %>" id="australia-beta">
+          <%= image_tag("australia_flag.jpg", alt: "Australia", size: '48x32') %>
+        </a>
+      </li>
+      <% end
+      if "CA" != cookies[:country] %>
+      <li>
+        <a class="flag-icon" href="<%= join_plan_helper_path(country: 'CA') %>" id="canada-beta">
+          <%= image_tag("canada_flag.jpg", alt: "Canada", size: '48x32') %>
+        </a>
+      </li>
+      <% end
+      if "DE" != cookies[:country] %>
+      <li>
+        <a class="flag-icon" href="<%= join_plan_helper_path(country: 'DE') %>" id="de-beta">
+          <%= image_tag("de_flag.jpg", alt: "Germany", size: '48x32') %>
+        </a>
+      </li>
+      <% end
+      if "DK" != cookies[:country] %>
+      <li>
+        <a class="flag-icon" href="<%= join_plan_helper_path(country: 'DK') %>" id="dk-beta">
+          <%= image_tag("dk_flag.jpg", alt: "Denmark", size: '48x32') %>
+        </a>
+      </li>
+      <% end
+      if "FI" != cookies[:country] %>
+      <li>
+        <a class="flag-icon" href="<%= join_plan_helper_path(country: 'FI') %>" id="fi-beta">
+          <%= image_tag("fi_flag.jpg", alt: "Finland", size: '48x32') %>
+        </a>
+      </li>
+      <% end
+      if "FR" != cookies[:country] %>
+      <li>
+        <a class="flag-icon" href="<%= join_plan_helper_path(country: 'FR') %>" id="fr-beta">
+          <%= image_tag("fr_flag.jpg", alt: "France", size: '48x32') %>
+        </a>
+      </li>
+      <% end
+      if "GB" != cookies[:country] %>
+      <li>
+        <a class="flag-icon" href="<%= join_plan_helper_path(country: 'GB') %>" id="uk-beta">
+          <%= image_tag("uk_flag.jpg", alt: "United Kingdom", size: '48x32') %>
+        </a>
+      </li>
+      <% end
+      if "IE" != cookies[:country] %>
+      <li>
+        <a class="flag-icon" href="<%= join_plan_helper_path(country: 'IE') %>" id="ie-beta">
+          <%= image_tag("ie_flag.jpg", alt: "Ireland", size: '48x32') %>
+        </a>
+      </li>
+      <% end
+      if "NL" != cookies[:country] %>
+      <li>
+        <a class="flag-icon" href="<%= join_plan_helper_path(country: 'NL') %>" id="nl-beta">
+          <%= image_tag("nl_flag.jpg", alt: "Netherlands", size: '48x32') %>
+        </a>
+      </li>
+      <% end
+      if "NO" != cookies[:country] %>
+      <li>
+        <a class="flag-icon" href="<%= join_plan_helper_path(country: 'NO') %>" id="no-beta">
+          <%= image_tag("no_flag.jpg", alt: "Norway", size: '48x32') %>
+        </a>
+      </li>
+      <% end
+      if "NZ" != cookies[:country] %>
+      <li>
+        <a class="flag-icon" href="<%= join_plan_helper_path(country: 'NZ') %>" id="nz-beta">
+          <%= image_tag("nz_flag.jpg", alt: "New Zealand", size: '48x32') %>
+        </a>
+      </li>
+      <% end
+      if "SE" != cookies[:country] %>
+      <li>
+        <a class="flag-icon" href="<%= join_plan_helper_path(country: 'SE') %>" id="se-beta">
+          <%= image_tag("se_flag.jpg", alt: "Sweden", size: '48x32') %>
+        </a>
+      </li>
+      <% end
+      if cookies[:country].present? && "US" != cookies[:country] # the .present? makes the US flag not show for new users, (since they're already defaulted to US, even though the cookie doesn't exist)%>
+      <li>
+        <a class="flag-icon" href="<%= join_plan_helper_path(country: 'US') %>" id="america-beta">
+          <%= image_tag("americanflag.jpg", alt: "America", size: '48x32') %>
+        </a>
+      </li>
+      <% end %>
+    </ul>
+</li>
+<% end %>

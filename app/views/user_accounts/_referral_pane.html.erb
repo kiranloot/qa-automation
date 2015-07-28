@@ -1,0 +1,37 @@
+<div class='col-md-12 base'>
+  <div class='howitworks-header'>
+    <%= t('user_accounts.store_credits.get_free_loot') %>
+  </div>
+
+  <div class='bottom checkout-left'>
+    <div class='row'>
+      <div class='frndTitle center col-md-8'>
+        <%= t('user_accounts.store_credits.subtitle').upcase %>
+      </div>
+    </div>
+
+    <div class='row'>
+      <div class='col-md-8 center textCenter'>
+        <div class='store_credit_amount col-md-6'>
+            <div class='frndNumb'>$<%= amount_earned_via_referral %></div>
+            <div class='frndSubTitle'>
+              <%= t('user_accounts.store_credits.dollars_earned') %>
+            </div>
+        </div>
+
+        <div class='Friends joined col-md-6'>
+          <div class='frndNumb'><%=  number_friends_joined_via_referral %></div>
+          <div class='frndSubTitle'>
+            <%= t('user_accounts.store_credits.friends_joined') %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class='row'>
+      <div class='col-md-6 center'>
+        <%= link_to t(:referer_friend).upcase, '#', class: "friendbuy-#{ENV['FRIENDBUY_MENU_CAMPAIGN']} frndSend btn-select" %>
+      </div>
+    </div>
+  </div>
+</div>

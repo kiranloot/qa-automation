@@ -1,0 +1,38 @@
+<div class="modal hide verify-addresses" id="upgrade-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-body">
+    <div class="modal-messages hide"></div>
+
+    <div id="confirm-addresses">
+      <h2>Please confirm shipping/billing address</h2>
+      <%= render partial: 'shared/addresses_preview', locals: {subscription: current_subscription, current_payment_info: current_payment_info} %>
+    </div>
+
+    <div class="modal-footer">
+      <div id="action-items">
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="cancel-upgrade-confirmation">Cancel</button>
+        <button type="button" class="btn btn-secondary" id="confirm-upgrade">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    // Submit upgrades request when user confirm addresses.
+    $('#confirm-upgrade').click(function(e) {
+      e.preventDefault();
+
+      var upgrade_submit_button = $('form#upgrade-subscription')
+
+      $('#upgrade-modal, .lBox').hide();
+      $('#upgrade-button').attr("disabled", true);
+      $('#upgrade-button').attr("value", "UPGRADING...");
+      upgrade_submit_button.submit()
+    });
+
+    // Cancel upgrade confirmation.
+    $('#cancel-upgrade-confirmation').click(function() {
+      $('#upgrade-modal, .lBox').hide();
+    });
+  });
+</script>

@@ -1,0 +1,74 @@
+//#friendbuy_share-show {
+  .main-content {
+    padding-top: 0;
+  }
+
+  .clearMargin {
+    margin: 0 !important;
+  }
+  .referathonPrizes {
+    margin-top: 3em;
+    .referPrize {
+      text-align: center;
+      padding-bottom: 1em;
+      .referImage {
+        @media (max-width: 767px){
+          float: none !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+      }
+      .referText {
+        text-align:left;
+        .col-xs-12 {
+          padding: 1em;
+
+          @media (max-width: 767px){
+            max-width: 80%;
+            //text-align: 
+            max-width: 50%;
+            background-color: #eff0f5;
+            min-width: 230px;
+          }
+        }
+        .col-xs-4 {
+          padding: 1em;
+        }
+      }
+    }
+  }
+
+  .termsLink {
+    padding-left: 1.2em;
+  }
+
+//}
+
+.referathon-bg {
+  background-color: $background-gray;
+  padding: 10px 10px 30px 10px;
+  box-sizing: border-box;
+
+  .referathon-logo {
+    text-align: center;
+      img {
+        padding-top:50px;
+      }
+  }
+  .referathon-btn {
+    &:hover {
+      background-color: #FF6C15 !important;
+    }
+  }
+  .referathon-header {
+    font-size: 22px !important;
+    color: $darkness !important;
+    text-align: center;
+    line-height: 30px;
+    font-weight: 200;
+    margin-bottom: 20px;
+    .referathon-bold {
+      font-weight: 600;
+    }
+  }
+}

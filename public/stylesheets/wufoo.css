@@ -1,0 +1,33 @@
+@import url("//fonts.googleapis.com/css?family=Quantico");
+@import url("//fonts.googleapis.com/css?family=Titillium+Web:400,600");
+ 
+.wufoo label.desc, .wufoo .info div {
+	font-size: 15px;
+	line-height: auto;
+	font-family: "Titillium Web",Helvetica;
+}
+	
+.wufoo li span label {
+	font-size: 12px;
+	line-height: 90%;
+	font-family: "Titillium Web",Helvetica;
+}
+
+.wufoo .info h2 {
+	color: #423F37;
+	font-size: 24px;
+	font-family: Quantico;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.wufoo a {
+	text-decoration:none;
+	font-weight:bold;
+	color:#333333;
+}
+.wufoo a:hover {
+	text-decoration:none;
+	font-weight:bold;
+	color:#f06000;
+}

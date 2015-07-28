@@ -1,0 +1,12 @@
+<script type="text/javascript">
+  <% if @tealium_udo.nil? %>
+    var utag_data = {'page_type': 'undefined', 'page_name': 'undefined'};
+  <% else %>
+    var utag_data = {
+      'page_type' : "<%= @tealium_udo.page_type %>",
+      'page_name' : "<%= @tealium_udo.page_name %>",
+      'admin_user_id' : "<%= current_admin_user.id %>",
+      'admin_user_email' : "<%= current_admin_user.email %>"
+    };
+  <% end %>
+</script>

@@ -1,0 +1,7 @@
+LootCrate.common['checkouts-coupon'].start({
+  summary:       "<%= escape_javascript(render('summary', plan: @plan, coupon: @coupon, coupon_in_dollars: @coupon_in_dollars, state: @state, tax: @tax, today_total: @today_total, total: @total)) %>",
+  total:         "<%= number_to_currency(@checkout.total), locale: :en %>",
+  valid:         <%= @checkout.coupon.valid? ? true : false %>,
+  discount:      "<%= number_to_currency(@checkout.coupon.valid?, locale: :en) %>",
+  unauthorized:  <%= unauthorized_coupon?(@checkout.coupon_code) ? true : false %>
+});

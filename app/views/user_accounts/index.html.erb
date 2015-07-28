@@ -1,0 +1,39 @@
+<section>
+  <h1 class='account-header'><%= t('user_accounts.title') %></h1>
+  <h4><%= t('user_accounts.subtitle') %></h4>
+
+  <div class='row account-row'>
+    <div class='col-md-3 col-xs-12 item-title'><%= t('user_accounts.full_name') %></div>
+    <div class='col-md-7 col-xs-10 item-value'>
+      <%= current_user.full_name.present? ? current_user.full_name : '<i>None</i>'.html_safe %>
+    </div>
+    <div class='col-md-2 col-xs-2 item-edit'>
+      <%= link_to t(:edit), '#', data: { target: '#namechange_modal', toggle: 'modal', miss: 'modal' } %>
+    </div>
+  </div>
+
+  <div class='row account-row'>
+    <div class='col-md-3 col-xs-12 item-title'><%= t('user_accounts.email') %></div>
+    <div class='col-md-7 col-xs-10 item-value'><%= current_user.email %></div>
+    <% unless should_block_for_user?(current_user) %>
+      <div class='col-md-2 col-xs-2 item-edit'>
+        <%= link_to t(:edit), '#', data: { target: '#emailchange_modal', toggle: 'modal', miss: 'modal' } %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class='row account-row'>
+    <div class='col-md-3 col-xs-12 item-title'><%= t('user_accounts.password') %></div>
+    <div class='col-md-7 col-xs-10 item-value'><%= t('user_accounts.password_characters') %></div>
+    <div class='col-md-2 col-xs-2 item-edit'>
+      <%= link_to t(:edit), '#', data: { target: '#passwordchange_modal', toggle: 'modal', miss: 'modal' } %>
+    </div>
+  </div>
+</section>
+
+<%= render 'shared/namechange_modal' %>
+<% unless should_block_for_user?(current_user) %>
+  <%= render 'shared/emailchange_modal' %>
+<% end %>
+<%= render 'shared/passwordchange_modal' %>
+<%= render 'shared/tealium_update_user' %>

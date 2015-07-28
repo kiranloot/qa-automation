@@ -1,0 +1,9 @@
+en:
+  world:
+    us:
+      aa:
+        name: Armed Forces Americas
+      ae:
+        name: Armed Forces Europe
+      ap:
+        name: Armed Forces Pacific

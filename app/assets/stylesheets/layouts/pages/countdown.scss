@@ -1,0 +1,152 @@
+#monthly-theme-timer {
+  padding: 2em 0 0 0 !important;
+
+}
+
+.clock-container {
+  @extend .black-bg;
+  color: $gray-4;
+  font-weight: bold;
+  height: 220px;
+  padding-top: 25px;
+  text-align: center;
+
+  p {
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .clock-block {
+    display: inline-block;
+    margin-top: 25px;
+    height: 130px;
+    width: 30%;
+
+    span {
+      display: block;
+      font-size: 15px;
+      margin-right: 5px;
+
+      &:first-child {
+        background-color: $gray-6;
+        font-size: 42px;
+        height: 77px;
+        line-height: 77px;
+        margin-bottom: 20px;
+      }
+    }
+
+    #dmin {
+      margin-right: 0;
+    }
+  }
+
+  @media screen and (min-width:768px) and (max-width: 979px) {
+    p {
+      font-size: 14px;
+    }
+
+    .clock-block {
+      width: 30%;
+
+      span {
+        margin-right: 0;
+        font-size: 14px;
+
+        &:first-child {
+          font-size: 37px;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .clock-block {
+      width: 30%;
+
+      span {
+        margin-right: 0;
+
+        &:first-child {
+          font-size: 37px;
+        }
+      }
+    }
+  }
+}
+
+.theme-container {
+  height: 220px;
+  padding-right:0;
+  position: relative;
+  padding-left: 40px;
+
+  @media screen and (max-width: 767px) {
+    display: none !important;
+  }
+
+  .theme-content {
+    background-color: $gray-4;
+    height: 220px;
+  }
+
+  .theme-image {
+    height: 220px;
+    width: 240px;
+    padding-left:0;
+  }
+
+  .arrow-left {
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-right: 20px solid $gray-4;
+    height: 0;
+    left: 226px;
+    position: absolute;
+    top: 90px;
+    width: 0;
+    z-index: 1;
+  }
+
+  .theme-text {
+    padding: 4% 2% 0 0;
+    width: 60%;
+
+    #countdown-main-text {
+      color: $gray-1;
+      font-size: 22px;
+      line-height: 28px;
+      margin-bottom: 0;
+
+      span {
+        display: block;
+        font-size: 38px;
+        font-weight: 700;
+      }
+    }
+
+    #countdown-sub-text {
+      color: $gray-1;
+      font-size: 15px;
+      padding-top: 15px;
+    }
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 979px) {
+    .theme-text {
+      height: 212px;
+      padding: 2% 0 0;
+      width: 47%;
+
+      #countdown-main-text {
+        font-size: 16px;
+
+        span {
+          font-size: 25px;
+        }
+      }
+
+    }
+  }
+}

@@ -1,0 +1,16 @@
+<% if subscription.subscription_status == 'active' %>
+  <div class="div-table-row">
+    <div class="div-table-col"><span class="hidden-xs"><%= t('user_accounts.subscriptions.next_bill_date.title') %></span><span class="visible-xs"><%= t('user_accounts.subscriptions.next_bill_date.next_bill') %></span></div>
+
+    <% if subscription.cancel_at_end_of_period %>
+      <strong><%= t('user_accounts.subscriptions.next_bill_date.pending_cancellation', bill_date: next_bill_date) %></strong>
+      <div class="div-table-col"></div>
+    <% else %>
+      <div class="div-table-col">
+        <%= next_bill_date %>
+      </div>
+      <div class="div-table-col"></div>
+    <% end %>
+  </div>
+<% end %>
+

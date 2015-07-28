@@ -1,0 +1,25 @@
+<%
+  title = yield(:title) || 'Loot Crate&trade'
+%>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%= title  %></title>
+    <%= render partial: 'layouts/meta_tags' %>
+    <%= stylesheet_link_tag "application_contests", :media => "all" %>
+    <link rel="shortcut icon" href="/favicon.ico">
+  </head>
+  <body id="<%= "#{controller_name}-#{action_name}" %>" class="<%= controller_name %>">
+    <%= yield %>
+    <script src="//js.gleam.io/oi-Pwkj55u.js" async="async"></script>
+    <%= javascript_include_tag "application_contests" %>
+    <script>
+      $.getScript('//use.typekit.net/lkh8dve.js', function(done) {
+        try {
+          Typekit.load();
+        } catch (e) {}
+      })
+    </script>
+    <%= render partial: 'shared/analytics/google' %>
+  </body>
+</html>

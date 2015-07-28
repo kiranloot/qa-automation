@@ -1,0 +1,22 @@
+<div class="mainblockouterwhite" data-url="<%= shortcode_url %>" data-title="Loot Crate&trade;">
+  <div class="mainblock">
+    <div class="rowgreycheckout">
+      <div class="rowgreycheckoutinner">
+        <h1><%= t('payment_completed.thanks_for_signing_up') %></h1>
+        <h2><%= t('payment_completed.share_unique_referral') %></h2>
+
+        <div class="py-complete-bg">
+        <div class="py-left">
+            <a name="fb_share" type="button_count" rel="nofollow" href="http://www.facebook.com/share.php?u=<;url>" onclick="return fbs_click()" target="_blank" class="facebooksharebutton"></a>
+        </div>
+        </div>
+
+        <div class="py-top">
+          <h2><%= t('payment_completed.here_is_yout_link', link: @shortcode_ur) %></h2>
+          <h2><%= t('payment_completed.earn_credit') %></h2>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

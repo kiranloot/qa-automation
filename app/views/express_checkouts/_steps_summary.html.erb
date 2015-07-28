@@ -1,0 +1,32 @@
+<div id="order-summary">
+  <div class="order-summary">
+    <dl class="items">
+      <dt><%= month_subscription(@plan) %></dt>
+      <dd><%= number_to_currency(show_price_per_month_without_shipping(@plan), locale: :en) %> per month</dd>
+    </dl>
+    <dl class="shipping">
+      <dt>Shipping</dt>
+      <dd><%= number_to_currency(@plan.shipping_and_handling, locale: :en) %> per month</dd>
+    </dl>
+    <dl class="subscription-tax hide">
+      <dt>Sales Tax</dt>
+      <dd id="subscription-sales-tax"></dd>
+    </dl>
+    <% if @checkout.coupon.valid? && @checkout.coupon_discount_amount %>
+    <dl id="savings-row" class="savings subscription-coupon">
+      <dt>Savings</dt>
+        <% if @checkout.coupon.valid? && @checkout.coupon_discount_amount %>
+          <dd class="valid"><%= number_to_currency(@checkout.coupon_discount_amount, locale: :en) %></dd>
+        <% else %>
+          <dd><%= number_to_currency("0", locale: :en) %></dd>
+        <% end %>
+    </dl>
+    <% end %>
+  </div>
+  <div id="review-order-total" class="order-summary">
+    <dl class="total">
+      <dt>Today's Total</dt>
+      <dd id="todays-total-subscribe"><%= number_to_currency(@checkout.total, locale: :en) %></dd>
+    </dl>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://DFLe4nAkwg13WPSwqmWP:x@lootcratetest-braintree.chargify.com/subscriptions/6490005/migrations/preview.json
+    body:
+      encoding: UTF-8
+      string: '{"migration":{"product_handle":["does-not-exist"]}}'
+    headers:
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 422
+      message: status code 422
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 12 Dec 2014 23:05:02 GMT
+      P3p:
+      - CP="NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM"
+      Server:
+      - nginx + Phusion Passenger
+      Set-Cookie:
+      - _chargify_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFVEkiJTVkZGJjZjM0YWRjN2U0OGZjMzYwNDMxNDZkNTU0ZGE5BjsAVEkiF3NlbGxlcl9jcmVkZW50aWFscwY7AEZJIgGAYTM0MTE1NGFjMDU4ZjBiYmI1MDEwNmNjZWIzY2JhMmYxMGM1Y2Y2Njg4YjI5NThiZDI4Yjc1ZWQ4M2NkOWYxMzM0YmM1NTY3NzRhOTViNGZiYmQ5YjZmMjk5YzNjNmUxMjJjOTBjMjlhMmE5ODlhZWZlOThiMDdmYWFjZTEyMmUGOwBGSSIac2VsbGVyX2NyZWRlbnRpYWxzX2lkBjsARmkCADI%3D--672a1f60ff9415f5cf3ee3005fbaf89efe01bf11;
+        domain=.chargify.com; path=/; secure; HttpOnly
+      Status:
+      - 422 Unprocessable Entity
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Powered-By:
+      - Phusion Passenger
+      X-Rack-Cache:
+      - invalidate, pass
+      X-Ratelimit-Limit:
+      - '1000000'
+      X-Ratelimit-Remaining:
+      - '999597'
+      X-Ratelimit-Reset:
+      - '1418428800'
+      X-Request-Id:
+      - 9330cf35-a734-410f-be00-050d40832d11
+      X-Runtime:
+      - '0.125067'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Content-Length:
+      - '40'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"errors":["Product must be specified"]}'
+    http_version: 
+  recorded_at: Fri, 12 Dec 2014 23:05:03 GMT
+recorded_with: VCR 2.9.3

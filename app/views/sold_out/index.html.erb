@@ -1,0 +1,73 @@
+<%
+  currentmonth = t('sold_out.current_month') # usually all caps
+  nextmonth = t('sold_out.next_month')
+  listid = "b22feaf8ab" # this comes from from MailChimp https://us5.admin.mailchimp.com/lists/settings/defaults?id=XxXxX (September 2014 - this should now be the same every month)
+  soldout_imagename = "soldout.jpg"
+%>
+
+
+<div class="white-bg">
+  <div class="container">
+    <div class="row visible-xs visible-sm" >
+      <div class="col-md-6 mobile-container">
+        <h1 class="headerWhite"><%= t('sold_out.crates_are_sold_out', current_month: currentmonth) %></h1>
+        <h2><%= t('sold_out.join_our_waitlist', next_month: nextmonth) %></h2>
+
+        <form accept-charset="UTF-8" action="//lootcrate.us5.list-manage.com/subscribe/post?u=1f53721d6da415ab862195987&amp;id=<%= listid %>" class="simple_form new_user" id="new_user" method="post" role="form" target="blank" novalidate="novalidate">
+
+          <div class="form-group email optional user_email">
+            <label class="email optional control-label" for="user_email"><%= t('sold_out.email') %></label>
+            <input class="string email optional form-control" id="user_email" type="email" name="EMAIL" value="">
+          </div>
+
+          <div class="form-actions">
+            <input class="btn btn-secondary btn-select" name="commit" type="submit" value="<%= t(:sign_up).upcase %>">
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="row hidden-xs hidden-sm relative">
+      <div class="col-md-6 signup-left"> <!-- use for gray bg: sign-up-image -->
+        <img src="<%= image_path(soldout_imagename) %>" alt="Sold Out!"/>
+      </div>
+      <div class="col-md-6 signup-right">
+        <h1 class="headerWhite"><%= t('sold_out.crates_are_sold_out', current_month: currentmonth) %></h1>
+        <span><%= t('sold_out.join_our_waitlist', next_month: nextmonth) %></h3>
+        <br><br>
+        <form accept-charset="UTF-8" action="//lootcrate.us5.list-manage.com/subscribe/post?u=1f53721d6da415ab862195987&amp;id=<%= listid %>" class="simple_form new_user" id="new_user" method="post" target="blank" novalidate="novalidate">
+
+          <div class="form-group email optional user_email">
+            <label class="email optional control-label" for="user_email"><%= t('sold_out.email') %></label>
+            <input class="string email optional form-control" id="user_email" type="email" name="EMAIL" value="">
+          </div>
+
+          <div class="form-actions">
+            <input class="btn btn-secondary btn-select" name="commit" type="submit" value="SIGN UP">
+          </div>
+        </form>
+        <!-- Begin MailChimp Signup Form -->
+        <!--
+        <div id="mc_embed_signup">
+          <form action="" method="" id="" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <label for="mce-EMAIL">Subscribe to our mailing list</label>
+            <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+            <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+          </form>
+        </div>
+        <!--End mc_embed_signup-->
+
+<!--
+
+        <form accept-charset="UTF-8" action="" method="post" target="_blank" novalidate="novalidate" id="sold-out-subscribe-form" style="display:block;">
+          <input class="string email required span2" id="user_email" type="email" name="EMAIL" placeholder="Email" size="80" style="width:220px;" value="" /><br><br>
+          <input class="btn-select" name="commit" type="submit" value="SIGN UP" />
+        </form>
+
+<div style="margin:0;padding:0;display:inline">
+            <input name="AFF" type="hidden" value="&#x2713;" />
+          </div>-->
+      </div>
+    </div>
+  </div>
+</div>

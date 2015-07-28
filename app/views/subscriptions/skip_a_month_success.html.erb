@@ -1,0 +1,26 @@
+<div class='white-bg'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-sm-12'>
+        <h1>Skip a month successful.</h1>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm-12 top-section'>
+        <p>You have successfully <strong>Skipped a Month</strong> of your Loot Crate subscription</p>
+        <p>You have <strong>Skipped <%= month_year_to_friendly_date(@subscription.month_skipped) %></strong> and won't get your next crate until <%= month_year_after_skip(@subscription.month_skipped) %>.</p>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm-12 mid-section'>
+        <%= image_tag("#{(@month_to_skip_image)}-skip-hero.png", alt: 'Skip a month', class: 'img-responsive' ) %>
+        <p>If you change your mind, you will need to <span class='orange'>contact customer support</span> to reactivate before the month is over.</p>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm-12 btm-section'>
+        <%= link_to('MANAGE ACCOUNT', user_accounts_subscriptions_path, class: 'btn btn-secondary') %>
+      </div>
+    </div>
+  </div>
+</div>

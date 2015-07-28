@@ -1,0 +1,39 @@
+<% if show_progress_bar? %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <%= render "shared/progress_bar", :step => get_progress_step %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="container login-register-container">
+  <div class="row" id='login_or_registration'>
+
+    <div id="existing-customer-container" class="col-md-offset-3 col-md-6 center oldFriend hide">
+      <div class="createTitle"><%= t('registrations.login.welcome_back') %></div>
+      <div data-hook="login" class="login-form">
+        <%= render :partial => 'shared/login_form' %>
+      </div>
+      <div class="newBumper">
+        <div class="newTrigger loginRegister" data-target=".newFriend">
+          <%= t('registrations.login.new_user').upcase %> <span class="goOrange"><%= t(:create_account).upcase %></span>
+        </div>
+       <!--  <div class="newTerms center">
+          By clicking create account, you indicate that you have read and understand our  Privacy Policy and Terms of Use
+        </div> -->
+      </div>
+      <div>
+        <%= link_to t(:forgot_password), '/users/password/new' , class: 'forgot-password' %>
+      </div>
+    </div>
+
+    <div id="new-customer-container" class="col-md-offset-3 col-md-6 center newFriend" >
+      <div data-hook="login">
+        <%= render :partial => 'shared/register_form' %>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,10 @@
+---
+- name: Armed Forces Americas
+  code: AA
+  type: outlying area
+- name: Armed Forces Europe
+  code: AE
+  type: outlying area
+- name: Armed Forces Pacific
+  code: AP
+  type: outlying area

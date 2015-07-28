@@ -1,0 +1,17 @@
+<script type="text/javascript">
+  <% if data.nil? %>
+    var utag_data = {'page_type': 'undefined', 'page_name': 'undefined'};
+  <% else %>
+    var utag_data = {
+      'page_type' : "<%= data.page_type %>",
+      'page_name' : "<%= data.page_name %>",
+    };
+    <% if data.has_subscription? %>
+      jQuery.extend(utag_data, <%= raw data.order_json %>)
+    <% end %>
+    <% if data.has_user_info? %>
+      jQuery.extend(utag_data, <%= raw data.user_json %>)
+    <% end %>
+
+  <% end %>
+</script>

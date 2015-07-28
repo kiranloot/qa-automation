@@ -1,0 +1,99 @@
+<%= content_for :title, t('media_inquiry.title') %>
+
+<div id="contact-page" class="white-bg statics">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-3 side-nav-container">
+        <%= render "shared/side_nav" %>
+      </div>
+
+      <div class="col-md-9">
+
+        <div class="contact-top">
+          <h1><%= t('media_inquiry.contact_lootcrate').html_safe %></h1>
+        </div>
+
+        <form action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" role="form" method="POST" class="form-validate" novalidate>
+					<input type=hidden name="oid" value="00Di0000000ZSdW">
+					<input type=hidden name="retURL" value="http://www.lootcrate.com/thankyou">
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="first_name"><abbr title="required">*</abbr> <%= t('media_inquiry.first_name') %></label>
+								<input id="first_name" class="form-control required" maxlength="40" name="first_name" size="20" type="text" autofocus />
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="last_name"><abbr title="required">*</abbr> <%= t('media_inquiry.last_name') %></label>
+								<input id="last_name" class="form-control required" maxlength="80" name="last_name" size="20" type="text" />
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="email"><abbr title="required">*</abbr> <%= t('media_inquiry.email') %></label>
+								<input id="email" class="form-control required" maxlength="80" name="email" size="20" type="email" />
+							</div>
+
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="phone"><abbr title="required">*</abbr> <%= t('media_inquiry.phone') %></label>
+								<input id="phone" class="form-control required" maxlength="40" name="phone" size="20" type="text" />
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="company"><%= t('media_inquiry.company') %></label>
+								<input id="company" class="form-control" maxlength="40" name="company" size="20" type="text" />
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="URL"><%= t('media_inquiry.website') %></label>
+								<input id="URL" class="form-control" maxlength="80" name="URL" size="20" type="text" />
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label for="00Ni000000GY24m"><abbr title="required">*</abbr> <%= t('media_inquiry.which_represent_your_organization') %></label>
+								<select id="00Ni000000GY24m" class="form-control required" single="single" name="00Ni000000GY24m" title="Which Best Represents Your Organization?">
+									<option value=''>--<%= t('media_inquiry.none') %>--</option>
+									<option value="Charity"><%= t('media_inquiry.options.charity') %></option>
+									<option value="Website"><%= t('media_inquiry.options.website') %></option>
+									<option value="Magazine"><%= t('media_inquiry.options.magazine') %></option>
+									<option value="Podcast"><%= t('media_inquiry.options.podcast') %></option>
+									<option value="Venue/Event Space"><%= t('media_inquiry.options.venue_event') %></option>
+									<option value="Television Network"><%= t('media_inquiry.options.television_network') %></option>
+									<option value="Radio Station"><%= t('media_inquiry.options.radio_station') %></option>
+									<option value="Entertainment/Media Company"><%= t('media_inquiry.options.entertainment_media') %></option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label for="00Ni000000GY1Ue"><%= t('media_inquiry.any_details') %></label>
+								<textarea id="00Ni000000GY1Ue" name="00Ni000000GY1Ue" rows="5" class="form-control" type="text" wrap="soft"></textarea>
+							</div>
+						</div>
+					</div>
+					<button type="submit" class="btn btn-secondary pull-right"><%= t(:submit) %></button>
+				</form>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+

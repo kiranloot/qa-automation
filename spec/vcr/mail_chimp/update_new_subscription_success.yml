@@ -1,0 +1,35 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://us9.api.mailchimp.com/2.0/lists/update-member
+    body:
+      encoding: UTF-8
+      string: '{"apikey":"5efbd6fac3e45048504d739a50fd587b-us9","id":"11b434baec","email":{"email":"hai.nguyen+d1@lootcrate.com"},"merge_vars":{"SHIRT_SIZE":"M
+        S","COUNTRY":"US","PERIOD":1},"double_optin":false,"update_existing":false}'
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '78'
+      Vary:
+      - Accept-Encoding
+      Date:
+      - Fri, 26 Dec 2014 17:51:56 GMT
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - _AVESTA_ENVIRONMENT=prod; path=/
+    body:
+      encoding: UTF-8
+      string: '{"email":"hai.nguyen+d1@lootcrate.com","euid":"684812dd24","leid":"237412133"}'
+    http_version: 
+  recorded_at: Fri, 26 Dec 2014 17:51:56 GMT
+recorded_with: VCR 2.9.3

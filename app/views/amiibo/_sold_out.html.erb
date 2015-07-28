@@ -1,0 +1,50 @@
+<!-- main content -->
+<div class="amiibo-bg">
+	<img src="<%= image_path("nintendo-amiibo.jpg") %>" alt="amiibo!">
+</div>
+<div class="white-bg">
+	<div class="container amiibo-container">
+
+		<div class="row amiibo-relative">
+			<div class="col-md-1 hidden-xs">&nbsp;</div>
+			<div class="col-md-10">
+				<div class="am-gray">
+					<h1 class="headerWhite"><%= t('amiibo.sold_out').html_safe %></h1>
+					<span>
+						<%= t('amiibo.no_longer_available') %>
+						<br><br>
+						<form accept-charset="UTF-8" action="//lootcrate.us5.list-manage.com/subscribe/post?u=1f53721d6da415ab862195987&amp;id=6f3ced61bd" class="simple_form new_user" id="new_user" method="post" target="blank" role="form" novalidate="novalidate">
+							<div class="form-inputs">
+								<div class="controls"><label id="user_email_label" for="user_email"></label>
+								<input class="string email optional"  id="user_email" type="email" name="EMAIL" size="50" placeholder="Email Address"></div>
+							</div>
+							<div class="form-actions">
+								<input class="btn-select" name="commit" type="submit" value="<%= t(:join).upcase %>">
+							</div>
+						</form>
+					</span>
+				</div>
+				<div class="am-figures"><%= t('amiibo.warning').html_safe %></div>
+			</div>
+			<div class="col-md-1 hidden-xs">&nbsp;</div>
+		</div>
+
+	</div>
+</div>
+
+<!-- congratulatory lightbox -->
+<div id="amiibo-lightbox-background">
+
+	<div class="am-container">
+		<div id="lightbox" class="span5">
+			<div class="am-logo">
+				<img src="<%= image_path('logo.png') %>">
+			</div>
+			<div class="am-left">
+				<p id="ajaxmessage"></p>
+				<button id="amiibo-alert-button" type="button" class="btn-select"><%= t(:continue).upcase %></button>
+			</div>
+		</div>
+	</div>
+
+</div>

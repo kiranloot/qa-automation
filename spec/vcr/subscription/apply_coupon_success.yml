@@ -1,0 +1,2283 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://DFLe4nAkwg13WPSwqmWP:X@lootcratetest-braintree.chargify.com/subscriptions/7568184.xml
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/xml
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - must-revalidate, private, max-age=0
+      Content-Type:
+      - application/xml; charset=utf-8
+      Date:
+      - Fri, 06 Feb 2015 01:10:12 GMT
+      Etag:
+      - '"8b638eaa59f84a48824c455939d8bc62"'
+      P3p:
+      - CP="NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM"
+      Server:
+      - nginx + Phusion Passenger
+      Set-Cookie:
+      - _chargify_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFVEkiJWRiYzMxZjQ1ZGM2MWJmYzA4ZDc2ZDhlMGJmNTg1ZTk1BjsAVEkiF3NlbGxlcl9jcmVkZW50aWFscwY7AEZJIgGAMGM5NjY4ZWI2NTQ5NDAyMDRjNDk5NWYyNDczMDY1YjUwNmYyNjA1MTVlZTUyNjk2YzM5YWM4MjIwZjIxMTAwZDBhZmQxNWZlNDdlMWIzY2Q5MTQxMDBlNDZiY2Y1OGU1YjAzYjRlYzc5YjgzOTlhZGU2YjdhZjYxNDU5Y2QyZDEGOwBGSSIac2VsbGVyX2NyZWRlbnRpYWxzX2lkBjsARmkCADI%3D--88773561a4219626ad367e01c9718738aa650082;
+        domain=.chargify.com; path=/; secure; HttpOnly
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Powered-By:
+      - Phusion Passenger
+      X-Rack-Cache:
+      - miss
+      X-Ratelimit-Limit:
+      - '1000000'
+      X-Ratelimit-Remaining:
+      - '999878'
+      X-Ratelimit-Reset:
+      - '1423267200'
+      X-Request-Id:
+      - 78231fb5-2a49-4d07-a4c8-9f05cf92bdfd
+      X-Runtime:
+      - '0.181511'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      X-Xss-Protection:
+      - 1; mode=block
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <subscription>
+          <activated_at type="datetime">2015-01-19T18:39:53-05:00</activated_at>
+          <balance_in_cents type="integer">0</balance_in_cents>
+          <cancel_at_end_of_period type="boolean" nil="true"/>
+          <canceled_at type="datetime">2015-02-05T19:45:42-05:00</canceled_at>
+          <cancellation_message></cancellation_message>
+          <created_at type="datetime">2015-01-19T18:39:40-05:00</created_at>
+          <current_period_ends_at type="datetime">2015-03-05T19:45:06-05:00</current_period_ends_at>
+          <expires_at type="datetime" nil="true"/>
+          <id type="integer">7568184</id>
+          <next_assessment_at type="datetime">2015-03-05T19:45:06-05:00</next_assessment_at>
+          <payment_collection_method>automatic</payment_collection_method>
+          <snap_day nil="true"/>
+          <state>canceled</state>
+          <trial_ended_at type="datetime" nil="true"/>
+          <trial_started_at type="datetime" nil="true"/>
+          <updated_at type="datetime">2015-02-05T19:45:42-05:00</updated_at>
+          <current_period_started_at type="datetime">2015-02-05T19:45:06-05:00</current_period_started_at>
+          <previous_state>canceled</previous_state>
+          <signup_payment_id type="integer">81998460</signup_payment_id>
+          <signup_revenue>21.11</signup_revenue>
+          <delayed_cancel_at nil="true"/>
+          <coupon_code nil="true"/>
+          <total_revenue_in_cents type="integer">4222</total_revenue_in_cents>
+          <product_price_in_cents type="integer">1937</product_price_in_cents>
+          <product_version_number type="integer">1</product_version_number>
+          <payment_type>credit_card</payment_type>
+          <referral_code nil="true"/>
+          <current_billing_amount_in_cents type="integer">2111</current_billing_amount_in_cents>
+          <customer>
+            <address>3108 lashbrook avenue</address>
+            <address_2 nil="true"/>
+            <city>el monte</city>
+            <country>US</country>
+            <created_at type="datetime">2015-01-19T18:39:40-05:00</created_at>
+            <email>howhmn+33333@gmail.com</email>
+            <first_name>Hai</first_name>
+            <id type="integer">7425292</id>
+            <last_name>Nguyen</last_name>
+            <organization nil="true"/>
+            <phone nil="true"/>
+            <portal_customer_created_at type="datetime" nil="true"/>
+            <portal_invite_last_accepted_at type="datetime" nil="true"/>
+            <portal_invite_last_sent_at type="datetime" nil="true"/>
+            <reference nil="true"/>
+            <state>CA</state>
+            <updated_at type="datetime">2015-01-19T18:39:40-05:00</updated_at>
+            <verified type="boolean">false</verified>
+            <zip>91733</zip>
+          </customer>
+          <product>
+            <accounting_code>1month</accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-09-15T08:33:51-04:00</created_at>
+            <description>One Month Recurring Subscription to Loot Crate! (US Only)</description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>1-month-subscription</handle>
+            <id type="integer">3552899</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">1</interval>
+            <interval_unit>month</interval_unit>
+            <name>One Month Subscription</name>
+            <price_in_cents type="integer">1995</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url>http://polar-waters-8702.herokuapp.com/payment_completed/index?pid=1</return_url>
+            <taxable type="boolean">true</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2015-02-05T14:02:52-05:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Monthly Subscription Design</description>
+              <handle>1993521</handle>
+              <id type="integer">442941</id>
+              <name>Loot Crate's Monthly Box</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">107657</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/f51026fbae84/1-month-subscription</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <credit_card>
+            <billing_address>3108 lashbrook avenue</billing_address>
+            <billing_address_2 nil="true"/>
+            <billing_city>el monte</billing_city>
+            <billing_country>US</billing_country>
+            <billing_state>CA</billing_state>
+            <billing_zip>91733</billing_zip>
+            <card_type>bogus</card_type>
+            <current_vault>bogus</current_vault>
+            <customer_id type="integer">7425292</customer_id>
+            <customer_vault_token nil="true"/>
+            <expiration_month type="integer">1</expiration_month>
+            <expiration_year type="integer">2015</expiration_year>
+            <first_name>Hai</first_name>
+            <id type="integer">4955997</id>
+            <last_name>Nguyen</last_name>
+            <masked_card_number>XXXX-XXXX-XXXX-1</masked_card_number>
+            <vault_token>1</vault_token>
+            <payment_type>credit_card</payment_type>
+          </credit_card>
+        </subscription>
+    http_version: 
+  recorded_at: Fri, 06 Feb 2015 01:10:12 GMT
+- request:
+    method: get
+    uri: https://DFLe4nAkwg13WPSwqmWP:X@lootcratetest-braintree.chargify.com/products.xml
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/xml
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - must-revalidate, private, max-age=0
+      Content-Type:
+      - application/xml; charset=utf-8
+      Date:
+      - Fri, 06 Feb 2015 01:10:14 GMT
+      Etag:
+      - '"200da3664c84d9ae9f6361ec5d7a97c2"'
+      P3p:
+      - CP="NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM"
+      Server:
+      - nginx + Phusion Passenger
+      Set-Cookie:
+      - _chargify_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFVEkiJWVjYTM5OGYyYzc4OWNjNzdhMjM1NjdmMGYwOGY2YTQzBjsAVEkiF3NlbGxlcl9jcmVkZW50aWFscwY7AEZJIgGANDk2ZDAwMDI2NzQxYWVjYTMyNTEzNDI4ZGM4YjIxNTAwYWU1YzgyMzI4Zjc0MDRhNzA5YzlmNmI1MzdmYjMxNTY5ODYxNTZhOTM2ZDgyZTE4ZTFhZTJhM2M1MWEyZDE5Yjk0YmI4NDZlMWM5M2JlNDQyMzU0Yjc1NDljM2IyOTIGOwBGSSIac2VsbGVyX2NyZWRlbnRpYWxzX2lkBjsARmkCADI%3D--25c5ed916af351fddf9ef29a717477c02fddf7d9;
+        domain=.chargify.com; path=/; secure; HttpOnly
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Powered-By:
+      - Phusion Passenger
+      X-Rack-Cache:
+      - miss
+      X-Ratelimit-Limit:
+      - '1000000'
+      X-Ratelimit-Remaining:
+      - '999877'
+      X-Ratelimit-Reset:
+      - '1423267200'
+      X-Request-Id:
+      - f7e3f8e4-2161-40f0-b85e-ff1191428443
+      X-Runtime:
+      - '1.146939'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      X-Xss-Protection:
+      - 1; mode=block
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <products type="array">
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-09-15T08:33:50-04:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>ca-1-month-subscription</handle>
+            <id type="integer">3552872</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">1</interval>
+            <interval_unit>month</interval_unit>
+            <name>Canada One Month Subscription</name>
+            <price_in_cents type="integer">100</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url></return_url>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2015-02-02T05:00:25-05:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">107630</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/6893271bda5d/ca-1-month-subscription</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <product>
+            <accounting_code>1month</accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-09-15T08:33:51-04:00</created_at>
+            <description>One Month Recurring Subscription to Loot Crate! (US Only)</description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>1-month-subscription</handle>
+            <id type="integer">3552899</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">1</interval>
+            <interval_unit>month</interval_unit>
+            <name>One Month Subscription</name>
+            <price_in_cents type="integer">1995</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url>http://polar-waters-8702.herokuapp.com/payment_completed/index?pid=1</return_url>
+            <taxable type="boolean">true</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2015-02-05T14:02:52-05:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Monthly Subscription Design</description>
+              <handle>1993521</handle>
+              <id type="integer">442941</id>
+              <name>Loot Crate's Monthly Box</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">107657</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/f51026fbae84/1-month-subscription</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-09-15T08:33:50-04:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>dk-1-month-subscription</handle>
+            <id type="integer">3552873</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">1</interval>
+            <interval_unit>month</interval_unit>
+            <name>Denmark One Month Subscription</name>
+            <price_in_cents type="integer">2995</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url></return_url>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2014-09-15T08:33:50-04:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">107631</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/950542eb1968/dk-1-month-subscription</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-09-15T08:33:50-04:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>gb-1-month-subscription</handle>
+            <id type="integer">3552874</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">1</interval>
+            <interval_unit>month</interval_unit>
+            <name>United Kingdom One Month</name>
+            <price_in_cents type="integer">2995</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url></return_url>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2014-09-15T08:33:50-04:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">107632</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/d781de75e1b3/gb-1-month-subscription</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-09-15T08:33:50-04:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>au-1-month-subscription</handle>
+            <id type="integer">3552875</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">1</interval>
+            <interval_unit>month</interval_unit>
+            <name>Australia One Month Subscription</name>
+            <price_in_cents type="integer">2995</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url></return_url>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2015-02-02T05:03:41-05:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">107633</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/4229be2335eb/au-1-month-subscription</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-09-15T08:33:50-04:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>de-1-month-subscription</handle>
+            <id type="integer">3552876</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">1</interval>
+            <interval_unit>month</interval_unit>
+            <name>Germany One Month Subscription</name>
+            <price_in_cents type="integer">2995</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url></return_url>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2014-09-15T08:33:50-04:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">107634</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/09e080e54b8d/de-1-month-subscription</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-09-15T08:33:50-04:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>ie-1-month-subscription</handle>
+            <id type="integer">3552877</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">1</interval>
+            <interval_unit>month</interval_unit>
+            <name>Ireland One Month Subscription</name>
+            <price_in_cents type="integer">2995</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url></return_url>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2014-09-15T08:33:50-04:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">107635</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/d270f4085c35/ie-1-month-subscription</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-09-15T08:33:51-04:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>nl-1-month-subscription</handle>
+            <id type="integer">3552878</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">1</interval>
+            <interval_unit>month</interval_unit>
+            <name>Netherlands One Month Subscription</name>
+            <price_in_cents type="integer">2995</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url></return_url>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2014-09-15T08:33:51-04:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">107636</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/6a82b4f6bda9/nl-1-month-subscription</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-09-15T08:33:51-04:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>no-1-month-subscription</handle>
+            <id type="integer">3552879</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">1</interval>
+            <interval_unit>month</interval_unit>
+            <name>Norway One Month Subscriptions</name>
+            <price_in_cents type="integer">2995</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url></return_url>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2014-09-15T08:33:51-04:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">107637</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/a141d99152e1/no-1-month-subscription</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-09-15T08:33:51-04:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>se-1-month-subscription</handle>
+            <id type="integer">3552880</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">1</interval>
+            <interval_unit>month</interval_unit>
+            <name>Sweden One Month Subscription</name>
+            <price_in_cents type="integer">2995</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url></return_url>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2014-09-15T08:33:51-04:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">107638</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/a98bedf4a8b2/se-1-month-subscription</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-12-14T00:21:41-05:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>fi-1-month-subscription</handle>
+            <id type="integer">3608946</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">1</interval>
+            <interval_unit>month</interval_unit>
+            <name>Finland One Month Subscription</name>
+            <price_in_cents type="integer">2995</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url nil="true"/>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2014-12-14T00:21:41-05:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array"/>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-12-14T00:23:08-05:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>fr-1-month-subscription</handle>
+            <id type="integer">3608947</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">1</interval>
+            <interval_unit>month</interval_unit>
+            <name>France One Month Subscription</name>
+            <price_in_cents type="integer">2995</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url nil="true"/>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2014-12-14T00:24:42-05:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array"/>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-12-14T00:23:34-05:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>nz-1-month-subscription</handle>
+            <id type="integer">3608948</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">1</interval>
+            <interval_unit>month</interval_unit>
+            <name>New Zealand One Month Subscription</name>
+            <price_in_cents type="integer">2995</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url nil="true"/>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2014-12-14T01:50:38-05:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array"/>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-11-12T05:24:23-05:00</created_at>
+            <description>Three payments of $55 per week totaling $165. Loot Crate will ship three amiibo CRATE over a three week perid. Totaling three shipments of 10 amiibo figures + exclusive Nintendo merchandise.</description>
+            <expiration_interval type="integer">20</expiration_interval>
+            <expiration_interval_unit>day</expiration_interval_unit>
+            <handle>amiibo-crate-three-weekly-payments</handle>
+            <id type="integer">3595537</id>
+            <initial_charge_in_cents type="integer">0</initial_charge_in_cents>
+            <interval type="integer">7</interval>
+            <interval_unit>day</interval_unit>
+            <name>amiibo CRATE (Three Weekly Payments)</name>
+            <price_in_cents type="integer">5500</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url></return_url>
+            <taxable type="boolean">true</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2014-11-13T07:13:43-05:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Loot Crate special edition amiibo subscription.</description>
+              <handle>amiibo-crate</handle>
+              <id type="integer">457216</id>
+              <name>amiibo Crate</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">117705</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/59b1946a66cd/amiibo-crate-three-weekly-payments</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <product>
+            <accounting_code>3month</accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-09-15T08:33:51-04:00</created_at>
+            <description>Three Month Recurring Subscription to Loot Crate! (US Only)</description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>3-month-subscription</handle>
+            <id type="integer">3552900</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">3</interval>
+            <interval_unit>month</interval_unit>
+            <name>Three Month Subscription</name>
+            <price_in_cents type="integer">5775</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url>https://polar-waters-8702.herokuapp.com/payment_completed/index?pid=2</return_url>
+            <taxable type="boolean">true</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2015-02-05T14:20:41-05:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Monthly Subscription Design</description>
+              <handle>1993521</handle>
+              <id type="integer">442941</id>
+              <name>Loot Crate's Monthly Box</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">107658</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/3d11ac6f90d2/3-month-subscription</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-09-15T08:33:51-04:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>dk-3-month-subscription</handle>
+            <id type="integer">3552881</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">3</interval>
+            <interval_unit>month</interval_unit>
+            <name>Denmark Three Month Subscription</name>
+            <price_in_cents type="integer">8400</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url></return_url>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2014-09-15T08:33:51-04:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">107639</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/5d7b1a9812a5/dk-3-month-subscription</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-09-15T08:33:51-04:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>de-3-month-subscription</handle>
+            <id type="integer">3552882</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">3</interval>
+            <interval_unit>month</interval_unit>
+            <name>Germany Three Month Subscription</name>
+            <price_in_cents type="integer">8400</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url></return_url>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2014-09-15T08:33:51-04:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">107640</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/30578bf05f4c/de-3-month-subscription</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-09-15T08:33:51-04:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>ie-3-month-subscription</handle>
+            <id type="integer">3552883</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">3</interval>
+            <interval_unit>month</interval_unit>
+            <name>Ireland Three Month Subscription</name>
+            <price_in_cents type="integer">8400</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url></return_url>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2014-09-15T08:33:51-04:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">107641</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/982dfd602823/ie-3-month-subscription</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-09-15T08:33:51-04:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>nl-3-month-subscription</handle>
+            <id type="integer">3552884</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">3</interval>
+            <interval_unit>month</interval_unit>
+            <name>Netherlands Three Month Subscription</name>
+            <price_in_cents type="integer">8400</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url></return_url>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2014-09-15T08:33:51-04:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">107642</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/7ca7d928ec54/nl-3-month-subscription</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-09-15T08:33:51-04:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>no-3-month-subscription</handle>
+            <id type="integer">3552885</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">3</interval>
+            <interval_unit>month</interval_unit>
+            <name>Norway Three Month Subscription</name>
+            <price_in_cents type="integer">8400</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url></return_url>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2014-09-15T08:33:51-04:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">107643</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/159218a10e88/no-3-month-subscription</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-09-15T08:33:51-04:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>se-3-month-subscription</handle>
+            <id type="integer">3552886</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">3</interval>
+            <interval_unit>month</interval_unit>
+            <name>Sweden Three Month Subscription</name>
+            <price_in_cents type="integer">8400</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url></return_url>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2014-09-15T08:33:51-04:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">107644</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/05865877ec47/se-3-month-subscription</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-09-15T08:33:51-04:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>ca-3-month-subscription</handle>
+            <id type="integer">3552887</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">3</interval>
+            <interval_unit>month</interval_unit>
+            <name>Canada Three Month Subscription</name>
+            <price_in_cents type="integer">8400</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url></return_url>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2015-02-02T05:00:52-05:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">107645</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/636a0a950e2a/ca-3-month-subscription</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-09-15T08:33:51-04:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>au-3-month-subscription</handle>
+            <id type="integer">3552888</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">3</interval>
+            <interval_unit>month</interval_unit>
+            <name>Australia Three Month Subscription</name>
+            <price_in_cents type="integer">8400</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url></return_url>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2015-02-02T05:03:29-05:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">107646</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/1d1534fad07a/au-3-month-subscription</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-09-15T08:33:51-04:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>gb-3-month-subscription</handle>
+            <id type="integer">3552889</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">3</interval>
+            <interval_unit>month</interval_unit>
+            <name>United Kingdom Three Month</name>
+            <price_in_cents type="integer">8400</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url></return_url>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2014-09-15T08:33:51-04:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">107647</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/b246d3cde83e/gb-3-month-subscription</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-12-14T00:27:43-05:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>fi-3-month-subscription</handle>
+            <id type="integer">3608949</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">3</interval>
+            <interval_unit>month</interval_unit>
+            <name>Finland Three Month Subscription</name>
+            <price_in_cents type="integer">8400</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url nil="true"/>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2014-12-14T00:27:43-05:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array"/>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-12-14T00:27:51-05:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>fr-3-month-subscription</handle>
+            <id type="integer">3608950</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">3</interval>
+            <interval_unit>month</interval_unit>
+            <name>France Three Month Subscription</name>
+            <price_in_cents type="integer">8400</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url nil="true"/>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2014-12-14T00:27:51-05:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array"/>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-12-14T00:27:55-05:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>nz-3-month-subscription</handle>
+            <id type="integer">3608951</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">3</interval>
+            <interval_unit>month</interval_unit>
+            <name>New Zealand Three Month Subscription</name>
+            <price_in_cents type="integer">8400</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url nil="true"/>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2014-12-14T00:27:55-05:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array"/>
+          </product>
+          <product>
+            <accounting_code>6month</accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-09-15T08:33:51-04:00</created_at>
+            <description>Six Month Recurring Subscription to Loot Crate! (US Only) </description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>6-month-subscription</handle>
+            <id type="integer">3552901</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">6</interval>
+            <interval_unit>month</interval_unit>
+            <name>Six Month Subscription</name>
+            <price_in_cents type="integer">11370</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url>http://polar-waters-8702.herokuapp.com/payment_completed/index?pid=2</return_url>
+            <taxable type="boolean">true</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2015-02-05T14:21:18-05:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Monthly Subscription Design</description>
+              <handle>1993521</handle>
+              <id type="integer">442941</id>
+              <name>Loot Crate's Monthly Box</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">107659</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/670d09b91afa/6-month-subscription</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-11-12T05:20:53-05:00</created_at>
+            <description>One-time payment of $155 for three amiibo CRATE deliveries. Totaling three shipments of 10 amiibo figures + exclusive Nintendo merchandise.</description>
+            <expiration_interval type="integer">20</expiration_interval>
+            <expiration_interval_unit>day</expiration_interval_unit>
+            <handle>amiibo-crate-single-payment</handle>
+            <id type="integer">3595533</id>
+            <initial_charge_in_cents type="integer">0</initial_charge_in_cents>
+            <interval type="integer">21</interval>
+            <interval_unit>day</interval_unit>
+            <name>amiibo CRATE (Single Payment)</name>
+            <price_in_cents type="integer">15500</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url></return_url>
+            <taxable type="boolean">true</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2014-11-13T07:12:56-05:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Loot Crate special edition amiibo subscription.</description>
+              <handle>amiibo-crate</handle>
+              <id type="integer">457216</id>
+              <name>amiibo Crate</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">117703</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/93882e8c7142/amiibo-crate-single-payment</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-09-15T08:33:51-04:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>dk-6-month-subscription</handle>
+            <id type="integer">3552890</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">6</interval>
+            <interval_unit>month</interval_unit>
+            <name>Denmark Six Month Subscription</name>
+            <price_in_cents type="integer">16200</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url></return_url>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2014-09-15T08:33:51-04:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">107648</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/47e0fee8194a/dk-6-month-subscription</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-09-15T08:33:51-04:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>de-6-month-subscription</handle>
+            <id type="integer">3552891</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">6</interval>
+            <interval_unit>month</interval_unit>
+            <name>Germany Six Month Subscription</name>
+            <price_in_cents type="integer">16200</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url></return_url>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2014-09-15T08:33:51-04:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">107649</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/f2346798d69f/de-6-month-subscription</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-09-15T08:33:51-04:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>ie-6-month-subscription</handle>
+            <id type="integer">3552892</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">6</interval>
+            <interval_unit>month</interval_unit>
+            <name>Ireland Six Month Subscription</name>
+            <price_in_cents type="integer">16200</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url></return_url>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2014-09-15T08:33:51-04:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">107650</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/5395a7b34ccb/ie-6-month-subscription</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-09-15T08:33:51-04:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>nl-6-month-subscription</handle>
+            <id type="integer">3552893</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">6</interval>
+            <interval_unit>month</interval_unit>
+            <name>Netherlands Six Month Subscription</name>
+            <price_in_cents type="integer">16200</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url></return_url>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2014-09-15T08:33:51-04:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">107651</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/b1942fd4a44e/nl-6-month-subscription</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-09-15T08:33:51-04:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>no-6-month-subscription</handle>
+            <id type="integer">3552894</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">6</interval>
+            <interval_unit>month</interval_unit>
+            <name>Norway Six Month Subscription</name>
+            <price_in_cents type="integer">16200</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url></return_url>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2014-09-15T08:33:51-04:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">107652</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/a3346e7e1f74/no-6-month-subscription</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-09-15T08:33:51-04:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>se-6-month-subscription</handle>
+            <id type="integer">3552895</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">6</interval>
+            <interval_unit>month</interval_unit>
+            <name>Sweden Six Month Subscription</name>
+            <price_in_cents type="integer">16200</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url></return_url>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2014-09-15T08:33:51-04:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">107653</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/24cba0602349/se-6-month-subscription</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-09-15T08:33:51-04:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>ca-6-month-subscription</handle>
+            <id type="integer">3552896</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">6</interval>
+            <interval_unit>month</interval_unit>
+            <name>Canada Six Month Subscription</name>
+            <price_in_cents type="integer">16200</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url></return_url>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2015-02-02T05:01:41-05:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">107654</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/1a70482f4016/ca-6-month-subscription</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-09-15T08:33:51-04:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>au-6-month-subscription</handle>
+            <id type="integer">3552897</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">6</interval>
+            <interval_unit>month</interval_unit>
+            <name>Australia Six Month Subscription</name>
+            <price_in_cents type="integer">16200</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url></return_url>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2015-02-02T05:02:36-05:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">107655</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/47c7514d342e/au-6-month-subscription</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-09-15T08:33:51-04:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>gb-6-month-subscription</handle>
+            <id type="integer">3552898</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">6</interval>
+            <interval_unit>month</interval_unit>
+            <name>United Kingdom Six Month</name>
+            <price_in_cents type="integer">16200</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url></return_url>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2014-09-15T08:33:51-04:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array">
+              <public_signup_page>
+                <id type="integer">107656</id>
+                <url>http://lootcratetest-braintree.chargify.com/subscribe/ef50668c4103/gb-6-month-subscription</url>
+              </public_signup_page>
+            </public_signup_pages>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-12-14T00:30:11-05:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>fi-6-month-subscription</handle>
+            <id type="integer">3608952</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">6</interval>
+            <interval_unit>month</interval_unit>
+            <name>Finland Six Month Subscription</name>
+            <price_in_cents type="integer">16200</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url nil="true"/>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2014-12-14T00:30:11-05:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array"/>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-12-14T00:30:13-05:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>fr-6-month-subscription</handle>
+            <id type="integer">3608953</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">6</interval>
+            <interval_unit>month</interval_unit>
+            <name>France Six Month Subscription</name>
+            <price_in_cents type="integer">16200</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url nil="true"/>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2014-12-14T00:30:13-05:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array"/>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-12-14T00:30:19-05:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>nz-6-month-subscription</handle>
+            <id type="integer">3608954</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">6</interval>
+            <interval_unit>month</interval_unit>
+            <name>New Zealand Six Month Subscription</name>
+            <price_in_cents type="integer">16200</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url nil="true"/>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2014-12-14T00:30:19-05:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array"/>
+          </product>
+          <product>
+            <accounting_code>1year</accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2014-12-18T13:22:42-05:00</created_at>
+            <description>One Year Recurring Subscription to Loot Crate (US Only)</description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>12-month-subscription</handle>
+            <id type="integer">3611546</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">12</interval>
+            <interval_unit>month</interval_unit>
+            <name>Twelve Month Subscription</name>
+            <price_in_cents type="integer">21540</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params>id={customer_id}&amp;ref={customer_reference}&amp;sid={subscription_id}&amp;attributes={customer_attributes}</return_params>
+            <return_url nil="true"/>
+            <taxable type="boolean">true</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url>http://lootcrate-qa.herokuapp.com/payment_completed/index?</update_return_url>
+            <updated_at type="datetime">2015-02-02T04:58:25-05:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Monthly Subscription Design</description>
+              <handle>1993521</handle>
+              <id type="integer">442941</id>
+              <name>Loot Crate's Monthly Box</name>
+            </product_family>
+            <public_signup_pages type="array"/>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2015-02-02T05:10:37-05:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>ca-12-month-subscription</handle>
+            <id type="integer">3640165</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">12</interval>
+            <interval_unit>month</interval_unit>
+            <name>Canada Twelve Month Subscription</name>
+            <price_in_cents type="integer">31200</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url nil="true"/>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2015-02-02T05:10:37-05:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array"/>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2015-02-02T05:11:46-05:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>dk-12-month-subscription</handle>
+            <id type="integer">3640166</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">12</interval>
+            <interval_unit>month</interval_unit>
+            <name>Denmark Twelve Month Subscription</name>
+            <price_in_cents type="integer">31200</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url nil="true"/>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2015-02-02T05:11:46-05:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array"/>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2015-02-02T05:12:33-05:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>gb-12-month-subscription</handle>
+            <id type="integer">3640167</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">12</interval>
+            <interval_unit>month</interval_unit>
+            <name>United Kingdom Twelve Month Subscription</name>
+            <price_in_cents type="integer">31200</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url nil="true"/>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2015-02-02T05:13:59-05:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array"/>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2015-02-02T05:13:15-05:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>au-12-month-subscription</handle>
+            <id type="integer">3640168</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">12</interval>
+            <interval_unit>month</interval_unit>
+            <name>Australia Twelve Month Subscription</name>
+            <price_in_cents type="integer">31200</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url nil="true"/>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2015-02-02T05:13:15-05:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array"/>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2015-02-02T05:16:04-05:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>de-12-month-subscription</handle>
+            <id type="integer">3640169</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">12</interval>
+            <interval_unit>month</interval_unit>
+            <name>Germany Twelve Month Subscription</name>
+            <price_in_cents type="integer">31200</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url nil="true"/>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2015-02-02T05:16:04-05:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array"/>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2015-02-02T05:16:33-05:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>ie-12-month-subscription</handle>
+            <id type="integer">3640170</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">12</interval>
+            <interval_unit>month</interval_unit>
+            <name>Ireland Twelve Month Subscription</name>
+            <price_in_cents type="integer">31200</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url nil="true"/>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2015-02-02T05:16:33-05:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array"/>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2015-02-02T05:17:09-05:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>nl-12-month-subscription</handle>
+            <id type="integer">3640171</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">12</interval>
+            <interval_unit>month</interval_unit>
+            <name>Netherlands Twelve Month Subscription</name>
+            <price_in_cents type="integer">31200</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url nil="true"/>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2015-02-02T05:17:09-05:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array"/>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2015-02-02T05:17:45-05:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>no-12-month-subscription</handle>
+            <id type="integer">3640172</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">12</interval>
+            <interval_unit>month</interval_unit>
+            <name>Norway Twelve Month Subscription</name>
+            <price_in_cents type="integer">31200</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url nil="true"/>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2015-02-02T05:17:45-05:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array"/>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2015-02-02T05:19:14-05:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>se-12-month-subscription</handle>
+            <id type="integer">3640173</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">12</interval>
+            <interval_unit>month</interval_unit>
+            <name>Sweden Twelve Month Subscription</name>
+            <price_in_cents type="integer">31200</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url nil="true"/>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2015-02-02T05:19:14-05:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array"/>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2015-02-02T05:19:57-05:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>fi-12-month-subscription</handle>
+            <id type="integer">3640174</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">12</interval>
+            <interval_unit>month</interval_unit>
+            <name>Finland Twelve Month Subscription</name>
+            <price_in_cents type="integer">31200</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url nil="true"/>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2015-02-02T05:19:57-05:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array"/>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2015-02-02T05:20:27-05:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>fr-12-month-subscription</handle>
+            <id type="integer">3640177</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">12</interval>
+            <interval_unit>month</interval_unit>
+            <name>France Twelve Month Subscription</name>
+            <price_in_cents type="integer">31200</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url nil="true"/>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2015-02-02T05:20:27-05:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array"/>
+          </product>
+          <product>
+            <accounting_code></accounting_code>
+            <archived_at type="datetime" nil="true"/>
+            <created_at type="datetime">2015-02-02T05:21:05-05:00</created_at>
+            <description></description>
+            <expiration_interval type="integer" nil="true"/>
+            <expiration_interval_unit>never</expiration_interval_unit>
+            <handle>nz-12-month-subscription</handle>
+            <id type="integer">3640178</id>
+            <initial_charge_in_cents type="integer" nil="true"/>
+            <interval type="integer">12</interval>
+            <interval_unit>month</interval_unit>
+            <name>New Zealand Twelve Month Subscription</name>
+            <price_in_cents type="integer">31200</price_in_cents>
+            <request_credit_card type="boolean">true</request_credit_card>
+            <require_credit_card type="boolean">true</require_credit_card>
+            <return_params></return_params>
+            <return_url nil="true"/>
+            <taxable type="boolean">false</taxable>
+            <trial_interval type="integer" nil="true"/>
+            <trial_interval_unit>month</trial_interval_unit>
+            <trial_price_in_cents type="integer" nil="true"/>
+            <update_return_url></update_return_url>
+            <updated_at type="datetime">2015-02-02T05:21:05-05:00</updated_at>
+            <product_family>
+              <accounting_code nil="true"/>
+              <description>Test Subscriptions for Internationals</description>
+              <handle>test-family</handle>
+              <id type="integer">442940</id>
+              <name>International Shipping</name>
+            </product_family>
+            <public_signup_pages type="array"/>
+          </product>
+        </products>
+    http_version: 
+  recorded_at: Fri, 06 Feb 2015 01:10:14 GMT
+- request:
+    method: get
+    uri: https://DFLe4nAkwg13WPSwqmWP:X@lootcratetest-braintree.chargify.com/coupons/validate.xml?coupon_code=10PERCENT&product_family_id=442941
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/xml
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - must-revalidate, private, max-age=0
+      Content-Type:
+      - application/xml; charset=utf-8
+      Date:
+      - Fri, 06 Feb 2015 01:10:14 GMT
+      Etag:
+      - '"bfe410fd622b3c666f3ff11d26238aa5"'
+      P3p:
+      - CP="NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM"
+      Server:
+      - nginx + Phusion Passenger
+      Set-Cookie:
+      - _chargify_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFVEkiJTA1YTk5OTRkYTI1MDNhMzQ5OWQ2MGE0ZTQyZjJmOGFhBjsAVEkiF3NlbGxlcl9jcmVkZW50aWFscwY7AEZJIgGAYWM4NWUzMDRlOGQ5MDljODQwMDM3MzBkOGZlYmVjYTgwMGUyZWUxMjU2ODgyYjk1OGIyNmE1NDcwMTZlOWI5ZTFmNTM4N2YxMGFkMGUxOTViNDk4ZDcyZWVmYWM1NGM5YjJjMDBkYzc2N2VmYzA3N2ZkZjYzYmVhMmM3NWE2NmMGOwBGSSIac2VsbGVyX2NyZWRlbnRpYWxzX2lkBjsARmkCADI%3D--91178cc7558c63bc054a3919151a7c232ffd1f4b;
+        domain=.chargify.com; path=/; secure; HttpOnly
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Powered-By:
+      - Phusion Passenger
+      X-Rack-Cache:
+      - miss
+      X-Ratelimit-Limit:
+      - '1000000'
+      X-Ratelimit-Remaining:
+      - '999876'
+      X-Ratelimit-Reset:
+      - '1423267200'
+      X-Request-Id:
+      - 0b9a104c-4024-4548-80e8-e083f9976df3
+      X-Runtime:
+      - '0.053333'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '958'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <coupon>
+          <allow_negative_balance type="boolean">false</allow_negative_balance>
+          <amount_in_cents type="integer" nil="true"/>
+          <archived_at type="datetime" nil="true"/>
+          <code>10PERCENT</code>
+          <conversion_limit type="integer" nil="true"/>
+          <created_at type="datetime">2014-09-15T08:33:51-04:00</created_at>
+          <description>10% off</description>
+          <duration_interval type="integer">1</duration_interval>
+          <duration_interval_unit>month</duration_interval_unit>
+          <duration_period_count type="integer" nil="true"/>
+          <end_date type="datetime" nil="true"/>
+          <id type="integer">43023</id>
+          <name>10PERCENT</name>
+          <percentage type="integer">10</percentage>
+          <product_family_id type="integer">442941</product_family_id>
+          <recurring type="boolean">false</recurring>
+          <start_date type="datetime">2013-02-27T22:12:44-05:00</start_date>
+          <updated_at type="datetime">2014-09-15T08:33:51-04:00</updated_at>
+        </coupon>
+    http_version: 
+  recorded_at: Fri, 06 Feb 2015 01:10:14 GMT
+recorded_with: VCR 2.9.3

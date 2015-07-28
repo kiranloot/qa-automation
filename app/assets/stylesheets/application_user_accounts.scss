@@ -1,0 +1,37 @@
+/*
+ * v3 styles for user accounts
+ *
+ * SMACSS structure
+ * read more at https://smacss.com
+ * example https://github.com/jonathanpath/SASS-SMACSS
+ *
+ * PLEASE NOTE: the order that the CSS files are loaded in imports.scss is very important.
+ * If you add a new file to imports make sure that it does not break the established load order.
+ */
+
+/* Tree party libs */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "select2";
+@import "font-awesome";
+
+/* base */
+@import "base/colors";
+@import "base/forms";
+@import "base/select2";
+@import "base/errors";
+
+/* tools */
+@import "tools/*";
+
+/* fonts */
+@import "fonts/base";
+
+/* layout */
+@import "layouts/main";
+@import "layouts/lang";
+
+/* modules */
+@import "modules/*";
+
+@import "base/collapse_menu";

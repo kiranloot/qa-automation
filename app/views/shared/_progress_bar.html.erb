@@ -1,0 +1,23 @@
+<%
+  class_list = ['normal', 'normal', 'normal']
+  step.times do |i|
+    class_list[i] = 'active'
+  end
+%>
+
+<div class='meter'>
+  <ol>
+    <li class='<%= class_list[0] %>'>
+      <span class='step'>1</span>
+      <span class='stage hidden-stage'><%= t('meter.select_a_plan') %></span>
+    </li>
+    <li class='<%= class_list[1] %>'>
+      <span class='step'>2</span>
+      <span class='stage hidden-stage'><%= t('meter.sign_up') %></span>
+    </li>
+    <li class='<%= class_list[2] %>'>
+      <span class='step'>3</span>
+      <span class='stage hidden-stage'><%= t('meter.checkout') %></span>
+    </li>
+  </ol>
+</div>

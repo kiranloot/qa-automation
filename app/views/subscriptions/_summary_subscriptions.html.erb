@@ -1,0 +1,14 @@
+<% if not current_user.subscriptions.blank? %>
+  <div class='current-subscriptions'>
+    <div class="exc_container">
+      <ul>
+        <li class="listed subExc1">
+          <span class="exc subExclamation"><i class="fa fa-exclamation-circle fa-2x"></i></span>
+        </li>
+        <li class="listed subExc2">
+          <%= t('subscriptions.summary.existing_subscription') %>
+        </li>
+      </ul>
+    </div>
+  </div>
+<% end %>

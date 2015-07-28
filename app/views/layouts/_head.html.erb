@@ -1,0 +1,15 @@
+<title><%= t('header.title').html_safe %></title>
+<%= render partial: 'layouts/meta_tags' %>
+<script>
+  WebFontConfig = {
+    google: {
+      families: ['Quantico', 'Titillium+Web:400,600']
+    }
+  };
+</script>
+
+<%= csrf_meta_tags %>
+
+<link rel="shortcut icon" href="/favicon.ico">
+
+<%= render 'layouts/head_scripts', showcountdowntimer: show_countdown_timer? %>

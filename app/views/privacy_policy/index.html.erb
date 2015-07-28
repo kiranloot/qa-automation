@@ -1,0 +1,52 @@
+<div class='white-bg statics'>
+  <div class='container'>
+    <div class='row'>
+
+      <div class='col-sm-3 side-nav-container'>
+        <%= render 'shared/side_nav' %>
+      </div>
+
+      <div class='col-sm-9'>
+
+        <h1><%= t('privacy_policy.title') %></h1>
+
+        <b><%= t('privacy_policy.what_information_collect') %></b>
+
+        <p>
+          <%= t('privacy_policy.information_collect') %>
+        </p>
+
+        <b><%= t('privacy_policy.what_information_use') %></b>
+
+        <p>
+          <%= t('privacy_policy.information_use') %>
+        </p>
+
+        <ul class='unstyled standard'>
+          <%= t('privacy_policy.information_use_content').html_safe %>
+        </ul>
+
+        <b><%= t('privacy_policy.how_we_protect_information') %></b>
+        <%= t('privacy_policy.protect_information_content').html_safe %>
+
+        <b><%= t('privacy_policy.do_we_use_cookies') %></b>
+        <%= t('privacy_policy.do_we_use_cookies_content').html_safe %>
+
+        <b><%= t('privacy_policy.do_we_disclose_information') %></b>
+        <%= t('privacy_policy.do_we_disclose_information_content').html_safe %>
+
+        <b><%= t('privacy_policy.third_party_links') %></b>
+        <%= t('privacy_policy.third_party_links_content').html_safe %>
+
+        <b><%= t('privacy_policy.terms_conditions') %></b>
+        <%= t('privacy_policy.terms_conditions_content').html_safe %>
+
+        <b><%= t('privacy_policy.contacting_us') %></b>
+        <%= t('privacy_policy.contacting_us_content', link_url: root_url, root_url: root_path).html_safe %>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+

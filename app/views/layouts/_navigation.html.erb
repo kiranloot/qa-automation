@@ -1,0 +1,75 @@
+<% set_code %>
+
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only"><%= t('navigation.toggle_navigation') %></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="loot-logo navbar-brand" href="/">
+        <%= image_tag('logo.png', class: 'logo img-responsive') %>
+      </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/join"><%= t('navigation.links.subscribe') %></a></li>
+        <li><a href="/how_it_works"><%= t('navigation.links.how_it_works') %></a></li>
+        <li><a href="/past_crates"><%= t('navigation.links.past_crates') %></a></li>
+        <li><a href="/share"><%= t('navigation.links.share') %></a></li>
+
+        <li class="dropdown my-account visible-lg visible-md login_bar">
+          <% if current_user %>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= t('navigation.my_account') %> <span class="caret"></span></a>
+          <% else %>
+            <a class="login" data-toggle="modal" data-target="#signin_modal" href="#"><%= t('navigation.login') %></a>
+          <% end %>
+          <ul class="dropdown-menu my-account-menu" role="menu">
+            <% if current_user %>
+              <li>
+                <%= link_to(t('navigation.manage_account'), user_accounts_subscriptions_path) %>
+              </li>
+              <li>
+                <%= link_to(t('navigation.logout'), destroy_user_session_path, method: "delete") %>
+              </li>
+            <% end %>
+          </ul>
+          <%= render "welcome/country_selector", locals: { dropup: false } %>
+        </li>
+        <% if current_user %>
+          <li class="hidden-lg hidden-md loot-drop">
+            <%= link_to(t('navigation.my_account'), user_accounts_subscriptions_path) %>
+          </li>
+          <li class="hidden-lg hidden-md">
+            <%= link_to(t('navigation.logout'), destroy_user_session_path, method: "delete") %>
+          </li>
+        <% else %>
+          <li class="hidden-lg hidden-md visible-sm visible-xs login_bar">
+            <a class="login" data-toggle="modal" href="#signin_modal"><%= t('navigation.login') %></a>
+          </li>
+        <% end %>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+
+  <!-- qoute rotator -->
+  <% if show_quote_bar? %>
+    <div class="quote-rotater">
+      <div class="container">
+        <div class="row">
+          <a href="/join">
+            <div class="col-md-12">
+              <span><span class="hidden-xs-inline visible-sm-inline visible-md-inline visible-lg-inline"><%= t('navigation.quote', month: get_month.titlecase).html_safe %></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+</nav>
+  <!-- END Navigation -->

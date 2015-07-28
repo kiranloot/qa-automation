@@ -1,0 +1,37 @@
+<div id="plan-boxes" class="subscriptions-bg levelup">
+  <% products.each do |product| %>
+    <% present(product) do |product_presenter| %>
+      <div class="container-full <%= product_presenter.stocks_status %>">
+        <div class="container">
+          <div id="<%= product_presenter.sku %>" class="row planBoxTarget">
+            <div class="col-sm-4 cr-animate-gen" data-gen="fadeInLeft" data-gen-offset="bottom-in-view" data-gen-delay="0ms">
+              <div class="lvlPlanHeader">
+                <h3><%= product_presenter.name %></h3>
+                <p><%= product_presenter.description %></p>
+                <p class="items">ITEMS LIKE THESE...</p>
+                <p class="icons"><%= product_presenter.icon_image %></p>
+                <p class='note'><%= product_presenter.notes %></p>
+              </div>
+            </div>
+            <div class="col-sm-4 cr-animate-gen" data-gen="slideInUp" data-gen-offset="bottom-in-view" data-gen-delay="0ms">
+              <%= product_presenter.main_image %>
+            </div>
+            <div class="col-sm-4 cr-animate-gen" data-gen="fadeInRight" data-gen-offset="bottom-in-view" data-gen-delay="0ms">
+              <div class="align-center product-box">
+                <ul class="subscriptions">
+                  <li class="month-cost"><span class="cost"><%= product_presenter.default_plan_monthly_cost %></span><span class="per-month"> /mo S&amp;H included!</span></li>
+                </ul>
+                <%= product_presenter.default_plan_total_cost %>
+                <%= product_presenter.variant_options %>
+                <%= product_presenter.plan_options %>
+                <%= product_presenter.checkout_link %>
+                <div class='error-zone'></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+

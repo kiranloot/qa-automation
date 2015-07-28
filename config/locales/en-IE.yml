@@ -1,0 +1,61 @@
+# Sample localization file for Ireland. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en-IE:
+  number:
+    currency:
+      format:
+        delimiter: "."
+        format: "%u%n"
+        precision: 2
+        separator: "."
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "€"
+
+  checkouts:
+    plans:
+      total: "Estimate %{total}"
+    codes:
+      postal: Postal Ciode
+    states:
+      province: Province
+
+  registrations:
+    login:
+      welcome_back: Welcome Back!
+      not_a_looter: Not a Looter?
+      login_with_facebook: Login with Facebook
+      or: OR
+      email_address: Email Address
+      password: Password
+      log_in: Log In
+      new_user: New User?
+    register:
+      already_member: Already member ?
+      email_address: Email Address
+      password: Password
+      register_with_facebook: Register with Facebook
+      create_password: Create Password
+      terms: "By clicking create account, you indicate that you have read and understand our  Privacy Policy and Terms of Use"
+
+  welcome:
+    mainbanner:
+      price: 27
+      total: "<span class='pricing-text'>Estimated</span> %{total}"
+    plan_box:
+      total_price: 'Total Price Estimate: '
+      plans:
+        price: "<p>Local Currency Estimate</p> %{price}"
+        one_month:
+          price: 27
+          total: 27
+        three_month:
+          price: 25
+          total: 75
+        six_month:
+          price: 24
+          total: 145
+        twelve_month:
+          price: 23
+          total: 280

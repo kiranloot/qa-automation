@@ -1,0 +1,48 @@
+<script type="text/javascript" async="async">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-33561868-1']);
+    _gaq.push(['_setDomainName', 'lootcrate.com']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview', '/500.html?url=' + document.location.pathname + document.location.search + '&ref=' + document.referrer]);
+</script>
+<%= content_for :title, 'Error' %>
+
+<div class='error-page-500'>
+  <div class='container'>
+    <div class='row bg'>
+
+      <div class='col-md-12 col-ms-12'>
+        <%= link_to root_path do %>
+          <%= image_tag image_path('errors/500/logo.png'), class: 'img-responsive', alt:'' %>
+        <% end %>
+      </div>
+
+      <div class='col-md-12 col-ms-12'>
+        <p>
+          <%= t('errors.page.internal_error').html_safe %>
+        </p>
+      </div>
+
+      <div class='col-md-12 col-ms-12 col-xs-12 banner'>
+        <div class='col-md-8 col-sm-8 col-xs-12'>
+          <%= link_to root_path do %>
+            <%= image_tag image_path('errors/500/left-banner.png'), class: 'img-responsive', alt:'' %>
+          <% end %>
+        </div>
+
+        <div class='col-md-4 col-sm-4 col-xs-12'>
+          <div class='main-banner-textbox'>
+            <h1>
+              <%= t('errors.page.banner.title').html_safe %>
+            </h1>
+            <div class='slider-body'>
+              <%= t('errors.page.banner.subtitle') %>
+            </div>
+            <%= link_to(t(:subscribe), '/subscriptions', class: 'btn btn-primary btn-large btn-subscribe', role: 'button') %>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

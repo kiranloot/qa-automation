@@ -1,0 +1,89 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+de:
+  errors:
+    messages:
+      expired: "ist abgelaufen, bitte fragen Sie ein neues an"
+      not_found: "Die eingegebene E-Mail-Adresse wurde nicht gefunden"
+      already_confirmed: "wurde bereits bestätigt, bitte versuchen Sie, sich anzumelden"
+      not_locked: "wurde nicht gesperrt"
+      not_saved:
+        one: "1 Fehler verhinderte, dass %{resource} gespeichert wurde"
+        other: "%{count} Fehler verhinderten, dass %{resource} gespeichert wurde"
+
+  devise:
+    failure:
+      already_authenticated: 'Sie sind bereits angemeldet.'
+      unauthenticated: 'Sie müssen sich anmelden oder registrieren, um fortzufahren.'
+      unconfirmed: 'Sie müssen Ihren Account bestätigen, bevor Sie fortfahren.'
+      locked: 'Ihr Account ist gesperrt.'
+      invalid: 'Ungültige E-Mail oder Passwort.'
+      invalid_token: 'Ungültiges Authentifizierungs-Token.'
+      timeout: 'Ihre Sitzung ist abgelaufen, bitte melden Sie sich erneut an, um fortzufahren.'
+      inactive: 'Ihr Account wurde noch nicht aktiviert.'
+    sessions:
+      signed_in: ''#'hat sich erfolgreich angemeldet.'
+      signed_out: ''#'hat sich erfolgreich abgemeldet.'
+    passwords:
+      send_instructions: 'In wenigen Minuten werden Sie eine E-Mail mit Anweisungen erhalten, wie Sie Ihr Passwort zurücksetzen können.'
+      updated: 'Ihr Passwort wurde erfolgreich geändert. Sie sind nun angemeldet.'
+      updated_not_active: 'Ihr Passwort wurde erfolgreich geändert.'
+      send_paranoid_instructions: "Wenn Ihre E-Mail-Adresse in unserer Datenbank existiert, erhalten Sie in wenigen Minuten einen Link zur Passwortwiederherstellung über Ihre E-Mail-Adresse."
+      no_token: "Sie können auf diese Seite nicht zugreifen, wenn Sie nicht von einer E-Mail für Passwortwiederherstellung kommen. Falls Sie von einer E-Mail für Passwortwiederherstellung kommen, achten Sie darauf, ob Sie die volle URL verwendet haben, die Ihnen bereitgestellt wurde."
+      forgot_password: Passwort vergessen
+      enter_your_email: Bitte geben Sie Ihre E-Mail in das Formular unten ein
+      receieve_an_email: 'Falls diese gültig ist, werden Sie innerhalb weniger Minuten eine E-Mail mit Anweisungen zur Passwortwiederherstellung erhalten.'
+      email_address: E-Mail-Adresse
+      lootcrate_membership: "LOOT CRATE&trade; MITGLIEDSCHAFT"
+      out_with_the_old: 'RAUS MIT DEM ALTEN, REIN MIT DEM NEUEN'
+      pick_new_password: WÄHLEN SIE EIN NEUES PASSWORT
+      new_password: Neues Passwort
+      confirm_new_password: Bestätigen Sie Ihr neues Passwort
+      reset_your_password: Setzen Sie Ihr Passwort zurück
+      password_updated_successfully: Passwort erfolgreich aktualisiert
+      your_new_password_does_not_match: "Ihr Passwort konnte nicht aktualisiert werden, weil Ihr neues Passwort nicht übereinstimmt."
+      your_old_password_is_incorrect: "Ihr Passwort konnte nicht aktualisiert werden, weil Ihr derzeitiges Passwort falsch war."
+    confirmations:
+      send_instructions: 'In wenigen Minuten werden Sie eine E-Mail mit Anweisungen erhalten, wie Sie Ihren Account bestätigen.'
+      send_paranoid_instructions: 'Wenn Ihre E-Mail-Adresse in unserer Datenbank existiert, erhalten Sie in wenigen Minuten eine E-Mail mit Anweisungen, wie Sie Ihren Account bestätigen.'
+      confirmed: 'Ihr Account wurde erfolgreich bestätigt. Sie sind nun angemeldet.'
+      resend_confirmation_instructions: Bestätigungsanweisungen neuerlich senden
+    registrations:
+      signed_up: ''#Willkommen! Sie haben sich erfolgreich registriert.'
+      signed_up_but_unconfirmed: 'Eine Nachricht mit einem Bestätigungslink wurde an Ihre E-Mail-Adresse gesandt. Bitte öffnen Sie den Link, um Ihren Account zu aktivieren.'
+      signed_up_but_inactive: 'Sie haben sich erfolgreich registriert. Wir konnten Sie jedoch nicht anmelden, da Ihr Account noch nicht aktiviert ist.'
+      signed_up_but_locked: 'Sie haben sich erfolgreich registriert. Wir konnten Sie jedoch nicht anmelden, da Ihr Account gesperrt ist.'
+      updated: 'Sie haben Ihren Account erfolgreich aktualisiert.'
+      update_needs_confirmation: "Sie haben Ihren Account erfolgreich aktualisiert, aber wir müssen Ihre neue E-Mail-Adresse verifizieren. Bitte prüfen Sie Ihren E-Mail-Eingang und klicken Sie auf den Bestätigungslink, um die Bestätigung Ihrer neuen E-Mail-Adresse abzuschließen."
+      destroyed: 'Tschüss! Ihr Account wurde erfolgreich gelöscht. Wir hoffen, Sie bald wieder zu sehen.'
+      edit_account_info: Accountinfo bearbeiten
+      waiting_confirmation: "Wartet derzeit auf Bestätigung für: %{email}"
+      current_password: Derzeitiges Passwort
+      new_password: Neues Passwort
+      new_password_confirmation: Bestätigung neues Passwort
+    unlocks:
+      send_instructions: 'In wenigen Minuten werden Sie eine E-Mail mit Anweisungen erhalten, wie Sie Ihren Account freischalten.'
+      unlocked: 'Ihr Account wurde erfolgreich freigeschaltet. Bitte melden Sie sich an, um fortzufahren.'
+      send_paranoid_instructions: 'Wenn Ihr Account existiert, werden Sie in wenigen Minuten eine E-Mail mit Anweisungen erhalten, wie Sie ihn freischalten.'
+      resend_unlock_instructions: Anleitung zur Freischaltung erneut senden
+    omniauth_callbacks:
+      success: 'Erfolgreich authentifiziert vom %{kind} Account.'
+      failure: 'Wir konnten Sie nicht vom %{kind} authentifizieren, weil „%{reason}“.'
+    mailer:
+      confirmation_instructions:
+        subject: 'Bestätigungsanweisungen'
+      reset_password_instructions:
+        subject: 'Anleitung zur Passwortwiederherstellung'
+      unlock_instructions:
+        subject: 'Anleitung zur Freischaltung'
+
+    shared:
+      sign_in: Anmelden
+      sign_up: Registrieren
+      forgot_password: Passwort vergessen?
+      did_not_receive_instructions: Sie haben keine Bestätigungsanweisungen erhalten?
+      did_not_receive_unlock_instructions: Sie haben keine Anleitung zur Freischaltung erhalten?
+      sign_in_with: "Anmelden mit %{provider}"
+      forgot_my_password: Ich habe mein Passwort vergessen
+      sign_in_with_facebook: Anmelden mit Facebook
+      keep_me_logged_in: Angemeldet bleiben
