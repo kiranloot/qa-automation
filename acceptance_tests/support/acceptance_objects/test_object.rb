@@ -55,7 +55,6 @@ class Test
  def modal_signup
    wait_for_ajax
    @current_page.modal_signup(@user.email, @user.password, @test_data)
-   update_test_data("valid_email")
  end
 #Move to parent page object
  def is_logged_in?
@@ -100,7 +99,7 @@ class Test
 #Remove middle man
  def get_valid_signup_information
   @user.password = @test_data["signup"]["valid_pw"]
-  @user.email = { Faker::Internet.user_name + "_unreg@mailinator.com" }
+  @user.email = Faker::Internet.user_name + rand(999).to_s + "_unreg@mailinator.com"
  end
 
  def is_at(page)
