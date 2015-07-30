@@ -1,6 +1,6 @@
 @core @regression @account 
 Feature: Admin Subscriptions Page
-    @ready @developing
+    @ready
     Scenario: Update subscription information
         Given a registered user with an active subscription
             And an admin user with access to their info
