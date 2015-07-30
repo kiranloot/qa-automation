@@ -239,13 +239,6 @@ class User
         click_link(country_code + '-beta')
   end
 
-  def admin_login
-    page.find('#admin_user_email')
-    fill_in("admin_user_email", :with => @email)
-    fill_in("admin_user_password", :with => @password)
-    page.find_button('Login').click
-  end
-  
   def create_affiliate
     @affiliate = FactoryGirl.build(:affiliate)
     page.find_link('Affiliates').click

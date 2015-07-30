@@ -30,7 +30,9 @@ When /the user creates a new affiliate/ do
 end
 
 When /logs in as an admin/ do
-  $test.user.admin_login
+  admin_user = $test.user.email
+  admin_password = $test.user.password
+  $test.current_page.admin_login(admin_user, admin_password)
 end
 
 When /logs out of admin/ do
@@ -54,6 +56,8 @@ When /the user selects a level up (.*) month subscription for the (.*) crate/ do
 end
 
 When /updates the subscription's information/ do
+  $test.current_page.click_subscriptions
+  $test.current_page = AdminSubscriptionsPage.new
   $test.current_page.edit_subscription
   $test.set_subject_user
   $test.current_page.fill_in_subscription_name("UPDATED NAME")
