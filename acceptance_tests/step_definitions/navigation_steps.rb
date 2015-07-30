@@ -321,6 +321,8 @@ Then /the subscription should be successfully reactivated in the admin panel/ do
   step "an admin user with access to their info"
   step "the user visits the admin page"
   step "logs in as an admin"
+  $test.current_page.click_subscriptions
+  $test.current_page = AdminSubscriptionsPage.new
   $test.current_page.reactivation_successful?
 end
 
