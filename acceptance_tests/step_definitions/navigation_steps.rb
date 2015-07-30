@@ -111,6 +111,8 @@ Given /^an? (.*) user with (.*)/ do |user_type, with_args|
     step "an admin user with access to their info"
     step "the user visits the admin page"
     step "logs in as an admin"
+    $test.current_page.click_promotions
+    $test.current_page = AdminPromotionsPage.new
     promo_code = $test.current_page.create_promotion
     step "logs out of admin"
     $test.set_subject_user
