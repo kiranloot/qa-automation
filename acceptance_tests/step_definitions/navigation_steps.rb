@@ -173,6 +173,8 @@ Then /here it is/ do
 end
 
 When /performs an immediate cancellation on the user account/ do
+  $test.current_page.click_subscriptions
+  $test.current_page = AdminSubscriptionsPage.new
   $test.current_page.admin_cancel_immediately
 end
 
