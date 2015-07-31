@@ -32,4 +32,34 @@ class AdminUsersPage < AdminPage
     #assert_text($test.user.subscription_name.downcase)
     assert_text($test.user.shirt_size)
   end
+
+  def fill_in_email
+    new_email = 'updated_' + Faker::Internet.user_name + rand(999).to_s + '@mailinator.com'
+    fill_in('user_email', :with => new_email)
+    $test.user.email = new_email
+  end
+
+  def fill_in_password
+    new_password = Faker::Internet.password
+    fill_in('user_password', :with => new_password)
+    fill_in('user_password_confirmation', :with => new_password)
+    $test.user.password = new_password
+  end
+
+  def fill_in_full_name
+    new_full_name = Faker::Name.name
+    fill_in('user_full_name', :with => new_full_name)
+    #$test.user.full_name = new_full_name
+  end
+
+  def click_update_user
+    find(:id, 'user_submit_action').click
+    wait_for_ajax
+    assert_text('Update successful')
+  end
+
+  def user_updated?
+    #assert_text($test.user.full_name)
+    assert_text($test.user.email)
+  end
 end

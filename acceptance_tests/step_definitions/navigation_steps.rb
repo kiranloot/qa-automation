@@ -80,6 +80,17 @@ When /views the user's information/ do
   $test.current_page.view_user
 end
 
+When /updates the user's information/ do
+  $test.current_page.click_users
+  $test.current_page = AdminUsersPage.new
+  $test.current_page.edit_user
+  $test.set_subject_user
+  $test.current_page.fill_in_email
+  $test.current_page.fill_in_password
+  $test.current_page.fill_in_full_name
+  $test.current_page.click_update_user
+end
+
 Given /^The (.*) level up product is (.*)$/ do |product,inv_status|
   inv_status.strip!
   product.strip!
@@ -370,4 +381,13 @@ Then /the updated information should be reflected when the user views the subscr
   step "the user logs in"
   step "the user visits the my account page"
   $test.current_page.subscription_updated?
+end
+
+Then /^the updated information should be reflected when the admin views the user$/ do
+  $test.current_page.user_information_displayed?
+end
+
+Then /the updated information should be reflected when the user views their info/ do
+  step "logs out of admin"
+  step "the user logs in"
 end
