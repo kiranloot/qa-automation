@@ -9,30 +9,35 @@ class AdminPage < Page
   end
 
   def admin_login(email, password)
-    page.find('#admin_user_email')
+    find('#admin_user_email')
     fill_in("admin_user_email", :with => email)
     fill_in("admin_user_password", :with => password)
-    page.find_button('Login').click
+    find_button('Login').click
+    wait_for_ajax
+  end
+
+  def click_users
+    find_link('Users').click
     wait_for_ajax
   end
 
   def click_subscriptions
-    page.find_link('Subscriptions').click
+    find_link('Subscriptions').click
     wait_for_ajax
   end
 
   def click_variants
-    page.find_link('Variants').click
+    find_link('Variants').click
     wait_for_ajax
   end
 
   def click_promotions
-    page.find_link('Promotions').click
+    find_link('Promotions').click
     wait_for_ajax
   end
 
   def click_affiliates
-    page.find_link('Affiliates').click
+    find_link('Affiliates').click
     wait_for_ajax
   end
 

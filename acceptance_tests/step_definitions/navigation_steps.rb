@@ -74,6 +74,12 @@ When /views the subscription's information/ do
   $test.current_page.show_subscription
 end
 
+When /views the user's information/ do
+  $test.current_page.click_users
+  $test.current_page = AdminUsersPage.new
+  $test.current_page.view_user
+end
+
 Given /^The (.*) level up product is (.*)$/ do |product,inv_status|
   inv_status.strip!
   product.strip!
@@ -321,6 +327,10 @@ end
 
 Then /the subscription information should be displayed/ do
   $test.current_page.subscription_information_displayed?
+end
+
+Then /the user's information should be displayed/ do
+  $test.current_page.user_information_displayed?
 end
 
 Then /the user account should reflect the cancellation/ do
