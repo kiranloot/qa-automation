@@ -16,7 +16,6 @@ class User
            "female" => {0 => "Womens - S", 1 => "Womens - M", 2 => "Womens - L", 3 => "Womens - XL", 
                         4 => "Womens - XXL", 5 => "Womens XXXL"}}
   def initialize(test)
-    @affiliate = nil
     @email = "placeholder"
     @password ="placeholder"
     @first_name = "placeholder"
@@ -237,23 +236,6 @@ class User
     page.has_content?("Ship to")
     first(:link, "Ship to").click
         click_link(country_code + '-beta')
-  end
-
-  def admin_login
-    page.find('#admin_user_email')
-    fill_in("admin_user_email", :with => @email)
-    fill_in("admin_user_password", :with => @password)
-    page.find_button('Login').click
-  end
-  
-  def create_affiliate
-    @affiliate = FactoryGirl.build(:affiliate)
-    page.find_link('Affiliates').click
-    page.find_link('New Affiliate').click
-    fill_in("affiliate_name", :with => @affiliate.name)
-    fill_in("affiliate_redirect_url", :with => @affiliate.redirect_url)
-    page.find_field("Active").click
-    page.find_button("Create Affiliate").click
   end
 
   def discount_applied?

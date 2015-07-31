@@ -26,11 +26,15 @@ When /attempts to reset their password using the emailed reset link/ do
 end
 
 When /the user creates a new affiliate/ do
-  $test.user.create_affiliate
+  $test.current_page.click_affiliates
+  $test.current_page = AdminAffiliatesPage.new
+  $test.current_page.create_affiliate
 end
 
 When /logs in as an admin/ do
-  $test.user.admin_login
+  admin_user = $test.user.email
+  admin_password = $test.user.password
+  $test.current_page.admin_login(admin_user, admin_password)
 end
 
 When /logs out of admin/ do
@@ -54,6 +58,8 @@ When /the user selects a level up (.*) month subscription for the (.*) crate/ do
 end
 
 When /updates the subscription's information/ do
+  $test.current_page.click_subscriptions
+  $test.current_page = AdminSubscriptionsPage.new
   $test.current_page.edit_subscription
   $test.set_subject_user
   $test.current_page.fill_in_subscription_name("UPDATED NAME")
@@ -74,6 +80,8 @@ Given /^The (.*) level up product is (.*)$/ do |product,inv_status|
   step "an admin user with access to their info"
   step "the user visits the admin page"
   step "logs in as an admin"
+  $test.current_page.click_variants
+  $test.current_page = AdminVariantsPage.new
   case inv_status
   when "sold out"
     $test.current_page.set_variant_inventory(variant_id,0,false)
@@ -105,6 +113,8 @@ Given /^an? (.*) user with (.*)/ do |user_type, with_args|
     step "an admin user with access to their info"
     step "the user visits the admin page"
     step "logs in as an admin"
+    $test.current_page.click_promotions
+    $test.current_page = AdminPromotionsPage.new
     promo_code = $test.current_page.create_promotion
     step "logs out of admin"
     $test.set_subject_user
@@ -167,6 +177,8 @@ Then /here it is/ do
 end
 
 When /performs an immediate cancellation on the user account/ do
+  $test.current_page.click_subscriptions
+  $test.current_page = AdminSubscriptionsPage.new
   $test.current_page.admin_cancel_immediately
 end
 
@@ -311,6 +323,8 @@ Then /the subscription should be successfully reactivated in the admin panel/ do
   step "an admin user with access to their info"
   step "the user visits the admin page"
   step "logs in as an admin"
+  $test.current_page.click_subscriptions
+  $test.current_page = AdminSubscriptionsPage.new
   $test.current_page.reactivation_successful?
 end
 

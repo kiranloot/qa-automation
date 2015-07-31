@@ -126,6 +126,7 @@ class MyAccountPage < Page
     open_payment_tab
     wait_for_ajax
     find_link("Cancel Subscription").click
+    wait_for_ajax
     find_link("CANCEL SUBSCRIPTION").click
     wait_for_ajax
     page.driver.browser.switch_to.alert.accept
