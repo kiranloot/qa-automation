@@ -99,7 +99,7 @@ class Test
 #Remove middle man
  def get_valid_signup_information
   @user.password = @test_data["signup"]["valid_pw"]
-  @user.email = Faker::Internet.user_name + rand(999).to_s + "_unreg@mailinator.com"
+  @user.email = "_unreg_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com"
  end
 
  def is_at(page)

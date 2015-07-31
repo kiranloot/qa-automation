@@ -8,12 +8,12 @@ FactoryGirl.define do
     last_name {Date.today.strftime("%a") +  Date.today.strftime("%b") +
                Date.today.day.to_s + "At" + Time.now.to_f.to_s.reverse[0..6].delete(".")}
     password "password"
-    email { Faker::Internet.user_name + rand(999).to_s + "_test@mailinator.com" }
+    email { "_test_ " + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
     initialize_with {new($test)}
     trait :registered do
       first_name "Registered"
       last_name "User"
-      email { Faker::Internet.user_name + rand(999).to_s + "_reg@mailinator.com" }
+      email { "_reg_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
     end
     trait :admin do
       email {$env_base_url.include?("goliath") ? "admin@example.com" : "chris.lee@lootcrate.com"}
@@ -21,16 +21,16 @@ FactoryGirl.define do
     trait :canceled do
       first_name "Canceled"
       last_name "Subscription"
-      email { Faker::Internet.user_name + rand(999).to_s + "_canceled@mailinator.com" }
+      email { "_cancelled_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
     end
     trait :registered_no_prior do
       first_name "ReggieNoPrior" + Date.today.strftime("%b") + Date.today.day.to_s
-      email { Faker::Internet.user_name + rand(999).to_s + "_regnoprior@mailinator.com" }
+      email { "_regnoprior_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
     end
     trait :registered_with_active do
       first_name "Active"
       last_name "Subscription"
-      email { Faker::Internet.user_name + rand(999).to_s + "_regwsub@mailinator.com" }
+      email { "_regwsub_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
     end
     trait :one_month do 
       registered_with_active
@@ -45,7 +45,7 @@ FactoryGirl.define do
       ship_street "1234 California Ave"
       ship_city "Los Angeles"
       ship_zip "90031"
-      email { Faker::Internet.user_name + rand(999).to_s + "_ca@mailinator.com" }
+      email { "_ca_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
     end
     trait :denmark do
       first_name "Denmark"
@@ -54,7 +54,7 @@ FactoryGirl.define do
       ship_city "Copenhagen"
       ship_state "Hovedstaden"
       ship_zip "1566"
-      email { Faker::Internet.user_name + rand(999).to_s + "_dk@mailinator.com" }
+      email { "_dk_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
     end
     trait :multi_use_promo do
       coupon_code  {$test.test_data["promos"]["multi_use"]}
