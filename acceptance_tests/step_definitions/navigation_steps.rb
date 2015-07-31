@@ -26,7 +26,9 @@ When /attempts to reset their password using the emailed reset link/ do
 end
 
 When /the user creates a new affiliate/ do
-  $test.user.create_affiliate
+  $test.current_page.click_affiliates
+  $test.current_page = AdminAffiliatesPage.new
+  $test.current_page.create_affiliate
 end
 
 When /logs in as an admin/ do

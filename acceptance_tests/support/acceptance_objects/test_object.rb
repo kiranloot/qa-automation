@@ -7,12 +7,13 @@ class Test
  require 'yaml'
  require 'pry'
  require 'faker'
- attr_accessor :user, :pages, :current_page, :test_data
+ attr_accessor :affiliate, :user, :pages, :current_page, :test_data
  include Capybara::DSL
  include RSpec::Matchers
  include WaitForAjax
 
  def initialize(test_data, start_page, pages)
+  @affiliate = nil
   @user = nil
   @current_page = start_page
   @test_data = test_data 
@@ -176,15 +177,15 @@ class Test
 
  def affiliate_working?
    visit_page(:home)
-   @current_page.visit_with_affiliate(@user.affiliate.name)
-   expect(current_url).to eq("https:" + @user.affiliate.redirect_url)
+   @current_page.visit_with_affiliate(@affiliate.name)
+   expect(current_url).to eq("https:" + @affiliate.redirect_url)
  end
 
  def affiliate_created?
    page.has_content?("Affiliate Details")
    assert_text("Affiliate was successfully created.")
-   assert_text(@user.affiliate.name)
-   assert_text(@user.affiliate.redirect_url)
+   assert_text(@affiliate.name)
+   assert_text(@affiliate.redirect_url)
  end
 
  def enter_login_info

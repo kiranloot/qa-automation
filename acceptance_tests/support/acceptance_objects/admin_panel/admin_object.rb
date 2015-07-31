@@ -32,7 +32,7 @@ class AdminPage < Page
   end
 
   def click_affiliates
-    page.find_link('Affiliats').click
+    page.find_link('Affiliates').click
     wait_for_ajax
   end
 
