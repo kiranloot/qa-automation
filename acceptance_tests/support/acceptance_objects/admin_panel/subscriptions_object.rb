@@ -24,6 +24,15 @@ class AdminSubscriptionsPage < AdminPage
     assert_text('CANCELED')
   end
 
+  def subscription_status_is(status)
+    click_subscriptions
+    filter_for_subscription
+    assert_text(status)
+    if status == 'CANCELED'
+      page.find_link('Reactivate')
+    end
+  end
+
   def filter_for_subscription
     admin = $test.user
     for i in 0..2
@@ -33,6 +42,14 @@ class AdminSubscriptionsPage < AdminPage
     end
     page.find('#q_user_email').set(admin.subject_user.email)
     page.find_button('Filter').click
+  end
+
+  def flag_subscription_as_invalid
+    edit_subscription
+    find(:css, 'div#flag-address-button a.flag-button').click
+    wait_for_ajax
+    page.driver.browser.switch_to.alert.accept
+    wait_for_ajax
   end
 
   def reactivation_successful?

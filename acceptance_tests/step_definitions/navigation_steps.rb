@@ -156,6 +156,12 @@ When /the user logs (.*)$/ do |in_out|
   end
 end
 
+When /flags the subscription as having an invalid address/ do
+  $test.current_page.click_subscriptions
+  $test.current_page = AdminSubscriptionsPage.new
+  $test.current_page.flag_subscription_as_invalid
+end
+
 Given /that I want a quick test of my setup/ do
   page.find("#wf-newsletter-modal > button").click
   click_link("Log In")
@@ -303,8 +309,8 @@ Then /the promo discount should be applied to the transaction/ do
   $test.user.discount_applied?
 end
 
-Then /the cancellation attempt should be successful/ do
-  $test.current_page.cancellation_successful?
+Then /the subscription should have a status of (.*) in the admin panel/ do |status|
+  $test.current_page.subscription_status_is(status)
 end
 
 Then /the user account should reflect the cancellation/ do
