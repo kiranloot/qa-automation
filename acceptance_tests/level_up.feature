@@ -6,7 +6,7 @@ Feature: Level Up
             When the user logs in
             Then the user should not see the Level Up link
 
-    @ready 
+    @ready
     Scenario: A user with an active subscription can add a one month sock subscription
         Given a registered user with an active subscription
         And The socks level up product is available
