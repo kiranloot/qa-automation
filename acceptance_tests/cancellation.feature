@@ -8,6 +8,7 @@ Feature: Subscription Cancellation
             And the user cancels their subscription
         Then the subscription status should be set to pending cancellation
             And the user should receive a subscription cancellation email
+
     @ready
     Scenario: Cancel immediately through admin
         Given a registered user with an active subscription

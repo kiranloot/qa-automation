@@ -109,4 +109,19 @@ class AdminSubscriptionsPage < AdminPage
     assert_text("Successfully updated subscription.")
   end
 
+  def show_subscription
+    filter_for_subscription
+    find_link('show').click
+  end
+
+  def subscription_information_displayed?
+    $test.set_subject_user
+    assert_text($test.user.email)
+    assert_text($test.user.shirt_size)
+    assert_text($test.user.subscription_name.downcase)
+    assert_text($test.user.ship_zip)
+    assert_text($test.user.ship_city)
+    assert_text($test.user.ship_street)
+    assert_text($test.user.ship_state)
+  end
 end

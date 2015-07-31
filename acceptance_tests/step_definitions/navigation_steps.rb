@@ -68,6 +68,12 @@ When /updates the subscription's information/ do
   $test.current_page.click_update_subscription
 end
 
+When /views the subscription's information/ do
+  $test.current_page.click_subscriptions
+  $test.current_page = AdminSubscriptionsPage.new
+  $test.current_page.show_subscription
+end
+
 Given /^The (.*) level up product is (.*)$/ do |product,inv_status|
   inv_status.strip!
   product.strip!
@@ -311,6 +317,10 @@ end
 
 Then /the subscription should have a status of (.*) in the admin panel/ do |status|
   $test.current_page.subscription_status_is(status)
+end
+
+Then /the subscription information should be displayed/ do
+  $test.current_page.subscription_information_displayed?
 end
 
 Then /the user account should reflect the cancellation/ do
