@@ -15,5 +15,5 @@ Feature: Subscription Cancellation
             When the admin user visits the admin page
             And logs in as an admin
             And performs an immediate cancellation on the user account
-        Then the cancellation attempt should be successful
+        Then the subscription should have a status of CANCELED in the admin panel
             And the user account should reflect the cancellation

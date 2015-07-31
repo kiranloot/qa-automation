@@ -309,10 +309,6 @@ Then /the promo discount should be applied to the transaction/ do
   $test.user.discount_applied?
 end
 
-Then /the cancellation attempt should be successful/ do
-  $test.current_page.cancellation_successful?
-end
-
 Then /the subscription should have a status of (.*) in the admin panel/ do |status|
   $test.current_page.subscription_status_is(status)
 end
