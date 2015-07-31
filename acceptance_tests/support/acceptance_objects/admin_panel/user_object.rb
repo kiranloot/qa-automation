@@ -34,7 +34,7 @@ class AdminUsersPage < AdminPage
   end
 
   def fill_in_email
-    new_email = 'updated_' + Faker::Internet.user_name + rand(999).to_s + '@mailinator.com'
+    new_email = '_updated_' + Faker::Internet.user_name + rand(999).to_s + '@mailinator.com'
     fill_in('user_email', :with => new_email)
     $test.user.email = new_email
   end
@@ -49,7 +49,7 @@ class AdminUsersPage < AdminPage
   def fill_in_full_name
     new_full_name = Faker::Name.name
     fill_in('user_full_name', :with => new_full_name)
-    #$test.user.full_name = new_full_name
+    $test.user.full_name = new_full_name
   end
 
   def click_update_user
@@ -59,7 +59,7 @@ class AdminUsersPage < AdminPage
   end
 
   def user_updated?
-    #assert_text($test.user.full_name)
+    assert_text($test.user.full_name)
     assert_text($test.user.email)
   end
 end

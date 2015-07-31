@@ -236,6 +236,11 @@ Then /the new subscription should be added to the user account/ do
   $test.current_page.verify_subscription_added
 end
 
+Then /the user should still have their subscription/ do
+  step "the user visits the my account page"
+  $test.current_page.verify_subscription_added
+end
+
 Then /the new level up subscription should be added to the user account/ do
   step "the user visits the my account page"
   $test.current_page.verify_levelup_subscription_added
@@ -390,4 +395,6 @@ end
 Then /the updated information should be reflected when the user views their info/ do
   step "logs out of admin"
   step "the user logs in"
+  step "the user visits the my account page"
+  $test.current_page.verify_user_information
 end

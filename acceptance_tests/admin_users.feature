@@ -18,3 +18,4 @@ Feature: Admin Users Page
             And updates the user's information
         Then the updated information should be reflected when the admin views the user
         And the updated information should be reflected when the user views their info
+        And the user should still have their subscription
