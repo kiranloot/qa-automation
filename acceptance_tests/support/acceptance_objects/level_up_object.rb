@@ -12,33 +12,33 @@ include Capybara::DSL
   def select_level_up(product,months,size = nil)
     #determine scroll distance and div to look at
     $test.user.target_level_up_plan(product,months)
-    if product == 'socks'
-      scroll_val = 750
-      div_id = 'socks-crate'
-    elsif product == 'accessory'
-      scroll_val = 1250
-      div_id = 'accessory-crate'
-    elsif product == 'wearable'
-      scroll_val = 1750
-      div_id = 'wearable-crate'
-    end
-    for i in 0..2
-      if page.has_content?("LEVEL UP YOUR LOOT")
-        break
-      end
+    div_id = product + '-crate'
+    dd_id = 's2id_' + div_id
+    case product
+    when "socks"
+      scroll_val = 0
+    when "accessory"
+      scroll_val = 500
+    when "wearable"
+      scroll_val = 1000
     end
     page.execute_script("window.scrollBy(0,#{scroll_val})")
-    #select a plan
-    if months == 'one'
-      find(:id,div_id).find(:css,'div.select2-container').click
-      find(:css,'ul.select2-results').find(:xpath, 'li[1]').click
-    elsif months == 'six'
-      find(:id,div_id).find(:css,'div.select2-container').click
-      find(:css,'ul.select2-results').find(:xpath, 'li[3]').click
+    #click on dropdown
+    find(:id,dd_id).click
+    case months
+    when "one"
+      plan_index = '1'
+    when "three"
+      plan_index = '2'
+    when "six"
+      plan_index = '3'
     end
+    #select plan
+    find(:css,'ul.select2-results').find(:xpath,"li[#{plan_index}]").click
     verify_level_up_plan_price(product, months, div_id)
     #click subscribe
     find(:id,div_id).find_link("SUBSCRIBE").click
+    wait_for_ajax
   end
 
   def verify_level_up_plan_price(product, months, div_id)
