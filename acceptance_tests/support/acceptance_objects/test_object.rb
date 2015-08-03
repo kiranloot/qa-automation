@@ -7,12 +7,13 @@ class Test
  require 'yaml'
  require 'pry'
  require 'faker'
- attr_accessor :user, :pages, :current_page, :test_data, :db
+ attr_accessor :user, :pages, :current_page, :test_data, :db, :affiliate
  include Capybara::DSL
  include RSpec::Matchers
  include WaitForAjax
 
  def initialize(test_data, start_page, pages, db)
+  @affiliate = nil
   @user = nil
   @current_page = start_page
   @test_data = test_data 
@@ -100,7 +101,7 @@ class Test
 #Remove middle man
  def get_valid_signup_information
   @user.password = @test_data["signup"]["valid_pw"]
-  @user.email = Faker::Internet.user_name + rand(999).to_s + "_unreg@mailinator.com"
+  @user.email = "_unreg_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com"
  end
 
  def is_at(page)
@@ -177,15 +178,15 @@ class Test
 
  def affiliate_working?
    visit_page(:home)
-   @current_page.visit_with_affiliate(@user.affiliate.name)
-   expect(current_url).to eq("https:" + @user.affiliate.redirect_url)
+   @current_page.visit_with_affiliate(@affiliate.name)
+   expect(current_url).to eq("https:" + @affiliate.redirect_url)
  end
 
  def affiliate_created?
    page.has_content?("Affiliate Details")
    assert_text("Affiliate was successfully created.")
-   assert_text(@user.affiliate.name)
-   assert_text(@user.affiliate.redirect_url)
+   assert_text(@affiliate.name)
+   assert_text(@affiliate.redirect_url)
  end
 
  def enter_login_info
