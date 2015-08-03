@@ -832,6 +832,3 @@ DEPENDENCIES
   wombat-ruby!
   zendesk_api
   zeus
-
-BUNDLED WITH
-   1.10.4

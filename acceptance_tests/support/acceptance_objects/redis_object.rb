@@ -5,7 +5,7 @@ class HRedis
   attr_accessor :url
 
   def initialize
-    @site = "qa"
+    @site = ENV['SITE']
     @url = send("url_#{@site}")
     uri = URI.parse(url)
     @redis = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
@@ -61,6 +61,30 @@ class HRedis
   def is_member(name, value)
     #returns boolean for whether value is a member of key name
     @redis.sismember(name, value)
+  end
+
+  def set_wait
+    set_add(wait_set, wait)
+  end
+
+  def clear_wait
+    set_remove(wait_set, wait)
+  end
+
+  def wait_set
+    "wait_check"
+  end
+
+  def wait
+    "wait"
+  end
+
+  def should_wait?
+    is_member(wait_set, wait)
+  end
+
+  def kill_wait_set
+    del(wait_set)
   end
 
 end

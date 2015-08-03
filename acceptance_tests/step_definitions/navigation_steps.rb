@@ -10,6 +10,14 @@ Given /^that I try using factory girl/ do
   end
 end
 
+Given /that I want to test the db and redis objects/ do
+  $test.db.registered_one_active
+end
+
+Then /the db object should be awesome/ do
+  
+end
+
 Then /^cool stuff should happen/ do
   $test.current_page.be_at_recurly_sandbox
   $test.current_page.on_account_tab

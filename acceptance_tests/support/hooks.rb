@@ -41,7 +41,7 @@ Before do
   page.driver.browser.manage.window.move_to(0, 0)
   page.driver.browser.manage.window.resize_to(1800, 1100)
   visit $env_base_url
-  $test = Test.new( test_data, HomePage.new, pages)
+  $test = Test.new( test_data, HomePage.new, pages, DBCon.new)
   $test.user = User.new($test)
 end
 
