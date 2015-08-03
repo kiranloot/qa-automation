@@ -74,6 +74,23 @@ When /views the subscription's information/ do
   $test.current_page.show_subscription
 end
 
+When /views the user's information/ do
+  $test.current_page.click_users
+  $test.current_page = AdminUsersPage.new
+  $test.current_page.view_user
+end
+
+When /updates the user's information/ do
+  $test.current_page.click_users
+  $test.current_page = AdminUsersPage.new
+  $test.current_page.edit_user
+  $test.set_subject_user
+  $test.current_page.fill_in_email
+  $test.current_page.fill_in_password
+  $test.current_page.fill_in_full_name
+  $test.current_page.click_update_user
+end
+
 Given /^The (.*) level up product is (.*)$/ do |product,inv_status|
   inv_status.strip!
   product.strip!
@@ -219,6 +236,11 @@ Then /the new subscription should be added to the user account/ do
   $test.current_page.verify_subscription_added
 end
 
+Then /the user should still have their subscription/ do
+  step "the user visits the my account page"
+  $test.current_page.verify_subscription_added
+end
+
 Then /the new level up subscription should be added to the user account/ do
   step "the user visits the my account page"
   $test.current_page.verify_levelup_subscription_added
@@ -323,6 +345,10 @@ Then /the subscription information should be displayed/ do
   $test.current_page.subscription_information_displayed?
 end
 
+Then /the user's information should be displayed/ do
+  $test.current_page.user_information_displayed?
+end
+
 Then /the user account should reflect the cancellation/ do
   $test.set_subject_user
   step "the user visits the home page"
@@ -360,4 +386,15 @@ Then /the updated information should be reflected when the user views the subscr
   step "the user logs in"
   step "the user visits the my account page"
   $test.current_page.subscription_updated?
+end
+
+Then /^the updated information should be reflected when the admin views the user$/ do
+  $test.current_page.user_information_displayed?
+end
+
+Then /the updated information should be reflected when the user views their info/ do
+  step "logs out of admin"
+  step "the user logs in"
+  step "the user visits the my account page"
+  $test.current_page.verify_user_information
 end

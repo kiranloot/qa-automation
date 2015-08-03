@@ -45,6 +45,13 @@ class MyAccountPage < Page
     assert_text($test.user.level_up_subscription_name)
   end
 
+  def verify_user_information
+    page.find_button("account-section-menu").click
+    page.find_link("Account Info").click
+    assert_text($test.user.email)
+    assert_text($test.user.full_name)
+  end
+
   def subscription_cancelled?
     open_account_menu 
     click_subs_link
