@@ -1,10 +1,8 @@
-require_relative "page_object"
-class AdminPage < Page
+require_relative "admin_object"
+class AdminSubscriptionsPage < AdminPage
   include WaitForAjax
   def initialize
     super
-    @page_type = 'admin'
-    setup
   end
 
   def admin_cancel_immediately
@@ -26,9 +24,17 @@ class AdminPage < Page
     assert_text('CANCELED')
   end
 
+  def subscription_status_is(status)
+    click_subscriptions
+    filter_for_subscription
+    assert_text(status)
+    if status == 'CANCELED'
+      page.find_link('Reactivate')
+    end
+  end
+
   def filter_for_subscription
     admin = $test.user
-    page.find_link('Subscriptions').click
     for i in 0..2
       if page.has_content?("USER EMAIL")
         break
@@ -36,6 +42,14 @@ class AdminPage < Page
     end
     page.find('#q_user_email').set(admin.subject_user.email)
     page.find_button('Filter').click
+  end
+
+  def flag_subscription_as_invalid
+    edit_subscription
+    find(:css, 'div#flag-address-button a.flag-button').click
+    wait_for_ajax
+    page.driver.browser.switch_to.alert.accept
+    wait_for_ajax
   end
 
   def reactivation_successful?
@@ -47,10 +61,6 @@ class AdminPage < Page
   def reactivate_subscription
     filter_for_subscription
     find_link('Reactivate').click
-  end
-
-  def admin_log_out
-    find_link("Logout").click
   end
 
   def edit_subscription
@@ -99,36 +109,19 @@ class AdminPage < Page
     assert_text("Successfully updated subscription.")
   end
 
-  def create_promotion
-    find_link("Promotions").click
-    find_link("New Promotion").click
-    fill_in("promotion_name", :with => "Automation Promo")
-    rand_code = (0...8).map { ('a'..'z').to_a[rand(26)] }.join
-    fill_in("promotion_coupon_prefix", :with => rand_code)
-    fill_in("promotion_conversion_limit", :with => "2")
-    fill_in("promotion_description", :with => "Promotion Created by Automation")
-    find(:id, "promotion_starts_at").click
-    find(:css, "div.ui-datepicker-group-first").find_link("1").click
-    find(:id,"s2id_promotion_trigger_event").click
-    fill_in("s2id_autogen3", :with => "SIGNUP")
-    find(:css, "div.select2-result-label").click
-    find(:id, "select_all").click
-    fill_in("promotion_adjustment_amount", :with => "10")
-    find(:id, "btn-submit").click
-    wait_for_ajax
-    return rand_code
+  def show_subscription
+    filter_for_subscription
+    find_link('show').click
   end
 
-  def set_variant_inventory(product_id,inventory,available)
-    find_link("Variants").click
-    find(:id, "variant_#{product_id}").find_link("Change Inventory").click
-    fill_in("inventory_unit_total_available", :with => inventory)
-    if available
-      check("inventory_unit_in_stock")
-    else
-      uncheck("inventory_unit_in_stock")
-    end
-    find(:id, "inventory_unit_submit_action").click
-    wait_for_ajax
+  def subscription_information_displayed?
+    $test.set_subject_user
+    assert_text($test.user.email)
+    assert_text($test.user.shirt_size)
+    assert_text($test.user.subscription_name.downcase)
+    assert_text($test.user.ship_zip)
+    assert_text($test.user.ship_city)
+    assert_text($test.user.ship_street)
+    assert_text($test.user.ship_state)
   end
 end
