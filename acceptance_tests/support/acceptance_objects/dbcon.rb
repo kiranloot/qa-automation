@@ -4,8 +4,7 @@ require 'time'
 require_relative "redis_object"
 
 def initialize
- # self.send("#{ENV['SITE']}")
-   send("qa")
+   self.send("#{ENV['SITE']}")
    setup_connection
    @redis = HRedis.new
 end
@@ -101,17 +100,20 @@ email = ""
 sub = ""
 q = """
 with actives AS(
-select u.email as email, s.user_id, s.subscription_status, s.id as subs from users u
+select u.email as email, s.user_id, s.subscription_status, s.cancel_at_end_of_period as eop, s.id as subs from users u
 inner join subscriptions s
 on s.user_id = u.id
 where s.subscription_status = 'active'
 and s.created_at::date < '#{t}'::date
 and s.updated_at::date < '#{t}'::date
-and email like 'active%')
+and email like '_%')
 
-select email, subs from (select email, subs, count(subs) as c from actives
-group by email, subs) as sub_counts
-where c = 1 limit 1;"""
+select email, subs from (select email, subs, eop, count(subs) as c from actives
+group by email, subs, eop) as sub_counts
+where c = 1
+and eop is null 
+limit 1;
+"""
 
   @conn.exec(q) do |result|
     result.each do |row|
