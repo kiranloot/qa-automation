@@ -155,6 +155,8 @@ class MyAccountPage < Page
     find_link("SKIP").click
     find_link("SKIP A MONTH").click
     wait_for_ajax
+    find_link("MANAGE ACCOUNT").click
+    wait_for_ajax
   end
 
   def skip_during_cancel
