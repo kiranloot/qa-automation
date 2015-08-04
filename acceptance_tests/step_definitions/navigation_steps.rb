@@ -99,6 +99,15 @@ When /updates the user's information/ do
   $test.current_page.click_update_user
 end
 
+When /the user navigates back in the browser/ do
+  page.evaluate_script('window.history.back()')
+end
+
+When(/^the user attempts to skip again/) do
+  $test.current_page = SkipPage.new
+  $test.current_page.click_skip
+end
+
 Given /^The (.*) level up product is (.*)$/ do |product,inv_status|
   inv_status.strip!
   product.strip!
@@ -405,4 +414,8 @@ Then /the updated information should be reflected when the user views their info
   step "the user logs in"
   step "the user visits the my account page"
   $test.current_page.verify_user_information
+end
+
+Then /the user should see the cancellation page/ do
+  assert_text("WE'RE SORRY YOU NEED TO GO")
 end

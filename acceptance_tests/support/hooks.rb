@@ -37,7 +37,7 @@ pages = {home: HomePage, signup: SignupPage, checkout: CheckoutPage, subscribe: 
          recurly: Recurly, level_up: LevelUpPage, express_checkout: ExpressCheckoutPage}
 
 Before do
-  Capybara.default_wait_time = 12
+  Capybara.default_wait_time = 30
   page.driver.browser.manage.window.move_to(0, 0)
   page.driver.browser.manage.window.resize_to(1800, 1100)
   visit $env_base_url
