@@ -35,6 +35,7 @@ when 'remote'
   when 'ie'
     capabilities = Selenium::WebDriver::Remote::Capabilities.internet_explorer
   end
+  capabilities[:platform] = "MAC"
   Capybara::Selenium::Driver.new(app,
                                  :browser => :remote, :url => url,
                                  :desired_capabilities => capabilities)
