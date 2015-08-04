@@ -44,7 +44,9 @@ when 'sauce'
   Capybara.default_driver = :sauce
   Sauce.config do |config|
     config[:start_tunnel] = false
-    config[:browsers] = "Chrome"
+    config[:browsers] = [
+      ["OSX 10.10","Chrome",nil]
+    ]
   end
 end
 
