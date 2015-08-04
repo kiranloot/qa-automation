@@ -9,6 +9,10 @@ def initialize
    @redis = HRedis.new
 end
 
+def finish
+  @conn.finish
+end
+
 def qa
   @host = 'ec2-107-22-166-14.compute-1.amazonaws.com'
   @port = '5702'

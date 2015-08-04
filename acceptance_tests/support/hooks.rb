@@ -46,6 +46,7 @@ Before do
 end
 
 After do
+  $test.db.finish
   loop do 
     if page.has_content?("My Account")
       click_link("My Account")
