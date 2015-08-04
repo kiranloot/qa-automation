@@ -9,7 +9,7 @@ Feature: Admin Users Page
             And views the user's information
         Then the user's information should be displayed
 
-    @developing
+    @ready
     Scenario: Update user information
         Given a registered user with an active subscription
             And an admin user with access to their info
