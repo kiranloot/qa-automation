@@ -1,5 +1,6 @@
 require 'selenium-webdriver'
 require 'capybara/cucumber'
+require 'sauce/cucumber'
 require 'rspec/expectations'
 require 'time'
 
@@ -37,6 +38,13 @@ when 'remote'
   Capybara::Selenium::Driver.new(app,
                                  :browser => :remote, :url => url,
                                  :desired_capabilities => capabilities)
+  end
+when 'sauce'
+  Capybara.default_driver = :sauce
+  Sauce.config do |config|
+    config[:name] = "Test Sauce Config"
+    config[:start_tunnel] = true
+    config[:browser] = "Chrome"
   end
 end
 

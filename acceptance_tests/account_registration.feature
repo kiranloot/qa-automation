@@ -1,6 +1,6 @@
-@core @regression @account 
+@core @regression @account @selenium
 Feature:Account Registration 
-    @ready @sign 
+    @ready @sign
     Scenario:Valid signup through signup page. 
         Given an unregistered user
             When the user visits the signup page
