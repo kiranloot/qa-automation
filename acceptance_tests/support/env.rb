@@ -11,6 +11,7 @@ browser = ENV['BROWSER'] ||= 'chrome'
 case driver
 when 'local'
   Capybara.default_driver = :selenium
+  Capybara.server_port = 10000 + ENV['TEST_ENV_NUMBER'].to_i
   Capybara.register_driver :selenium do |app|
   case browser
   when 'chrome'
