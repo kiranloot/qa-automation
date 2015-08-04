@@ -35,6 +35,7 @@ when 'remote'
   when 'ie'
     capabilities = Selenium::WebDriver::Remote::Capabilities.internet_explorer
   end
+  capabilities[:platform] = "MAC"
   Capybara::Selenium::Driver.new(app,
                                  :browser => :remote, :url => url,
                                  :desired_capabilities => capabilities)
@@ -42,9 +43,8 @@ when 'remote'
 when 'sauce'
   Capybara.default_driver = :sauce
   Sauce.config do |config|
-    config[:name] = "Test Sauce Config"
-    config[:start_tunnel] = true
-    config[:browser] = "Chrome"
+    config[:start_tunnel] = false
+    config[:browsers] = "Chrome"
   end
 end
 

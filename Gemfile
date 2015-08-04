@@ -106,7 +106,7 @@ group :development, :test do
   gem 'selenium-webdriver', require: false
   gem 'sauce', '~> 3.1.1'
   gem 'sauce-connect'
-  gem 'sauce-cucumber'
+  gem 'sauce-cucumber', require: false
 end
 
 group :development do
