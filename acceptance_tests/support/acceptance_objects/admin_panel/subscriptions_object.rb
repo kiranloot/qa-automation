@@ -14,6 +14,7 @@ class AdminSubscriptionsPage < AdminPage
       end
     end
     page.find_link('CANCEL IMMEDIATELY').click
+    sleep(1)
     page.driver.browser.switch_to.alert.accept
     wait_for_ajax
   end
@@ -47,6 +48,7 @@ class AdminSubscriptionsPage < AdminPage
   def flag_subscription_as_invalid
     edit_subscription
     find(:css, 'div#flag-address-button a.flag-button').click
+    sleep(1)
     page.driver.browser.switch_to.alert.accept
     wait_for_ajax
   end
