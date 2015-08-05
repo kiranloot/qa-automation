@@ -1,6 +1,6 @@
 @regression @core @subscription_creation
 Feature: Subscription Creation
-    @ready 
+    @ready @fixing
     Scenario: Registered user creates one month subscription
         Given a registered user with no prior subscription
             When the user logs in

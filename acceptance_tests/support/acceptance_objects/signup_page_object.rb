@@ -24,9 +24,10 @@ include Capybara::DSL
 
   def visit_page
     visit $env_base_url
-    if page.has_css?('body > div.modal-backdrop in')
-      click_button('X')
-    end
+#    if page.has_css?('body > div.modal-backdrop in')
+#      click_button('X')
+#    end
+    wait_for_ajax
     first(:link, 'SUBSCRIBE').click
     click_link('one-month')
     $test.current_page = self

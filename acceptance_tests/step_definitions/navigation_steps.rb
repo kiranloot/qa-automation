@@ -72,7 +72,7 @@ When /updates the subscription's information/ do
   $test.set_subject_user
   $test.current_page.fill_in_subscription_name("UPDATED NAME")
   $test.current_page.select_shirt_size("M S")
-  $test.current_page.move_rebill_date_one_day
+  #$test.current_page.move_rebill_date_one_day
   $test.current_page.click_update_subscription
 end
 
