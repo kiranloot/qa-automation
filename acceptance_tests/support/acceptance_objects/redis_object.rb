@@ -15,6 +15,10 @@ class HRedis
     @url
   end
 
+  def url_local
+    "redis://localhost:6379/"
+  end
+
   def url_qa
     "redis://redistogo:17af1e3d5398fca6beeb4f7ade155eaa@mummichog.redistogo.com:9636/"
   end
