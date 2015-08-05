@@ -1,4 +1,4 @@
-class Recurly < Page
+class RecurlyPage < Page
   require 'aspector'
   require_relative 'wait_module'
   include WaitForAjax

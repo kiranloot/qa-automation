@@ -34,7 +34,7 @@ $env_test_data_file_path ||= "acceptance_tests/support/qa_test_data.yml"
 test_data = YAML.load(File.open($env_test_data_file_path))
 pages = {home: HomePage, signup: SignupPage, checkout: CheckoutPage, subscribe: SubscribePage,
             my_account: MyAccountPage, mailinator: Mailinator, admin: AdminPage, upgrade: UpgradePage,
-         recurly: Recurly, level_up: LevelUpPage, express_checkout: ExpressCheckoutPage}
+         recurly: RecurlyPage, level_up: LevelUpPage, express_checkout: ExpressCheckoutPage}
 
 Before do
   Capybara.default_wait_time = 30

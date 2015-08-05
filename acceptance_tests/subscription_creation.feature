@@ -27,6 +27,7 @@ Feature: Subscription Creation
             And the user selects a six month subscription plan
             And the user submits valid subscription information
         Then standard new subscription pass criteria should pass
+            And recurly should have a matching subscription
     @ready
     Scenario: Registered user creates twelve month subscription plan
         Given a registered user with no prior subscription 
@@ -53,6 +54,7 @@ Feature: Subscription Creation
             And the user selects a random month subscription plan
             And the user submits invalid credit card information
         Then subscription creation should fail due to invalid credit card
+            And recurly should have no subscriptions
 
     @ready
     Scenario: User attempts to create a subscription using the express checkout
