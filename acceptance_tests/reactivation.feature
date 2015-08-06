@@ -8,3 +8,4 @@ Feature: Subscription reactivation
             And the user reactivates their subscription
         Then the reactivation should be reflected in the user account
             And the subscription should be successfully reactivated in the admin panel
+            And the recurly subscription should be reactivated
