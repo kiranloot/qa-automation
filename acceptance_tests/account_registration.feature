@@ -1,4 +1,4 @@
-@core @regression @account @selenium @integration
+@core @regression @account @selenium
 Feature:Account Registration 
     @ready @sign
     Scenario:Valid signup through signup page. 

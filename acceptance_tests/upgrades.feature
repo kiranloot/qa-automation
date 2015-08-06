@@ -1,4 +1,4 @@
-@core @regression
+@core @regression @selenium
 Feature: Subscription Upgrades
     @ready
     Scenario: User upgrades from one month to three month subscription plan

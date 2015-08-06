@@ -1,4 +1,4 @@
-@core @regression
+@core @regression @selenium
 Feature: Subscription reactivation
     @ready
     Scenario: User reactivates cancelled subscription

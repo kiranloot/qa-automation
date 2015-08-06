@@ -1,4 +1,4 @@
-@core @regression @levelup
+@core @regression @levelup @selenium
 Feature: Level Up
     @ready
     Scenario: Level Up is not available for users without active subscriptions
