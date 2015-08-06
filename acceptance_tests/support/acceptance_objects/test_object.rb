@@ -70,6 +70,7 @@ class Test
  def visit_page(page)
    @current_page = @pages[page].new
    @current_page.visit_page
+   wait_for_ajax
  end
 
  def log_in_or_register
