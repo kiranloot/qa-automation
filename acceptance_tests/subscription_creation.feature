@@ -54,7 +54,6 @@ Feature: Subscription Creation
             And the user selects a random month subscription plan
             And the user submits invalid credit card information
         Then subscription creation should fail due to invalid credit card
-            And recurly should have no subscriptions
 
     @ready
     Scenario: User attempts to create a subscription using the express checkout
