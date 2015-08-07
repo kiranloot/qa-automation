@@ -12,7 +12,7 @@ locators:
   modal_register: "//*[@id='register_step_two']/input"
   flip_member: "//*[@id='new-customer']/div[5]/div[1]"
   flip_join: "//*[@id='existing-customer-container']/div[3]/div/span"
-  shirt_dd: "#s2id_checkout_shirt_size"
+  shirt_dd: "div#s2id_checkout_shirt_size > a"
   shirt_size: input#s2id_autogen1_search
   shirt_size_express: input#s2id_autogen3_search
   first_name: checkout_shipping_address_first_name

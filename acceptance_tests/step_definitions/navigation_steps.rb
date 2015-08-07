@@ -10,6 +10,14 @@ Given /^that I try using factory girl/ do
   end
 end
 
+Given /that I want to test the db and redis objects/ do
+  $test.db.registered_one_active
+end
+
+Then /the db object should be awesome/ do
+  
+end
+
 Then /^cool stuff should happen/ do
   $test.current_page.be_at_recurly_sandbox
   $test.current_page.on_account_tab
@@ -64,7 +72,7 @@ When /updates the subscription's information/ do
   $test.set_subject_user
   $test.current_page.fill_in_subscription_name("UPDATED NAME")
   $test.current_page.select_shirt_size("M S")
-  $test.current_page.move_rebill_date_one_day
+  #$test.current_page.move_rebill_date_one_day
   $test.current_page.click_update_subscription
 end
 
@@ -72,6 +80,32 @@ When /views the subscription's information/ do
   $test.current_page.click_subscriptions
   $test.current_page = AdminSubscriptionsPage.new
   $test.current_page.show_subscription
+end
+
+When /views the user's information/ do
+  $test.current_page.click_users
+  $test.current_page = AdminUsersPage.new
+  $test.current_page.view_user
+end
+
+When /updates the user's information/ do
+  $test.current_page.click_users
+  $test.current_page = AdminUsersPage.new
+  $test.current_page.edit_user
+  $test.set_subject_user
+  $test.current_page.fill_in_email
+  $test.current_page.fill_in_password
+  $test.current_page.fill_in_full_name
+  $test.current_page.click_update_user
+end
+
+When /the user navigates back in the browser/ do
+  page.evaluate_script('window.history.back()')
+end
+
+When(/^the user attempts to skip again/) do
+  $test.current_page = SkipPage.new
+  $test.current_page.click_skip
 end
 
 Given /^The (.*) level up product is (.*)$/ do |product,inv_status|
@@ -219,6 +253,11 @@ Then /the new subscription should be added to the user account/ do
   $test.current_page.verify_subscription_added
 end
 
+Then /the user should still have their subscription/ do
+  step "the user visits the my account page"
+  $test.current_page.verify_subscription_added
+end
+
 Then /the new level up subscription should be added to the user account/ do
   step "the user visits the my account page"
   $test.current_page.verify_levelup_subscription_added
@@ -323,6 +362,10 @@ Then /the subscription information should be displayed/ do
   $test.current_page.subscription_information_displayed?
 end
 
+Then /the user's information should be displayed/ do
+  $test.current_page.user_information_displayed?
+end
+
 Then /the user account should reflect the cancellation/ do
   $test.set_subject_user
   step "the user visits the home page"
@@ -360,4 +403,19 @@ Then /the updated information should be reflected when the user views the subscr
   step "the user logs in"
   step "the user visits the my account page"
   $test.current_page.subscription_updated?
+end
+
+Then /^the updated information should be reflected when the admin views the user$/ do
+  $test.current_page.user_information_displayed?
+end
+
+Then /the updated information should be reflected when the user views their info/ do
+  step "logs out of admin"
+  step "the user logs in"
+  step "the user visits the my account page"
+  $test.current_page.verify_user_information
+end
+
+Then /the user should see the cancellation page/ do
+  assert_text("WE'RE SORRY YOU NEED TO GO")
 end

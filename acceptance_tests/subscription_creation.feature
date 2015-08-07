@@ -1,6 +1,6 @@
 @regression @core @subscription_creation
 Feature: Subscription Creation
-    @ready 
+    @ready @fixing
     Scenario: Registered user creates one month subscription
         Given a registered user with no prior subscription
             When the user logs in
@@ -27,6 +27,7 @@ Feature: Subscription Creation
             And the user selects a six month subscription plan
             And the user submits valid subscription information
         Then standard new subscription pass criteria should pass
+            And recurly should have a matching subscription
     @ready
     Scenario: Registered user creates twelve month subscription plan
         Given a registered user with no prior subscription 

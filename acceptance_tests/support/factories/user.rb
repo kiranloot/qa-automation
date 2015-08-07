@@ -8,7 +8,7 @@ FactoryGirl.define do
     last_name {Date.today.strftime("%a") +  Date.today.strftime("%b") +
                Date.today.day.to_s + "At" + Time.now.to_f.to_s.reverse[0..6].delete(".")}
     password "password"
-    email { "_test_ " + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+    email { "_test_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
     initialize_with {new($test)}
     trait :registered do
       first_name "Registered"

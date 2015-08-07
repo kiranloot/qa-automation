@@ -98,6 +98,7 @@ group :development, :test do
   gem 'shoulda-matchers', require: false
   gem 'meta_request', '0.2.1'
   gem 'timecop'
+  gem "parallel_tests"
   #gem 'therubyracer'
   #  gem 'net-http-spy'
   gem 'vcr'

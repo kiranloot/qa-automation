@@ -7,17 +7,18 @@ class Test
  require 'yaml'
  require 'pry'
  require 'faker'
- attr_accessor :affiliate, :user, :pages, :current_page, :test_data
+ attr_accessor :user, :pages, :current_page, :test_data, :db, :affiliate
  include Capybara::DSL
  include RSpec::Matchers
  include WaitForAjax
 
- def initialize(test_data, start_page, pages)
+ def initialize(test_data, start_page, pages, db)
   @affiliate = nil
   @user = nil
   @current_page = start_page
   @test_data = test_data 
   @pages = pages
+  @db = db
  end
 
  def update_test_data(value)

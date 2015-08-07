@@ -45,6 +45,13 @@ class MyAccountPage < Page
     assert_text($test.user.level_up_subscription_name)
   end
 
+  def verify_user_information
+    page.find_button("account-section-menu").click
+    page.find_link("Account Info").click
+    assert_text($test.user.email)
+    assert_text($test.user.full_name)
+  end
+
   def subscription_cancelled?
     open_account_menu 
     click_subs_link
@@ -123,13 +130,18 @@ class MyAccountPage < Page
     open_account_menu
     click_subs_link
     get_expected_next_bill_date($test.user.subscription_name)
+    click_cancel_subscription
+    find_link("CANCEL SUBSCRIPTION").click
+    sleep(1)
+    page.driver.browser.switch_to.alert.accept
+    wait_for_ajax
+  end
+
+  def click_cancel_subscription
     open_payment_tab
     wait_for_ajax
     find_link("Cancel Subscription").click
     wait_for_ajax
-    find_link("CANCEL SUBSCRIPTION").click
-    wait_for_ajax
-    page.driver.browser.switch_to.alert.accept
   end
 
   def skip_a_month
@@ -143,6 +155,9 @@ class MyAccountPage < Page
     end
     find_link("SKIP").click
     find_link("SKIP A MONTH").click
+    wait_for_ajax
+    find_link("MANAGE ACCOUNT").click
+    wait_for_ajax
   end
 
   def skip_during_cancel
@@ -156,6 +171,7 @@ class MyAccountPage < Page
     end
     find_link("Cancel Subscription").click
     find_link("SKIP A MONTH").click
+    wait_for_ajax
   end
 
   def click_subs_link

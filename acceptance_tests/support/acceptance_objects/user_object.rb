@@ -7,7 +7,7 @@ class User
   include RSpec::Matchers
   include WaitForAjax
   attr_accessor :email, :password, :street, :city, :ship_state, :ship_zip,
-    :zip, :first_name, :last_name, :shirt_size, :new_shirt_size, :cc, :cvv, :ship_street, :ship_city, :affiliate,
+    :zip, :first_name, :last_name, :full_name, :shirt_size, :new_shirt_size, :cc, :cvv, :ship_street, :ship_city, :affiliate,
     :coupon_code, :discount_applied, :subject_user, :subscription_name, :level_up_subscription_name, :new_user_sub_name,
     :new_rebill_date
 
