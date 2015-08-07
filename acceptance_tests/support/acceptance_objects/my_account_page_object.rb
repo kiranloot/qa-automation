@@ -155,7 +155,7 @@ class MyAccountPage < Page
     end
     find_link("SKIP").click
     find_link("SKIP A MONTH").click
-    sleep(1)
+    wait_for_ajax
     find_link("MANAGE ACCOUNT").click
     wait_for_ajax
   end
