@@ -114,6 +114,7 @@ class User
       fill_in(@test.test_data["locators"]["bill_zip"], :with => @bill_zip)
     end
     unless @coupon_code.nil?
+      find(:id, 'coupon-checkbox').click
       fill_in(@test.test_data["locators"]["coupon_code"], :with => @coupon_code)
       page.find_button("validate-coupon").click
       @discount_applied = page.has_content?("Coupon valid: save $")
