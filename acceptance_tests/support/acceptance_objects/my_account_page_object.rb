@@ -132,8 +132,9 @@ class MyAccountPage < Page
     get_expected_next_bill_date($test.user.subscription_name)
     click_cancel_subscription
     find_link("CANCEL SUBSCRIPTION").click
-    wait_for_ajax
+    sleep(1)
     page.driver.browser.switch_to.alert.accept
+    wait_for_ajax
   end
 
   def click_cancel_subscription
