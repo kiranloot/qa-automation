@@ -1,6 +1,5 @@
 require 'selenium-webdriver'
 require 'capybara/cucumber'
-require 'sauce/cucumber'
 require 'rspec/expectations'
 require 'time'
 
@@ -40,6 +39,7 @@ when 'remote'
                                  :desired_capabilities => capabilities)
   end
 when 'sauce'
+require 'sauce/cucumber'
   Capybara.default_driver = :sauce
   Sauce.config do |config|
     config[:start_tunnel] = true
