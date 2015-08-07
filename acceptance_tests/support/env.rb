@@ -1,6 +1,5 @@
 require 'selenium-webdriver'
 require 'capybara/cucumber'
-require 'sauce/cucumber'
 require 'rspec/expectations'
 require 'time'
 
