@@ -102,9 +102,11 @@ group :development, :test do
   #gem 'therubyracer'
   #  gem 'net-http-spy'
   gem 'vcr'
-
   gem 'capybara-console'
   gem 'selenium-webdriver', require: false
+  gem 'sauce', '~> 3.1.1'
+  gem 'sauce-connect'
+  gem 'sauce-cucumber', require: false
 end
 
 group :development do
