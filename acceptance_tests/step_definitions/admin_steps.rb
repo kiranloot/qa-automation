@@ -103,6 +103,7 @@ Then /the subscription should be successfully reactivated in the admin panel/ do
   $test.current_page.click_subscriptions
   $test.current_page = AdminSubscriptionsPage.new
   $test.current_page.reactivation_successful?
+  $test.set_subject_user
 end
 
 Then /^the updated information should be reflected when the admin views the user$/ do
