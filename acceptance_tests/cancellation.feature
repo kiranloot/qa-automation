@@ -8,7 +8,7 @@ Feature: Subscription Cancellation
             And the user cancels their subscription
         Then the subscription status should be set to pending cancellation
             And the user should receive a subscription cancellation email
-            And the recurly subscription should be expired
+            And the recurly subscription should be canceled
 
     @ready
     Scenario: Cancel immediately through admin

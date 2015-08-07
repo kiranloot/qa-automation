@@ -15,7 +15,7 @@ class RecurlyAPI
 
   def verify_subscription_type
     account = get_account
-    expect(account.subscriptions.last.plan.name).to eq(account.subscriptions.last.plan.name)  
+    expect(account.subscriptions.last.plan.name).to eq($test.user.subscription_name)  
   end
 
   def verify_next_bill_date
@@ -33,9 +33,26 @@ class RecurlyAPI
     expect(account.subscriptions.first.plan.name.match(/#{product}.*#{numMonths} month/i)).not_to be_nil
   end
 
-  def verify_expired
+  def verify_subscription_upgrade (months)
     account = get_account
-    expect(account.subscriptions.first.state).to eq("expired")
+    newPlan = "#{get_months(months)} Month Subscription"
+    expect(account.subscriptions.last.pending_subscription.plan.name).to eq(newPlan)  
+  end
+  def verify_status(status)
+    account = get_account
+    expect(account.subscriptions.first.state).to eq(status)
+  end
+
+  def verify_reactivated
+    account = get_account
+    expect(account.subscriptions.first.state).to eq("active")
+  end
+
+  def verify_billing
+    expect(account.address[:address1]).to eq($test.user.bill_street)
+    expect(account.address[:address2]).to eq($test.user.bill_street2)
+    expect(account.address[:city]).to eq($test.user.bill_city)
+    expect(account.address[:zip]).to eq($test.user.bill_zip)
   end
 
   def get_months (months)
