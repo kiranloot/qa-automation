@@ -1,6 +1,5 @@
-@core @regression @skipamonth
+@core @regression @skipamonth @selenium
 Feature: Skip a Month
-
     @ready
     Scenario: Skip instead of cancel
         Given a registered user with a one month subscription
