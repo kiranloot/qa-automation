@@ -16,6 +16,7 @@ Feature: Level Up
             And the user submits valid levelup information
         Then the new level up subscription should be added to the user account
             And the user should receive a level up email
+            And recurly should have a one month subscription for the socks crate
 
     @ready
     Scenario: A user with an active subscription can add a six month accessory subscription
@@ -27,3 +28,4 @@ Feature: Level Up
             And the user submits valid levelup information
         Then the new level up subscription should be added to the user account
             And the user should receive a level up email
+            And recurly should have a six month subscription for the accessory crate
