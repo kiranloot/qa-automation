@@ -1,5 +1,3 @@
-class Test
- require_relative 'user_object'
  require_relative 'homepage_object'
  require_relative 'signup_page_object'
  require_relative 'wait_module'
@@ -142,6 +140,7 @@ class Test
  end
 
  def configure_user(type, with_string = nil)
+     if DataGen.new
      if with_string != nil
       @user = get_user_with(type, with_string)
      else
@@ -193,7 +192,10 @@ class Test
    @current_page.enter_login_info(@user.email, @user.password)
  end
 
- def parse_with_args(arg_string)
+ def parse_with_args(arg_string, new_way = false)
+   if new_way
+     dg = DataGen.new(arg_string)
+   else
    args = arg_string.downcase
    if args == "no prior subscription"
      return :registered_no_prior
