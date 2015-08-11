@@ -1,4 +1,4 @@
-@core @regression
+@core @regression @selenium
 Feature: Change Country
     @ready
     Scenario: Change from US to Denmark and verify pricing.

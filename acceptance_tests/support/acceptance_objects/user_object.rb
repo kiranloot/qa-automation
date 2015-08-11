@@ -87,7 +87,7 @@ class User
   def submit_subscription_info
     page.find(@test.test_data["locators"]["shirt_dd"])
     page.find(@test.test_data["locators"]["shirt_dd"]).click
-    find_button("SUBSCRIBE")
+    wait_for_ajax
     page.find(@test.test_data["locators"]["shirt_size"]).native.send_keys(@shirt_size)
     page.find(@test.test_data["locators"]["shirt_size"]).native.send_key(:enter)
     fill_in(@test.test_data["locators"]["first_name"], :with => @first_name)
@@ -98,7 +98,7 @@ class User
     end
     fill_in(@test.test_data["locators"]["ship_city"], :with => @ship_city)
     page.find(@test.test_data["locators"]["state_dd"]).click
-    find_link("Community")
+    wait_for_ajax
     page.find(@test.test_data["locators"]["ship_state"]).native.send_keys(@ship_state)
     page.find(@test.test_data["locators"]["ship_state"]).native.send_key(:enter)
     fill_in(@test.test_data["locators"]["ship_zip"], :with => @ship_zip)
@@ -108,7 +108,7 @@ class User
       fill_in(@test.test_data["locators"]["bill_street"], :with => @bill_street)
       fill_in(@test.test_data["locators"]["bill_city"], :with => @bill_city)
       page.find(@test.test_data["locators"]["bill_state_dd"]).click
-      find_link("Community")
+      wait_for_ajax
       page.find(@test.test_data["locators"]["bill_state"]).native.send_keys(@bill_state)
       page.find(@test.test_data["locators"]["bill_state"]).native.send_key(:enter)
       fill_in(@test.test_data["locators"]["bill_zip"], :with => @bill_zip)

@@ -98,12 +98,15 @@ group :development, :test do
   gem 'shoulda-matchers', require: false
   gem 'meta_request', '0.2.1'
   gem 'timecop'
+  gem "parallel_tests"
   #gem 'therubyracer'
   #  gem 'net-http-spy'
   gem 'vcr'
-
   gem 'capybara-console'
   gem 'selenium-webdriver', require: false
+  gem 'sauce', '~> 3.1.1'
+  gem 'sauce-connect'
+  gem 'sauce-cucumber', require: false
 end
 
 group :development do

@@ -1,4 +1,4 @@
-@Regression @currency @extended
+@Regression @currency @extended @selenium
 Feature: Currency labelling and Markup
     Scenario: Denmark User should see localized price estimates.
         Given a Denmark user with no prior subscription

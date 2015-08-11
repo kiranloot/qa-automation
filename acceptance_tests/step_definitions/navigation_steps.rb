@@ -72,7 +72,7 @@ When /updates the subscription's information/ do
   $test.set_subject_user
   $test.current_page.fill_in_subscription_name("UPDATED NAME")
   $test.current_page.select_shirt_size("M S")
-  $test.current_page.move_rebill_date_one_day
+  #$test.current_page.move_rebill_date_one_day
   $test.current_page.click_update_subscription
 end
 
@@ -97,6 +97,15 @@ When /updates the user's information/ do
   $test.current_page.fill_in_password
   $test.current_page.fill_in_full_name
   $test.current_page.click_update_user
+end
+
+When /the user navigates back in the browser/ do
+  page.evaluate_script('window.history.back()')
+end
+
+When(/^the user attempts to skip again/) do
+  $test.current_page = SkipPage.new
+  $test.current_page.click_skip
 end
 
 Given /^The (.*) level up product is (.*)$/ do |product,inv_status|
@@ -376,6 +385,7 @@ Then /the subscription should be successfully reactivated in the admin panel/ do
   $test.current_page.click_subscriptions
   $test.current_page = AdminSubscriptionsPage.new
   $test.current_page.reactivation_successful?
+  $test.set_subject_user
 end
 
 Then /the user is shown the correct (.+)/ do |type|
@@ -405,4 +415,8 @@ Then /the updated information should be reflected when the user views their info
   step "the user logs in"
   step "the user visits the my account page"
   $test.current_page.verify_user_information
+end
+
+Then /the user should see the cancellation page/ do
+  assert_text("WE'RE SORRY YOU NEED TO GO")
 end

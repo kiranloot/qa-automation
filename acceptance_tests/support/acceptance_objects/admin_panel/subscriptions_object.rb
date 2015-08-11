@@ -14,8 +14,9 @@ class AdminSubscriptionsPage < AdminPage
       end
     end
     page.find_link('CANCEL IMMEDIATELY').click
-    wait_for_ajax
+    sleep(1)
     page.driver.browser.switch_to.alert.accept
+    wait_for_ajax
   end
 
   def cancellation_successful?
@@ -47,7 +48,7 @@ class AdminSubscriptionsPage < AdminPage
   def flag_subscription_as_invalid
     edit_subscription
     find(:css, 'div#flag-address-button a.flag-button').click
-    wait_for_ajax
+    sleep(1)
     page.driver.browser.switch_to.alert.accept
     wait_for_ajax
   end
@@ -84,27 +85,17 @@ class AdminSubscriptionsPage < AdminPage
   end
 
   def move_rebill_date_one_day
-    find(:id, 'subscription_next_assessment_at').click
-    cur_month = find(:css, 'span.ui-datepicker-month').text
-    cur_year = find(:css, 'span.ui-datepicker-year').text
-    cur_date = find(:css, 'a.ui-state-active').text
-    cur_date = cur_date.to_i
-    #just move rebill date to the first if after 27th
-    #to account for feb
-    if cur_date > 27
-      new_date = 1
-    else
-      new_date = cur_date + 1
-    end
-    find_link("#{new_date}").click
-    if new_date < 10
-      new_date = "0" + new_date.to_s
-    end
-    $test.user.new_rebill_date = "#{cur_month} #{new_date}, #{cur_year}"
+    cur_rebil_date = find(:id, 'subscription_next_assessment_at').value 
+    #DATE PICKER CODE NOT WORKING WITH FF
+    #Attempting "fill_in" instead
+    #Need code here to increase cur_rebil_date by one day (regex)
+    fill_in('subscription_next_assessment_at', :with => cur_rebil_date)
+    #will fix later
+    #$test.user.new_rebill_date = "#{cur_month} #{new_date}, #{cur_year}"
   end
 
   def click_update_subscription
-    find(:id, 'subscription_submit_action').click
+    find(:css, '#subscription_submit_action > input').click
     wait_for_ajax
     assert_text("Successfully updated subscription.")
   end

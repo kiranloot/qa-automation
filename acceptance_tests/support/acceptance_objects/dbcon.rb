@@ -9,6 +9,10 @@ def initialize
    @redis = HRedis.new
 end
 
+def finish
+  @conn.finish
+end
+
 def qa
   @host = 'ec2-107-22-166-14.compute-1.amazonaws.com'
   @port = '5702'
@@ -46,6 +50,12 @@ def goliath
   @dbname = 'd8qmbr1p8vor9i'
 end
 
+def local
+  @host = 'localhost'
+  @port = '5432'
+  @dbname = 'lootcrate_development'
+end
+
 def exec(query)
   @conn.exec(query) do |result|
     return result
@@ -65,6 +75,12 @@ end
 def user_exists?(user_email)
   query = "Select * from users where user_email = #{user_email}"
   @conn.exec(query)
+end
+
+def get_recurly_account_id(user_email)
+  query = "SELECT recurly_account_id FROM subscriptions where user_id =
+            (select id from users where email = '#{user_email}')"
+  @conn.exec(query).getvalue(0,0)
 end
 
 def get_subscriptions(user_email)

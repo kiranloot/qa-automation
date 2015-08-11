@@ -1,4 +1,4 @@
-@core @regression @account 
+@core @regression @account @selenium
 Feature: Admin Users Page
     @ready
     Scenario: View a user via admin panel
@@ -9,7 +9,7 @@ Feature: Admin Users Page
             And views the user's information
         Then the user's information should be displayed
 
-    @developing
+    @ready
     Scenario: Update user information
         Given a registered user with an active subscription
             And an admin user with access to their info
