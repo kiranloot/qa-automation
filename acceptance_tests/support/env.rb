@@ -38,6 +38,15 @@ when 'remote'
                                  :browser => :remote, :url => url,
                                  :desired_capabilities => capabilities)
   end
+when 'sauce'
+require 'sauce/cucumber'
+  Capybara.default_driver = :sauce
+  Sauce.config do |config|
+    config[:start_tunnel] = true
+    config[:browsers] = [
+      ["OSX 10.10","Chrome",nil]
+    ]
+  end
 end
 
 at_exit do
