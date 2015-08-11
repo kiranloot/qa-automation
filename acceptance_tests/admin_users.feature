@@ -1,4 +1,4 @@
-@core @regression @account 
+@core @regression @account @selenium
 Feature: Admin Users Page
     @ready
     Scenario: View a user via admin panel

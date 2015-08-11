@@ -38,6 +38,7 @@ pages = {home: HomePage, signup: SignupPage, checkout: CheckoutPage, subscribe: 
 
 Before do
   Capybara.default_wait_time = 15
+  Capybara.use_default_driver
   page.driver.browser.manage.window.move_to(0, 0)
   page.driver.browser.manage.window.resize_to(1800, 1100)
   visit $env_base_url
