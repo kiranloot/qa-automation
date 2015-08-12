@@ -158,7 +158,8 @@ class User
   def submit_levelup_subscription_info
     submit_credit_card_information
     click_button(@test.test_data["locators"]["checkout_btn"])
-    page.has_content?('Leveled Up!')
+    wait_for_ajax
+    assert_text("CONGRATULATIONS! YOU'VE SUCCESSFULLY LEVELED UP!")
   end
  
   def tax_applied?
