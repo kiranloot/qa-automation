@@ -1,3 +1,5 @@
+class Test
+ require_relative 'user_object'
  require_relative 'homepage_object'
  require_relative 'signup_page_object'
  require_relative 'wait_module'
@@ -140,15 +142,20 @@
   @current_page.pop_password(@user.password)
  end
 
- def configure_user(type, with_string = nil)
-     if DataGen.new
+ def configure_user(type, with_string = nil, new_way = false)
+   if new_way
+     ug = UserGen.new(type, with_string)
+     @user = ug.build
+     @user.set_full_name
+   else
      if with_string != nil
       @user = get_user_with(type, with_string)
      else
        @user = get_user_type(type)
      end
      @user.set_full_name
- end
+   end
+  end
  
  def get_user_type(type)
    if type == "registered"
@@ -161,18 +168,18 @@
    end
  end
 
- def get_user_with(type, with_args)
-   setup_type = parse_with_args(with_args)
-   if type == "registered"
-     @user = FactoryGirl.build(:user, setup_type)
-   elsif type == "international"
-     setup
-   elsif type == "admin"
-     if setup_type == :subject_user
-       give_user_to_admin
+ def get_user_with(type, with_args, new_way = false)
+     setup_type = parse_with_args(with_args)
+     if type == "registered"
+       @user = FactoryGirl.build(:user, setup_type)
+     elsif type == "international"
+       setup
+     elsif type == "admin"
+       if setup_type == :subject_user
+         give_user_to_admin
+      else
+      end
      else
-     end
-   else
    end
  end
 
@@ -193,10 +200,7 @@
    @current_page.enter_login_info(@user.email, @user.password)
  end
 
- def parse_with_args(arg_string, new_way = false)
-   if new_way
-     dg = DataGen.new(arg_string)
-   else
+ def parse_with_args(arg_string)
    args = arg_string.downcase
    if args == "no prior subscription"
      return :registered_no_prior
