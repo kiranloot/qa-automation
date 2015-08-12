@@ -79,15 +79,11 @@ class Test
    end
    @current_page = SignupPage.new
    @current_page.visit_page
-   for i in 0..2
-    if page.has_content?("LOGIN")
-       page.find(:xpath, @test_data["locators"]["flip_member"]).click
-       page.find(:xpath,"//*[@id='login_or_registration']")
-       break
-    end
-   end
-   enter_login_info
-   if !page.has_content?("SUBSCRIPTION DETAILS")
+   if $test.db.user_exists?($test.user.email)
+     page.find(:xpath, @test_data["locators"]["flip_member"]).click 
+     wait_for_ajax
+     enter_login_info
+   else 
      enter_email
      enter_password
      submit_signup

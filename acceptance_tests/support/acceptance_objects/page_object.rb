@@ -37,6 +37,7 @@ class Page
     fill_in('user_email',:with => e )
     fill_in('user_password', :with => p)
     click_button("Log In")
+    wait_for_ajax
   end
 
   def request_password_reset
