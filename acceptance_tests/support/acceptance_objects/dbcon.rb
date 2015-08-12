@@ -73,8 +73,9 @@ def example
 end
 
 def user_exists?(user_email)
-  query = "Select * from users where user_email = #{user_email}"
-  @conn.exec(query)
+  query = "Select * from users where email = \'#{user_email}\'"
+  results = @conn.exec(query)
+  results.any?
 end
 
 def get_recurly_account_id(user_email)
