@@ -102,3 +102,7 @@ end
 Then /the user should not see the (.*) link/ do |link|
   $test.link_not_visible(link)
 end
+
+Then /the user should see the (.*) link/ do |link|
+  $test.link_visible(link)
+end
