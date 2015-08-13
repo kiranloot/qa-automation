@@ -8,7 +8,8 @@ class UserGen
   def parse_args(type, arg_string)
     @location_trait = false
     @args = preprocess(arg_string)
-    if args.class == String
+    puts "Args: " + @args
+    if @args.class == String
       @args = @args.split(" ")
       @args = @args.join("_")
     end
@@ -21,10 +22,12 @@ class UserGen
   end
 
   def preprocess(args)
+    ret = args
     a = address_check(args)
     m = months_check(args)
-    @args = is_address(a[1]) if a
-    @args =  months(m[1]) if m
+    ret = is_address(a[1]) if a
+    ret = months(m[1]) if m
+    ret
   end
 
   def address_check(args)
@@ -95,12 +98,14 @@ class UserGen
   def admin_and_subject
     u = FactoryGirl.build(:user, :admin)
     u.subject_user = $test.user
+    u
   end
 
   def build
-    self.send("simple_"+ type) unless @trait
-    FactoryGirl.build(:user, @trait) if @trait && !(@type == "admin")
-    admin_and_subject if @trait == :subject_user && @type == "admin"
+   u = self.send("simple_"+ type) unless @trait
+   u =  FactoryGirl.build(:user, @trait) if @trait && !(@type == "admin")
+   u = admin_and_subject if @trait == :subject_user && @type == "admin"
+   u
   end
 
 end
