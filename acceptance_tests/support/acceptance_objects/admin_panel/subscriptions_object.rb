@@ -115,4 +115,10 @@ class AdminSubscriptionsPage < AdminPage
     assert_text($test.user.ship_street)
     assert_text($test.user.ship_state)
   end
+
+  def subscription_info_updated?
+    show_subscription
+    assert_text($test.user.new_user_sub_name)
+    assert_text($test.user.new_shirt_size)
+  end
 end

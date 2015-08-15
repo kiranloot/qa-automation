@@ -16,13 +16,13 @@ Feature: User Detail Editing
         Then the billing address change should be reflected in the user account
             And the billing address change should be reflected in the admin panel
 
-    @WIP
+    @WIP @indev
     Scenario: The user edits their subscription's subscription info
         Given a registered user with an active subscription
             When the user logs in
-            And the user edits their subscription information
-        Then the subscription change should be reflected in the user account
-            And the subscription change should be reflected in the admin panel
+            And the user edits their subscription info
+        Then the updated information should be reflected when the user views the subscription
+            And the subscription information change should be reflected in the admin panel
 
     @WIP
     Scenario: The user edits their account information
