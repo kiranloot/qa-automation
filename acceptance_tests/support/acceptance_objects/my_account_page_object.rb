@@ -71,7 +71,7 @@ class MyAccountPage < Page
   def subscription_updated?
     go_to_subscriptions
     assert_text($test.user.new_user_sub_name)
-    assert_text($test.user.new_shirt_size)
+    assert_text($test.user.display_shirt_size)
     # Taking out this validation
     # Uncomment when IN-269 is resolved
     #assert_text($test.user.new_rebill_date)
@@ -218,13 +218,15 @@ class MyAccountPage < Page
 
   def fill_in_subscription_name(sub_id, name)
     fill_in('subscription_name' + sub_id, :with => name)
-    $test.user.new_user_sub_name=name
+    $test.user.new_user_sub_name = name
   end
 
   def select_shirt_size(sub_id, size)
     find(:css, "#s2id_subscription_shirt_size#{sub_id} > a").click
     wait_for_ajax
     fill_in('s2id_autogen1_search', :with => size)
+    $test.user.shirt_size = size
+    $test.user.display_shirt_size = $test.user.get_display_shirt_size(size)
   end
 
   def click_update

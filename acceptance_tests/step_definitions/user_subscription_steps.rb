@@ -76,6 +76,7 @@ When /^the user edits their subscription info$/ do
   step "the user visits the my account page"
   $test.current_page.edit_subscription_info(sub_id)
   $test.current_page.fill_in_subscription_name(sub_id, "NEW SUB NAME")
+  $test.current_page.select_shirt_size(sub_id, "Men's - S")
   $test.current_page.click_update
 end
 
