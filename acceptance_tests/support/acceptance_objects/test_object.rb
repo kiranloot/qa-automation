@@ -67,6 +67,10 @@ class Test
    expect(page).to have_no_content(link)
  end
 
+ def link_visible(link)
+   expect(page).to have_content(link)
+ end
+
  def visit_page(page)
    @current_page = @pages[page].new
    @current_page.visit_page
