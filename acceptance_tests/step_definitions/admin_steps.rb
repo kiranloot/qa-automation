@@ -15,9 +15,9 @@ Given /^The (.*) level up product is (.*)$/ do |product,inv_status|
   $test.current_page = AdminVariantsPage.new
   case inv_status
   when "sold out"
-    $test.current_page.set_variant_inventory(variant_id,0,false)
+    $test.current_page.set_variant_inventory(variant_id,0)
   when "available"
-    $test.current_page.set_variant_inventory(variant_id,100,true)
+    $test.current_page.set_variant_inventory(variant_id,100)
   end
   step "logs out of admin"
   $test.set_subject_user
