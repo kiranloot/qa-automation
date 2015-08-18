@@ -9,10 +9,11 @@ class AdminPage < Page
   end
 
   def admin_login(email, password)
-    find('#admin_user_email')
-    fill_in("admin_user_email", :with => email)
-    fill_in("admin_user_password", :with => password)
-    find_button('Login').click
+    if page.has_css?('#admin_user_email')
+      fill_in("admin_user_email", :with => email)
+      fill_in("admin_user_password", :with => password)
+      find_button('Login').click
+    end
     wait_for_ajax
   end
 
