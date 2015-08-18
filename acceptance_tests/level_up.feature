@@ -1,10 +1,10 @@
 @core @regression @levelup @selenium
 Feature: Level Up
     @ready
-    Scenario: Level Up is not available for users without active subscriptions
+    Scenario: Level Up is available for users without active subscriptions
         Given a registered user with no prior subscription
             When the user logs in
-            Then the user should not see the Level Up link
+            Then the user should see the Level Up link
 
     @ready
     Scenario: A user with an active subscription can add a one month sock subscription

@@ -14,17 +14,11 @@ include Capybara::DSL
     $test.user.target_level_up_plan(product,months)
     div_id = product + '-crate'
     dd_id = 's2id_' + div_id
-    case product
-    when "socks"
-      scroll_val = 0
-    when "accessory"
-      scroll_val = 500
-    when "wearable"
-      scroll_val = 1000
-    end
-    page.execute_script("window.scrollBy(0,#{scroll_val})")
+    find_link(product).click
+    sleep(1)
     #click on dropdown
     find(:id,dd_id).click
+    wait_for_ajax
     case months
     when "one"
       plan_index = '1'

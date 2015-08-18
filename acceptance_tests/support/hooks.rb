@@ -49,16 +49,6 @@ end
 
 After do
   $test.db.finish
-  loop do 
-    if page.has_content?("My Account")
-      click_link("My Account")
-      click_link("Log Out")
-    end
-    reset_session!
-    page.execute_script "window.close();"
-    visit $env_base_url
-    break if !page.has_content?("My Account")
-  end
+  reset_session!
   page.execute_script "window.close();"
-
 end

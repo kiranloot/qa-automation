@@ -114,6 +114,7 @@ class User
       fill_in(@test.test_data["locators"]["bill_zip"], :with => @bill_zip)
     end
     unless @coupon_code.nil?
+      find(:id, 'coupon-checkbox').click
       fill_in(@test.test_data["locators"]["coupon_code"], :with => @coupon_code)
       page.find_button("validate-coupon").click
       @discount_applied = page.has_content?("Coupon valid: save $")
@@ -158,7 +159,8 @@ class User
   def submit_levelup_subscription_info
     submit_credit_card_information
     click_button(@test.test_data["locators"]["checkout_btn"])
-    page.has_content?('Leveled Up!')
+    wait_for_ajax
+    assert_text("CONGRATULATIONS! YOU'VE SUCCESSFULLY LEVELED UP!")
   end
  
   def tax_applied?

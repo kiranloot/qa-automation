@@ -1,8 +1,4 @@
-Given /^an? (.*) user$/ do |type|
-  type.strip!
-  $test.configure_user(type)
-end
-
+#GIVENS
 Given /^that I try using factory girl/ do
   users = {1 => FactoryGirl.build(:user), 2 => FactoryGirl.build(:user), 3 => FactoryGirl.build(:user)}
   for k,v  in users do
@@ -10,176 +6,10 @@ Given /^that I try using factory girl/ do
   end
 end
 
-Given /that I want to test the db and redis objects/ do
-  $test.db.registered_one_active
-end
-
-Then /the db object should be awesome/ do
-  
-end
-
-Then /^cool stuff should happen/ do
-  $test.current_page.be_at_recurly_sandbox
-  $test.current_page.on_account_tab
-  $test.current_page.filter_for_user_by_email
-end
-
-When /requests a password reset/ do
-  $test.current_page.request_password_reset
-end
-
-When /attempts to reset their password using the emailed reset link/ do
-  $test.visit_page(:mailinator)
-  $test.current_page.reset_password_from_email
-end
-
-When /the user creates a new affiliate/ do
-  $test.current_page.click_affiliates
-  $test.current_page = AdminAffiliatesPage.new
-  $test.current_page.create_affiliate
-end
-
-When /logs in as an admin/ do
-  admin_user = $test.user.email
-  admin_password = $test.user.password
-  $test.current_page.admin_login(admin_user, admin_password)
-end
-
-When /logs out of admin/ do
-  $test.current_page.admin_log_out
-end
-
-When /the user signs in to Recurly/ do
-  $test.current_page.recurly_login
-end
-
-When /create a (.*) month subscription/ do |months|
-  step "the user logs in"
-  step "the user visits the subscribe page"
-  step "the user selects a #{months} month subscription plan"
-  step "the user submits valid subscription information"
-  step "the user logs out"
-end
-
-When /the user selects a level up (.*) month subscription for the (.*) crate/ do |months, product|
-  $test.current_page.select_level_up(product,months)
-end
-
-When /updates the subscription's information/ do
-  $test.current_page.click_subscriptions
-  $test.current_page = AdminSubscriptionsPage.new
-  $test.current_page.edit_subscription
-  $test.set_subject_user
-  $test.current_page.fill_in_subscription_name("UPDATED NAME")
-  $test.current_page.select_shirt_size("M S")
-  #$test.current_page.move_rebill_date_one_day
-  $test.current_page.click_update_subscription
-end
-
-When /views the subscription's information/ do
-  $test.current_page.click_subscriptions
-  $test.current_page = AdminSubscriptionsPage.new
-  $test.current_page.show_subscription
-end
-
-When /views the user's information/ do
-  $test.current_page.click_users
-  $test.current_page = AdminUsersPage.new
-  $test.current_page.view_user
-end
-
-When /updates the user's information/ do
-  $test.current_page.click_users
-  $test.current_page = AdminUsersPage.new
-  $test.current_page.edit_user
-  $test.set_subject_user
-  $test.current_page.fill_in_email
-  $test.current_page.fill_in_password
-  $test.current_page.fill_in_full_name
-  $test.current_page.click_update_user
-end
-
-When /the user navigates back in the browser/ do
-  page.evaluate_script('window.history.back()')
-end
-
-When(/^the user attempts to skip again/) do
-  $test.current_page = SkipPage.new
-  $test.current_page.click_skip
-end
-
-Given /^The (.*) level up product is (.*)$/ do |product,inv_status|
-  inv_status.strip!
-  product.strip!
-  case product
-  when "socks"
-    variant_id = 1
-  when "accessory"
-    variant_id = 2
-  end
-  step "an admin user with access to their info"
-  step "the user visits the admin page"
-  step "logs in as an admin"
-  $test.current_page.click_variants
-  $test.current_page = AdminVariantsPage.new
-  case inv_status
-  when "sold out"
-    $test.current_page.set_variant_inventory(variant_id,0,false)
-  when "available"
-    $test.current_page.set_variant_inventory(variant_id,100,true)
-  end
-  step "logs out of admin"
-  $test.set_subject_user
-end
-
-Given /^an? (.*) user with (.*)/ do |user_type, with_args|
-  with_args.strip!
-  parsed_args = $test.parse_with_args(with_args)
-  $test.configure_user(user_type.strip, with_args)
-  sl = StepList.new(parsed_args)
-  sl.each do |s|
-    step s
-  end
-end
-
 Given /a registered user that is logged out/ do
   step "a registered user"
   step "the user logs in"
   step "the user logs out"
-end
-
-When /the user reactivates their subscription/ do
-  $test.current_page.reactivate_subscription
-end
-
-When /the user upgrades to a (.*) month subscription/ do |months|
-  $test.user.upgrade_plan(months)
-end
-
-When /^the user visits the (.*)\s?page/ do |page|
-  page.strip!
-  page.downcase!
-  page.gsub! /\s/, '_'
-  $test.visit_page(page.to_sym)
-end
-
-When /the admin user visits the admin page/ do 
-  step "the user visits the admin page"
-end
-
-When /the user logs (.*)$/ do |in_out|
-  in_out = in_out.strip.downcase
-  if in_out == "in"
-    $test.log_in_or_register
-  else
-    $test.log_out
-  end
-end
-
-When /flags the subscription as having an invalid address/ do
-  $test.current_page.click_subscriptions
-  $test.current_page = AdminSubscriptionsPage.new
-  $test.current_page.flag_subscription_as_invalid
 end
 
 Given /that I want a quick test of my setup/ do
@@ -192,6 +22,41 @@ Given /that I want a quick test of my setup/ do
   sleep 0.5
 end
 
+When /the user signs in to Recurly/ do
+  $test.current_page.recurly_login
+end
+
+#WHENS
+When /the user navigates back in the browser/ do
+  page.evaluate_script('window.history.back()')
+end
+
+When /^the user visits the (.*)\s?page/ do |page|
+  page.strip!
+  page.downcase!
+  page.gsub! /\s/, '_'
+  $test.visit_page(page.to_sym)
+end
+
+When /we do the memory dance for (.*) minutes/ do |minutes|
+  minutes.downcase!
+  minutes.strip!
+  dancer = Dancer.new(minutes.to_i)
+end
+
+When /the user sets their country to (.*)/ do |country|
+  country.strip!
+  country.downcase!
+  $test.user.set_country(country)
+end
+
+#THENS
+Then /^cool stuff should happen/ do
+  $test.current_page.be_at_recurly_sandbox
+  $test.current_page.on_account_tab
+  $test.current_page.filter_for_user_by_email
+end
+
 Then /here it is/ do
   if page.has_css?("body > div.alert-bg > div > div > div > a")
     page.find("body > div.alert-bg > div > div > div > a").click
@@ -202,120 +67,17 @@ Then /here it is/ do
   sleep 1
 end
 
-When /performs an immediate cancellation on the user account/ do
-  $test.current_page.click_subscriptions
-  $test.current_page = AdminSubscriptionsPage.new
-  $test.current_page.admin_cancel_immediately
-end
-
-Then /the user should receive an? (.*?) email/ do |type|
-  $test.verify_email(type)
-end
-
-And /^the user submits (.*?) information/ do |arg_string|
-  args = arg_string.split(" ")
-  adjective = args.shift
-  type = args.reject(&:empty?).join(' ')
-  $test.submit_information(adjective, type)
-end
-
-When /^the user selects a (.*) month subscription plan/ do |months|
-  $test.current_page.select_plan(months)
-end 
-
 Then /^the user should be on the (.*)\s?page/ do |page|
   page = page.strip
   expect($test.is_at(page.to_sym)).to eq (true)
 end 
 
-Then /the new subscription should be added to the user account/ do 
-  step "the user visits the my account page"
-  $test.current_page.verify_subscription_added
-end
-
-Then /the user should still have their subscription/ do
-  step "the user visits the my account page"
-  $test.current_page.verify_subscription_added
-end
-
-Then /the new level up subscription should be added to the user account/ do
-  step "the user visits the my account page"
-  $test.current_page.verify_levelup_subscription_added
-end
-
 Then /^the user should be logged (.*)/ do |state|
  $test.is_logged_in?
 end
 
-Then /standard new subscription pass criteria should pass/ do
-  step "the new subscription should be added to the user account"
-end
-
-Then /subscription creation should fail due to (.*?)$/ do |fault|
-  fault.strip!
-  fault.downcase!
-  $test.current_page.subscription_failed?(fault)
-end
-
-When /^the user joins through the modal/ do
-  $test.get_valid_signup_information
-  $test.modal_signup
-end
-
-Then /^standard registration pass criteria should pass/ do
-  step "the user should be logged in"
-  step "the user should be on the user_accounts page"
-end
-
-Then /^signup should not succeed/ do
-  expect($test.current_page.signup_failed?).to eq(true)
-end
-
-Then /sales tax should be applied to the transaction price/ do
-  $test.user.tax_applied?
-end
-
-When /we do the memory dance for (.*) minutes/ do |minutes|
-  minutes.downcase!
-  minutes.strip!
-  dancer = Dancer.new(minutes.to_i)
-end
-
-When /the user cancels their subscription/ do
-  step "the user visits the my account page"
-  $test.current_page.cancel_subscription
-end
-
-When /the user skips the next month/ do
-  step "the user visits the my account page"
-  $test.current_page.skip_a_month
-end
-
-When /the user skips during cancellation/ do
-  step "the user visits the my account page"
-  $test.current_page.skip_during_cancel
-end
-
-Then /the subscription status should be set to pending cancellation/ do
-  $test.current_page.cancellation_pending?
-end
-
-Then /the subscription status should be set to active with a skip/ do
-  $test.current_page.month_skipped?
-end
-
-Then /the user should not be able to skip again/ do
-  $test.current_page.cannot_skip_again?
-end
-
 Then /proration should be correctly applied to the upgrade charge/ do
 
-end
-
-When /the user sets their country to (.*)/ do |country|
-  country.strip!
-  country.downcase!
-  $test.user.set_country(country)
 end
 
 Then /the (.*) price for all plans should be displayed/ do |domain|
@@ -330,44 +92,6 @@ Then /the affiliate redirect should function correctly/ do
   $test.affiliate_working?
 end
 
-Then /the promo discount should be applied to the transaction/ do 
-  $test.user.discount_applied?
-end
-
-Then /the subscription should have a status of (.*) in the admin panel/ do |status|
-  $test.current_page.subscription_status_is(status)
-end
-
-Then /the subscription information should be displayed/ do
-  $test.current_page.subscription_information_displayed?
-end
-
-Then /the user's information should be displayed/ do
-  $test.current_page.user_information_displayed?
-end
-
-Then /the user account should reflect the cancellation/ do
-  $test.set_subject_user
-  step "the user visits the home page"
-  step "the user logs in"
-  step "the user visits the my account page"
-  $test.current_page.subscription_cancelled?
-end
-
-Then /the reactivation should be reflected in the user account/ do
-  $test.current_page.subscription_reactivated?
-end
-
-Then /the subscription should be successfully reactivated in the admin panel/ do 
-  step "an admin user with access to their info"
-  step "the user visits the admin page"
-  step "logs in as an admin"
-  $test.current_page.click_subscriptions
-  $test.current_page = AdminSubscriptionsPage.new
-  $test.current_page.reactivation_successful?
-  $test.set_subject_user
-end
-
 Then /the user is shown the correct (.+)/ do |type|
   # type should be 'product price', 'prorated amount', or 'payment due'
   actual = $test.current_page.get_displayed_value(type)
@@ -379,24 +103,6 @@ Then /the user should not see the (.*) link/ do |link|
   $test.link_not_visible(link)
 end
 
-Then /the updated information should be reflected when the user views the subscription/ do
-  step "the user visits the home page"
-  step "the user logs in"
-  step "the user visits the my account page"
-  $test.current_page.subscription_updated?
-end
-
-Then /^the updated information should be reflected when the admin views the user$/ do
-  $test.current_page.user_information_displayed?
-end
-
-Then /the updated information should be reflected when the user views their info/ do
-  step "logs out of admin"
-  step "the user logs in"
-  step "the user visits the my account page"
-  $test.current_page.verify_user_information
-end
-
-Then /the user should see the cancellation page/ do
-  assert_text("WE'RE SORRY YOU NEED TO GO")
+Then /the user should see the (.*) link/ do |link|
+  $test.link_visible(link)
 end
