@@ -1,19 +1,20 @@
 class UserGen
 
   def initialize(type, arg_string)
+    arg_string.downcase! if arg_string
     parse_args(type, arg_string) if arg_string
     set_simple(type) unless arg_string
   end
 
-  def parse_args(type, arg_string)
+  def parse_args(t, arg_string)
     @location_trait = false
+    @month_trait = false
     @args = preprocess(arg_string)
-    puts "Args: " + @args
     if @args.class == String
       @args = @args.split(" ")
       @args = @args.join("_")
     end
-    @type = type
+    @type = t
     @location_trait ? @trait = @args : @trait = self.send(@args)
   end
 
@@ -26,7 +27,9 @@ class UserGen
     a = address_check(args)
     m = months_check(args)
     ret = is_address(a[1]) if a
+    @location_trait = true if a
     ret = months(m[1]) if m
+    @month_trait = true if m
     ret
   end
 
@@ -55,7 +58,7 @@ class UserGen
                 "au" => :austrailia, "se" => "sweden", "gb" => :uk, 
                 "california" => :california}
    p = type_hash.values
-   result = type == "random" ? rand_val(p) : type_hash[type] 
+   result = country == "random" ? rand_val(p) : type_hash[country] 
    return result
  end
 
@@ -96,13 +99,18 @@ class UserGen
   end
 
   def admin_and_subject
-    u = FactoryGirl.build(:user, :admin)
+    u = simple_admin 
     u.subject_user = $test.user
     u
   end
 
+  def simple_admin
+    u = FactoryGirl.build(:user, :admin)
+    u
+  end
+
   def build
-   u = self.send("simple_"+ type) unless @trait
+   u = self.send("simple_"+ @type) unless @trait
    u =  FactoryGirl.build(:user, @trait) if @trait && !(@type == "admin")
    u = admin_and_subject if @trait == :subject_user && @type == "admin"
    u

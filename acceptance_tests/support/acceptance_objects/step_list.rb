@@ -1,15 +1,16 @@
 class StepList
+  require 'forwardable'
+  include Enumerable
+  extend Forwardable
+  def_delegators :@list, :each, :<<
 
   def initialize(arg_symbol)
+    @list = []
     create_list(arg_symbol)
   end
 
-  def create_list
-    @list = self.send(arg_symbol)
-  end
-
-  def build
-    @list
+  def create_list(arg_symbol)
+    respond_to?(arg_symbol) ? @list += self.send(arg_symbol) : @list = []
   end
 
   def registered_with_active

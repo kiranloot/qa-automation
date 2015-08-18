@@ -136,29 +136,9 @@ Given /^an? (.*) user with (.*)/ do |user_type, with_args|
   with_args.strip!
   parsed_args = $test.parse_with_args(with_args)
   $test.configure_user(user_type.strip, with_args)
-  case parsed_args
-  when :registered_with_active
-    step "create a random month subscription"
-  when :one_month
-    step "create a one month subscription"
-  when :canceled
-    step "create a one month subscription"
-    step "an admin user with access to their info"
-    step "the user visits the admin page"
-    step "logs in as an admin"
-    step "performs an immediate cancellation on the user account"
-    step "logs out of admin"
-    $test.set_subject_user
-  when :multi_use_promo
-    step "an admin user with access to their info"
-    step "the user visits the admin page"
-    step "logs in as an admin"
-    $test.current_page.click_promotions
-    $test.current_page = AdminPromotionsPage.new
-    promo_code = $test.current_page.create_promotion
-    step "logs out of admin"
-    $test.set_subject_user
-    $test.user.coupon_code = promo_code
+  sl = StepList.new(parsed_args)
+  sl.each do |s|
+    step s
   end
 end
 
