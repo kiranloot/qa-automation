@@ -23,7 +23,7 @@ my_account:
 mailinator:
  url: "https://mailinator.com"
 admin:
- url: "/admin/login"
+ url: "https://loot-admin-qa.herokuapp.com/admin/login"
 recurly:
  url: "https://recurly.com"
 level_up:

@@ -15,7 +15,7 @@ class Page
   end
 
   def setup
-    if !self.instance_of?(Mailinator) && !self.instance_of?(RecurlyPage)
+    if !self.instance_of?(Mailinator) && !self.instance_of?(RecurlyPage) && @page_type != 'admin'
       @base_url = @page_configs[@env]["prefix"] + @page_configs[@page_type]["url"]
     else
       @base_url =  @page_configs[@page_type]["url"]
