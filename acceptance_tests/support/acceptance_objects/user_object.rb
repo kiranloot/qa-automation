@@ -125,7 +125,9 @@ class User
       end
     end
     click_button(@test.test_data["locators"]["checkout_btn"])
-    page.has_content?('Thank you for subscribing!')
+    if @cc == '4111111111111111'
+      page.has_content?('Thank you for subscribing!')
+    end
   end
 
   def submit_credit_card_information
