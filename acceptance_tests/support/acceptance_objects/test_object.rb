@@ -142,14 +142,20 @@ class Test
   @current_page.pop_password(@user.password)
  end
 
- def configure_user(type, with_string = nil)
+ def configure_user(type, with_string = nil, new_way = true)
+   if new_way
+     ug = UserGen.new(type, with_string)
+     @user = ug.build
+     @user.set_full_name
+   else
      if with_string != nil
       @user = get_user_with(type, with_string)
      else
        @user = get_user_type(type)
      end
      @user.set_full_name
- end
+   end
+  end
  
  def get_user_type(type)
    if type == "registered"
@@ -163,17 +169,17 @@ class Test
  end
 
  def get_user_with(type, with_args)
-   setup_type = parse_with_args(with_args)
-   if type == "registered"
-     @user = FactoryGirl.build(:user, setup_type)
-   elsif type == "international"
-     setup
-   elsif type == "admin"
-     if setup_type == :subject_user
-       give_user_to_admin
+     setup_type = parse_with_args(with_args)
+     if type == "registered"
+       @user = FactoryGirl.build(:user, setup_type)
+     elsif type == "international"
+       setup
+     elsif type == "admin"
+       if setup_type == :subject_user
+         give_user_to_admin
+      else
+      end
      else
-     end
-   else
    end
  end
 
