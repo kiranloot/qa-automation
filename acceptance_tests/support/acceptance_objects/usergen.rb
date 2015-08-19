@@ -15,7 +15,7 @@ class UserGen
       @args = @args.join("_")
     end
     @type = t
-    @location_trait ? @trait = @args : @trait = self.send(@args)
+    @location_trait || @month_trait ? @trait = @args : @trait = self.send(@args)
   end
 
   def set_simple(type)
@@ -75,7 +75,7 @@ class UserGen
   end
 
   def months(number)
-    (number + "_months").to_sym
+    (number + "_month").to_sym
   end
 
   def access_to_their_info
