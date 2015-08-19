@@ -16,7 +16,6 @@ include WaitForAjax
     $test.current_page = self
   end
 
-
   def subscription_failed?(fault)
     case fault
     when "invalid credit card"

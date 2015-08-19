@@ -1,0 +1,2 @@
+Process.spawn('java -jar selenium-server-standalone-2.47.1.jar -role hub')
+Process.spawn('java -jar selenium-server-standalone-2.47.1.jar -role node -hub http://127.0.0.1:4444/grid/register -port 5555')
