@@ -6,7 +6,7 @@ Feature: User Detail Editing
             When the user logs in
             And the user edits their shipping address
         Then the updated shipping information should be reflected when the user views the subscription
-            And the shipping address change should be reflected in the admin panel
+            And the correct subscription information should be displayed in the admin panel
 
     @WIP
     Scenario: The user edits their subscription's billing address

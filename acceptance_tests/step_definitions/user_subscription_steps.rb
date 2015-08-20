@@ -82,10 +82,10 @@ When /^the user edits their (.*)$/ do |info|
     $test.current_page.click_update
   when 'shipping address'
     $test.current_page.edit_shipping_address(sub_id)
-    $test.current_page.fill_in_shipping_first_name(sub_id, 'FIRST')
-    $test.current_page.fill_in_shipping_last_name(sub_id, 'LAST')
-    $test.current_page.fill_in_shipping_address_1(sub_id, '789 New Street')
-    $test.current_page.fill_in_shipping_city(sub_id, 'New Haven')
+    $test.current_page.fill_in_shipping_first_name(sub_id, Faker::Name.first_name)
+    $test.current_page.fill_in_shipping_last_name(sub_id, Faker::Name.last_name)
+    $test.current_page.fill_in_shipping_address_1(sub_id, Faker::Address.street_address)
+    $test.current_page.fill_in_shipping_city(sub_id, Faker::Address.city)
     $test.current_page.click_update
   end
 end
@@ -125,10 +125,6 @@ end
 
 Then /the promo discount should be applied to the transaction/ do 
   $test.user.discount_applied?
-end
-
-Then /the subscription information should be displayed/ do
-  $test.current_page.subscription_information_displayed?
 end
 
 Then /the user's information should be displayed/ do
