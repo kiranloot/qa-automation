@@ -109,3 +109,12 @@ end
 Then /^the updated information should be reflected when the admin views the user$/ do
   $test.current_page.user_information_displayed?
 end
+
+Then(/^the subscription information change should be reflected in the admin panel$/) do
+  step "an admin user with access to their info"
+  step "the user visits the admin page"
+  step "logs in as an admin"
+  $test.current_page.click_subscriptions
+  $test.current_page = AdminSubscriptionsPage.new
+  $test.current_page.subscription_info_updated?
+end

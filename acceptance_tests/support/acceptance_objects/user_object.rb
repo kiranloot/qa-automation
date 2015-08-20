@@ -7,7 +7,7 @@ class User
   include RSpec::Matchers
   include WaitForAjax
   attr_accessor :email, :password, :street, :city, :ship_state, :ship_zip,
-    :zip, :first_name, :last_name, :full_name, :shirt_size, :new_shirt_size, :cc, :cvv, :ship_street, :ship_city, :affiliate,
+    :zip, :first_name, :last_name, :full_name, :shirt_size, :display_shirt_size, :new_shirt_size, :cc, :cvv, :ship_street, :ship_city, :affiliate,
     :coupon_code, :discount_applied, :subject_user, :subscription_name, :level_up_subscription_name, :new_user_sub_name,
     :new_rebill_date
 
@@ -23,6 +23,7 @@ class User
     @full_name = @first_name + " " + @last_name
     @gender = rand(2)? "male":"female"
     @shirt_size = @@sizes[@gender][rand(6)]
+    @display_shirt_size = get_display_shirt_size(@shirt_size)
     @ship_zip = "90210"
     @ship_city = "Beverly Hills"
     @ship_street = "1234 Fake St"
@@ -61,6 +62,11 @@ class User
 
   def set_full_name
     @full_name = @first_name + " " + @last_name
+  end
+
+  def get_display_shirt_size(size)
+    match_data = /^(.{1}).*-\s(.*)$/.match(size)
+    match_data[1] + " " + match_data[2]
   end
 
   def target_level_up_plan(product, months)
@@ -126,7 +132,7 @@ class User
     end
     click_button(@test.test_data["locators"]["checkout_btn"])
     if @cc == '4111111111111111'
-      page.has_content?('Thank you for subscribing!')
+      assert_text('Thank you for subscribing!')
     end
   end
 
