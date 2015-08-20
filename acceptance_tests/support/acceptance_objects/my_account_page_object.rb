@@ -182,7 +182,7 @@ class MyAccountPage < Page
   end
 
   def click_account_info_link
-    page.find_linke("Account Info").click
+    page.find_link("Account Info").click
   end
 
   def open_account_menu

@@ -132,7 +132,9 @@ class User
     end
     click_button(@test.test_data["locators"]["checkout_btn"])
     wait_for_ajax
-    assert_text('Thank you for subscribing!')
+    if @cc == '1'
+      assert_text('Thank you for subscribing!')
+    end
   end
 
   def submit_credit_card_information

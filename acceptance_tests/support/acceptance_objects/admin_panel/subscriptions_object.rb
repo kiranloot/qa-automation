@@ -76,7 +76,7 @@ class AdminSubscriptionsPage < AdminPage
 
   def select_shirt_size(display_size)
     find(:id, 'subscription_shirt_size').click
-    case size
+    case display_size
       when 'M S'
         selection = 2
       end
@@ -118,7 +118,8 @@ class AdminSubscriptionsPage < AdminPage
 
   def subscription_info_updated?
     show_subscription
+    $test.set_subject_user
     assert_text($test.user.new_user_sub_name)
-    assert_text($test.user.display_shirt_size)
+    assert_text($test.user.shirt_size)
   end
 end
