@@ -71,13 +71,23 @@ When /^the user submits (.*?) information/ do |arg_string|
   $test.submit_information(adjective, type)
 end
 
-When /^the user edits their subscription info$/ do
+When /^the user edits their (.*)$/ do |info|
   sub_id = $test.db.get_subscriptions($test.user.email)[0]['subscription_id']
   step "the user visits the my account page"
-  $test.current_page.edit_subscription_info(sub_id)
-  $test.current_page.fill_in_subscription_name(sub_id, "NEW SUB NAME")
-  $test.current_page.select_shirt_size(sub_id, "Mens - S")
-  $test.current_page.click_update
+  case info
+  when 'subscription info' 
+    $test.current_page.edit_subscription_info(sub_id)
+    $test.current_page.fill_in_subscription_name(sub_id, "NEW SUB NAME")
+    $test.current_page.select_shirt_size(sub_id, "Mens - S")
+    $test.current_page.click_update
+  when 'shipping address'
+    $test.current_page.edit_shipping_address(sub_id)
+    $test.current_page.fill_in_shipping_first_name(sub_id, 'FIRST')
+    $test.current_page.fill_in_shipping_last_name(sub_id, 'LAST')
+    $test.current_page.fill_in_shipping_address_1(sub_id, '789 New Street')
+    $test.current_page.fill_in_shipping_city(sub_id, 'New Haven')
+    $test.current_page.click_update
+  end
 end
 
 #THENS
@@ -142,6 +152,13 @@ Then /the updated information should be reflected when the user views the subscr
   step "the user logs in"
   step "the user visits the my account page"
   $test.current_page.subscription_updated?
+end
+
+Then /^the updated shipping information should be reflected when the user views the subscription$/ do
+  step "the user visits the home page"
+  step "the user logs in"
+  step "the user visits the my account page"
+  $test.current_page.shipping_info_updated?
 end
 
 Then /the updated information should be reflected when the user views their info/ do
