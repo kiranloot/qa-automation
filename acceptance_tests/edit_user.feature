@@ -1,6 +1,6 @@
 @core @regression @account @selenium
 Feature: User Detail Editing
-    @WIP @indev
+    @ready
     Scenario: The user edits their subscription's shipping address
         Given a registered user with an active subscription
             When the user logs in
