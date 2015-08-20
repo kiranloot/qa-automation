@@ -22,9 +22,20 @@ class MyAccountPage < Page
     puts @subscripitons_list
   end
 
+  def go_to_subscriptions
+    open_account_menu
+    click_subs_link
+    wait_for_ajax
+  end
+
+  def go_to_account_info
+    open_account_menu
+    click_account_info_link
+    wait_for_ajax
+  end
+
   def verify_subscription_added
-    page.find_button("account-section-menu").click
-    page.find_link("Subscriptions").click
+    go_to_subscriptions
     assert_text(@subscription_name)
     assert_text("Active")
     if !page.has_content?(get_expected_next_bill_date(@subscription_name))
@@ -40,31 +51,27 @@ class MyAccountPage < Page
   end
 
   def verify_levelup_subscription_added
-    page.find_button("account-section-menu").click
-    page.find_link("Subscription").click
+    go_to_subscriptions
     assert_text($test.user.level_up_subscription_name)
   end
 
   def verify_user_information
-    page.find_button("account-section-menu").click
-    page.find_link("Account Info").click
+    go_to_account_info
     assert_text($test.user.email)
     assert_text($test.user.full_name)
   end
 
   def subscription_cancelled?
-    open_account_menu 
-    click_subs_link
+    go_to_subscriptions
     page.find_link("Reactivate")
     assert_text("Canceled")
     assert_text("Reactivate")
   end
 
   def subscription_updated?
-    open_account_menu
-    click_subs_link
+    go_to_subscriptions
     assert_text($test.user.new_user_sub_name)
-    assert_text($test.user.new_shirt_size)
+    assert_text($test.user.display_shirt_size)
     # Taking out this validation
     # Uncomment when IN-269 is resolved
     #assert_text($test.user.new_rebill_date)
@@ -106,15 +113,13 @@ class MyAccountPage < Page
   end
 
   def month_skipped?
-    open_account_menu
-    click_subs_link
+    go_to_subscriptions
     #TO DO - add validation for skipped month
     assert_text("Active (You have skipped")
   end
 
   def cannot_skip_again?
-    open_account_menu
-    click_subs_link
+    go_to_subscriptions
     open_payment_tab
     for i in 0..2
       if page.has_content?("CANCEL SUBSCRIPTION")
@@ -127,8 +132,7 @@ class MyAccountPage < Page
   end
 
   def cancel_subscription
-    open_account_menu
-    click_subs_link
+    go_to_subscriptions
     get_expected_next_bill_date($test.user.subscription_name)
     click_cancel_subscription
     find_link("CANCEL SUBSCRIPTION").click
@@ -145,8 +149,7 @@ class MyAccountPage < Page
   end
 
   def skip_a_month
-    open_account_menu
-    click_subs_link
+    go_to_subscriptions
     open_payment_tab
     for i in 0..2
       if page.has_content?("SKIP")
@@ -178,24 +181,57 @@ class MyAccountPage < Page
     page.find_link("Subscriptions").click
   end
 
+  def click_account_info_link
+    page.find_link("Account Info").click
+  end
+
   def open_account_menu
     page.find_button("account-section-menu").click
   end
 
   def reactivate_subscription
-    open_account_menu
-    click_subs_link
+    go_to_subscriptions
     find_link("Reactivate").click
     find_button("Submit").click
   end
 
   def open_payment_tab
     find_link("Payment Info").click
+    wait_for_ajax
+  end
+
+  def open_looter_info_tab
+    find_link("Looter Info").click
+    wait_for_ajax
   end
 
   def subscription_reactivated?
     assert_text("Active")
     expect(page.has_content?("UPGRADE")).to be_truthy
   end
-  
+
+  def edit_subscription_info(sub_id)
+    go_to_subscriptions
+    find(:css,"#edit-heading-one#{sub_id} > i").click
+    find_link("Edit").click
+  end
+
+  def fill_in_subscription_name(sub_id, name)
+    fill_in('subscription_name' + sub_id, :with => name)
+    $test.user.new_user_sub_name = name
+  end
+
+  def select_shirt_size(sub_id, size)
+    find(:css, "#s2id_subscription_shirt_size#{sub_id} > a").click
+    wait_for_ajax
+    fill_in('s2id_autogen1_search', :with => size)
+    find(:id, 's2id_autogen1_search').native.send_keys(:enter)
+    $test.user.shirt_size = size
+    $test.user.display_shirt_size = $test.user.get_display_shirt_size(size)
+  end
+
+  def click_update
+    find_button('Update').click
+    wait_for_ajax
+  end
 end

@@ -71,6 +71,15 @@ When /^the user submits (.*?) information/ do |arg_string|
   $test.submit_information(adjective, type)
 end
 
+When /^the user edits their subscription info$/ do
+  sub_id = $test.db.get_subscriptions($test.user.email)[0]['subscription_id']
+  step "the user visits the my account page"
+  $test.current_page.edit_subscription_info(sub_id)
+  $test.current_page.fill_in_subscription_name(sub_id, "NEW SUB NAME")
+  $test.current_page.select_shirt_size(sub_id, "Mens - S")
+  $test.current_page.click_update
+end
+
 #THENS
 Then /the new subscription should be added to the user account/ do 
   step "the user visits the my account page"

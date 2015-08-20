@@ -85,7 +85,11 @@ def get_recurly_account_id(user_email)
 end
 
 def get_subscriptions(user_email)
-  query = "SELECT u.email, s.subscription_id, s.plan_name FROM"
+  query = "SELECT u.email as email, s.id as subscription_id, s.plan_id as plan_id
+            FROM subscriptions s 
+            JOIN users u on s.user_id = u.id
+            WHERE u.email = \'#{user_email}\'"
+  @conn.exec(query)
 end
 
 def alter_sub(sub)
