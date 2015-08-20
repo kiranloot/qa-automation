@@ -107,14 +107,74 @@ WHERE id = '#{sub}'
 
 end
 
+def registered_with_active
+  registered_one_active
+end
+
+def get_address(type, sub)
+      send("#{type}_from_hash", [sub]) if sub.class = Hash
+      send("#{type}_from_sub_id", [sub]) if sub.class = String
+end
+
+def billing_query(sub_id)
+  q = """
+  select * from addresses
+  where id in (select billing_address_id from subscriptions 
+  where id = '#{sub_id}');
+  """
+  q
+end
+
+def shipping_query(sub_id)
+  q = """
+  select * from addresses
+  where id in (select shipping_address_id from subscriptions
+  where id = '#{sub_id}');
+  """
+  q
+end
+
+def billing_from_hash(h)
+  q = billing_query(h["sub"])
+  @conn.exec(q) do |result|
+    result.each do |row|
+      h["bill_street"] = row["line_1"]
+      h["bill_street_2"] = row["line_2"]
+      h["bill_state"] = row["state"]
+      h["bill_city"] = row["city"]
+      h["bill_zip"] = row["zip"]
+    end
+  end
+end
+
+def shipping_from_hash(h)
+  q = shipping_query(h["sub"])
+  @conn.exec(q) do |result|
+    result.each do |row|
+      h["ship_street"] = row["line_1"]
+      h["ship_street_2"] = row["line_2"]
+      h["ship_state"] = row["state"]
+      h["ship_city"] = row["city"]
+      h["ship_zip"] = row["zip"]
+    end
+
+  end
+end
+
+def billing_from_sub_id(sub_id)
+end
+
+def shipping_from_sub_id(sub_id)
+end
+
+
 def registered_one_active(test_run_timestamp = ENV['RUN_TIMESTAMP'])
 t = test_run_timestamp
 while @redis.should_wait?
   puts "waiting..."
 end
 @redis.set_wait
-email = ""
-sub = ""
+ret_hash = {}
 q = """
 with actives AS(
 select u.email as email, s.user_id, s.subscription_status, s.cancel_at_end_of_period as eop, s.id as subs from users u
@@ -134,16 +194,15 @@ limit 1;
 
   @conn.exec(q) do |result|
     result.each do |row|
-      email =  row["email"]
-      sub = row["subs"]
+      ret_hash["email"] =  row["email"]
+      ret_hash["sub"] = row["subs"]
     end
   end
 
-  #puts email
-  #puts sub
-
-if email 
+if ret_hash["email"]
   alter_sub(sub)
+  get_address("billing", ret_hash)
+  get_ship_address("shipping", ret_hash)
 end
 
 @redis.clear_wait
