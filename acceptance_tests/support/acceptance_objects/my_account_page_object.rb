@@ -225,6 +225,7 @@ class MyAccountPage < Page
     find(:css, "#s2id_subscription_shirt_size#{sub_id} > a").click
     wait_for_ajax
     fill_in('s2id_autogen1_search', :with => size)
+    find(:id, 's2id_autogen1_search').native.send_keys(:enter)
     $test.user.shirt_size = size
     $test.user.display_shirt_size = $test.user.get_display_shirt_size(size)
   end

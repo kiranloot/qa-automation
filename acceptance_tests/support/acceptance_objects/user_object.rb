@@ -66,7 +66,7 @@ class User
 
   def get_display_shirt_size(size)
     match_data = /^(.{1}).*-\s(.*)$/.match(size)
-    match_data[0] + " " + match_data[1]
+    match_data[1] + " " + match_data[2]
   end
 
   def target_level_up_plan(product, months)
