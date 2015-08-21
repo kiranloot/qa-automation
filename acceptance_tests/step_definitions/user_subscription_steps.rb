@@ -86,6 +86,8 @@ When /^the user edits their (.*)$/ do |info|
     $test.current_page.fill_in_shipping_last_name(sub_id, Faker::Name.last_name)
     $test.current_page.fill_in_shipping_address_1(sub_id, Faker::Address.street_address)
     $test.current_page.fill_in_shipping_city(sub_id, Faker::Address.city)
+    $test.current_page.fill_in_shipping_zip(sub_id, Faker::Address.zip_code)
+    $test.current_page.select_shipping_state(sub_id, Faker::Address.state_abbr)
     $test.current_page.click_update
   end
 end
