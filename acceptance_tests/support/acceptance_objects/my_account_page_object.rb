@@ -77,6 +77,17 @@ class MyAccountPage < Page
     #assert_text($test.user.new_rebill_date)
   end
 
+  def shipping_info_updated?
+    go_to_subscriptions
+    open_shipping_tab
+    assert_text($test.user.first_name)
+    assert_text($test.user.last_name)
+    assert_text($test.user.ship_street)
+    assert_text($test.user.ship_city)
+    assert_text($test.user.ship_state)
+    assert_text($test.user.ship_zip)
+  end
+
   def get_expected_next_bill_date(subscription_name, compare_date: nil)
     if subscription_name == '1 Year Subscription'
       months = 12
@@ -205,6 +216,11 @@ class MyAccountPage < Page
     wait_for_ajax
   end
 
+  def open_shipping_tab
+    find_link("Shipping Info").click
+    wait_for_ajax
+  end
+
   def subscription_reactivated?
     assert_text("Active")
     expect(page.has_content?("UPGRADE")).to be_truthy
@@ -228,6 +244,48 @@ class MyAccountPage < Page
     find(:id, 's2id_autogen1_search').native.send_keys(:enter)
     $test.user.shirt_size = size
     $test.user.display_shirt_size = $test.user.get_display_shirt_size(size)
+  end
+
+
+  def edit_shipping_address(sub_id)
+    go_to_subscriptions
+    open_shipping_tab
+    sleep(1)
+    find(:css, "#edit-heading-three#{sub_id} > i").click
+    find_link("Edit").click
+  end
+
+  def fill_in_shipping_first_name(sub_id, first_name)
+    fill_in("shipping_address_first_name#{sub_id}", :with => first_name)
+    $test.user.first_name = first_name
+  end
+
+  def fill_in_shipping_last_name(sub_id, last_name)
+    fill_in("shipping_address_last_name#{sub_id}", :with => last_name)
+    $test.user.last_name = last_name
+  end
+
+  def fill_in_shipping_address_1(sub_id, address_1)
+    fill_in("shipping_address_line_1_#{sub_id}", :with => address_1)
+    $test.user.ship_street = address_1
+  end
+
+  def fill_in_shipping_city(sub_id, city)
+    fill_in("shipping_address_city#{sub_id}", :with => city)
+    $test.user.ship_city = city
+  end
+
+  def fill_in_shipping_zip(sub_id, zip)
+    fill_in("shipping_address_zip#{sub_id}", :with => zip)
+    $test.user.ship_zip = zip
+  end
+
+  def select_shipping_state(sub_id, state)
+    find(:id, "s2id_shipping_address_state#{sub_id}").click
+    wait_for_ajax
+    fill_in("s2id_autogen6_search", :with => state)
+    find(:id, "s2id_autogen6_search").native.send_key(:enter)
+    $test.user.ship_state = state
   end
 
   def click_update
