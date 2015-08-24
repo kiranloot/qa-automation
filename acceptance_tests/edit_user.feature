@@ -1,12 +1,12 @@
 @core @regression @account @selenium
 Feature: User Detail Editing
-    @WIP
+    @ready
     Scenario: The user edits their subscription's shipping address
         Given a registered user with an active subscription
             When the user logs in
             And the user edits their shipping address
-        Then the shipping address change should be reflected in the user account
-            And the shipping address change should be reflected in the admin panel
+        Then the updated shipping information should be reflected when the user views the subscription
+            And the correct subscription information should be displayed in the admin panel
 
     @WIP
     Scenario: The user edits their subscription's billing address
