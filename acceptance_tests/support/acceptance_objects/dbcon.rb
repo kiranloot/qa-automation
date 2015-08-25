@@ -78,11 +78,12 @@ def user_exists?(user_email)
   results.any?
 end
 
+
 #Assumption: We want the newest subscription's recurly information
 def get_recurly_account_id(user_email)
   query = "SELECT recurly_account_id FROM subscriptions where user_id =
             (select id from users where email = '#{user_email}') ORDER BY created_at DESC"
-  @conn.exec(query).getvalue(0,0)
+  @conn.exec(query).field_values('recurly_account_id')[0]
 end
 
 def get_subscriptions(user_email)
