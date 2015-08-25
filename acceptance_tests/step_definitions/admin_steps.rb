@@ -15,9 +15,9 @@ Given /^The (.*) level up product is (.*)$/ do |product,inv_status|
   $test.current_page = AdminVariantsPage.new
   case inv_status
   when "sold out"
-    $test.current_page.set_variant_inventory(variant_id,0,false)
+    $test.current_page.set_variant_inventory(variant_id,0)
   when "available"
-    $test.current_page.set_variant_inventory(variant_id,100,true)
+    $test.current_page.set_variant_inventory(variant_id,100)
   end
   step "logs out of admin"
   $test.set_subject_user
@@ -96,6 +96,10 @@ Then /the subscription should have a status of (.*) in the admin panel/ do |stat
   $test.current_page.subscription_status_is(status)
 end
 
+Then /the subscription information should be displayed/ do
+  $test.current_page.subscription_information_displayed?
+end
+
 Then /the subscription should be successfully reactivated in the admin panel/ do 
   step "an admin user with access to their info"
   step "the user visits the admin page"
@@ -109,3 +113,22 @@ end
 Then /^the updated information should be reflected when the admin views the user$/ do
   $test.current_page.user_information_displayed?
 end
+
+Then(/^the subscription information change should be reflected in the admin panel$/) do
+  step "an admin user with access to their info"
+  step "the user visits the admin page"
+  step "logs in as an admin"
+  $test.current_page.click_subscriptions
+  $test.current_page = AdminSubscriptionsPage.new
+  $test.current_page.subscription_info_updated?
+end
+
+Then (/^the correct subscription information should be displayed in the admin panel$/) do
+  step "an admin user with access to their info"
+  step "the user visits the admin page"
+  step "logs in as an admin"
+  $test.current_page.click_subscriptions
+  $test.current_page = AdminSubscriptionsPage.new
+  $test.current_page.show_subscription
+  $test.current_page.subscription_information_displayed?
+end 
