@@ -29,8 +29,8 @@ class User
     @ship_street = "1234 Fake St"
     @ship_street_2 = nil
     @ship_state = "CA"
-    @cc = "1" 
-    @cvv = "333"
+    @cc = "4111111111111111" 
+    @cvv = "123"
     @test = test
     @use_shipping = true
     @bill_zip = "90630"
@@ -131,8 +131,7 @@ class User
       end
     end
     click_button(@test.test_data["locators"]["checkout_btn"])
-    wait_for_ajax
-    if @cc == '1'
+    if @cc == '4111111111111111'
       assert_text('Thank you for subscribing!')
     end
   end
