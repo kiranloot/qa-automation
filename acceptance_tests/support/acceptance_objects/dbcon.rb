@@ -118,8 +118,33 @@ def registered_with_active
 end
 
 def get_address(type, sub)
-      send("#{type}_from_hash", [sub]) if sub.class = Hash
-      send("#{type}_from_sub_id", [sub]) if sub.class = String
+      send("#{type}_from_hash", sub) if sub.class == Hash
+      send("#{type}_from_sub_id", sub) if sub.class == String
+end
+
+def get_plan_months(h, sub_id)
+  q = plan_months_query(sub_id)
+  @conn.exec(q) do |result|
+    result.each do |row|
+      h["plan_months"] = row["period"]
+    end
+  end
+end
+
+def get_shirt_size(h)
+  q = shirt_size_query(h["sub"])
+  @conn.exec(q) do |result|
+    result.each do |row|
+      h["shirt_size"] = row["shirt_size"]
+    end
+  end
+end
+
+def shirt_size_query(sub_id)
+   q = """
+   select shirt_size from subscriptions
+   where id = '#{sub_id}';
+   """
 end
 
 def billing_query(sub_id)
@@ -140,8 +165,16 @@ def shipping_query(sub_id)
   q
 end
 
+def plan_months_query(sub_id)
+  q = """
+  select period from plans
+  where id in (select plan_id from
+  subscriptions where id = '#{sub_id}')
+  """
+end
+
 def billing_from_hash(h)
-  q = billing_query(h["sub"])
+  q = billing_query(h["sub"].to_s)
   @conn.exec(q) do |result|
     result.each do |row|
       h["bill_street"] = row["line_1"]
@@ -149,6 +182,7 @@ def billing_from_hash(h)
       h["bill_state"] = row["state"]
       h["bill_city"] = row["city"]
       h["bill_zip"] = row["zip"]
+      h["rebill_date_db"] = row["next_assessment_date"]
     end
   end
 end
@@ -173,17 +207,12 @@ end
 def shipping_from_sub_id(sub_id)
 end
 
-
-def registered_one_active(test_run_timestamp = ENV['RUN_TIMESTAMP'])
-t = test_run_timestamp
-while @redis.should_wait?
-  puts "waiting..."
-end
-@redis.set_wait
-ret_hash = {}
+def one_active_query(timestamp)
+t = timestamp
 q = """
 with actives AS(
-select u.email as email, s.user_id, s.subscription_status, s.cancel_at_end_of_period as eop, s.id as subs from users u
+select u.email as email, s.user_id, s.subscription_status, 
+s.cancel_at_end_of_period as eop, s.id as subs from users u
 inner join subscriptions s
 on s.user_id = u.id
 where s.subscription_status = 'active'
@@ -197,6 +226,19 @@ where c = 1
 and eop is null 
 limit 1;
 """
+q
+end
+
+
+def registered_one_active(test_run_timestamp = ENV['RUN_TIMESTAMP'])
+t = test_run_timestamp
+while @redis.should_wait?
+  puts "waiting..."
+end
+@redis.set_wait
+ret_hash = {}
+
+q = one_active_query(t)
 
   @conn.exec(q) do |result|
     result.each do |row|
@@ -206,13 +248,15 @@ limit 1;
   end
 
 if ret_hash["email"]
-  alter_sub(sub)
+  alter_sub(ret_hash["sub"])
+  get_shirt_size(ret_hash)
   get_address("billing", ret_hash)
-  get_ship_address("shipping", ret_hash)
+  get_address("shipping", ret_hash)
+  get_plan_months(ret_hash, ret_hash["sub"])
 end
 
 @redis.clear_wait
-
+return ret_hash
 end
 
 end

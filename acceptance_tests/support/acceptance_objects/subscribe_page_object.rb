@@ -47,7 +47,6 @@ include WaitForAjax
     end
     click_link(target)
     wait_for_ajax
-    $test.user.target_plan(months)
   end
 
   def verify_plan_prices(domain)

@@ -109,15 +109,17 @@ class UserGen
     u
   end
 
-  def get_from_db(type, trait)
+  def get_user_from_db(type, trait)
     db = DBCon.new
     db.respond_to?(trait) ? result = db.send(trait) : result = nil
     if result
-      u = @user.new($test)
-      u.email = result.email
-      u.password = "password"
-      u.
+      u = User.new($test)
+      u.configure_from_input(result)
+      u.need_sub = false
+      db.finish
+      return u
     else
+      db.finish
       return nil
     end
   end
