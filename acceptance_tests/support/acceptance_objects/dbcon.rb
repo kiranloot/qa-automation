@@ -182,7 +182,6 @@ def billing_from_hash(h)
       h["bill_state"] = row["state"]
       h["bill_city"] = row["city"]
       h["bill_zip"] = row["zip"]
-      h["rebill_date_db"] = row["next_assessment_date"]
     end
   end
 end
@@ -211,20 +210,28 @@ def one_active_query(timestamp)
 t = timestamp
 q = """
 with actives AS(
-select u.email as email, s.user_id, s.subscription_status, 
-s.cancel_at_end_of_period as eop, s.id as subs from users u
+select u.email as email, s.user_id, s.subscription_status as status, 
+s.cancel_at_end_of_period as eop, s.id as subs,
+s.next_assessment_at as rebill from users u
 inner join subscriptions s
 on s.user_id = u.id
-where s.subscription_status = 'active'
+where s.cancel_at_end_of_period is null
 and s.created_at::date < '#{t}'::date
 and s.updated_at::date < '#{t}'::date
-and email like '_%')
+and email like '\\_%' 
+),
 
-select email, subs from (select email, subs, eop, count(subs) as c from actives
-group by email, subs, eop) as sub_counts
+sc AS(select email, count(subs) as c from actives
+group by email),
+
+info AS(select email, subs, rebill, status from actives)
+
+select sc.email, c, i.subs, i.rebill from sc 
+inner join info i on i.email = sc.email
 where c = 1
-and eop is null 
-limit 1;
+and i.status = 'active'
+limit 1
+
 """
 q
 end
@@ -244,6 +251,7 @@ q = one_active_query(t)
     result.each do |row|
       ret_hash["email"] =  row["email"]
       ret_hash["sub"] = row["subs"]
+      ret_hash["rebill_date_db"] = row["rebill"]
     end
   end
 

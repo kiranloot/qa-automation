@@ -9,6 +9,7 @@ Given /^an? (.*) user with (.*)/ do |user_type, with_args|
   parsed_args = $test.parse_with_args(with_args)
   $test.configure_user(user_type.strip, with_args)
   if $test.user.need_sub?
+    puts "making a sub!"
     sl = StepList.new(parsed_args)
     sl.each do |s|
       step s

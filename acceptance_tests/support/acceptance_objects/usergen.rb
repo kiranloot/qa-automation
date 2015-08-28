@@ -125,6 +125,7 @@ class UserGen
   end
 
   def build
+   puts @type, @trait
    u = nil
    u = get_user_from_db(@type, @trait) if @trait
    unless u

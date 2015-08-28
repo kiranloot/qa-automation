@@ -29,4 +29,8 @@ class StepList
     "admin creates a new promotion and passes to user"]
   end
 
+  def canceled
+    ["create a random month subscription"]
+  end
+
 end
