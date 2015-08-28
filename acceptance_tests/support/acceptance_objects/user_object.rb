@@ -6,11 +6,12 @@ class User
   include Capybara::DSL
   include RSpec::Matchers
   include WaitForAjax
+
   attr_accessor :email, :password, :street, :city, :ship_state, :ship_zip, :zip, 
     :first_name, :last_name, :full_name, :shirt_size, :display_shirt_size, :new_shirt_size, 
     :cc, :cvv, :ship_street, :ship_city, :affiliate, :coupon_code, :discount_applied, :subject_user, 
     :subscription_name, :level_up_subscription_name, :new_user_sub_name,:new_rebill_date, :bill_zip,
-    :bill_city, :bill_street, :bill_street_2, :bill_state, :need_sub, :rebill_date_db
+    :bill_city, :bill_street, :bill_street_2, :bill_state, :need_sub, :rebill_date_db, :last_four
 
   @@sizes = {"male" =>  {0 => "Mens - S", 1 => "Mens - M", 2 => "Mens - L", 3 => "Mens - XL", 
                          4 => "Mens - XXL", 5 => "Mens - XXXL" },
@@ -32,13 +33,14 @@ class User
     @ship_state = "CA"
     @cc = "4111111111111111" 
     @cvv = "333"
+    @last_four = "1111" 
     @test = test
     @use_shipping = true
     @bill_zip = "90630"
     @bill_city = "Cypress"
     @bill_street = "5432 Test Ave"
     @bill_street_2 = nil
-    @bill_state = "CA"
+    @bill_state = nil
     @coupon_code = nil
     @tax_applied = false
     @discount_applied = nil

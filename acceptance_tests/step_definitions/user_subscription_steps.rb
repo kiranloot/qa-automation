@@ -73,6 +73,16 @@ When /^the user edits their (.*)$/ do |info|
     $test.current_page.fill_in_shipping_zip(sub_id, Faker::Address.zip_code)
     $test.current_page.select_shipping_state(sub_id, Faker::Address.state_abbr)
     $test.current_page.click_update
+  when 'billing information'
+    $test.current_page.edit_billing_info(sub_id)
+    $test.current_page.fill_in_cc_name(sub_id, Faker::Name.name)
+    $test.current_page.fill_in_cc_number($test.user.cc)
+    $test.current_page.fill_in_cvv_number($test.user.cvv)
+    $test.current_page.fill_in_billing_address_1(sub_id, Faker::Address.street_address)
+    $test.current_page.fill_in_billing_city(sub_id, Faker::Address.city)
+    $test.current_page.select_billing_state(sub_id, Faker::Address.state_abbr)
+    $test.current_page.fill_in_billing_zip(sub_id, Faker::Address.zip_code)
+    $test.current_page.click_update
   end
 end
 
@@ -141,6 +151,13 @@ Then /^the updated shipping information should be reflected when the user views 
   step "the user logs in"
   step "the user visits the my account page"
   $test.current_page.shipping_info_updated?
+end
+
+Then (/^the billing address change should be reflected in the user account$/) do
+  step "the user visits the home page"
+  step "the user logs in"
+  step "the user visits the my account page"
+  $test.current_page.billing_info_updated? 
 end
 
 Then /the updated information should be reflected when the user views their info/ do

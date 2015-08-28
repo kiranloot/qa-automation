@@ -132,3 +132,13 @@ Then (/^the correct subscription information should be displayed in the admin pa
   $test.current_page.show_subscription
   $test.current_page.subscription_information_displayed?
 end 
+
+Then (/^the correct subscription billing information should be displayed in the admin panel$/) do
+  step "an admin user with access to their info"
+  step "the user visits the admin page"
+  step "logs in as an admin"
+  $test.current_page.click_subscriptions
+  $test.current_page = AdminSubscriptionsPage.new
+  $test.current_page.show_subscription
+  $test.current_page.sub_billing_information_displayed? 
+end
