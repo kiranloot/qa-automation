@@ -116,6 +116,15 @@ class AdminSubscriptionsPage < AdminPage
     assert_text($test.user.ship_state)
   end
 
+  def sub_billing_information_displayed?
+    $test.set_subject_user
+    assert_text($test.user.full_name)
+    assert_text($test.user.bill_street)
+    assert_text($test.user.bill_city)
+    assert_text($test.user.bill_zip)
+    assert_text($test.user.last_four)
+  end
+
   def subscription_info_updated?
     show_subscription
     $test.set_subject_user
