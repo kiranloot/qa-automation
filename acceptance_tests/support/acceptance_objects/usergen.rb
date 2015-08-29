@@ -125,7 +125,6 @@ class UserGen
   end
 
   def build
-   puts @type, @trait
    u = nil
    u = get_user_from_db(@type, @trait) if @trait
    unless u
@@ -133,6 +132,7 @@ class UserGen
    u =  FactoryGirl.build(:user, @trait) if @trait && !(@type == "admin")
    u = admin_and_subject if @trait == :subject_user && @type == "admin"
    end
+   u.trait = @trait
    u
   end
 

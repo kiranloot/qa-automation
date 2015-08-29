@@ -47,6 +47,7 @@ include WaitForAjax
     end
     click_link(target)
     wait_for_ajax
+    return months
   end
 
   def verify_plan_prices(domain)

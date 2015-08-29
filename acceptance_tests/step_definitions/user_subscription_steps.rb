@@ -6,10 +6,9 @@ end
 
 Given /^an? (.*) user with (.*)/ do |user_type, with_args|
   with_args.strip!
-  parsed_args = $test.parse_with_args(with_args)
   $test.configure_user(user_type.strip, with_args)
+  parsed_args = $test.user.trait
   if $test.user.need_sub?
-    puts "making a sub!"
     sl = StepList.new(parsed_args)
     sl.each do |s|
       step s
@@ -44,8 +43,8 @@ When /the user logs (.*)$/ do |in_out|
 end
 
 When /^the user selects a (.*) month subscription plan/ do |months|
-  $test.current_page.select_plan(months)
-  $test.user.target_plan(months)
+  m = $test.current_page.select_plan(months)
+  $test.user.target_plan(m)
 end 
 
 When /^the user submits (.*?) information/ do |arg_string|
