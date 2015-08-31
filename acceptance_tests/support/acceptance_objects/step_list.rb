@@ -29,4 +29,14 @@ class StepList
     "admin creates a new promotion and passes to user"]
   end
 
+  def canceled
+    ["create a one month subscription",
+    "an admin user with access to their info",
+    "the user visits the admin page",
+    "logs in as an admin",
+    "performs an immediate cancellation on the user account",
+    "logs out of admin",
+    "focus on subject user"]
+  end
+
 end

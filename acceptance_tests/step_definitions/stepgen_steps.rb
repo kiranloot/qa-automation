@@ -7,6 +7,10 @@ When /admin creates a new promotion and passes to user/ do
   #assumes you are already logged into the admin page and on the promotions page.
   promo_code = $test.current_page.create_promotion
   step "logs out of admin"
-  $test.set_subject_user
+  step "focus on subject user"
   $test.user.coupon_code = promo_code
+end
+
+When /focus on subject user/ do
+  $test.set_subject_user
 end

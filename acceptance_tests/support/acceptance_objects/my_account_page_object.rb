@@ -12,8 +12,15 @@ class MyAccountPage < Page
     super
     @page_type = "my_account"
     setup
+    grab_user_data
+  end
+
+  def grab_user_data
+    @subscription_name = nil
+    @rebill = nil
     if $test.user
       @subscription_name = $test.user.subscription_name
+      @rebill = $test.user.rebill_date_db
     end
   end
 
@@ -35,13 +42,13 @@ class MyAccountPage < Page
   end
 
   def verify_subscription_added
+    grab_user_data
     go_to_subscriptions
     assert_text(@subscription_name)
     assert_text("Active")
-    if !page.has_content?(get_expected_next_bill_date(@subscription_name))
-      visit current_url
-    end
-    assert_text(get_expected_next_bill_date(@subscription_name))
+    wait_for_ajax
+    assert_text(get_expected_next_bill_date(@subscription_name)) unless @rebill
+    assert_text(@rebill) if @rebill
     assert_text(@first_name)
     assert_text(@last_name)
     assert_text(@ship_street)

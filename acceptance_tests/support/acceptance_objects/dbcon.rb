@@ -113,47 +113,158 @@ WHERE id = '#{sub}'
 
 end
 
+def registered_with_active
+  registered_one_active
+end
+
+def get_address(type, sub)
+      send("#{type}_from_hash", sub) if sub.class == Hash
+      send("#{type}_from_sub_id", sub) if sub.class == String
+end
+
+def get_plan_months(h, sub_id)
+  q = plan_months_query(sub_id)
+  @conn.exec(q) do |result|
+    result.each do |row|
+      h["plan_months"] = row["period"]
+    end
+  end
+end
+
+def get_shirt_size(h)
+  q = shirt_size_query(h["sub"])
+  @conn.exec(q) do |result|
+    result.each do |row|
+      h["shirt_size"] = row["shirt_size"]
+    end
+  end
+end
+
+def shirt_size_query(sub_id)
+   q = """
+   select shirt_size from subscriptions
+   where id = '#{sub_id}';
+   """
+end
+
+def billing_query(sub_id)
+  q = """
+  select * from addresses
+  where id in (select billing_address_id from subscriptions 
+  where id = '#{sub_id}');
+  """
+  q
+end
+
+def shipping_query(sub_id)
+  q = """
+  select * from addresses
+  where id in (select shipping_address_id from subscriptions
+  where id = '#{sub_id}');
+  """
+  q
+end
+
+def plan_months_query(sub_id)
+  q = """
+  select period from plans
+  where id in (select plan_id from
+  subscriptions where id = '#{sub_id}')
+  """
+end
+
+def billing_from_hash(h)
+  q = billing_query(h["sub"].to_s)
+  @conn.exec(q) do |result|
+    result.each do |row|
+      h["bill_street"] = row["line_1"]
+      h["bill_street_2"] = row["line_2"]
+      h["bill_state"] = row["state"]
+      h["bill_city"] = row["city"]
+      h["bill_zip"] = row["zip"]
+    end
+  end
+end
+
+def shipping_from_hash(h)
+  q = shipping_query(h["sub"])
+  @conn.exec(q) do |result|
+    result.each do |row|
+      h["ship_street"] = row["line_1"]
+      h["ship_street_2"] = row["line_2"]
+      h["ship_state"] = row["state"]
+      h["ship_city"] = row["city"]
+      h["ship_zip"] = row["zip"]
+    end
+
+  end
+end
+
+def billing_from_sub_id(sub_id)
+end
+
+def shipping_from_sub_id(sub_id)
+end
+
+def one_active_query(timestamp)
+t = timestamp
+q = """
+with actives AS(
+select u.email as email, s.user_id, s.subscription_status as status, 
+s.cancel_at_end_of_period as eop, s.id as subs,
+s.next_assessment_at as rebill from users u
+inner join subscriptions s
+on s.user_id = u.id
+where s.cancel_at_end_of_period is null
+and s.created_at::date < '#{t}'::date
+and s.updated_at::date < '#{t}'::date
+and email like '\\_%' 
+),
+
+sc AS(select email, count(subs) as c from actives
+group by email),
+
+info AS(select email, subs, rebill, status from actives)
+
+select sc.email, c, i.subs, i.rebill from sc 
+inner join info i on i.email = sc.email
+where c = 1
+and i.status = 'active'
+limit 1
+
+"""
+q
+end
+
+
 def registered_one_active(test_run_timestamp = ENV['RUN_TIMESTAMP'])
 t = test_run_timestamp
 while @redis.should_wait?
   puts "waiting..."
 end
 @redis.set_wait
-email = ""
-sub = ""
-q = """
-with actives AS(
-select u.email as email, s.user_id, s.subscription_status, s.cancel_at_end_of_period as eop, s.id as subs from users u
-inner join subscriptions s
-on s.user_id = u.id
-where s.subscription_status = 'active'
-and s.created_at::date < '#{t}'::date
-and s.updated_at::date < '#{t}'::date
-and email like '_%')
+ret_hash = {}
 
-select email, subs from (select email, subs, eop, count(subs) as c from actives
-group by email, subs, eop) as sub_counts
-where c = 1
-and eop is null 
-limit 1;
-"""
+q = one_active_query(t)
 
   @conn.exec(q) do |result|
     result.each do |row|
-      email =  row["email"]
-      sub = row["subs"]
+      ret_hash["email"] =  row["email"]
+      ret_hash["sub"] = row["subs"]
+      ret_hash["rebill_date_db"] = row["rebill"]
     end
   end
 
-  #puts email
-  #puts sub
-
-if email 
-  alter_sub(sub)
+if ret_hash["email"]
+  alter_sub(ret_hash["sub"])
+  get_shirt_size(ret_hash)
+  get_address("billing", ret_hash)
+  get_address("shipping", ret_hash)
+  get_plan_months(ret_hash, ret_hash["sub"])
 end
 
 @redis.clear_wait
-
+return ret_hash
 end
 
 end
