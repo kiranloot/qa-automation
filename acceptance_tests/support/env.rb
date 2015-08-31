@@ -50,5 +50,8 @@ require 'sauce/cucumber'
 end
 
 at_exit do
-  HRedis.new.kill_wait_set
+ r = HRedis.new
+ r.connect
+ r.kill_wait_set
+ r.quit
 end

@@ -239,9 +239,12 @@ end
 
 def registered_one_active(test_run_timestamp = ENV['RUN_TIMESTAMP'])
 t = test_run_timestamp
+wait_count = 0
+@redis.connect
 while @redis.should_wait?
-  puts "waiting..."
+  wait_count += 1
 end
+#puts wait_count
 @redis.set_wait
 ret_hash = {}
 
@@ -264,6 +267,7 @@ if ret_hash["email"]
 end
 
 @redis.clear_wait
+@redis.quit
 return ret_hash
 end
 
