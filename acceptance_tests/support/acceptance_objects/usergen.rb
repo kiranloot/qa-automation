@@ -87,7 +87,7 @@ class UserGen
   end
 
   def an_active_subscription
-    :registered_no_prior
+    :registered_with_active
   end
 
   def simple_registered
@@ -109,10 +109,30 @@ class UserGen
     u
   end
 
+  def get_user_from_db(type, trait)
+    db = DBCon.new
+    db.respond_to?(trait) ? result = db.send(trait) : result = nil
+    if result
+      u = User.new($test)
+      u.configure_from_input(result)
+      u.need_sub = false
+      db.finish
+      return u
+    else
+      db.finish
+      return nil
+    end
+  end
+
   def build
+   u = nil
+   u = get_user_from_db(@type, @trait) if @trait
+   unless u
    u = self.send("simple_"+ @type) unless @trait
    u =  FactoryGirl.build(:user, @trait) if @trait && !(@type == "admin")
    u = admin_and_subject if @trait == :subject_user && @type == "admin"
+   end
+   u.trait = @trait
    u
   end
 

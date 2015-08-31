@@ -12,8 +12,15 @@ class MyAccountPage < Page
     super
     @page_type = "my_account"
     setup
+    grab_user_data
+  end
+
+  def grab_user_data
+    @subscription_name = nil
+    @rebill = nil
     if $test.user
       @subscription_name = $test.user.subscription_name
+      @rebill = $test.user.rebill_date_db
     end
   end
 
@@ -35,13 +42,13 @@ class MyAccountPage < Page
   end
 
   def verify_subscription_added
+    grab_user_data
     go_to_subscriptions
     assert_text(@subscription_name)
     assert_text("Active")
-    if !page.has_content?(get_expected_next_bill_date(@subscription_name))
-      visit current_url
-    end
-    assert_text(get_expected_next_bill_date(@subscription_name))
+    wait_for_ajax
+    assert_text(get_expected_next_bill_date(@subscription_name)) unless @rebill
+    assert_text(@rebill) if @rebill
     assert_text(@first_name)
     assert_text(@last_name)
     assert_text(@ship_street)
@@ -88,6 +95,17 @@ class MyAccountPage < Page
     assert_text($test.user.ship_zip)
   end
 
+  def billing_info_updated?
+    go_to_subscriptions
+    open_payment_tab
+    assert_text($test.user.full_name)
+    assert_text($test.user.bill_street)
+    assert_text($test.user.bill_city)
+    assert_text($test.user.bill_state)
+    assert_text($test.user.bill_zip)
+    assert_text($test.user.last_four)
+  end
+ 
   def get_expected_next_bill_date(subscription_name, compare_date: nil)
     if subscription_name == '1 Year Subscription'
       months = 12
@@ -246,7 +264,6 @@ class MyAccountPage < Page
     $test.user.display_shirt_size = $test.user.get_display_shirt_size(size)
   end
 
-
   def edit_shipping_address(sub_id)
     go_to_subscriptions
     open_shipping_tab
@@ -288,8 +305,55 @@ class MyAccountPage < Page
     $test.user.ship_state = state
   end
 
+  def edit_billing_info(sub_id)
+    go_to_subscriptions
+    open_payment_tab 
+    sleep(1)
+    find(:css, "#edit-heading-two#{sub_id} > i").click
+    find_link("Edit").click
+  end
+
+  def fill_in_cc_name(sub_id, name)
+    fill_in("payment_method_full_name#{sub_id}", :with => name)
+    $test.user.full_name = name
+  end
+
+  def fill_in_cc_number(cc)
+    find(:css, "input.number").set(cc)
+    $test.user.cc = cc
+  end
+
+  def fill_in_cvv_number(cvv)
+    find(:css, "input.cvv").set(cvv)
+    $test.user.cvv = cvv
+  end
+
+  def fill_in_billing_address_1(sub_id, address)
+    fill_in("payment_method_line_1_#{sub_id}", :with => address)
+    $test.user.bill_street = address
+  end
+
+  def fill_in_billing_city(sub_id, city)
+    fill_in("payment_method_city#{sub_id}", :with => city)
+    $test.user.bill_city = city
+  end
+
+  def select_billing_state(sub_id, state)
+    find(:id, "s2id_payment_method_state#{sub_id}").click
+    wait_for_ajax
+    fill_in("s2id_autogen7_search", :with => state)
+    find(:id, "s2id_autogen7_search").native.send_key(:enter)
+    $test.user.bill_state = state
+  end
+
+  def fill_in_billing_zip(sub_id, zip_code)
+    fill_in("payment_method_zip#{sub_id}", :with => zip_code)
+    $test.user.bill_zip = zip_code
+  end
+
   def click_update
     find_button('Update').click
     wait_for_ajax
+    assert_text('updated')
   end
 end

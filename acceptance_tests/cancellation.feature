@@ -1,6 +1,6 @@
 @core @regression @cancellation @selenium
 Feature: Subscription Cancellation
-    @ready
+    @ready @gp
     Scenario: Subscriber cancels a subscription
         Given a registered user with an active subscription
             When the user logs in

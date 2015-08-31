@@ -6,18 +6,21 @@ class User
   include Capybara::DSL
   include RSpec::Matchers
   include WaitForAjax
-  attr_accessor :email, :password, :street, :city, :ship_state, :ship_zip,
-    :zip, :first_name, :last_name, :full_name, :shirt_size, :display_shirt_size, :new_shirt_size, :cc, :cvv, :ship_street, :ship_city, :affiliate,
-    :coupon_code, :discount_applied, :subject_user, :subscription_name, :level_up_subscription_name, :new_user_sub_name,
-    :new_rebill_date
+
+  attr_accessor :email, :password, :street, :city, :ship_state, :ship_zip, :zip, 
+    :first_name, :last_name, :full_name, :shirt_size, :display_shirt_size, :new_shirt_size, 
+    :cc, :cvv, :ship_street, :ship_city, :affiliate, :coupon_code, :discount_applied, :subject_user, 
+    :subscription_name, :level_up_subscription_name, :new_user_sub_name,:new_rebill_date, :bill_zip,
+    :bill_city, :bill_street, :bill_street_2, :bill_state, :need_sub, :rebill_date_db, :last_four, :trait
 
   @@sizes = {"male" =>  {0 => "Mens - S", 1 => "Mens - M", 2 => "Mens - L", 3 => "Mens - XL", 
                          4 => "Mens - XXL", 5 => "Mens - XXXL" },
            "female" => {0 => "Womens - S", 1 => "Womens - M", 2 => "Womens - L", 3 => "Womens - XL", 
                         4 => "Womens - XXL", 5 => "Womens XXXL"}}
   def initialize(test)
+    @trait = nil
     @email = "placeholder"
-    @password ="placeholder"
+    @password ="password"
     @first_name = "placeholder"
     @last_name = "placeholder"
     @full_name = @first_name + " " + @last_name
@@ -30,13 +33,15 @@ class User
     @ship_street_2 = nil
     @ship_state = "CA"
     @cc = "4111111111111111" 
-    @cvv = "123"
+    @cvv = "333"
+    @last_four = "1111" 
     @test = test
     @use_shipping = true
     @bill_zip = "90630"
     @bill_city = "Cypress"
     @bill_street = "5432 Test Ave"
     @bill_street_2 = nil
+    @bill_state = nil
     @coupon_code = nil
     @tax_applied = false
     @discount_applied = nil
@@ -44,9 +49,35 @@ class User
     @new_user_sub_name = nil
     @new_shirt_size= nil
     @new_rebill_date= nil
+    @need_sub = true
+    @plan_months = 0
+    @rebill_date_db = nil
+  end
+
+
+  def configure_from_input(input_hash)
+    input_hash.each do |k,v|
+      self.instance_variable_set('@'+ k, v)
+    end
+    target_plan(@plan_months)
+    @shirt_size = scrub_shirt_size(@shirt_size)
+    @rebill_date_db = scrub_rebill_date(@rebill_date_db)
+  end
+
+  def need_sub?
+    @need_sub
+  end
+
+  def scrub_rebill_date(str)
+    r = /\d\d\d\d-\d\d-\d\d/
+    x = r.match(str)
+    dt = Date.parse(x[0])
+    final = dt.strftime('%B') + " " + dt.strftime('%d') + ", " + dt.strftime('%Y')
+    final
   end
 
   def target_plan(months)
+    months = word_for_digits(months) if months.to_i.to_s == months
     months.strip!
     case months
     when "one"
@@ -62,6 +93,15 @@ class User
 
   def set_full_name
     @full_name = @first_name + " " + @last_name
+  end
+
+  def scrub_shirt_size(str)
+    if str.include?("-")
+      return str
+    else
+      s = str.include?("W") ? str.gsub("W", "Womens - "): str.gsub("M ", "Mens - ")
+      return  s
+    end
   end
 
   def get_display_shirt_size(size)
@@ -203,6 +243,12 @@ class User
        end
      end
      assert_text(target_content)
+  end
+
+  def word_for_digits(i)
+    words = ["zero", "one", "two", "three", "four", 
+             "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve"]
+    words[i.to_i]
   end
 
   def upgrade_plan(months)

@@ -6,31 +6,13 @@ end
 
 Given /^an? (.*) user with (.*)/ do |user_type, with_args|
   with_args.strip!
-  parsed_args = $test.parse_with_args(with_args)
   $test.configure_user(user_type.strip, with_args)
-  case parsed_args
-  when :registered_with_active
-    step "create a random month subscription"
-  when :one_month
-    step "create a one month subscription"
-  when :canceled
-    step "create a one month subscription"
-    step "an admin user with access to their info"
-    step "the user visits the admin page"
-    step "logs in as an admin"
-    step "performs an immediate cancellation on the user account"
-    step "logs out of admin"
-    $test.set_subject_user
-  when :multi_use_promo
-    step "an admin user with access to their info"
-    step "the user visits the admin page"
-    step "logs in as an admin"
-    $test.current_page.click_promotions
-    $test.current_page = AdminPromotionsPage.new
-    promo_code = $test.current_page.create_promotion
-    step "logs out of admin"
-    $test.set_subject_user
-    $test.user.coupon_code = promo_code
+  parsed_args = $test.user.trait
+  if $test.user.need_sub?
+    sl = StepList.new(parsed_args)
+    sl.each do |s|
+      step s
+    end
   end
 end
 
@@ -61,7 +43,8 @@ When /the user logs (.*)$/ do |in_out|
 end
 
 When /^the user selects a (.*) month subscription plan/ do |months|
-  $test.current_page.select_plan(months)
+  m = $test.current_page.select_plan(months)
+  $test.user.target_plan(m)
 end 
 
 When /^the user submits (.*?) information/ do |arg_string|
@@ -88,6 +71,16 @@ When /^the user edits their (.*)$/ do |info|
     $test.current_page.fill_in_shipping_city(sub_id, Faker::Address.city)
     $test.current_page.fill_in_shipping_zip(sub_id, Faker::Address.zip_code)
     $test.current_page.select_shipping_state(sub_id, Faker::Address.state_abbr)
+    $test.current_page.click_update
+  when 'billing information'
+    $test.current_page.edit_billing_info(sub_id)
+    $test.current_page.fill_in_cc_name(sub_id, Faker::Name.name)
+    $test.current_page.fill_in_cc_number($test.user.cc)
+    $test.current_page.fill_in_cvv_number($test.user.cvv)
+    $test.current_page.fill_in_billing_address_1(sub_id, Faker::Address.street_address)
+    $test.current_page.fill_in_billing_city(sub_id, Faker::Address.city)
+    $test.current_page.select_billing_state(sub_id, Faker::Address.state_abbr)
+    $test.current_page.fill_in_billing_zip(sub_id, Faker::Address.zip_code)
     $test.current_page.click_update
   end
 end
@@ -157,6 +150,13 @@ Then /^the updated shipping information should be reflected when the user views 
   step "the user logs in"
   step "the user visits the my account page"
   $test.current_page.shipping_info_updated?
+end
+
+Then (/^the billing address change should be reflected in the user account$/) do
+  step "the user visits the home page"
+  step "the user logs in"
+  step "the user visits the my account page"
+  $test.current_page.billing_info_updated? 
 end
 
 Then /the updated information should be reflected when the user views their info/ do

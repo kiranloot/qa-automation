@@ -7,7 +7,11 @@ class HRedis
   def initialize
     @site = ENV['SITE']
     @url = send("url_#{@site}")
-    uri = URI.parse(url)
+    @uri = URI.parse(url)
+  end
+  
+  def connect
+    uri = @uri
     @redis = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
   end
 
@@ -88,7 +92,11 @@ class HRedis
   end
 
   def kill_wait_set
-    del(wait_set)
+    del(wait_set) if exists(wait_set)
+  end
+  
+  def quit
+    @redis.quit
   end
 
 end
