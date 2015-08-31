@@ -90,6 +90,10 @@ When /performs an immediate cancellation on the user account/ do
   $test.current_page.admin_cancel_immediately
 end
 
+When /searches for the user's address info by email/ do
+  $test.current_page.click_addresses
+end
+
 
 #THENS
 Then /the subscription should have a status of (.*) in the admin panel/ do |status|
