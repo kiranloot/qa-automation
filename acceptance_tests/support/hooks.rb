@@ -44,7 +44,6 @@ Before do
   visit $env_base_url
   $test = Test.new( test_data, HomePage.new, pages, DBCon.new)
   $test.user = User.new($test)
-  $recurly = RecurlyAPI.new
 end
 
 After do

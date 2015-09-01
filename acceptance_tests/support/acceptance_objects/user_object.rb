@@ -9,7 +9,7 @@ class User
 
   attr_accessor :email, :password, :street, :city, :ship_state, :ship_zip, :zip, 
     :first_name, :last_name, :full_name, :shirt_size, :display_shirt_size, :new_shirt_size, 
-    :cc, :cvv, :ship_street, :ship_city, :affiliate, :coupon_code, :discount_applied, :subject_user, 
+    :cc, :cvv, :ship_street, :ship_street_2, :ship_city, :affiliate, :coupon_code, :discount_applied, :subject_user, 
     :subscription_name, :level_up_subscription_name, :new_user_sub_name,:new_rebill_date, :bill_zip,
     :bill_city, :bill_street, :bill_street_2, :bill_state, :need_sub, :rebill_date_db, :last_four, :trait,
     :country_code
@@ -106,6 +106,11 @@ class User
     end
   end
 
+  def group_shipping_info
+    #NOT FINISHED
+    s_info = { ship_street: @ship_street, ship_street_2: @ship_street_2 }
+  end
+
   def get_display_shirt_size(size)
     match_data = /^(.{1}).*-\s(.*)$/.match(size)
     match_data[1] + " " + match_data[2]
@@ -131,15 +136,21 @@ class User
   def save!
    puts "SAVE FUNCTION IS PLACEHOLDER!!!" 
   end
-  
-  def submit_subscription_info
+
+  def enter_shirt_size
     page.find(@test.test_data["locators"]["shirt_dd"])
     page.find(@test.test_data["locators"]["shirt_dd"]).click
     wait_for_ajax
     page.find(@test.test_data["locators"]["shirt_size"]).native.send_keys(@shirt_size)
     page.find(@test.test_data["locators"]["shirt_size"]).native.send_key(:enter)
+  end
+
+  def enter_first_and_last
     fill_in(@test.test_data["locators"]["first_name"], :with => @first_name)
     fill_in(@test.test_data["locators"]["last_name"], :with => @last_name)
+  end
+
+  def enter_shipping_info
     fill_in(@test.test_data["locators"]["ship_street"], :with => @ship_street)
     unless @ship_street_2.nil?
       fill_in(@test.test_data["locators"]["ship_street_2"], :with => @ship_street_2)
@@ -150,8 +161,9 @@ class User
     page.find(@test.test_data["locators"]["ship_state"]).native.send_keys(@ship_state)
     page.find(@test.test_data["locators"]["ship_state"]).native.send_key(:enter)
     fill_in(@test.test_data["locators"]["ship_zip"], :with => @ship_zip)
-    submit_credit_card_information
-    unless @use_shipping
+  end
+
+  def enter_billing_info
       click_button(@test.test_data["locators"]["billing_cb"])
       fill_in(@test.test_data["locators"]["bill_street"], :with => @bill_street)
       fill_in(@test.test_data["locators"]["bill_city"], :with => @bill_city)
@@ -160,12 +172,25 @@ class User
       page.find(@test.test_data["locators"]["bill_state"]).native.send_keys(@bill_state)
       page.find(@test.test_data["locators"]["bill_state"]).native.send_key(:enter)
       fill_in(@test.test_data["locators"]["bill_zip"], :with => @bill_zip)
-    end
-    unless @coupon_code.nil?
+  end
+
+  def enter_coupon_info
       find(:id, 'coupon-checkbox').click
       fill_in(@test.test_data["locators"]["coupon_code"], :with => @coupon_code)
       page.find_button("validate-coupon").click
       @discount_applied = page.has_content?("Coupon valid: save $")
+  end
+  
+  def submit_subscription_info
+    enter_shirt_size
+    enter_first_and_last
+    enter_shipping_info
+    submit_credit_card_information
+    unless @use_shipping
+    enter_billing_info
+    end
+    unless @coupon_code.nil?
+      enter_coupon_info
     end
     if @ship_state == "CA"
       if page.has_content?("Sales Tax CA")
@@ -173,6 +198,7 @@ class User
       end
     end
     click_button(@test.test_data["locators"]["checkout_btn"])
+    wait_for_ajax
     if @cc == '4111111111111111'
       assert_text('Thank you for subscribing!')
     end

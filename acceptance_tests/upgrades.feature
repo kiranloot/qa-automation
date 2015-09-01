@@ -1,6 +1,6 @@
 @core @regression @selenium
 Feature: Subscription Upgrades
-    @ready
+    @ready @recurly
     Scenario: User upgrades from one month to three month subscription plan
         Given a registered user with a one month subscription
             When the user logs in 
