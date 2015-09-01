@@ -1,6 +1,6 @@
 @core @regression @cancellation @selenium
 Feature: Subscription Cancellation
-    @ready @gp
+    @ready @gp @recurly
     Scenario: Subscriber cancels a subscription
         Given a registered user with an active subscription
             When the user logs in
@@ -10,7 +10,7 @@ Feature: Subscription Cancellation
             And the user should receive a subscription cancellation email
             And the recurly subscription should be canceled
 
-    @ready
+    @ready @recurly
     Scenario: Cancel immediately through admin
         Given a registered user with an active subscription
             And an admin user with access to their info

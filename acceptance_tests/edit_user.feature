@@ -1,6 +1,6 @@
 @core @regression @account @selenium
 Feature: User Detail Editing
-    @ready
+    @ready @recurly
     Scenario: The user edits their subscription's shipping address
         Given a registered user with an active subscription
             When the user logs in
@@ -10,7 +10,7 @@ Feature: User Detail Editing
             And the correct subscription information should be displayed in the admin panel
 
 
-    @ready
+    @ready @recurly
     Scenario: The user edits their subscription's billing address
         Given a registered user with an active subscription
             When the user logs in

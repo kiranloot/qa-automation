@@ -6,7 +6,7 @@ Feature: Level Up
             When the user logs in
             Then the user should see the Level Up link
 
-    @ready
+    @ready @recurly
     Scenario: A user with an active subscription can add a one month sock subscription
         Given a registered user with an active subscription
         And The socks level up product is available
@@ -18,7 +18,7 @@ Feature: Level Up
             And the user should receive a level up email
             And recurly should have a one month subscription for the socks crate
 
-    @ready
+    @ready @recurly
     Scenario: A user with an active subscription can add a six month accessory subscription
         Given a registered user with an active subscription
         And The accessory level up product is available
