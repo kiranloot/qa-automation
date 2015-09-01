@@ -42,6 +42,12 @@ class AdminPage < Page
     wait_for_ajax
   end
 
+  def click_addresses
+    find_link("More").hover
+    find_link("Addresses").click
+    wait_for_ajax
+  end
+
   def admin_log_out
     find_link("Logout").click
     wait_for_ajax

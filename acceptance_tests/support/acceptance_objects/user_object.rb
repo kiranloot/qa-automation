@@ -11,7 +11,8 @@ class User
     :first_name, :last_name, :full_name, :shirt_size, :display_shirt_size, :new_shirt_size, 
     :cc, :cvv, :ship_street, :ship_city, :affiliate, :coupon_code, :discount_applied, :subject_user, 
     :subscription_name, :level_up_subscription_name, :new_user_sub_name,:new_rebill_date, :bill_zip,
-    :bill_city, :bill_street, :bill_street_2, :bill_state, :need_sub, :rebill_date_db, :last_four, :trait
+    :bill_city, :bill_street, :bill_street_2, :bill_state, :need_sub, :rebill_date_db, :last_four, :trait,
+    :country_code
 
   @@sizes = {"male" =>  {0 => "Mens - S", 1 => "Mens - M", 2 => "Mens - L", 3 => "Mens - XL", 
                          4 => "Mens - XXL", 5 => "Mens - XXXL" },
@@ -52,6 +53,7 @@ class User
     @need_sub = true
     @plan_months = 0
     @rebill_date_db = nil
+    @country_code
   end
 
 
