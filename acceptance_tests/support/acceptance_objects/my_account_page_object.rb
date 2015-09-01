@@ -246,7 +246,7 @@ class MyAccountPage < Page
 
   def edit_subscription_info(sub_id)
     go_to_subscriptions
-    find(:css,"#edit-heading-one#{sub_id} > i").click
+    find(:css,"#panel-one-cog-#{sub_id}-lnk > i").click
     find_link("Edit").click
   end
 
@@ -268,7 +268,7 @@ class MyAccountPage < Page
     go_to_subscriptions
     open_shipping_tab
     sleep(1)
-    find(:css, "#edit-heading-three#{sub_id} > i").click
+    find(:css, "#panel-three-cog-#{sub_id}-lnk > i").click
     find_link("Edit").click
   end
 
@@ -309,7 +309,7 @@ class MyAccountPage < Page
     go_to_subscriptions
     open_payment_tab 
     sleep(1)
-    find(:css, "#edit-heading-two#{sub_id} > i").click
+    find(:css, "#panel-two-cog-#{sub_id}-lnk > i").click
     find_link("Edit").click
   end
 
