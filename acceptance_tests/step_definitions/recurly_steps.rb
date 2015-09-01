@@ -16,5 +16,9 @@ Then(/^the recurly subscription should be (.*)$/) do |status|
 end
 
 Then(/^the recurly billing address should be updated$/) do
-  $recurly.verify_billing
+  $recurly.verify_billing_address
+end
+
+Then(/^the recurly shipping address should be updated$/) do
+  $recurly.verify_shipping_address
 end

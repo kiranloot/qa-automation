@@ -6,7 +6,9 @@ Feature: User Detail Editing
             When the user logs in
             And the user edits their shipping address
         Then the updated shipping information should be reflected when the user views the subscription
+            And the recurly shipping address should be updated
             And the correct subscription information should be displayed in the admin panel
+
 
     @ready
     Scenario: The user edits their subscription's billing address
@@ -14,7 +16,9 @@ Feature: User Detail Editing
             When the user logs in
             And the user edits their billing information
         Then the billing address change should be reflected in the user account
+            And the recurly billing address should be updated
             And the correct subscription billing information should be displayed in the admin panel
+            
 
     @ready
     Scenario: The user edits their subscription's subscription info
