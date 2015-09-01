@@ -90,8 +90,10 @@ When /performs an immediate cancellation on the user account/ do
   $test.current_page.admin_cancel_immediately
 end
 
-When /searches for the user's address info by email/ do
+When /searches for the user's address info by full name/ do
   $test.current_page.click_addresses
+  $test.current_page = AdminAddressPage.new
+  $test.current_page.search_address_by_full_name($test.user.subject_user.full_name)
 end
 
 
@@ -118,7 +120,7 @@ Then /^the updated information should be reflected when the admin views the user
   $test.current_page.user_information_displayed?
 end
 
-Then(/^the subscription information change should be reflected in the admin panel$/) do
+Then (/^the subscription information change should be reflected in the admin panel$/) do
   step "an admin user with access to their info"
   step "the user visits the admin page"
   step "logs in as an admin"
@@ -145,4 +147,8 @@ Then (/^the correct subscription billing information should be displayed in the 
   $test.current_page = AdminSubscriptionsPage.new
   $test.current_page.show_subscription
   $test.current_page.sub_billing_information_displayed? 
+end
+
+Then /the user's address info should be correctly displayed/ do
+  $test.current_page.address_info_displayed?($test.user.subject_user)
 end

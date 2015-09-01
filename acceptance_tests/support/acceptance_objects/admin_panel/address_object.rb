@@ -1,3 +1,0 @@
-class AdminAddressPage < Page
-
-end
