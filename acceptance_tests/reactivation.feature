@@ -1,6 +1,6 @@
 @core @regression @selenium
 Feature: Subscription reactivation
-    @ready
+    @ready @recurly
     Scenario: User reactivates cancelled subscription
         Given a registered user with a canceled subscription
             When the user logs in

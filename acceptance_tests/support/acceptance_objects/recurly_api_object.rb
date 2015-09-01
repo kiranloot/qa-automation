@@ -39,12 +39,21 @@ class RecurlyAPI
     expect(account.subscriptions.first.state).to eq(status)
   end
 
-  def verify_billing
+  def verify_billing_address
     account = get_account
-    expect(account.address[:address1]).to eq($test.user.bill_street)
-    expect(account.address[:address2]).to eq($test.user.bill_street2)
-    expect(account.address[:city]).to eq($test.user.bill_city)
-    expect(account.address[:zip]).to eq($test.user.bill_zip)
+    info = account.billing_info
+    expect(info[:address1]).to eq($test.user.bill_street)
+    expect(info[:address2] || "").to eq($test.user.bill_street_2 || "")
+    expect(info[:city]).to eq($test.user.bill_city)
+    expect(info[:zip]).to eq($test.user.bill_zip)
+  end
+
+  def verify_shipping_address
+    account = get_account
+    expect(account.address[:address1]).to eq($test.user.ship_street)
+    expect(account.address[:address2] || "").to eq($test.user.ship_street_2 || "")
+    expect(account.address[:city]).to eq($test.user.ship_city)
+    expect(account.address[:zip]).to eq($test.user.ship_zip)
   end
 
   def get_subscription_info
