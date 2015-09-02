@@ -29,3 +29,11 @@ Feature: Level Up
         Then the new level up subscription should be added to the user account
             And the user should receive a level up email
             And recurly should have a six month subscription for the accessory crate
+
+    @ready
+    Scenario: When level up inventory is gone the site should reflect the sell out
+        Given a registered user with an active subscription
+        And The socks level up product is sold out
+            When the user logs in
+            And the user visits the level up page
+        Then the socks crate should be sold out
