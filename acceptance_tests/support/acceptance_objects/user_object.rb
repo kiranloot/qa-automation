@@ -232,7 +232,18 @@ class User
     wait_for_ajax
   end
 
+  def wait_for_level_up_autofill(numberof = 5)
+    numberof.times do
+      if find(:id, @test.test_data["locators"]["ship_zip"]).value == @ship_zip
+        break
+      else
+        sleep(1)
+      end
+    end
+  end
+
   def submit_levelup_subscription_info
+    wait_for_level_up_autofill
     submit_credit_card_information
     click_button(@test.test_data["locators"]["checkout_btn"])
     wait_for_ajax
