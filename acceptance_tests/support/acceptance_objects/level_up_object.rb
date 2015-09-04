@@ -10,8 +10,6 @@ include Capybara::DSL
   end
 
   def scroll_to(product)
-    div_id = product + '-crate'
-    dd_id = 's2id_' + div_id
     find_link(product).click
     sleep(1)
   end
@@ -21,6 +19,8 @@ include Capybara::DSL
     $test.user.target_level_up_plan(product,months)
     scroll_to(product)
     #click on dropdown
+    div_id = product + '-crate'
+    dd_id = 's2id_' + div_id
     find(:id,dd_id).click
     wait_for_ajax
     case months
