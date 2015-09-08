@@ -123,7 +123,7 @@ class UserGen
   def get_user_from_db(type, trait)
     db = DBCon.new
     db.respond_to?(trait) ? result = db.send(trait) : result = nil
-    if result
+    if result && result["email"] != nil
       u = User.new($test)
       u.configure_from_input(result)
       u.need_sub = false
