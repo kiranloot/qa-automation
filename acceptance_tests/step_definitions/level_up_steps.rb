@@ -7,3 +7,6 @@ Then /the new level up subscription should be added to the user account/ do
   $test.current_page.verify_levelup_subscription_added
 end
 
+Then /the (.*) crate should be sold out/ do |product|
+  $test.current_page.sold_out?(product)
+end

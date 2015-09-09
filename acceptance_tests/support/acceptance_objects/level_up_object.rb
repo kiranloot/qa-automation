@@ -9,14 +9,18 @@ include Capybara::DSL
     setup
   end
 
+  def scroll_to(product)
+    find_link(product).click
+    sleep(1)
+  end
+
   def select_level_up(product,months,size = nil)
     #determine scroll distance and div to look at
     $test.user.target_level_up_plan(product,months)
+    scroll_to(product)
+    #click on dropdown
     div_id = product + '-crate'
     dd_id = 's2id_' + div_id
-    find_link(product).click
-    sleep(1)
-    #click on dropdown
     find(:id,dd_id).click
     wait_for_ajax
     case months
@@ -45,5 +49,11 @@ include Capybara::DSL
     end
     actual_cost = find(:id,div_id).find(:div,'p.total-cost').text
     expect(actual_cost).to eq(expected_cost)
+  end
+
+  def sold_out?(product)
+    scroll_to(product) 
+    expect(page).to have_css("##{product}-crate h3.soldout")
+    expect(page).to have_css("##{product}-crate a.soldout-description")
   end
 end
