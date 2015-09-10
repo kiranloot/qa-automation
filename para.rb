@@ -16,11 +16,11 @@ if args
   args.each do |arg|
     m = arg[/[^=]+/]
     p = arg.partition('=').last
-    send("#{m}",['#{p}'])
+    send("#{m}", p)
  end
 end
 
-command = 'Site=#{@SITE} DRIVER=#{@DRIVER} parallel_cucumber -o "--tags @ready" -n 4 acceptance_tests --serialize-stdout'
+command = "SITE=#{@SITE} DRIVER=#{@DRIVER} parallel_cucumber -o '--tags @ready' -n 4 acceptance_tests --serialize-stdout"
 puts command
 
 Process.spawn(command)

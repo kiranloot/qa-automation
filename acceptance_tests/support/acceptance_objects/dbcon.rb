@@ -268,7 +268,12 @@ end
 
 @redis.clear_wait
 @redis.quit
-return ret_hash
+if ret_hash["email"] == nil
+  return nil
+else
+  return ret_hash
+end
+
 end
 
 end
