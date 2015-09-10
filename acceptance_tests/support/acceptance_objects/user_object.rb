@@ -310,7 +310,7 @@ class User
    page.find_button("account-section-menu").click
    click_link("Subscriptions")
    click_link("Upgrade")
-   select(upgrade_plan_target.subscription_name, :from => @test.test_data['locators']['upgrade_select'])
+   select(upgrade_plan_target.subscription_display_name, :from => @test.test_data['locators']['upgrade_select'])
    click_button("SUBMIT")
    wait_for_ajax
    @subscription_name = upgrade_plan_target.subscription_display_name
