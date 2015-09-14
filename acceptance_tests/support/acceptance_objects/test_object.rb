@@ -187,7 +187,7 @@ class Test
  def affiliate_working?
    visit_page(:home)
    @current_page.visit_with_affiliate(@affiliate.name)
-   expect(current_url).to eq("https:" + @affiliate.redirect_url)
+   expect(current_url).to match(/#{@affiliate.redirect_url_escaped}/)
  end
 
  def affiliate_created?
