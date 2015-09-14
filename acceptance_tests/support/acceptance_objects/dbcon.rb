@@ -213,12 +213,16 @@ with actives AS(
 select u.email as email, s.user_id, s.subscription_status as status, 
 s.cancel_at_end_of_period as eop, s.id as subs,
 s.next_assessment_at as rebill, 
-a.flagged_invalid_at as flagged
+sa.flagged_invalid_at as flagged,
+ba.state as billing_state,
+ba.zip as billing_zip
 from users u
 inner join subscriptions s
 on s.user_id = u.id
-inner join addresses a
-on s.shipping_address_id = a.id
+inner join addresses sa
+on s.shipping_address_id = sa.id
+inner join addresses ba
+on s.billing_address_id = ba.id
 where s.cancel_at_end_of_period is null
 and s.created_at::date < '#{t}'::date
 and s.updated_at::date < '#{t}'::date
@@ -228,7 +232,7 @@ and email like '\\_%'
 sc AS(select email, count(subs) as c from actives
 group by email),
 
-info AS(select email, subs, rebill, status, flagged from actives)
+info AS(select email, subs, rebill, status, flagged, billing_state, billing_zip from actives)
 
 select sc.email, c, i.subs, i.rebill from sc 
 inner join info i on i.email = sc.email
@@ -236,8 +240,9 @@ where c = 1
 and i.status = 'active'
 and i.flagged is NULL
 and i.email not like '_updated%'
+and i.billing_state = 'CA'
+and i.billing_zip = '90210'
 limit 1
-
 """
 q
 end
