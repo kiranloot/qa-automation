@@ -214,6 +214,8 @@ select u.email as email, s.user_id, s.subscription_status as status,
 s.cancel_at_end_of_period as eop, s.id as subs,
 s.next_assessment_at as rebill, 
 sa.flagged_invalid_at as flagged,
+sa.state as shipping_state,
+sa.zip as shipping_zip,
 ba.state as billing_state,
 ba.zip as billing_zip
 from users u
@@ -227,19 +229,21 @@ where s.cancel_at_end_of_period is null
 and s.created_at::date < '#{t}'::date
 and s.updated_at::date < '#{t}'::date
 and email like '\\_%' 
+and email not like '_updated%' 
 ),
 
 sc AS(select email, count(subs) as c from actives
 group by email),
 
-info AS(select email, subs, rebill, status, flagged, billing_state, billing_zip from actives)
+info AS(select email, subs, rebill, status, flagged, shipping_state, shipping_zip, billing_state, billing_zip from actives)
 
 select sc.email, c, i.subs, i.rebill from sc 
 inner join info i on i.email = sc.email
 where c = 1
 and i.status = 'active'
 and i.flagged is NULL
-and i.email not like '_updated%'
+and i.shipping_state = 'CA'
+and i.shipping_zip = '90210'
 and i.billing_state = 'CA'
 and i.billing_zip = '90210'
 limit 1
