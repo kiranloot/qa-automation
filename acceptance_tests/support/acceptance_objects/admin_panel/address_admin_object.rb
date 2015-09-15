@@ -14,17 +14,43 @@ class AdminAddressPage < AdminPage
     wait_for_ajax
   end
 
+  def search_address_by_line_1(line)
+    page.find('#q_line_1').set(line)
+    sleep(0.5)
+    click_filter
+    wait_for_ajax
+  end
+
   def click_filter
     page.find_button('Filter').click
   end
 
   def address_info_displayed?(user)
     wait_for_ajax
-    assert_text(user.bill_zip)
-    assert_text(user.bill_street)
-    assert_text(user.bill_city)
-    assert_text(user.full_name)
-    assert_text(user.country_code)
+    data = [user.bill_zip, user.bill_street, user.bill_city,
+            user.full_name, user.country_code]
+    all_data_present = nil
+
+    data.each do |v|
+      all_data_present = page.has_content?(v)
+    end
+
+    if !all_data_present
+      click_next
+      wait_for_ajax
+      return address_info_displayed?(user)
+    else
+      all_data_present
+    end
+
+  end
+
+  def pagination_available?
+    page.find_link('Next ›').visible?
+  end
+
+  def click_next
+    page.find_link('Next ›').click
   end
 
 end

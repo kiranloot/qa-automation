@@ -91,9 +91,18 @@ When /performs an immediate cancellation on the user account/ do
 end
 
 When /searches for the user's address info by full name/ do
+  step "clicks over to addresses tab"
+  $test.current_page.search_address_by_full_name($test.user.subject_user.full_name)
+end
+
+When /clicks over to addresses tab/ do
   $test.current_page.click_addresses
   $test.current_page = AdminAddressPage.new
-  $test.current_page.search_address_by_full_name($test.user.subject_user.full_name)
+end
+
+When /searches for the user's address info by address line 1/ do
+  step "clicks over to addresses tab"
+  $test.current_page.search_address_by_line_1($test.user.subject_user.ship_street)
 end
 
 

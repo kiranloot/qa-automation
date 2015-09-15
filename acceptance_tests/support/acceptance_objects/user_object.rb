@@ -64,6 +64,7 @@ class User
     target_plan(@plan_months)
     @shirt_size = scrub_shirt_size(@shirt_size)
     @rebill_date_db = scrub_rebill_date(@rebill_date_db)
+    set_full_name
   end
 
   def need_sub?
