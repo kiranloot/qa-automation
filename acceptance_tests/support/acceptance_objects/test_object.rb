@@ -85,8 +85,12 @@ class Test
    @current_page = SignupPage.new
    @current_page.visit_page
    if $test.db.user_exists?($test.user.email)
-     page.find(:xpath, @test_data["locators"]["flip_member"]).click 
+     sleep(1)
+     find(:css, '#new-customer-container span.goOrange').click 
      wait_for_ajax
+     unless (page.has_css?('#user_email'))
+       find(:css, '#new-customer-container span.goOrange').click 
+     end
      enter_login_info
    else 
      enter_email
