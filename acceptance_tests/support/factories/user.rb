@@ -59,6 +59,9 @@ FactoryGirl.define do
     trait :multi_use_promo do
       coupon_code  {$test.test_data["promos"]["multi_use"]}
     end
+    trait :one_time_use_promo do
+      coupon_code  {$test.test_data["promos"]["multi_use"]}
+    end
   end
 
  end

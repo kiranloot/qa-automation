@@ -26,7 +26,15 @@ class StepList
     "the user visits the admin page",
     "logs in as an admin",
     "the admin user navigates to the admin promotions page",
-    "admin creates a new promotion and passes to user"]
+    "admin creates a new multi use promotion and passes to user"]
+  end
+
+  def one_time_use_promo
+    ["an admin user with access to their info",
+    "the user visits the admin page",
+    "logs in as an admin",
+    "the admin user navigates to the admin promotions page",
+    "admin creates a new one time use promotion and passes to user"]
   end
 
   def canceled

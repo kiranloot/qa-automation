@@ -85,6 +85,10 @@ class UserGen
     :multi_use_promo
   end
 
+  def a_one_time_use_promo_code
+    :one_time_use_promo
+  end
+
   def months(number)
     (number + "_month").to_sym
   end
