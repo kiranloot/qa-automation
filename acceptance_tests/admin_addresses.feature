@@ -1,6 +1,6 @@
 @selenium @regression
 Feature: Admin adressess page
-    @c
+    @ready
     Scenario: Admin user can search for a user address by first and last name successfully
         Given a registered user with an active subscription
             And an admin user with access to their info
