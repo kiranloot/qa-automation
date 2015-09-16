@@ -171,6 +171,7 @@ def plan_months_query(sub_id)
   where id in (select plan_id from
   subscriptions where id = '#{sub_id}')
   """
+  q
 end
 
 def billing_from_hash(h)
@@ -182,6 +183,8 @@ def billing_from_hash(h)
       h["bill_state"] = row["state"]
       h["bill_city"] = row["city"]
       h["bill_zip"] = row["zip"]
+      h["first_name"] = row["first_name"]
+      h["last_name"] = row["last_name"]
     end
   end
 end
