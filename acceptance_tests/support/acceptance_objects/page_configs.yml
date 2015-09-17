@@ -9,7 +9,7 @@ staging:
  admin: "https://lootcrate-staging-admin.herokuapp.com/admin/login"
 goliath:
  prefix: "https://lootcrate-goliath.herokuapp.com"
- admin: "https://lootcrate-goliath-admin.herokuapp.com"
+ admin: "https://lootcrate-goliath-admin.herokuapp.com/admin/login"
 local:
  prefix: "localhost:3000"
 home:
