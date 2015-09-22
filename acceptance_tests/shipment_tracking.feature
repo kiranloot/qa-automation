@@ -1,6 +1,6 @@
 @regression @core @tracking @selenium
 Feature: Displaying shipment tracking information
-    @indev
+    @ready
     Scenario: Registered user with an active subscription is able to view their tracking information
         Given a registered user with an active subscription with tracking information
             When the user logs in
