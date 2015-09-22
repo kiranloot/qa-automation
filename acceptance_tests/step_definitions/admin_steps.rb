@@ -161,3 +161,13 @@ end
 Then /the user's address info should be correctly displayed/ do
   $test.current_page.address_info_displayed?($test.user.subject_user)
 end
+
+Then /the shipment tracking information should be visible via the admin panel/ do
+  step "an admin user with access to their info"
+  step "the user visits the admin page"
+  step "logs in as an admin"
+  $test.current_page.click_subscriptions
+  $test.current_page = AdminSubscriptionsPage.new
+  $test.current_page.show_subscription
+  $test.current_page.sub_tracking_information_displayed? 
+end

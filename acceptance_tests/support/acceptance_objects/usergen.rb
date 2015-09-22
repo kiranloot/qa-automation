@@ -105,6 +105,10 @@ class UserGen
     :registered_with_active
   end
 
+  def an_active_subscription_with_tracking_information
+    :registered_with_active_and_tracking
+  end
+
   def simple_registered
     FactoryGirl.build(:user, :registered)
   end

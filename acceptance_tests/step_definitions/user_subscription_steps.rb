@@ -166,3 +166,6 @@ Then /the updated information should be reflected when the user views their info
   $test.current_page.verify_user_information
 end
 
+Then /^the user should be able to see their shipment tracking information$/ do
+  $test.current_page.tracking_info_displayed?
+end

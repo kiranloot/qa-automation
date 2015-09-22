@@ -131,4 +131,8 @@ class AdminSubscriptionsPage < AdminPage
     assert_text($test.user.new_user_sub_name)
     assert_text($test.user.shirt_size)
   end
+
+  def sub_tracking_information_displayed?
+    assert_text('ABC123')
+  end
 end
