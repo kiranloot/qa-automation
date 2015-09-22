@@ -15,18 +15,14 @@ ENV['SITE'] ||= 'qa'
 env = ENV['SITE']
 if env == 'qa'
   $env_base_url = "http://lootcrate-qa.herokuapp.com/?username=lootcrateis25timesgreaterthanthecompetition"
-  $app = "lootcrate-qa"
 elsif env == 'qa2'
   $env_base_url = "http://lootcrate-qa2.herokuapp.com/?username=lootcrateis25timesgreaterthanthecompetition"
-  $app = "lootcrate-qa2"
 elsif env =='staging'
   $env_base_url = "http://lootcrate-staging.herokuapp.com/?username=lootcrateis25timesgreaterthanthecompetition"
-  $app = "lootcrate-staging"
 elsif env == 'local'
   $env_base_url = 'localhost:3000'
 elsif env == 'goliath'
   $env_base_url = 'http://lootcrate-goliath.herokuapp.com/?username=lootcrateis25timesgreaterthanthecompetition'
-  $app = "lootcrate-goliath"
 else
 
 end
