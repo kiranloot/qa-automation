@@ -28,3 +28,5 @@ recurly:
  url: "https://recurly.com"
 level_up:
  url: "/level_up"
+fallout4:
+ url: "/fallout4"

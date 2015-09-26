@@ -3,7 +3,7 @@ require 'rspec/matchers'
 require 'pry'
 require_relative 'wait_module'
 class Page
-  attr_accessor :base_url
+  attr_accessor :base_url, :page_type
   require 'yaml'
   include Capybara::DSL
   include RSpec::Matchers

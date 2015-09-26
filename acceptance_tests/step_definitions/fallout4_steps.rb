@@ -4,10 +4,10 @@ When /^the user registers on the fallout4 page$/ do
 end
 
 When /^the user clicks on the buy now button$/ do
-  $test.curent_page.click_buy_now
+  $test.current_page.click_buy_now
 end
 
-When /^the user submits valid fallout4 subscription informaiton$/ do
+When /^the user submits fallout4 subscription info$/ do
   $test.current_page.submit_valid_fallout4_information
 end
 

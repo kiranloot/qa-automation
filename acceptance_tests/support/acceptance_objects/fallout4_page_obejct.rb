@@ -17,18 +17,13 @@ include WaitForAjax
   end
 
   def click_buy_now
-    find_link("Buy Now").click
+    first(:link, "Buy Now").click
     wait_for_ajax
   end
 
   def submit_valid_fallout4_information
     $test.user.shirt_size = 'Unisex - M'
-    $test.user.enter_shirt_size
-    $test.user.enter_first_and_last
-    $test.user.submit_credit_card_information
-    $test.user.enter_shipping_info
-    click_button('checkout')
-    wait_for_ajax
+    $test.user.submit_subscription_info
   end
 
   def fallout4_confirmation_displayed?
