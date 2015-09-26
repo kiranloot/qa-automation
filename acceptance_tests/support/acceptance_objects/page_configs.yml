@@ -1,6 +1,6 @@
 qa: 
  prefix: "https://lootcrate-qa.herokuapp.com"
- admin: "https://loot-qa-admin.herokuapp.com/admin/login"
+ admin: "https://loot-admin-qa.herokuapp.com/admin/login"
 qa2:
  prefix: "https://lootcrate-qa2.herokuapp.com"
  admin: "https://lootcrate-qa2-admin.herokuapp.com/admin/login"
