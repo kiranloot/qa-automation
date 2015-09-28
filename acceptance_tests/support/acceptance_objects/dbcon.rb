@@ -78,6 +78,17 @@ def user_exists?(user_email)
   results.any?
 end
 
+def poll_for_one_time_coupon_code(promo_id, number_of = 5)
+  query = "select code from coupons where promotion_id = #{promo_id}"
+  number_of.times do
+    results = @conn.exec(query)
+    puts results
+    if results.any?
+      return results[0]['code']
+    end
+    sleep(3)
+  end
+end
 
 #Assumption: We want the newest subscription's recurly information
 def get_recurly_account_id(user_email)
