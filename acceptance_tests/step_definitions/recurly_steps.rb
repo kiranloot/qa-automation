@@ -28,5 +28,5 @@ Then(/^the recurly billing address should have no state$/)do
 end
 
 Then(/^the recurly billing address should have the correct state$/) do
-  $test.recurly.verify_billing_address_has_state($test.user.bill_state)
+  $test.recurly.verify_billing_address_has_state($test.user.ship_state)
 end

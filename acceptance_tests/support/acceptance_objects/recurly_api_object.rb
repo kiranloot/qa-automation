@@ -57,8 +57,8 @@ class RecurlyAPI
   def verify_billing_address_has_state(state)
     account = get_account
     info = account.billing_info
-    expect(info[:state]).not_to be(nil)
-    #expect(info[:state]). to eq(state)
+    #expect(info[:state]).not_to be(nil)
+    expect(info[:state]). to eq(state)
   end
 
   def verify_shipping_address
