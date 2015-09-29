@@ -48,6 +48,19 @@ class RecurlyAPI
     expect(info[:zip]).to eq($test.user.bill_zip)
   end
 
+  def verify_billing_address_has_no_state
+    account = get_account
+    info = account.billing_info
+    expect(info[:state]).to be(nil)
+  end
+
+  def verify_billing_address_has_state(state)
+    account = get_account
+    info = account.billing_info
+    expect(info[:state]).not_to be(nil)
+    #expect(info[:state]). to eq(state)
+  end
+
   def verify_shipping_address
     account = get_account
     expect(account.address[:address1]).to eq($test.user.ship_street)

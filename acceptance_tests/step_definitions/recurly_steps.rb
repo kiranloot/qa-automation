@@ -22,3 +22,11 @@ end
 Then(/^the recurly shipping address should be updated$/) do
   $test.recurly.verify_shipping_address
 end
+
+Then(/^the recurly billing address should have no state$/)do
+  $test.recurly.verify_billing_address_has_no_state
+end
+
+Then(/^the recurly billing address should have the correct state$/) do
+  $test.recurly.verify_billing_address_has_state($test.user.bill_state)
+end

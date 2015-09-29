@@ -318,7 +318,7 @@ class User
   end
 
   def set_country(country, top_bot: nil)
-    country_code = @test.test_data['countries'][country]
+    #country_code = @test.test_data['countries'][country]
     top = true
     if top_bot
       if top_bot == "top"
@@ -330,8 +330,8 @@ class User
       top = [true, false].sample
     end
     page.has_content?("Ship to")
-    first(:link, "Ship to").click
-        click_link(country_code + '-beta')
+    first(:link, "country-selector-lnk").click
+    click_link(country)
   end
 
   def discount_applied?

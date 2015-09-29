@@ -9,4 +9,5 @@ Feature: International Subscriptions
             And the user selects a one month subscription plan
             And the user submits valid subscription information
         Then the new subscription should be added to the user account
+        And the recurly billing address should have no state
         And the user should receive a subscription confirmation email
