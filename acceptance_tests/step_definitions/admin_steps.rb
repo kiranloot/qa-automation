@@ -36,6 +36,7 @@ end
 
 When /logs out of admin/ do
   $test.current_page.admin_log_out
+  step "the user visits the home page"
 end
 
 When /the user creates a new affiliate/ do
