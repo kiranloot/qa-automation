@@ -356,4 +356,10 @@ class MyAccountPage < Page
     wait_for_ajax
     assert_text('updated')
   end
+
+  def tracking_info_displayed?
+    go_to_subscriptions
+    assert_text('Tracking')
+    assert_text('ABC123')
+  end
 end

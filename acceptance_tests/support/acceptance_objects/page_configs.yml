@@ -1,11 +1,15 @@
 qa: 
  prefix: "https://lootcrate-qa.herokuapp.com"
+ app: "lootcrate-qa"
 qa2:
  prefix: "https://lootcrate-qa2.herokuapp.com"
+ app: "lootcrate-qa2"
 staging:
  prefix: "https://lootcrate-staging.herokuapp.com"
+ app: "lootcrate-staging"
 goliath:
  prefix: "https://lootcrate-goliath.herokuapp.com"
+ app: "lootcrate-goliath"
 local:
  prefix: "localhost:3000"
 home:
