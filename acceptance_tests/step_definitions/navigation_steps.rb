@@ -46,7 +46,6 @@ end
 
 When /the user sets their country to (.*)/ do |country|
   country.strip!
-  country.downcase!
   $test.user.set_country(country)
 end
 
