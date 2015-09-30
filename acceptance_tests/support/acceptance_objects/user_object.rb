@@ -200,7 +200,7 @@ class User
     end
     click_button(@test.test_data["locators"]["checkout_btn"])
     wait_for_ajax
-    if @cc == '4111111111111111'
+    if @cc == '4111111111111111' && $test.current_page.page_type != 'fallout4'
       assert_text('Thank you for subscribing!')
     end
   end
