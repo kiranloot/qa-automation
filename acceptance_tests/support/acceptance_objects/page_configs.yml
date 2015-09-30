@@ -1,15 +1,15 @@
 qa: 
  prefix: "https://lootcrate-qa.herokuapp.com"
- app: "lootcrate-qa"
+ admin: "https://loot-admin-qa.herokuapp.com/admin/login"
 qa2:
  prefix: "https://lootcrate-qa2.herokuapp.com"
- app: "lootcrate-qa2"
+ admin: "https://lootcrate-qa2-admin.herokuapp.com/admin/login"
 staging:
  prefix: "https://lootcrate-staging.herokuapp.com"
- app: "lootcrate-staging"
+ admin: "https://lootcrate-staging-admin.herokuapp.com/admin/login"
 goliath:
  prefix: "https://lootcrate-goliath.herokuapp.com"
- app: "lootcrate-goliath"
+ admin: "https://lootcrate-goliath-admin.herokuapp.com/admin/login"
 local:
  prefix: "localhost:3000"
 home:
@@ -26,8 +26,6 @@ my_account:
  url: "/user_accounts"
 mailinator:
  url: "https://mailinator.com"
-admin:
- url: "/admin/login"
 recurly:
  url: "https://recurly.com"
 level_up:
