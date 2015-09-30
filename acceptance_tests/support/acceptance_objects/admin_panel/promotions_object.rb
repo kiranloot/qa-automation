@@ -106,9 +106,20 @@ class AdminPromotionsPage < AdminPage
     end
   end
 
-  def get_one_time_promo_code(rand_code)
+  def view_promo_by_code(code)
+    filter_promo_by_coupon_code(code)
+    find_link('View').click
+    wait_for_ajax
+  end
+
+  def get_promo_id
+    find(:css, 'tr.row-id td').text
+  end
+
+  def get_one_time_promo_code(code)
       click_promotions
-      display_coupons_for_promo_by_prefix(rand_code) 
-      get_first_coupon_code
+      view_promo_by_code(code)
+      promo_id = get_promo_id
+      $test.db.poll_for_one_time_coupon_code(promo_id)
   end
 end
