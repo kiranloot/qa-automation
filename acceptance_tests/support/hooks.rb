@@ -11,8 +11,13 @@ end
 
 ENV['ASPECTOR_LOG_LEVEL'] = 'NONE'
 
-ENV['SITE'] ||= 'qa'
 env = ENV['SITE']
+
+box = Box.new(env)
+
+$env_base_url = box.base_url
+
+=begin
 if env == 'qa'
   $env_base_url = "https://lootcrate-qa.herokuapp.com/?username=lootcrateis25timesgreaterthanthecompetition"
 elsif env == 'qa2'
@@ -28,6 +33,7 @@ elsif env =='loadtest'
 else
 
 end
+=end
 $env_test_data_file_path ||= "acceptance_tests/support/qa_test_data.yml"
 test_data = YAML.load(File.open($env_test_data_file_path))
 pages = {home: HomePage, signup: SignupPage, checkout: CheckoutPage, subscribe: SubscribePage,
@@ -40,7 +46,7 @@ Before do
   page.driver.browser.manage.window.move_to(0, 0)
   page.driver.browser.manage.window.resize_to(1800, 1100)
   visit $env_base_url
-  $test = Test.new( test_data, HomePage.new, pages, DBCon.new)
+  $test = Test.new( test_data, HomePage.new, pages, DBCon.new, box)
   $test.user = User.new($test)
 end
 

@@ -4,6 +4,7 @@ require 'rspec/expectations'
 require 'time'
 
 ENV['RUN_TIMESTAMP'] = Time.now().to_s
+ENV['SITE'] ||= 'qa'
 
 driver = ENV['DRIVER'] ||= 'local'
 browser = ENV['BROWSER'] ||= 'chrome'
