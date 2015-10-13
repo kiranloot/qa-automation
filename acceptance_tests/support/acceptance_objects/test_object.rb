@@ -7,12 +7,12 @@ class Test
  require 'yaml'
  require 'pry'
  require 'faker'
- attr_accessor :user, :pages, :current_page, :test_data, :db, :affiliate, :recurly
+ attr_accessor :user, :pages, :current_page, :test_data, :db, :affiliate, :recurly, :box
  include Capybara::DSL
  include RSpec::Matchers
  include WaitForAjax
 
- def initialize(test_data, start_page, pages, db)
+ def initialize(test_data, start_page, pages, db, box)
   @affiliate = nil
   @user = nil
   @recurly = RecurlyAPI.new
@@ -20,6 +20,7 @@ class Test
   @test_data = test_data 
   @pages = pages
   @db = db
+  @box = box
  end
 
  def update_test_data(value)
