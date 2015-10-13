@@ -14,15 +14,15 @@ ENV['ASPECTOR_LOG_LEVEL'] = 'NONE'
 ENV['SITE'] ||= 'qa'
 env = ENV['SITE']
 if env == 'qa'
-  $env_base_url = "http://lootcrate-qa.herokuapp.com/?username=lootcrateis25timesgreaterthanthecompetition"
+  $env_base_url = "https://lootcrate-qa.herokuapp.com/?username=lootcrateis25timesgreaterthanthecompetition"
 elsif env == 'qa2'
-  $env_base_url = "http://lootcrate-qa2.herokuapp.com/?username=lootcrateis25timesgreaterthanthecompetition"
+  $env_base_url = "https://lootcrate-qa2.herokuapp.com/?username=lootcrateis25timesgreaterthanthecompetition"
 elsif env =='staging'
-  $env_base_url = "http://lootcrate-staging.herokuapp.com/?username=lootcrateis25timesgreaterthanthecompetition"
+  $env_base_url = "https://lootcrate-staging.herokuapp.com/?username=lootcrateis25timesgreaterthanthecompetition"
 elsif env == 'local'
   $env_base_url = 'localhost:3000'
 elsif env == 'goliath'
-  $env_base_url = 'http://lootcrate-goliath.herokuapp.com/?username=lootcrateis25timesgreaterthanthecompetition'
+  $env_base_url = 'https://lootcrate-goliath.herokuapp.com/?username=lootcrateis25timesgreaterthanthecompetition'
 elsif env =='loadtest'
   $env_base_url = 'https://lootcrate-load-test.herokuapp.com'
 else
