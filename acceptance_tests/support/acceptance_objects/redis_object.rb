@@ -39,6 +39,10 @@ class HRedis
     "redis://redistogo:0886abb02a7f885a29fe4aa8ec642b16@mummichog.redistogo.com:10742/"
   end
 
+  def url_loadtest
+    "redis://redistogo:d6ec105dd4ce51a46bf110e978848663@bluegill.redistogo.com:9261/"
+  end
+
   def del(name)
     #deletes the value at key name
     #caution, this will delete entire data sturctures

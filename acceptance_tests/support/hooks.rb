@@ -23,6 +23,8 @@ elsif env == 'local'
   $env_base_url = 'localhost:3000'
 elsif env == 'goliath'
   $env_base_url = 'http://lootcrate-goliath.herokuapp.com/?username=lootcrateis25timesgreaterthanthecompetition'
+elsif env =='loadtest'
+  $env_base_url = 'https://lootcrate-load-test.herokuapp.com'
 else
 
 end

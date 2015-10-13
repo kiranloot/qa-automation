@@ -50,6 +50,14 @@ def goliath
   @dbname = 'd8qmbr1p8vor9i'
 end
 
+def loadtest
+  @host = 'ec2-50-17-192-85.compute-1.amazonaws.com'
+  @port = '5502'
+  @user = 'u9ce2j9e6qv4ao'
+  @password = 'pdp91gi35avm58acof1ps4i7stg'
+  @dbname = 'd43r30joboc8tg'
+end
+
 def local
   @host = 'localhost'
   @port = '5432'
