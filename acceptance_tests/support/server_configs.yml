@@ -17,7 +17,7 @@ staging:
     dbname: 'dfncjqrcpjcklk'
     redis_url: "redis://redistogo:68f3acae465908685651c557e65678c4@mummichog.redistogo.com:9637/"
     prefix: "https://lootcrate-staging.herokuapp.com"
-    admin: "https://loot-admin-staging.herokuapp.com/admin/login"
+    admin: "https://lootcrate-staging-admin.herokuapp.com/admin/login"
     app: "lootcrate-staging"
     base_url: "https://lootcrate-staging.herokuapp.com/?username=lootcrateis25timesgreaterthanthecompetition"
 goliath:
@@ -28,7 +28,7 @@ goliath:
     dbname: '6C9E8w6NG_yOW_bD0c9u_IIOfU'
     redis_url: "redis://redistogo:0886abb02a7f885a29fe4aa8ec642b16@mummichog.redistogo.com:10742/"
     prefix: "https://lootcrate-goliath.herokuapp.com"
-    admin: "https://loot-admin-goliath.herokuapp.com/admin/login"
+    admin: "https://lootcrate-goliath-admin.herokuapp.com/admin/login"
     app: "lootcrate-goliath"
     base_url: "https://lootcrate-goliath.herokuapp.com/?username=lootcrateis25timesgreaterthanthecompetition"
 qa2:
@@ -39,7 +39,7 @@ qa2:
     dbname: '5rZlE9CkbJwsF_nym9GbeY5ysN'
     redis_url: "redis://redistogo:58cd69a7595d7b49495518e54075ef41@hammerjaw.redistogo.com:10397/"
     prefix: "https://lootcrate-qa2.herokuapp.com"
-    admin: "https://loot-admin-qa2.herokuapp.com/admin/login"
+    admin: "https://lootcrate-qa2-admin.herokuapp.com/admin/login"
     app: "lootcrate-qa2"
     base_url: "https://lootcrate-qa2.herokuapp.com/?username=lootcrateis25timesgreaterthanthecompetition"
 local:
