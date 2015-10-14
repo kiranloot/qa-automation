@@ -20,7 +20,7 @@ if args
  end
 end
 
-command = "SITE=#{@SITE} DRIVER=#{@DRIVER} parallel_cucumber -o '--tags @ready' -n 4 acceptance_tests --serialize-stdout"
+command = "SITE=#{@SITE} DRIVER=#{@DRIVER} parallel_cucumber -o '--tags @ready' -n 5 acceptance_tests --serialize-stdout"
 puts command
 
 Process.spawn(command)
