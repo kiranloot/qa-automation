@@ -17,23 +17,6 @@ box = Box.new(env)
 
 $env_base_url = box.base_url
 
-=begin
-if env == 'qa'
-  $env_base_url = "https://lootcrate-qa.herokuapp.com/?username=lootcrateis25timesgreaterthanthecompetition"
-elsif env == 'qa2'
-  $env_base_url = "https://lootcrate-qa2.herokuapp.com/?username=lootcrateis25timesgreaterthanthecompetition"
-elsif env =='staging'
-  $env_base_url = "https://lootcrate-staging.herokuapp.com/?username=lootcrateis25timesgreaterthanthecompetition"
-elsif env == 'local'
-  $env_base_url = 'localhost:3000'
-elsif env == 'goliath'
-  $env_base_url = 'https://lootcrate-goliath.herokuapp.com/?username=lootcrateis25timesgreaterthanthecompetition'
-elsif env =='loadtest'
-  $env_base_url = 'https://lootcrate-load-test.herokuapp.com'
-else
-
-end
-=end
 $env_test_data_file_path ||= "acceptance_tests/support/qa_test_data.yml"
 test_data = YAML.load(File.open($env_test_data_file_path))
 pages = {home: HomePage, signup: SignupPage, checkout: CheckoutPage, subscribe: SubscribePage,

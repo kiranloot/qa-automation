@@ -1,9 +1,9 @@
 qa:
     host: 'ec2-107-22-166-14.compute-1.amazonaws.com'
     port: '5702'
-    user: 'u55tt5ivnp53u'
+    user: 'u552tt5ivnp53u'
     password: 'p6osgimrt812s413vc4081r82j1'
-    dbname: 'd1nlde06d790v'
+    dbname: 'd1nl1de06d790v'
     redis_url: "redis://redistogo:17af1e3d5398fca6beeb4f7ade155eaa@mummichog.redistogo.com:9636/"
     prefix: "https://lootcrate-qa.herokuapp.com"
     admin: "https://loot-admin-qa.herokuapp.com/admin/login"
