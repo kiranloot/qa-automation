@@ -6,41 +6,13 @@ class HRedis
 
   def initialize
     @site = ENV['SITE']
-    @url = send("url_#{@site}")
-    @uri = URI.parse(url)
+    @url = Box.new(@site).redis_url
+    @uri = URI.parse(@url)
   end
   
   def connect
     uri = @uri
     @redis = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
-  end
-
-  def url
-    @url
-  end
-
-  def url_local
-    "redis://localhost:6379/"
-  end
-
-  def url_qa
-    "redis://redistogo:17af1e3d5398fca6beeb4f7ade155eaa@mummichog.redistogo.com:9636/"
-  end
-
-  def url_qa2
-    "redis://redistogo:58cd69a7595d7b49495518e54075ef41@hammerjaw.redistogo.com:10397/"
-  end
-
-  def url_staging
-    "redis://redistogo:68f3acae465908685651c557e65678c4@mummichog.redistogo.com:9637/"
-  end
-
-  def url_goliath
-    "redis://redistogo:0886abb02a7f885a29fe4aa8ec642b16@mummichog.redistogo.com:10742/"
-  end
-
-  def url_loadtest
-    "redis://redistogo:d6ec105dd4ce51a46bf110e978848663@bluegill.redistogo.com:9261/"
   end
 
   def del(name)
