@@ -35,8 +35,8 @@ qa2:
     host: 'ec2-54-83-17-8.compute-1.amazonaws.com'
     port: '5432'
     user: 'hiajojhakstxil'
-    password: 'XkzB_Xmhh-8-bSt6-baFX1bdef'
-    dbname: '5rZlE9CkbJwsF_nym9GbeY5ysN'
+    password: '5rZlE9CkbJwsF_nym9GbeY5ysN'
+    dbname: 'd9n9c0ersnvap8'
     redis_url: "redis://redistogo:58cd69a7595d7b49495518e54075ef41@hammerjaw.redistogo.com:10397/"
     prefix: "https://lootcrate-qa2.herokuapp.com"
     admin: "https://lootcrate-qa2-admin.herokuapp.com/admin/login"
