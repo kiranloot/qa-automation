@@ -10,7 +10,15 @@ include Capybara::DSL
   end
 
   def scroll_to(product)
-    find_link(product).click
+    case product
+    when 'socks'
+      scroll_val = 1050
+    when 'accessory'
+      scroll_val = 1550
+    when 'wearable'
+      scroll_val = 2050
+    end
+    page.execute_script "window.scrollBy(0,#{scroll_val})"
     sleep(1)
   end
 
