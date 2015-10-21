@@ -123,7 +123,11 @@ class MyAccountPage < Page
       a = rebill_day.strftime('%B')
       b = rebill_day.strftime('%d')
       c = rebill_day.strftime('%Y')
-      rebill_string = a + " " + b + ", " + c
+      if /_dk/.match($test.user.email) || /intl/.match($test.user.email)
+        rebill_string = b + ". " + a + " " + c
+      else
+        rebill_string = a + " " + b + ", " + c
+      end
       return rebill_string
     else
       #placeholder. May not need.
@@ -164,7 +168,7 @@ class MyAccountPage < Page
     go_to_subscriptions
     get_expected_next_bill_date($test.user.subscription_name)
     click_cancel_subscription
-    find_link("CANCEL SUBSCRIPTION").click
+    find_link("Cancel Subscription").click
     sleep(1)
     page.driver.browser.switch_to.alert.accept
     wait_for_ajax

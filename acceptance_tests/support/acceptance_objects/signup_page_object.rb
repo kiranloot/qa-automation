@@ -25,8 +25,8 @@ include Capybara::DSL
   def visit_page
     visit $env_base_url
     wait_for_ajax
-    page.has_content?('SUBSCRIBE')
-    first(:link, 'SUBSCRIBE').click
+    page.has_content?('Subscribe')
+    first(:link, 'Subscribe').click
     click_link('one-month')
     $test.current_page = self
   end

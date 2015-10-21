@@ -10,7 +10,15 @@ include Capybara::DSL
   end
 
   def scroll_to(product)
-    find_link(product).click
+    case product
+    when 'socks'
+      scroll_val = 1050
+    when 'accessory'
+      scroll_val = 1550
+    when 'wearable'
+      scroll_val = 2050
+    end
+    page.execute_script "window.scrollBy(0,#{scroll_val})"
     sleep(1)
   end
 
@@ -35,7 +43,7 @@ include Capybara::DSL
     find(:css,'ul.select2-results').find(:xpath,"li[#{plan_index}]").click
     verify_level_up_plan_price(product, months, div_id)
     #click subscribe
-    find(:id,div_id).find_link("LEVEL UP").click
+    find(:id,div_id).find_link("level up").click
     wait_for_ajax
   end
 
