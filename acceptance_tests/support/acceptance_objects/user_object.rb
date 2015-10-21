@@ -179,7 +179,7 @@ class User
       find(:id, 'coupon-checkbox').click
       fill_in(@test.test_data["locators"]["coupon_code"], :with => @coupon_code)
       page.find_button("validate-coupon").click
-      @discount_applied = page.has_content?("Coupon valid: save $")
+      @discount_applied = page.has_content?("Valid coupon: save $")
   end
   
   def submit_subscription_info

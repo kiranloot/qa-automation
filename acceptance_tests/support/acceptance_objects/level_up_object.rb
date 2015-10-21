@@ -43,7 +43,7 @@ include Capybara::DSL
     find(:css,'ul.select2-results').find(:xpath,"li[#{plan_index}]").click
     verify_level_up_plan_price(product, months, div_id)
     #click subscribe
-    find(:id,div_id).find_link("LEVEL UP").click
+    find(:id,div_id).find_link("level up").click
     wait_for_ajax
   end
 
