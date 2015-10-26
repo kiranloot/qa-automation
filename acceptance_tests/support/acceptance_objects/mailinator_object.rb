@@ -14,8 +14,7 @@ class Mailinator < Page
   def email_log_in(em)
     page.find("#inboxfield")
     fill_in("inboxfield", :with => em)
-    page.find(
-      "body > div.full-height > div > div.clouds > div.container > div > div.span7 > div > div > btn").click
+    page.click_button("Go!")
   end
 
   def find_reset_email
