@@ -11,7 +11,7 @@ staging:
  admin: "https://lootcrate-staging-admin.herokuapp.com/admin/login"
  app: "lootcrate-staging"
 goliath:
- prefix: "https://lootcrate-goliath.herokuapp.com"
+ prefix: "https://lootcrate-goliath.com.global.prod.fastly.net"
  admin: "https://lootcrate-goliath-admin.herokuapp.com/admin/login"
  app: "lootcrate-goliath"
 loadtest:
