@@ -5,10 +5,10 @@ qa:
     password: 'p6osgimrt812s413vc4081r82j1'
     dbname: 'd1nl1de06d790v'
     redis_url: "redis://redistogo:17af1e3d5398fca6beeb4f7ade155eaa@mummichog.redistogo.com:9636/"
-    prefix: "https://lootcrate-qa.com.global.prod.fastly.net"
+    prefix: "https://qa.lootcrate.com/"
     admin: "https://loot-admin-qa.herokuapp.com/admin/login"
     app: "lootcrate-qa"
-    base_url: "https://lootcrate-qa.com.global.prod.fastly.net/?username=lootcrateis25timesgreaterthanthecompetition"
+    base_url: "https://qa.lootcrate.com/?username=lootcrateis25timesgreaterthanthecompetition"
 staging:
     host: 'ec2-107-20-244-236.compute-1.amazonaws.com'
     port: '5432'
@@ -16,10 +16,10 @@ staging:
     password: 'XkzB_Xmhh-8-bSt6-baFX1bdef'
     dbname: 'dfncjqrcpjcklk'
     redis_url: "redis://redistogo:68f3acae465908685651c557e65678c4@mummichog.redistogo.com:9637/"
-    prefix: "https://lootcrate-staging.com.global.prod.fastly.net"
+    prefix: "https://staging.lootcrate.com/"
     admin: "https://lootcrate-staging-admin.herokuapp.com/admin/login"
     app: "lootcrate-staging"
-    base_url: "https://lootcrate-staging.com.global.prod.fastly.net/?username=lootcrateis25timesgreaterthanthecompetition"
+    base_url: "https://staging.lootcrate.com/?username=lootcrateis25timesgreaterthanthecompetition"
 goliath:
     host: 'ec2-54-235-146-58.compute-1.amazonaws.com'
     port: '5432'
@@ -27,10 +27,10 @@ goliath:
     password: '6C9E8w6NG_yOW_bD0c9u_IIOfU'
     dbname: 'd8qmbr1p8vor9i'
     redis_url: "redis://redistogo:0886abb02a7f885a29fe4aa8ec642b16@mummichog.redistogo.com:10742/"
-    prefix: "https://lootcrate-goliath.com.global.prod.fastly.net"
+    prefix: "https://goliath.lootcrate.com"
     admin: "https://lootcrate-goliath-admin.herokuapp.com/admin/login"
     app: "lootcrate-goliath"
-    base_url: "https://lootcrate-goliath.com.global.prod.fastly.net/?username=lootcrateis25timesgreaterthanthecompetition"
+    base_url: "https://goliath.lootcrate.com/?username=lootcrateis25timesgreaterthanthecompetition"
 qa2:
     host: 'ec2-54-83-17-8.compute-1.amazonaws.com'
     port: '5432'
@@ -38,10 +38,10 @@ qa2:
     password: '5rZlE9CkbJwsF_nym9GbeY5ysN'
     dbname: 'd9n9c0ersnvap8'
     redis_url: "redis://redistogo:58cd69a7595d7b49495518e54075ef41@hammerjaw.redistogo.com:10397/"
-    prefix: "https://lootcrate-qa2.com.global.prod.fastly.net"
+    prefix: "https://qa2.lootcrate.com"
     admin: "https://lootcrate-qa2-admin.herokuapp.com/admin/login"
     app: "lootcrate-qa2"
-    base_url: "https://lootcrate-qa2.com.global.prod.fastly.net/?username=lootcrateis25timesgreaterthanthecompetition"
+    base_url: "https://qa2.lootcrate.com/?username=lootcrateis25timesgreaterthanthecompetition"
 local:
     host: 'localhost'
     port: '5432'
