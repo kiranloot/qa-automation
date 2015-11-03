@@ -24,13 +24,13 @@ goliath:
     host: 'ec2-54-235-146-58.compute-1.amazonaws.com'
     port: '5432'
     user: 'tdfutzeugxpsge'
-    password: 'XkzB_Xmhh-8-bSt6-baFX1bdef'
-    dbname: '6C9E8w6NG_yOW_bD0c9u_IIOfU'
+    password: '6C9E8w6NG_yOW_bD0c9u_IIOfU'
+    dbname: 'd8qmbr1p8vor9i'
     redis_url: "redis://redistogo:0886abb02a7f885a29fe4aa8ec642b16@mummichog.redistogo.com:10742/"
-    prefix: "https://lootcrate-goliath.herokuapp.com"
+    prefix: "https://lootcrate-goliath.com.global.prod.fastly.net"
     admin: "https://lootcrate-goliath-admin.herokuapp.com/admin/login"
     app: "lootcrate-goliath"
-    base_url: "https://lootcrate-goliath.herokuapp.com/?username=lootcrateis25timesgreaterthanthecompetition"
+    base_url: "https://lootcrate-goliath.com.global.prod.fastly.net/?username=lootcrateis25timesgreaterthanthecompetition"
 qa2:
     host: 'ec2-54-83-17-8.compute-1.amazonaws.com'
     port: '5432'

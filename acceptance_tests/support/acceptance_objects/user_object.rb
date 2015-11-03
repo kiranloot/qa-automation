@@ -201,7 +201,7 @@ class User
     click_button(@test.test_data["locators"]["checkout_btn"])
     wait_for_ajax
     if @cc == '4111111111111111' && $test.current_page.page_type != 'fallout4'
-      assert_text('Thank you for subscribing!')
+      sleep(3)
     end
   end
 
@@ -248,7 +248,8 @@ class User
     submit_credit_card_information
     click_button(@test.test_data["locators"]["checkout_btn"])
     wait_for_ajax
-    assert_text("CONGRATULATIONS! YOU'VE SUCCESSFULLY LEVELED UP!")
+    sleep(3)
+    #assert_text("CONGRATULATIONS! YOU'VE SUCCESSFULLY LEVELED UP!")
   end
  
   def tax_applied?
@@ -268,7 +269,7 @@ class User
     if type == 'subscription confirmation'
       target_content = 'Welcome to Loot Crate'
     elsif type == 'subscription cancellation'
-      target_content = 'Subscription Cancellation'
+      target_content = 'Your subscription has been cancelled'
     elsif type == 'upgrade'
       target_content = 'Subscription Upgraded'
     elsif type == 'skip'
