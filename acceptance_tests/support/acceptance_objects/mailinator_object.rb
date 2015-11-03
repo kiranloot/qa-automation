@@ -12,9 +12,11 @@ class Mailinator < Page
   end
 
   def email_log_in(em)
+    wait_for_ajax
     page.find("#inboxfield")
     fill_in("inboxfield", :with => em)
     page.click_button("Go!")
+    wait_for_ajax
   end
 
   def find_reset_email
