@@ -3,12 +3,12 @@ require 'platform-api'
 
 class HerokuAPI
   require 'yaml'
-  def initialize
+  def initialize(box = Box.new(ENV['SITE']))
     @apikey = '56d6a4d5-724e-4a94-b427-0a86263b2e0e'
     @heroku = PlatformAPI.connect_oauth(@apikey)
-    @page_configs = YAML.load(File.open("acceptance_tests/support/acceptance_objects/page_configs.yml"))
-    @env = ENV['SITE']
-    @app = @page_configs[@env]['app']
+    #@page_configs = YAML.load(File.open("acceptance_tests/support/acceptance_objects/page_configs.yml"))
+    #@env = ENV['SITE']
+    @app = box.app
   end
 
   def create_user_with_active_sub
