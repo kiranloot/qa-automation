@@ -17,5 +17,4 @@ Feature: Skip a Month
             And the user visits the my account page
             And the user skips during cancellation
             And the user navigates back in the browser
-            And the user attempts to skip again
         Then the user should see the cancellation page
