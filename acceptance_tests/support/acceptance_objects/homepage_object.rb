@@ -12,7 +12,7 @@ class HomePage < Page
   end
 
   def visit_with_affiliate(affiliate_name)
-    affiliate_url = @page_configs[@env]["prefix"] + "/" + affiliate_name
+    affiliate_url = @prefix + "/" + affiliate_name
     visit affiliate_url
   end
 

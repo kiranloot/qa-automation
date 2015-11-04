@@ -124,6 +124,7 @@ class MyAccountPage < Page
       b = rebill_day.strftime('%d')
       c = rebill_day.strftime('%Y')
       if /_dk/.match($test.user.email) || /intl/.match($test.user.email)
+        b.sub!(/^0/,"")
         rebill_string = b + ". " + a + " " + c
       else
         rebill_string = a + " " + b + ", " + c

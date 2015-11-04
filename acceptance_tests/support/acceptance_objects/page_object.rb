@@ -8,17 +8,18 @@ class Page
   include Capybara::DSL
   include RSpec::Matchers
   include WaitForAjax
-  def initialize
-    @env = ENV['SITE']
-    @page_configs = YAML.load(File.open("acceptance_tests/support/acceptance_objects/page_configs.yml"))
+  def initialize(box = Box.new(ENV['SITE']))
+    @page_configs = YAML.load(File.open("acceptance_tests/support/page_configs.yml"))
+    @prefix = box.prefix
+    @admin = box.admin
     @page_type = 'generic'
   end
 
   def setup
     if !self.instance_of?(Mailinator) && !self.instance_of?(RecurlyPage) && @page_type != 'admin'
-      @base_url = @page_configs[@env]["prefix"] + @page_configs[@page_type]["url"]
+      @base_url = @prefix + @page_configs[@page_type]["url"]
     elsif @page_type == 'admin'
-      @base_url = @page_configs[@env]["admin"]
+      @base_url = @admin
     else
       @base_url =  @page_configs[@page_type]["url"]
     end
