@@ -12,11 +12,11 @@ include Capybara::DSL
   def scroll_to(product)
     case product
     when 'socks'
-      scroll_val = 1050
+      scroll_val = 750
     when 'accessory'
-      scroll_val = 1550
+      scroll_val = 1050
     when 'wearable'
-      scroll_val = 2050
+      scroll_val = 1550
     end
     page.execute_script "window.scrollBy(0,#{scroll_val})"
     sleep(1)

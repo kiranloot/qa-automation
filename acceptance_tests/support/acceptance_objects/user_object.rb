@@ -275,7 +275,7 @@ class User
     elsif type == 'skip'
       target_content = 'Subscription Skipped'
     elsif type == 'level up'
-      target_content = 'LevelUp Purchase Confirmation'
+      target_content = 'Level Up Purchase Confirmation'
     end
     mailer.email_log_in(@email)
      for i in 0..5
