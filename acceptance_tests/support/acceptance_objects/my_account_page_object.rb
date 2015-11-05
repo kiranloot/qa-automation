@@ -123,7 +123,7 @@ class MyAccountPage < Page
       a = rebill_day.strftime('%B')
       b = rebill_day.strftime('%d')
       c = rebill_day.strftime('%Y')
-      if $test.user.country_code == "US"
+      if ["US", "AT"].include? $test.user.country_code
         rebill_string = a + " " + b + ", " + c
       else
         if $test.user.country_code == "DK"

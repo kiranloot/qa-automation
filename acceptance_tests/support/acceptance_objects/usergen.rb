@@ -56,7 +56,7 @@ class UserGen
                 "dk" => :denmark, "nl" => :netherlands, "fr" => :france, 
                 "no" => :norway, "fi" => :finland, "nz" => :new_zealand,
                 "au" => :austrailia, "se" => "sweden", "gb" => :uk, 
-                "california" => :california}
+                "california" => :california, "austria" => :austria}
    p = type_hash.values
    result = country == "random" ? rand_val(p) : type_hash[country]
    return result
