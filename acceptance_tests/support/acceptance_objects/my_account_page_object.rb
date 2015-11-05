@@ -123,9 +123,6 @@ class MyAccountPage < Page
       a = rebill_day.strftime('%B')
       b = rebill_day.strftime('%d')
       c = rebill_day.strftime('%Y')
-      #if /_dk/.match($test.user.email)
-      puts "country_code:"
-      puts $test.user.country_code
       if $test.user.country_code == "US"
         rebill_string = a + " " + b + ", " + c
       else
