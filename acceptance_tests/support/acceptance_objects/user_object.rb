@@ -53,7 +53,7 @@ class User
     @need_sub = true
     @plan_months = 0
     @rebill_date_db = nil
-    @country_code
+    @country_code = nil
   end
 
 
@@ -323,7 +323,6 @@ class User
   end
 
   def set_country(country, top_bot: nil)
-    #country_code = @test.test_data['countries'][country]
     top = true
     if top_bot
       if top_bot == "top"

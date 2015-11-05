@@ -123,15 +123,20 @@ class MyAccountPage < Page
       a = rebill_day.strftime('%B')
       b = rebill_day.strftime('%d')
       c = rebill_day.strftime('%Y')
-      if /_dk/.match($test.user.email) || /intl/.match($test.user.email)
-        b.sub!(/^0/,"")
-        rebill_string = b + ". " + a + " " + c
-      else
+      #if /_dk/.match($test.user.email)
+      puts "country_code:"
+      puts $test.user.country_code
+      if $test.user.country_code == "US"
         rebill_string = a + " " + b + ", " + c
+      else
+        if $test.user.country_code == "DK"
+          b.sub!(/^0/,"")
+          rebill_string = b + ". " + a + " " + c
+        else
+        rebill_string = b + " " + a + ", " + c
+        end
       end
       return rebill_string
-    else
-      #placeholder. May not need.
     end
   end
 

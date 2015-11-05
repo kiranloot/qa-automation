@@ -10,6 +10,7 @@ FactoryGirl.define do
     password "password"
     email { "_test_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
     initialize_with {new($test)}
+    country_code "US"
     trait :registered do
       first_name "Registered"
       last_name "User"
@@ -55,6 +56,17 @@ FactoryGirl.define do
       ship_state "Hovedstaden"
       ship_zip "1566"
       email { "_dk_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country_code "DK"
+    end
+    trait :australia do
+      first_name "Australia"
+      last_name {Date.today.strftime("%b") + Date.today.day.to_s}
+      ship_street "1234 Australia Test"
+      ship_city "Sydney"
+      ship_state "Queensland"
+      ship_zip "2148"
+      email { "_au_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country_code "AU"
     end
     trait :multi_use_promo do
       coupon_code  {$test.test_data["promos"]["multi_use"]}
