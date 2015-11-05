@@ -130,7 +130,7 @@ class MyAccountPage < Page
           b.sub!(/^0/,"")
           rebill_string = b + ". " + a + " " + c
         else
-        rebill_string = b + " " + a + ", " + c
+          rebill_string = b + " " + a + ", " + c
         end
       end
       return rebill_string
