@@ -1,6 +1,6 @@
 @regression @extended @world_subs @selenium
 Feature: International Subscriptions
-    @indev
+    @ready
     Scenario: Hungary user signs up for one month subscription
         Given a registered user with a Hungary address
             When the user logs in
@@ -12,7 +12,7 @@ Feature: International Subscriptions
         And the recurly billing address should have no state
         And the user should receive a subscription confirmation email
 
-    @WIP
+    @ready
     Scenario: Iceland user signs up for one month subscription
         Given a registered user with a Iceland address
             When the user logs in
