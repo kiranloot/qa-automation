@@ -120,19 +120,25 @@ class MyAccountPage < Page
       else
         rebill_day = sub_day >> months
       end
-      a = rebill_day.strftime('%B')
-      b = rebill_day.strftime('%d')
-      c = rebill_day.strftime('%Y')
-      if $test.user.country_code == "AU"
-        rebill_string = b + " " + a + ", " + c
-      elsif ["DK","FR"].include? $test.user.country_code
-        b.sub!(/^0/,"")
-        rebill_string = b + ". " + a + " " + c
-      else
-        rebill_string = a + " " + b + ", " + c
-      end
+      month = rebill_day.strftime('%B')
+      day = rebill_day.strftime('%d')
+      year = rebill_day.strftime('%Y')
     end
-  return rebill_string
+  localize_date(day, month, year)
+  end
+
+  def localize_date(day, month, year)
+    if $test.user.country_code == "AU"
+      rebill_string = day + " " + month + ", " + year
+    elsif $test.user.country_code == "HU"
+      day.sub!(/^0/,"")
+      rebill_string = year + ". " + month + " " + day + "."
+    elsif ["DK","FR"].include? $test.user.country_code
+      day.sub!(/^0/,"")
+      rebill_string = day + ". " + month + " " + year
+    else
+      rebill_string = day + " " + month + ", " + year
+    end
   end
 
   def cancellation_pending?
