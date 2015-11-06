@@ -318,6 +318,10 @@ class User
    @subscription_name = upgrade_plan_target.subscription_display_name
   end
 
+  def is_country_us?
+    return /assets\/flags\/us_flag-727f10283a96f57fe09b30201b783828.jpg/.match(first('#country-selector-lnk > span > img')['src'])
+  end
+
   def set_country(country, top_bot: nil)
     #country_code = @test.test_data['countries'][country]
     top = true

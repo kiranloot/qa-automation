@@ -31,6 +31,10 @@ Before do
   visit $env_base_url
   $test = Test.new( test_data, HomePage.new, pages, DBCon.new, box)
   $test.user = User.new($test)
+  #If US flag isn't showing, set it to US
+  if(!$test.user.is_country_us?)
+    $test.user.set_country("United States")
+  end
 end
 
 After do
