@@ -48,20 +48,12 @@ class UserGen
   end
 
   def address_trait(country)
-   type_hash = {"denmark" => :denmark, "uk" => :uk, "germany" => :germany,
-                "finland" => :finland, "france" => :france, "norway" => :norway,
-                "newzealand" => :new_zealand, "ireland" => :ireland,
-                "australia" => :australia, "netherlands" => :netherlands,
-                "sweden" => :sweden, "ie" => :ireland, "de" => :germany,
-                "dk" => :denmark, "nl" => :netherlands, "fr" => :france, 
-                "no" => :norway, "fi" => :finland, "nz" => :new_zealand,
-                "au" => :austrailia, "se" => "sweden", "gb" => :uk, 
-                "california" => :california, "austria" => :austria,
-                "belgium" => :belgium }
-   p = type_hash.values
-   result = country == "random" ? rand_val(p) : type_hash[country]
-   return result
- end
+    if country == "random"
+      #stub
+    else
+      return country.to_sym
+    end
+  end
 
   def rand_val(possibilities)
     possibilities[rand()]

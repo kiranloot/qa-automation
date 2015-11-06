@@ -47,6 +47,7 @@ FactoryGirl.define do
       ship_city "Los Angeles"
       ship_zip "90031"
       email { "_ca_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      recurly_billing_state_code "CA"
     end
     trait :denmark do
       first_name "Denmark"
@@ -87,6 +88,17 @@ FactoryGirl.define do
       ship_zip "2000"
       email { "_be_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
       country_code "BE"
+    end
+    trait :canada do
+      first_name "Canada"
+      last_name {Date.today.strftime("%b") + Date.today.day.to_s}
+      ship_street "1234 Canada Test"
+      ship_city "Toronto"
+      ship_state "Ontario"
+      ship_zip "M4C 1B5"
+      email { "_ca_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country_code "CA"
+      recurly_billing_state_code "ON"
     end
     trait :multi_use_promo do
       coupon_code  {$test.test_data["promos"]["multi_use"]}
