@@ -12,7 +12,7 @@ class User
     :cc, :cvv, :ship_street, :ship_street_2, :ship_city, :affiliate, :coupon_code, :discount_applied, :subject_user, 
     :subscription_name, :level_up_subscription_name, :new_user_sub_name,:new_rebill_date, :bill_zip,
     :bill_city, :bill_street, :bill_street_2, :bill_state, :need_sub, :rebill_date_db, :last_four, :trait,
-    :country_code
+    :country_code, :recurly_billing_state_code
 
   @@sizes = {"male" =>  {0 => "Mens - S", 1 => "Mens - M", 2 => "Mens - L", 3 => "Mens - XL", 
                          4 => "Mens - XXL", 5 => "Mens - XXXL" },
@@ -53,7 +53,8 @@ class User
     @need_sub = true
     @plan_months = 0
     @rebill_date_db = nil
-    @country_code
+    @country_code = nil
+    @recurly_billing_state_code = nil
   end
 
 
@@ -323,7 +324,6 @@ class User
   end
 
   def set_country(country, top_bot: nil)
-    #country_code = @test.test_data['countries'][country]
     top = true
     if top_bot
       if top_bot == "top"

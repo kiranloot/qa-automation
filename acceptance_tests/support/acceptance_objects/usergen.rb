@@ -4,7 +4,6 @@ class UserGen
     arg_string.downcase! if arg_string
     parse_args(type, arg_string) if arg_string
     set_simple(type) unless arg_string
-    @country_code = nil
   end
 
   def parse_args(t, arg_string)
@@ -17,7 +16,6 @@ class UserGen
     end
     @type = t
     @location_trait || @month_trait ? @trait = @args : @trait = self.send(@args)
-    @country_code = "US" unless @country_code
   end
 
   def set_simple(type)
@@ -50,27 +48,11 @@ class UserGen
   end
 
   def address_trait(country)
-   type_hash = {"denmark" => :denmark, "uk" => :uk, "germany" => :germany,
-                "finland" => :finland, "france" => :france, "norway" => :norway,
-                "newzealand" => :new_zealand, "ireland" => :ireland,
-                "austrailia" => :austrailia, "netherlands" => :netherlands,
-                "sweden" => :sweden, "ie" => :ireland, "de" => :germany,
-                "dk" => :denmark, "nl" => :netherlands, "fr" => :france, 
-                "no" => :norway, "fi" => :finland, "nz" => :new_zealand,
-                "au" => :austrailia, "se" => "sweden", "gb" => :uk, 
-                "california" => :california}
-   p = type_hash.values
-   result = country == "random" ? rand_val(p) : type_hash[country]
-   @country_code = get_country_code(result) if result
-   return result
- end
-
-  def get_country_code(country_sym)
-    countries = {denmark: "DK", california: "US", sweden: "SE", uk: "UK",
-                germany: "DE", finland: "FI", france: "FR", norway: "NO",
-                new_zealand: "NZ", ireland: "IE", austrailia: "AU", netherlands: "NL",
-                }
-    return countries[country_sym]
+    if country == "random"
+      #stub
+    else
+      return country.to_sym
+    end
   end
 
   def rand_val(possibilities)
@@ -152,7 +134,6 @@ class UserGen
    u = admin_and_subject if @trait == :subject_user && @type == "admin"
    end
    u.trait = @trait
-   u.country_code = @country_code
    u
   end
 

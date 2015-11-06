@@ -10,11 +10,11 @@ qa:
     app: "lootcrate-qa"
     base_url: "https://qa.lootcrate.com/?username=lootcrateis25timesgreaterthanthecompetition"
 staging:
-    host: 'ec2-107-20-244-236.compute-1.amazonaws.com'
-    port: '5432'
-    user: 'xmdwwyhtoinuuh'
-    password: 'XkzB_Xmhh-8-bSt6-baFX1bdef'
-    dbname: 'dfncjqrcpjcklk'
+    host: 'ec2-54-204-24-120.compute-1.amazonaws.com'
+    port: '6012'
+    user: 'uc11lj39hsrm7r'
+    password: 'p63dgsh1utnvdg2510sr2pk70s1'
+    dbname: 'dcnfr6gdf08al'
     redis_url: "redis://redistogo:68f3acae465908685651c557e65678c4@mummichog.redistogo.com:9637/"
     prefix: "https://staging.lootcrate.com"
     admin: "https://lootcrate-staging-admin.herokuapp.com/admin/login"
