@@ -212,7 +212,7 @@ class MyAccountPage < Page
   end
 
   def click_subs_link
-    page.find_link("Subscriptions").click
+    find(:id, "account-menu-subscriptions-lnk").click
   end
 
   def click_account_info_link
