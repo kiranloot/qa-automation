@@ -137,7 +137,7 @@ class MyAccountPage < Page
       day.sub!(/^0/,"")
       rebill_string = day + ". " + month + " " + year
     else
-      rebill_string = day + " " + month + ", " + year
+      rebill_string = month + " " + day + ", " + year
     end
   end
 
