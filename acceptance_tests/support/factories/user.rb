@@ -100,6 +100,17 @@ FactoryGirl.define do
       country_code "CA"
       recurly_billing_state_code "ON"
     end
+    trait :czech do
+      first_name "Chech"
+      last_name {Date.today.strftime("%b") + Date.today.day.to_s}
+      ship_street "1234 Chech Test"
+      ship_city "Prague"
+      ship_state "Olomoucký kraj"
+      ship_zip "100 00"
+      email { "_cs_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country_code "CS"
+    end
+
     trait :multi_use_promo do
       coupon_code  {$test.test_data["promos"]["multi_use"]}
     end
