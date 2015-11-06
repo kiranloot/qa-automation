@@ -114,27 +114,25 @@ class MyAccountPage < Page
     end
     if compare_date.nil?
       sub_day = Date.today
-    if sub_day.day > 5 && sub_day.day < 20
-      rebill_day = Date.new((sub_day >> months).year, 
+      if sub_day.day > 5 && sub_day.day < 20
+        rebill_day = Date.new((sub_day >> months).year, 
                             (sub_day >> months).month, 5)
-    else
-      rebill_day = sub_day >> months
-    end
+      else
+        rebill_day = sub_day >> months
+      end
       a = rebill_day.strftime('%B')
       b = rebill_day.strftime('%d')
       c = rebill_day.strftime('%Y')
-      if ["US", "AT", "BE", "CA","CS"].include? $test.user.country_code
-        rebill_string = a + " " + b + ", " + c
+      if $test.user.country_code == "AU"
+        rebill_string = b + " " + a + ", " + c
+      elsif $test.user.country_code == "DK"
+        b.sub!(/^0/,"")
+        rebill_string = b + ". " + a + " " + c
       else
-        if $test.user.country_code == "DK"
-          b.sub!(/^0/,"")
-          rebill_string = b + ". " + a + " " + c
-        else
-          rebill_string = b + " " + a + ", " + c
-        end
+        rebill_string = a + " " + b + ", " + c
       end
-      return rebill_string
     end
+  return rebill_string
   end
 
   def cancellation_pending?
