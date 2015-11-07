@@ -12,7 +12,7 @@ Feature: International Subscriptions
         And the recurly billing address should have no state
         And the user should receive a subscription confirmation email
 
-    @indev
+    @ready
     Scenario: Italy user signs up for one month subscription
         Given a registered user with a Italy address
             When the user logs in
@@ -24,7 +24,7 @@ Feature: International Subscriptions
         And the recurly billing address should have no state
         And the user should receive a subscription confirmation email
 
-    @WIP
+    @ready
     Scenario: Luxembourg user signs up for one month subscription
         Given a registered user with a Luxembourg address
             When the user logs in
