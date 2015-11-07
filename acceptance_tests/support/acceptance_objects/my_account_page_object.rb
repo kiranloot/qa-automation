@@ -133,7 +133,7 @@ class MyAccountPage < Page
     elsif $test.user.country_code == "HU"
       day.sub!(/^0/,"")
       rebill_string = year + ". " + month + " " + day + "."
-    elsif ["DK","FR","IS"].include? $test.user.country_code
+    elsif ["DK","FR","IS","NO"].include? $test.user.country_code
       day.sub!(/^0/,"")
       rebill_string = day + ". " + month + " " + year
     elsif ["IT"].include? $test.user.country_code

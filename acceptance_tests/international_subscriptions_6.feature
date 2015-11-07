@@ -24,7 +24,7 @@ Feature: International Subscriptions
         And the recurly billing address should have no state
         And the user should receive a subscription confirmation email
 
-    @WIP
+    @indev
     Scenario: Norway user signs up for one month subscription
         Given a registered user with a Norway address
             When the user logs in
