@@ -138,6 +138,8 @@ class MyAccountPage < Page
       rebill_string = day + ". " + month + " " + year
     elsif ["IT"].include? $test.user.country_code
       rebill_string = day + " " + month + " " + year
+    elsif ["PT"].include? $test.user.country_code
+      rebill_string = day + " de " + month + " de " + year
     else
       rebill_string = month + " " + day + ", " + year
     end
