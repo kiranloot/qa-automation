@@ -334,7 +334,8 @@ class User
     else
       top = [true, false].sample
     end
-    page.has_content?("Ship to")
+    wait_for_ajax
+    #page.has_content?("Ship to")
     first(:link, "country-selector-lnk").click
     click_link(country)
   end
