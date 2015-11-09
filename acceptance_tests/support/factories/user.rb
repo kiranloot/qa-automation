@@ -260,6 +260,56 @@ FactoryGirl.define do
       email { "_sg_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
       country_code "SG"
     end
+    trait :southafrica do
+      first_name "SouthAfrica"
+      last_name {Date.today.strftime("%b") + Date.today.day.to_s}
+      ship_street "1234 South Africa Test"
+      ship_city "Johannesburg"
+      ship_state "Gauteng"
+      ship_zip "2001"
+      email { "_za_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country_code "ZA"
+    end
+    trait :spain do
+      first_name "Spain"
+      last_name {Date.today.strftime("%b") + Date.today.day.to_s}
+      ship_street "1234 Spain Test"
+      ship_city "Madrid"
+      ship_state "Madrid, Comunidad de"
+      ship_zip "28000"
+      email { "_es_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country_code "ES"
+    end
+    trait :sweden do
+      first_name "Sweden"
+      last_name {Date.today.strftime("%b") + Date.today.day.to_s}
+      ship_street "1234 Sweden Test"
+      ship_city "Stockholm"
+      ship_state "Gotlands län"
+      ship_zip "110 00"
+      email { "_se_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country_code "SE"
+    end
+    trait :switzerland do
+      first_name "Switzerland"
+      last_name {Date.today.strftime("%b") + Date.today.day.to_s}
+      ship_street "1234 Switzerland Test"
+      ship_city "Zurich"
+      ship_state "Zürich"
+      ship_zip "8000"
+      email { "_ch_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country_code "CH"
+    end
+    trait :unitedkingdom do
+      first_name "United Kingdom"
+      last_name {Date.today.strftime("%b") + Date.today.day.to_s}
+      ship_street "1234 United Kingdom Test"
+      ship_city "London"
+      ship_state "England"
+      ship_zip "WC1H 8JJ"
+      email { "_uk_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country_code "UK"
+    end
     trait :multi_use_promo do
       coupon_code  {$test.test_data["promos"]["multi_use"]}
     end

@@ -128,7 +128,7 @@ class MyAccountPage < Page
   end
 
   def localize_date(day, month, year)
-    if ["AU","IE","NZ"].include? $test.user.country_code
+    if ["AU","IE","NZ","UK"].include? $test.user.country_code
       rebill_string = day + " " + month + ", " + year
     elsif $test.user.country_code == "HU"
       day.sub!(/^0/,"")
@@ -136,9 +136,12 @@ class MyAccountPage < Page
     elsif ["DK","FR","IS","NO"].include? $test.user.country_code
       day.sub!(/^0/,"")
       rebill_string = day + ". " + month + " " + year
+    elsif ["SE"].include? $test.user.country_code
+      day.sub!(/^0/,"")
+      rebill_string = day + " " + month + " " + year
     elsif ["IT"].include? $test.user.country_code
       rebill_string = day + " " + month + " " + year
-    elsif ["PT"].include? $test.user.country_code
+    elsif ["PT","ES"].include? $test.user.country_code
       rebill_string = day + " de " + month + " de " + year
     else
       rebill_string = month + " " + day + ", " + year
