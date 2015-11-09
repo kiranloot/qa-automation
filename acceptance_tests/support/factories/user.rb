@@ -280,6 +280,16 @@ FactoryGirl.define do
       email { "_es_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
       country_code "ES"
     end
+    trait :sweden do
+      first_name "Sweden"
+      last_name {Date.today.strftime("%b") + Date.today.day.to_s}
+      ship_street "1234 Sweden Test"
+      ship_city "Stockholm"
+      ship_state "Gotlands län"
+      ship_zip "110 00"
+      email { "_se_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country_code "SE"
+    end
     trait :multi_use_promo do
       coupon_code  {$test.test_data["promos"]["multi_use"]}
     end
