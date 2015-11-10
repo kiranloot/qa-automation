@@ -189,6 +189,42 @@ def shipping_from_hash(h)
   end
 end
 
+def verify_webhooks(webhook_event, webhook_status)
+  case webhook_event
+  when "subscription creation"
+    expected_webhooks = [
+      "billing_info_updated_notification",
+      "new_subscription_notification",
+      "new_invoice_notification",
+      "successful_payment_notification",
+      "closed_invoice_notification",
+      "new_account_notification",
+    ]
+  end
+  expected_webhooks.each do |webhook|
+    q = """
+      select aasm_state
+      from recurly_push_notifications
+      where raw_payload like '%#{webhook}%'
+      and raw_payload like '%#{$test.user.email}%'
+    """
+    for n in 1..20
+      #puts q
+      results = @conn.exec(q)
+      if results.any?
+        #puts results[0]['aasm_state']
+        if results[0]['aasm_state'] == webhook_status
+          break
+        end
+      end
+    end
+    if results[0]['aasm_state'] != webhook_status
+      return false
+    end
+  end
+  return true
+end
+
 def billing_from_sub_id(sub_id)
 end
 
