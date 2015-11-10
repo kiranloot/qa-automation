@@ -39,5 +39,6 @@ class SailthruAPI
         sleep(1)
       end
     end
+    returen false
   end
 end
