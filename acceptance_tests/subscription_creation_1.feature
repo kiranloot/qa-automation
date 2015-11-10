@@ -10,6 +10,7 @@ Feature: Subscription Creation
         Then the new subscription should be added to the user account
             And the user should receive a subscription confirmation email
             And the user's email should be in the Loot Crate Master List bucket in sailthru
+            And the user's email should have a subscription status of active in sailthru
 
     @ready 
     Scenario: Registered user creates three month subscription
