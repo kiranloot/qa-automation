@@ -1,6 +1,6 @@
 @regression @core @subscription_creation @selenium
 Feature: Subscription Creation
-    @ready @sailthru
+    @ready
     Scenario: Registered user creates one month subscription
         Given a registered user with no prior subscription
             When the user logs in
@@ -9,8 +9,6 @@ Feature: Subscription Creation
             And the user submits valid subscription information
         Then the new subscription should be added to the user account
             And the user should receive a subscription confirmation email
-            And the user's email should be in the Loot Crate Master List bucket in sailthru
-            And the user's email should have a subscription status of active in sailthru
 
     @ready 
     Scenario: Registered user creates three month subscription

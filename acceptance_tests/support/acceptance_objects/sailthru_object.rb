@@ -18,7 +18,7 @@ class SailthruAPI
     @sailthru.api_get('user',data)
   end
 
-  def email_in_list?(email, list, attempts = 5)
+  def email_in_list?(email, list, attempts = 15)
     attempts.times do
       response = get_user(email)
       if response['lists'].keys.include?(list)
@@ -30,13 +30,15 @@ class SailthruAPI
     return false
   end
 
-  def email_has_sub_status?(email, sub_status, attempts = 5)
+  def email_has_sub_status?(email, sub_status, attempts = 15)
     attempts.times do
       response = get_user(email)
+      puts sub_status
+      puts response['vars']['subscription_status']
       if response['vars']['subscription_status'] == sub_status
         return true
       else
-        sleep(1)
+        sleep(2)
       end
     end
     return false
