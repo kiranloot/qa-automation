@@ -33,8 +33,6 @@ class SailthruAPI
   def email_has_sub_status?(email, sub_status, attempts = 15)
     attempts.times do
       response = get_user(email)
-      puts sub_status
-      puts response['vars']['subscription_status']
       if response['vars']['subscription_status'] == sub_status
         return true
       else
