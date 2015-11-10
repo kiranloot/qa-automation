@@ -1,6 +1,6 @@
 @regression @core @subscription_creation @selenium
 Feature: Subscription Creation
-    @ready @fixing
+    @ready
     Scenario: Registered user creates one month subscription
         Given a registered user with no prior subscription
             When the user logs in
@@ -8,9 +8,8 @@ Feature: Subscription Creation
             And the user selects a one month subscription plan
             And the user submits valid subscription information
         Then the new subscription should be added to the user account
-            #TODO: Add this if zoura is no-go: And the new subscription should be added to chargify
             And the user should receive a subscription confirmation email
-            #TODO: And the user's data should be updated in mailchimp
+
     @ready 
     Scenario: Registered user creates three month subscription
         Given a registered user with no prior Subscription
@@ -19,6 +18,7 @@ Feature: Subscription Creation
             And the user selects a three month subscription plan
             And the user submits valid subscription information
         Then standard new subscription pass criteria should pass
+
     @ready @recurly
     Scenario: Registered user creates six month subscription
         Given a registered user with no prior Subscription

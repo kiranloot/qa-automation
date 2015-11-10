@@ -7,7 +7,7 @@ class Test
  require 'yaml'
  require 'pry'
  require 'faker'
- attr_accessor :user, :pages, :current_page, :test_data, :db, :affiliate, :recurly, :box
+ attr_accessor :user, :pages, :current_page, :test_data, :db, :affiliate, :recurly, :box, :sailthru
  include Capybara::DSL
  include RSpec::Matchers
  include WaitForAjax
@@ -16,6 +16,7 @@ class Test
   @affiliate = nil
   @user = nil
   @recurly = RecurlyAPI.new
+  @sailthru = SailthruAPI.new
   @current_page = start_page
   @test_data = test_data 
   @pages = pages
