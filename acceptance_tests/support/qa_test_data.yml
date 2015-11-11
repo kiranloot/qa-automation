@@ -51,10 +51,10 @@ ca_plan_cost:
   6: 123.93
   12: 234.79
 international_plan_cost:
-  1: 29.95
-  3: 84.0
-  6: 162.0
-  12: 312.0
+  1: 29
+  3: 28
+  6: 27
+  12: 26
 level_up_plan_cost:
   socks:
     one: 9.99
