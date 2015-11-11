@@ -50,7 +50,7 @@ end
 
 When /the user sets their country to (.*)/ do |country|
   country.strip!
-  $test.user.set_country(country)
+  $test.user.set_ship_to_country(country)
 end
 
 #THENS

@@ -328,20 +328,21 @@ class User
   end
 
   def set_ship_to_country(country, top_bot: nil)
-    top = true
-    if top_bot
-      if top_bot == "top"
-        top = true
-      elsif top_bot == "bot" || top_bot == "bottom"
-        top = false
-      end
-    else
-      top = [true, false].sample
-    end
-    wait_for_ajax
-    #page.has_content?("Ship to")
+    #top = true
+    #if top_bot
+    #  if top_bot == "top"
+    #    top = true
+    #  elsif top_bot == "bot" || top_bot == "bottom"
+    #    top = false
+    #  end
+    #else
+    #  top = [true, false].sample
+    #end
+    #wait_for_ajax
     first(:link, "country-selector-lnk").click
-    click_link(country)
+    find("#s2id_autogen3").click
+    find("ul#select2-results-4 > li > div", :text => country).click
+    #click_link(country)
   end
 
   def discount_applied?
