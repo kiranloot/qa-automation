@@ -10,17 +10,23 @@ include Capybara::DSL
   end
 
   def scroll_to(product)
+    click_level_up_scroll_button
     case product
     when 'socks'
-      scroll_val = 750
+      scroll_val = 0
     when 'accessory'
-      scroll_val = 1050
+      scroll_val = 250
     when 'wearable'
-      scroll_val = 1550
+      scroll_val = 500
     end
     page.execute_script "window.scrollBy(0,#{scroll_val})"
     sleep(1)
   end
+
+  def click_level_up_scroll_button
+    find(:id, "opt-cta").click
+  end
+
 
   def select_level_up(product,months,size = nil)
     #determine scroll distance and div to look at

@@ -1,6 +1,6 @@
 @core @regression @levelup @selenium
 Feature: Level Up
-    @ready
+    @ignore
     Scenario: Level Up is available for users without active subscriptions
         Given a registered user with no prior subscription
             When the user logs in
@@ -11,7 +11,7 @@ Feature: Level Up
         Given a registered user with an active subscription
         And The socks level up product is available
             When the user logs in
-            And the user visits the level up page
+            And the user selects the Level Up crate
             And the user selects a level up one month subscription for the socks crate
             And the user submits valid levelup information
         Then the new level up subscription should be added to the user account

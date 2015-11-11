@@ -94,7 +94,7 @@ class Test
  end
 
  def log_in_or_register
-   if (find(:id,"header-login-lnk").text == "My Account")
+   if !page.has_content?("Log In")
      log_out
    end
    @current_page = SignupPage.new
