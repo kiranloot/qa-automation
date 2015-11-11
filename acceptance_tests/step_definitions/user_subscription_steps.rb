@@ -43,6 +43,7 @@ When /the user logs (.*)$/ do |in_out|
 end
 
 When /^the user selects a (.*) month subscription plan/ do |months|
+  $test.current_page.click_thru_to_checkout
   m = $test.current_page.select_plan(months)
   $test.user.target_plan(m)
 end 
