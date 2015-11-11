@@ -318,8 +318,8 @@ class MyAccountPage < Page
   def select_shipping_state(sub_id, state)
     find(:id, "s2id_shipping_address_state#{sub_id}").click
     wait_for_ajax
-    fill_in("s2id_autogen8_search", :with => state)
-    find(:id, "s2id_autogen8_search").native.send_key(:enter)
+    fill_in("s2id_autogen12_search", :with => state)
+    find(:id, "s2id_autogen12_search").native.send_key(:enter)
     $test.user.ship_state = state
   end
 
