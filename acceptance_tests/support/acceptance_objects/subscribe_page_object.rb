@@ -31,7 +31,7 @@ include WaitForAjax
   def click_thru_to_checkout
     if page.has_content?("GET LOOT")
       first(:link,"GET LOOT").click
-    else page.has_content?("BECOME A LOOTER")
+    elsif page.has_content?("BECOME A LOOTER")
       first(:link,"BECOME A LOOTER").click
     end
   end

@@ -128,24 +128,11 @@ class MyAccountPage < Page
   end
 
   def localize_date(day, month, year)
-    if ["AU","IE","NZ","UK"].include? $test.user.country_code
-      rebill_string = day + " " + month + ", " + year
-    elsif $test.user.country_code == "HU"
-      day.sub!(/^0/,"")
-      rebill_string = year + ". " + month + " " + day + "."
-    elsif ["DK","FR","IS","NO"].include? $test.user.country_code
-      day.sub!(/^0/,"")
-      rebill_string = day + ". " + month + " " + year
-    elsif ["SE"].include? $test.user.country_code
-      day.sub!(/^0/,"")
-      rebill_string = day + " " + month + " " + year
-    elsif ["IT"].include? $test.user.country_code
-      rebill_string = day + " " + month + " " + year
-    elsif ["PT","ES"].include? $test.user.country_code
-      rebill_string = day + " de " + month + " de " + year
-    else
-      rebill_string = month + " " + day + ", " + year
-    end
+    
+    #if selected language is german:
+    # return day + ". " + month + " " + year
+    #else
+    return month + " " + day + ", " + year
   end
 
   def cancellation_pending?
@@ -276,8 +263,8 @@ class MyAccountPage < Page
   def select_shirt_size(sub_id, size)
     find(:css, "#s2id_subscription_shirt_size#{sub_id} > a").click
     wait_for_ajax
-    fill_in('s2id_autogen1_search', :with => size)
-    find(:id, 's2id_autogen1_search').native.send_keys(:enter)
+    fill_in('s2id_autogen5_search', :with => size)
+    find(:id, 's2id_autogen5_search').native.send_keys(:enter)
     $test.user.shirt_size = size
     $test.user.display_shirt_size = $test.user.get_display_shirt_size(size)
   end
