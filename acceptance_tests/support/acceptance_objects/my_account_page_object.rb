@@ -359,8 +359,8 @@ class MyAccountPage < Page
   def select_billing_state(sub_id, state)
     find(:id, "s2id_payment_method_state#{sub_id}").click
     wait_for_ajax
-    fill_in("s2id_autogen7_search", :with => state)
-    find(:id, "s2id_autogen7_search").native.send_key(:enter)
+    fill_in("s2id_autogen11_search", :with => state)
+    find(:id, "s2id_autogen11_search").native.send_key(:enter)
     $test.user.bill_state = state
   end
 
