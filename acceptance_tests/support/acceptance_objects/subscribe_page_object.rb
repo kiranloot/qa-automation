@@ -49,7 +49,7 @@ include WaitForAjax
       target  = choices[3]
     elsif months == 'random'
       target = choices[rand(choices.size)]
-      months = target[/^(.*) month plan$/]
+      months = /(.*) month plan$/.match(target)[1]
     else
       puts "Invalid plan selection: " +  months
     end
