@@ -80,8 +80,21 @@ class Test
    wait_for_ajax
  end
 
+ def select_crate(crate)
+   click_link("Pick a Crate")
+   click_link(crate)
+   case crate
+   when "Loot Crate"
+     $test.current_page = SubscribePage.new
+   when "Level Up"
+     $test.current_page = LevelUpPage.new
+   when "Anime"
+     #stub
+   end
+ end
+
  def log_in_or_register
-   if (find(:css,"li.login_bar a").text == "My Account")
+   if (find(:id,"header-login-lnk").text == "My Account")
      log_out
    end
    @current_page = SignupPage.new

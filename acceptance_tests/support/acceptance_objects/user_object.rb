@@ -327,7 +327,7 @@ class User
     return /assets\/flags\/us_flag/.match(first('#country-selector-lnk > span > img')['src'])
   end
 
-  def set_country(country, top_bot: nil)
+  def set_ship_to_country(country, top_bot: nil)
     top = true
     if top_bot
       if top_bot == "top"

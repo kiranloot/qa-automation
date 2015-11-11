@@ -28,20 +28,28 @@ include WaitForAjax
     #end
   end
 
+  def click_thru_to_checkout
+    if page.has_content?("GET LOOT")
+      first(:link,"GET LOOT").click
+    else page.has_content?("BECOME A LOOTER")
+      first(:link,"BECOME A LOOTER").click
+    end
+  end
+
   def select_plan(months)
-    choices = ['one-month', 'three-month', 'six-month', 'twelve-month']
+    choices = ['1 month plan', '3 month plan', '6 month plan', '12 month plan']
     months = months.strip.downcase
     if months == "one"
-      target = 'one-month'
+      target = choices[0]
     elsif months == "three"
-      target = 'three-month'
+      target = choices[1]
     elsif months == "six"
-      target = 'six-month'
+      target = choices[2]
     elsif months == "twelve"
-      target  = 'twelve-month'
+      target  = choices[3]
     elsif months == 'random'
       target = choices[rand(choices.size)]
-      months = target[/[^-]+/]
+      months = target[/^(.*) month plan$/]
     else
       puts "Invalid plan selection: " +  months
     end

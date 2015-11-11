@@ -4,7 +4,7 @@ Feature: Subscription Creation
     Scenario: Registered user creates one month subscription
         Given a registered user with no prior subscription
             When the user logs in
-            And the user visits the subscribe page
+            And the user selects the Loot Crate crate
             And the user selects a one month subscription plan
             And the user submits valid subscription information
         Then the new subscription should be added to the user account

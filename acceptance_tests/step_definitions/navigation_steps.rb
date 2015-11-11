@@ -38,6 +38,10 @@ When /^the user visits the (.*)\s?page/ do |page|
   $test.visit_page(page.to_sym)
 end
 
+When /^the user selects the (.*) crate$/ do |crate|
+  $test.select_crate(crate)
+end
+
 When /we do the memory dance for (.*) minutes/ do |minutes|
   minutes.downcase!
   minutes.strip!
