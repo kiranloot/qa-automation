@@ -52,7 +52,17 @@ When /^the user submits (.*?) information/ do |arg_string|
   args = arg_string.split(" ")
   adjective = args.shift
   type = args.reject(&:empty?).join(' ')
-  $test.submit_information(adjective, type)
+  cp = $test.current_page
+  cp.select_shirt_size($test.user.shirt_size)
+  cp.enter_first_name($test.user.first_name)
+  cp.enter_last_name($test.user.last_name)
+  cp.enter_shipping_address_line_1($test.user.ship_street)
+  cp.enter_shipping_city($test.user.ship_city)
+  cp.select_shipping_state($test.user.ship_state)
+  cp.enter_shipping_zip_code($test.user.ship_zip)
+  cp.enter_name_on_card($test.user.full_name)
+  cp.enter_credit_card_number($test.user.cc)
+  cp.enter_cvv($test.user.cvv)
 end
 
 When /^the user edits their (.*)$/ do |info|

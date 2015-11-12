@@ -1,6 +1,6 @@
 require_relative "page_object"
 
-class SubscribePage < Page
+class AnimeSubscribePage < Page
 include Capybara::DSL
 include WaitForAjax
 
@@ -9,12 +9,6 @@ include WaitForAjax
     @page_type = "subscribe"
     setup
     @cc_fail_message = "There was an error validating your request."
-    @plans = {
-      'one' => '1 Month Plan',
-      'three' => '3 Month Plan',
-      'six' => '6 Month Plan',
-      'twelve' => '12 Month Plan'
-    }
   end
 
   def visit_page
@@ -32,44 +26,6 @@ include WaitForAjax
     #if page.has_content?("Error prevented")
     #  page.find('body > div.blurred > div.alert-bg > div > div > div > a').click
     #end
-  end
-
-  def click_thru_to_checkout
-    if page.has_content?("GET LOOT")
-      first(:link,"GET LOOT").click
-  end
-
-  def select_plan(months)
-    choices = ['one-month', 'three-month', 'six-month', 'twelve-month']
-    months = months.strip.downcase
-    if months == "one"
-      target = choices[0]
-    elsif months == "three"
-      target = choices[1]
-    elsif months == "six"
-      target = choices[2]
-    elsif months == "twelve"
-      target  = choices[3]
-    elsif months == 'random'
-      target = choices[rand(choices.size)]
-      months = /(.*)-month$/.match(target)[1]
-    else
-      target = @plans[plan]
-    end
-    find(:id, target).click
-    wait_for_ajax
-    click_thru_to_checkout
-    wait_for_ajax
-    update_target_plan(plan)
-    load_checkout_page_object
-  end
-
-  def update_target_plan(months)
-    #stub - to be overridden by children
-  end
-
-  def load_checkout_page_object
-    #stub = to be overridden by children
   end
 
   def verify_plan_prices(domain)

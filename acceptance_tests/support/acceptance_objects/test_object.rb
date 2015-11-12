@@ -86,11 +86,11 @@ class Test
    wait_for_ajax
    case crate
    when "Loot Crate"
-     $test.current_page = SubscribePage.new
+     $test.current_page = LootCrateSubscribePage.new
    when "Level Up"
-     $test.current_page = LevelUpPage.new
+     $test.current_page = LevelUpSubscribePage.new
    when "Anime"
-     #stub
+     $test.current_page = AnimeSubscribePage.new
    end
  end
 
