@@ -14,7 +14,7 @@ Feature: Subscription Creation
     Scenario: Registered user creates three month subscription
         Given a registered user with no prior Subscription
             When the user logs in
-            And the user visits the subscribe page
+            And the user selects the Loot Crate crate
             And the user selects a three month subscription plan
             And the user submits valid subscription information
         Then standard new subscription pass criteria should pass
@@ -23,7 +23,7 @@ Feature: Subscription Creation
     Scenario: Registered user creates six month subscription
         Given a registered user with no prior Subscription
             When the user logs in 
-            And the user visits the subscribe page
+            And the user selects the Loot Crate crate
             And the user selects a six month subscription plan
             And the user submits valid subscription information
         Then standard new subscription pass criteria should pass
