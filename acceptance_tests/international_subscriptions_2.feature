@@ -16,8 +16,8 @@ Feature: International Subscriptions
     Scenario: Canada user signs up for one month subscription
       Given a registered user with a Canada address
         When the user logs in
-        And the user visits the subscribe page
         And the user selects the Loot Crate crate
+        And the user sets their country to Canada
         And the user selects a one month subscription plan
         And the user submits valid subscription information
       Then the new subscription should be added to the user account
