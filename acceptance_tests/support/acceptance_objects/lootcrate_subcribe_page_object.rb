@@ -27,16 +27,21 @@ include WaitForAjax
     #end
   end
 
+  def click_thru_to_checkout
+    #visit ('https://goliath.lootcrate.com/crates/lootcrate/plans')
+    #wait_for_ajax
+  end
+
   def load_checkout_page_object
     $test.current_page = LootcrateCheckoutPage.new
   end
 
   def update_target_plan(plan)
     plan_hash = {
-      '1 Month Plan' => '1 Month Subscription',
-      '3 Month Plan' => '3 Month Subscription',
-      '6 Month Plan' => '1 Month Subscription',
-      '12 Month Plan' => '1 Year Subscription',
+      'one' => '1 Month Subscription',
+      'three' => '3 Month Subscription',
+      'six' => '1 Month Subscription',
+      'twelve' => '1 Year Subscription',
     }
     $test.user.subscription_name = plan_hash[plan]
    end

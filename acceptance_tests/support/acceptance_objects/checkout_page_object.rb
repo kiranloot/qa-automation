@@ -52,11 +52,11 @@ include Capybara::DSL
   end
 
   def enter_credit_card_number(number)
-    fill_in("checkout_credit_card_number", :with => name)
+    fill_in("checkout_credit_card_number", :with => number)
   end
 
   def enter_cvv(cvv)
-    fill_in("checkout_credit_card_cvv", :with => name)
+    fill_in("checkout_credit_card_cvv", :with => cvv)
   end
 
   def click_coupon_checkbox
@@ -81,6 +81,6 @@ include Capybara::DSL
 
   def verify_confirmation_page
     #stub
-    #because of friendby, this page will be blank in all QA envs except for staging
+    sleep(3)
   end
 end

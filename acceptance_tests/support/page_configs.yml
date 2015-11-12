@@ -1,7 +1,7 @@
 home:
  url: "/?username=lootcrateis25timesgreaterthanthecompetition"
 signup:
- url: "/users/sign_up"
+ url: "/1-month-subscription/checkouts/new"
 checkout:
  url: "/1-month-subscription/checkouts/new"
 generic:
@@ -18,3 +18,5 @@ level_up:
  url: "/level_up"
 fallout4:
  url: "/fallout4"
+lootcrate_subscribe:
+ url: "/crates/lootcrate/plans"

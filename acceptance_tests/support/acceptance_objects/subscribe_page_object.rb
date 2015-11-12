@@ -10,10 +10,10 @@ include WaitForAjax
     setup
     @cc_fail_message = "There was an error validating your request."
     @plans = {
-      'one' => '1 Month Plan',
-      'three' => '3 Month Plan',
-      'six' => '6 Month Plan',
-      'twelve' => '12 Month Plan'
+      'one' => 'one-month',
+      'three' => 'three-month',
+      'six' => 'six-month',
+      'twelve' => 'twelve-month'
     }
   end
 
