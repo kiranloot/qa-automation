@@ -37,7 +37,7 @@ include WaitForAjax
   end
 
   def select_plan(months)
-    choices = ['1 month plan', '3 month plan', '6 month plan', '12 month plan']
+    choices = ['one-month', 'three-month', 'six-month', 'tweleve-month']
     months = months.strip.downcase
     if months == "one"
       target = choices[0]
@@ -53,7 +53,7 @@ include WaitForAjax
     else
       puts "Invalid plan selection: " +  months
     end
-    click_link(target)
+    find(:id, target).click
     wait_for_ajax
     return months
   end
