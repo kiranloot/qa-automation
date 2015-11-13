@@ -83,6 +83,7 @@ class Test
  def select_crate(crate)
    click_link("Pick a Crate")
    click_link(crate)
+   wait_for_ajax
    case crate
    when "Loot Crate"
      $test.current_page = SubscribePage.new

@@ -28,14 +28,6 @@ include WaitForAjax
     #end
   end
 
-  def click_thru_to_checkout
-    if page.has_content?("GET LOOT")
-      first(:link,"GET LOOT").click
-    elsif page.has_content?("BECOME A LOOTER")
-      first(:link,"BECOME A LOOTER").click
-    end
-  end
-
   def select_plan(months)
     choices = ['one-month', 'three-month', 'six-month', 'tweleve-month']
     months = months.strip.downcase

@@ -338,11 +338,11 @@ class User
     #else
     #  top = [true, false].sample
     #end
-    #wait_for_ajax
+    wait_for_ajax
     first(:link, "country-selector-lnk").click
     find("#s2id_autogen3").click
     find("ul#select2-results-4 > li > div", :text => country).click
-    #click_link(country)
+    wait_for_ajax
   end
 
   def discount_applied?
