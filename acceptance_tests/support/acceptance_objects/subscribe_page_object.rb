@@ -62,7 +62,7 @@ include WaitForAjax
     else
       target = @plans[plan]
     end
-    click_thru_to_checkout
+    click_thru_to_plan_selection
     find(:id, target).click
     wait_for_ajax
     wait_for_ajax

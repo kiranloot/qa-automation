@@ -1,4 +1,4 @@
-require_relative "page_object"
+require_relative "subscribe_page_object"
 
 class LevelUpSubscribePage < SubscribePage
 include Capybara::DSL
@@ -8,16 +8,7 @@ include WaitForAjax
     super
     @page_type = "levelup_subscribe"
     setup
-    @plans = {
-      'onesocks' => 'btn-lc-lu02-03-us'
-      'threesocks' => 'btn-lc-lu02-03-us'
-      'sixsocks' => 'btn-lc-lu02-03-us'
-      'twelvesocks' => 'btn-lc-lu02-03-us'
-      'oneaccessories' => 'btn-lc-lu02-03-us'
-      'threeaccessories' => 'btn-lc-lu02-03-us'
-      'sixeaccessories' => 'btn-lc-lu02-03-us'
-      'twelevesocks' => 'btn-lc-lu02-03-us'
-    }
+    @plans = {}
   end
 
   def visit_page
