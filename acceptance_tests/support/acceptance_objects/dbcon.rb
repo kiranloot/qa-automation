@@ -251,8 +251,8 @@ on s.shipping_address_id = sa.id
 inner join addresses ba
 on s.billing_address_id = ba.id
 where s.cancel_at_end_of_period is null
-and s.created_at::date < '#{t}'::date
-and s.updated_at::date < '#{t}'::date
+and s.created_at < '#{t}'
+and s.updated_at < '#{t}'
 and email like '\\_%' 
 and email not like '_updated%' 
 ),
@@ -276,9 +276,9 @@ limit 1
 q
 end
 
-
 def registered_one_active(test_run_timestamp = ENV['RUN_TIMESTAMP'])
 t = test_run_timestamp
+puts t
 wait_count = 0
 @redis.connect
 while @redis.should_wait?
@@ -289,7 +289,7 @@ end
 ret_hash = {}
 
 q = one_active_query(t)
-
+puts q
   @conn.exec(q) do |result|
     result.each do |row|
       ret_hash["email"] =  row["email"]
@@ -297,6 +297,8 @@ q = one_active_query(t)
       ret_hash["rebill_date_db"] = row["rebill"]
     end
   end
+
+puts ret_hash
 
 if ret_hash["email"]
   alter_sub(ret_hash["sub"])
@@ -309,8 +311,10 @@ end
 @redis.clear_wait
 @redis.quit
 if ret_hash["email"] == nil
+  puts "MR NIL"
   return nil
 else
+  puts "MR SOMETHING"
   return ret_hash
 end
 

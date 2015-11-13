@@ -3,7 +3,7 @@ require 'capybara/cucumber'
 require 'rspec/expectations'
 require 'time'
 
-ENV['RUN_TIMESTAMP'] = Time.now().to_s
+ENV['RUN_TIMESTAMP'] = Time.now().utc.to_s
 ENV['SITE'] ||= 'qa'
 
 driver = ENV['DRIVER'] ||= 'local'
