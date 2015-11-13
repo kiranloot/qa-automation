@@ -27,9 +27,8 @@ include WaitForAjax
     #end
   end
 
-  def click_thru_to_checkout
-    #visit ('https://goliath.lootcrate.com/crates/lootcrate/plans')
-    #wait_for_ajax
+  def click_thru_to_plan_selection
+    #empty (no clickthrough necessary)
   end
 
   def load_checkout_page_object

@@ -15,6 +15,12 @@ include WaitForAjax
       'six' => 'six-month',
       'twelve' => 'twelve-month'
     }
+    @plan_display_names = {
+      'one' => '1 Month Subscription',
+      'three' => '3 Month Subscription',
+      'six' => '1 Month Subscription',
+      'twelve' => '1 Year Subscription',
+    }
   end
 
   def visit_page
@@ -34,7 +40,7 @@ include WaitForAjax
     #end
   end
 
-  def click_thru_to_checkout
+  def click_thru_to_plan_selection
     if page.has_content?("GET LOOT")
       first(:link,"GET LOOT").click
   end
@@ -56,16 +62,16 @@ include WaitForAjax
     else
       target = @plans[plan]
     end
+    click_thru_to_checkout
     find(:id, target).click
     wait_for_ajax
-    click_thru_to_checkout
     wait_for_ajax
     update_target_plan(plan)
     load_checkout_page_object
   end
 
-  def update_target_plan(months)
-    #stub - to be overridden by children
+  def update_target_plan(plan)
+    $test.user.subscription_name = @plan_display_names[plan]
   end
 
   def load_checkout_page_object

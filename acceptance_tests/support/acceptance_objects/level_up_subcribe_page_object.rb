@@ -1,14 +1,23 @@
 require_relative "page_object"
 
-class SubscribePage < Page
+class LevelUpSubscribePage < SubscribePage
 include Capybara::DSL
 include WaitForAjax
 
   def initialize
     super
-    @page_type = "subscribe"
+    @page_type = "levelup_subscribe"
     setup
-    @cc_fail_message = "There was an error validating your request."
+    @plans = {
+      'onesocks' => 'btn-lc-lu02-03-us'
+      'threesocks' => 'btn-lc-lu02-03-us'
+      'sixsocks' => 'btn-lc-lu02-03-us'
+      'twelvesocks' => 'btn-lc-lu02-03-us'
+      'oneaccessories' => 'btn-lc-lu02-03-us'
+      'threeaccessories' => 'btn-lc-lu02-03-us'
+      'sixeaccessories' => 'btn-lc-lu02-03-us'
+      'twelevesocks' => 'btn-lc-lu02-03-us'
+    }
   end
 
   def visit_page
@@ -16,45 +25,40 @@ include WaitForAjax
     $test.current_page = self
   end
 
-  def subscription_failed?(fault)
-    case fault
-    when "invalid credit card"
-      assert_text(@cc_fail_message)
+  def click_thru_to_plan_selection
+    click_button("level up").click
+    sleep(2)
+    scroll_val = 500 
+    page.execute_script "window.scrollBy(0,#{scroll_val})"
+  end
+
+  def select_plan(product, months)
+    scroll_to(product)
+    div_id = product + '-crate'
+    dd_id = 's2id_' + div_id
+    find(:id,dd_id).click
+    wait_for_ajax
+    case months
+    when "one"
+      plan_index = '1'
+    when "three"
+      plan_index = '2'
+    when "six"
+      plan_index = '3'
     end
-
-    #This was failing in master.  Commenting out for now.
-    #if page.has_content?("Error prevented")
-    #  page.find('body > div.blurred > div.alert-bg > div > div > div > a').click
-    #end
+    #select plan
+    find(:css,'ul.select2-results').find(:xpath,"li[#{plan_index}]").click
+    verify_level_up_plan_price(product, months, div_id)
+    #click subscribe
+    find(:id,div_id).find_link("level up").click
+    wait_for_ajax
+    update_target_plan(plan)
+    load_chekckout_page_object
   end
 
-  def click_thru_to_checkout
-    if page.has_content?("LEVEL UP")
-      click_button("level up").click
-    end
+  def update_target_plan(plan)
+    plan_hash = {
+      
+    }
   end
-
-  def select_plan(months)
-    #stub - needs to be done
-  end
-
-  def verify_plan_prices(domain)
-    if domain == 'international'
-      for k, v in $test.test_data['international_plan_cost']
-        assert_text(v.to_s)
-      end
-    elsif domain == 'domestic'
-      for k, v in $test.test_data['international_plan_cost']
-        assert_text("Total Price: $" + v.to_s)
-      end
-   else
-     puts "ERROR: Unknown Shipping Domain"
-   end
-  end
- 
-  def proration_applied?(old_plan, new_plan, date_subscribed)
-    old = Plan.new(old_plan, date_subscribed, false)
-    new = Plan.new(new_plan, date_subscribed, true)
-  end
-
 end
