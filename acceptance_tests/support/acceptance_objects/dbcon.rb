@@ -57,7 +57,6 @@ def poll_for_one_time_coupon_code(promo_id, number_of = 5)
   query = "select code from coupons where promotion_id = #{promo_id}"
   number_of.times do
     results = @conn.exec(query)
-    puts results
     if results.any?
       return results[0]['code']
     end
@@ -189,6 +188,15 @@ def shipping_from_hash(h)
   end
 end
 
+def get_variant_id(variant_sku,product_name)
+  q = """
+    SELECT v.id FROM variants v JOIN products p on v.product_id = p.id
+      WHERE p.name = '#{product_name}'
+      AND v.sku = '#{variant_sku}'
+  """
+  @conn.exec(q)[0]['id']
+end
+
 def verify_webhooks(webhook_event, webhook_status)
   case webhook_event
   when "subscription creation"
@@ -278,7 +286,6 @@ end
 
 def registered_one_active(test_run_timestamp = ENV['RUN_TIMESTAMP'])
 t = test_run_timestamp
-puts t
 wait_count = 0
 @redis.connect
 while @redis.should_wait?
@@ -289,7 +296,6 @@ end
 ret_hash = {}
 
 q = one_active_query(t)
-puts q
   @conn.exec(q) do |result|
     result.each do |row|
       ret_hash["email"] =  row["email"]
@@ -297,8 +303,6 @@ puts q
       ret_hash["rebill_date_db"] = row["rebill"]
     end
   end
-
-puts ret_hash
 
 if ret_hash["email"]
   alter_sub(ret_hash["sub"])
@@ -311,10 +315,8 @@ end
 @redis.clear_wait
 @redis.quit
 if ret_hash["email"] == nil
-  puts "MR NIL"
   return nil
 else
-  puts "MR SOMETHING"
   return ret_hash
 end
 

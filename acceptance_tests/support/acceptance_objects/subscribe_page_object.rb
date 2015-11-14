@@ -29,7 +29,7 @@ include WaitForAjax
   end
 
   def select_plan(months)
-    choices = ['one-month', 'three-month', 'six-month', 'tweleve-month']
+    choices = ['one-month', 'three-month', 'six-month', 'twelve-month']
     months = months.strip.downcase
     if months == "one"
       target = choices[0]
