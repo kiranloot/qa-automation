@@ -127,11 +127,11 @@ class User
     elsif product == 'socks' && months == 'six'
       @level_up_subscription_name = 'Level Up Socks 6 Month'
     elsif product == 'accessory' && months == 'one'
-      @level_up_subscription_name = 'Level Up Accessory 1 Month'
+      @level_up_subscription_name = 'Level Up Accessories 1 Month'
     elsif product == 'accessory' && months == 'three'
-      @level_up_subscription_name = 'Level Up Accessory 3 Month'
+      @level_up_subscription_name = 'Level Up Accessories 3 Month'
     elsif product == 'accessory' && months == 'six'
-      @level_up_subscription_name = 'Level Up Accessory 6 Month'
+      @level_up_subscription_name = 'Level Up Accessories 6 Month'
     end
   end
     
