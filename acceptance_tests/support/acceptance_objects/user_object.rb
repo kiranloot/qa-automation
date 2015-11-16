@@ -320,6 +320,8 @@ class User
   end
 
   def is_country_us?
+    wait_for_ajax
+    find('#country-selector-lnk > span > img')
     return /assets\/flags\/us_flag-727f10283a96f57fe09b30201b783828.jpg/.match(first('#country-selector-lnk > span > img')['src'])
   end
 
