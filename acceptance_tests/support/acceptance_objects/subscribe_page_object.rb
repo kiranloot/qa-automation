@@ -43,28 +43,17 @@ include WaitForAjax
   def click_thru_to_plan_selection
     if page.has_content?("GET LOOT")
       first(:link,"GET LOOT").click
+    end
   end
 
-  def select_plan(months)
-    choices = ['one-month', 'three-month', 'six-month', 'twelve-month']
-    months = months.strip.downcase
-    if months == "one"
-      target = choices[0]
-    elsif months == "three"
-      target = choices[1]
-    elsif months == "six"
-      target = choices[2]
-    elsif months == "twelve"
-      target  = choices[3]
-    elsif months == 'random'
-      target = choices[rand(choices.size)]
-      months = /(.*)-month$/.match(target)[1]
+  def select_plan(plan)
+    if plan == 'random'
+      rand_key = @plans.keys[rand(@plans.keys.size)]
+      target = @plans[rand_key]
     else
       target = @plans[plan]
     end
-    click_thru_to_plan_selection
     find(:id, target).click
-    wait_for_ajax
     wait_for_ajax
     update_target_plan(plan)
     load_checkout_page_object
