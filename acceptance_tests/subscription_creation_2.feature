@@ -4,7 +4,7 @@ Feature: Subscription Creation
     Scenario: Registered user creates twelve month subscription plan
         Given a registered user with no prior subscription 
             When the user logs in
-            And the user visits the subscribe page
+            And the user selects the Loot Crate crate
             And the user selects a twelve month subscription plan
             And the user submits valid subscription information
         Then standard new subscription pass criteria should pass
@@ -13,7 +13,7 @@ Feature: Subscription Creation
     Scenario: California registered user creates a subscription
         Given a registered user with a California Address
             When the user logs in
-            And the user visits the subscribe page
+            And the user selects the Loot Crate crate
             And the user selects a random month subscription plan
             And the user submits valid subscription information
         Then sales tax should be applied to the transaction price
@@ -25,7 +25,7 @@ Feature: Subscription Creation
         card data
         Given a registered user with no prior subscription
             When the user logs in 
-            And the user visits the subscribe page
+            And the user selects the Loot Crate crate
             And the user selects a random month subscription plan
             And the user submits invalid credit card information
         Then subscription creation should fail due to invalid credit card

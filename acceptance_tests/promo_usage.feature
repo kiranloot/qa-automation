@@ -4,7 +4,7 @@ Feature: Promotion codes
     Scenario: User applies valid multi use promo code at signup.
         Given a registered user with a multi use promo code
             When the user logs in
-            And the user visits the subscribe page
+            And the user selects the Loot Crate crate
             And the user selects a one month subscription plan
             And the user submits valid subscription information
         Then the promo discount should be applied to the transaction
@@ -14,7 +14,7 @@ Feature: Promotion codes
     Scenario: User applies valid one time use promo code at signup
         Given a registered user with a one time use promo code
             When the user logs in
-            And the user visits the subscribe page
+            And the user selects the Loot Crate crate
             And the user selects a one month subscription plan
             And the user submits valid subscription information
         Then the promo discount should be applied to the transaction

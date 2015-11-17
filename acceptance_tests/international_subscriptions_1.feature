@@ -4,7 +4,7 @@ Feature: International Subscriptions
     Scenario: Denmark user signs up for one month subscription
         Given a registered user with a Denmark address
             When the user logs in
-            And the user visits the subscribe page
+            And the user selects the Loot Crate crate
             And the user sets their country to Denmark
             And the user selects a one month subscription plan
             And the user submits valid subscription information
@@ -16,7 +16,7 @@ Feature: International Subscriptions
     Scenario: Australian user signs up for one month subscription
         Given a registered user with a Australia address
             When the user logs in
-            And the user visits the subscribe page
+            And the user selects the Loot Crate crate
             And the user sets their country to Australia
             And the user selects a one month subscription plan
             And the user submits valid subscription information
@@ -28,7 +28,7 @@ Feature: International Subscriptions
     Scenario: Austria user signs up for one month subscription
         Given a registered user with a Austria address
             When the user logs in
-            And the user visits the subscribe page
+            And the user selects the Loot Crate crate
             And the user sets their country to Austria
             And the user selects a one month subscription plan
             And the user submits valid subscription information

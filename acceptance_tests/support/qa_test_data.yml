@@ -12,18 +12,16 @@ locators:
   modal_register: "//*[@id='register_step_two']/input"
   flip_member: "//*[@id='new-customer']/div[5]/div[1]"
   flip_join: "//*[@id='existing-customer-container']/div[3]/div/span"
-  shirt_dd: "div#s2id_checkout_shirt_size > a"
-  shirt_size: input#s2id_autogen1_search
+  shirt_dd: "div#s2id_shirt_size > a"
+  shirt_size: input#s2id_autogen5_search
   shirt_size_express: input#s2id_autogen3_search
   first_name: checkout_shipping_address_first_name
   last_name: checkout_shipping_address_last_name
   ship_street: checkout_shipping_address_line_1
   ship_street_2: checkout_shipping_address_line_2
   ship_city: checkout_shipping_address_city
-  ship_state: "#s2id_autogen3_search"
-  ship_state_express: "#s2id_autogen1_search"
-  state_dd: "#select2-chosen-3"
-  state_dd_express: "#select2-chosen-1"
+  ship_state: "#s2id_autogen7_search"
+  state_dd: "#select2-chosen-7"
   ship_zip: checkout_shipping_address_zip
   name_on_card: checkout_billing_address_full_name
   cc: checkout_credit_card_number
@@ -53,10 +51,10 @@ ca_plan_cost:
   6: 123.93
   12: 234.79
 international_plan_cost:
-  1: 29.95
-  3: 84.0
-  6: 162.0
-  12: 312.0
+  1: 29
+  3: 28
+  6: 27
+  12: 26
 level_up_plan_cost:
   socks:
     one: 9.99

@@ -57,7 +57,6 @@ def poll_for_one_time_coupon_code(promo_id, number_of = 5)
   query = "select code from coupons where promotion_id = #{promo_id}"
   number_of.times do
     results = @conn.exec(query)
-    puts results
     if results.any?
       return results[0]['code']
     end
@@ -189,6 +188,15 @@ def shipping_from_hash(h)
   end
 end
 
+def get_variant_id(variant_sku,product_name)
+  q = """
+    SELECT v.id FROM variants v JOIN products p on v.product_id = p.id
+      WHERE p.name = '#{product_name}'
+      AND v.sku = '#{variant_sku}'
+  """
+  @conn.exec(q)[0]['id']
+end
+
 def verify_webhooks(webhook_event, webhook_status)
   case webhook_event
   when "subscription creation"
@@ -251,8 +259,8 @@ on s.shipping_address_id = sa.id
 inner join addresses ba
 on s.billing_address_id = ba.id
 where s.cancel_at_end_of_period is null
-and s.created_at::date < '#{t}'::date
-and s.updated_at::date < '#{t}'::date
+and s.created_at < '#{t}'
+and s.updated_at < '#{t}'
 and email like '\\_%' 
 and email not like '_updated%' 
 ),
@@ -276,7 +284,6 @@ limit 1
 q
 end
 
-
 def registered_one_active(test_run_timestamp = ENV['RUN_TIMESTAMP'])
 t = test_run_timestamp
 wait_count = 0
@@ -289,7 +296,6 @@ end
 ret_hash = {}
 
 q = one_active_query(t)
-
   @conn.exec(q) do |result|
     result.each do |row|
       ret_hash["email"] =  row["email"]

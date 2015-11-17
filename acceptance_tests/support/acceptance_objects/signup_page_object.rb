@@ -27,7 +27,8 @@ include Capybara::DSL
     wait_for_ajax
     page.has_content?('Subscribe')
     first(:link, 'Subscribe').click
-    click_link('one-month')
+    wait_for_ajax
+    find(:id, 'one-month').click
     $test.current_page = self
   end
   

@@ -127,11 +127,11 @@ class User
     elsif product == 'socks' && months == 'six'
       @level_up_subscription_name = 'Level Up Socks 6 Month'
     elsif product == 'accessory' && months == 'one'
-      @level_up_subscription_name = 'Level Up Accessory 1 Month'
+      @level_up_subscription_name = 'Level Up Accessories 1 Month'
     elsif product == 'accessory' && months == 'three'
-      @level_up_subscription_name = 'Level Up Accessory 3 Month'
+      @level_up_subscription_name = 'Level Up Accessories 3 Month'
     elsif product == 'accessory' && months == 'six'
-      @level_up_subscription_name = 'Level Up Accessory 6 Month'
+      @level_up_subscription_name = 'Level Up Accessories 6 Month'
     end
   end
     
@@ -327,21 +327,22 @@ class User
     return /assets\/flags\/us_flag/.match(first('#country-selector-lnk > span > img')['src'])
   end
 
-  def set_country(country, top_bot: nil)
-    top = true
-    if top_bot
-      if top_bot == "top"
-        top = true
-      elsif top_bot == "bot" || top_bot == "bottom"
-        top = false
-      end
-    else
-      top = [true, false].sample
-    end
+  def set_ship_to_country(country, top_bot: nil)
+    #top = true
+    #if top_bot
+    #  if top_bot == "top"
+    #    top = true
+    #  elsif top_bot == "bot" || top_bot == "bottom"
+    #    top = false
+    #  end
+    #else
+    #  top = [true, false].sample
+    #end
     wait_for_ajax
-    #page.has_content?("Ship to")
     first(:link, "country-selector-lnk").click
-    click_link(country)
+    find("#s2id_autogen3").click
+    find("ul#select2-results-4 > li > div", :text => country).click
+    wait_for_ajax
   end
 
   def discount_applied?

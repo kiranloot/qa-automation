@@ -33,7 +33,7 @@ Before do
   $test.user = User.new($test)
   #If US flag isn't showing, set it to US
   if(!$test.user.is_country_us?)
-    $test.user.set_country("United States")
+    $test.user.set_ship_to_country("United States")
   end
 end
 

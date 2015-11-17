@@ -19,7 +19,7 @@ end
 #WHENS
 When /create a (.*) month subscription/ do |months|
   step "the user logs in"
-  step "the user visits the subscribe page"
+  step "the user selects the Loot Crate crate"
   step "the user selects a #{months} month subscription plan"
   step "the user submits valid subscription information"
   step "the user logs out"

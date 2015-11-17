@@ -32,20 +32,20 @@ include WaitForAjax
     choices = ['one-month', 'three-month', 'six-month', 'twelve-month']
     months = months.strip.downcase
     if months == "one"
-      target = 'one-month'
+      target = choices[0]
     elsif months == "three"
-      target = 'three-month'
+      target = choices[1]
     elsif months == "six"
-      target = 'six-month'
+      target = choices[2]
     elsif months == "twelve"
-      target  = 'twelve-month'
+      target  = choices[3]
     elsif months == 'random'
       target = choices[rand(choices.size)]
-      months = target[/[^-]+/]
+      months = /(.*)-month$/.match(target)[1]
     else
       puts "Invalid plan selection: " +  months
     end
-    click_link(target)
+    find(:id, target).click
     wait_for_ajax
     return months
   end
@@ -53,7 +53,7 @@ include WaitForAjax
   def verify_plan_prices(domain)
     if domain == 'international'
       for k, v in $test.test_data['international_plan_cost']
-        assert_text("Total Price Estimate: $" + v.to_s)
+        assert_text(v.to_s)
       end
     elsif domain == 'domestic'
       for k, v in $test.test_data['international_plan_cost']
