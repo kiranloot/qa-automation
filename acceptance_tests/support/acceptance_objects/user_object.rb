@@ -199,6 +199,7 @@ class User
         @tax_applied = true
       end
     end
+    find(:id, "terms-agree-checkbox").click
     click_button(@test.test_data["locators"]["checkout_btn"])
     wait_for_ajax
     if @cc == '4111111111111111' && $test.current_page.page_type != 'fallout4'
@@ -247,6 +248,7 @@ class User
   def submit_levelup_subscription_info
     wait_for_level_up_autofill
     submit_credit_card_information
+    find(:id, "terms-agree-checkbox").click
     click_button(@test.test_data["locators"]["checkout_btn"])
     wait_for_ajax
     sleep(3)
