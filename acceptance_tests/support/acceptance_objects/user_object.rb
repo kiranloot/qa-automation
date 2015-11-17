@@ -34,6 +34,7 @@ class User
     @ship_street_2 = nil
     @ship_state = "CA"
     @cc = "4111111111111111" 
+    @cc_invalid = "4567890133334444"
     @cvv = "333"
     @last_four = "1111" 
     @test = test

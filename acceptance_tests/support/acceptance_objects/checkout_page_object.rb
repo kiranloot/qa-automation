@@ -79,8 +79,32 @@ include Capybara::DSL
     find(:id, "billing").click
   end
 
+  def click_legal_checkbox
+    find(:id, "terms-agree-checkbox").click
+  end
+
   def verify_confirmation_page
     #stub
     sleep(3)
+  end
+
+  def submit_checkout_information(user, type)
+    select_shirt_size($test.user.shirt_size)
+    enter_first_name($test.user.first_name)
+    enter_last_name($test.user.last_name)
+    enter_shipping_address_line_1($test.user.ship_street)
+    enter_shipping_city($test.user.ship_city)
+    select_shipping_state($test.user.ship_state)
+    enter_shipping_zip_code($test.user.ship_zip)
+    enter_name_on_card($test.user.full_name)
+    if type == 'invalid'
+      enter_credit_card_number($test.user.cc_invalid)
+    else
+      enter_credit_card_number($test.user.cc)
+    end
+    enter_cvv($test.user.cvv)
+    click_legal_checkbox
+    click_subscribe
+    verify_confirmation_page
   end
 end
