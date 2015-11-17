@@ -30,4 +30,10 @@ class HomePage < Page
     fill_in("new_user_password_modal",:with => password)
     page.find_button("create_account_modal").click
   end
+
+  def newsletter_signup(email)
+    find(:id,'footer-mce-email').click
+    fill_in ('email', :with => email)
+    find(:id,'footer-mc-embedded-subscribe').click
+  end
 end
