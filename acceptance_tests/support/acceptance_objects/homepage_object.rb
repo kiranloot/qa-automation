@@ -33,7 +33,7 @@ class HomePage < Page
 
   def newsletter_signup(email)
     find(:id,'footer-mce-email').click
-    fill_in ('email', :with => email)
+    fill_in('email', :with => email)
     find(:id,'footer-mc-embedded-subscribe').click
   end
 end
