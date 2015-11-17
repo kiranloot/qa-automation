@@ -321,8 +321,8 @@ class User
 
   def is_country_us?
     wait_for_ajax
-    find('#country-selector-lnk > span > img')
-    return /assets\/flags\/us_flag-727f10283a96f57fe09b30201b783828.jpg/.match(first('#country-selector-lnk > span > img')['src'])
+    page.has_css?('#country-selector-lnk > span > img')
+    return /assets\/flags\/us_flag/.match(first('#country-selector-lnk > span > img')['src'])
   end
 
   def set_country(country, top_bot: nil)
