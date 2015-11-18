@@ -13,10 +13,10 @@ include WaitForAjax
       'threesocks' => 'Level Up 3 Month Socks',
       'sixsocks' => 'Level Up 6 Month Socks',
       'twelvesocks' => 'Level Up 12 Months Socks',
-      'oneaccessories' => 'Level Up 1 Month Accessories',
-      'threeaccessories' => 'Level Up 3 Month Accessories',
-      'sixeaccessories' => 'Level Up 6 Month Accessories',
-      'twelveaccessories' => 'Level Up 12 Month Accessories'
+      'oneaccessory' => 'Level Up 1 Month Accessories',
+      'threeaccessory' => 'Level Up 3 Month Accessories',
+      'sixeaccessory' => 'Level Up 6 Month Accessories',
+      'twelveaccessory' => 'Level Up 12 Month Accessories'
     }
     @plan_drop_down_index = {
       'one' => 1,
@@ -37,7 +37,7 @@ include WaitForAjax
     case product
     when 'socks'
       scroll_val = 0
-    when 'accessories'
+    when 'accessory'
       scroll_val = 250
     when 'wearable'
       scroll_val = 500
@@ -68,4 +68,9 @@ include WaitForAjax
     $test.user.level_up_subscription_name = @plan_display_names[plan]
   end
 
+  def sold_out?(product)
+    scroll_to(product)
+    expect(page).to have_css("##{product}-crate h3.soldout")
+    expect(page).to have_css("##{product}-crate a.soldout-description")
+  end
 end

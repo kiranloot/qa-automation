@@ -51,7 +51,7 @@ When /^the user submits (.*?) information/ do |arg_string|
   adjective = args.shift
   type = args.reject(&:empty?).join(' ')
   case type
-  when 'checkout'
+  when 'subscription'
     $test.current_page.submit_checkout_information($test.user, adjective)
   when 'credit card'
     $test.current_page.submit_credit_card_information_only($test.user, adjective)
