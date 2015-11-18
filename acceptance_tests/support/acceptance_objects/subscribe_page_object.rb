@@ -40,12 +40,6 @@ include WaitForAjax
     #end
   end
 
-  def click_thru_to_plan_selection
-    if page.has_content?("GET LOOT")
-      first(:link,"GET LOOT").click
-    end
-  end
-
   def select_plan(plan)
     if plan == 'random'
       rand_key = @plans.keys[rand(@plans.keys.size)]

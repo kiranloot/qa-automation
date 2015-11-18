@@ -89,20 +89,33 @@ include Capybara::DSL
   end
 
   def submit_checkout_information(user, type)
-    select_shirt_size($test.user.shirt_size)
-    enter_first_name($test.user.first_name)
-    enter_last_name($test.user.last_name)
-    enter_shipping_address_line_1($test.user.ship_street)
-    enter_shipping_city($test.user.ship_city)
-    select_shipping_state($test.user.ship_state)
-    enter_shipping_zip_code($test.user.ship_zip)
-    enter_name_on_card($test.user.full_name)
+    select_shirt_size(user.shirt_size)
+    enter_first_name(user.first_name)
+    enter_last_name(user.last_name)
+    enter_shipping_address_line_1(user.ship_street)
+    enter_shipping_city(user.ship_city)
+    select_shipping_state(user.ship_state)
+    enter_shipping_zip_code(user.ship_zip)
+    enter_name_on_card(user.full_name)
     if type == 'invalid'
-      enter_credit_card_number($test.user.cc_invalid)
+      enter_credit_card_number(user.cc_invalid)
     else
-      enter_credit_card_number($test.user.cc)
+      enter_credit_card_number(user.cc)
     end
-    enter_cvv($test.user.cvv)
+    enter_cvv(user.cvv)
+    click_legal_checkbox
+    click_subscribe
+    verify_confirmation_page
+  end
+
+  def submit_credit_card_information_only(user, type)
+    enter_name_on_card(user.full_name)
+    if type == 'invalid'
+      enter_credit_card_number(user.cc_invalid)
+    else
+      enter_credit_card_number(user.cc)
+    end
+    enter_cvv(user.cvv)
     click_legal_checkbox
     click_subscribe
     verify_confirmation_page

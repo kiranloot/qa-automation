@@ -50,7 +50,12 @@ When /^the user submits (.*?) information/ do |arg_string|
   args = arg_string.split(" ")
   adjective = args.shift
   type = args.reject(&:empty?).join(' ')
-  $test.current_page.submit_checkout_information($test.user, type)
+  case type
+  when 'checkout'
+    $test.current_page.submit_checkout_information($test.user, adjective)
+  when 'credit card'
+    $test.current_page.submit_credit_card_information_only($test.user, adjective)
+  end
 end
 
 When /^the user edits their (.*)$/ do |info|

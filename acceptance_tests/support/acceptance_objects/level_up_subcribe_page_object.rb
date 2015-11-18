@@ -8,18 +8,40 @@ include WaitForAjax
     super
     @page_type = "levelup_subscribe"
     setup
-    @plans = {}
+    @plan_display_names = {
+      'onesocks' => 'Level Up 1 Month Socks',
+      'threesocks' => 'Level Up 3 Month Socks',
+      'sixsocks' => 'Level Up 6 Month Socks',
+      'twelvesocks' => 'Level Up 12 Months Socks',
+      'oneaccessories' => 'Level Up 1 Month Accessories',
+      'threeaccessories' => 'Level Up 3 Month Accessories',
+      'sixeaccessories' => 'Level Up 6 Month Accessories',
+      'twelveaccessories' => 'Level Up 12 Month Accessories'
+    }
+    @plan_drop_down_index = {
+      'one' => 1,
+      'three' => 2, 
+      'six' => 3,
+      'twelve' => 4
+    }
   end
 
   def visit_page
     visit @base_url 
     $test.current_page = self
-  end
+  end 
 
-  def click_thru_to_plan_selection
-    click_button("level up").click
+  def scroll_to(product)
+    click_link("Level Up")
     sleep(2)
-    scroll_val = 500 
+    case product
+    when 'socks'
+      scroll_val = 0
+    when 'accessories'
+      scroll_val = 250
+    when 'wearable'
+      scroll_val = 500
+    end
     page.execute_script "window.scrollBy(0,#{scroll_val})"
   end
 
@@ -29,27 +51,21 @@ include WaitForAjax
     dd_id = 's2id_' + div_id
     find(:id,dd_id).click
     wait_for_ajax
-    case months
-    when "one"
-      plan_index = '1'
-    when "three"
-      plan_index = '2'
-    when "six"
-      plan_index = '3'
-    end
     #select plan
-    find(:css,'ul.select2-results').find(:xpath,"li[#{plan_index}]").click
-    verify_level_up_plan_price(product, months, div_id)
-    #click subscribe
+    find(:css,'ul.select2-results').find(:xpath,"li[#{@plan_drop_down_index[months]}]").click
     find(:id,div_id).find_link("level up").click
     wait_for_ajax
+    plan = 'product' + 'months'
     update_target_plan(plan)
-    load_chekckout_page_object
+    load_checkout_page_object
+  end
+
+  def load_checkout_page_object 
+    $test.current_page = LevelUpCheckoutPage.new
   end
 
   def update_target_plan(plan)
-    plan_hash = {
-      
-    }
+    $test.user.level_up_subscription_name = @plan_display_names[plan]
   end
+
 end
