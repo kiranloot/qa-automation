@@ -86,5 +86,5 @@ countries:
   france: fn
   finland: fi
   austrailia: au
-#promos:
- # multi_use: nousea
+promos:
+  multi_use: nousea
