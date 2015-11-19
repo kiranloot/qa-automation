@@ -8,7 +8,6 @@ include WaitForAjax
     super
     @page_type = "subscribe"
     setup
-    @cc_fail_message = "There was an error validating your request."
     @plans = {
       'one' => 'one-month',
       'three' => 'three-month',
@@ -18,7 +17,7 @@ include WaitForAjax
     @plan_display_names = {
       'one' => '1 Month Subscription',
       'three' => '3 Month Subscription',
-      'six' => '1 Month Subscription',
+      'six' => '6 Month Subscription',
       'twelve' => '1 Year Subscription',
     }
   end
