@@ -55,6 +55,8 @@ When /^the user submits (.*?) information/ do |arg_string|
     $test.current_page.submit_checkout_information($test.user, adjective)
   when 'credit card'
     $test.current_page.submit_credit_card_information_only($test.user, adjective)
+  else
+    $test.submit_information(adjective, type)
   end
 end
 
