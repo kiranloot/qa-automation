@@ -183,36 +183,6 @@ class User
       page.find_button("validate-coupon").click
       @discount_applied = page.has_content?("Valid coupon: save $")
   end
-  
-  #def submit_subscription_info
-  #  enter_shirt_size
-  #  enter_first_and_last
-  #  enter_shipping_info
-  #  submit_credit_card_information
-  #  unless @use_shipping
-  #  enter_billing_info
-  #  end
-  #  unless @coupon_code.nil?
-  #    enter_coupon_info
-  #  end
-  #  if @ship_state == "CA"
-  #    if page.has_content?("Sales Tax CA")
-  #      @tax_applied = true
-  #    end
-  #  end
-  #  find(:id, "terms-agree-checkbox").click
-  #  click_button(@test.test_data["locators"]["checkout_btn"])
-  #  wait_for_ajax
-  #  if @cc == '4111111111111111' && $test.current_page.page_type != 'fallout4'
-  #    sleep(3)
-  #  end
-  #end
-
-  #def submit_credit_card_information
-  #  fill_in(@test.test_data["locators"]["name_on_card"], :with => @first_name + " " + @last_name)
-  #  fill_in(@test.test_data["locators"]["cc"], :with => @cc)
-  #  fill_in(@test.test_data["locators"]["cvv"], :with => @cvv)
-  #end   
 
   def wait_for_level_up_autofill(numberof = 5)
     numberof.times do
@@ -223,29 +193,10 @@ class User
       end
     end
   end
-
-  #def submit_levelup_subscription_info
-  #  wait_for_level_up_autofill
-  #  submit_credit_card_information
-  #  find(:id, "terms-agree-checkbox").click
-  #  click_button(@test.test_data["locators"]["checkout_btn"])
-  #  wait_for_ajax
-  #  sleep(3)
-    #assert_text("CONGRATULATIONS! YOU'VE SUCCESSFULLY LEVELED UP!")
-  #end
  
   def tax_applied?
     return @tax_applied
   end
-  
-  #def set_data_status(data, status)
-  #  if status == "invalid"
-  #    case data
-  #    when "credit card", "cc"
-  #      @cc = '4567890133334444'
-  #    end
-  #  end
-  #end
 
   def verify_email(type, mailer)
     if type == 'subscription confirmation'
@@ -309,16 +260,6 @@ class User
   end
 
   def set_ship_to_country(country, top_bot: nil)
-    #top = true
-    #if top_bot
-    #  if top_bot == "top"
-    #    top = true
-    #  elsif top_bot == "bot" || top_bot == "bottom"
-    #    top = false
-    #  end
-    #else
-    #  top = [true, false].sample
-    #end
     wait_for_ajax
     first(:link, "country-selector-lnk").click
     find("#s2id_autogen3").click
