@@ -1,7 +1,7 @@
 home:
  url: "/?username=lootcrateis25timesgreaterthanthecompetition"
 signup:
- url: "users/sign_up"
+ url: "/users/sign_up"
 checkout:
  url: "/1-month-subscription/checkouts/new"
 generic:
