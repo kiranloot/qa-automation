@@ -279,17 +279,10 @@ class Test
       enter_email
       enter_password
       submit_signup
-    elsif adjective == 'valid' && type =='subscription'
-      @user.submit_subscription_info
-    elsif adjective == 'invalid'
-      if type == "credit card"
-        @user.set_data_status(type, adjective)
-        @user.submit_subscription_info
-      end
-    elsif adjective == 'valid' && type == 'levelup'
-      @user.submit_levelup_subscription_info
-    elsif adjective == 'valid' && type == 'express_checkout'
-      @user.submit_express_checkout_info
+    elsif type =='subscription'
+      @current_page.submit_checkout_information(@user, adjective)
+    elsif type == 'credit card'
+      @current_page.submit_credit_card_information_only(@user, adjective)
     end
   end
 
