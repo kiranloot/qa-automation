@@ -131,4 +131,11 @@ include Capybara::DSL
   def discount_applied?
     expect(@discount_applied).to be_truthy
   end
+
+  def subscription_failed?(fault)
+    case fault
+    when "invalid credit card"
+      assert_text("There was an error validating your request.")
+    end
+  end
 end

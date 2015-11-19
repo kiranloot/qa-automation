@@ -31,13 +31,8 @@ include WaitForAjax
   def subscription_failed?(fault)
     case fault
     when "invalid credit card"
-      assert_text(@cc_fail_message)
+      assert_text("There was an error validating your request.")
     end
-
-    #This was failing in master.  Commenting out for now.
-    #if page.has_content?("Error prevented")
-    #  page.find('body > div.blurred > div.alert-bg > div > div > div > a').click
-    #end
   end
 
   def select_plan(plan)
