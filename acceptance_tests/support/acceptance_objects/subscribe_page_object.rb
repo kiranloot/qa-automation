@@ -44,6 +44,7 @@ include WaitForAjax
     if plan == 'random'
       rand_key = @plans.keys[rand(@plans.keys.size)]
       target = @plans[rand_key]
+      plan = rand_key
     else
       target = @plans[plan]
     end

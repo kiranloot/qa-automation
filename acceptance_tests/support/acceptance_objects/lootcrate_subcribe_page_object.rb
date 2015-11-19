@@ -27,22 +27,7 @@ include WaitForAjax
     #end
   end
 
-  def click_thru_to_plan_selection
-    #empty (no clickthrough necessary)
-  end
-
   def load_checkout_page_object
     $test.current_page = LootcrateCheckoutPage.new
   end
-
-  def update_target_plan(plan)
-    plan_hash = {
-      'one' => '1 Month Subscription',
-      'three' => '3 Month Subscription',
-      'six' => '1 Month Subscription',
-      'twelve' => '1 Year Subscription',
-    }
-    $test.user.subscription_name = plan_hash[plan]
-   end
-
 end
