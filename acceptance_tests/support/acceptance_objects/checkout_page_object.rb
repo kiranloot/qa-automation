@@ -6,6 +6,7 @@ include Capybara::DSL
   def initialize
     super
     @page_type = "checkout"
+    @discount_applied = nil
     setup
   end
 
@@ -102,6 +103,12 @@ include Capybara::DSL
     else
       enter_credit_card_number(user.cc)
     end
+    unless user.coupon_code.nil?
+      click_coupon_checkbox
+      enter_coupon_code(user.coupon_code) 
+      validate_coupon_code
+      @discount_applied = page.has_content?("Valid coupon: save $")
+    end
     enter_cvv(user.cvv)
     click_legal_checkbox
     click_subscribe
@@ -119,5 +126,9 @@ include Capybara::DSL
     click_legal_checkbox
     click_subscribe
     verify_confirmation_page
+  end
+
+  def discount_applied?
+    expect(@discount_applied).to be_truthy
   end
 end
