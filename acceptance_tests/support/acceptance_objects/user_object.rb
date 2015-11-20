@@ -213,6 +213,8 @@ class User
       target_content = 'Level Up Purchase Confirmation'
     elsif type == 'levelup cancellation'
       target_content = 'Level Up Cancellation Confirmation' 
+    elsif type == 'anime confirmation'
+      target_content = 'Loot Anime Order Confirmation'
     end
     email_pass = false
     subjects = []

@@ -1,50 +1,26 @@
-require_relative "page_object"
+require_relative "subscribe_page_object"
 
-class AnimeSubscribePage < Page
+class AnimeSubscribePage < SubscribePage
 include Capybara::DSL
 include WaitForAjax
 
   def initialize
     super
-    @page_type = "subscribe"
+    @page_type = "anime_subscribe"
     setup
-    @cc_fail_message = "There was an error validating your request."
+    @plan_display_names = {
+      'one' => 'Anime 1 Month Subscription',
+      'three' => 'Anime 3 Month Subscription',
+      'six' => 'Anime 6 Month Subscription',
+      'twelve' => 'Anime 12 Month Subscription'
+    }
   end
 
-  def visit_page
-    visit @base_url 
-    $test.current_page = self
+  def load_checkout_page_object
+    $test.current_page = AnimeCheckoutPage.new
   end
 
-  def subscription_failed?(fault)
-    case fault
-    when "invalid credit card"
-      assert_text(@cc_fail_message)
-    end
-
-    #This was failing in master.  Commenting out for now.
-    #if page.has_content?("Error prevented")
-    #  page.find('body > div.blurred > div.alert-bg > div > div > div > a').click
-    #end
+  def verify_confirmation_page
+    page.has_content?("Thanks for subscribing to Loot Anime!")
   end
-
-  def verify_plan_prices(domain)
-    if domain == 'international'
-      for k, v in $test.test_data['international_plan_cost']
-        assert_text(v.to_s)
-      end
-    elsif domain == 'domestic'
-      for k, v in $test.test_data['international_plan_cost']
-        assert_text("Total Price: $" + v.to_s)
-      end
-   else
-     puts "ERROR: Unknown Shipping Domain"
-   end
-  end
- 
-  def proration_applied?(old_plan, new_plan, date_subscribed)
-    old = Plan.new(old_plan, date_subscribed, false)
-    new = Plan.new(new_plan, date_subscribed, true)
-  end
-
 end
