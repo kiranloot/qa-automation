@@ -12,7 +12,7 @@ include WaitForAjax
       'one' => 'Anime 1 Month Subscription',
       'three' => 'Anime 3 Month Subscription',
       'six' => 'Anime 6 Month Subscription',
-      'twelve' => 'Anime 12 Month Subscription'
+      'twelve' => 'Anime 1 Year Subscription'
     }
   end
 
