@@ -18,7 +18,7 @@ class StepList
   end
 
   def registered_with_active_level_up
-    ["create a three month level up socks subscription"]
+    ["create a three month level up accessory subscription"]
   end
 
   def one_month
