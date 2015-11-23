@@ -88,6 +88,8 @@ include WaitForAjax
   end
 
   def update_target_plan(plan)
+    #For now, updating both level_up_subscription_name and subscription_name
+    #TODO - need to get rid of level_up_subscription name and just have subscription name do all the validations
     $test.user.level_up_subscription_name = @plan_display_names[plan]
     $test.user.subscription_name = @plan_display_names[plan]
   end

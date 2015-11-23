@@ -17,6 +17,10 @@ class StepList
     ["create a random month subscription"]
   end
 
+  def registered_with_active_level_up
+    ["create a three month level up socks subscription"]
+  end
+
   def one_month
     ["create a one month subscription"]
   end
@@ -46,5 +50,4 @@ class StepList
     "logs out of admin",
     "focus on subject user"]
   end
-
 end

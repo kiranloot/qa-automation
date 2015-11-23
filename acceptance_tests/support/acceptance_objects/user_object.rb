@@ -211,6 +211,8 @@ class User
       target_content = 'Subscription Skipped'
     elsif type == 'level up'
       target_content = 'Level Up Purchase Confirmation'
+    elsif type == 'levelup cancellation'
+      target_content = 'Level Up Cancellation Confirmation' 
     end
     email_pass = false
     subjects = []
