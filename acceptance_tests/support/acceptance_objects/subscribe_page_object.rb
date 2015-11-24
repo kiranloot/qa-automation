@@ -36,7 +36,7 @@ include WaitForAjax
 
   def select_plan(plan)
     if plan == 'random'
-      rand_key = @plans.keys[rand(@plans.keys.size)]
+      rand_key = @plans.keys.sample
       target = @plans[rand_key]
       plan = rand_key
     else
