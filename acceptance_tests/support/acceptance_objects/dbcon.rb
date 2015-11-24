@@ -250,7 +250,8 @@ sa.flagged_invalid_at as flagged,
 sa.state as shipping_state,
 sa.zip as shipping_zip,
 ba.state as billing_state,
-ba.zip as billing_zip
+ba.zip as billing_zip,
+p.name as plan
 from users u
 inner join subscriptions s
 on s.user_id = u.id
@@ -258,6 +259,8 @@ inner join addresses sa
 on s.shipping_address_id = sa.id
 inner join addresses ba
 on s.billing_address_id = ba.id
+inner join plans p
+on s.plan_id = p.id
 where s.cancel_at_end_of_period is null
 and s.created_at < '#{t}'
 and s.updated_at < '#{t}'
@@ -268,7 +271,7 @@ and email not like '_updated%'
 sc AS(select email, count(subs) as c from actives
 group by email),
 
-info AS(select email, subs, rebill, status, flagged, shipping_state, shipping_zip, billing_state, billing_zip from actives)
+info AS(select email, plan, subs, rebill, status, flagged, shipping_state, shipping_zip, billing_state, billing_zip from actives)
 
 select sc.email, c, i.subs, i.rebill from sc 
 inner join info i on i.email = sc.email
@@ -279,6 +282,12 @@ and i.shipping_state = 'CA'
 and i.shipping_zip = '90210'
 and i.billing_state = 'CA'
 and i.billing_zip = '90210'
+and i.plan in (
+  '1-month-subscription',
+  '3-month-subscription',
+  '6-month-subscription',
+  '12-month-subscription'
+)
 limit 1
 """
 q
