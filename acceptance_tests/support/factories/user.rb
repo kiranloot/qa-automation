@@ -307,8 +307,8 @@ FactoryGirl.define do
       ship_city "London"
       ship_state "England"
       ship_zip "WC1H 8JJ"
-      email { "_uk_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
-      country_code "UK"
+      email { "_gb_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country_code "GB"
     end
     trait :multi_use_promo do
       coupon_code  {$test.test_data["promos"]["multi_use"]}
