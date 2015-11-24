@@ -264,7 +264,7 @@ on s.plan_id = p.id
 where s.cancel_at_end_of_period is null
 and s.created_at < '#{t}'
 and s.updated_at < '#{t}'
-and email like '\\_%' 
+and email like '\\_%@mailinator.com' 
 and email not like '_updated%' 
 ),
 
