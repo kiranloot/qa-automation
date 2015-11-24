@@ -10,6 +10,7 @@ Feature: International Subscriptions
             And the user selects a one month subscription plan
             And the user submits valid subscription information
         Then the new subscription should be added to the user account
+        And recurly should have a matching international subscription
         And the recurly billing address should have no state
         And the user should receive a subscription confirmation email
 
@@ -22,12 +23,11 @@ Feature: International Subscriptions
             And the user selects a one month subscription plan
             And the user submits valid subscription information
         Then the new subscription should be added to the user account
+        And recurly should have a matching international subscription
         And the recurly billing address should have no state
         And the user should receive a subscription confirmation email
 
-    #since germany is translated, the plan name "1 Month Subscription"
-    #validation is failing.  Need to fix.
-    @WIP
+    @ready
     Scenario: Germany user signs up for one month subscription
         Given a registered user with a Germany address
             When the user logs in
@@ -36,5 +36,6 @@ Feature: International Subscriptions
             And the user selects a one month subscription plan
             And the user submits valid subscription information
         Then the new subscription should be added to the user account
+        And recurly should have a matching international subscription
         And the recurly billing address should have no state
         And the user should receive a subscription confirmation email

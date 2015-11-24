@@ -3,6 +3,10 @@ Then(/^recurly should have a matching subscription$/) do
   $test.recurly.verify_subscription_type
 end
 
+Then(/^recurly should have a matching international subscription$/) do
+  $test.recurly.verify_international_subscription_type
+end
+
 Then(/^recurly should now have a (.*) month subscription plan$/) do |months|
   $test.recurly.verify_subscription_upgrade (months)
 end
