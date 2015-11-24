@@ -23,6 +23,9 @@ class RecurlyAPI
     #downcase second letter
     country_code = $test.user.country_code
     country_code[1] = country_code[1].downcase
+    if country_code == "Uk"
+      country_code = "Gb"
+    end
     plan_with_country_code = country_code + " " + $test.user.subscription_name
     expect(account.subscriptions.first.plan.name).to eq(plan_with_country_code)
   end

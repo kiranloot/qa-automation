@@ -107,8 +107,8 @@ FactoryGirl.define do
       ship_city "Prague"
       ship_state "Olomoucký kraj"
       ship_zip "100 00"
-      email { "_cs_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
-      country_code "CS"
+      email { "_cz_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country_code "CZ"
     end
     trait :finland do
       first_name "Finland"
