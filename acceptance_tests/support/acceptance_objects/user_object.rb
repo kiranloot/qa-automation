@@ -271,6 +271,8 @@ class User
   def verify_email(type, mailer)
     if type == 'subscription confirmation'
       target_content = 'Welcome to Loot Crate'
+    elsif type == 'german subscription confirmation'
+      target_content = 'Herzlich willkommen bei Loot Crate!'
     elsif type == 'subscription cancellation'
       target_content = 'Your subscription has been cancelled'
     elsif type == 'upgrade'
