@@ -86,7 +86,7 @@ include Capybara::DSL
 
   def verify_confirmation_page
     #stub
-    sleep(3)
+    sleep(5)
   end
 
   def submit_checkout_information(user, type)
