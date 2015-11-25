@@ -61,7 +61,7 @@ When /^the user edits their (.*)$/ do |info|
   when 'subscription info' 
     $test.current_page.edit_subscription_info(sub_id)
     $test.current_page.fill_in_subscription_name(sub_id, "NEW SUB NAME")
-    $test.current_page.select_shirt_size(sub_id, "Mens - S")
+    $test.current_page.select_shirt_size(sub_id, "Womens - S")
     $test.current_page.click_update
   when 'shipping address'
     $test.current_page.edit_shipping_address(sub_id)
