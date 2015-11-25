@@ -41,6 +41,8 @@ class MyAccountPage < Page
     wait_for_ajax
   end
 
+  #need to make this validation more specific
+  #in the case that the page has multiple subs
   def verify_subscription_added
     grab_user_data
     go_to_subscriptions
@@ -57,6 +59,8 @@ class MyAccountPage < Page
     end
   end
 
+  #need to make this validation more specific
+  #in the case that the page has multiple subs
   def verify_levelup_subscription_added
     go_to_subscriptions
     assert_text($test.user.level_up_subscription_name)

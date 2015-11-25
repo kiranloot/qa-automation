@@ -5,7 +5,7 @@ Feature:Account Registration
         Given an unregistered user
             When the user visits the signup page
             And the user submits valid signup information
-        Then the user should be on the checkout page
+        Then the user should be on the lootcrate_checkout page
             And the user should be logged in 
             # TODO :And the database entry for the user should be created
     @ready @modal

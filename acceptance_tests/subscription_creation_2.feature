@@ -27,5 +27,5 @@ Feature: Subscription Creation
             When the user logs in 
             And the user selects the Loot Crate crate
             And the user selects a random month subscription plan
-            And the user submits invalid credit card information
+            And the user submits invalid subscription information
         Then subscription creation should fail due to invalid credit card

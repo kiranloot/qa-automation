@@ -1,5 +1,5 @@
 When /the user selects a level up (.*) month subscription for the (.*) crate/ do |months, product|
-  $test.current_page.select_level_up(product,months)
+  $test.current_page.select_plan(product,months)
 end
 
 Then /the new level up subscription should be added to the user account/ do

@@ -12,7 +12,7 @@ class User
     :cc, :cvv, :ship_street, :ship_street_2, :ship_city, :affiliate, :coupon_code, :discount_applied, :subject_user, 
     :subscription_name, :level_up_subscription_name, :new_user_sub_name,:new_rebill_date, :bill_zip,
     :bill_city, :bill_street, :bill_street_2, :bill_state, :need_sub, :rebill_date_db, :last_four, :trait,
-    :country_code, :recurly_billing_state_code
+    :country_code, :recurly_billing_state_code, :cc_invalid
 
   @@sizes = {"male" =>  {0 => "Mens - S", 1 => "Mens - M", 2 => "Mens - L", 3 => "Mens - XL", 
                          4 => "Mens - XXL", 5 => "Mens - XXXL" },
@@ -34,6 +34,7 @@ class User
     @ship_street_2 = nil
     @ship_state = "CA"
     @cc = "4111111111111111" 
+    @cc_invalid = "4567890133334444"
     @cvv = "333"
     @last_four = "1111" 
     @test = test
@@ -182,58 +183,6 @@ class User
       page.find_button("validate-coupon").click
       @discount_applied = page.has_content?("Valid coupon: save $")
   end
-  
-  def submit_subscription_info
-    enter_shirt_size
-    enter_first_and_last
-    enter_shipping_info
-    submit_credit_card_information
-    unless @use_shipping
-    enter_billing_info
-    end
-    unless @coupon_code.nil?
-      enter_coupon_info
-    end
-    if @ship_state == "CA"
-      if page.has_content?("Sales Tax CA")
-        @tax_applied = true
-      end
-    end
-    find(:id, "terms-agree-checkbox").click
-    click_button(@test.test_data["locators"]["checkout_btn"])
-    wait_for_ajax
-    if @cc == '4111111111111111' && $test.current_page.page_type != 'fallout4'
-      sleep(3)
-    end
-  end
-
-  def submit_credit_card_information
-    fill_in(@test.test_data["locators"]["name_on_card"], :with => @first_name + " " + @last_name)
-    fill_in(@test.test_data["locators"]["cc"], :with => @cc)
-    fill_in(@test.test_data["locators"]["cvv"], :with => @cvv)
-  end   
-
-  def submit_express_checkout_info
-    fill_in(@test.test_data["locators"]["first_name"], :with => @first_name)
-    fill_in(@test.test_data["locators"]["last_name"], :with => @last_name)
-    fill_in(@test.test_data["locators"]["ship_street"], :with => @ship_street)
-    unless @ship_street_2.nil?
-      fill_in(@test.test_data["locators"]["ship_street_2"], :with => @ship_street_2)
-    end
-    fill_in(@test.test_data["locators"]["ship_city"], :with => @ship_city)
-    page.find(@test.test_data["locators"]["state_dd_express"]).click
-    page.find(@test.test_data["locators"]["ship_state_express"]).native.send_keys(@ship_state)
-    page.find(@test.test_data["locators"]["ship_state_express"]).native.send_key(:enter)
-    page.find(@test.test_data["locators"]["shirt_dd"]).click
-    page.find(@test.test_data["locators"]["shirt_size_express"]).native.send_keys(@shirt_size)
-    page.find(@test.test_data["locators"]["shirt_size_express"]).native.send_key(:enter)
-    fill_in(@test.test_data["locators"]["ship_zip"], :with => @ship_zip)
-    find_button("Next").click
-    submit_credit_card_information
-    find_button("Next").click
-    find(:id, "checkout").click 
-    wait_for_ajax
-  end
 
   def wait_for_level_up_autofill(numberof = 5)
     numberof.times do
@@ -244,28 +193,9 @@ class User
       end
     end
   end
-
-  def submit_levelup_subscription_info
-    wait_for_level_up_autofill
-    submit_credit_card_information
-    find(:id, "terms-agree-checkbox").click
-    click_button(@test.test_data["locators"]["checkout_btn"])
-    wait_for_ajax
-    sleep(3)
-    #assert_text("CONGRATULATIONS! YOU'VE SUCCESSFULLY LEVELED UP!")
-  end
  
   def tax_applied?
     return @tax_applied
-  end
-  
-  def set_data_status(data, status)
-    if status == "invalid"
-      case data
-      when "credit card", "cc"
-        @cc = '4567890133334444'
-      end
-    end
   end
 
   def verify_email(type, mailer)
@@ -330,16 +260,6 @@ class User
   end
 
   def set_ship_to_country(country, top_bot: nil)
-    #top = true
-    #if top_bot
-    #  if top_bot == "top"
-    #    top = true
-    #  elsif top_bot == "bot" || top_bot == "bottom"
-    #    top = false
-    #  end
-    #else
-    #  top = [true, false].sample
-    #end
     wait_for_ajax
     first(:link, "country-selector-lnk").click
     find("#s2id_autogen3").click

@@ -13,7 +13,7 @@ Feature: Level Up
             When the user logs in
             And the user selects the Level Up crate
             And the user selects a level up one month subscription for the socks crate
-            And the user submits valid levelup information
+            And the user submits valid credit card information
         Then the new level up subscription should be added to the user account
             And the user should receive a level up email
             And recurly should have a one month subscription for the socks crate
@@ -23,9 +23,9 @@ Feature: Level Up
         Given a registered user with an active subscription
         And The accessory level up product is available
             When the user logs in
-            And the user visits the level up page
+            And the user selects the Level Up crate
             And the user selects a level up six month subscription for the accessory crate
-            And the user submits valid levelup information
+            And the user submits valid credit card information
         Then the new level up subscription should be added to the user account
             And the user should receive a level up email
             And recurly should have a six month subscription for the accessory crate
@@ -35,5 +35,5 @@ Feature: Level Up
         Given a registered user with an active subscription
         And The socks level up product is sold out
             When the user logs in
-            And the user visits the level up page
+            And the user selects the Level Up crate
         Then the socks crate should be sold out

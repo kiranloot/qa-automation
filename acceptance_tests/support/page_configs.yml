@@ -14,7 +14,11 @@ mailinator:
  url: "https://mailinator.com"
 recurly:
  url: "https://recurly.com"
-level_up:
- url: "/level_up"
 fallout4:
  url: "/fallout4"
+lootcrate_subscribe:
+ url: "/crates/lootcrate/plans"
+lootcrate_checkout:
+ url: "/1-month-subscription/checkouts/new"
+levelup_subscribe:
+ url: "/level_up"

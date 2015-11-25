@@ -12,20 +12,6 @@ locators:
   modal_register: "//*[@id='register_step_two']/input"
   flip_member: "//*[@id='new-customer']/div[5]/div[1]"
   flip_join: "//*[@id='existing-customer-container']/div[3]/div/span"
-  shirt_dd: "div#s2id_shirt_size > a"
-  shirt_size: input#s2id_autogen5_search
-  shirt_size_express: input#s2id_autogen3_search
-  first_name: checkout_shipping_address_first_name
-  last_name: checkout_shipping_address_last_name
-  ship_street: checkout_shipping_address_line_1
-  ship_street_2: checkout_shipping_address_line_2
-  ship_city: checkout_shipping_address_city
-  ship_state: "#s2id_autogen7_search"
-  state_dd: "#select2-chosen-7"
-  ship_zip: checkout_shipping_address_zip
-  name_on_card: checkout_billing_address_full_name
-  cc: checkout_credit_card_number
-  cvv: checkout_credit_card_cvv
   billing_cb: billing
   bill_street: checkout_billing_address_line_1
   bill_city: checkout_billing_address_line_2

@@ -8,7 +8,18 @@ include WaitForAjax
     super
     @page_type = "subscribe"
     setup
-    @cc_fail_message = "There was an error validating your request."
+    @plans = {
+      'one' => 'one-month',
+      'three' => 'three-month',
+      'six' => 'six-month',
+      'twelve' => 'twelve-month'
+    }
+    @plan_display_names = {
+      'one' => '1 Month Subscription',
+      'three' => '3 Month Subscription',
+      'six' => '6 Month Subscription',
+      'twelve' => '1 Year Subscription',
+    }
   end
 
   def visit_page
@@ -19,35 +30,30 @@ include WaitForAjax
   def subscription_failed?(fault)
     case fault
     when "invalid credit card"
-      assert_text(@cc_fail_message)
+      assert_text("There was an error validating your request.")
     end
-
-    #This was failing in master.  Commenting out for now.
-    #if page.has_content?("Error prevented")
-    #  page.find('body > div.blurred > div.alert-bg > div > div > div > a').click
-    #end
   end
 
-  def select_plan(months)
-    choices = ['one-month', 'three-month', 'six-month', 'twelve-month']
-    months = months.strip.downcase
-    if months == "one"
-      target = choices[0]
-    elsif months == "three"
-      target = choices[1]
-    elsif months == "six"
-      target = choices[2]
-    elsif months == "twelve"
-      target  = choices[3]
-    elsif months == 'random'
-      target = choices[rand(choices.size)]
-      months = /(.*)-month$/.match(target)[1]
+  def select_plan(plan)
+    if plan == 'random'
+      rand_key = @plans.keys.sample
+      target = @plans[rand_key]
+      plan = rand_key
     else
-      puts "Invalid plan selection: " +  months
+      target = @plans[plan]
     end
     find(:id, target).click
     wait_for_ajax
-    return months
+    update_target_plan(plan)
+    load_checkout_page_object
+  end
+
+  def update_target_plan(plan)
+    $test.user.subscription_name = @plan_display_names[plan]
+  end
+
+  def load_checkout_page_object
+    #stub = to be overridden by children
   end
 
   def verify_plan_prices(domain)

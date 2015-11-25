@@ -43,8 +43,7 @@ When /the user logs (.*)$/ do |in_out|
 end
 
 When /^the user selects a (.*) month subscription plan/ do |months|
-  m = $test.current_page.select_plan(months)
-  $test.user.target_plan(m)
+  $test.current_page.select_plan(months)
 end 
 
 When /^the user submits (.*?) information/ do |arg_string|
@@ -119,7 +118,7 @@ Then /the subscription status should be set to active with a skip/ do
 end
 
 Then /the promo discount should be applied to the transaction/ do 
-  $test.user.discount_applied?
+  $test.current_page.discount_applied?
 end
 
 Then /the user's information should be displayed/ do
