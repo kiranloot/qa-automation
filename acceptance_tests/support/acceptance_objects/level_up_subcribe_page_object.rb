@@ -9,14 +9,14 @@ include WaitForAjax
     @page_type = "levelup_subscribe"
     setup
     @plan_display_names = {
-      'onesocks' => 'Level Up 1 Month Socks',
-      'threesocks' => 'Level Up 3 Month Socks',
-      'sixsocks' => 'Level Up 6 Month Socks',
-      'twelvesocks' => 'Level Up 12 Months Socks',
-      'oneaccessory' => 'Level Up 1 Month Accessories',
-      'threeaccessory' => 'Level Up 3 Month Accessories',
-      'sixeaccessory' => 'Level Up 6 Month Accessories',
-      'twelveaccessory' => 'Level Up 12 Month Accessories'
+      'onesocks' => 'Level Up Socks 1 Month',
+      'threesocks' => 'Level Up Socks 3 Month',
+      'sixsocks' => 'Level Up Socks 6 Month',
+      'twelvesocks' => 'Level Up Socks 12 Month',
+      'oneaccessory' => 'Level Up Accessories 1 Month',
+      'threeaccessory' => 'Level Up Accessories 3 Month',
+      'sixeaccessory' => 'Level Up Accessories 6 Month',
+      'twelveaccessory' => 'Level Up Accessories 12 Month'
     }
     @plan_drop_down_index = {
       'one' => 1,
@@ -38,9 +38,9 @@ include WaitForAjax
     when 'socks'
       scroll_val = 0
     when 'accessory'
-      scroll_val = 250
-    when 'wearable'
       scroll_val = 500
+    when 'wearable'
+      scroll_val = 750
     end
     page.execute_script "window.scrollBy(0,#{scroll_val})"
   end
@@ -55,7 +55,7 @@ include WaitForAjax
     find(:css,'ul.select2-results').find(:xpath,"li[#{@plan_drop_down_index[months]}]").click
     find(:id,div_id).find_link("level up").click
     wait_for_ajax
-    plan = 'product' + 'months'
+    plan = months + product
     update_target_plan(plan)
     load_checkout_page_object
   end
@@ -66,6 +66,7 @@ include WaitForAjax
 
   def update_target_plan(plan)
     $test.user.level_up_subscription_name = @plan_display_names[plan]
+    $test.user.subscription_name = @plan_display_names[plan]
   end
 
   def sold_out?(product)
