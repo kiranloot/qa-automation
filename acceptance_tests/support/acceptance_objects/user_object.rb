@@ -17,7 +17,7 @@ class User
   @@sizes = {"male" =>  {0 => "Mens - S", 1 => "Mens - M", 2 => "Mens - L", 3 => "Mens - XL", 
                          4 => "Mens - XXL", 5 => "Mens - XXXL" },
            "female" => {0 => "Womens - S", 1 => "Womens - M", 2 => "Womens - L", 3 => "Womens - XL", 
-                        4 => "Womens - XXL", 5 => "Womens XXXL"}}
+                        4 => "Womens - XXL", 5 => "Womens - XXXL"}}
   def initialize(test)
     @trait = nil
     @email = "placeholder"
