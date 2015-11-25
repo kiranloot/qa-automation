@@ -1,7 +1,6 @@
 @regression @extended @world_subs @selenium
 Feature: International Subscriptions
-    #rebill date not working - Month is in Finnish
-    @WIP
+    @ready
     Scenario: Finland user signs up for one month subscription
         Given a registered user with a Finland address
             When the user logs in
@@ -27,8 +26,7 @@ Feature: International Subscriptions
         And the recurly billing address should have no state
         And the user should receive a subscription confirmation email
 
-    #Need to fix confirmation email
-    @WIP
+    @ready 
     Scenario: Germany user signs up for one month subscription
         Given a registered user with a Germany address
             When the user logs in
@@ -39,4 +37,4 @@ Feature: International Subscriptions
         Then the new subscription should be added to the user account
         And recurly should have a matching international subscription
         And the recurly billing address should have no state
-        And the user should receive a subscription confirmation email
+        And the user should receive a german subscription confirmation email
