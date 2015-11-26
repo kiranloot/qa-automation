@@ -25,7 +25,7 @@ class User
     @first_name = "placeholder"
     @last_name = "placeholder"
     @full_name = @first_name + " " + @last_name
-    @gender = rand(2)? "male":"female"
+    @gender = ["male","female"].sample
     @shirt_size = @@sizes[@gender][rand(6)]
     @display_shirt_size = get_display_shirt_size(@shirt_size)
     @ship_zip = "90210"
