@@ -54,12 +54,14 @@ include WaitForAjax
 
   def select_wearable_shirt_size(size)
     find(:id, 's2id_variants-shirt').click
-    find(:css, '#select2-results-8 > li > div', :text => size).click
+    auto_id = find(:css, '#s2id_variants-shirt > label')[:for]
+    find(:css, "#select2-results-#{auto_id[-1]} li > div", :text => size).click
   end
 
   def select_wearable_waist_size(size)
     find(:id, 's2id_variants-waist').click
-    find(:css, '#select2-results-9 > li > div', :text => size).click
+    auto_id = find(:css, '#s2id_variants-waist > label')[:for]
+    find(:css, "#select2-results-#{auto_id[-1]} li > div", :text => size).click
   end
 
   def select_plan(product, months)
