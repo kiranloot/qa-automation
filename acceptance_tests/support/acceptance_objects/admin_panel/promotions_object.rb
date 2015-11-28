@@ -12,7 +12,7 @@ class AdminPromotionsPage < AdminPage
     fill_in_promotion_description("Promotion Created by Automation")
     select_start_date("1")
     select_trigger_event("SIGNUP")
-    select_all_plans
+    select_domestic_core_crate
     fill_in_promotion_adjustment_amount(10)
     fill_in_promotion_coupon_prefix(rand_code)
     case type
@@ -74,8 +74,8 @@ class AdminPromotionsPage < AdminPage
     find(:css, "div.select2-result-label").click
   end
 
-  def select_all_plans
-    find(:id, "select_all").click
+  def select_domestic_core_crate
+    find(:id, "select_domestic_core").click
   end
 
   def click_create_promotion
