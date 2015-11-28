@@ -47,6 +47,16 @@ def example
   end
 end
 
+def get_variant_name(sub_id)
+  q = """
+    SELECT v.name FROM subscription_variants sv
+    JOIN variants v ON sv.variant_id = v.id
+    WHERE sv.subscription_id = #{sub_id}
+  """
+  results = @conn.exec(q)
+  results[0]['name']
+end
+ 
 def user_exists?(user_email)
   query = "Select * from users where email = \'#{user_email}\'"
   results = @conn.exec(query)

@@ -119,6 +119,11 @@ class UserGen
     db.respond_to?(trait) ? result = db.send(trait) : result = nil
     if result && result["email"] != nil
       u = User.new($test)
+      #shirt size is nil in the "new" way of storing variants
+      #this code will get if from subscription variants if shirt_size is nil.
+      if result["shirt_size"].nil?
+        result["shirt_size"] = db.get_variant_name(result["sub"])
+      end
       u.configure_from_input(result)
       u.need_sub = false
       db.finish
