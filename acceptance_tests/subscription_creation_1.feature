@@ -1,6 +1,6 @@
 @regression @core @subscription_creation @selenium
 Feature: Subscription Creation
-    @ready @indev
+    @ready @krisdev
     Scenario: Registered user creates one month subscription
         Given a registered user with no prior subscription
             When the user logs in

@@ -200,7 +200,7 @@ class User
 
   def verify_email(type, mailer)
     if type == 'subscription confirmation'
-      target_content = 'Welcome to Loot Crate'
+      target_content = 'Welcome to Loot Crate!'
     elsif type == 'german subscription confirmation'
       target_content = 'Herzlich willkommen bei Loot Crate!'
     elsif type == 'subscription cancellation'
@@ -212,13 +212,23 @@ class User
     elsif type == 'level up'
       target_content = 'Level Up Purchase Confirmation'
     end
-    mailer.email_log_in(@email)
-     for i in 0..5
-       unless page.has_content?(target_content)
-         visit current_url
-       end
-     end
-     assert_text(target_content)
+    email_pass = false
+    subjects = []
+    5.times do
+      subjects = $test.mailinator.get_email_subject_lines_from_inbox(@email)
+      if subjects.include? target_content
+        email_pass = true
+      else
+        email_pass = false
+        sleep(3)
+      end
+    end
+    expect(email_pass).to be_truthy, 
+      """
+        Did not find an email with subject line '#{target_content}' for email #{@email}
+        Subject lines found: #{subjects}
+
+     """
   end
 
   def word_for_digits(i)

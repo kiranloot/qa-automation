@@ -86,6 +86,7 @@ group :development, :test, :staging do
   gem 'better_errors', :require => false
   gem 'binding_of_caller', :require => false
   gem 'faker'
+  gem 'mailinator'
 end
 
 group :development, :test do
