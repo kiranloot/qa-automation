@@ -25,6 +25,14 @@ When /create a (.*) month subscription/ do |months|
   step "the user logs out"
 end
 
+When /create a (.*) month level up (.*) subscription/ do |months, product|
+  step "the user logs in"
+  step "the user selects the Level Up crate"
+  step "the user selects a level up #{months} month subscription for the #{product} crate"
+  step "the user submits valid subscription information"
+  step "the user logs out"
+end
+
 When /the user upgrades to a (.*) month subscription/ do |months|
   $test.user.upgrade_plan(months)
 end
