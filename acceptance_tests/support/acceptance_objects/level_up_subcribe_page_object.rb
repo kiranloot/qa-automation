@@ -16,7 +16,11 @@ include WaitForAjax
       'oneaccessory' => 'Level Up Accessories 1 Month',
       'threeaccessory' => 'Level Up Accessories 3 Month',
       'sixeaccessory' => 'Level Up Accessories 6 Month',
-      'twelveaccessory' => 'Level Up Accessories 12 Month'
+      'twelveaccessory' => 'Level Up Accessories 12 Month',
+      'onewearable' => 'Level Up Wearable 1 Month',
+      'threewearable' => 'Level Up Wearable 3 Month',
+      'sixwearable' => 'Level Up Wearalbe 6 Month',
+      'twelvewearable' => 'Level Up Wearalbe 12 Month'
     }
     @plan_drop_down_index = {
       'one' => 1,
@@ -45,6 +49,21 @@ include WaitForAjax
     page.execute_script "window.scrollBy(0,#{scroll_val})"
   end
 
+  def select_plan(crate, option)
+  end
+
+  def select_wearable_shirt_size(size)
+    find(:id, 's2id_variants-shirt').click
+    auto_id = find(:css, '#s2id_variants-shirt > label')[:for]
+    find(:css, "#select2-results-#{auto_id[-1]} li > div", :text => size).click
+  end
+
+  def select_wearable_waist_size(size)
+    find(:id, 's2id_variants-waist').click
+    auto_id = find(:css, '#s2id_variants-waist > label')[:for]
+    find(:css, "#select2-results-#{auto_id[-1]} li > div", :text => size).click
+  end
+
   def select_plan(product, months)
     scroll_to(product)
     div_id = product + '-crate'
@@ -53,6 +72,10 @@ include WaitForAjax
     wait_for_ajax
     #select plan
     find(:css,'ul.select2-results').find(:xpath,"li[#{@plan_drop_down_index[months]}]").click
+    if product == 'wearable'
+      select_wearable_shirt_size('Mens - S')
+      select_wearable_waist_size('Mens - S')
+    end
     find(:id,div_id).find_link("level up").click
     wait_for_ajax
     plan = months + product
