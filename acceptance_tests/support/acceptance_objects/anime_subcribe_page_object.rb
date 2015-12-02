@@ -19,8 +19,4 @@ include WaitForAjax
   def load_checkout_page_object
     $test.current_page = AnimeCheckoutPage.new
   end
-
-  def verify_confirmation_page
-    page.has_content?("Thanks for subscribing to Loot Anime!")
-  end
 end
