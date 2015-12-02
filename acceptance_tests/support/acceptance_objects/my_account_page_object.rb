@@ -111,7 +111,7 @@ class MyAccountPage < Page
   end
  
   def get_expected_next_bill_date(subscription_name, compare_date: nil)
-    if subscription_name == '1 Year Subscription'
+    if /1 Year Subscription/.match(subscription_name)
       months = 12
     else
       months = subscription_name.gsub(/\D/, '').to_i

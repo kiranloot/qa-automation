@@ -8,4 +8,8 @@ include Capybara::DSL
     @page_type = "anime_checkout"
     setup
   end
+
+  def verify_confirmation_page
+    page.has_content?("Thanks for subscribing to Loot Anime!")
+  end
 end

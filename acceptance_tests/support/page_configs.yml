@@ -22,3 +22,7 @@ lootcrate_checkout:
  url: "/1-month-subscription/checkouts/new"
 levelup_subscribe:
  url: "/level_up"
+anime_subscribe:
+ url: "/crates/anime"
+anime_checkout:
+ url: "/anime-1-month-subscription/checkouts/new"
