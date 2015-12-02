@@ -7,12 +7,12 @@ class Test
  require 'yaml'
  require 'pry'
  require 'faker'
- attr_accessor :user, :pages, :current_page, :test_data, :db, :affiliate, :recurly, :box, :sailthru
+ attr_accessor :user, :pages, :current_page, :test_data, :db, :affiliate, :recurly, :box, :sailthru, :mailinator
  include Capybara::DSL
  include RSpec::Matchers
  include WaitForAjax
 
- def initialize(test_data, start_page, pages, db, box)
+ def initialize(test_data, start_page, pages, db, box, mailinator_api)
   @affiliate = nil
   @user = nil
   @recurly = RecurlyAPI.new
@@ -22,6 +22,7 @@ class Test
   @pages = pages
   @db = db
   @box = box
+  @mailinator = mailinator_api
  end
 
  def update_test_data(value)
@@ -289,8 +290,8 @@ class Test
   def verify_email(type)
     type.downcase!
     type.strip!
-    @current_page = Mailinator.new
-    @current_page.visit_page
+    #@current_page = Mailinator.new
+    #@current_page.visit_page
     #the verify email function probably belongs in the mailinator object
     @user.verify_email(type, current_page)
   end

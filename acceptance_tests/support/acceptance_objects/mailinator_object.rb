@@ -2,7 +2,7 @@ require_relative "page_object"
 require "capybara/cucumber"
 require "pry"
   
-class Mailinator < Page
+class MailinatorPage < Page
   include Capybara::DSL
   def initialize
     super
