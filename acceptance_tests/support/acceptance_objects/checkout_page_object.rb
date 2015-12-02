@@ -60,6 +60,16 @@ include Capybara::DSL
     fill_in("checkout_credit_card_cvv", :with => cvv)
   end
 
+  def select_cc_exp_month(month)
+    find(:id, "s2id_checkout_credit_card_expiration_date_2i").click
+    find(:css, "#select2-results-8 > li > div", :text => month).click
+  end
+
+  def select_cc_exp_year(year)
+    find(:id, "s2id_checkout_credit_card_expiration_date_1i").click
+    find(:css, "#select2-results-9 > li > div", :text => year).click
+  end
+
   def click_coupon_checkbox
     find(:id, "coupon-checkbox").click
   end
@@ -110,6 +120,8 @@ include Capybara::DSL
       @discount_applied = page.has_content?("Valid coupon: save $")
     end
     enter_cvv(user.cvv)
+    select_cc_exp_month(user.cc_exp_month)
+    select_cc_exp_year(user.cc_exp_year)
     click_legal_checkbox
     click_subscribe
     verify_confirmation_page
@@ -123,6 +135,8 @@ include Capybara::DSL
       enter_credit_card_number(user.cc)
     end
     enter_cvv(user.cvv)
+    select_cc_exp_month(user.cc_exp_month)
+    select_cc_exp_year(user.cc_exp_year)
     click_legal_checkbox
     click_subscribe
     verify_confirmation_page
