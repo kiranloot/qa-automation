@@ -265,7 +265,7 @@ class MyAccountPage < Page
   end
 
   def select_shirt_size(sub_id, size)
-    find(:css, '#subscription_variant_ids > option', :text => size).click
+    find(:css, '#subscription_subscription_variants_attributes_0_variant_id > option', :text => size).click
     $test.user.shirt_size = size
     $test.user.display_shirt_size = $test.user.get_display_shirt_size(size)
   end
