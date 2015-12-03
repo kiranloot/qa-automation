@@ -47,11 +47,11 @@ def example
   end
 end
 
-def get_variant_name(sub_id)
+def get_shirt_size(h)
   q = """
     SELECT v.name FROM subscription_variants sv
     JOIN variants v ON sv.variant_id = v.id
-    WHERE sv.subscription_id = #{sub_id}
+    WHERE sv.subscription_id = #{h[sub]}
   """
   results = @conn.exec(q)
   results[0]['name']
