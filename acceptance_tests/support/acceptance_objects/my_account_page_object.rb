@@ -265,7 +265,9 @@ class MyAccountPage < Page
   end
 
   def select_shirt_size(sub_id, size)
-    find(:css, '#subscription_subscription_variants_attributes_0_variant_id > option', :text => size).click
+    find(:id, 's2id_subscription_subscription_variants_attributes_0_variant_id').click
+    fill_in('s2id_autogen5_search', :with => size)
+    find(:id, "s2id_autogen5_search").native.send_key(:enter)
     $test.user.shirt_size = size
     $test.user.display_shirt_size = $test.user.get_display_shirt_size(size)
   end
@@ -306,8 +308,8 @@ class MyAccountPage < Page
   def select_shipping_state(sub_id, state)
     find(:id, "s2id_shipping_address_state#{sub_id}").click
     wait_for_ajax
-    fill_in("s2id_autogen11_search", :with => state)
-    find(:id, "s2id_autogen11_search").native.send_key(:enter)
+    fill_in("s2id_autogen12_search", :with => state)
+    find(:id, "s2id_autogen12_search").native.send_key(:enter)
     $test.user.ship_state = state
   end
 
@@ -347,8 +349,8 @@ class MyAccountPage < Page
   def select_billing_state(sub_id, state)
     find(:id, "s2id_payment_method_state#{sub_id}").click
     wait_for_ajax
-    fill_in("s2id_autogen10_search", :with => state)
-    find(:id, "s2id_autogen10_search").native.send_key(:enter)
+    fill_in("s2id_autogen11_search", :with => state)
+    find(:id, "s2id_autogen11_search").native.send_key(:enter)
     $test.user.bill_state = state
   end
 
