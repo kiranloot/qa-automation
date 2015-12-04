@@ -19,4 +19,14 @@ include Capybara::DSL
     find("#s2id_autogen6_search").native.send_keys(state)
     find("#s2id_autogen6_search").native.send_keys(:enter)
   end
+
+  def select_cc_exp_month(month)
+    find(:id, "s2id_checkout_credit_card_expiration_date_2i").click
+    find(:css, "#select2-results-7 > li > div", :text => month).click
+  end
+
+  def select_cc_exp_year(year)
+    find(:id, "s2id_checkout_credit_card_expiration_date_1i").click
+    find(:css, "#select2-results-8 > li > div", :text => year).click
+  end
 end

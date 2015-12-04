@@ -12,7 +12,7 @@ class User
     :cc, :cvv, :ship_street, :ship_street_2, :ship_city, :affiliate, :coupon_code, :discount_applied, :subject_user, 
     :subscription_name, :level_up_subscription_name, :new_user_sub_name,:new_rebill_date, :bill_zip,
     :bill_city, :bill_street, :bill_street_2, :bill_state, :need_sub, :rebill_date_db, :last_four, :trait,
-    :country_code, :recurly_billing_state_code, :cc_invalid
+    :country_code, :recurly_billing_state_code, :cc_invalid, :cc_exp_month, :cc_exp_year
 
   @@sizes = {"male" =>  {0 => "Mens - S", 1 => "Mens - M", 2 => "Mens - L", 3 => "Mens - XL", 
                          4 => "Mens - XXL", 5 => "Mens - XXXL" },
@@ -35,6 +35,8 @@ class User
     @ship_state = "CA"
     @cc = "4111111111111111" 
     @cc_invalid = "4567890133334444"
+    @cc_exp_month = "01 - January"
+    @cc_exp_year = "2020"
     @cvv = "333"
     @last_four = "1111" 
     @test = test
