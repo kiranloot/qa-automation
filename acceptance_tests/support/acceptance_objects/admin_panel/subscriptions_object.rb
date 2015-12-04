@@ -74,14 +74,11 @@ class AdminSubscriptionsPage < AdminPage
     $test.user.new_user_sub_name = name
   end
 
-  def select_shirt_size(display_size)
-    find(:id, 'subscription_shirt_size').click
-    case display_size
-      when 'M S'
-        selection = 2
-      end
-    find(:css, "#subscription_shirt_size > option:nth-child(#{selection})").click
-    $test.user.display_shirt_size = display_size
+  def select_shirt_size(size)
+    find(:id, 'subscription_subscription_variants_attributes_0_variant_id').click
+    find(:css, '#subscription_subscription_variants_attributes_0_variant_id > option', :text => size).click
+    $test.user.shirt_size = size
+    $test.user.display_shirt_size = $test.user.get_display_shirt_size(size)
   end
 
   def move_rebill_date_one_day

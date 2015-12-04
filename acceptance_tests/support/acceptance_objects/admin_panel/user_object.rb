@@ -30,7 +30,7 @@ class AdminUsersPage < AdminPage
     #TO DO: need to add another display variable
     #this is displayed differently in the user page
     #assert_text($test.user.subscription_name.downcase)
-    assert_text($test.user.shirt_size)
+    #assert_text($test.user.shirt_size)
   end
 
   def fill_in_email

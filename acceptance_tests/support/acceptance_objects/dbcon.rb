@@ -47,6 +47,17 @@ def example
   end
 end
 
+def get_shirt_size(h)
+  puts h['sub']
+  q = """
+    SELECT v.name FROM subscription_variants sv
+    JOIN variants v ON sv.variant_id = v.id
+    WHERE sv.subscription_id = #{h['sub']}
+  """
+  results = @conn.exec(q)
+  h['shirt_size'] = results[0]['name']
+end
+ 
 def user_exists?(user_email)
   query = "Select * from users where email = \'#{user_email}\'"
   results = @conn.exec(query)
@@ -112,15 +123,6 @@ def get_plan_months(h, sub_id)
   @conn.exec(q) do |result|
     result.each do |row|
       h["plan_months"] = row["period"]
-    end
-  end
-end
-
-def get_shirt_size(h)
-  q = shirt_size_query(h["sub"])
-  @conn.exec(q) do |result|
-    result.each do |row|
-      h["shirt_size"] = row["shirt_size"]
     end
   end
 end
