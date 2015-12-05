@@ -26,16 +26,7 @@ class RecurlyAPI
     account = get_account
     expect(account.subscriptions.first.plan.name).to eq(recurly_sub)
   end
-
-  #def verify_international_subscription_type
-  #  account = get_account
-    #downcase second letter
-  #  country_code = $test.user.country_code
-  #  country_code[1] = country_code[1].downcase
-  #  plan_with_country_code = country_code + " " + $test.user.subscription_name
-  #  expect(account.subscriptions.first.plan.name).to eq(plan_with_country_code)
-  #end
-
+ 
   def verify_next_bill_date
     #TODO
   end
