@@ -11,7 +11,7 @@ include Capybara::DSL
   end
 
   def select_shirt_size(size)
-    find("div#s2id_shirt > a").click
+    find("div#s2id_option_type_shirt > a").click
     wait_for_ajax
     find("input#s2id_autogen5_search").native.send_keys(size)
     find("input#s2id_autogen5_search").native.send_key(:enter)
