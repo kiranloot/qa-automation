@@ -4,7 +4,7 @@ Then(/^recurly should have a matching subscription$/) do
 end
 
 Then(/^recurly should have a matching international subscription$/) do
-  $test.recurly.verify_international_subscription_type
+  $test.recurly.verify_subscription_type($test.user.country_code)
 end
 
 Then(/^recurly should now have a (.*) month subscription plan$/) do |months|
