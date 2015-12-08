@@ -1,6 +1,6 @@
 @selenium @regression @admin
 Feature: Admin Shipping Manifests
-    @WIP @krisdev
+    @ready
     Scenario: Ensure shipping manifest page loads
         Given an admin user with access to their info
         When the admin user visits the admin page

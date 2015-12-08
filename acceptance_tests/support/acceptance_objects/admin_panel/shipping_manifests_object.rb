@@ -5,6 +5,6 @@ class AdminShippingManifestsPage < AdminPage
   end
 
   def manifest_page_loaded?
-    expect(find_element(:id, 'page_title').text).to eq("Shipping Manifests")
+    expect(find(:id, 'page_title').text).to eq("SHIPPING MANIFESTS")
   end
 end
