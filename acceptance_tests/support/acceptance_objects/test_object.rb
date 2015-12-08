@@ -92,6 +92,8 @@ class Test
      $test.current_page = LevelUpSubscribePage.new
    when "Anime"
      $test.current_page = AnimeSubscribePage.new
+   when "Pets"
+     $test.current_page = PetsSubscribePage.new
    end
  end
 

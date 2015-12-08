@@ -14,12 +14,6 @@ include WaitForAjax
       'six' => 'six-month',
       'twelve' => 'twelve-month'
     }
-    @plan_display_names = {
-      'one' => '1 Month Subscription',
-      'three' => '3 Month Subscription',
-      'six' => '6 Month Subscription',
-      'twelve' => '1 Year Subscription',
-    }
   end
 
   def visit_page

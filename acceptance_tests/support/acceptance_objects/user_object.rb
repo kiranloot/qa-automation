@@ -12,12 +12,16 @@ class User
     :cc, :cvv, :ship_street, :ship_street_2, :ship_city, :affiliate, :coupon_code, :discount_applied, :subject_user, 
     :subscription_name, :level_up_subscription_name, :new_user_sub_name,:new_rebill_date, :bill_zip,
     :bill_city, :bill_street, :bill_street_2, :bill_state, :need_sub, :rebill_date_db, :last_four, :trait,
-    :country_code, :recurly_billing_state_code, :cc_invalid, :cc_exp_month, :cc_exp_year
+    :country_code, :recurly_billing_state_code, :cc_invalid, :cc_exp_month, :cc_exp_year, :pet_shirt_size, :pet_collar_size
 
   @@sizes = {"male" =>  {0 => "Mens - S", 1 => "Mens - M", 2 => "Mens - L", 3 => "Mens - XL", 
                          4 => "Mens - XXL", 5 => "Mens - XXXL" },
            "female" => {0 => "Womens - S", 1 => "Womens - M", 2 => "Womens - L", 3 => "Womens - XL", 
                         4 => "Womens - XXL", 5 => "Womens - XXXL"}}
+
+  @@pet_shirt_sizes = ['Dog - XS', 'Dog - S', 'Dog - M', 'Dog - L', 'Dog - XL', 'Dog - XXL', 'Dog - XXXL']
+  @@pet_collar_sizes = ['Dog - S', 'Dog - M', 'Dog - L']
+  
   def initialize(test)
     @trait = nil
     @email = "placeholder"
@@ -27,6 +31,8 @@ class User
     @full_name = @first_name + " " + @last_name
     @gender = ["male","female"].sample
     @shirt_size = @@sizes[@gender][rand(6)]
+    @pet_shirt_size = @@pet_shirt_sizes.sample
+    @pet_collar_size = @@pet_collar_sizes.sample
     @display_shirt_size = get_display_shirt_size(@shirt_size)
     @ship_zip = "90210"
     @ship_city = "Beverly Hills"
@@ -217,6 +223,8 @@ class User
       target_content = 'Level Up Cancellation Confirmation' 
     elsif type == 'anime confirmation'
       target_content = 'Loot Anime Order Confirmation'
+    elsif type == 'pets confirmation'
+      target_content = 'Loot Pets Order Confirmation'
     end
     email_pass = false
     subjects = []

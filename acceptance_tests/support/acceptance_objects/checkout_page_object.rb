@@ -13,8 +13,16 @@ include Capybara::DSL
   def select_shirt_size(size)
     find("div#s2id_option_type_shirt > a").click
     wait_for_ajax
-    find("input#s2id_autogen5_search").native.send_keys(size)
+    fill_in('s2id_autogen5_search', :with => size)
     find("input#s2id_autogen5_search").native.send_key(:enter)
+  end
+
+  def select_pet_shirt_size(size)
+    #stub
+  end
+
+  def select_pet_collar_size(size)
+    #stub
   end
 
   def enter_first_name(name)
@@ -101,6 +109,9 @@ include Capybara::DSL
 
   def submit_checkout_information(user, type)
     select_shirt_size(user.shirt_size)
+    #will only run on pets crate
+    select_pet_shirt_size(user.pet_shirt_size)
+    select_pet_collar_size(user.pet_collar_size)
     enter_first_name(user.first_name)
     enter_last_name(user.last_name)
     enter_shipping_address_line_1(user.ship_street)
