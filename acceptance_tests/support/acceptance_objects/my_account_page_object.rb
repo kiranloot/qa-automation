@@ -46,6 +46,7 @@ class MyAccountPage < Page
   def verify_subscription_added
     grab_user_data
     go_to_subscriptions
+    expect(@subscription_name).not_to be_nil 
     assert_text(@subscription_name)
     assert_text("Active")
     wait_for_ajax

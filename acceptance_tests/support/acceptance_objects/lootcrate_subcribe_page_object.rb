@@ -8,6 +8,12 @@ include WaitForAjax
     super
     @page_type = "lootcrate_subscribe"
     setup
+    @plan_display_names = {
+      'one' => '1 Month Subscription',
+      'three' => '3 Month Subscription',
+      'six' => '6 Month Subscription',
+      'twelve' => '1 Year Subscription'
+    }
   end
 
   def visit_page
