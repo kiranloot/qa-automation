@@ -55,7 +55,9 @@ def get_shirt_size(h)
     WHERE sv.subscription_id = #{h['sub']}
   """
   results = @conn.exec(q)
-  h['shirt_size'] = results[0]['name']
+  if results.any?
+    h['shirt_size'] = results[0]['name']
+  end
 end
  
 def user_exists?(user_email)
