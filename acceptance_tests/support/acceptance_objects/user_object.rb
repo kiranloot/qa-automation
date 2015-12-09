@@ -280,12 +280,12 @@ class User
   def is_country_us?
     wait_for_ajax
     page.has_css?('#country-selector-lnk > span > img')
-    return /assets\/flags\/us_flag/.match(first('#country-selector-lnk > span > img')['src'])
+    return /assets\/flags\/us_flag/.match(first('.country-selector-lnk > span > img')['src'])
   end
 
   def set_ship_to_country(country, top_bot: nil)
     wait_for_ajax
-    first(:link, "country-selector-lnk").click
+    find(:css, "#navbar-collapse > ul > li.country-selector.dropdown.country-selector-desktop > a").click
     find("#s2id_autogen3").click
     find("ul#select2-results-4 > li > div", :text => country).click
     wait_for_ajax

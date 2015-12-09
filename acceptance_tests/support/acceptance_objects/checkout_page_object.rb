@@ -13,8 +13,8 @@ include Capybara::DSL
   def select_shirt_size(size)
     find("div#s2id_option_type_shirt > a").click
     wait_for_ajax
-    fill_in('s2id_autogen5_search', :with => size)
-    find("input#s2id_autogen5_search").native.send_key(:enter)
+    find("input#s2id_autogen1_search").native.send_keys(size)
+    find("input#s2id_autogen1_search").native.send_key(:enter)
   end
 
   def select_pet_shirt_size(size)
@@ -46,10 +46,10 @@ include Capybara::DSL
   end
 
   def select_shipping_state(state)
-    find("#select2-chosen-7").click
+    find("#select2-chosen-3").click
     wait_for_ajax
-    find("#s2id_autogen7_search").native.send_keys(state)
-    find("#s2id_autogen7_search").native.send_keys(:enter)
+    find("#s2id_autogen3_search").native.send_keys(state)
+    find("#s2id_autogen3_search").native.send_keys(:enter)
   end
 
   def enter_shipping_zip_code(zip)
@@ -70,12 +70,12 @@ include Capybara::DSL
 
   def select_cc_exp_month(month)
     find(:id, "s2id_checkout_credit_card_expiration_date_2i").click
-    find(:css, "#select2-results-8 > li > div", :text => month).click
+    find(:css, "#select2-results-4 > li > div", :text => month).click
   end
 
   def select_cc_exp_year(year)
     find(:id, "s2id_checkout_credit_card_expiration_date_1i").click
-    find(:css, "#select2-results-9 > li > div", :text => year).click
+    find(:css, "#select2-results-5 > li > div", :text => year).click
   end
 
   def click_coupon_checkbox

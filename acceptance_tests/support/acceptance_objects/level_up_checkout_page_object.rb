@@ -22,11 +22,13 @@ include Capybara::DSL
 
   def select_cc_exp_month(month)
     find(:id, "s2id_checkout_credit_card_expiration_date_2i").click
-    find(:css, "#select2-results-7 > li > div", :text => month).click
+#    find(:css, "#select2-results-7 > li > div", :text => month).click
+    find(:css, "#").click
   end
 
   def select_cc_exp_year(year)
     find(:id, "s2id_checkout_credit_card_expiration_date_1i").click
-    find(:css, "#select2-results-8 > li > div", :text => year).click
+#    find(:css, "#select2-results-8 > li > div", :text => year).click
+    find(:id, "select2-result-label-14").click
   end
 end
