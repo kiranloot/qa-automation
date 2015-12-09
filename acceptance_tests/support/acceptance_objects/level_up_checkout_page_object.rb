@@ -14,21 +14,19 @@ include Capybara::DSL
 
   #shipping_state_has a different_dropdown
   def select_shipping_state(state)
-    find("#select2-chosen-6").click
+    find("#select2-chosen-2").click
     wait_for_ajax
-    find("#s2id_autogen6_search").native.send_keys(state)
-    find("#s2id_autogen6_search").native.send_keys(:enter)
+    find("#s2id_autogen2_search").native.send_keys(state)
+    find("#s2id_autogen2_search").native.send_keys(:enter)
   end
 
   def select_cc_exp_month(month)
     find(:id, "s2id_checkout_credit_card_expiration_date_2i").click
-#    find(:css, "#select2-results-7 > li > div", :text => month).click
-    find(:css, "#").click
+    find(:css, "#select2-results-3 > li > div", :text => month).click
   end
 
   def select_cc_exp_year(year)
     find(:id, "s2id_checkout_credit_card_expiration_date_1i").click
-#    find(:css, "#select2-results-8 > li > div", :text => year).click
-    find(:id, "select2-result-label-14").click
+    find(:css, "#select2-results-4 > li > div", :text => year).click
   end
 end
