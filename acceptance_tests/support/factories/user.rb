@@ -310,7 +310,7 @@ FactoryGirl.define do
       last_name {Date.today.strftime("%b") + Date.today.day.to_s}
       ship_street "1234 United Kingdom Test"
       ship_city "London"
-      ship_state "England"
+      ship_state "England and Wales"
       ship_zip "WC1H 8JJ"
       email { "_gb_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
       country_code "GB"
