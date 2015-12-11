@@ -279,7 +279,7 @@ class User
 
   def is_country_us?
     wait_for_ajax
-    page.has_css?('#country-selector-lnk > span > img')
+    page.has_css?('.country-selector-lnk > span > img')
     return /assets\/flags\/us_flag/.match(first('.country-selector-lnk > span > img')['src'])
   end
 
