@@ -61,7 +61,7 @@ load-test:
     dbname: 'd43r30joboc8tg'
     redis_url: 'redis://redistogo:3db6cedcf322ad966215ef076da9c92b@viperfish.redistogo.com:9036/'
     prefix: "https://lootcrate-load-test.herokuapp.com"
-    admin: "https://lootcrate-qa-admin.herokuapp.com/admin/login"
+    admin: "https://loot-admin-loadtest.herokuapp.com/admin/login"
     app: "lootcrate-load-test"
     base_url: "https://lootcrate-load-test.herokuapp.com/?username=lootcrateis25timesgreaterthanthecompetition"
 local:
