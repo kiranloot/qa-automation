@@ -53,4 +53,14 @@ class AdminPage < Page
     wait_for_ajax
   end
 
+  def click_more
+    find_link("More").click
+    wait_for_ajax
+  end
+
+  def click_shipping_manifests
+    click_more
+    find_link("Shipping Manifests").click
+    wait_for_ajax
+  end
 end

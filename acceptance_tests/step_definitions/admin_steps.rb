@@ -106,6 +106,10 @@ When /searches for the user's address info by address line 1/ do
   $test.current_page.search_address_by_line_1($test.user.subject_user.ship_street)
 end
 
+When /view the shipping manifests page/ do
+  $test.current_page.click_shipping_manifests
+  $test.current_page = AdminShippingManifestsPage.new
+end
 
 #THENS
 Then /the subscription should have a status of (.*) in the admin panel/ do |status|
@@ -171,4 +175,8 @@ Then /the shipment tracking information should be visible via the admin panel/ d
   $test.current_page = AdminSubscriptionsPage.new
   $test.current_page.show_subscription
   $test.current_page.sub_tracking_information_displayed? 
+end
+
+Then /the shipping manifests page should load/ do
+  $test.current_page.manifest_page_loaded?
 end
