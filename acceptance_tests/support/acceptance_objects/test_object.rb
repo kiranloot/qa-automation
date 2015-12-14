@@ -84,6 +84,7 @@ class Test
  def select_crate(crate)
    click_link("Pick a Crate")
    click_link(crate)
+   sleep(5)
    wait_for_ajax
    case crate
    when "Loot Crate"
