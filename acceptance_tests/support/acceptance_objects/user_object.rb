@@ -285,6 +285,7 @@ class User
 
   def set_ship_to_country(country, top_bot: nil)
     wait_for_ajax
+    sleep(5)
     find(:css, "#navbar-collapse > ul > li.country-selector.dropdown.country-selector-desktop > a").click
     find(:css, "div.choose-country").click
     wait_for_ajax
