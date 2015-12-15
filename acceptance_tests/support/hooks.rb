@@ -22,7 +22,7 @@ test_data = YAML.load(File.open($env_test_data_file_path))
 pages = {home: HomePage, signup: SignupPage, checkout: CheckoutPage, subscribe: SubscribePage,
             my_account: MyAccountPage, mailinator: Mailinator, admin: AdminPage, upgrade: UpgradePage,
          recurly: RecurlyPage, level_up: LevelUpPage, fallout4:Fallout4Page, lootcrate_subscribe: LootcrateSubscribePage,
-         lootcrate_checkout: LootcrateCheckoutPage}
+         lootcrate_checkout: LootcrateCheckoutPage, pewdiepie: PewdiepiePage, boogie2988: Boogie2988Page}
 
 Before do
   Capybara.default_max_wait_time = 15
