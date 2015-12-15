@@ -40,11 +40,11 @@ include WaitForAjax
     sleep(2)
     case product
     when 'socks'
-      scroll_val = 0
-    when 'accessory'
       scroll_val = 500
-    when 'wearable'
+    when 'accessory'
       scroll_val = 750
+    when 'wearable'
+      scroll_val = 1200
     end
     page.execute_script "window.scrollBy(0,#{scroll_val})"
   end
