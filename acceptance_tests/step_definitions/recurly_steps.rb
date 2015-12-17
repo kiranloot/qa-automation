@@ -34,3 +34,7 @@ end
 Then(/^the recurly billing address should have the correct state$/) do
   $test.recurly.verify_billing_address_has_state($test.user.recurly_billing_state_code)
 end
+
+Then(/^the recurly subscription should have the correct rebill date$/)do
+  expect($test.recurly.get_rebill_date).to eq $test.calculate_rebill_date
+end

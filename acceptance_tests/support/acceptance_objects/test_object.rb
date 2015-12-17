@@ -321,18 +321,23 @@ class Test
     @user.email = api.create_user_with_canceled_sub
   end
 
-  def calculate_rebill_date(crate_type, months)
-    if crate_type == "Anime"
+  def calculate_rebill_date
+    if /1 Year Subscription/.match($test.user.subscription_name)
+      months = 12
+    else
+      months = $test.user.subscription_name.gsub(/\D/, '').to_i
+    end
+    if /Anime/.match($test.user.subscription_name)
       end_date = 27 
     else
       end_date = 20
     end
     sub_day = Date.today
     if sub_day.day > 5 && sub_day.day < end_date
-      rebill_day = Date.new((sub_day >> months).year,
-                            (sub_day >> months).month, 5)
+      rebill_day = Date.new((sub_day >> $test.user.plan_months).year,
+                            (sub_day >> $test.user.plan_months).month, 5)
     else
-      rebill_day = sub_day >> months
+      rebill_day = sub_day >> $test.user.plan_months
     end
     return{
       'month' => rebill_day.strftime('%B'),

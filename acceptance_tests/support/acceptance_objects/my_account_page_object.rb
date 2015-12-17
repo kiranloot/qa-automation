@@ -112,13 +112,13 @@ class MyAccountPage < Page
   end
  
   def get_expected_next_bill_date(subscription_name, compare_date: nil)
-    if /1 Year Subscription/.match(subscription_name)
-      months = 12
-    else
-      months = subscription_name.gsub(/\D/, '').to_i
-    end
+    #if /1 Year Subscription/.match(subscription_name)
+    #  months = 12
+    #else
+    #  months = subscription_name.gsub(/\D/, '').to_i
+    #end
     if compare_date.nil?
-      rebill_date = $test.calculate_rebill_date(/Anime/.match(subscription_name) ? 'Anime' : 'Core', months)
+      compare_date = $test.calculate_rebill_date
     end
     localize_date(rebill_date['day'], rebill_date['month'], rebill_date['year'])
   end
