@@ -320,4 +320,24 @@ class Test
     api = HerokuAPI.new
     @user.email = api.create_user_with_canceled_sub
   end
+
+  def calculate_rebill_date(crate_type, months)
+    if crate_type == "Anime"
+      end_date = 27 
+    else
+      end_date = 20
+    end
+    sub_day = Date.today
+    if sub_day.day > 5 && sub_day.day < end_date
+      rebill_day = Date.new((sub_day >> months).year,
+                            (sub_day >> months).month, 5)
+    else
+      rebill_day = sub_day >> months
+    end
+    return{
+      'month' => rebill_day.strftime('%B'),
+      'day' => rebill_day.strftime('%d'),
+      'year' => rebill_day.strftime('%Y')
+    }
+  end
 end
