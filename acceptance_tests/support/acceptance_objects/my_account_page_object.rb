@@ -368,4 +368,16 @@ class MyAccountPage < Page
     assert_text('Tracking')
     assert_text('ABC123')
   end
+
+  def unskip_subscription
+    find_link('Un-Skip').click
+    find_link('Confirm').click  
+  end
+
+  def month_active?
+    go_to_subscriptions
+    #TO DO - add validation for skipped month
+    assert_text("Active")
+  end
+
 end
