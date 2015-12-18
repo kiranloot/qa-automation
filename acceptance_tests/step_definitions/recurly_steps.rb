@@ -36,5 +36,13 @@ Then(/^the recurly billing address should have the correct state$/) do
 end
 
 Then(/^the recurly subscription should have the correct rebill date$/)do
-  expect($test.recurly.get_rebill_date).to eq $test.calculate_rebill_date
+  date_hash = $test.calculate_rebill_date
+  month_int = Date::MONTHNAMES.index(date_hash['month'])
+  date_hash['month'] = month_int < 10 ? "0" + month_int.to_s : month_int.to_s
+  recurly_rebill_date = $test.recurly.get_rebill_date.to_s
+  recurly_hash = {}
+  recurly_hash['year'], recurly_hash['month'], recurly_hash['day'] = recurly_rebill_date.scan(/\d+/)
+  ['year','month','day'].each do |key|
+    expect(recurly_hash[key]).to eq date_hash[key]
+  end
 end

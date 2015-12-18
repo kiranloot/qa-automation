@@ -118,9 +118,10 @@ class MyAccountPage < Page
     #  months = subscription_name.gsub(/\D/, '').to_i
     #end
     if compare_date.nil?
-      compare_date = $test.calculate_rebill_date
+      rebill_date = $test.calculate_rebill_date
+      compare_date = localize_date(rebill_date['day'], rebill_date['month'], rebill_date['year'])
     end
-    localize_date(rebill_date['day'], rebill_date['month'], rebill_date['year'])
+    return compare_date
   end
 
   def localize_date(day, month, year)

@@ -8,7 +8,7 @@ Feature: Subscription Creation
             And the user selects a one month subscription plan
             And the user submits valid subscription information
         Then the new subscription should be added to the user account
-            And the user should receive a subscription confirmation email
+            #And the user should receive a subscription confirmation email
             And the recurly subscription should have the correct rebill date
 
     @ready 
