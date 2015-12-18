@@ -21,3 +21,14 @@ Feature: Level Up
         Then the subscription status should be set to pending cancellation
             And the user should receive a levelup cancellation email
             And the recurly subscription should be canceled
+
+    @ready
+    Scenario: A user without an active subscription can add a three month wearable subscription
+        Given a registered user with an active subscription
+        When the user logs in
+            And the user selects the Level Up crate
+            And the user selects a level up three month subscription for the wearable crate
+            And the user submits valid credit card information
+        Then the new level up subscription should be added to the user account
+            And the user should receive a level up email
+            And recurly should have a three month subscription for the wearable crate

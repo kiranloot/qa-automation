@@ -42,9 +42,9 @@ include WaitForAjax
     when 'socks'
       scroll_val = 500
     when 'accessory'
-      scroll_val = 750
+      scroll_val = 1000
     when 'wearable'
-      scroll_val = 1200
+      scroll_val = 1500
     end
     page.execute_script "window.scrollBy(0,#{scroll_val})"
   end
@@ -53,15 +53,19 @@ include WaitForAjax
   end
 
   def select_wearable_shirt_size(size)
-    find(:id, 's2id_variants-shirt').click
-    auto_id = find(:css, '#s2id_variants-shirt > label')[:for]
-    find(:css, "#select2-results-#{auto_id[-1]} li > div", :text => size).click
+    find(:div, 'div#wearable-crate div#s2id_variants-shirt').click
+    find(:css, ".select2-result-label", :text => size).click
+    # find(:id, 's2id_variants-shirt').click
+    # auto_id = find(:css, '#s2id_variants-shirt > label')[:for]
+    # find(:css, "#select2-results-#{auto_id[-1]} li > div", :text => size).click
   end
 
   def select_wearable_waist_size(size)
-    find(:id, 's2id_variants-waist').click
-    auto_id = find(:css, '#s2id_variants-waist > label')[:for]
-    find(:css, "#select2-results-#{auto_id[-1]} li > div", :text => size).click
+    find(:div, 'div#wearable-crate div#s2id_variants-waist').click
+    find(:css, ".select2-result-label", :text => size).click  
+    # find(:id, 's2id_variants-waist').click
+    # auto_id = find(:css, '#s2id_variants-waist > label')[:for]
+    # find(:css, "#select2-results-#{auto_id[-1]} li > div", :text => size).click
   end
 
   def select_plan(product, months)
