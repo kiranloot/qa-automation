@@ -322,11 +322,6 @@ class Test
   end
 
   def calculate_rebill_date
-    if /1 Year Subscription/.match($test.user.subscription_name)
-      months = 12
-    else
-      months = $test.user.subscription_name.gsub(/\D/, '').to_i
-    end
     if /Anime/.match($test.user.subscription_name)
       end_date = 27 
     else
