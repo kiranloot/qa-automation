@@ -82,6 +82,8 @@ class Test
  end
 
  def select_crate(crate)
+   find(:css,'a.loot-logo').click
+   wait_for_ajax
    click_link("Pick a Crate")
    click_link(crate)
    wait_for_ajax
