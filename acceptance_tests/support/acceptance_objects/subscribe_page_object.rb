@@ -39,20 +39,11 @@ include WaitForAjax
     find(:id, target).click
     wait_for_ajax
     update_target_plan(plan)
-    update_plan_months
     load_checkout_page_object
   end
 
   def update_target_plan(plan)
     $test.user.subscription_name = @plan_display_names[plan]
-  end
-
-  def update_plan_months
-    if /1 Year Subscription/.match($test.user.subscription_name)
-      $test.user.plan_months = 12
-    else
-      $test.user.plan_months = $test.user.subscription_name.gsub(/\D/, '').to_i
-    end
   end
 
   def load_checkout_page_object

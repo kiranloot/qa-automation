@@ -11,7 +11,7 @@ class User
     :first_name, :last_name, :full_name, :shirt_size, :display_shirt_size, :new_shirt_size, 
     :cc, :cvv, :ship_street, :ship_street_2, :ship_city, :affiliate, :coupon_code, :discount_applied, :subject_user, 
     :subscription_name, :level_up_subscription_name, :new_user_sub_name,:new_rebill_date, :bill_zip,
-    :bill_city, :bill_street, :bill_street_2, :bill_state, :need_sub, :rebill_date_db, :last_four, :trait, :plan_months,
+    :bill_city, :bill_street, :bill_street_2, :bill_state, :need_sub, :rebill_date_db, :last_four, :trait,
     :country_code, :recurly_billing_state_code, :cc_invalid, :cc_exp_month, :cc_exp_year, :pet_shirt_size, :pet_collar_size
 
   @@sizes = {"male" =>  {0 => "Mens - S", 1 => "Mens - M", 2 => "Mens - L", 3 => "Mens - XL", 
@@ -60,7 +60,6 @@ class User
     @new_shirt_size= nil
     @new_rebill_date= nil
     @need_sub = true
-    @plan_months = 0
     @rebill_date_db = nil
     @country_code = nil
     @recurly_billing_state_code = nil
@@ -305,7 +304,10 @@ class User
   end
 
   def plan_months
-    @subscription_name.gsub(/[^\d]/, '').to_i
+    if @subscription_name =~ /1 Year Subscription/
+      return 12
+    else
+      @subscription_name.gsub(/[^\d]/, '').to_i
+    end
   end
-
 end
