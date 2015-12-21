@@ -50,7 +50,7 @@ qa3:
    dbname: 'd55r6dllc0lr64'
    redis_url: "redis://redistogo:c9a9c62935f7b4d07945de0f0efb2806@ray.redistogo.com:9718/"
    prefix: "https://qa3.lootcrate.com"
-   admin: "https://qa3.lootcrate.com/admin/login"
+   admin: "https://loot-admin-qa3.herokuapp.com/admin/login"
    app: "lootcrate-qa3"
    base_url: "https://qa3.lootcrate.com/?username=lootcrateis25timesgreaterthanthecompetition"
 load-test:
