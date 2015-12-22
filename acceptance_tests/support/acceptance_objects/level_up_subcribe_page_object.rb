@@ -15,12 +15,15 @@ include WaitForAjax
       'twelvesocks' => 'Level Up Socks 12 Month',
       'oneaccessory' => 'Level Up Accessories 1 Month',
       'threeaccessory' => 'Level Up Accessories 3 Month',
-      'sixeaccessory' => 'Level Up Accessories 6 Month',
+      'sixaccessory' => 'Level Up Accessories 6 Month',
       'twelveaccessory' => 'Level Up Accessories 12 Month',
       'onewearable' => 'Level Up Wearable 1 Month',
       'threewearable' => 'Level Up Wearable 3 Month',
       'sixwearable' => 'Level Up Wearalbe 6 Month',
       'twelvewearable' => 'Level Up Wearalbe 12 Month'
+    }
+    @recurly_plan_names = {
+      'sixaccessory' => 'LC - LU - Accessory - 6 month'
     }
     @plan_drop_down_index = {
       'one' => 1,
@@ -40,11 +43,11 @@ include WaitForAjax
     sleep(2)
     case product
     when 'socks'
-      scroll_val = 500
+      scroll_val = 0
     when 'accessory'
-      scroll_val = 1000
+      scroll_val = 500
     when 'wearable'
-      scroll_val = 1500
+      scroll_val = 1000
     end
     page.execute_script "window.scrollBy(0,#{scroll_val})"
   end
@@ -55,17 +58,11 @@ include WaitForAjax
   def select_wearable_shirt_size(size)
     find(:div, 'div#wearable-crate div#s2id_variants-shirt').click
     find(:css, ".select2-result-label", :text => size).click
-    # find(:id, 's2id_variants-shirt').click
-    # auto_id = find(:css, '#s2id_variants-shirt > label')[:for]
-    # find(:css, "#select2-results-#{auto_id[-1]} li > div", :text => size).click
   end
 
   def select_wearable_waist_size(size)
     find(:div, 'div#wearable-crate div#s2id_variants-waist').click
     find(:css, ".select2-result-label", :text => size).click  
-    # find(:id, 's2id_variants-waist').click
-    # auto_id = find(:css, '#s2id_variants-waist > label')[:for]
-    # find(:css, "#select2-results-#{auto_id[-1]} li > div", :text => size).click
   end
 
   def select_plan(product, months)
@@ -84,6 +81,7 @@ include WaitForAjax
     wait_for_ajax
     plan = months + product
     update_target_plan(plan)
+    update_recurly_plan(plan)
     load_checkout_page_object
   end
 
@@ -96,6 +94,10 @@ include WaitForAjax
     #TODO - need to get rid of level_up_subscription name and just have subscription name do all the validations
     $test.user.level_up_subscription_name = @plan_display_names[plan]
     $test.user.subscription_name = @plan_display_names[plan]
+  end
+
+  def update_recurly_plan(plan)
+    $test.user.recurly_level_up_plan = @recurly_plan_names[plan]
   end
 
   def sold_out?(product)
