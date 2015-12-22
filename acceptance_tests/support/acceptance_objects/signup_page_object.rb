@@ -14,7 +14,7 @@ include Capybara::DSL
   end
 
   def submit_signup
-    click_button("CREATE ACCOUNT")
+    click_button("CREATE YOUR ACCOUNT")
     wait_for_ajax
   end
 
