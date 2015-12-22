@@ -14,19 +14,30 @@ class RecurlyAPI
   end
 
   def verify_subscription_type(country_code = "US")
-    if $test.user.subscription_name == '1 Year Subscription' 
-      recurly_sub = '12 Month Subscription'
+    #Do if this is a recurly sub
+    if $test.user.recurly_level_up_plan
+      recurly_sub = $test.user.recurly_level_up_plan
+      if country_code == "US"
+        recurly_sub = recurly_sub + " - US"
+      else
+        recurly_sub = recurly_sub + " - Intl"
+      end
+    #do if this is any other sub
     else
-      recurly_sub = $test.user.subscription_name
-    end
-    unless country_code == "US" 
-      country_code[1] = country_code[1].downcase
-      recurly_sub = country_code + " " + recurly_sub
+      if $test.user.subscription_name == '1 Year Subscription' 
+        recurly_sub = '12 Month Subscription'
+      else
+        recurly_sub = $test.user.subscription_name
+      end
+      unless country_code == "US"
+        country_code[1] = country_code[1].downcase
+        recurly_sub = country_code + " " + recurly_sub
+      end
     end
     account = get_account
     expect(account.subscriptions.first.plan.name).to eq(recurly_sub)
   end
- 
+
   def verify_next_bill_date
     #TODO
   end
