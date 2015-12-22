@@ -368,4 +368,10 @@ class MyAccountPage < Page
     assert_text('Tracking')
     assert_text('ABC123')
   end
+
+  def unskip_subscription
+    find_link('Un-Skip').click
+    find_link('Confirm').click  
+  end
+
 end

@@ -163,6 +163,7 @@ def plan_months_query(sub_id)
   q
 end
 
+
 def billing_from_hash(h)
   q = billing_query(h["sub"].to_s)
   @conn.exec(q) do |result|
@@ -242,6 +243,17 @@ end
 
 def shipping_from_sub_id(sub_id)
 end
+
+def check_skipped(sub_id)
+  q = """
+  select * from subscription_skipped_months
+  where subscription_id = '#{sub_id}';
+  """
+  q
+  result = @conn.exec(q)
+  result.any?
+end
+
 
 def one_active_query(timestamp)
 t = timestamp
