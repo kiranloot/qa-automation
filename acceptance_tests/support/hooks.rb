@@ -32,6 +32,11 @@ Before do
   visit $env_base_url
   $test = Test.new( test_data, HomePage.new, pages, DBCon.new, box, MailinatorAPI.new)
   $test.user = User.new($test)
+  if Object.const_defined?('ParallelTests')
+    ParallelTests.first_process? ? $test.db.setup_qa_database : sleep(1)
+  else
+    $test.db.setup_qa_database
+  end
   #If US flag isn't showing, set it to US
   if(!$test.user.is_country_us?)
     $test.user.set_ship_to_country("United States")

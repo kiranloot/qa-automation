@@ -77,6 +77,28 @@ def poll_for_one_time_coupon_code(promo_id, number_of = 5)
   end
 end
 
+def setup_qa_database
+  add_inventory_to_all
+  add_admin_user_to_db
+end
+
+def add_inventory_to_all(units = 600000)
+  query = "update inventory_units set total_available = #{units}"
+  @conn.exec(query)
+end
+
+def add_admin_user_to_db(email = 'admin@example.com', pass_hash = '$2a$10$gMQ0WYqkPAFZPMJYQTjcZeOWreqJisY0UDypiG.hggS7B2ZYEM93C')
+  check_query = """
+    SELECT * FROM admin_users WHERE email = '#{email}'
+  """
+  query = """
+    INSERT INTO admin_users (email,encrypted_password) VALUES ('#{email}','#{pass_hash}')
+  """
+  if !@conn.exec(check_query).any?
+    @conn.exec(query) 
+  end
+end
+
 #Assumption: We want the newest subscription's recurly information
 def get_recurly_account_id(user_email)
   query = "SELECT recurly_account_id FROM subscriptions where user_id =

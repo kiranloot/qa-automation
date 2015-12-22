@@ -3,7 +3,6 @@ Feature: Level Up
     @ready @recurly
     Scenario: A user with an active subscription can add a six month accessory subscription
         Given a registered user with an active subscription
-        And The accessory level up product is available
             When the user logs in
             And the user selects the Level Up crate
             And the user selects a level up six month subscription for the accessory crate
