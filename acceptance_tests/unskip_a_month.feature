@@ -1,4 +1,4 @@
-@ready
+@unskip
 Feature: Unskip a Month
     @ready
     Scenario: unskip an already skipped account
