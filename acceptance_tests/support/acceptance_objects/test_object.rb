@@ -323,7 +323,7 @@ class Test
 
   def calculate_rebill_date
     if /Anime/.match($test.user.subscription_name)
-      end_date = 27 
+      end_date = 28
     else
       end_date = 20
     end
