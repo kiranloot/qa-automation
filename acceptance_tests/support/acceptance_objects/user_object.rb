@@ -209,6 +209,7 @@ class User
   def verify_email(type, mailer)
     if type == 'subscription confirmation'
       target_content = 'Welcome to Loot Crate!'
+      target_content_new = 'Your Order is Confirmed! Welcome to Loot Crate!'
     elsif type == 'german subscription confirmation'
       target_content = 'Herzlich willkommen bei Loot Crate!'
     elsif type == 'subscription cancellation'
@@ -231,6 +232,8 @@ class User
     5.times do
       subjects = $test.mailinator.get_email_subject_lines_from_inbox(@email)
       if subjects.include? target_content
+        email_pass = true
+      elsif subjects.include? target_content_new
         email_pass = true
       else
         email_pass = false
