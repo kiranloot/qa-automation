@@ -374,10 +374,4 @@ class MyAccountPage < Page
     find_link('Confirm').click  
   end
 
-  def month_active?
-    go_to_subscriptions
-    #TO DO - add validation for skipped month
-    assert_text("Active")
-  end
-
 end
