@@ -60,7 +60,6 @@ class User
     @new_shirt_size= nil
     @new_rebill_date= nil
     @need_sub = true
-    @plan_months = 0
     @rebill_date_db = nil
     @country_code = nil
     @recurly_billing_state_code = nil
@@ -306,7 +305,10 @@ class User
   end
 
   def plan_months
-    @subscription_name.gsub(/[^\d]/, '').to_i
+    if @subscription_name =~ /1 Year Subscription/
+      return 12
+    else
+      @subscription_name.gsub(/[^\d]/, '').to_i
+    end
   end
-
 end
