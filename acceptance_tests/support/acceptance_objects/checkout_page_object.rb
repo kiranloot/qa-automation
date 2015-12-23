@@ -138,7 +138,7 @@ include Capybara::DSL
       enter_credit_card_number(user.cc)
     end
     unless user.coupon_code.nil?
-      click_coupon_checkbox
+      #click_coupon_checkbox
       enter_coupon_code(user.coupon_code) 
       validate_coupon_code
       @discount_applied = page.has_content?("Valid coupon: save $")
