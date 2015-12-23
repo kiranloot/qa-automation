@@ -1,5 +1,6 @@
 When(/^the user clicks unskip$/) do
   $test.current_page.unskip_subscription
+  $test.current_page.unskip_confirmation
 end
 
 Then(/^the subscription status should not be skipped$/) do
