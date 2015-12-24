@@ -26,7 +26,7 @@ Feature: International Subscriptions
         And the recurly billing address should have no state
         And the user should receive a subscription confirmation email
 
-    @ready 
+    @ready
     Scenario: Germany user signs up for random month subscription
         Given a registered user with a Germany address
             When the user logs in

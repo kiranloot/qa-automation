@@ -212,6 +212,7 @@ class User
       target_content_new = 'Your Order is Confirmed! Welcome to Loot Crate!'
     elsif type == 'german subscription confirmation'
       target_content = 'Herzlich willkommen bei Loot Crate!'
+      target_content_new = 'Your Order is Confirmed! Welcome to Loot Crate!'
     elsif type == 'subscription cancellation'
       target_content = 'Your subscription has been cancelled'
     elsif type == 'upgrade'
