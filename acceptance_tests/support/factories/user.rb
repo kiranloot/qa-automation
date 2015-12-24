@@ -54,6 +54,16 @@ FactoryGirl.define do
       email { "_ca_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
       recurly_billing_state_code "CA"
     end
+    trait :washington do
+      first_name "Washington"
+      last_name {Date.today.strftime("%b") + Date.today.day.to_s}
+      ship_street "1234 Washington Ave"
+      ship_city "Seattle"
+      ship_state "WA"
+      ship_zip "98004"
+      email { "_wa_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      recurly_billing_state_code "WA"
+    end
     trait :denmark do
       first_name "Denmark"
       last_name {Date.today.strftime("%b") + Date.today.day.to_s}
