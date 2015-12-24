@@ -13,8 +13,12 @@ class RecurlyAPI
     account = Recurly::Account.find(recurly_account_id)
   end
 
+  def get_last_invoice_for_account
+    get_account.invoices.first
+  end
+
   def verify_subscription_type(country_code = "US")
-    #Do if this is a recurly sub
+    #Do if this is a level up sub
     if $test.user.recurly_level_up_plan
       recurly_sub = $test.user.recurly_level_up_plan
       if country_code == "US"

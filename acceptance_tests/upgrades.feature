@@ -1,6 +1,6 @@
 @core @regression @selenium
 Feature: Subscription Upgrades
-    @ready @recurly
+    @ready @recurly @indev
     Scenario: User upgrades from one month to three month subscription plan
         Given a registered user with a one month subscription
             When the user logs in 
@@ -9,7 +9,7 @@ Feature: Subscription Upgrades
         Then the new subscription should be added to the user account
             And the user should receive an upgrade email 
             And recurly should now have a three month subscription plan
-
+            And the recurly account's last transaction should have tax calculated
 
     Scenario: User presented with price and proration details before upgrade from 1 to 12 month subscription plan
         Given a registered user with a one month subscription
