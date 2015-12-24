@@ -64,6 +64,7 @@ class Test
  end
 #Move to parent page object
  def is_logged_in?
+   find(:css,'a.loot-logo').click
    assert_text("My Account")
  end
 
