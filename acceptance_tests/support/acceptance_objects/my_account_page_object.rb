@@ -366,4 +366,8 @@ class MyAccountPage < Page
     find_link('Confirm').click  
   end
 
+  def unskip_confirmation
+    assert_text('You have successfully un-skipped!')
+  end
+
 end
