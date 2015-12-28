@@ -11,7 +11,7 @@ Feature: Tax Calculation
             And the recurly account's last transaction should have tax calculated
 
     @ready
-    Scenario: A washingon user is charged tax when checking out
+    Scenario: A washington user is charged tax when checking out
         Given a registered user with a Washington Address
             When the user logs in
             And the user selects the Loot Crate crate
