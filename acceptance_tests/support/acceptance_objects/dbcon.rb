@@ -299,10 +299,7 @@ and i.shipping_zip = '90210'
 and i.billing_state = 'CA'
 and i.billing_zip = '90210'
 and i.plan in (
-  '1-month-subscription',
-  '3-month-subscription',
-  '6-month-subscription',
-  '12-month-subscription'
+  select pl.name from plans pl join products pr on pl.product_id = pr.id where pr.name = 'Core Crate' and pl.is_legacy is false and pl.country = 'US'
 )
 limit 1
 """
