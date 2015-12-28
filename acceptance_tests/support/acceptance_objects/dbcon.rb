@@ -255,7 +255,7 @@ def check_skipped(sub_id)
 end
 
 
-def one_active_query(timestamp)
+def one_active_query(timestamp, crate_type = 'Core Crate')
 t = timestamp
 q = """
 with actives AS(
@@ -267,7 +267,7 @@ sa.state as shipping_state,
 sa.zip as shipping_zip,
 ba.state as billing_state,
 ba.zip as billing_zip,
-p.name as plan
+p.id as plan_id
 from users u
 inner join subscriptions s
 on s.user_id = u.id
@@ -287,7 +287,7 @@ and email not like '_updated%'
 sc AS(select email, count(subs) as c from actives
 group by email),
 
-info AS(select email, plan, subs, rebill, status, flagged, shipping_state, shipping_zip, billing_state, billing_zip from actives)
+info AS(select email, plan_id, subs, rebill, status, flagged, shipping_state, shipping_zip, billing_state, billing_zip from actives)
 
 select sc.email, c, i.subs, i.rebill from sc 
 inner join info i on i.email = sc.email
@@ -298,8 +298,8 @@ and i.shipping_state = 'CA'
 and i.shipping_zip = '90210'
 and i.billing_state = 'CA'
 and i.billing_zip = '90210'
-and i.plan in (
-  select pl.name from plans pl join products pr on pl.product_id = pr.id where pr.name = 'Core Crate' and pl.is_legacy is false and pl.country = 'US'
+and i.plan_id in (
+  select pl.id from plans pl join products pr on pl.product_id = pr.id where pr.name = '#{crate_type}' and pl.is_legacy is false and pl.country = 'US'
 )
 limit 1
 """
