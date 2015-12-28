@@ -10,7 +10,16 @@ include Capybara::DSL
     @tax_displayed = nil
     @zip_tax_hash = {
       '90031' => 'Sales Tax CA (9%)',
-      '98004' => 'Sales Tax WA (9.5%)'
+      '98004' => 'Sales Tax WA (9.5%)',
+      '78701' => 'Sales Tax TX (8.25%)',
+      '85001' => 'Sales Tax AZ (6.3%)',
+      '10001' => 'Sales Tax NY (8.875%)',
+      #These have too many decimals diplayed
+      #Will fix once LCDC-499 is resolved
+      '29020' => 'Sales Tax SC (7.0',
+      '05751' => 'Sales Tax VT (7.0',
+      '33124' => 'Sales Tax FL (7.0',
+      '15201' => 'Sales Tax PA (7.0'
     }
     setup
   end

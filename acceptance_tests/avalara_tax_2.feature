@@ -7,7 +7,7 @@ Feature: Tax Calculation
             And the user selects the Loot Crate crate
             And the user selects a one month subscription plan
             And the user submits valid subscription information
-        #Then the user is displayed the correct tax
+        Then the user is displayed the correct tax
             And the recurly account's last transaction should have tax calculated
 
     @ready
@@ -17,8 +17,7 @@ Feature: Tax Calculation
             And the user selects the Loot Crate crate
             And the user selects a one month subscription plan
             And the user submits valid subscription information
-        #-- Commenting out until LCDC-499 is resolved --
-        #Then the user is displayed the correct tax
+        Then the user is displayed the correct tax
             And the recurly account's last transaction should have tax calculated
 
     @ready
@@ -28,6 +27,5 @@ Feature: Tax Calculation
             And the user selects the Loot Crate crate
             And the user selects a one month subscription plan
             And the user submits valid subscription information
-        #-- Commenting out until LCDC-499 is resolved --
-        #Then the user is displayed the correct tax
+        Then the user is displayed the correct tax
             And the recurly account's last transaction should have tax calculated

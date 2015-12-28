@@ -27,6 +27,5 @@ Feature: Tax Calculation
             And the user selects the Loot Crate crate
             And the user selects a one month subscription plan
             And the user submits valid subscription information
-        # -- Not working in qa, need to investigate --
-        #Then the user is displayed the correct tax
+        Then the user is displayed the correct tax
             And the recurly account's last transaction should have tax calculated
