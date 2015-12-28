@@ -54,6 +54,86 @@ FactoryGirl.define do
       email { "_ca_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
       recurly_billing_state_code "CA"
     end
+    trait :washington do
+      first_name "Washington"
+      last_name {Date.today.strftime("%b") + Date.today.day.to_s}
+      ship_street "1234 Washington Ave"
+      ship_city "Seattle"
+      ship_state "WA"
+      ship_zip "98004"
+      email { "_wa_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      recurly_billing_state_code "WA"
+    end
+    trait :new_york do
+      first_name "NewYork"
+      last_name {Date.today.strftime("%b") + Date.today.day.to_s}
+      ship_street "1234 New York Ave"
+      ship_city "New York"
+      ship_state "NY"
+      ship_zip "10001"
+      email { "_ny_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      recurly_billing_state_code "NY"
+    end
+    trait :texas do
+      first_name "Texas"
+      last_name {Date.today.strftime("%b") + Date.today.day.to_s}
+      ship_street "1234 Texas Ave"
+      ship_city "Austin"
+      ship_state "TX"
+      ship_zip "78701"
+      email { "_tx_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      recurly_billing_state_code "TX"
+    end
+   trait :vermont do
+      first_name "Vermont"
+      last_name {Date.today.strftime("%b") + Date.today.day.to_s}
+      ship_street "1234 Vermont Ave"
+      ship_city "Montpelier"
+      ship_state "VT"
+      ship_zip "05751"
+      email { "_vt_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      recurly_billing_state_code "VT"
+    end
+   trait :south_carolina do
+      first_name "SouthCarolina"
+      last_name {Date.today.strftime("%b") + Date.today.day.to_s}
+      ship_street "1234 South Carolina Ave"
+      ship_city "Columbia"
+      ship_state "SC"
+      ship_zip "29020"
+      email { "_sc_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      recurly_billing_state_code "SC"
+    end
+   trait :florida do
+      first_name "Florida"
+      last_name {Date.today.strftime("%b") + Date.today.day.to_s}
+      ship_street "1234 Florida ave"
+      ship_city "miami"
+      ship_state "FL"
+      ship_zip "33124"
+      email { "_fl_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      recurly_billing_state_code "FL"
+    end
+   trait :pennsylvania do
+      first_name "Pennsylvania"
+      last_name {Date.today.strftime("%b") + Date.today.day.to_s}
+      ship_street "1234 Penn ave"
+      ship_city "Harrisburg"
+      ship_state "PA"
+      ship_zip "15201"
+      email { "_pa_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      recurly_billing_state_code "PA"
+    end
+   trait :arizona do
+      first_name "Arizona"
+      last_name {Date.today.strftime("%b") + Date.today.day.to_s}
+      ship_street "1234 Arizona ave"
+      ship_city "Phoenix"
+      ship_state "AZ"
+      ship_zip "85001"
+      email { "_az_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      recurly_billing_state_code "AZ"
+    end
     trait :denmark do
       first_name "Denmark"
       last_name {Date.today.strftime("%b") + Date.today.day.to_s}

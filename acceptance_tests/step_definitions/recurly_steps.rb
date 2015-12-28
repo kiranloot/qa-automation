@@ -35,6 +35,10 @@ Then(/^the recurly billing address should have the correct state$/) do
   $test.recurly.verify_billing_address_has_state($test.user.recurly_billing_state_code)
 end
 
+Then(/^the recurly account's last transaction should have tax calculated$/) do
+  expect($test.recurly.get_last_invoice_for_account.tax_in_cents).to be_truthy
+end
+
 Then(/^the recurly subscription should have the correct rebill date$/)do
   date_hash = $test.calculate_rebill_date
   month_int = Date::MONTHNAMES.index(date_hash['month'])

@@ -176,3 +176,7 @@ end
 Then /^the user should be able to see their shipment tracking information$/ do
   $test.current_page.tracking_info_displayed?
 end
+
+Then /^the user is displayed the correct tax$/ do
+  $test.current_page.tax_displayed?
+end

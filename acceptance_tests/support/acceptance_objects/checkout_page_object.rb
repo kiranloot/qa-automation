@@ -7,6 +7,20 @@ include Capybara::DSL
     super
     @page_type = "checkout"
     @discount_applied = nil
+    @tax_displayed = nil
+    @zip_tax_hash = {
+      '90031' => 'Sales Tax CA (9%)',
+      '98004' => 'Sales Tax WA (9.5%)',
+      '78701' => 'Sales Tax TX (8.25%)',
+      '85001' => 'Sales Tax AZ (6.3%)',
+      '10001' => 'Sales Tax NY (8.875%)',
+      #These have too many decimals diplayed
+      #Will fix once LCDC-499 is resolved
+      '29020' => 'Sales Tax SC (7.0',
+      '05751' => 'Sales Tax VT (7.0',
+      '33124' => 'Sales Tax FL (7.0',
+      '15201' => 'Sales Tax PA (7.0'
+    }
     setup
   end
 
@@ -102,7 +116,8 @@ include Capybara::DSL
 
   def verify_confirmation_page
     #stub
-    sleep(5)
+    wait_for_ajax
+    sleep(10)
   end
 
   def submit_checkout_information(user, type)
@@ -127,6 +142,9 @@ include Capybara::DSL
       enter_coupon_code(user.coupon_code) 
       validate_coupon_code
       @discount_applied = page.has_content?("Valid coupon: save $")
+    end
+    if @zip_tax_hash.keys.include? $test.user.ship_zip
+      @tax_displayed = page.has_content? @zip_tax_hash[$test.user.ship_zip]
     end
     enter_cvv(user.cvv)
     select_cc_exp_month(user.cc_exp_month)
@@ -160,5 +178,9 @@ include Capybara::DSL
     when "invalid credit card"
       assert_text("There was an error validating your request.")
     end
+  end
+
+  def tax_displayed?
+    expect(@tax_displayed).to be_truthy
   end
 end
