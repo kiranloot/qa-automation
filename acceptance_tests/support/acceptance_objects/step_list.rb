@@ -18,7 +18,7 @@ class StepList
   end
 
   def registered_with_active_level_up
-    ["create a three month level up accessory subscription"]
+    ["create a level up three month accessory subscription"]
   end
 
   def registered_with_active_anime

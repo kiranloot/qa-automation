@@ -119,6 +119,10 @@ def registered_with_active_anime
   registered_one_active('Anime Crate')
 end
 
+def registered_with_active_level_up
+  registered_one_active('Level Up Accessories')
+end
+
 def get_address(type, sub)
       send("#{type}_from_hash", sub) if sub.class == Hash
       send("#{type}_from_sub_id", sub) if sub.class == String
