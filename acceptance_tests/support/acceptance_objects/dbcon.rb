@@ -115,6 +115,10 @@ def registered_with_active
   registered_one_active
 end
 
+def registered_with_active_anime
+  registered_one_active('Anime Crate')
+end
+
 def get_address(type, sub)
       send("#{type}_from_hash", sub) if sub.class == Hash
       send("#{type}_from_sub_id", sub) if sub.class == String
@@ -306,7 +310,7 @@ limit 1
 q
 end
 
-def registered_one_active(test_run_timestamp = ENV['RUN_TIMESTAMP'])
+def registered_one_active(crate_type = 'Core Crate', test_run_timestamp = ENV['RUN_TIMESTAMP'])
 t = test_run_timestamp
 wait_count = 0
 @redis.connect
@@ -317,7 +321,7 @@ end
 @redis.set_wait
 ret_hash = {}
 
-q = one_active_query(t)
+q = one_active_query(t,crate_type)
   @conn.exec(q) do |result|
     result.each do |row|
       ret_hash["email"] =  row["email"]

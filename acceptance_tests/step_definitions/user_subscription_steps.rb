@@ -25,6 +25,14 @@ When /create a (.*) month subscription/ do |months|
   step "the user logs out"
 end
 
+When /create a (.*) month (.*) subscription/ do |months,crate|
+  step "the user logs in"
+  step "the user selects the #{crate} crate"
+  step "the user selects a #{months} month subscription plan"
+  step "the user submits valid subscription information"
+  step "the user logs out"
+end
+
 When /create a (.*) month level up (.*) subscription/ do |months, product|
   step "the user logs in"
   step "the user selects the Level Up crate"
