@@ -12,7 +12,7 @@ include Capybara::DSL
       '90031' => 'Sales Tax CA (9%)',
       '98004' => 'Sales Tax WA (9.5%)',
       '78701' => 'Sales Tax TX (8.25%)',
-      '85001' => 'Sales Tax AZ (6.3%)',
+      '85001' => 'Sales Tax AZ (8.3%)',
       '10001' => 'Sales Tax NY (8.875%)',
       #These have too many decimals diplayed
       #Will fix once LCDC-499 is resolved
