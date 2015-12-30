@@ -21,7 +21,7 @@ Feature: Subscription Cancellation
             And the user account should reflect the cancellation
             And the recurly subscription should be expired
 
-    @indev
+    @ready
     Scenario: Subscriber cancels an anime crate subscription
         Given a registered user with an active anime subscription
             When the user logs in

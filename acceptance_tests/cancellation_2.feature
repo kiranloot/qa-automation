@@ -9,3 +9,13 @@ Feature: Subscription Cancellation
         Then the subscription status should be set to pending cancellation
             And the user should receive a levelup cancellation email
             And the recurly subscription should be canceled
+
+    @ready @recurly
+    Scenario: A user cancels their pets subscription
+        Given a registered user with an active pets subscription
+            When the user logs in
+            And the user visits the my account page
+            And the user cancels their subscription
+        Then the subscription status should be set to pending cancellation
+            And the user should receive a pets cancellation email
+            And the recurly subscription should be canceled

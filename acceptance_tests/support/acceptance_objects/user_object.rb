@@ -227,7 +227,7 @@ class User
       target_content = 'Loot Anime Order Confirmation'
     elsif type == 'pets confirmation'
       target_content = 'Loot Pets Order Confirmation'
-    elsif type == 'anime cancellation'
+    elsif type == 'anime cancellation' || type == 'pets cancellation'
       target_content = 'Cancellation Successful'
     end
     email_pass = false

@@ -25,6 +25,10 @@ class StepList
     ["create a random month Anime subscription"]
   end
 
+  def registered_with_active_pets
+    ["create a random month Pets subscription"]
+  end
+
   def one_month
     ["create a one month subscription"]
   end
