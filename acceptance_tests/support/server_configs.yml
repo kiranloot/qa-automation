@@ -53,13 +53,24 @@ qa3:
    admin: "https://loot-admin-qa3.herokuapp.com/admin/login"
    app: "lootcrate-qa3"
    base_url: "https://qa3.lootcrate.com/?username=lootcrateis25timesgreaterthanthecompetition"
+qa4:
+   host: 'ec2-54-83-46-181.compute-1.amazonaws.com'
+   port: '5882'
+   user: 'u2l1gc325tvr8g'
+   password: 'pegb4ja665bsf01v2qss99sh36m'
+   dbname: 'd1jmdrjmc8ub91'
+   redis_url: "redis://redistogo:c9a9c62935f7b4d07945de0f0efb2806@ray.redistogo.com:9718/"
+   prefix: "https://qa4.lootcrate.com"
+   admin: "https://loot-admin-qa4.herokuapp.com/admin/login"
+   app: "lootcrate-qa4"
+   base_url: "https://qa4.lootcrate.com/?username=lootcrateis25timesgreaterthanthecompetition"
 load-test:
     host: 'ec2-50-17-192-85.compute-1.amazonaws.com'
     port: '5502'
     user: 'u9ce2j9e6qv4ao'
     password: 'pdp91gi35avm58acof1ps4i7stg'
     dbname: 'd43r30joboc8tg'
-    redis_url: 'redis://redistogo:3db6cedcf322ad966215ef076da9c92b@viperfish.redistogo.com:9036/'
+    redis_url: 'redis://redistogo:7ff7e7713f602b138930f5109863ed63@tetra.redistogo.com:9851/'
     prefix: "https://lootcrate-load-test.herokuapp.com"
     admin: "https://loot-admin-loadtest.herokuapp.com/admin/login"
     app: "lootcrate-load-test"
