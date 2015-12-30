@@ -151,7 +151,9 @@ include Capybara::DSL
     select_cc_exp_year(user.cc_exp_year)
     click_legal_checkbox
     click_subscribe
-    verify_confirmation_page
+    unless type == 'invalid'
+      verify_confirmation_page
+    end
   end
 
   def submit_credit_card_information_only(user, type)
