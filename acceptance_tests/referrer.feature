@@ -10,3 +10,9 @@ Scenario: Can visit boogie2988 page
 	Given an unregistered user
 	When the user visits the boogie2988 page
 	Then user should see boogie2988 stuff
+
+@ready @test_chris
+Scenario: Can visit tradechat page
+	Given an unregistered user
+	When the user visits the tradechat page
+	Then user should see tradechat stuff
