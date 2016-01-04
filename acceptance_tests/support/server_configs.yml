@@ -64,6 +64,17 @@ qa4:
    admin: "https://loot-admin-qa4.herokuapp.com/admin/login"
    app: "lootcrate-qa4"
    base_url: "https://qa4.lootcrate.com/?username=lootcrateis25timesgreaterthanthecompetition"
+qa5:
+   host: 'ec2-54-83-202-245.compute-1.amazonaws.com'
+   port: '5652'
+   user: 'uab4h1i6joaljg'
+   password: 'p2e4rjq23j32c15octp0ofqc8fr'
+   dbname: 'd1urmcba16v0pq'
+   redis_url: "redis://redistogo:c9a9c62935f7b4d07945de0f0efb2806@ray.redistogo.com:9718/"
+   prefix: "https://qa5.lootcrate.com"
+   admin: "https://loot-admin-qa5.herokuapp.com/admin/login"
+   app: "lootcrate-qa5"
+   base_url: "https://qa5.lootcrate.com/?username=lootcrateis25timesgreaterthanthecompetition"
 load-test:
     host: 'ec2-50-17-192-85.compute-1.amazonaws.com'
     port: '5502'
