@@ -61,7 +61,7 @@ qa4:
    dbname: 'd1jmdrjmc8ub91'
    redis_url: "redis://redistogo:c9a9c62935f7b4d07945de0f0efb2806@ray.redistogo.com:9718/"
    prefix: "https://qa4.lootcrate.com"
-   admin: "https://loot-admin-qa4.herokuapp.com/admin/login"
+   admin: "https://lootcrate-qa4-admin.herokuapp.com/admin/login"
    app: "lootcrate-qa4"
    base_url: "https://qa4.lootcrate.com/?username=lootcrateis25timesgreaterthanthecompetition"
 qa5:
@@ -72,7 +72,7 @@ qa5:
    dbname: 'd1urmcba16v0pq'
    redis_url: "redis://redistogo:c9a9c62935f7b4d07945de0f0efb2806@ray.redistogo.com:9718/"
    prefix: "https://qa5.lootcrate.com"
-   admin: "https://loot-admin-qa5.herokuapp.com/admin/login"
+   admin: "https://lootcrate-qa5-admin.herokuapp.com/admin/login"
    app: "lootcrate-qa5"
    base_url: "https://qa5.lootcrate.com/?username=lootcrateis25timesgreaterthanthecompetition"
 load-test:
