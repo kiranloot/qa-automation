@@ -71,7 +71,7 @@ class User
     input_hash.each do |k,v|
       self.instance_variable_set('@'+ k, v)
     end
-    target_plan(@plan_months)
+    target_plan(input_hash)
     @shirt_size = scrub_shirt_size(@shirt_size)
     @rebill_date_db = scrub_rebill_date(@rebill_date_db)
     set_full_name
@@ -89,19 +89,8 @@ class User
     final
   end
 
-  def target_plan(months)
-    months = word_for_digits(months) if months.to_i.to_s == months
-    months.strip!
-    case months
-    when "one"
-      @subscription_name = '1 Month Subscription'
-    when "three"
-      @subscription_name = '3 Month Subscription'
-    when "six"
-      @subscription_name = '6 Month Subscription'
-    when "twelve"
-      @subscription_name = '1 Year Subscription'
-    end
+  def target_plan(input_hash)
+    @subscription_name = input_hash['plan_name'] 
   end
 
   def set_full_name

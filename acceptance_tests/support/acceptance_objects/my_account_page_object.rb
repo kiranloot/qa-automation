@@ -75,9 +75,8 @@ class MyAccountPage < Page
 
   def subscription_cancelled?
     go_to_subscriptions
-    page.find_link("Reactivate")
-    assert_text("Canceled")
     assert_text("Reactivate")
+    assert_text("Canceled")
   end
 
   def subscription_updated?

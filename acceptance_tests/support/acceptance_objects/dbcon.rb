@@ -141,6 +141,16 @@ def get_plan_months(h, sub_id)
   end
 end
 
+def get_plan_title(h, sub_id)
+  q = plan_title_query(sub_id)
+  @conn.exec(q) do |result|
+    result.each do |row|
+      h["plan_name"] = row["title"]
+    end
+  end
+ 
+end
+
 def shirt_size_query(sub_id)
    q = """
    select shirt_size from subscriptions
@@ -164,6 +174,14 @@ def shipping_query(sub_id)
   where id = '#{sub_id}');
   """
   q
+end
+
+def plan_title_query(sub_id)
+  q = """
+  select * from subscriptions s
+  join plans p on s.plan_id = p.id
+  where s.id = '#{sub_id}';
+  """
 end
 
 def plan_months_query(sub_id)
@@ -344,6 +362,7 @@ if ret_hash["email"]
   get_address("billing", ret_hash)
   get_address("shipping", ret_hash)
   get_plan_months(ret_hash, ret_hash["sub"])
+  get_plan_title(ret_hash, ret_hash["sub"])
 end
 
 @redis.clear_wait
