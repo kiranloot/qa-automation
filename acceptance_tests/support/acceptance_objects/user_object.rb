@@ -71,6 +71,7 @@ class User
     input_hash.each do |k,v|
       self.instance_variable_set('@'+ k, v)
     end
+    puts input_hash
     target_plan(input_hash)
     @shirt_size = scrub_shirt_size(@shirt_size)
     @rebill_date_db = scrub_rebill_date(@rebill_date_db)
@@ -90,7 +91,10 @@ class User
   end
 
   def target_plan(input_hash)
-    @subscription_name = input_hash['plan_name'] 
+    plan_name = input_hash['plan_name']
+    #remove the "Loot Crate" from the subscription name
+    plan_name = plan_name.gsub(/Loot Crate/, '') 
+    @subscription_name = plan_name
   end
 
   def set_full_name
