@@ -87,8 +87,16 @@ class UserGen
     :registered_with_active
   end
 
+  def an_active_anime_subscription
+    :registered_with_active_anime
+  end
+
   def an_active_level_up_subscription
     :registered_with_active_level_up
+  end
+
+  def an_active_pets_subscription
+    :registered_with_active_pets
   end
 
   def an_active_subscription_with_tracking_information

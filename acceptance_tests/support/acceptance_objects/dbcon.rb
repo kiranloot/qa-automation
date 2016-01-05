@@ -115,6 +115,18 @@ def registered_with_active
   registered_one_active
 end
 
+def registered_with_active_anime
+  registered_one_active('Anime Crate')
+end
+
+def registered_with_active_level_up
+  registered_one_active('Level Up Accessories')
+end
+
+def registered_with_active_pets
+  registered_one_active('Pets Crate')
+end
+
 def get_address(type, sub)
       send("#{type}_from_hash", sub) if sub.class == Hash
       send("#{type}_from_sub_id", sub) if sub.class == String
@@ -127,6 +139,16 @@ def get_plan_months(h, sub_id)
       h["plan_months"] = row["period"]
     end
   end
+end
+
+def get_plan_title(h, sub_id)
+  q = plan_title_query(sub_id)
+  @conn.exec(q) do |result|
+    result.each do |row|
+      h["plan_name"] = row["title"]
+    end
+  end
+ 
 end
 
 def shirt_size_query(sub_id)
@@ -152,6 +174,14 @@ def shipping_query(sub_id)
   where id = '#{sub_id}');
   """
   q
+end
+
+def plan_title_query(sub_id)
+  q = """
+  select * from subscriptions s
+  join plans p on s.plan_id = p.id
+  where s.id = '#{sub_id}';
+  """
 end
 
 def plan_months_query(sub_id)
@@ -255,7 +285,7 @@ def check_skipped(sub_id)
 end
 
 
-def one_active_query(timestamp)
+def one_active_query(timestamp, crate_type = 'Core Crate')
 t = timestamp
 q = """
 with actives AS(
@@ -267,7 +297,7 @@ sa.state as shipping_state,
 sa.zip as shipping_zip,
 ba.state as billing_state,
 ba.zip as billing_zip,
-p.name as plan
+p.id as plan_id
 from users u
 inner join subscriptions s
 on s.user_id = u.id
@@ -277,7 +307,6 @@ inner join addresses ba
 on s.billing_address_id = ba.id
 inner join plans p
 on s.plan_id = p.id
-where s.cancel_at_end_of_period is null
 and s.created_at < '#{t}'
 and s.updated_at < '#{t}'
 and email like '\\_%@mailinator.com' 
@@ -287,7 +316,7 @@ and email not like '_updated%'
 sc AS(select email, count(subs) as c from actives
 group by email),
 
-info AS(select email, plan, subs, rebill, status, flagged, shipping_state, shipping_zip, billing_state, billing_zip from actives)
+info AS(select email, plan_id, subs, rebill, status, flagged, shipping_state, shipping_zip, billing_state, billing_zip, eop from actives)
 
 select sc.email, c, i.subs, i.rebill from sc 
 inner join info i on i.email = sc.email
@@ -298,18 +327,16 @@ and i.shipping_state = 'CA'
 and i.shipping_zip = '90210'
 and i.billing_state = 'CA'
 and i.billing_zip = '90210'
-and i.plan in (
-  '1-month-subscription',
-  '3-month-subscription',
-  '6-month-subscription',
-  '12-month-subscription'
+and i.eop is null
+and i.plan_id in (
+  select pl.id from plans pl join products pr on pl.product_id = pr.id where pr.name = '#{crate_type}' and pl.is_legacy is false and pl.country = 'US'
 )
 limit 1
 """
 q
 end
 
-def registered_one_active(test_run_timestamp = ENV['RUN_TIMESTAMP'])
+def registered_one_active(crate_type = 'Core Crate', test_run_timestamp = ENV['RUN_TIMESTAMP'])
 t = test_run_timestamp
 wait_count = 0
 @redis.connect
@@ -320,7 +347,7 @@ end
 @redis.set_wait
 ret_hash = {}
 
-q = one_active_query(t)
+q = one_active_query(t,crate_type)
   @conn.exec(q) do |result|
     result.each do |row|
       ret_hash["email"] =  row["email"]
@@ -335,6 +362,7 @@ if ret_hash["email"]
   get_address("billing", ret_hash)
   get_address("shipping", ret_hash)
   get_plan_months(ret_hash, ret_hash["sub"])
+  get_plan_title(ret_hash, ret_hash["sub"])
 end
 
 @redis.clear_wait

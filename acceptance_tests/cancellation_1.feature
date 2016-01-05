@@ -20,3 +20,13 @@ Feature: Subscription Cancellation
         Then the subscription should have a status of CANCELED in the admin panel
             And the user account should reflect the cancellation
             And the recurly subscription should be expired
+
+    @ready
+    Scenario: Subscriber cancels an anime crate subscription
+        Given a registered user with an active anime subscription
+            When the user logs in
+            And the user visits the my account page
+            And the user cancels their subscription
+        Then the subscription status should be set to pending cancellation
+            And the user should receive an anime cancellation email
+            And the recurly subscription should be canceled
