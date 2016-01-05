@@ -20,7 +20,7 @@ Feature: Subscription Cancellation
             And the user should receive a pets cancellation email
             And the recurly subscription should be canceled
 
-    @admin @ready @recurly @anime @krisdev
+    @admin @ready @recurly
     Scenario: Cancel anime sub immediately through admin
         Given a registered user with an active anime subscription
             And an admin user with access to their info
