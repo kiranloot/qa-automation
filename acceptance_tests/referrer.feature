@@ -1,3 +1,4 @@
+@referrer @regression
 Feature: Referrer pages
 @ready
 Scenario: Can visit pewdiepie page
@@ -11,7 +12,7 @@ Scenario: Can visit boogie2988 page
 	When the user visits the boogie2988 page
 	Then user should see boogie2988 stuff
 
-@ready @test_chris
+@ready
 Scenario: Can visit tradechat page
 	Given an unregistered user
 	When the user visits the tradechat page
