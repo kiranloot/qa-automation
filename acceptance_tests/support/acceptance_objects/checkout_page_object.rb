@@ -91,7 +91,7 @@ include Capybara::DSL
   end
 
   def click_coupon_checkbox
-    find(:id, "coupon-checkbox").click
+    find(:css, "div.coupon-field-show-checkbox").click
   end
 
   def enter_coupon_code(code)
