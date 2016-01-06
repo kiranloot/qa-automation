@@ -93,7 +93,7 @@ def add_admin_user_to_db(email = 'admin@example.com', pass_hash = '$2a$10$gMQ0WY
     SELECT * FROM admin_users WHERE email = '#{email}'
   """
   query = """
-    INSERT INTO admin_users (email,encrypted_password) VALUES ('#{email}','#{pass_hash}')
+    INSERT INTO admin_users (email,encrypted_password,created_at,updated_at) VALUES ('#{email}','#{pass_hash}',current_timestamp, current_timestamp)
   """
   if !@conn.exec(check_query).any?
     @conn.exec(query) 
