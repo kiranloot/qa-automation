@@ -12,11 +12,7 @@ driver = ENV['DRIVER'] ||= 'local'
 browser = ENV['BROWSER'] ||= 'chrome'
 
 conn = DBCon.new
-if Object.const_defined?('ParallelTests')
-  ParallelTests.first_process? ? conn.setup_qa_database : sleep(1)
-else
-  conn.setup_qa_database
-end
+ParallelTests.first_process? ? conn.setup_qa_database : sleep(1)
 conn.finish
 
 case driver
