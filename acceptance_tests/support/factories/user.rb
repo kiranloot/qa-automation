@@ -17,7 +17,7 @@ FactoryGirl.define do
       email { "_reg_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
     end
     trait :admin do
-      email {$env_base_url.match(/goliath|localhost|load-test/) ? "admin@example.com" : "chris.lee@lootcrate.com"}
+      email {"admin@example.com"}
     end
     trait :canceled do
       first_name "Canceled"
