@@ -2,12 +2,21 @@ require 'selenium-webdriver'
 require 'capybara/cucumber'
 require 'rspec/expectations'
 require 'time'
+require_relative 'acceptance_objects/dbcon'
 
 ENV['RUN_TIMESTAMP'] = Time.now().utc.to_s
 ENV['SITE'] ||= 'qa'
 
 driver = ENV['DRIVER'] ||= 'local'
 browser = ENV['BROWSER'] ||= 'chrome'
+
+conn = DBCon.new
+#if Object.const_defined?('ParallelTests')
+  ParallelTests.first_process? ? conn.setup_qa_database : sleep(1)
+#else
+  conn.setup_qa_database
+#end
+conn.finish
 
 case driver
 when 'local'

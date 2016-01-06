@@ -1,6 +1,7 @@
 class DBCon
 require 'pg'
 require 'time'
+require_relative 'box_object'
 require_relative "redis_object"
 
 def initialize(box = Box.new(ENV['SITE']))

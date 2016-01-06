@@ -71,7 +71,6 @@ class User
     input_hash.each do |k,v|
       self.instance_variable_set('@'+ k, v)
     end
-    puts input_hash
     target_plan(input_hash)
     @shirt_size = scrub_shirt_size(@shirt_size)
     @rebill_date_db = scrub_rebill_date(@rebill_date_db)
