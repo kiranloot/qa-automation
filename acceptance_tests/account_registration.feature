@@ -28,4 +28,5 @@ Feature:Account Registration
             And the user logs out
             And the user resets their password through the modal
             And The user clicks on the reset link in their email
-        Then the user should be able to reset their password
+            And the user enters a new password
+        Then the user should be able to login with their new password

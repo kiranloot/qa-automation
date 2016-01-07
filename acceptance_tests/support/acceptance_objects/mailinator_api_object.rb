@@ -19,6 +19,14 @@ class MailinatorAPI
 
   def download_first_email(email_address)
     inbox = Mailinator::Inbox.get(email_address)
-    inbox.messages.first.download
+    message = nil
+    5.times do 
+      message = inbox.messages.first.download
+      unless message.nil?
+        break
+      end
+      sleep(1)
+    end
+    return message 
   end
 end 
