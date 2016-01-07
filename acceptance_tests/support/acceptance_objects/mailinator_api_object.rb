@@ -16,4 +16,9 @@ class MailinatorAPI
     end
     return subjects
   end
+
+  def download_first_email(email_address)
+    inbox = Mailinator::Inbox.get(email_address)
+    inbox.messages.first.download
+  end
 end 

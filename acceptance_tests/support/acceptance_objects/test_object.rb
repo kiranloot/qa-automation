@@ -122,6 +122,7 @@ class Test
  end
 #Move to parent page object
  def log_out
+   find(:css, "a.loot-logo").click
    click_link("My Account")
    click_link("Log Out")
    wait_for_ajax

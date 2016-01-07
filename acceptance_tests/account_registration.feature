@@ -23,7 +23,9 @@ Feature:Account Registration
 
     @ready @krisdev
     Scenario: User can reset password via the forgot password link
-        Given an registered user with an active sub
-            When resets their password through the modal
+        Given an registered user with no prior subscription
+            When the user logs in
+            And the user logs out
+            And the user resets their password through the modal
             And The user clicks on the reset link in their email
         Then the user should be able to reset their password

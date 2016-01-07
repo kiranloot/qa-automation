@@ -8,8 +8,8 @@ When /^the user joins through the modal/ do
   $test.modal_signup
 end
 
-When /^the resets their password through the modal$/ do
-  $test.current_page.forgot_password
+When /^the user resets their password through the modal$/ do
+  $test.current_page.modal_forgot_password($test.user.email)
 end
 
 #THENS

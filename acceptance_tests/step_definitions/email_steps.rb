@@ -1,9 +1,8 @@
 #GIVENS
 
 #WHENS
-When /attempts to reset their password using the emailed reset link/ do
-  $test.visit_page(:mailinator)
-  $test.current_page.reset_password_from_email
+When /^The user clicks on the reset link in their email$/ do
+  puts $test.mailinator.download_first_email($test.user.email)
 end
 
 #THENS
