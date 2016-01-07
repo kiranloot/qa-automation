@@ -18,6 +18,7 @@ Feature: Anmie Subscription Creation
             And the user selects a three month subscription plan
             And the user submits valid subscription information
         Then standard new subscription pass criteria should pass
+        And the recurly subscription should have the correct rebill date
 
     @ready @recurly 
     Scenario: Registered user creates six month anime subscription
