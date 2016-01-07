@@ -19,11 +19,16 @@ include WaitForAjax
       'twelveaccessory' => 'Level Up Accessories 12 Month',
       'onewearable' => 'Level Up Wearable 1 Month',
       'threewearable' => 'Level Up Wearable 3 Month',
-      'sixwearable' => 'Level Up Wearalbe 6 Month',
-      'twelvewearable' => 'Level Up Wearalbe 12 Month'
+      'sixwearable' => 'Level Up Wearable 6 Month',
+      'twelvewearable' => 'Level Up Wearable 12 Month',
+      'onelevel-up-tshirt' => 'Level Up T-shirt 1 Month',
+      'threelevel-up-tshirt' => 'Level Up T-shirt 3 Month',
+      'sixlevel-up-tshirt' => 'Level Up T-shirt 6 Month',
+      'twelvelevel-up-tshirt' => 'Level Up T-shirt 12 Month'
     }
     @recurly_plan_names = {
-      'sixaccessory' => 'LC - LU - Accessory - 6 month'
+      'sixaccessory' => 'LC - LU - Accessory - 6 month',
+      'onelevel-up-tshirt' => 'LC - LU - T-Shirt - 1 month'
     }
     @plan_drop_down_index = {
       'one' => 1,
@@ -41,18 +46,19 @@ include WaitForAjax
   def scroll_to(product)
     click_link("Level Up")
     sleep(2)
-    case product
-    when 'socks'
-      scroll_val = 0
-    when 'accessory'
-      scroll_val = 500
-    when 'wearable'
-      scroll_val = 1000
-    end
-    page.execute_script "window.scrollBy(0,#{scroll_val})"
-  end
-
-  def select_plan(crate, option)
+    # case product
+    # when 'socks'
+    #   scroll_val = 0
+    # when 'accessory'
+    #   scroll_val = 500
+    # when 'wearable'
+    #   scroll_val = 1000
+    # end
+    # page.execute_script "window.scrollBy(0,#{scroll_val})"
+    page.execute_script "window.scrollBy(0,10000)"
+    expect(page).to have_css(".tips.cr-animate-gen.animated.fadeInUp")
+    find('.footer-bottom').click
+    page.execute_script "window.scrollBy(0,-10000)"
   end
 
   def select_wearable_shirt_size(size)
@@ -63,6 +69,11 @@ include WaitForAjax
   def select_wearable_waist_size(size)
     find(:div, 'div#wearable-crate div#s2id_variants-waist').click
     find(:css, ".select2-result-label", :text => size).click  
+  end
+
+  def select_shirt_size(size)
+    find(:div, 'div#level-up-tshirt-crate div#s2id_variants-shirt').click
+    find(:css, ".select2-result-label", :text => size).click
   end
 
   def select_plan(product, months)
@@ -76,6 +87,8 @@ include WaitForAjax
     if product == 'wearable'
       select_wearable_shirt_size('Mens - S')
       select_wearable_waist_size('Mens - S')
+    elsif product == 'level-up-tshirt'
+      select_shirt_size('Mens - S')
     end
     find(:id,div_id).find_link("level up").click
     wait_for_ajax

@@ -12,7 +12,7 @@ Feature: Level Up
             And recurly should have a six month subscription for the accessory crate
 
     @ready
-    Scenario: A user without an active subscription can add a three month wearable subscription
+    Scenario: A user with an active subscription can add a three month wearable subscription
         Given a registered user with an active subscription
         When the user logs in
             And the user selects the Level Up crate

@@ -10,3 +10,4 @@ end
 Then /the (.*) crate should be sold out/ do |product|
   $test.current_page.sold_out?(product)
 end
+
