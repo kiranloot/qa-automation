@@ -67,6 +67,13 @@ def user_exists?(user_email)
   results.any?
 end
 
+def get_all_coupon_codes
+  query = """
+    SELECT code FROM coupons
+  """
+  @conn.exec(query)
+end
+
 def poll_for_one_time_coupon_code(promo_id, number_of = 5)
   query = "select code from coupons where promotion_id = #{promo_id}"
   number_of.times do

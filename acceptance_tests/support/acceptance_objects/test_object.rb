@@ -309,4 +309,13 @@ class Test
       'year' => rebill_day.strftime('%Y')
     }
   end
+
+  def all_coupon_codes_unique?
+    results = $test.db.get_all_coupon_codes
+    codes = []
+    results.each do |result|
+      codes << result['code']
+    end
+    return codes.uniq.length == codes.length
+  end
 end

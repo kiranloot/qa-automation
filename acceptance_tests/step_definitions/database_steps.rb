@@ -6,6 +6,7 @@ end
 #WHENS
 
 #THENS
-Then /the db object should be awesome/ do
+Then /all coupon codes in the database should be unique/ do
+  expect($test.all_coupon_codes_unique?).to be true
 end
 
