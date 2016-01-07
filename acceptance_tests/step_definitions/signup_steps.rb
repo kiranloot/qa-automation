@@ -8,6 +8,10 @@ When /^the user joins through the modal/ do
   $test.modal_signup
 end
 
+When /^the resets their password through the modal$/ do
+  $test.current_page.forgot_password
+end
+
 #THENS
 Then /^standard registration pass criteria should pass/ do
   step "the user should be logged in"

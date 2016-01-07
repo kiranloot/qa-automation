@@ -74,5 +74,13 @@ class Page
     fill_in("new_user_password_modal",:with => password)
     page.find_button("create_account_modal").click
   end
+
+  def modal_forgot_password(email)
+    wait_for_ajax
+    find_link("Log In").click
+    find_link("Forgot Password?").click
+    fill_in("user_email", :with => email)
+    find(:id, "reset-password-btn").click
+  end
   
 end
