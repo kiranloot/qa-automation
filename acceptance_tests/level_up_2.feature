@@ -10,6 +10,7 @@ Feature: Level Up
         Then the new level up subscription should be added to the user account
             And the user should receive a level up email
             And recurly should have a six month subscription for the accessory crate
+            And the recurly subscription should have the correct rebill date
 
     @ready
     Scenario: A user with an active subscription can add a three month wearable subscription

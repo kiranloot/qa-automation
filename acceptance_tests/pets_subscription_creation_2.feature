@@ -9,3 +9,4 @@ Feature: Pets Subscription Creation
             And the user submits valid subscription information
         Then the new subscription should be added to the user account
             And the user should receive a pets confirmation email
+            And the recurly subscription should have the correct rebill date
