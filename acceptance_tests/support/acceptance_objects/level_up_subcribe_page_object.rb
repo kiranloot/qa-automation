@@ -24,7 +24,12 @@ include WaitForAjax
       'onelevel-up-tshirt' => 'Level Up T-shirt 1 Month',
       'threelevel-up-tshirt' => 'Level Up T-shirt 3 Month',
       'sixlevel-up-tshirt' => 'Level Up T-shirt 6 Month',
-      'twelvelevel-up-tshirt' => 'Level Up T-shirt 12 Month'
+      'twelvelevel-up-tshirt' => 'Level Up T-shirt 12 Month',
+      'onelevel-up-bundle-socks-wearable-crate' => 'Level Up Bundle (socks & wearable) 1 Month',
+      'threelevel-up-bundle-socks-wearable-crate' => 'Level Up Bundle (socks & wearable) 3 Month',
+      'sixlevel-up-bundle-socks-wearable-crate' => 'Level Up Bundle (socks & wearable) 6 Month',
+      'twelvelevel-up-bundle-socks-wearable-crate' => 'Level Up Bundle (socks & wearable) 12 Month'
+      
     }
     @recurly_plan_names = {
       'sixaccessory' => 'LC - LU - Accessory - 6 month',
@@ -71,6 +76,16 @@ include WaitForAjax
     find(:css, ".select2-result-label", :text => size).click  
   end
 
+  def select_bundle_shirt_size(size)
+    find(:div, 'div#level-up-bundle-socks-wearable-crate div#s2id_variants-shirt').click
+    find(:css, ".select2-result-label", :text => size).click  
+  end
+
+  def select_bundle_waist_size(size)
+    find(:div, 'div#level-up-bundle-socks-wearable-crate div#s2id_variants-waist').click
+    find(:css, ".select2-result-label", :text => size).click  
+  end
+
   def select_shirt_size(size)
     find(:div, 'div#level-up-tshirt-crate div#s2id_variants-shirt').click
     find(:css, ".select2-result-label", :text => size).click
@@ -87,6 +102,9 @@ include WaitForAjax
     if product == 'wearable'
       select_wearable_shirt_size('Mens - S')
       select_wearable_waist_size('Mens - S')
+    elsif product == 'level-up-bundle-socks-wearable'
+      select_bundle_shirt_size('Mens - S')
+      select_bundle_waist_size('Mens - S')
     elsif product == 'level-up-tshirt'
       select_shirt_size('Mens - S')
     end
