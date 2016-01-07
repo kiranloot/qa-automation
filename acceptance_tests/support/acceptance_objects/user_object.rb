@@ -221,6 +221,8 @@ class User
       target_content = 'Loot Pets Order Confirmation'
     elsif type == 'anime cancellation' || type == 'pets cancellation'
       target_content = 'Cancellation Successful'
+    elsif type == 'unskip'
+      target_content = 'Subscription Unskipped'
     end
     email_pass = false
     subjects = []

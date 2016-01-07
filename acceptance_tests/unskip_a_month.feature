@@ -9,3 +9,4 @@ Feature: Unskip a Month
 	            And the subscription status should be set to active with a skip
 	            And the user clicks unskip
             Then the subscription status should not be skipped
+            	And the user should receive a unskip email
