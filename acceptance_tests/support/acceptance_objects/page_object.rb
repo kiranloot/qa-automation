@@ -43,23 +43,6 @@ class Page
     wait_for_ajax
   end
 
-  def request_password_reset
-    tolerance = 2
-    for i in 0..tolerance do
-      if page.has_content?("MONTHLY") && page.has_content?("Order")
-        page.find_link("Log In").click
-        if page.has_content?("Welcome Back!")
-          break
-        end
-      end
-    end
-    find_link("Forgot Password?").click
-    find_field("user_email")
-    fill_in("user_email", :with => $test.user.email)
-    find_button("RESET PASSWORD").click
-    $test.user.toggle_password
-  end
-
   def modal_signup(email, password, test_data)
     wait_for_ajax
     page.find_link("Log In").click

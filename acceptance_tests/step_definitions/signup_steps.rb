@@ -1,8 +1,4 @@
 #WHENS
-When /requests a password reset/ do
-  $test.current_page.request_password_reset
-end
-
 When /^the user joins through the modal/ do
   $test.get_valid_signup_information
   $test.modal_signup
