@@ -47,9 +47,9 @@ class User
     @last_four = "1111" 
     @test = test
     @use_shipping = true
-    @bill_zip = "90630"
-    @bill_city = "Cypress"
-    @bill_street = "5432 Test Ave"
+    @bill_zip = "90210"
+    @bill_city = "Beverly Hills"
+    @bill_street = "1234 Fake St"
     @bill_street_2 = nil
     @bill_state = nil
     @coupon_code = nil

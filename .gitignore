@@ -2,3 +2,4 @@
 *.swo
 reports/*
 tmp/*
+.DS_Store
