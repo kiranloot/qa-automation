@@ -28,7 +28,7 @@ Feature: Level Up
     Given a registered user with no prior subscription
         When the user logs in
             And the user selects the Level Up crate
-            And the user selects a level up one month subscription for the level-up-bundle-socks-wearable crate
+            And the user selects a level up three month subscription for the level-up-bundle-socks-wearable crate
             And the user submits valid subscription information
         Then the new level up subscription should be added to the user account
             And the user should receive a level up email           
