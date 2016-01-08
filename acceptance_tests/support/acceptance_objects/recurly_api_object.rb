@@ -42,12 +42,6 @@ class RecurlyAPI
     expect(account.subscriptions.first.plan.name).to eq(recurly_sub)
   end
 
-  def verify_next_bill_date
-    #TODO
-    # Make a function in dbcon.rb to get rebill date as shown on our end? Need to verify the table value in db
-    # 
-  end
-
   def verify_level_up_subscription (months,product)
     account = get_account
     numMonths = get_months(months)
@@ -163,13 +157,6 @@ class RecurlyAPI
       numMonths = 12
     end
     numMonths
-  end
-
-  def get_all
-    account = get_account
-    puts account.billing_info
-    puts account.subscriptions
-    puts account.to_xml
-  end
+  end  
 
 end
