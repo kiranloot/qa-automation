@@ -20,7 +20,7 @@ Feature: Subscription Creation
             And the user submits valid subscription information
         Then standard new subscription pass criteria should pass
 
-    @ready @recurly
+    @ready @recurly @tommy
     Scenario: Registered user creates six month subscription
         Given a registered user with no prior Subscription
             When the user logs in 

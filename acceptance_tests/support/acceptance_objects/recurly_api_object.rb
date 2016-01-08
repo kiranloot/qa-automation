@@ -158,5 +158,4 @@ class RecurlyAPI
     end
     numMonths
   end  
-
 end
