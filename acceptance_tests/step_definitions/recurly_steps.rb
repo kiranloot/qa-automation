@@ -50,3 +50,10 @@ Then(/^the recurly subscription should have the correct rebill date$/)do
     expect(recurly_hash[key]).to eq date_hash[key]
   end
 end
+
+Then(/^the recurly subscription data is fully validated$/)do
+  $test.recurly.verify_subscription_type
+  $test.recurly.verify_full_name
+  $test.recurly.verify_cc_info
+  $test.recurly.verify_billing_address
+end

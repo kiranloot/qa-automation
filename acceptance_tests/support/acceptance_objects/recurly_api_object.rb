@@ -42,10 +42,6 @@ class RecurlyAPI
     expect(account.subscriptions.first.plan.name).to eq(recurly_sub)
   end
 
-  def verify_next_bill_date
-    #TODO
-  end
-
   def verify_level_up_subscription (months,product)
     account = get_account
     numMonths = get_months(months)
@@ -91,6 +87,18 @@ class RecurlyAPI
     expect(account.address[:address2] || "").to eq($test.user.ship_street_2 || "")
     expect(account.address[:city]).to eq($test.user.ship_city)
     expect(account.address[:zip]).to eq($test.user.ship_zip)
+  end
+
+  def verify_full_name
+    account = get_account
+    expect(account.billing_info.first_name).to eq($test.user.first_name)
+    expect(account.billing_info.last_name).to eq($test.user.last_name)
+  end
+
+  def verify_cc_info
+    account = get_account
+    expect(account.billing_info.first_six).to eq($test.user.cc.to_s[0..5])
+    expect(account.billing_info.last_four).to eq($test.user.last_four)
   end
 
   def get_subscription_info
@@ -149,5 +157,5 @@ class RecurlyAPI
       numMonths = 12
     end
     numMonths
-  end
+  end  
 end
