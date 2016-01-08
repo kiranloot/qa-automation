@@ -44,6 +44,8 @@ class RecurlyAPI
 
   def verify_next_bill_date
     #TODO
+    # Make a function in dbcon.rb to get rebill date as shown on our end? Need to verify the table value in db
+    # 
   end
 
   def verify_level_up_subscription (months,product)
@@ -91,6 +93,18 @@ class RecurlyAPI
     expect(account.address[:address2] || "").to eq($test.user.ship_street_2 || "")
     expect(account.address[:city]).to eq($test.user.ship_city)
     expect(account.address[:zip]).to eq($test.user.ship_zip)
+  end
+
+  def verify_full_name
+    account = get_account
+    expect(account.billing_info.first_name).to eq($test.user.first_name)
+    expect(account.billing_info.last_name).to eq($test.user.last_name)
+  end
+
+  def verify_cc_info
+    account = get_account
+    expect(account.billing_info.first_six).to eq($test.user.cc.to_s[0..5])
+    expect(account.billing_info.last_four).to eq($test.user.last_four)
   end
 
   def get_subscription_info
@@ -150,4 +164,12 @@ class RecurlyAPI
     end
     numMonths
   end
+
+  def get_all
+    account = get_account
+    puts account.billing_info
+    puts account.subscriptions
+    puts account.to_xml
+  end
+
 end
