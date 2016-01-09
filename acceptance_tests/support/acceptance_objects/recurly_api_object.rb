@@ -162,4 +162,11 @@ class RecurlyAPI
   def get_coupon_info(code)
     Recurly::Coupon.find(code)    
   end
+
+  def update_next_renewal_date
+    account = get_account
+    sub = account.subscriptions.first
+    current_renewal_date = sub.current_period_started_at
+    account.subscriptions.first.postpone(Time.now + 5*60)
+  end
 end

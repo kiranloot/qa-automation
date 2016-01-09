@@ -7,7 +7,7 @@ Feature: Rebilling setup actions
             And the user selects the Loot Crate crate
             And the user selects a one month subscription plan
             And the user submits valid subscription information
-#            And the recurly rebill information is modified to rebill in the next hour
+            And the recurly rebill date is modified
         Then write this subscription's information into a file named successfull_rebill.yml in the tmp dir
 
     Scenario: Setup a past due subscription

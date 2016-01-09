@@ -1,4 +1,9 @@
-#Recurly steps
+#WHENS
+When(/^the recurly rebill date is modified$/) do
+  $test.recurly.update_next_renewal_date
+end
+
+#THENS
 Then(/^recurly should have a matching subscription$/) do
   $test.recurly.verify_subscription_type
 end
