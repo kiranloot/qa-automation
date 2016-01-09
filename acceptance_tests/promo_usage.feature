@@ -1,6 +1,6 @@
 @regression @core @selenium
 Feature: Promotion codes
-    @ready
+    @ready @krisdev
     Scenario: User applies valid multi use promo code at signup.
         Given a registered user with a multi use promo code
             When the user logs in
@@ -9,6 +9,7 @@ Feature: Promotion codes
             And the user submits valid subscription information
         Then the promo discount should be applied to the transaction
             And the new subscription should be added to the user account
+            And the recurly coupon is correctly created
 
     @ready
     Scenario: User applies valid one time use promo code at signup
@@ -19,3 +20,4 @@ Feature: Promotion codes
             And the user submits valid subscription information
         Then the promo discount should be applied to the transaction
             And the new subscription should be added to the user account
+            And the recurly coupon is correctly created

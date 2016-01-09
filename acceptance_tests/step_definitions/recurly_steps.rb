@@ -57,3 +57,11 @@ Then(/^the recurly subscription data is fully validated$/)do
   $test.recurly.verify_cc_info
   $test.recurly.verify_billing_address
 end
+
+Then(/^the recurly coupon is correctly created$/) do
+  coupon = $test.recurly.get_coupon_info($test.user.coupon_code)
+  expect(coupon.state).to eq("redeemable")
+  expect(coupon.single_use).to be true
+  expect(coupon.redeem_by_date).to be nil
+  expect(coupon.plan_codes).to be_empty
+end
