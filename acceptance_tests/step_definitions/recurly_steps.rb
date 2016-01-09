@@ -59,9 +59,16 @@ Then(/^the recurly subscription data is fully validated$/)do
 end
 
 Then(/^the recurly coupon is correctly created$/) do
-  coupon = $test.recurly.get_coupon_info($test.user.coupon_code)
+  coupon = $test.recurly.get_coupon_info($test.user.base_coupon_code)
   expect(coupon.state).to eq("redeemable")
   expect(coupon.single_use).to be true
   expect(coupon.redeem_by_date).to be nil
   expect(coupon.plan_codes).to be_empty
+  if $test.user.adjustment_amount == 'Fixed'
+    expect(coupon.discount_in_cents).to eq($test.user.adjustment_amount)
+    expect(coupon.discount_percentage).to be nil
+  elsif $test.user.adjustment_amount == 'Percentage'
+    expect(coupon.discount_percentage).to eq($test.user.adjustment_amount)
+    expect(coupon.discount_in_cents).to be nil
+  end
 end

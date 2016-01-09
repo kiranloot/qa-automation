@@ -405,10 +405,10 @@ FactoryGirl.define do
       email { "_gb_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
       country_code "GB"
     end
-    trait :multi_use_promo do
+    trait :multi_use_fixed_promo do
       coupon_code  {$test.test_data["promos"]["multi_use"]}
     end
-    trait :one_time_use_promo do
+    trait :one_time_use_percentage_promo do
       coupon_code  {$test.test_data["promos"]["multi_use"]}
     end
     trait :registered_with_active_and_tracking do

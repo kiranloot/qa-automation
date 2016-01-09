@@ -2,7 +2,7 @@
 Feature: Promotion codes
     @ready @krisdev
     Scenario: User applies valid multi use promo code at signup.
-        Given a registered user with a multi use promo code
+        Given a registered user with a multi use fixed promo code
             When the user logs in
             And the user selects the Loot Crate crate
             And the user selects a one month subscription plan
@@ -13,7 +13,7 @@ Feature: Promotion codes
 
     @ready
     Scenario: User applies valid one time use promo code at signup
-        Given a registered user with a one time use promo code
+        Given a registered user with a one time use percentage promo code
             When the user logs in
             And the user selects the Loot Crate crate
             And the user selects a one month subscription plan

@@ -6,16 +6,18 @@ class AdminPromotionsPage < AdminPage
   end
 
   #need to remove test data and break up
-  def create_promotion(type)
+  def create_promotion(promo_type, adjustment_amount = 10, adjustment_type = 'Fixed') 
     find_link("New Promotion").click
     rand_code = (0...8).map { ('a'..'z').to_a[rand(26)] }.join
+    $test.user.base_coupon_code = rand_code
     fill_in_promotion_description("Promotion Created by Automation")
     select_start_date("1")
     select_trigger_event("SIGNUP")
     select_domestic_core_crate
-    fill_in_promotion_adjustment_amount(10)
+    select_adjustment_type(adjustment_type)
+    fill_in_promotion_adjustment_amount(adjustment_amount)
     fill_in_promotion_coupon_prefix(rand_code)
-    case type
+    case promo_type
     when 'multi use'
       fill_in_promotion_name("Multi Use Automation Promo #{rand_code}")
       fill_in_promotion_conversion_limit("10")
@@ -28,7 +30,10 @@ class AdminPromotionsPage < AdminPage
       click_create_promotion
       rand_code = get_one_time_promo_code(rand_code)
     end
-    return rand_code
+    $test.user.promo_type = promo_type
+    $test.user.adjustment_type = adjustment_type
+    $test.user.adjustment_amount = adjustment_amount
+    $test.user.coupon_code = rand_code
   end
 
   def fill_in_promotion_name(name)
@@ -114,6 +119,11 @@ class AdminPromotionsPage < AdminPage
 
   def get_promo_id
     find(:css, 'tr.row-id td').text
+  end
+
+  def select_adjustment_type(type)
+    find(:id, 'promotion_adjustment_type').click
+    find(:css, 'option', :text => type).click
   end
 
   def get_one_time_promo_code(code)

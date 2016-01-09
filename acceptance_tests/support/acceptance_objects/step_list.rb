@@ -33,20 +33,20 @@ class StepList
     ["create a one month subscription"]
   end
 
-  def multi_use_promo
+  def multi_use_fixed_promo
     ["an admin user with access to their info",
     "the user visits the admin page",
     "logs in as an admin",
     "the admin user navigates to the admin promotions page",
-    "admin creates a new multi use promotion and passes to user"]
+    "admin creates a new multi use promotion with a 10 Fixed discount and passes to user"]
   end
 
-  def one_time_use_promo
+  def one_time_use_percentage_promo
     ["an admin user with access to their info",
     "the user visits the admin page",
     "logs in as an admin",
     "the admin user navigates to the admin promotions page",
-    "admin creates a new one time use promotion and passes to user"]
+    "admin creates a new one time use promotion with a 10 Percentage discount and passes to user"]
   end
 
   def canceled

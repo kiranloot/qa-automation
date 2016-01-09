@@ -28,6 +28,7 @@ When /logs in as an admin/ do
   admin_user = $test.user.email
   admin_password = $test.user.password
   $test.current_page.admin_login(admin_user, admin_password)
+  $test.set_subject_user
 end
 
 When /the admin user visits the admin page/ do 

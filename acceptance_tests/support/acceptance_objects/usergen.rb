@@ -63,12 +63,12 @@ class UserGen
     :registered_no_prior
   end
 
-  def a_multi_use_promo_code
-    :multi_use_promo
+  def a_multi_use_fixed_promo_code
+    :multi_use_fixed_promo
   end
 
-  def a_one_time_use_promo_code
-    :one_time_use_promo
+  def a_one_time_use_percentage_promo_code
+    :one_time_use_percentage_promo
   end
 
   def months(number)
