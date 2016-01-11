@@ -18,7 +18,7 @@ class RecurlyAPI
   end
 
   def verify_subscription_type(country_code = "US")
-    #Do if this is a level up sub
+    #Do if this is a level up sub    
     if $test.user.recurly_level_up_plan
       recurly_sub = $test.user.recurly_level_up_plan
       if country_code == "US"
@@ -28,8 +28,8 @@ class RecurlyAPI
       end
     #do if this is any other sub
     else
-      if $test.user.subscription_name == '1 Year Subscription' 
-        recurly_sub = '12 Month Subscription'
+      if $test.user.subscription_name.include? '1 Year Subscription' 
+        recurly_sub = $test.user.subscription_name.gsub(/1 Year/, "12 Month")
       else
         recurly_sub = $test.user.subscription_name
       end
