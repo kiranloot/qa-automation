@@ -32,6 +32,7 @@ Before do
   visit $env_base_url
   $test = Test.new( test_data, HomePage.new, pages, DBCon.new, box, MailinatorAPI.new)
   $test.user = User.new($test)
+  $test.admin_user = FactoryGirl.build(:user, :admin)
   #If US flag isn't showing, set it to US
   if(!$test.user.is_country_us?)
     $test.user.set_ship_to_country("United States")

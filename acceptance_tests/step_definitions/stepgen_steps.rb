@@ -7,9 +7,9 @@ When /admin creates a new (.*) promotion with a (\d*) (\w*) discount and passes 
   #assumes you are already logged into the admin page and on the promotions page.
   $test.current_page.create_promotion(promo_type, adjustment_type, adjustment_amount)
   step "logs out of admin"
-  step "focus on subject user"
+  #step "focus on subject user"
 end
 
-When /focus on subject user/ do
-  $test.set_subject_user
-end
+#When /focus on subject user/ do
+  #$test.set_subject_user
+#end

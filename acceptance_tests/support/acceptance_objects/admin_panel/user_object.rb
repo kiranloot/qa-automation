@@ -5,8 +5,7 @@ class AdminUsersPage < AdminPage
   end
 
   def filter_for_user
-    admin = $test.user
-    find('#q_email').set(admin.subject_user.email)
+    find('#q_email').set($test.user.email)
     find_button('Filter').click
     wait_for_ajax
   end
@@ -24,7 +23,7 @@ class AdminUsersPage < AdminPage
   end
 
   def user_information_displayed?
-    $test.set_subject_user
+    #$test.set_subject_user
     assert_text("User Details")
     assert_text($test.user.email)
     #TO DO: need to add another display variable

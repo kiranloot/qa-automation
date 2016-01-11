@@ -112,9 +112,9 @@ class UserGen
   end
 
   def admin_and_subject
-    u = simple_admin 
-    u.subject_user = $test.user
-    u
+    #hack, will fix/remove this later
+    $test.admin_user = simple_admin 
+    $test.user
   end
 
   def simple_admin

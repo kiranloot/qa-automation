@@ -55,7 +55,6 @@ class StepList
     "the user visits the admin page",
     "logs in as an admin",
     "performs an immediate cancellation on the user account",
-    "logs out of admin",
-    "focus on subject user"]
+    "logs out of admin"]
   end
 end

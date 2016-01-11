@@ -9,7 +9,7 @@ class User
 
   attr_accessor :email, :password, :street, :city, :ship_state, :ship_zip, :zip, 
     :first_name, :last_name, :full_name, :shirt_size, :display_shirt_size, :new_shirt_size, 
-    :cc, :cvv, :ship_street, :ship_street_2, :ship_city, :affiliate, :base_coupon_code, :coupon_code, :discount_applied, :subject_user, 
+    :cc, :cvv, :ship_street, :ship_street_2, :ship_city, :affiliate, :base_coupon_code, :coupon_code, :discount_applied,
     :subscription_name, :level_up_subscription_name, :new_user_sub_name,:new_rebill_date, :bill_zip,
     :bill_city, :bill_street, :bill_street_2, :bill_state, :need_sub, :rebill_date_db, :last_four, :trait, :recurly_level_up_plan,
     :country_code, :recurly_billing_state_code, :cc_invalid, :cc_exp_month, :cc_exp_year, :pet_shirt_size, :pet_collar_size, :promo_type,
@@ -57,7 +57,7 @@ class User
     @base_coupon_code = nil
     @tax_applied = false
     @discount_applied = nil
-    @subject_user = nil
+    #@subject_user = nil
     @new_user_sub_name = nil
     @new_shirt_size= nil
     @new_rebill_date= nil
