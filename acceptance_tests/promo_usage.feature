@@ -1,6 +1,6 @@
 @regression @core @selenium
 Feature: Promotion codes
-    @ready @krisdev
+    @ready
     Scenario: User applies valid multi use promo code at signup.
         Given a registered user with a multi use fixed promo code
             When the user logs in
