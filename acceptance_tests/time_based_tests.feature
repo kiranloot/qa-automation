@@ -8,7 +8,7 @@ Feature: Rebilling setup actions
             And the user selects a one month subscription plan
             And the user submits valid subscription information
             And the recurly rebill date is modified
-        Then write this subscription's information into a file named successfull_rebill.yml in the tmp dir
+        #Then write this subscription's information into a file named successfull_rebill.yml in the tmp dir
 
     Scenario: Setup a past due subscription
         Given a registered user with no prior subscription
