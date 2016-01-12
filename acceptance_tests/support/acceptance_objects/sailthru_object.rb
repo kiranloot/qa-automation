@@ -30,10 +30,26 @@ class SailthruAPI
     return false
   end
 
-  def email_has_sub_status?(email, sub_status, attempts = 15)
+  def email_has_sub_status?(email, type, sub_status, attempts = 15)
+
+    #Establish which key to look for based on data passed from step def
+    sub_status_key = 'subscription_status'
+    case type
+    when 'Anime'
+      sub_status_key = 'an_subscription_status'
+    when 'Pets'
+      sub_status_key = 'pt_subscription_status'
+    when 'Level Up'
+      sub_status_key = 'lu_subscription_status'
+    when ''
+    else
+      puts 'Unknown value. Checking default for test'
+    end
+
+
     attempts.times do
       response = get_user(email)
-      if response['vars']['subscription_status'] == sub_status
+      if response['vars'][sub_status_key] == sub_status
         return true
       else
         sleep(2)
@@ -41,4 +57,5 @@ class SailthruAPI
     end
     return false
   end
+
 end
