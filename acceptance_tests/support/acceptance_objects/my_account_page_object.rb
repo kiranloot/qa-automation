@@ -83,9 +83,7 @@ class MyAccountPage < Page
     go_to_subscriptions
     assert_text($test.user.new_user_sub_name)
     assert_text($test.user.shirt_size)
-    # Taking out this validation
-    # Uncomment when IN-269 is resolved
-    #assert_text($test.user.new_rebill_date)
+    assert_text($test.user.new_rebill_date)
   end
 
   def shipping_info_updated?
