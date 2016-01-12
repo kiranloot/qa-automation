@@ -88,7 +88,7 @@ class AdminSubscriptionsPage < AdminPage
     na_date = next_assessment[8..9]
     find(:id, 'subscription_next_assessment_at').click
     cur_date = find(:css, 'a.ui-state-active').text 
-    new_na_date = (cur_date.to_i + 1)
+    cur_date.to_i > 27 ? new_na_date = 1 : new_na_date = (cur_date.to_i + 1)
     find_link(new_na_date.to_s).click
     new_na_date < 10 ? new_na_date = "0" + new_na_date.to_s : new_na_date = new_na_date.to_s
     na_month = Date::MONTHNAMES[na_month.to_i]
