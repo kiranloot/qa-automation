@@ -10,6 +10,7 @@ Feature: Promotion codes
         Then the promo discount should be applied to the transaction
             And the new subscription should be added to the user account
             And the recurly coupon is correctly created
+            And the last invoice has the discount
 
     @ready
     Scenario: User applies valid one time use promo code at signup
@@ -21,3 +22,4 @@ Feature: Promotion codes
         Then the promo discount should be applied to the transaction
             And the new subscription should be added to the user account
             And the recurly coupon is correctly created
+            And the last invoice has the discount

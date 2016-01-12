@@ -64,11 +64,20 @@ Then(/^the recurly coupon is correctly created$/) do
   expect(coupon.single_use).to be true
   expect(coupon.redeem_by_date).to be nil
   expect(coupon.plan_codes).to be_empty
-  if $test.user.adjustment_amount == 'Fixed'
-    expect(coupon.discount_in_cents).to eq($test.user.adjustment_amount)
-    expect(coupon.discount_percentage).to be nil
-  elsif $test.user.adjustment_amount == 'Percentage'
-    expect(coupon.discount_percentage).to eq($test.user.adjustment_amount)
+  if $test.user.adjustment_type == 'Fixed'
+    expect(coupon.discount_in_cents[:USD]).to eq($test.user.adjustment_amount * 100)
+    expect(coupon.discount_percent).to be nil
+  elsif $test.user.adjustment_type== 'Percentage'
+    expect(coupon.discount_percent).to eq($test.user.adjustment_amount)
     expect(coupon.discount_in_cents).to be nil
+  end
+end
+
+Then(/^the last invoice has the discount$/) do
+  invoice = $test.recurly.get_last_invoice_for_account
+  if $test.user.adjustment_type == 'Fixed'
+    expect(invoice.line_items.first.discount_in_cents).to eq($test.user.adjustment_amount * 100)
+  elsif $test.user.adjustment_type == 'Percentage'
+    expect(invoice.line_items.first.discount_in_cents).to eq((invoice.subtotal_in_cents * $test.user.adjustment_amount/100.0).ceil)
   end
 end

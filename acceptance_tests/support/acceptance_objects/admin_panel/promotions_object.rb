@@ -32,7 +32,7 @@ class AdminPromotionsPage < AdminPage
     end
     $test.user.promo_type = promo_type
     $test.user.adjustment_type = adjustment_type
-    $test.user.adjustment_amount = adjustment_amount
+    $test.user.adjustment_amount = adjustment_amount.to_f
     $test.user.coupon_code = rand_code
   end
 
