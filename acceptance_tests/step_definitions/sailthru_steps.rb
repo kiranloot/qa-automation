@@ -6,7 +6,3 @@ end
 Then /^the user's email should have an? (.*?)\s?subscription status of (.*) in sailthru$/ do |type, status|
     expect($test.sailthru.email_has_sub_status?($test.user.email, type, status)).to be_truthy
 end
-
-Given /^sailthru (.*?)\s?information$/ do |type|
-    $test.sailthru.tl
-end
