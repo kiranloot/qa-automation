@@ -16,6 +16,11 @@ include WaitForAjax
     }
   end
 
+  def click_get_loot
+    find(:css, "section.header").find_link("GET LOOT ANIME").click
+    wait_for_ajax
+  end
+
   def load_checkout_page_object
     $test.current_page = AnimeCheckoutPage.new
   end
