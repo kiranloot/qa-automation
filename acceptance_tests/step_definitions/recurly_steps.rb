@@ -1,6 +1,6 @@
 #WHENS
-When(/^the recurly rebill date is modified$/) do
-  $test.recurly.update_next_renewal_date
+When(/^the recurly rebill date is pushed (.*) minute into the future$/) do |minutes|
+  $test.recurly.update_next_renewal_date(minutes.to_i)
 end
 
 #THENS

@@ -166,7 +166,8 @@ class RecurlyAPI
   def update_next_renewal_date(minutes = 1)
     account = get_account
     sub = account.subscriptions.first
-    current_renewal_date = sub.current_period_started_at
-    account.subscriptions.first.postpone(Time.now + minutes*60)
+    adjusted_rebill_date = Time.new + minutes * 60
+    account.subscriptions.first.postpone(adjusted_rebill_date)
+    $test.user.new_rebill_date = adjusted_rebill_date
   end
 end
