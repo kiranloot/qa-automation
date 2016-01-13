@@ -16,6 +16,11 @@ include WaitForAjax
     }
   end
 
+  def click_get_loot
+    find(:css, "section.header").find_link("GET LOOT PETS").click
+    wait_for_ajax
+  end
+
   def visit_page
     visit @base_url
     $test.current_page = self
