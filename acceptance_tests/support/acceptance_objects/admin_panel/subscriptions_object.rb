@@ -82,13 +82,17 @@ class AdminSubscriptionsPage < AdminPage
   end
 
   def move_rebill_date_one_day
-    cur_rebil_date = find(:id, 'subscription_next_assessment_at').value 
-    #DATE PICKER CODE NOT WORKING WITH FF
-    #Attempting "fill_in" instead
-    #Need code here to increase cur_rebil_date by one day (regex)
-    fill_in('subscription_next_assessment_at', :with => cur_rebil_date)
-    #will fix later
-    #$test.user.new_rebill_date = "#{cur_month} #{new_date}, #{cur_year}"
+    next_assessment = find(:id, 'subscription_next_assessment_at').value
+    na_year = next_assessment[0..3]
+    na_month = next_assessment[5..6]
+    na_date = next_assessment[8..9]
+    find(:id, 'subscription_next_assessment_at').click
+    cur_date = find(:css, 'a.ui-state-active').text 
+    cur_date.to_i > 27 ? new_na_date = 1 : new_na_date = (cur_date.to_i + 1)
+    find_link(new_na_date.to_s).click
+    new_na_date < 10 ? new_na_date = "0" + new_na_date.to_s : new_na_date = new_na_date.to_s
+    na_month = Date::MONTHNAMES[na_month.to_i]
+    $test.user.new_rebill_date = "#{na_month} #{new_na_date}, #{na_year}"
   end
 
   def click_update_subscription
