@@ -8,3 +8,16 @@ Feature: Sailthru Integration
             And the user selects a level up six month subscription for the accessory crate
             And the user submits valid subscription information
         Then the user's email should have a Level Up subscription status of active in sailthru
+
+    Scenario: Verify sailthru creation via newsletter modal
+    	Given an unregistered user
+        And the user's email does not exist in sailthru
+        When the user waits for the newsletter modal to appear
+        And the user joins through the newsletter modal
+      Then the user's email should be in the Loot Crate Master List bucket in sailthru
+
+    Scenario: Valid signup through the Loot Crate join modal
+    	Given an unregistered user
+        And the user's email does not exist in sailthru
+      	And the user joins through the modal
+    	Then the user's email should be in the Loot Crate Master List bucket in sailthru
