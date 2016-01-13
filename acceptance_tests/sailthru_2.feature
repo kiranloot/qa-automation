@@ -19,6 +19,5 @@ Feature: Sailthru Integration
     Scenario: Valid signup through the Loot Crate join modal
     	Given an unregistered user
         And the user's email does not exist in sailthru
-      	And the user selects the Loot Crate crate
       	And the user joins through the modal
     	Then the user's email should be in the Loot Crate Master List bucket in sailthru
