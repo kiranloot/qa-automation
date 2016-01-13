@@ -68,5 +68,18 @@ class Page
     find(:id, "reset-password-btn").click
     page.has_content?('You will receive an email with instructions on how to reset your password in a few minutes.')
   end
-  
+
+  def wait_for_modal
+    sleep(20)
+    find(:id, 'wf-newsletter-modal', :visible => true)
+    $test.current_page = self
+  end
+
+  def newsletter_modal_signup(email)
+    # fill_in('modal-mce-email', :with => email)
+    find('#modal-mce-email').send_keys(email)
+    find_button('modal-mc-embedded-subscribe').click
+    wait_for_ajax
+  end
+
 end

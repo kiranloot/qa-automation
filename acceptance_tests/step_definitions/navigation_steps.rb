@@ -53,6 +53,10 @@ When /the user sets their country to (.*)/ do |country|
   $test.user.set_ship_to_country(country)
 end
 
+When /^the user waits for the newsletter modal to appear$/ do
+  $test.current_page.wait_for_modal
+end
+
 #THENS
 Then /^cool stuff should happen/ do
   $test.current_page.be_at_recurly_sandbox
@@ -73,7 +77,7 @@ end
 Then /^the user should be on the (.*)\s?page/ do |page|
   page = page.strip
   expect($test.is_at(page.to_sym)).to eq (true)
-end 
+end
 
 Then /^the user should be logged (.*)/ do |state|
  $test.is_logged_in?
@@ -91,7 +95,7 @@ Then /the affiliate should be created successfully/ do
   $test.affiliate_created?
 end
 
-Then /the affiliate redirect should function correctly/ do 
+Then /the affiliate redirect should function correctly/ do
   $test.affiliate_working?
 end
 
