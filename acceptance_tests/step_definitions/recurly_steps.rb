@@ -45,6 +45,7 @@ Then(/^the recurly account's last transaction should have tax calculated$/) do
 end
 
 Then(/^the recurly subscription should have the correct rebill date$/)do
+  #should probably move this into a function
   date_hash = $test.calculate_rebill_date
   month_int = Date::MONTHNAMES.index(date_hash['month'])
   date_hash['month'] = month_int < 10 ? "0" + month_int.to_s : month_int.to_s
@@ -85,4 +86,8 @@ Then(/^the last invoice has the discount$/) do
   elsif $test.user.adjustment_type == 'Percentage'
     expect(invoice.line_items.first.discount_in_cents).to eq((invoice.subtotal_in_cents * $test.user.adjustment_amount/100.0).ceil)
   end
+end
+
+Then(/^the recurly account should be rebilled$/)do
+  $test.recurly.check_for_a_second_invoice
 end
