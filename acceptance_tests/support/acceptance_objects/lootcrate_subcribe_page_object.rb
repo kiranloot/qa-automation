@@ -12,18 +12,18 @@ include WaitForAjax
       'one' => '1 Month Subscription',
       'three' => '3 Month Subscription',
       'six' => '6 Month Subscription',
-      'twelve' => '1 Year Subscription'
+      'twelve' => '12 Month Subscription'
     }
   end
 
   def visit_page
-    visit @base_url 
+    visit @base_url
     $test.current_page = self
   end
 
   def click_get_loot
     find(:css, "section.header").find_link("GET LOOT CRATE").click
-    wait_for_ajax 
+    wait_for_ajax
   end
 
   def load_checkout_page_object
