@@ -86,6 +86,11 @@ class MyAccountPage < Page
     assert_text($test.user.new_rebill_date)
   end
 
+  def rebill_date_updated?
+    go_to_subscriptions
+    assert_text($test.user.new_rebill_date)
+  end
+
   def shipping_info_updated?
     go_to_subscriptions
     open_shipping_tab

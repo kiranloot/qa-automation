@@ -188,3 +188,12 @@ end
 Then /^the user is displayed the correct tax$/ do
   $test.current_page.tax_displayed?
 end
+
+Then /^the subscriptions rebill date should be adjusted by (.*) month$/ do |months|
+  step "the user visits the home page"
+  step "the user logs in"
+  step "the user visits the my account page"
+  $test.user.recurly_rebill_date = ($test.user.recurly_rebill_date.to_datetime >> months.to_i).to_time
+  $test.user.new_rebill_date = $test.convert_date_time_to_display_rebill($test.user.recurly_rebill_date.to_s)
+  $test.current_page.rebill_date_updated?
+end

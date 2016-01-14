@@ -5,8 +5,7 @@ Feature: Rebilling validation tests
         Given there is a successfull_rebill.yml file in the tmp dir
         Then the recurly account should have 2 invoices
         And the recurly account's last invoice should be successfull
-        #Requires working webhooks
-        #And the subscriptions rebill date should be adjusted
+        And the subscriptions rebill date should be adjusted by 1 month
 
     Scenario: Verify a past due rebill
         Given there is a past_due_rebill.yml file in the tmp dir

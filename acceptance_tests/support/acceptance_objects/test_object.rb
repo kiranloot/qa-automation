@@ -311,6 +311,14 @@ class Test
     }
   end
 
+  def convert_date_time_to_display_rebill(date_time_string)
+    year = date_time_string[0..3]
+    month = date_time_string[5..6]
+    date = date_time_string[8..9]
+    month = Date::MONTHNAMES[month.to_i]
+    return"#{month} #{date}, #{year}" 
+  end
+
   def all_coupon_codes_unique?
     results = $test.db.get_all_coupon_codes
     codes = []
