@@ -170,4 +170,8 @@ class RecurlyAPI
     account.subscriptions.first.postpone(adjusted_rebill_date)
     $test.user.new_rebill_date = adjusted_rebill_date
   end
+
+  def account_has_invoices?(amount)
+    expect(get_account.invoices.length).to eq(amount)
+  end  
 end

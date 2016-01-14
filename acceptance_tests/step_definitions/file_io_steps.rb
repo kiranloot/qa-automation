@@ -1,6 +1,8 @@
 #GIVENS
 Given /^there is a (.*) file in the tmp dir$/ do |filename|
-  File.open('"tmp/#{filename}"', "r")
+  yml = YAML.load(File.open("tmp/#{filename}"))
+  $test.user.email = yml["email"]
+  $test.user.new_rebill_date = yml["rebill"]
 end
 
 #THENS

@@ -88,6 +88,12 @@ Then(/^the last invoice has the discount$/) do
   end
 end
 
-Then(/^the recurly account should be rebilled$/)do
-  $test.recurly.check_for_a_second_invoice
+Then(/^the recurly account should have (.*) invoices$/)do |amount|
+  $test.recurly.account_has_invoices?(amount.to_i)
+end
+
+Then(/^the recurly account's last invoice should be successfull$/) do
+  invoice = $test.recurly.get_last_invoice_for_account
+  expect(invoice.state).to eq ("collected")
+  expect(invoice.transactions.first.status).to eq ("success")
 end
