@@ -6,11 +6,16 @@ end
 
 
 def DRIVER(d)
-  @DRIVER = (d)
+  @DRIVER = d
+end
+
+def n(n)
+  @n = n
 end
 
 @DRIVER ||= "remote"
 @SITE ||= "qa"
+@n ||= "5"
 
 if args
   args.each do |arg|
@@ -20,7 +25,7 @@ if args
  end
 end
 
-command = "SITE=#{@SITE} parallel_cucumber -o '--tags @ready' -n 5 acceptance_tests --serialize-stdout"
+command = "SITE=#{@SITE} parallel_cucumber -o '--tags @ready' -n #{@n}  acceptance_tests --serialize-stdout"
 puts command
 
 Process.spawn(command)
