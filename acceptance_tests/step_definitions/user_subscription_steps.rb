@@ -194,6 +194,6 @@ Then /^the subscriptions rebill date should be adjusted by (.*) month$/ do |mont
   step "the user logs in"
   step "the user visits the my account page"
   $test.user.recurly_rebill_date = ($test.user.recurly_rebill_date.to_datetime >> months.to_i).to_time
-  $test.user.new_rebill_date = $test.convert_date_time_to_display_rebill($test.user.recurly_rebill_date.to_s)
+  $test.user.new_rebill_date = $test.convert_time_to_display_rebill($test.user.recurly_rebill_date)
   $test.current_page.rebill_date_updated?
 end

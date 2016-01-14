@@ -311,10 +311,11 @@ class Test
     }
   end
 
-  def convert_date_time_to_display_rebill(date_time_string)
-    year = date_time_string[0..3]
-    month = date_time_string[5..6]
-    date = date_time_string[8..9]
+  def convert_time_to_display_rebill(time)
+    time = time.to_s
+    year = time[0..3]
+    month = time[5..6]
+    date = time[8..9]
     month = Date::MONTHNAMES[month.to_i]
     return"#{month} #{date}, #{year}" 
   end

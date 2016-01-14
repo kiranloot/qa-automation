@@ -3,7 +3,7 @@ Given /^there is a (.*) file in the tmp dir$/ do |filename|
   yml = YAML.load(File.open("tmp/#{filename}"))
   $test.user.email = yml["email"]
   $test.user.recurly_rebill_date = yml["rebill"]
-  $test.user.new_rebill_date = $test.convert_date_time_to_display_rebill(yml["rebill"].to_s)
+  $test.user.new_rebill_date = $test.convert_time_to_display_rebill(yml["rebill"])
 end
 
 #THENS
