@@ -4,7 +4,7 @@ class RecurlyAPI
   include RSpec::Matchers
   def initialize
     Recurly.api_key = '05a550e0a0b24b3bbb27e2b3d126e09c'
-    Recurly.subdomain = 'lootcrate-sandbox'        
+    Recurly.subdomain = 'lootcrate-sandbox'
   end
 
   def get_account
@@ -174,4 +174,15 @@ class RecurlyAPI
   def account_has_invoices?(amount)
     expect(get_account.invoices.length).to eq(amount)
   end  
+
+  def change_account_cc_to(cc_number)
+    account = get_account
+    account.billing_info = {
+      :number => cc_number
+    }
+    begin
+      account.billing_info.save
+    rescue Recurly::Transaction::DeclinedError => e
+    end
+  end
 end

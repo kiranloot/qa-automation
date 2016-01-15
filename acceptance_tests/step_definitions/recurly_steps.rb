@@ -1,6 +1,10 @@
 #WHENS
 When(/^the recurly rebill date is pushed (.*) minute into the future$/) do |minutes|
-  $test.recurly.update_next_renewal_date(minutes.to_i)
+  $test.user.recurly_rebill_date = $test.recurly.update_next_renewal_date(minutes.to_i)
+end
+
+When(/^the recurly credit card information is modified to be declined$/) do
+  $test.recurly.change_account_cc_to('4000-0000-0000-0341')
 end
 
 #THENS
