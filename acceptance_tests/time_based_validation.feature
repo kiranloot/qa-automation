@@ -1,13 +1,17 @@
-@time_based_validation
+@time_based_tests
 Feature: Rebilling validation tests
-    @kristime_validation
+    @time_based_validation
     Scenario: Verify a successful rebill
         Given there is a successfull_rebill.yml file in the tmp dir
         Then the recurly account should have 2 invoices
-        And the recurly account's last invoice should be successfull
+        And the recurly account's last invoice should be collected
         And the subscriptions rebill date should be adjusted by 1 month
+        And the subscription's status should be Active
 
+    @time_based_validation
     Scenario: Verify a past due rebill
         Given there is a past_due_rebill.yml file in the tmp dir
-        Then the recurly account's last invoice should be past due
-        And the subscriptions rebill date should not be adjusted
+        Then the recurly account should have 2 invoices
+        Then the recurly account's last invoice should be past_due
+        And the subscriptions rebill date should be adjusted by 1 month
+        And the subscription's status should be Past Due

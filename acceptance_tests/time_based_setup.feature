@@ -1,6 +1,6 @@
-@time_based_setup
+@time_based_tests
 Feature: Rebilling setup actions
-    @timed_ready
+    @time_based_setup
     Scenario: Setup a subscription to be rebilled during its rebill date
         Given a registered user with no prior subscription
             When the user logs in
@@ -10,7 +10,7 @@ Feature: Rebilling setup actions
             And the recurly rebill date is pushed 1 minute into the future
         Then write this subscription's information into a file named successfull_rebill.yml in the tmp dir
 
-    @timed_dev
+    @time_based_setup
     Scenario: Setup a past due subscription
         Given a registered user with no prior subscription
             When the user logs in

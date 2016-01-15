@@ -197,3 +197,8 @@ Then /^the subscriptions rebill date should be adjusted by (.*) month$/ do |mont
   $test.user.new_rebill_date = $test.convert_time_to_display_rebill($test.user.recurly_rebill_date)
   $test.current_page.rebill_date_updated?
 end
+
+#To Do consolidate all status checks into one keyword/function
+Then /^the subscription's status should be (.*)$/ do |status|
+  assert_text(status)
+end

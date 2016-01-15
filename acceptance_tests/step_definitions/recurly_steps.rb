@@ -96,8 +96,7 @@ Then(/^the recurly account should have (.*) invoices$/)do |amount|
   $test.recurly.account_has_invoices?(amount.to_i)
 end
 
-Then(/^the recurly account's last invoice should be successfull$/) do
+Then(/^the recurly account's last invoice should be (.*)$/) do |status|
   invoice = $test.recurly.get_last_invoice_for_account
-  expect(invoice.state).to eq ("collected")
-  expect(invoice.transactions.first.status).to eq ("success")
+  expect(invoice.state).to eq (status)
 end
