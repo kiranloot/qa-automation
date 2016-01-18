@@ -158,4 +158,8 @@ class RecurlyAPI
     end
     numMonths
   end  
+
+  def get_coupon_info(code)
+    Recurly::Coupon.find(code)    
+  end
 end

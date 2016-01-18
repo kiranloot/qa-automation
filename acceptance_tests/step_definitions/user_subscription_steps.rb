@@ -142,7 +142,7 @@ Then /the user's information should be displayed/ do
 end
 
 Then /the user account should reflect the cancellation/ do
-  $test.set_subject_user
+  ##$test.set_subject_user
   step "the user visits the home page"
   step "the user logs in"
   step "the user visits the my account page"

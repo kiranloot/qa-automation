@@ -35,13 +35,12 @@ class AdminSubscriptionsPage < AdminPage
   end
 
   def filter_for_subscription
-    admin = $test.user
     for i in 0..2
       if page.has_content?("USER EMAIL")
         break
       end
     end
-    page.find('#q_user_email').set(admin.subject_user.email)
+    page.find('#q_user_email').set($test.user.email)
     page.find_button('Filter').click
   end
 
@@ -107,7 +106,7 @@ class AdminSubscriptionsPage < AdminPage
   end
 
   def subscription_information_displayed?
-    $test.set_subject_user
+    #$test.set_subject_user
     assert_text($test.user.email)
     assert_text($test.user.shirt_size)
     assert_text($test.user.subscription_name.downcase)
@@ -118,7 +117,7 @@ class AdminSubscriptionsPage < AdminPage
   end
 
   def sub_billing_information_displayed?
-    $test.set_subject_user
+    #$test.set_subject_user
     assert_text($test.user.full_name)
     assert_text($test.user.bill_street)
     assert_text($test.user.bill_city)
@@ -128,7 +127,7 @@ class AdminSubscriptionsPage < AdminPage
 
   def subscription_info_updated?
     show_subscription
-    $test.set_subject_user
+    #$test.set_subject_user
     assert_text($test.user.new_user_sub_name)
     assert_text($test.user.shirt_size)
   end

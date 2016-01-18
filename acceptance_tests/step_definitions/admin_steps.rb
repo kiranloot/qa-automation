@@ -20,14 +20,15 @@ Given /^The (.*) level up product is (.*)$/ do |product,inv_status|
     $test.current_page.set_variant_inventory(variant_id,30000)
   end
   step "logs out of admin"
-  $test.set_subject_user
+  #$test.set_subject_user
 end
 
 #WHENS
 When /logs in as an admin/ do
-  admin_user = $test.user.email
-  admin_password = $test.user.password
+  admin_user = $test.admin_user.email
+  admin_password = $test.admin_user.password
   $test.current_page.admin_login(admin_user, admin_password)
+  #$test.set_subject_user
 end
 
 When /the admin user visits the admin page/ do 
@@ -55,7 +56,7 @@ When /updates the subscription's information/ do
   $test.current_page.click_subscriptions
   $test.current_page = AdminSubscriptionsPage.new
   $test.current_page.edit_subscription
-  $test.set_subject_user
+  #$test.set_subject_user
   $test.current_page.fill_in_subscription_name("UPDATED NAME")
   $test.current_page.select_shirt_size("Mens - S")
   $test.current_page.move_rebill_date_one_day
@@ -78,7 +79,7 @@ When /updates the user's information/ do
   $test.current_page.click_users
   $test.current_page = AdminUsersPage.new
   $test.current_page.edit_user
-  $test.set_subject_user
+  #$test.set_subject_user
   $test.current_page.fill_in_email
   $test.current_page.fill_in_password
   $test.current_page.fill_in_full_name
@@ -93,7 +94,7 @@ end
 
 When /searches for the user's address info by full name/ do
   step "clicks over to addresses tab"
-  $test.current_page.search_address_by_full_name($test.user.subject_user.full_name)
+  $test.current_page.search_address_by_full_name($test.user.full_name)
 end
 
 When /clicks over to addresses tab/ do
@@ -103,7 +104,7 @@ end
 
 When /searches for the user's address info by address line 1/ do
   step "clicks over to addresses tab"
-  $test.current_page.search_address_by_line_1($test.user.subject_user.ship_street)
+  $test.current_page.search_address_by_line_1($test.user.ship_street)
 end
 
 When /view the shipping manifests page/ do
@@ -127,7 +128,7 @@ Then /the subscription should be successfully reactivated in the admin panel/ do
   $test.current_page.click_subscriptions
   $test.current_page = AdminSubscriptionsPage.new
   $test.current_page.reactivation_successful?
-  $test.set_subject_user
+  #$test.set_subject_user
 end
 
 Then /^the updated information should be reflected when the admin views the user$/ do
@@ -164,7 +165,7 @@ Then (/^the correct subscription billing information should be displayed in the 
 end
 
 Then /the user's address info should be correctly displayed/ do
-  $test.current_page.address_info_displayed?($test.user.subject_user)
+  $test.current_page.address_info_displayed?($test.user)
 end
 
 Then /the shipment tracking information should be visible via the admin panel/ do

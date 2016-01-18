@@ -7,7 +7,7 @@ class Test
  require 'yaml'
  require 'pry'
  require 'faker'
- attr_accessor :user, :pages, :current_page, :test_data, :db, :affiliate, :recurly, :box, :sailthru, :mailinator
+ attr_accessor :user, :admin_user, :pages, :current_page, :test_data, :db, :affiliate, :recurly, :box, :sailthru, :mailinator
  include Capybara::DSL
  include RSpec::Matchers
  include WaitForAjax
@@ -15,6 +15,7 @@ class Test
  def initialize(test_data, start_page, pages, db, box, mailinator_api)
   @affiliate = nil
   @user = nil
+  @admin_user = nil
   @recurly = RecurlyAPI.new
   @sailthru = SailthruAPI.new
   @current_page = start_page
@@ -273,11 +274,11 @@ class Test
     @user = admin_user
   end
 
-  def set_subject_user
-    if @user.subject_user
-      @user = @user.subject_user
-    end
-  end
+  #def set_subject_user
+  #  if @user.subject_user
+  #    @user = @user.subject_user
+  #  end
+  #end
 
   def setup_user_with_active_sub_rake
     api = HerokuAPI.new
