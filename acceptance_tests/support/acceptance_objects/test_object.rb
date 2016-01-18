@@ -65,7 +65,7 @@ class Test
  end
 #Move to parent page object
  def is_logged_in?
-   find(:css,'a.loot-logo').click
+   find(:css,'a.logo-link').click
    assert_text("My Account")
  end
 
@@ -84,10 +84,10 @@ class Test
  end
 
  def select_crate(crate)
-   find(:css,'a.loot-logo').click
+   find(:css,'a.logo-link').click
    wait_for_ajax
    click_link("Pick a Crate")
-   click_link(crate)
+   find(:css,'ul.dropdown-menu').click_link(crate)
    wait_for_ajax
    case crate
    when "Loot Crate"
@@ -123,7 +123,7 @@ class Test
  end
 #Move to parent page object
  def log_out
-   find(:css, "a.loot-logo").click
+   find(:css, "a.logo-link").click
    click_link("My Account")
    click_link("Log Out")
    wait_for_ajax
