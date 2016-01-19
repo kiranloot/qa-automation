@@ -31,7 +31,7 @@ class HerokuAPI
   end
 
   def parse_dyno_log_for_email(dyno)
-    for i in 0..30
+    for i in 0..60
       sleep (2)
       if is_dyno_done?(dyno['name'])
         log = get_dyno_log(dyno)
@@ -56,7 +56,7 @@ class HerokuAPI
   def get_dyno_log(dyno)
     log_session = @heroku.log_session.create(@app, {
       "dyno" => dyno["name"],
-      "lines" => 50, 
+      "lines" => 500, 
       "source" => "app",
       "tail" => "false"})
     uri = URI(log_session["logplex_url"])
