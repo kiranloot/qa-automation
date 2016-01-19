@@ -31,7 +31,6 @@ def loadtest
   @dbname = 'd43r30joboc8tg'
 end
 
-
 def exec(query)
   @conn.exec(query) do |result|
     return result

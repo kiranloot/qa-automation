@@ -4,7 +4,7 @@ class RecurlyAPI
   include RSpec::Matchers
   def initialize
     Recurly.api_key = '05a550e0a0b24b3bbb27e2b3d126e09c'
-    Recurly.subdomain = 'lootcrate-sandbox'        
+    Recurly.subdomain = 'lootcrate-sandbox'
   end
 
   def get_account
@@ -161,5 +161,28 @@ class RecurlyAPI
 
   def get_coupon_info(code)
     Recurly::Coupon.find(code)    
+  end
+
+  def update_next_renewal_date(minutes = 1)
+    account = get_account
+    sub = account.subscriptions.first
+    adjusted_rebill_date = Time.new + minutes * 60
+    account.subscriptions.first.postpone(adjusted_rebill_date)
+    $test.user.new_rebill_date = adjusted_rebill_date
+  end
+
+  def account_has_invoices?(amount)
+    expect(get_account.invoices.length).to eq(amount)
+  end  
+
+  def change_account_cc_to(cc_number)
+    account = get_account
+    account.billing_info = {
+      :number => cc_number
+    }
+    begin
+      account.billing_info.save
+    rescue Recurly::Transaction::DeclinedError => e
+    end
   end
 end

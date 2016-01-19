@@ -1,4 +1,13 @@
-#Recurly steps
+#WHENS
+When(/^the recurly rebill date is pushed (.*) minute into the future$/) do |minutes|
+  $test.user.recurly_rebill_date = $test.recurly.update_next_renewal_date(minutes.to_i)
+end
+
+When(/^the recurly credit card information is modified to be declined$/) do
+  $test.recurly.change_account_cc_to('4000-0000-0000-0341')
+end
+
+#THENS
 Then(/^recurly should have a matching subscription$/) do
   $test.recurly.verify_subscription_type
 end
@@ -40,6 +49,7 @@ Then(/^the recurly account's last transaction should have tax calculated$/) do
 end
 
 Then(/^the recurly subscription should have the correct rebill date$/)do
+  #should probably move this into a function
   date_hash = $test.calculate_rebill_date
   month_int = Date::MONTHNAMES.index(date_hash['month'])
   date_hash['month'] = month_int < 10 ? "0" + month_int.to_s : month_int.to_s
@@ -80,4 +90,13 @@ Then(/^the last invoice has the discount$/) do
   elsif $test.user.adjustment_type == 'Percentage'
     expect(invoice.line_items.first.discount_in_cents).to eq((invoice.subtotal_in_cents * $test.user.adjustment_amount/100.0).ceil)
   end
+end
+
+Then(/^the recurly account should have (.*) invoices$/)do |amount|
+  $test.recurly.account_has_invoices?(amount.to_i)
+end
+
+Then(/^the recurly account's last invoice should be (.*)$/) do |status|
+  invoice = $test.recurly.get_last_invoice_for_account
+  expect(invoice.state).to eq (status)
 end
