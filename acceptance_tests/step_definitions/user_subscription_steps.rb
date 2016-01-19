@@ -193,6 +193,8 @@ Then /^the subscriptions rebill date should be adjusted by (.*) month$/ do |mont
   step "the user visits the home page"
   step "the user logs in"
   step "the user visits the my account page"
+  #This code converts the ruby time object into date time
+  #That enables us to use the ">>" operator to move the rebill date ahead n number of months
   $test.user.recurly_rebill_date = ($test.user.recurly_rebill_date.to_datetime >> months.to_i).to_time
   $test.user.new_rebill_date = $test.convert_time_to_display_rebill($test.user.recurly_rebill_date)
   $test.current_page.rebill_date_updated?
