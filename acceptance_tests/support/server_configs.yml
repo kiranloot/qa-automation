@@ -9,6 +9,8 @@ qa:
     admin: "https://loot-admin-qa.herokuapp.com/admin/login"
     app: "lootcrate-qa"
     base_url: "https://qa.lootcrate.com/?username=lootcrateis25timesgreaterthanthecompetition"
+    recurly_api_key: "faabe9b876da4f85b494643d47c939b3"
+    recurly_subdomain: "lootcrate-qa"
 staging:
     host: 'ec2-54-204-24-120.compute-1.amazonaws.com'
     port: '6012'
@@ -20,6 +22,8 @@ staging:
     admin: "https://lootcrate-staging-admin.herokuapp.com/admin/login"
     app: "lootcrate-staging"
     base_url: "https://staging.lootcrate.com/?username=lootcrateis25timesgreaterthanthecompetition"
+    recurly_api_key: "05a550e0a0b24b3bbb27e2b3d126e09c"
+    recurly_subdomain: "lootcrate-sandbox"
 goliath:
     host: 'ec2-54-235-146-58.compute-1.amazonaws.com'
     port: '5432'
@@ -31,6 +35,8 @@ goliath:
     admin: "https://lootcrate-goliath-admin.herokuapp.com/admin/login"
     app: "lootcrate-goliath"
     base_url: "https://goliath.lootcrate.com/?username=lootcrateis25timesgreaterthanthecompetition"
+    recurly_api_key: "05a550e0a0b24b3bbb27e2b3d126e09c"
+    recurly_subdomain: "lootcrate-sandbox"
 qa2:
     host: 'ec2-54-83-17-8.compute-1.amazonaws.com'
     port: '5432'
@@ -42,39 +48,47 @@ qa2:
     admin: "https://lootcrate-qa2-admin.herokuapp.com/admin/login"
     app: "lootcrate-qa2"
     base_url: "https://qa2.lootcrate.com/?username=lootcrateis25timesgreaterthanthecompetition"
+    recurly_api_key: "05a550e0a0b24b3bbb27e2b3d126e09c"
+    recurly_subdomain: "lootcrate-sandbox"
 qa3:
-   host: 'ec2-54-225-239-220.compute-1.amazonaws.com'
-   port: '5842'
-   user: 'ueqgb5m2r5un3e'
-   password: 'pfpb40qjfhtfv76j530etvgrce9'
-   dbname: 'd55r6dllc0lr64'
-   redis_url: "redis://redistogo:c9a9c62935f7b4d07945de0f0efb2806@ray.redistogo.com:9718/"
-   prefix: "https://qa3.lootcrate.com"
-   admin: "https://loot-admin-qa3.herokuapp.com/admin/login"
-   app: "lootcrate-qa3"
-   base_url: "https://qa3.lootcrate.com/?username=lootcrateis25timesgreaterthanthecompetition"
+    host: 'ec2-54-225-239-220.compute-1.amazonaws.com'
+    port: '5842'
+    user: 'ueqgb5m2r5un3e'
+    password: 'pfpb40qjfhtfv76j530etvgrce9'
+    dbname: 'd55r6dllc0lr64'
+    redis_url: "redis://redistogo:c9a9c62935f7b4d07945de0f0efb2806@ray.redistogo.com:9718/"
+    prefix: "https://qa3.lootcrate.com"
+    admin: "https://loot-admin-qa3.herokuapp.com/admin/login"
+    app: "lootcrate-qa3"
+    base_url: "https://qa3.lootcrate.com/?username=lootcrateis25timesgreaterthanthecompetition"
+    recurly_api_key: "05a550e0a0b24b3bbb27e2b3d126e09c"
+    recurly_subdomain: "lootcrate-sandbox"
 qa4:
-   host: 'ec2-54-83-46-181.compute-1.amazonaws.com'
-   port: '5882'
-   user: 'u2l1gc325tvr8g'
-   password: 'pegb4ja665bsf01v2qss99sh36m'
-   dbname: 'd1jmdrjmc8ub91'
-   redis_url: "redis://redistogo:c9a9c62935f7b4d07945de0f0efb2806@ray.redistogo.com:9718/"
-   prefix: "https://qa4.lootcrate.com"
-   admin: "https://lootcrate-qa4-admin.herokuapp.com/admin/login"
-   app: "lootcrate-qa4"
-   base_url: "https://qa4.lootcrate.com/?username=lootcrateis25timesgreaterthanthecompetition"
+    host: 'ec2-54-83-46-181.compute-1.amazonaws.com'
+    port: '5882'
+    user: 'u2l1gc325tvr8g'
+    password: 'pegb4ja665bsf01v2qss99sh36m'
+    dbname: 'd1jmdrjmc8ub91'
+    redis_url: "redis://redistogo:c9a9c62935f7b4d07945de0f0efb2806@ray.redistogo.com:9718/"
+    prefix: "https://qa4.lootcrate.com"
+    admin: "https://lootcrate-qa4-admin.herokuapp.com/admin/login"
+    app: "lootcrate-qa4"
+    base_url: "https://qa4.lootcrate.com/?username=lootcrateis25timesgreaterthanthecompetition"
+    recurly_api_key: "05a550e0a0b24b3bbb27e2b3d126e09c"
+    recurly_subdomain: "lootcrate-sandbox"
 qa5:
-   host: 'ec2-54-83-202-245.compute-1.amazonaws.com'
-   port: '5652'
-   user: 'uab4h1i6joaljg'
-   password: 'p2e4rjq23j32c15octp0ofqc8fr'
-   dbname: 'd1urmcba16v0pq'
-   redis_url: "redis://redistogo:c9a9c62935f7b4d07945de0f0efb2806@ray.redistogo.com:9718/"
-   prefix: "https://qa5.lootcrate.com"
-   admin: "https://lootcrate-qa5-admin.herokuapp.com/admin/login"
-   app: "lootcrate-qa5"
-   base_url: "https://qa5.lootcrate.com/?username=lootcrateis25timesgreaterthanthecompetition"
+    host: 'ec2-54-83-202-245.compute-1.amazonaws.com'
+    port: '5652'
+    user: 'uab4h1i6joaljg'
+    password: 'p2e4rjq23j32c15octp0ofqc8fr'
+    dbname: 'd1urmcba16v0pq'
+    redis_url: "redis://redistogo:c9a9c62935f7b4d07945de0f0efb2806@ray.redistogo.com:9718/"
+    prefix: "https://qa5.lootcrate.com"
+    admin: "https://lootcrate-qa5-admin.herokuapp.com/admin/login"
+    app: "lootcrate-qa5"
+    base_url: "https://qa5.lootcrate.com/?username=lootcrateis25timesgreaterthanthecompetition"
+    recurly_api_key: "05a550e0a0b24b3bbb27e2b3d126e09c"
+    recurly_subdomain: "lootcrate-sandbox"
 load-test:
     host: 'ec2-50-17-192-85.compute-1.amazonaws.com'
     port: '5502'
@@ -86,6 +100,8 @@ load-test:
     admin: "https://loot-admin-loadtest.herokuapp.com/admin/login"
     app: "lootcrate-load-test"
     base_url: "https://lootcrate-load-test.herokuapp.com/?username=lootcrateis25timesgreaterthanthecompetition"
+    recurly_api_key: "05a550e0a0b24b3bbb27e2b3d126e09c"
+    recurly_subdomain: "lootcrate-sandbox"
 local:
     host: 'localhost'
     port: '5432'
