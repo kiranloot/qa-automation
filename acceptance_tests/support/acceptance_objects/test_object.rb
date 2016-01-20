@@ -16,7 +16,6 @@ class Test
   @affiliate = nil
   @user = nil
   @admin_user = nil
-  @recurly = RecurlyAPI.new
   @sailthru = SailthruAPI.new
   @current_page = start_page
   @test_data = test_data 
@@ -24,6 +23,7 @@ class Test
   @db = db
   @box = box
   @mailinator = mailinator_api
+  @recurly = RecurlyAPI.new(box)
  end
 
  def update_test_data(value)

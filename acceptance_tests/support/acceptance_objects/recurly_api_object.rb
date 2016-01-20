@@ -2,9 +2,9 @@ require 'recurly'
 
 class RecurlyAPI
   include RSpec::Matchers
-  def initialize
-    Recurly.api_key = '05a550e0a0b24b3bbb27e2b3d126e09c'
-    Recurly.subdomain = 'lootcrate-sandbox'
+  def initialize(box)
+    Recurly.api_key = box.recurly_api_key
+    Recurly.subdomain = box.recurly_subdomain
   end
 
   def get_account
