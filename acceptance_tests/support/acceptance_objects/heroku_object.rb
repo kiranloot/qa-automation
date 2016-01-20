@@ -3,6 +3,8 @@ require 'platform-api'
 
 class HerokuAPI
   require 'yaml'
+  attr_accessor :app, :heroku
+
   def initialize(box = Box.new(ENV['SITE']))
     @apikey = '56d6a4d5-724e-4a94-b427-0a86263b2e0e'
     @heroku = PlatformAPI.connect_oauth(@apikey)
@@ -26,7 +28,7 @@ class HerokuAPI
     parse_dyno_log_for_email(dyno)
   end
 
-  def run_command(command) 
+  def run_command(command)
     @heroku.dyno.create(@app, {"command" => command, "attach" => "false"})
   end
 
@@ -56,7 +58,7 @@ class HerokuAPI
   def get_dyno_log(dyno)
     log_session = @heroku.log_session.create(@app, {
       "dyno" => dyno["name"],
-      "lines" => 500, 
+      "lines" => 500,
       "source" => "app",
       "tail" => "false"})
     uri = URI(log_session["logplex_url"])

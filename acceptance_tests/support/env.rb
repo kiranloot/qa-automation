@@ -4,6 +4,7 @@ require 'parallel_tests'
 require 'rspec/expectations'
 require 'time'
 require_relative 'acceptance_objects/dbcon'
+require_relative 'acceptance_objects/config_var_verification'
 
 ENV['RUN_TIMESTAMP'] = Time.now().utc.to_s
 ENV['SITE'] ||= 'qa'
@@ -14,6 +15,9 @@ browser = ENV['BROWSER'] ||= 'chrome'
 conn = DBCon.new
 ParallelTests.first_process? ? conn.setup_qa_database : sleep(1)
 conn.finish
+
+#Verification that config vars on the test environment don't point to prod
+ConfigVarVerification.verify
 
 case driver
 when 'local'
