@@ -1,4 +1,4 @@
-module ConfigVarVerification
+module QAEnvironmentValidator
   require_relative 'heroku_object'
   def self.verify
     heroku = HerokuAPI.new
