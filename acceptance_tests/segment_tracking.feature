@@ -13,19 +13,26 @@ Feature: Segment Tracking
         Then the tracking partial should exist on the page
 
     @ready
-    Scenario: Ensure the lootcrate landing has segment tracking
+    Scenario: Ensure the lootcrate landing page has segment tracking
         Given an unregistered user
         When the user visits the lootcrate_landing page
         Then the tracking partial should exist on the page
 
     @ready
-    Scenario: Ensure the anime landing has segment tracking
+    Scenario: Ensure the anime landing page has segment tracking
         Given an unregistered user
         When the user visits the anime_landing page
         Then the tracking partial should exist on the page
 
     @ready
-    Scenario: Ensure the pets landing has segment tracking
+    Scenario: Ensure the pets landing page has segment tracking
         Given an unregistered user
         When the user visits the pets_landing page
+        Then the tracking partial should exist on the page
+
+
+    @ready
+    Scenario: Ensure the level up subscribe page has segment tracking
+        Given an unregistered user
+        When the user visits the levelup_subscribe page
         Then the tracking partial should exist on the page

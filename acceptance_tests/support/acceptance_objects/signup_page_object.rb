@@ -6,7 +6,9 @@ include Capybara::DSL
   def initialize
     super
     @page_type = "signup"
+    #additional lines to check for during the segment tests
     @tracking_script_lines << "lca.page('registrations', 'new', '');"
+    @tracking_script_lines << "lca.clickTracking();"
     setup
   end
 

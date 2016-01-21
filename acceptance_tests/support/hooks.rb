@@ -28,7 +28,7 @@ pages = {
   #mailinator: Mailinator, 
   admin: AdminPage, 
   upgrade: UpgradePage,
-  level_up: LevelUpPage, 
+  levelup_subscribe: LevelUpSubscribePage, 
   fallout4: Fallout4Page, 
   lootcrate_landing: LootcrateLandingPage,
   lootcrate_subscribe: LootcrateSubscribePage,

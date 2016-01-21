@@ -7,6 +7,7 @@ include WaitForAjax
   def initialize
     super
     @page_type = "anime_landing"
+    @tracking_script_lines << "lca.page('core_crates', 'show', '');"
     setup
     @plan_display_names = {
       'one' => 'Anime 1 Month Subscription',

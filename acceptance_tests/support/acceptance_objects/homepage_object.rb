@@ -8,8 +8,9 @@ class HomePage < Page
   def initialize
     super
     @page_type = "home"
-    #additional tracking script lines unique to this page
+    #additional lines to check for during the segment tests
     @tracking_script_lines << "lca.page('homepage', 'index', '');"
+    @tracking_script_lines << "lca.clickTracking();"
     setup
   end
 
