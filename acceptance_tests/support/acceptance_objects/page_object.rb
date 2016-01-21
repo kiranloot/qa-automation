@@ -14,6 +14,7 @@ class Page
     @prefix = box.prefix
     @admin = box.admin
     @page_type = 'generic'
+    @tracking_script_lines = []
   end
 
   def setup
@@ -107,7 +108,22 @@ class Page
     end
 
   def partial_exists?(type)
-    partials = YAML.load(File.open("acceptance_tests/support/partials_configs.yml"))
-    expect(html).to include(partials[type])
+    script_lines = {
+      'tracking' => [
+        "var lca_user = {};",
+        "var lca = LC_Analytics(lca_user);",
+        "lca.anonIdCookie();",
+        "lca.trackInitialPlan();",
+        "lca.activeSubsCookie();",
+        "lca.alias();",
+        "lca.identify();",
+        "lca.clickTracking();"
+      ]
+    }
+    lines = script_lines[type]
+    lines += @tracking_script_lines 
+    lines.each do |line|
+      expect(html).to include(line)
+    end
   end
 end

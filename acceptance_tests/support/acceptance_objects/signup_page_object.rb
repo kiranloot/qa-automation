@@ -6,6 +6,7 @@ include Capybara::DSL
   def initialize
     super
     @page_type = "signup"
+    @tracking_script_lines << "lca.page('registrations', 'new', '');"
     setup
   end
 

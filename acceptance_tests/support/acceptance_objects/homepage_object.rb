@@ -8,6 +8,8 @@ class HomePage < Page
   def initialize
     super
     @page_type = "home"
+    #additional tracking script lines unique to this page
+    @tracking_script_lines << "lca.page('homepage', 'index', '');"
     setup
   end
 
