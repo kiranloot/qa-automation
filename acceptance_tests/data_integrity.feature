@@ -1,5 +1,5 @@
 @regression @core @selenium
 Feature: Data integrity checks 
-    @ready @krisdev
+    @ready
     Scenario: All generated coupon codes are unique
       Then all coupon codes in the database should be unique

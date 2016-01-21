@@ -105,5 +105,9 @@ class Page
         puts "#{a[:href]}\nResponse Code: #{resp.code}\n"
       end
     end
+
+  def partial_exists?(type)
+    partials = YAML.load(File.open("acceptance_tests/support/partials_configs.yml"))
+    expect(html).to include(partials[type])
   end
 end

@@ -1,0 +1,1 @@
+tracking: "<script>\nvar lca_user = {};\n\nvar lca = LC_Analytics(lca_user);\n\nlca.anonIdCookie();\nlca.trackInitialPlan();\nlca.activeSubsCookie();\n\nlca.alias();\nlca.identify();\nlca.page('homepage', 'index', '');\nlca.clickTracking();\n</script>"
