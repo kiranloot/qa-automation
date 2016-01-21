@@ -1,5 +1,4 @@
 *.swp
 *.swo
-rerun*.txt
 tmp/*
 .DS_Store
