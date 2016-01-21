@@ -19,10 +19,30 @@ $env_base_url = box.base_url
 
 $env_test_data_file_path ||= "acceptance_tests/support/qa_test_data.yml"
 test_data = YAML.load(File.open($env_test_data_file_path))
-pages = {home: HomePage, signup: SignupPage, checkout: CheckoutPage, subscribe: SubscribePage,
-            my_account: MyAccountPage, mailinator: Mailinator, admin: AdminPage, upgrade: UpgradePage,
-         recurly: RecurlyPage, level_up: LevelUpPage, fallout4: Fallout4Page, lootcrate_subscribe: LootcrateSubscribePage,
-         lootcrate_checkout: LootcrateCheckoutPage, pewdiepie: PewdiepiePage, boogie2988: Boogie2988Page, tradechat: TradeChat}
+pages = {
+  home: HomePage, 
+  signup: SignupPage, 
+  #checkout: CheckoutPage, 
+  #subscribe: SubscribePage,
+  my_account: MyAccountPage, 
+  #mailinator: Mailinator, 
+  admin: AdminPage, 
+  upgrade: UpgradePage,
+  level_up: LevelUpPage, 
+  fallout4: Fallout4Page, 
+  lootcrate_landing: LootcrateLandingPage,
+  lootcrate_subscribe: LootcrateSubscribePage,
+  lootcrate_checkout: LootcrateCheckoutPage,
+  anime_landing: AnimeLandingPage,
+  anime_subscribe: AnimeSubscribePage,
+  anime_checkout: AnimeCheckoutPage,
+  pets_landing: PetsLandingPage,
+  pets_subscribe: PetsSubscribePage,
+  pets_checkout: PetsCheckoutPage,
+  pewdiepie: PewdiepiePage, 
+  boogie2988: Boogie2988Page, 
+  tradechat: TradeChat
+}
 
 Before do
   Capybara.default_max_wait_time = 15

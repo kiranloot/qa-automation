@@ -107,7 +107,7 @@ class Page
       end
     end
 
-  def partial_exists?(type)
+  def tracking_partial_exists?(type)
     script_lines = {
       'tracking' => [
         "var lca_user = {};",
@@ -116,11 +116,12 @@ class Page
         "lca.trackInitialPlan();",
         "lca.activeSubsCookie();",
         "lca.alias();",
-        "lca.identify();",
-        "lca.clickTracking();"
+        "lca.identify();"
+        #"lca.clickTracking();"
       ]
     }
     lines = script_lines[type]
+    #will append variable lines to the above based on the page we are visiting
     lines += @tracking_script_lines 
     lines.each do |line|
       expect(html).to include(line)
