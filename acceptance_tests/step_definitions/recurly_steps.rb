@@ -7,6 +7,10 @@ When(/^the recurly credit card information is modified to be declined$/) do
   $test.recurly.change_account_cc_to('4000-0000-0000-0341')
 end
 
+When /the user notes the recurly rebill date$/ do
+  @original_rebill = $test.recurly.get_rebill_date
+end
+
 #THENS
 Then(/^recurly should have a matching subscription$/) do
   $test.recurly.verify_subscription_type
@@ -19,7 +23,7 @@ end
 Then(/^recurly should now have a (.*) month subscription plan$/) do |months|
   $test.recurly.verify_subscription_upgrade (months)
 end
-       
+
 Then(/^recurly should have a (.*) month subscription for the (.*) crate$/) do |months, product|
   $test.recurly.verify_level_up_subscription(months,product)
 end
@@ -99,4 +103,12 @@ end
 Then(/^the recurly account's last invoice should be (.*)$/) do |status|
   invoice = $test.recurly.get_last_invoice_for_account
   expect(invoice.state).to eq (status)
+end
+
+Then /the recurly rebill date should be (.*) months? (ahead|behind)$/ do |months, direction|
+  if direction == 'ahead'
+    expect($test.recurly.get_rebill_date).to eq(@original_rebill >> months.to_i)
+  elsif direction == 'behind'
+    expect($test.recurly.get_rebill_date).to eq(@original_rebill << months.to_i)
+  end
 end

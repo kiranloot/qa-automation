@@ -18,7 +18,7 @@ class RecurlyAPI
   end
 
   def verify_subscription_type(country_code = "US")
-    #Do if this is a level up sub    
+    #Do if this is a level up sub
     if $test.user.recurly_level_up_plan
       recurly_sub = $test.user.recurly_level_up_plan
       if country_code == "US"
@@ -28,7 +28,7 @@ class RecurlyAPI
       end
     #do if this is any other sub
     else
-      if $test.user.subscription_name.include? '1 Year Subscription' 
+      if $test.user.subscription_name.include? '1 Year Subscription'
         recurly_sub = $test.user.subscription_name.gsub(/1 Year/, "12 Month")
       else
         recurly_sub = $test.user.subscription_name
@@ -51,7 +51,7 @@ class RecurlyAPI
   def verify_subscription_upgrade (months)
     account = get_account
     newPlan = "#{get_months(months)} Month Subscription"
-    expect(account.subscriptions.first.pending_subscription.plan.name).to eq(newPlan)  
+    expect(account.subscriptions.first.pending_subscription.plan.name).to eq(newPlan)
   end
 
   def verify_status(status)
@@ -127,7 +127,7 @@ class RecurlyAPI
   def update_billing_address(address_hash)
     account = get_account
     billing = account.billing_info
-    address_hash.each do |key, value| 
+    address_hash.each do |key, value|
       billing[key] = value if billing.respond_to?(key)
     end
     billing.save
@@ -145,7 +145,7 @@ class RecurlyAPI
 
   def get_months (months)
     numMonths = 0
-    case months   
+    case months
 
     when "one"
       numMonths = 1
@@ -157,10 +157,10 @@ class RecurlyAPI
       numMonths = 12
     end
     numMonths
-  end  
+  end
 
   def get_coupon_info(code)
-    Recurly::Coupon.find(code)    
+    Recurly::Coupon.find(code)
   end
 
   def update_next_renewal_date(minutes = 1)
@@ -173,7 +173,7 @@ class RecurlyAPI
 
   def account_has_invoices?(amount)
     expect(get_account.invoices.length).to eq(amount)
-  end  
+  end
 
   def change_account_cc_to(cc_number)
     account = get_account
@@ -184,5 +184,29 @@ class RecurlyAPI
       account.billing_info.save
     rescue Recurly::Transaction::DeclinedError => e
     end
+  end
+
+  def get_rebill_date
+    account = get_account
+    rebilldate = account.subscriptions.first.current_period_ends_at
+    rebilldate
+  end
+
+  def get_tax_info
+    account = get_account
+    invoice_data = account.invoices[0]['line_items']
+    tax_info = {}
+    tax_info['region'] = invoice_data['tax_region']
+    tax_info['tax_total'] = invoice_data['tax_in_cents']
+    tax_info
+  end
+
+  def get_upgrade_info
+    account = get_account
+    subscription = account.subscriptions.first
+    upgrade_info = {}
+    upgrade_info['rebill_date'] = subscription.current_period_ends_at
+    upgrade_info['cost'] = subscription['pending_subscription']['unit_amount_in_cents']
+    upgrade_info
   end
 end
