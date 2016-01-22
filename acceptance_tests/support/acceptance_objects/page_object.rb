@@ -1,4 +1,5 @@
 require 'capybara/cucumber'
+require 'net/http'
 require 'rspec/matchers'
 require 'pry'
 require_relative 'wait_module'
@@ -82,4 +83,27 @@ class Page
     wait_for_ajax
   end
 
+  def check_link_integrity
+    wait_for_ajax
+    #Gather all links on the page
+    all_links = page.all(:css, 'a')
+
+    # #Create http object
+    # http = Net::HTTP.new(a[:href])
+
+    all_links.each do |a|
+      uri = URI(a[:href])
+      #Skip Google/Youtube links due to SSL constraint. Must manually test for now.
+      # TODO: Research a solution to the SSL issue
+      if a[:href].include?('play.google.com')
+      elsif a[:href].include?('youtube.com')
+      else
+        resp = Net::HTTP.get_response(uri)
+
+        # TODO: Research a better solution for 301 and 302 redirect response codes.
+        expect(["200", "301", "302"]).to include(resp.code)
+        puts "#{a[:href]}\nResponse Code: #{resp.code}\n"
+      end
+    end
+  end
 end
