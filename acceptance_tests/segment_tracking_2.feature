@@ -9,7 +9,7 @@ Feature: Segment Tracking
         Then the tracking partial should exist on the page
 
     @ready
-    Scenario: Ensure the checkout page has segment tracking
+    Scenario: Ensure the confirmation page has conversion segment tracking
         Given a registered user with no prior subscription
             When the user logs in
             And the user selects the Loot Crate crate
