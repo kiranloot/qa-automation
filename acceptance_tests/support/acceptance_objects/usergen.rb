@@ -111,6 +111,11 @@ class UserGen
     FactoryGirl.build(:user)
   end
 
+  def simple_alchemy
+    $test.cms_user = FactoryGirl.build(:user, :alchemy)
+    $test.user
+  end
+
   def admin_and_subject
     #hack, will fix/remove this later
     $test.admin_user = simple_admin 

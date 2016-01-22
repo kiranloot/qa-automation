@@ -7,7 +7,7 @@ class Test
  require 'yaml'
  require 'pry'
  require 'faker'
- attr_accessor :user, :admin_user, :pages, :current_page, :test_data, :db, :affiliate, :recurly, :box, :sailthru, :mailinator
+ attr_accessor :user, :admin_user, :cms_user, :pages, :current_page, :test_data, :db, :affiliate, :recurly, :box, :sailthru, :mailinator
  include Capybara::DSL
  include RSpec::Matchers
  include WaitForAjax

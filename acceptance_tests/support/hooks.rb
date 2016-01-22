@@ -19,6 +19,7 @@ $env_base_url = box.base_url
 
 $env_test_data_file_path ||= "acceptance_tests/support/qa_test_data.yml"
 test_data = YAML.load(File.open($env_test_data_file_path))
+
 pages = {
   home: HomePage, 
   signup: SignupPage, 
@@ -41,7 +42,8 @@ pages = {
   pets_checkout: PetsCheckoutPage,
   pewdiepie: PewdiepiePage, 
   boogie2988: Boogie2988Page, 
-  tradechat: TradeChat
+  tradechat: TradeChat,
+  alchemy: AlchemyPage
 }
 
 Before do

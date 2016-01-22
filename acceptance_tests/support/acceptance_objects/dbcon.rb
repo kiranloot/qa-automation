@@ -86,7 +86,8 @@ end
 
 def setup_qa_database
   add_inventory_to_all
-  add_admin_user_to_db
+  add_user_to_db('admin@example.com','$2a$10$gMQ0WYqkPAFZPMJYQTjcZeOWreqJisY0UDypiG.hggS7B2ZYEM93C','admin_users')
+  add_cms_user_to_db('cmsadmin@example.com','$2a$10$gMQ0WYqkPAFZPMJYQTjcZeOWreqJisY0UDypiG.hggS7B2ZYEM93C','cms_users')
 end
 
 def add_inventory_to_all(units = 600000)
@@ -94,12 +95,24 @@ def add_inventory_to_all(units = 600000)
   @conn.exec(query)
 end
 
-def add_admin_user_to_db(email = 'admin@example.com', pass_hash = '$2a$10$gMQ0WYqkPAFZPMJYQTjcZeOWreqJisY0UDypiG.hggS7B2ZYEM93C')
+def add_user_to_db(email, pass_hash, table)
   check_query = """
-    SELECT * FROM admin_users WHERE email = '#{email}'
+    SELECT * FROM #{table} WHERE email = '#{email}'
   """
   query = """
-    INSERT INTO admin_users (email,encrypted_password,created_at,updated_at) VALUES ('#{email}','#{pass_hash}',current_timestamp, current_timestamp)
+    INSERT INTO #{table} (email,encrypted_password,created_at,updated_at) VALUES ('#{email}','#{pass_hash}',current_timestamp, current_timestamp)
+  """
+  if !@conn.exec(check_query).any?
+    @conn.exec(query) 
+  end
+end
+
+def add_cms_user_to_db(email, pass_hash, table)
+  check_query = """
+    SELECT * FROM #{table} WHERE email = '#{email}'
+  """
+  query = """
+    INSERT INTO #{table} (email,encrypted_password,role,created_at,updated_at) VALUES ('#{email}','#{pass_hash}','admin',current_timestamp, current_timestamp)
   """
   if !@conn.exec(check_query).any?
     @conn.exec(query) 
