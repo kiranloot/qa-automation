@@ -15,6 +15,7 @@ class Page
     @admin = box.admin
     @page_type = 'generic'
     @tracking_script_lines = []
+    @conversion_tracking_script_lines = []
   end
 
   def setup
@@ -106,10 +107,10 @@ class Page
         puts "#{a[:href]}\nResponse Code: #{resp.code}\n"
       end
     end
+  end
 
-  def tracking_partial_exists?(type)
-    script_lines = {
-      'tracking' => [
+  def tracking_partial_exists?
+    lines = [
         "var lca_user = {};",
         "var lca = LC_Analytics(lca_user);",
         "lca.anonIdCookie();",
@@ -117,12 +118,50 @@ class Page
         "lca.activeSubsCookie();",
         "lca.alias();",
         "lca.identify();"
-        #"lca.clickTracking();"
-      ]
-    }
-    lines = script_lines[type]
+    ]
     #will append variable lines to the above based on the page we are visiting
     lines += @tracking_script_lines 
+    lines.each do |line|
+      expect(html).to include(line)
+    end
+  end
+
+  def conversion_tracking_partial_exists?
+    #will assume this is for a 1 months california sub
+    #will also make some fields "incomplete" for validation later
+    #will make this variable in a later revision
+    lines = [
+      "analytics.track('Completed Order', {",
+      "orderId:",
+      "total: 21.75,",
+      "revenue: 19.95,",
+      "tax: 1.80,",
+      "discount: 0.00,",
+      "currency: 'USD',",
+      "couponCode: '',",
+      "repeatPurchase: false,",
+      "planName: '1-month-subscription',",
+      "planCountry: 'US',",
+      "planPrice: 19.95,",
+      "initialPlan: LC_Analytics().getInitialPlan(),",
+      "shippingCountry: 'US',",
+      "productName: 'Core Crate',",
+      "paymentMethod: 'credit card',",
+      "productBrand: 'Loot Crate Core',",
+      "paymentMethod: 'credit card',",
+      "shirtSize: '',",
+      "products: [",
+      "id: 'core-crate-1',",
+      "sku: '1-month-subscription',",
+      "name: 'Core Crate',",
+      "price: 19.95,",
+      "quantity: 1,",
+      "category: 'Loot Crate Core',",
+      "brand: 'Loot Crate Core'",
+      "var dataLayer = dataLayer || [];",
+      "dataLayer.push({utmSource: ''})",
+    ]
+    lines += @conversion_tracking_script_lines
     lines.each do |line|
       expect(html).to include(line)
     end

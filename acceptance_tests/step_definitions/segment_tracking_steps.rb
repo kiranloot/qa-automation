@@ -1,8 +1,9 @@
 #THENS
-Then(/^the (tracking|confirmation) partial should exist on the page$/) do |type|
+Then(/^the (tracking|conversion tracking) partial should exist on the page$/) do |type|
   case type
   when 'tracking'
-    $test.current_page.tracking_partial_exists?(type)
-  when 'comfirmation'
+    $test.current_page.tracking_partial_exists?
+  when 'conversion tracking'
+    $test.current_page.conversion_tracking_partial_exists?
   end
 end

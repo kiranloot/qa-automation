@@ -30,7 +30,6 @@ Feature: Segment Tracking
         When the user visits the pets_landing page
         Then the tracking partial should exist on the page
 
-
     @ready
     Scenario: Ensure the level up subscribe page has segment tracking
         Given an unregistered user
