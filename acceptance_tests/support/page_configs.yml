@@ -1,3 +1,5 @@
+about_us:
+ url: '/about_us'
 home:
  url: "/?username=lootcrateis25timesgreaterthanthecompetition"
 signup:

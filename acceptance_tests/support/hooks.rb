@@ -43,7 +43,8 @@ pages = {
   pewdiepie: PewdiepiePage, 
   boogie2988: Boogie2988Page, 
   tradechat: TradeChat,
-  alchemy: AlchemyPage
+  alchemy: AlchemyPage,
+  about_us: AboutUsPage
 }
 
 Before do
@@ -61,8 +62,16 @@ Before do
   end
 end
 
+Before ('@alchemy_text') do 
+  $text_id = $test.db.get_richtext_alchemy_essence_id("What is Loot Crate™?")
+end
+
 After do
   $test.db.finish
   reset_session!
   page.execute_script "window.close();"
+end
+
+After ('@alchemy_text') do 
+  $test.db.set_richtext_alchemy_essence_to($text_id, "<p>What is Loot Crate™?</p>", 'What is Loot Crate™?')
 end

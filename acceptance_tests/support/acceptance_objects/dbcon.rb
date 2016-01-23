@@ -23,14 +23,6 @@ def setup_connection
   @conn = PG.connect(host: @host, port: @port, dbname: @dbname, user: @user, password: @password )
 end
 
-def loadtest
-  @host = 'ec2-50-17-192-85.compute-1.amazonaws.com'
-  @port = '5502'
-  @user = 'u9ce2j9e6qv4ao'
-  @password = 'pdp91gi35avm58acof1ps4i7stg'
-  @dbname = 'd43r30joboc8tg'
-end
-
 def exec(query)
   @conn.exec(query) do |result|
     return result
@@ -117,6 +109,20 @@ def add_cms_user_to_db(email, pass_hash, table)
   if !@conn.exec(check_query).any?
     @conn.exec(query) 
   end
+end
+
+def get_richtext_alchemy_essence_id(text)
+  query = """
+    SELECT id FROM alchemy_essence_richtexts WHERE body LIKE '%#{text}%'
+  """
+  @conn.exec(query)[0]['id']
+end
+
+def set_richtext_alchemy_essence_to(id, body, stripped_body)
+  query = """
+    UPDATE alchemy_essence_richtexts SET body = '#{body}', stripped_body = '#{stripped_body}' WHERE id = #{id}
+  """
+  @conn.exec(query)
 end
 
 #Assumption: We want the newest subscription's recurly information
