@@ -7,22 +7,22 @@ class User
   include RSpec::Matchers
   include WaitForAjax
 
-  attr_accessor :email, :password, :street, :city, :ship_state, :ship_zip, :zip, 
-    :first_name, :last_name, :full_name, :shirt_size, :display_shirt_size, :new_shirt_size, 
+  attr_accessor :email, :password, :street, :city, :ship_state, :ship_zip, :zip,
+    :first_name, :last_name, :full_name, :shirt_size, :display_shirt_size, :new_shirt_size,
     :cc, :cvv, :ship_street, :ship_street_2, :ship_city, :affiliate, :base_coupon_code, :coupon_code, :discount_applied,
     :subscription_name, :level_up_subscription_name, :new_user_sub_name,:new_rebill_date, :bill_zip,
     :bill_city, :bill_street, :bill_street_2, :bill_state, :need_sub, :rebill_date_db, :last_four, :trait, :recurly_level_up_plan,
     :country_code, :recurly_billing_state_code, :cc_invalid, :cc_exp_month, :cc_exp_year, :pet_shirt_size, :pet_collar_size, :promo_type,
     :adjustment_type, :adjustment_amount, :recurly_rebill_date
 
-  @@sizes = {"male" =>  {0 => "Mens - S", 1 => "Mens - M", 2 => "Mens - L", 3 => "Mens - XL", 
+  @@sizes = {"male" =>  {0 => "Mens - S", 1 => "Mens - M", 2 => "Mens - L", 3 => "Mens - XL",
                          4 => "Mens - XXL", 5 => "Mens - XXXL" },
-           "female" => {0 => "Womens - S", 1 => "Womens - M", 2 => "Womens - L", 3 => "Womens - XL", 
+           "female" => {0 => "Womens - S", 1 => "Womens - M", 2 => "Womens - L", 3 => "Womens - XL",
                         4 => "Womens - XXL", 5 => "Womens - XXXL"}}
 
   @@pet_shirt_sizes = ['Dog - XS', 'Dog - S', 'Dog - M', 'Dog - L', 'Dog - XL', 'Dog - XXL', 'Dog - XXXL']
   @@pet_collar_sizes = ['Dog - S', 'Dog - M', 'Dog - L']
-  
+
   def initialize(test)
     @trait = nil
     @email = "placeholder"
@@ -40,12 +40,12 @@ class User
     @ship_street = "1234 Fake St"
     @ship_street_2 = nil
     @ship_state = "CA"
-    @cc = "4111111111111111" 
+    @cc = "4111111111111111"
     @cc_invalid = "4567890133334444"
     @cc_exp_month = "01 - January"
     @cc_exp_year = "2020"
     @cvv = "333"
-    @last_four = "1111" 
+    @last_four = "1111"
     @test = test
     @use_shipping = true
     @bill_zip = "90210"
@@ -98,7 +98,7 @@ class User
   def target_plan(input_hash)
     plan_name = input_hash['plan_name']
     #remove the "Loot Crate" from the subscription name
-    plan_name = plan_name.gsub(/Loot Crate/, '') 
+    plan_name = plan_name.gsub(/Loot Crate/, '')
     @subscription_name = plan_name
   end
 
@@ -141,9 +141,9 @@ class User
       @level_up_subscription_name = 'Level Up Accessories 6 Month'
     end
   end
-    
+
   def save!
-   puts "SAVE FUNCTION IS PLACEHOLDER!!!" 
+   puts "SAVE FUNCTION IS PLACEHOLDER!!!"
   end
 
   def enter_shirt_size
@@ -199,7 +199,7 @@ class User
       end
     end
   end
- 
+
   def tax_applied?
     return @tax_applied
   end
@@ -220,7 +220,7 @@ class User
     elsif type == 'level up'
       target_content = 'Level Up Purchase Confirmation'
     elsif type == 'levelup cancellation'
-      target_content = 'Level Up Cancellation Confirmation' 
+      target_content = 'Level Up Cancellation Confirmation'
     elsif type == 'anime confirmation'
       target_content = 'Loot Anime Order Confirmation'
     elsif type == 'pets confirmation'
@@ -243,7 +243,7 @@ class User
         sleep(3)
       end
     end
-    expect(email_pass).to be_truthy, 
+    expect(email_pass).to be_truthy,
       """
         Did not find an email with subject line '#{target_content}' for email #{@email}
         Subject lines found: #{subjects}
@@ -252,7 +252,7 @@ class User
   end
 
   def word_for_digits(i)
-    words = ["zero", "one", "two", "three", "four", 
+    words = ["zero", "one", "two", "three", "four",
              "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve"]
     words[i.to_i]
   end
@@ -267,7 +267,7 @@ class User
    end
    if upgrade_month_int <= current_month_int
      puts "Cannot upgrade: Upgrade plan months must be greater than current plan months"
-     puts "Current plan Months: " + current_month_int 
+     puts "Current plan Months: " + current_month_int
      puts "Upgrade plan Months: " + upgrade_month_int
    else
      current_plan = Plan.new(current_month_int, Date.today, false)
@@ -313,5 +313,13 @@ class User
     else
       @subscription_name.gsub(/[^\d]/, '').to_i
     end
+  end
+
+  def match_billing_shipping_address
+    @bill_street = @ship_street
+    @bill_street_2 = @ship_street_2
+    @bill_city = @ship_city
+    @bill_zip = @ship_zip
+    @bill_state = @ship_state
   end
 end

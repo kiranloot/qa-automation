@@ -9,6 +9,7 @@ Feature: Anmie Subscription Creation
             And the user submits valid subscription information
         Then the new subscription should be added to the user account
             And the user should receive a anime confirmation email
+            And the recurly subscription data is fully validated
 
     @ready
     Scenario: Registered user creates three month anime subscription
@@ -20,10 +21,10 @@ Feature: Anmie Subscription Creation
         Then standard new subscription pass criteria should pass
         And the recurly subscription should have the correct rebill date
 
-    @ready @recurly 
+    @ready @recurly
     Scenario: Registered user creates six month anime subscription
         Given a registered user with no prior Subscription
-            When the user logs in 
+            When the user logs in
             And the user selects the Anime crate
             And the user selects a six month subscription plan
             And the user submits valid subscription information

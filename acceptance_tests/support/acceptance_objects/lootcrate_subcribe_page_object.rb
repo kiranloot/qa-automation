@@ -22,7 +22,7 @@ include WaitForAjax
   end
 
   def click_get_loot
-    find(:css, "#alchemy_core_header_carousel").find_link("GET LOOT CRATE").click
+    find(:css, "section.header").find_link("GET LOOT CRATE").click
     wait_for_ajax
   end
 

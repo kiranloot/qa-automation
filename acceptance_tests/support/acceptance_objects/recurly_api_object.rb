@@ -101,8 +101,12 @@ class RecurlyAPI
     expect(account.billing_info.last_four).to eq($test.user.last_four)
   end
 
-  def get_subscription_info
+  def get_subscription_info(account)
     account.subscriptions.first
+  end
+
+  def get_invoice_info(account)
+    account.invoices.first
   end
 
   def get_billing_address
@@ -186,12 +190,6 @@ class RecurlyAPI
     end
   end
 
-  def get_rebill_date
-    account = get_account
-    rebilldate = account.subscriptions.first.current_period_ends_at
-    rebilldate
-  end
-
   def get_tax_info
     account = get_account
     invoice_data = account.invoices[0]['line_items']
@@ -208,5 +206,14 @@ class RecurlyAPI
     upgrade_info['rebill_date'] = subscription.current_period_ends_at
     upgrade_info['cost'] = subscription['pending_subscription']['unit_amount_in_cents']
     upgrade_info
+  end
+
+  def verify_rebill_date
+    account = get_account
+    calculated_rebill_date = $test.calculate_rebill_date(true)
+    actual_rebill_date = get_subscription_info(account).current_period_ends_at
+    expect(actual_rebill_date.strftime('%Y')).to eq(calculated_rebill_date['year'])
+    expect(actual_rebill_date.strftime('%B')).to eq(calculated_rebill_date['month'])
+    expect(actual_rebill_date.strftime('%d')).to eq(calculated_rebill_date['day'])
   end
 end

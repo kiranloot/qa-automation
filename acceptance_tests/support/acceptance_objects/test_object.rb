@@ -18,7 +18,7 @@ class Test
   @admin_user = nil
   @sailthru = SailthruAPI.new
   @current_page = start_page
-  @test_data = test_data 
+  @test_data = test_data
   @pages = pages
   @db = db
   @box = box
@@ -43,18 +43,18 @@ class Test
     should_write = false
   end
 
-  if should_write 
+  if should_write
     File.open($env_test_data_file_path, 'w') {|f| f.write @test_data.to_yaml}
   else
     puts "Test data not updated: unrecognized data identifier."
   end
  end
- 
+
  def increment_digits(input_string)
    working = input_string
    values = working.split(/(\d+)/)
    numbers = values[1].to_i
-   numbers += 1 
+   numbers += 1
    working = values[0] + numbers.to_s + values[2]
    return working
  end
@@ -109,13 +109,13 @@ class Test
    @current_page.visit_page
    if $test.db.user_exists?($test.user.email)
      sleep(1)
-     find(:css, '#new-customer-container span.goOrange').click 
+     find(:css, '#new-customer-container span.goOrange').click
      wait_for_ajax
      unless (page.has_css?('#user_email'))
-       find(:css, '#new-customer-container span.goOrange').click 
+       find(:css, '#new-customer-container span.goOrange').click
      end
      enter_login_info
-   else 
+   else
      enter_email
      enter_password
      submit_signup
@@ -160,7 +160,7 @@ class Test
    if !has_prior
      email =  @test_data["emails"]["registered_no_prior"]
      update_test_data("registered_no_prior")
-   else 
+   else
      email = @test_data["emails"]["registered_with_active"]
      update_test_data("registered_with_active")
    end
@@ -175,8 +175,9 @@ class Test
    ug = UserGen.new(type, with_string)
    @user = ug.build
    @user.set_full_name
+   @user.match_billing_shipping_address
   end
- 
+
  def affiliate_working?
    visit_page(:home)
    @current_page.visit_with_affiliate(@affiliate.name)
@@ -225,9 +226,9 @@ class Test
                 "newzealand" => :new_zealand, "ireland" => :ireland,
                 "austrailia" => :austrailia, "netherlands" => :netherlands,
                 "sweden" => :sweden, "ie" => :ireland, "de" => :germany,
-                "dk" => :denmark, "nl" => :netherlands, "fr" => :france, 
+                "dk" => :denmark, "nl" => :netherlands, "fr" => :france,
                 "no" => :norway, "fi" => :finland, "nz" => :new_zealand,
-                "au" => :austrailia, "se" => "sweden", "gb" => :uk, 
+                "au" => :austrailia, "se" => "sweden", "gb" => :uk,
                 "california" => :california}
    if type != "random"
      return type_hash[type]
@@ -291,16 +292,17 @@ class Test
     @user.email = api.create_user_with_canceled_sub
   end
 
-  def calculate_rebill_date
+  def calculate_rebill_date(utc=false)
     if /Anime/.match($test.user.subscription_name)
       end_date = 28
     else
       end_date = 20
     end
-    sub_day = Date.today
+    utc ? sub_day = Time.now.utc.to_date : sub_day = Date.today
     if sub_day.day > 5 && sub_day.day < end_date
       rebill_day = Date.new((sub_day >> $test.user.plan_months).year,
-                            (sub_day >> $test.user.plan_months).month, 5)
+                            (sub_day >> $test.user.plan_months).month,
+                            (utc ? 6 : 5))
     else
       rebill_day = sub_day >> $test.user.plan_months
     end
@@ -317,7 +319,7 @@ class Test
     month = time[5..6]
     date = time[8..9]
     month = Date::MONTHNAMES[month.to_i]
-    return"#{month} #{date}, #{year}" 
+    return"#{month} #{date}, #{year}"
   end
 
   def all_coupon_codes_unique?
