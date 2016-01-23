@@ -21,7 +21,7 @@ include WaitForAjax
   end
 
   def open_alchemy_page(link)
-    find_link(link).click
+    find(:id, 'sitemap').find_link(link).click
     wait_for_ajax
   end
 
@@ -35,7 +35,12 @@ include WaitForAjax
   end
 
   def edit_text_essence(essence_name, text)
-    find(:css, 'label', :text => essence_name).find(:xpath,".//..").fill_in('tinymce',:with => text)
+    iframe_id = find(:css, 'label', :text => essence_name).first(:xpath,'.//..').find(:css, 'iframe')[:id]
+    within_frame(iframe_id){
+      el = find(:id, 'tinymce')
+      el.click
+      el.send_keys(text)
+    }
   end
 
   def click_save

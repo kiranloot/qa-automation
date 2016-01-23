@@ -9,8 +9,6 @@ When(/^the user edits the (.*) page$/) do |page|
 end
 
 When(/^changes the (.*) text to a random string$/) do |essence|
-  sleep(5)
-  puts html
   $test.current_page.edit_text_essence(essence, 'rand!')
 end
 
