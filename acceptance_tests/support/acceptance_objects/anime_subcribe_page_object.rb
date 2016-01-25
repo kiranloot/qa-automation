@@ -17,7 +17,8 @@ include WaitForAjax
   end
 
   def click_get_loot
-    find(:id, "alchemy_anime_header_carousel").find_link("GET LOOT ANIME").click
+#    find(:id, "alchemy_anime_header_carousel").find_link("GET LOOT ANIME").click
+    find(:id, "plas2-lnk").click
     wait_for_ajax
   end
 
