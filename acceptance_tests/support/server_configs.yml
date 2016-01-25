@@ -21,22 +21,22 @@ staging:
     app: "lootcrate-staging"
     base_url: "https://staging.lootcrate.com/?username=lootcrateis25timesgreaterthanthecompetition"
 goliath:
-    host: 'ec2-54-235-146-58.compute-1.amazonaws.com'
-    port: '5432'
-    user: 'tdfutzeugxpsge'
-    password: '6C9E8w6NG_yOW_bD0c9u_IIOfU'
-    dbname: 'd8qmbr1p8vor9i'
+    host: 'ec2-107-20-133-235.compute-1.amazonaws.com'
+    port: '5972'
+    user: 'u38l05k018os0q'
+    password: 'p8rbd0fidl2ktpb1anekidpmk32'
+    dbname: 'd4drlckhi043hu'
     redis_url: "redis://redistogo:0886abb02a7f885a29fe4aa8ec642b16@mummichog.redistogo.com:10742/"
     prefix: "https://goliath.lootcrate.com"
     admin: "https://lootcrate-goliath-admin.herokuapp.com/admin/login"
     app: "lootcrate-goliath"
     base_url: "https://goliath.lootcrate.com/?username=lootcrateis25timesgreaterthanthecompetition"
 qa2:
-    host: 'ec2-54-83-17-8.compute-1.amazonaws.com'
-    port: '5432'
-    user: 'hiajojhakstxil'
-    password: '5rZlE9CkbJwsF_nym9GbeY5ysN'
-    dbname: 'd9n9c0ersnvap8'
+    host: 'ec2-75-101-162-128.compute-1.amazonaws.com'
+    port: '5632'
+    user: 'ucneac6qdaqfv4'
+    password: 'p2vbo2stjftutt2khm49gp1qo1m'
+    dbname: 'dcmdjpnoh3p1nq'
     redis_url: "redis://redistogo:58cd69a7595d7b49495518e54075ef41@hammerjaw.redistogo.com:10397/"
     prefix: "https://qa2.lootcrate.com"
     admin: "https://lootcrate-qa2-admin.herokuapp.com/admin/login"
