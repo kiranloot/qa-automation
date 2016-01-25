@@ -26,7 +26,8 @@ include WaitForAjax
   end
 
   def login_to_alchemy(username, password)
-    unless page.has_content?("Welcome back")
+    
+    if page.has_css?("#cms_user_email")
       fill_in('cms_user_email', :with => username)
       fill_in('cms_user_password', :with => password)
       find_button("Log in").click

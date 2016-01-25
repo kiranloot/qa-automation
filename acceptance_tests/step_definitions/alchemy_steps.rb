@@ -9,7 +9,8 @@ When(/^the user edits the (.*) page$/) do |page|
 end
 
 When(/^changes the (.*) text to a random string$/) do |essence|
-  $test.current_page.edit_text_essence(essence, 'rand!')
+  @alchemy_rand_string = ('a'..'z').to_a.shuffle[0,8].join
+  $test.current_page.edit_text_essence(essence, @alchemy_rand_string)
 end
 
 When(/^the user saves the alchemy page$/) do
@@ -22,5 +23,5 @@ end
 
 #THENS
 Then(/^the user should see the new alchemy content on the page$/) do
-  assert_text('rand!')
+  assert_text(@alchemy_rand_string)
 end
