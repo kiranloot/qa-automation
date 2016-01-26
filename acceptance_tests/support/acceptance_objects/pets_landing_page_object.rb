@@ -18,7 +18,7 @@ include WaitForAjax
   end
 
   def click_get_loot
-    find(:css, "section.header").find_link("GET LOOT PETS").click
+    find(:id, "alchemy_pets_header_carousel").find_link("GET LOOT PETS").click
     $test.current_page = PetsSubscribePage.new
     wait_for_ajax
   end
