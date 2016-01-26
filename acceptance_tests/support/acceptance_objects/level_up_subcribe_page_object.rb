@@ -8,7 +8,7 @@ include WaitForAjax
     super
     @page_type = "levelup_subscribe"
     @tracking_script_lines << "lca.page('level_up', 'index', '');"
-    @tracking_script_lines << "clickTracking();"
+    @tracking_script_lines << "lca.clickTracking();"
     setup
     @plan_display_names = {
       'onesocks' => 'Level Up Socks 1 Month',
