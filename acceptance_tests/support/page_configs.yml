@@ -21,7 +21,7 @@ fallout4:
 lootcrate_landing:
  url: "/crates/lootcrate"
 lootcrate_subscribe:
- url: "/subscription-crates/lootcrate/plans"
+ url: "/crates/lootcrate/plans"
 lootcrate_checkout:
  url: "/1-month-subscription/checkouts/new"
 levelup_subscribe:
