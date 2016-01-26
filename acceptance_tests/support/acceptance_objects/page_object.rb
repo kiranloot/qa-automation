@@ -138,7 +138,6 @@ class Page
       "tax: 1.80,",
       "discount: 0.00,",
       "currency: 'USD',",
-      "couponCode: '',",
       "repeatPurchase: false,",
       "planName: '1-month-subscription',",
       "planCountry: 'US',",
