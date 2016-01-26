@@ -293,7 +293,7 @@ class User
     wait_for_ajax
     sleep(5)
     find(:css, "#navbar-collapse > ul > li.country-selector.dropdown.country-selector-desktop > a").click
-    find(:css, "div.choose-country").click
+    find(:css, "ul.dropdown-menu").find(:css, "div.choose-country").click
     wait_for_ajax
     find(".select2-result-label", :text => country).click
     wait_for_ajax
