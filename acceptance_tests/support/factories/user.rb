@@ -19,6 +19,9 @@ FactoryGirl.define do
     trait :admin do
       email {"admin@example.com"}
     end
+    trait :alchemy do
+      email {"cmsadmin@example.com"}
+    end
     trait :canceled do
       first_name "Canceled"
       last_name "Subscription"

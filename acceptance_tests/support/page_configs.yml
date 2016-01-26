@@ -1,3 +1,5 @@
+about_us:
+ url: '/about_us'
 home:
  url: "/?username=lootcrateis25timesgreaterthanthecompetition"
 signup:
@@ -42,3 +44,5 @@ boogie2988:
  url: "/referrers/boogie2988"
 tradechat:
  url: "/referrers/tradechat"
+alchemy:
+ url: "/alchemy/login"

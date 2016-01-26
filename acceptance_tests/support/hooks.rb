@@ -19,6 +19,7 @@ $env_base_url = box.base_url
 
 $env_test_data_file_path ||= "acceptance_tests/support/qa_test_data.yml"
 test_data = YAML.load(File.open($env_test_data_file_path))
+
 pages = {
   home: HomePage, 
   signup: SignupPage, 
@@ -41,7 +42,9 @@ pages = {
   pets_checkout: PetsCheckoutPage,
   pewdiepie: PewdiepiePage, 
   boogie2988: Boogie2988Page, 
-  tradechat: TradeChat
+  tradechat: TradeChat,
+  alchemy: AlchemyPage,
+  about_us: AboutUsPage
 }
 
 Before do
@@ -59,8 +62,16 @@ Before do
   end
 end
 
+Before ('@alchemy_text') do 
+  $text_id = $test.db.get_richtext_alchemy_essence_id("What is Loot Crate™?")
+end
+
 After do
   $test.db.finish
   reset_session!
   page.execute_script "window.close();"
+end
+
+After ('@alchemy_text') do 
+  $test.db.set_richtext_alchemy_essence_to($text_id, "<p>What is Loot Crate™?</p>", 'What is Loot Crate™?')
 end
