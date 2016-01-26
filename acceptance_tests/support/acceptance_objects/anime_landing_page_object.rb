@@ -1,12 +1,13 @@
 require_relative "subscribe_page_object"
 
-class AnimeSubscribePage < SubscribePage
+class AnimeLandingPage < SubscribePage
 include Capybara::DSL
 include WaitForAjax
 
   def initialize
     super
-    @page_type = "anime_subscribe"
+    @page_type = "anime_landing"
+    @tracking_script_lines << "lca.page('core_crates', 'show', '');"
     setup
     @plan_display_names = {
       'one' => 'Anime 1 Month Subscription',
@@ -17,8 +18,8 @@ include WaitForAjax
   end
 
   def click_get_loot
-#    find(:id, "alchemy_anime_header_carousel").find_link("GET LOOT ANIME").click
     find(:id, "plas2-lnk").click
+    $test.current_page = AnimeSubscribePage.new
     wait_for_ajax
   end
 

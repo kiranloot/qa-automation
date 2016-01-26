@@ -16,18 +16,24 @@ recurly:
  url: "https://recurly.com"
 fallout4:
  url: "/fallout4"
+lootcrate_landing:
+ url: "/crates/lootcrate"
 lootcrate_subscribe:
  url: "/subscription-crates/lootcrate/plans"
 lootcrate_checkout:
  url: "/1-month-subscription/checkouts/new"
 levelup_subscribe:
  url: "/level_up"
-anime_subscribe:
+anime_landing:
  url: "/crates/anime"
+anime_subscribe:
+ url: "/crates/anime/plans"
 anime_checkout:
  url: "/anime-1-month-subscription/checkouts/new"
-pets_subscribe:
+pets_landing:
  url: "/crates/pets"
+pets_subscribe:
+ url: "/crates/pets/plans"
 pets_checkout:
  url: "/pets-1-month-subscription/checkouts/new"
 pewdiepie:

@@ -1,12 +1,13 @@
 require_relative "subscribe_page_object"
 
-class PetsSubscribePage < SubscribePage
+class PetsLandingPage < SubscribePage
 include Capybara::DSL
 include WaitForAjax
 
   def initialize
     super
-    @page_type = "pets_subscribe"
+    @page_type = "pets_landing"
+    @tracking_script_lines << "lca.page('core_crates', 'show', '');"
     setup
     @plan_display_names = {
       'one' => 'Pets 1 Month Subscription',
@@ -16,9 +17,10 @@ include WaitForAjax
     }
   end
 
-  def visit_page
-    visit @base_url
-    $test.current_page = self
+  def click_get_loot
+    find(:id, "alchemy_pets_header_carousel").find_link("GET LOOT PETS").click
+    $test.current_page = PetsSubscribePage.new
+    wait_for_ajax
   end
 
   def load_checkout_page_object
