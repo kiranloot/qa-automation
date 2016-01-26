@@ -17,7 +17,7 @@ recurly:
 fallout4:
  url: "/fallout4"
 lootcrate_subscribe:
- url: "/crates/lootcrate/plans"
+ url: "/subscription-crates/lootcrate/plans"
 lootcrate_checkout:
  url: "/1-month-subscription/checkouts/new"
 levelup_subscribe:
