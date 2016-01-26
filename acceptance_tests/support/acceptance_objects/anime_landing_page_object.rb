@@ -18,7 +18,7 @@ include WaitForAjax
   end
 
   def click_get_loot
-    find(:id, "alchemy_anime_header_carosel").find_link("GET LOOT ANIME").click
+    find(:id, "plas2-lnk").click
     $test.current_page = AnimeSubscribePage.new
     wait_for_ajax
   end
