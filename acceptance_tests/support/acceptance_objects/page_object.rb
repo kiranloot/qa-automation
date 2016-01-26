@@ -122,7 +122,7 @@ class Page
     #will append variable lines to the above based on the page we are visiting
     lines += @tracking_script_lines 
     lines.each do |line|
-      expect(html).to include(line)
+      expect(html).to include(line), "Did not find tracking line:'#{line}' in the html."
     end
   end
 
@@ -148,7 +148,6 @@ class Page
       "paymentMethod: 'credit card',",
       "productBrand: 'Loot Crate Core',",
       "paymentMethod: 'credit card',",
-      "shirtSize: '',",
       "products: [",
       "id: 'core-crate-1',",
       "sku: '1-month-subscription',",
@@ -162,7 +161,7 @@ class Page
     ]
     lines += @conversion_tracking_script_lines
     lines.each do |line|
-      expect(html).to include(line)
+      expect(html).to include(line), "Did not find conversion tracking line:'#{line}' in the html."
     end
   end
 end
