@@ -12,6 +12,7 @@ Feature: International Subscriptions
         And recurly should have a matching international subscription
         And the recurly billing address should have no state
         And the user should receive a subscription confirmation email
+        And the recurly subscription data is fully validated
 
     @ready
     Scenario: Australian user signs up for random month subscription
