@@ -108,8 +108,9 @@ end
 
 Then /the recurly rebill date should be (.*) months? (ahead|behind)$/ do |months, direction|
   if direction == 'ahead'
-    expect($test.recurly.get_rebill_date).to eq(@original_rebill >> months.to_i)
+    original_rebill_ymd = (@original_rebill >> months.to_i).strftime('%F')
   elsif direction == 'behind'
-    expect($test.recurly.get_rebill_date).to eq(@original_rebill << months.to_i)
+    original_rebill_ymd = (@original_rebill << months.to_i).strftime('%F')
   end
+  expect($test.recurly.get_rebill_date.strftime('%F')).to eq(original_rebill_ymd)
 end

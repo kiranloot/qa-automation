@@ -11,7 +11,7 @@ Feature: Subscription Upgrades
         And  the user should receive an upgrade email
         And  recurly should now have a three month subscription plan
         And  the recurly account's last transaction should have tax calculated
-        And  the recurly rebill date should be 3 months ahead
+        And  the recurly rebill date should be 2 months ahead
 
     Scenario: User presented with price and proration details before upgrade from 1 to 12 month subscription plan
         Given a registered user with a one month subscription

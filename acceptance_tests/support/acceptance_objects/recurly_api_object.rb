@@ -210,7 +210,12 @@ class RecurlyAPI
 
   def verify_rebill_date
     account = get_account
-    calculated_rebill_date = $test.calculate_rebill_date(true)
+    #Conditional statement to handle the UTC date change by 4pm PST
+    if DateTime.now.strftime('%H').to_i >= 16
+      calculated_rebill_date = $test.calculate_rebill_date(true)
+    else
+      calculated_rebill_date = $test.calculate_rebill_date
+    end
     actual_rebill_date = get_subscription_info(account).current_period_ends_at
     expect(actual_rebill_date.strftime('%Y')).to eq(calculated_rebill_date['year'])
     expect(actual_rebill_date.strftime('%B')).to eq(calculated_rebill_date['month'])
