@@ -90,18 +90,21 @@ class Test
      click_hamburger
    end
    click_link("Pick a Crate")
-   find(:css,'ul.dropdown-menu').click_link(crate)
-   wait_for_ajax
    case crate
    when "Loot Crate"
+     find(:css, "#header-lootcrate-lnk").click
      $test.current_page = LootcrateLandingPage.new
    when "Level Up"
+     find(:id, "header-level-up-lnk").click
      $test.current_page = LevelUpSubscribePage.new
    when "Anime"
+     find(:id, "header-anime-lnk").click
      $test.current_page = AnimeLandingPage.new
    when "Pets"
+     find(:id, "header-pets-lnk").click
      $test.current_page = PetsLandingPage.new
    end
+   wait_for_ajax
  end
 
  def click_hamburger
@@ -129,6 +132,7 @@ class Test
      enter_email
      enter_password
      submit_signup
+     sleep(10)
    end
  end
 #Move to parent page object

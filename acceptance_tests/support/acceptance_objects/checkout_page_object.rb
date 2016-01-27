@@ -59,7 +59,7 @@ include Capybara::DSL
   end
 
   def select_shipping_state(state)
-    find(:id, 's2id_checkout_shipping_address_state').click
+    find(:css, 'div#s2id_checkout_shipping_address_state > a').click
     wait_for_ajax
     find(".select2-result-label", :text => state).click
   end
@@ -81,12 +81,12 @@ include Capybara::DSL
   end
 
   def select_cc_exp_month(month)
-    find(:id, "s2id_checkout_credit_card_expiration_date_2i").click
+    find(:css, "div#s2id_checkout_credit_card_expiration_date_2i > a").click
     find(".select2-result-label", :text => month).click
   end
 
   def select_cc_exp_year(year)
-    find(:id, "s2id_checkout_credit_card_expiration_date_1i").click
+    find(:css, "div#s2id_checkout_credit_card_expiration_date_1i > a").click
     find(".select2-result-label", :text => year).click
   end
 
@@ -99,19 +99,19 @@ include Capybara::DSL
   end
 
   def validate_coupon_code
-    find(:id, "validate-coupon").click
+    find(:css, "#validate-coupon").click
   end
 
   def click_subscribe
-    find(:id, "checkout").click
+    find(:css, "#checkout").click
   end
 
   def click_use_shipping_address_checkbox
-    find(:id, "billing").click
+    find(:css, "#billing").click
   end
 
   def click_legal_checkbox
-    find(:id, "terms-agree-checkbox").click
+    find(:css, "#terms-agree-checkbox").click
   end
 
   def verify_confirmation_page
