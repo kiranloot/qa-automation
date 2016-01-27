@@ -1,6 +1,6 @@
 @regression @core @anime_subscription_creation @selenium
 Feature: Subscription Creation
-    @ready
+    @ready @mobile_ready
     Scenario: Registered user creates twelve month anime subscription plan
         Given a registered user with no prior subscription 
             When the user logs in
@@ -9,7 +9,7 @@ Feature: Subscription Creation
             And the user submits valid subscription information
         Then standard new subscription pass criteria should pass
 
-    @ready
+    @ready @mobile_ready
     Scenario: International user signs up for random month Anime subscription
         Given a registered user with a Austria address
             When the user logs in

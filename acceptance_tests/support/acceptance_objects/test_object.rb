@@ -92,16 +92,16 @@ class Test
    click_link("Pick a Crate")
    case crate
    when "Loot Crate"
-     find(:css, "#header-lootcrate-lnk").click
+     find("#header-lootcrate-lnk").click
      $test.current_page = LootcrateLandingPage.new
    when "Level Up"
-     find(:id, "header-level-up-lnk").click
+     find("#header-level-up-lnk").click
      $test.current_page = LevelUpSubscribePage.new
    when "Anime"
-     find(:id, "header-anime-lnk").click
+     find("#header-anime-lnk").click
      $test.current_page = AnimeLandingPage.new
    when "Pets"
-     find(:id, "header-pets-lnk").click
+     find("#header-pets-lnk").click
      $test.current_page = PetsLandingPage.new
    end
    wait_for_ajax

@@ -1,6 +1,6 @@
 @regression @core @subscription_creation @selenium
 Feature: Subscription Creation
-    @ready
+    @ready @mobile_ready
     Scenario: Registered user creates twelve month subscription plan
         Given a registered user with no prior subscription 
             When the user logs in
@@ -9,7 +9,7 @@ Feature: Subscription Creation
             And the user submits valid subscription information
         Then standard new subscription pass criteria should pass
 
-    @ready
+    @ready @mobile_ready
     Scenario: User attempts to create a subscription with invalid credit 
         card data
         Given a registered user with no prior subscription

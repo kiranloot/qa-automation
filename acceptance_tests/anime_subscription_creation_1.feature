@@ -1,6 +1,6 @@
 @regression @core @anime_subscription_creation @selenium
 Feature: Anmie Subscription Creation
-    @ready
+    @ready @recurly @mobile_ready
     Scenario: Registered user creates one month anime subscription
         Given a registered user with no prior subscription
             When the user logs in
@@ -11,7 +11,7 @@ Feature: Anmie Subscription Creation
             And the user should receive a anime confirmation email
             And the recurly subscription data is fully validated
 
-    @ready
+    @ready @mobile_ready
     Scenario: Registered user creates three month anime subscription
         Given a registered user with no prior Subscription
             When the user logs in
@@ -21,7 +21,7 @@ Feature: Anmie Subscription Creation
         Then standard new subscription pass criteria should pass
         And the recurly subscription should have the correct rebill date
 
-    @ready @recurly
+    @ready @recurly @mobile_ready
     Scenario: Registered user creates six month anime subscription
         Given a registered user with no prior Subscription
             When the user logs in
