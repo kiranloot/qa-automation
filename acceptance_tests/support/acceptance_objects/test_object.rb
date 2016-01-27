@@ -132,7 +132,6 @@ class Test
      enter_email
      enter_password
      submit_signup
-     sleep(10)
    end
  end
 #Move to parent page object

@@ -300,7 +300,9 @@ class User
     find(:css, "ul.dropdown-menu").find(:css, "div.choose-country > a").click
     wait_for_ajax
     find(".select2-result-label", :text => country).click
-    sleep(10)
+    if ENV['DRIVER'] == 'appium'
+      sleep(5)
+    end
     wait_for_ajax
   end
 
