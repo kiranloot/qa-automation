@@ -21,6 +21,7 @@ gem 'selenium-webdriver', require: false
 #gem 'sauce-cucumber', require: false
 gem 'capybara', '>= 1.1.2'
 gem 'cucumber-rails', require: false
+gem 'appium_capybara'
 gem 'poltergeist', require: false
 gem 'platform-api'
 gem 'recurly', '~> 2.4.2'

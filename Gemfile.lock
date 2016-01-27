@@ -36,8 +36,18 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    appium_capybara (1.2.1)
+      appium_lib (>= 4.1.0)
+      capybara (~> 2.4, >= 2.4.1)
+    appium_lib (8.0.1)
+      awesome_print (~> 1.6)
+      json (~> 1.8)
+      nokogiri (~> 1.6.6)
+      selenium-webdriver (~> 2.48)
+      tomlrb (~> 1.1)
     arel (6.0.0)
     aspector (0.13.1)
+    awesome_print (1.6.1)
     builder (3.2.2)
     byebug (2.7.0)
       columnize (~> 0.3)
@@ -202,6 +212,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
+    tomlrb (1.2.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     websocket (1.2.2)
@@ -215,6 +226,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  appium_capybara
   aspector
   capybara (>= 1.1.2)
   capybara-console

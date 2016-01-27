@@ -50,8 +50,10 @@ pages = {
 Before do
   Capybara.default_max_wait_time = 15
   Capybara.use_default_driver
-  page.driver.browser.manage.window.move_to(0, 0)
-  page.driver.browser.manage.window.resize_to(1800, 1100)
+  unless ENV['DRIVER'] == 'appium'
+    page.driver.browser.manage.window.move_to(0, 0)
+    page.driver.browser.manage.window.resize_to(1800, 1100)
+  end
   visit $env_base_url
   $test = Test.new( test_data, HomePage.new, pages, DBCon.new, box, MailinatorAPI.new)
   $test.user = User.new($test)
@@ -68,7 +70,9 @@ end
 
 After do
   $test.db.finish
-  reset_session!
+  unless ENV['DRIVER'] == 'appium'
+    reset_session!
+  end
   page.execute_script "window.close();"
 end
 
