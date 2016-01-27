@@ -23,10 +23,7 @@ test_data = YAML.load(File.open($env_test_data_file_path))
 pages = {
   home: HomePage, 
   signup: SignupPage, 
-  #checkout: CheckoutPage, 
-  #subscribe: SubscribePage,
   my_account: MyAccountPage, 
-  #mailinator: Mailinator, 
   admin: AdminPage, 
   upgrade: UpgradePage,
   levelup_subscribe: LevelUpSubscribePage, 
@@ -70,10 +67,11 @@ end
 
 After do
   $test.db.finish
-  unless ENV['DRIVER'] == 'appium'
-    reset_session!
-  end
-  page.execute_script "window.close();"
+  #unless ENV['DRIVER'] == 'appium'
+  #  reset_session!
+  #end
+  #page.execute_script "window.close();"
+  page.driver.quit()
 end
 
 After ('@alchemy_text') do 
