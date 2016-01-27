@@ -86,6 +86,9 @@ class Test
  def select_crate(crate)
    find(:css,'a.logo-link').click
    wait_for_ajax
+   if ENV['DRIVER'] == 'appium'
+     click_hamburger
+   end
    click_link("Pick a Crate")
    find(:css,'ul.dropdown-menu').click_link(crate)
    wait_for_ajax
@@ -101,7 +104,14 @@ class Test
    end
  end
 
+ def click_hamburger
+   find(:css, 'button.navbar-toggle').click
+ end
+
  def log_in_or_register
+   if ENV['DRIVER'] == 'appium'
+     click_hamburger
+   end
    if !page.has_content?("Log In")
      log_out
    end
