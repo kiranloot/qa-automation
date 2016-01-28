@@ -292,10 +292,17 @@ class User
   def set_ship_to_country(country, top_bot: nil)
     wait_for_ajax
     sleep(5)
-    find(:css, "#navbar-collapse > ul > li.country-selector.dropdown.country-selector-desktop > a").click
-    find(:css, "ul.dropdown-menu").find(:css, "div.choose-country").click
+    if ENV['DRIVER'] == 'appium'
+      find(:css, "div.country-selector-mobile  a").click
+    else
+      find(:css, "#navbar-collapse > ul > li.country-selector.dropdown.country-selector-desktop > a").click
+    end
+    find(:css, "ul.dropdown-menu").find(:css, "div.choose-country > a").click
     wait_for_ajax
     find(".select2-result-label", :text => country).click
+    if ENV['DRIVER'] == 'appium'
+      sleep(5)
+    end
     wait_for_ajax
   end
 

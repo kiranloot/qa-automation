@@ -86,22 +86,35 @@ class Test
  def select_crate(crate)
    find(:css,'a.logo-link').click
    wait_for_ajax
+   if ENV['DRIVER'] == 'appium'
+     click_hamburger
+   end
    click_link("Pick a Crate")
-   find(:css,'ul.dropdown-menu').click_link(crate)
-   wait_for_ajax
    case crate
    when "Loot Crate"
+     find("#header-lootcrate-lnk").click
      $test.current_page = LootcrateLandingPage.new
    when "Level Up"
+     find("#header-level-up-lnk").click
      $test.current_page = LevelUpSubscribePage.new
    when "Anime"
+     find("#header-anime-lnk").click
      $test.current_page = AnimeLandingPage.new
    when "Pets"
+     find("#header-pets-lnk").click
      $test.current_page = PetsLandingPage.new
    end
+   wait_for_ajax
+ end
+
+ def click_hamburger
+   find(:css, 'button.navbar-toggle').click
  end
 
  def log_in_or_register
+   if ENV['DRIVER'] == 'appium'
+     click_hamburger
+   end
    if !page.has_content?("Log In")
      log_out
    end

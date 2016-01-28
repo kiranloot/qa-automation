@@ -41,7 +41,7 @@ include WaitForAjax
       target = @plans[plan]
     end
     click_get_loot
-    find(:id, target).click
+    find(:css, "##{target}").click
     wait_for_ajax
     update_target_plan(plan)
     load_checkout_page_object
