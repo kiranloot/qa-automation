@@ -77,3 +77,7 @@ end
 After ('@alchemy_text') do 
   $test.db.set_richtext_alchemy_essence_to($text_id, "<p>What is Loot Crate™?</p>", 'What is Loot Crate™?')
 end
+
+After ('@sellout') do
+  $test.db.add_inventory_to_all
+end

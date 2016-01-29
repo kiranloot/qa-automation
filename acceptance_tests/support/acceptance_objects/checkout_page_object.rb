@@ -185,4 +185,9 @@ include Capybara::DSL
   def tax_displayed?
     expect(@tax_displayed).to be_truthy
   end
+
+  def shirt_variant_soldout?(variant)
+    find("div#s2id_option_type_shirt > a").click
+    expect(find("li.select2-result-unselectable div", :text => variant)).to be_truthy 
+  end
 end

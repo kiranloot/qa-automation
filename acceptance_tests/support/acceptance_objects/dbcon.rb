@@ -87,6 +87,30 @@ def add_inventory_to_all(units = 600000)
   @conn.exec(query)
 end
 
+def sellout_variant(sku)
+  variant_id_query = "select id from variants where sku = '#{sku}'"
+  id = @conn.exec(variant_id_query)[0]['id']
+  query = "update inventory_units set total_available = 0 where variant_id=#{id}" 
+  @conn.exec(query)
+end
+
+def sellout_product(name)
+  skus = get_all_variant_skus_for_product(name)
+  skus.each do |sku|
+    sellout_variant(sku)
+  end
+end
+
+def get_all_variant_skus_for_product(name)
+  query = "select v.sku from variants v join products p on v.product_id = p.id where p.name = '#{name}'"
+  results = @conn.exec(query)
+  results_array = []
+  results.each do |result|
+    results_array << result['sku']
+  end
+  results_array
+end
+
 def add_user_to_db(email, pass_hash, table)
   check_query = """
     SELECT * FROM #{table} WHERE email = '#{email}'
