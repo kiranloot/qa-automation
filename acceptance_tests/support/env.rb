@@ -19,6 +19,16 @@ conn.finish
 #Verification that config vars on the test environment don't point to prod
 QAEnvironmentValidator.verify
 
+#Logic to set browser when 'random' is selected
+if browser == 'random'
+  random_num = [*1..10].sample
+  if random_num < 9
+    browser = 'chrome'
+  else
+    browser = 'safari'
+  end
+end
+
 case driver
 when 'local'
   Capybara.default_driver = :selenium
