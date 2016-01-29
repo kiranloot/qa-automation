@@ -208,3 +208,7 @@ end
 Then /^the (.*) option should be soldout/ do |variant|
   $test.current_page.shirt_variant_soldout?(variant)
 end
+
+Then /^the landing page should reflect the sellout$/ do
+  assert_text("SOLD OUT!")
+end
