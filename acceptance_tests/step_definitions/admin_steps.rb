@@ -23,6 +23,10 @@ Given /^The (.*) level up product is (.*)$/ do |product,inv_status|
   #$test.set_subject_user
 end
 
+Given /^a db query$/ do
+  $test.db.get_inventory_item_count('Star Wars', 'Unisex - L')
+end
+
 #WHENS
 When /logs in as an admin/ do
   admin_user = $test.admin_user.email
@@ -31,7 +35,7 @@ When /logs in as an admin/ do
   #$test.set_subject_user
 end
 
-When /the admin user visits the admin page/ do 
+When /the admin user visits the admin page/ do
   step "the user visits the admin page"
 end
 
@@ -97,9 +101,15 @@ When /searches for the user's address info by full name/ do
   $test.current_page.search_address_by_full_name($test.user.full_name)
 end
 
-When /clicks over to addresses tab/ do
-  $test.current_page.click_addresses
-  $test.current_page = AdminAddressPage.new
+When /clicks over to (.*) tab/ do |tab|
+  case tab
+  when 'addresses'
+    $test.current_page.click_addresses
+    $test.current_page = AdminAddressPage.new
+  when 'inventory units'
+    $test.current_page.click_inventory_units
+    $test.current_page = AdminInventoryUnitsPage.new
+  end
 end
 
 When /searches for the user's address info by address line 1/ do
@@ -112,6 +122,10 @@ When /view the shipping manifests page/ do
   $test.current_page = AdminShippingManifestsPage.new
 end
 
+When /^the user queries inventory for (.*) item named (.*)$/ do |product, variant|
+  @inventory_item = $test.db.get_inventory_item_id_and_count(product, variant)
+end
+
 #THENS
 Then /the subscription should have a status of (.*) in the admin panel/ do |status|
   $test.current_page.subscription_status_is(status)
@@ -121,7 +135,7 @@ Then /the subscription information should be displayed/ do
   $test.current_page.subscription_information_displayed?
 end
 
-Then /the subscription should be successfully reactivated in the admin panel/ do 
+Then /the subscription should be successfully reactivated in the admin panel/ do
   step "an admin user with access to their info"
   step "the user visits the admin page"
   step "logs in as an admin"
@@ -152,7 +166,7 @@ Then (/^the correct subscription information should be displayed in the admin pa
   $test.current_page = AdminSubscriptionsPage.new
   $test.current_page.show_subscription
   $test.current_page.subscription_information_displayed?
-end 
+end
 
 Then (/^the correct subscription billing information should be displayed in the admin panel$/) do
   step "an admin user with access to their info"
@@ -161,7 +175,7 @@ Then (/^the correct subscription billing information should be displayed in the 
   $test.current_page.click_subscriptions
   $test.current_page = AdminSubscriptionsPage.new
   $test.current_page.show_subscription
-  $test.current_page.sub_billing_information_displayed? 
+  $test.current_page.sub_billing_information_displayed?
 end
 
 Then /the user's address info should be correctly displayed/ do
@@ -175,9 +189,13 @@ Then /the shipment tracking information should be visible via the admin panel/ d
   $test.current_page.click_subscriptions
   $test.current_page = AdminSubscriptionsPage.new
   $test.current_page.show_subscription
-  $test.current_page.sub_tracking_information_displayed? 
+  $test.current_page.sub_tracking_information_displayed?
 end
 
 Then /the shipping manifests page should load/ do
   $test.current_page.manifest_page_loaded?
+end
+
+Then /^the inventory value should match the queried value$/ do
+  $test.current_page.verify_inventory_count(@inventory_item)
 end

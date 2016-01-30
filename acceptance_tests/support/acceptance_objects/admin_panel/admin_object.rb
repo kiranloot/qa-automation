@@ -63,4 +63,9 @@ class AdminPage < Page
     find_link("Shipping Manifests").click
     wait_for_ajax
   end
+
+  def click_inventory_units
+    find_link("Inventory Units").click
+    wait_for_ajax
+  end
 end

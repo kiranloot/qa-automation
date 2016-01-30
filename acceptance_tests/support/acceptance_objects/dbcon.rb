@@ -51,7 +51,7 @@ def get_shirt_size(h)
     h['shirt_size'] = results[0]['name']
   end
 end
- 
+
 def user_exists?(user_email)
   query = "Select * from users where email = \'#{user_email}\'"
   results = @conn.exec(query)
@@ -119,7 +119,7 @@ def add_user_to_db(email, pass_hash, table)
     INSERT INTO #{table} (email,encrypted_password,created_at,updated_at) VALUES ('#{email}','#{pass_hash}',current_timestamp, current_timestamp)
   """
   if !@conn.exec(check_query).any?
-    @conn.exec(query) 
+    @conn.exec(query)
   end
 end
 
@@ -131,7 +131,7 @@ def add_cms_user_to_db(email, pass_hash, table)
     INSERT INTO #{table} (email,encrypted_password,role,created_at,updated_at) VALUES ('#{email}','#{pass_hash}','admin',current_timestamp, current_timestamp)
   """
   if !@conn.exec(check_query).any?
-    @conn.exec(query) 
+    @conn.exec(query)
   end
 end
 
@@ -158,7 +158,7 @@ end
 
 def get_subscriptions(user_email)
   query = "SELECT u.email as email, s.id as subscription_id, s.plan_id as plan_id
-            FROM subscriptions s 
+            FROM subscriptions s
             JOIN users u on s.user_id = u.id
             WHERE u.email = \'#{user_email}\'"
   @conn.exec(query)
@@ -220,7 +220,7 @@ def get_plan_title(h, sub_id)
       h["plan_name"] = row["title"]
     end
   end
- 
+
 end
 
 def shirt_size_query(sub_id)
@@ -233,7 +233,7 @@ end
 def billing_query(sub_id)
   q = """
   select * from addresses
-  where id in (select billing_address_id from subscriptions 
+  where id in (select billing_address_id from subscriptions
   where id = '#{sub_id}');
   """
   q
@@ -361,9 +361,9 @@ def one_active_query(timestamp, crate_type = 'Core Crate')
 t = timestamp
 q = """
 with actives AS(
-select u.email as email, s.user_id, s.subscription_status as status, 
+select u.email as email, s.user_id, s.subscription_status as status,
 s.cancel_at_end_of_period as eop, s.id as subs,
-s.next_assessment_at as rebill, 
+s.next_assessment_at as rebill,
 sa.flagged_invalid_at as flagged,
 sa.state as shipping_state,
 sa.zip as shipping_zip,
@@ -384,8 +384,8 @@ left outer join subscription_skipped_months ssm
 on s.id = ssm.subscription_id
 and s.created_at < '#{t}'
 and s.updated_at < '#{t}'
-and email like '\\_%@mailinator.com' 
-and email not like '_updated%' 
+and email like '\\_%@mailinator.com'
+and email not like '_updated%'
 ),
 
 sc AS(select email, count(subs) as c from actives
@@ -393,7 +393,7 @@ group by email),
 
 info AS(select email, plan_id, subs, rebill, status, flagged, shipping_state, shipping_zip, billing_state, billing_zip, eop, skipped_month from actives)
 
-select sc.email, c, i.subs, i.rebill from sc 
+select sc.email, c, i.subs, i.rebill from sc
 inner join info i on i.email = sc.email
 where c = 1
 and i.status = 'active'
@@ -449,6 +449,19 @@ else
   return ret_hash
 end
 
+end
+
+def get_inventory_item_id_and_count(product, variant)
+  q = """
+  SELECT iu.id, total_available FROM inventory_units iu
+  JOIN variants v on iu.variant_id = v.id
+  JOIN products p on v.product_id = p.id
+  WHERE p.name = '#{product}'
+  AND v.name = '#{variant}';
+  """
+
+  results = @conn.exec(q)
+  results[0]
 end
 
 end
