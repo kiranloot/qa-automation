@@ -109,6 +109,9 @@ When /clicks over to (.*) tab/ do |tab|
   when 'inventory units'
     $test.current_page.click_inventory_units
     $test.current_page = AdminInventoryUnitsPage.new
+  when 'variants'
+    $test.current_page.click_variants
+    $test.current_page = AdminVariantsPage.new
   end
 end
 

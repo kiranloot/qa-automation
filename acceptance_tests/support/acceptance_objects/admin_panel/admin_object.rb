@@ -68,4 +68,11 @@ class AdminPage < Page
     find_link("Inventory Units").click
     wait_for_ajax
   end
+
+  def table_scan_for(target_element)
+    while (first(target_element, maximum: 1).nil?)
+      find_link("Next ›").click
+      wait_for_ajax
+    end
+  end
 end

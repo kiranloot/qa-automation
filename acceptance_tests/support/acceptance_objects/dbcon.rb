@@ -453,7 +453,7 @@ end
 
 def get_inventory_item_id_and_count(product, variant)
   q = """
-  SELECT iu.id, total_available FROM inventory_units iu
+  SELECT iu.id, iu.variant_id, total_available FROM inventory_units iu
   JOIN variants v on iu.variant_id = v.id
   JOIN products p on v.product_id = p.id
   WHERE p.name = '#{product}'
