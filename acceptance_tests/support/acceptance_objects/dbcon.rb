@@ -369,7 +369,8 @@ sa.state as shipping_state,
 sa.zip as shipping_zip,
 ba.state as billing_state,
 ba.zip as billing_zip,
-p.id as plan_id
+p.id as plan_id,
+ssm.month_year as skipped_month
 from users u
 inner join subscriptions s
 on s.user_id = u.id
@@ -379,6 +380,8 @@ inner join addresses ba
 on s.billing_address_id = ba.id
 inner join plans p
 on s.plan_id = p.id
+left outer join subscription_skipped_months ssm
+on s.id = ssm.subscription_id
 and s.created_at < '#{t}'
 and s.updated_at < '#{t}'
 and email like '\\_%@mailinator.com' 
@@ -388,7 +391,7 @@ and email not like '_updated%'
 sc AS(select email, count(subs) as c from actives
 group by email),
 
-info AS(select email, plan_id, subs, rebill, status, flagged, shipping_state, shipping_zip, billing_state, billing_zip, eop from actives)
+info AS(select email, plan_id, subs, rebill, status, flagged, shipping_state, shipping_zip, billing_state, billing_zip, eop, skipped_month from actives)
 
 select sc.email, c, i.subs, i.rebill from sc 
 inner join info i on i.email = sc.email
@@ -400,6 +403,7 @@ and i.shipping_zip = '90210'
 and i.billing_state = 'CA'
 and i.billing_zip = '90210'
 and i.eop is null
+and i.skipped_month is null
 and i.plan_id in (
   select pl.id from plans pl join products pr on pl.product_id = pr.id where pr.name = '#{crate_type}' and pl.is_legacy is false and pl.country = 'US'
 )
