@@ -23,10 +23,6 @@ Given /^The (.*) level up product is (.*)$/ do |product,inv_status|
   #$test.set_subject_user
 end
 
-Given /^a db query$/ do
-  $test.db.get_inventory_item_count('Star Wars', 'Unisex - L')
-end
-
 #WHENS
 When /logs in as an admin/ do
   admin_user = $test.admin_user.email

@@ -464,4 +464,16 @@ def get_inventory_item_id_and_count(product, variant)
   results[0]
 end
 
+def get_total_committed(variant_id)
+  q = """
+  SELECT count(s.*) FROM subscription_variants sv
+  LEFT JOIN subscriptions s on sv.subscription_id = s.id
+  WHERE sv.variant_id = #{variant_id}
+  AND s.subscription_status in ('active', 'past_due');
+  """
+
+  results = @conn.exec(q)
+  results[0]['count']
+end
+
 end
