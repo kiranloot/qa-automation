@@ -38,6 +38,10 @@ pets_subscribe:
  url: "/crates/pets/plans"
 pets_checkout:
  url: "/pets-1-month-subscription/checkouts/new"
+firefly_landing:
+ url: "/crates/firefly"
+firefly_subscribe:
+ url: "/crates/anime/plans"
 pewdiepie:
  url: "/referrers/pewdiepie"
 boogie2988:

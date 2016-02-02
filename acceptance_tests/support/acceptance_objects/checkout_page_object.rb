@@ -38,6 +38,10 @@ include Capybara::DSL
     #stub
   end
 
+  def select_unisex_shirt_size(size)
+    #stub
+  end
+
   def enter_first_name(name)
     fill_in("checkout_shipping_address_first_name", :with => name)
   end
@@ -125,6 +129,8 @@ include Capybara::DSL
     #will only run on pets crate
     select_pet_shirt_size(user.pet_shirt_size)
     select_pet_collar_size(user.pet_collar_size)
+    #will only run for firefly
+    select_unisex_shirt_size(user.unisex_shirt_size)
     enter_first_name(user.first_name)
     enter_last_name(user.last_name)
     enter_shipping_address_line_1(user.ship_street)

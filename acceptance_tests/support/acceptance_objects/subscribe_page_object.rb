@@ -33,6 +33,7 @@ include WaitForAjax
   end
 
   def select_plan(plan)
+    click_get_loot
     if plan == 'random'
       rand_key = @plans.keys.sample
       target = @plans[rand_key]
@@ -40,7 +41,6 @@ include WaitForAjax
     else
       target = @plans[plan]
     end
-    click_get_loot
     find(:css, "##{target}").click
     wait_for_ajax
     update_target_plan(plan)
