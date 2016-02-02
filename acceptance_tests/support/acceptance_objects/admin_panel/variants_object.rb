@@ -19,16 +19,15 @@ class AdminVariantsPage < AdminPage
 
   def verify_total_committed(variant_id)
     table_scan_for("#variant_#{variant_id}")
-    total_committed = find(:css, "#variant_#{variant_id} td.col-total_commited").text
     queried_total = $test.db.get_total_committed(variant_id)
 
-    if total_committed != queried_total
-      3.times do
-        page.driver.browser.navigate.refresh
-        unless total_committed == queried_total
-          break
-        end
+    3.times do
+      total_committed = find(:css, "#variant_#{variant_id} td.col-total_commited").text
+      if total_committed == queried_total
+        break
       end
+      page.driver.browser.navigate.refresh
+      sleep(2)
     end
     expect(total_committed).to eq(queried_total)
   end
