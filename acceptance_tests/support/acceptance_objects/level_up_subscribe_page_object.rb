@@ -138,4 +138,11 @@ include WaitForAjax
     expect(page).to have_css("##{product}-crate h3.soldout")
     expect(page).to have_css("##{product}-crate a.soldout-description")
   end
+
+  def level_up_variant_soldout?(variant, product)
+    scroll_to(product)
+    #will vary shirts/waist sizes in a different commit
+    find(:div, "div#level-up-#{product}-crate div#s2id_variants-shirt").click
+    expect(find("li.select2-result-unselectable div", :text => variant)).to be_truthy
+  end
 end
