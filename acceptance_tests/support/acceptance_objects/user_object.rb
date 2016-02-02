@@ -322,6 +322,7 @@ class User
     if @subscription_name =~ /1 Year Subscription/
       return 12
     elsif @subscription_name =~ /Firefly/
+      #to get months, multiply the crates in the name by 2
       return @subscription_name.gsub(/[^\d]/, '').to_i * 2
     else
       @subscription_name.gsub(/[^\d]/, '').to_i
