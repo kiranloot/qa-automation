@@ -31,6 +31,8 @@ when 'local'
       Capybara::Selenium::Driver.new(app, :browser => :firefox,)
     when 'ie'
       Capybara::Selenium::Driver.new(app, :browser => :internt_explorer,)
+    when 'safari'
+      Capybara::Selenium::Driver.new(app, :browser => :safari,)
     end
   end
 when 'remote'

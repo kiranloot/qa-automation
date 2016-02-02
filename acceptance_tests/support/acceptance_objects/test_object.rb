@@ -133,6 +133,7 @@ class Test
      enter_password
      submit_signup
    end
+   wait_for_ajax
  end
 #Move to parent page object
  def log_out
