@@ -37,11 +37,11 @@ include WaitForAjax
       'sixaccessory' => 'LC - LU - Accessory - 6 month',
       'onelevel-up-tshirt' => 'LC - LU - T-Shirt - 1 month'
     }
-    @plan_drop_down_index = {
-      'one' => 1,
-      'three' => 2, 
-      'six' => 3,
-      'twelve' => 4
+    @plan_drop_down_text = {
+      'one' => '1 Month',
+      'three' => '3 month', 
+      'six' => '6 month',
+      'twelve' => '12 month'
     }
   end
 
@@ -69,28 +69,28 @@ include WaitForAjax
   end
 
   def select_wearable_shirt_size(size)
-    find(:div, 'div#wearable-crate div#s2id_variants-shirt').click
-    find(:css, ".select2-result-label", :text => size).click
+    find('div#wearable-crate span#select2-variants-shirt-container').click
+    find(:css, ".select2-results__option", :text => size).click
   end
 
   def select_wearable_waist_size(size)
-    find(:div, 'div#wearable-crate div#s2id_variants-waist').click
-    find(:css, ".select2-result-label", :text => size).click  
+    find('div#wearable-crate span#select2-variants-waist-container').click
+    find(:css, ".select2-results__option", :text => size).click  
   end
 
   def select_bundle_shirt_size(size)
-    find(:div, 'div#level-up-bundle-socks-wearable-crate div#s2id_variants-shirt').click
-    find(:css, ".select2-result-label", :text => size).click  
+    find('div#level-up-bundle-socks-wearable-crate span#select2-variants-shirt-container').click
+    find(:css, ".select2-results__option", :text => size).click  
   end
 
   def select_bundle_waist_size(size)
-    find(:div, 'div#level-up-bundle-socks-wearable-crate div#s2id_variants-waist').click
-    find(:css, ".select2-result-label", :text => size).click  
+    find('div#level-up-bundle-socks-wearable-crate span#select2-variants-waist-container').click
+    find(:css, ".select2-results__option", :text => size).click  
   end
 
   def select_shirt_size(size)
-    find(:div, 'div#level-up-tshirt-crate div#s2id_variants-shirt').click
-    find(:css, ".select2-result-label", :text => size).click
+    find('div#level-up-tshirt-crate span#select2-variants-shirt-container').click
+    find(:css, ".select2-results__option", :text => size).click
   end
 
   def select_plan(product, months)
@@ -100,7 +100,7 @@ include WaitForAjax
     find(:id,dd_id).click
     wait_for_ajax
     #select plan
-    find(:css,'ul.select2-results__options > li',:text => @plan_drop_down_index[months]).click
+    find('ul.select2-results__options > li',:text => @plan_drop_down_text[months]).click
     if product == 'wearable'
       select_wearable_shirt_size('Mens - S')
       select_wearable_waist_size('Mens - S')
