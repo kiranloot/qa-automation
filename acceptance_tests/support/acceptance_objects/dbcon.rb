@@ -382,7 +382,7 @@ inner join plans p
 on s.plan_id = p.id
 left outer join subscription_skipped_months ssm
 on s.id = ssm.subscription_id
-and s.created_at < '#{t}'
+where s.created_at < '#{t}'
 and s.updated_at < '#{t}'
 and email like '\\_%@mailinator.com'
 and email not like '_updated%'
