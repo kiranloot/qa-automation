@@ -96,11 +96,11 @@ include WaitForAjax
   def select_plan(product, months)
     scroll_to(product)
     div_id = product + '-crate'
-    dd_id = 's2id_' + div_id
+    dd_id = 'select2-' + div_id + '-container'
     find(:id,dd_id).click
     wait_for_ajax
     #select plan
-    find(:css,'ul.select2-results').find(:xpath,"li[#{@plan_drop_down_index[months]}]").click
+    find(:css,'ul.select2-results__options > li',:text => @plan_drop_down_index[months]).click
     if product == 'wearable'
       select_wearable_shirt_size('Mens - S')
       select_wearable_waist_size('Mens - S')
@@ -110,7 +110,7 @@ include WaitForAjax
     elsif product == 'level-up-tshirt'
       select_shirt_size('Mens - S')
     end
-    find(:id,div_id).find_link("level up").click
+    first(:id,div_id).find_link("level up").click
     wait_for_ajax
     plan = months + product
     update_target_plan(plan)

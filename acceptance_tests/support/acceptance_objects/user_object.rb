@@ -301,9 +301,9 @@ class User
     else
       find(:css, "#navbar-collapse > ul > li.country-selector.dropdown.country-selector-desktop > a").click
     end
-    find(:css, "ul.dropdown-menu").find(:css, "div.choose-country > a").click
+    page.all("span.select2-selection__rendered")[1].click
     wait_for_ajax
-    find(".select2-result-label", :text => country).click
+    find(".select2-results__option", :text => country).click
     if ENV['DRIVER'] == 'appium'
       sleep(5)
     end

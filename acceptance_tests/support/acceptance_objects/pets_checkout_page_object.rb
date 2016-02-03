@@ -13,15 +13,15 @@ class PetsCheckoutPage < CheckoutPage
   end
 
   def select_pet_shirt_size(size)
-    find('#s2id_option_type_shirt > a').click
+    find('#select2-option_type_shirt-container').click
     wait_for_ajax
-    find('.select2-result-label', :text => size).click
+    find('.select2-results__option', :text => size).click
   end
 
   def select_pet_collar_size(size)
-    find('#s2id_option_type_collar > a').click
+    find('#select2-option_type_collar-container').click
     wait_for_ajax
-    find('.select2-result-label', :text => size).click
+    find('.select2-results__option', :text => size).click
   end
 
   def verify_confirmation_page

@@ -25,9 +25,9 @@ include Capybara::DSL
   end
 
   def select_shirt_size(size)
-    find("div#s2id_option_type_shirt > a").click
+    find("#select2-option_type_shirt-container").click
     wait_for_ajax
-    find(".select2-result-label", :text => size).click
+    find(".select2-results__option", :text => size).click
   end
 
   def select_pet_shirt_size(size)
@@ -63,9 +63,9 @@ include Capybara::DSL
   end
 
   def select_shipping_state(state)
-    find('div#s2id_checkout_shipping_address_state > a').click
+    find('#select2-checkout_shipping_address_state-container').click
     wait_for_ajax
-    find(".select2-result-label", :text => state).click
+    find(".select2-results__option", :text => state).click
   end
 
   def enter_shipping_zip_code(zip)
@@ -85,13 +85,13 @@ include Capybara::DSL
   end
 
   def select_cc_exp_month(month)
-    find("div#s2id_checkout_credit_card_expiration_date_2i > a").click
-    find(".select2-result-label", :text => month).click
+    find("#select2-checkout_credit_card_expiration_date_2i-container").click
+    find(".select2-results__option", :text => month).click
   end
 
   def select_cc_exp_year(year)
-    find("div#s2id_checkout_credit_card_expiration_date_1i > a").click
-    find(".select2-result-label", :text => year).click
+    find("#select2-checkout_credit_card_expiration_date_1i-container").click
+    find(".select2-results__option", :text => year).click
   end
 
   def click_coupon_checkbox
