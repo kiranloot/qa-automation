@@ -103,6 +103,9 @@ class Test
    when "Pets"
      find("#header-pets-lnk").click
      $test.current_page = PetsLandingPage.new
+   when "Firefly®"
+     find("#header-firefly-lnk").click
+     $test.current_page = FireflyLandingPage.new
    end
    wait_for_ajax
  end

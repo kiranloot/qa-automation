@@ -13,7 +13,7 @@ class User
     :subscription_name, :level_up_subscription_name, :new_user_sub_name,:new_rebill_date, :bill_zip,
     :bill_city, :bill_street, :bill_street_2, :bill_state, :need_sub, :rebill_date_db, :last_four, :trait, :recurly_level_up_plan,
     :country_code, :recurly_billing_state_code, :cc_invalid, :cc_exp_month, :cc_exp_year, :pet_shirt_size, :pet_collar_size, :promo_type,
-    :adjustment_type, :adjustment_amount, :recurly_rebill_date
+    :adjustment_type, :adjustment_amount, :recurly_rebill_date, :unisex_shirt_size
 
   @@sizes = {"male" =>  {0 => "Mens - S", 1 => "Mens - M", 2 => "Mens - L", 3 => "Mens - XL",
                          4 => "Mens - XXL", 5 => "Mens - XXXL" },
@@ -22,6 +22,7 @@ class User
 
   @@pet_shirt_sizes = ['Dog - XS', 'Dog - S', 'Dog - M', 'Dog - L', 'Dog - XL', 'Dog - XXL', 'Dog - XXXL']
   @@pet_collar_sizes = ['Dog - S', 'Dog - M', 'Dog - L']
+  @@unisex_sizes = ['Unisex - S', 'Unisex - M', 'Unisex - L', 'Unisex - XL', 'Unisex - XXL', 'Unisex - XXX']
 
   def initialize(test)
     @trait = nil
@@ -32,6 +33,7 @@ class User
     @full_name = @first_name + " " + @last_name
     @gender = ["male","female"].sample
     @shirt_size = @@sizes[@gender][rand(6)]
+    @unisex_shirt_size = @@unisex_sizes.sample
     @pet_shirt_size = @@pet_shirt_sizes.sample
     @pet_collar_size = @@pet_collar_sizes.sample
     @display_shirt_size = get_display_shirt_size(@shirt_size)
@@ -229,6 +231,8 @@ class User
       target_content = 'Cancellation Successful'
     elsif type == 'unskip'
       target_content = 'Subscription Unskipped'
+    elsif type == 'firefly confirmation'
+      target_content = 'Firefly® Cargo Crate Order Confirmation'
     end
     email_pass = false
     subjects = []
@@ -317,6 +321,9 @@ class User
   def plan_months
     if @subscription_name =~ /1 Year Subscription/
       return 12
+    elsif @subscription_name =~ /Firefly/
+      #to get months, multiply the crates in the name by 2
+      return @subscription_name.gsub(/[^\d]/, '').to_i * 2
     else
       @subscription_name.gsub(/[^\d]/, '').to_i
     end
