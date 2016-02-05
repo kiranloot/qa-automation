@@ -17,8 +17,8 @@ class FireflyCheckoutPage < CheckoutPage
   end
 
   def select_unisex_shirt_size(size)
-    find("div#s2id_option_type_shirt > a").click
+    find("#select2-option_type_shirt-container").click
     wait_for_ajax
-    find(".select2-result-label", :text => size).click
+    find(".select2-results__option", :text => size).click
   end
 end
