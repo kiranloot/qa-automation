@@ -9,7 +9,7 @@ Feature: Admin Subscriptions Page
             And views the subscription's information
         Then the subscription information should be displayed
 
-    @ready
+    @tofix
     Scenario: Update subscription information
         Given a registered user with an active subscription
             And an admin user with access to their info
