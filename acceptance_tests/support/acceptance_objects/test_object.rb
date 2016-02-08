@@ -331,7 +331,7 @@ class Test
   end
 
   def convert_time_to_display_rebill(time)
-    time = time.to_s
+    time = time.to_datetime.new_offset('0:00').to_s
     year = time[0..3]
     month = time[5..6]
     date = time[8..9]
