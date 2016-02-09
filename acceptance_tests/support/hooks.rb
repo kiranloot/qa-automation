@@ -44,7 +44,8 @@ pages = {
   boogie2988: Boogie2988Page, 
   tradechat: TradeChat,
   alchemy: AlchemyPage,
-  about_us: AboutUsPage
+  about_us: AboutUsPage,
+  pins: PinsPage
 }
 
 Before do

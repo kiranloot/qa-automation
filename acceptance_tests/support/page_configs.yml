@@ -50,3 +50,5 @@ tradechat:
  url: "/referrers/tradechat"
 alchemy:
  url: "/alchemy/login"
+pins:
+ url: "/pins"
