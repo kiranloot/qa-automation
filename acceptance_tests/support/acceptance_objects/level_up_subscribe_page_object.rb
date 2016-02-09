@@ -135,7 +135,7 @@ include WaitForAjax
 
   def sold_out?(product)
     scroll_to(product)
-    expect(page).to have_css("##{product}-crate h3.soldout")
+    expect(page).to have_css("##{product}-crate h3.soldout-stamp")
     expect(page).to have_css("##{product}-crate a.soldout-description")
   end
 
