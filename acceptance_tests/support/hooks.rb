@@ -4,6 +4,7 @@ require 'factory_girl'
 require 'active_support'
 require 'rspec/expectations'
 require 'platform-api'
+require 'date'
 Dir["acceptance_objects/*"].each do |file|
   puts file
   require file
@@ -21,13 +22,13 @@ $env_test_data_file_path ||= "acceptance_tests/support/qa_test_data.yml"
 test_data = YAML.load(File.open($env_test_data_file_path))
 
 pages = {
-  home: HomePage, 
-  signup: SignupPage, 
-  my_account: MyAccountPage, 
-  admin: AdminPage, 
+  home: HomePage,
+  signup: SignupPage,
+  my_account: MyAccountPage,
+  admin: AdminPage,
   upgrade: UpgradePage,
-  levelup_subscribe: LevelUpSubscribePage, 
-  fallout4: Fallout4Page, 
+  levelup_subscribe: LevelUpSubscribePage,
+  fallout4: Fallout4Page,
   lootcrate_landing: LootcrateLandingPage,
   lootcrate_subscribe: LootcrateSubscribePage,
   lootcrate_checkout: LootcrateCheckoutPage,
@@ -37,11 +38,11 @@ pages = {
   pets_landing: PetsLandingPage,
   pets_subscribe: PetsSubscribePage,
   pets_checkout: PetsCheckoutPage,
-  firefly_landing: FireflyLandingPage, 
+  firefly_landing: FireflyLandingPage,
   firefly_subscribe: FireflySubscribePage,
   firefly_checkout: FireflyCheckoutPage,
-  pewdiepie: PewdiepiePage, 
-  boogie2988: Boogie2988Page, 
+  pewdiepie: PewdiepiePage,
+  boogie2988: Boogie2988Page,
   tradechat: TradeChat,
   alchemy: AlchemyPage,
   about_us: AboutUsPage,
@@ -63,9 +64,10 @@ Before do
   if(!$test.user.is_country_us?)
     $test.user.set_ship_to_country("United States")
   end
+  @logtime = {'start' => DateTime.now.strftime('%Q')}
 end
 
-Before ('@alchemy_text') do 
+Before ('@alchemy_text') do
   $text_id = $test.db.get_richtext_alchemy_essence_id("What is Loot Crate™?")
 end
 
@@ -75,10 +77,12 @@ After do
   #  reset_session!
   #end
   #page.execute_script "window.close();"
+  @logtime['end'] = DateTime.now.strftime('%Q')
+  $test.log.get_errors_log(@logtime['start'], @logtime['end'])
   page.driver.quit()
 end
 
-After ('@alchemy_text') do 
+After ('@alchemy_text') do
   $test.db.set_richtext_alchemy_essence_to($text_id, "<p>What is Loot Crate™?</p>", 'What is Loot Crate™?')
 end
 

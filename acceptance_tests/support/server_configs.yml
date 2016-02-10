@@ -11,6 +11,9 @@ qa:
     base_url: "https://qa.lootcrate.com/?username=lootcrateis25timesgreaterthanthecompetition"
     recurly_api_key: "faabe9b876da4f85b494643d47c939b3"
     recurly_subdomain: "lootcrate-qa"
+    logentries_key: "41617ca7-0eb6-436d-9fbf-811981164c8b"
+    logentries_log_set: "Heroku"
+    logentries_log_name: "lootcrate-qa"
 staging:
     host: 'ec2-54-204-24-120.compute-1.amazonaws.com'
     port: '6012'
@@ -24,6 +27,9 @@ staging:
     base_url: "https://staging.lootcrate.com/?username=lootcrateis25timesgreaterthanthecompetition"
     recurly_api_key: "05a550e0a0b24b3bbb27e2b3d126e09c"
     recurly_subdomain: "lootcrate-sandbox"
+    logentries_key: "accec162-e855-4032-8c07-a96afe6e495e"
+    logentries_log_set: "Heroku"
+    logentries_log_name: "lootcrate-staging"
 goliath:
     host: 'ec2-107-20-133-235.compute-1.amazonaws.com'
     port: '5972'
@@ -37,6 +43,9 @@ goliath:
     base_url: "https://goliath.lootcrate.com/?username=lootcrateis25timesgreaterthanthecompetition"
     recurly_api_key: "05a550e0a0b24b3bbb27e2b3d126e09c"
     recurly_subdomain: "lootcrate-sandbox"
+    logentries_key: "5d644f57-6843-47c4-b8b9-b662862c2565"
+    logentries_log_set: "Heroku"
+    logentries_log_name: "lootcrate-goliath"
 qa2:
     host: 'ec2-75-101-162-128.compute-1.amazonaws.com'
     port: '5632'
@@ -50,6 +59,9 @@ qa2:
     base_url: "https://qa2.lootcrate.com/?username=lootcrateis25timesgreaterthanthecompetition"
     recurly_api_key: "05a550e0a0b24b3bbb27e2b3d126e09c"
     recurly_subdomain: "lootcrate-sandbox"
+    logentries_key: "1e2d010b-030d-442f-8b52-957e1f8ae8f5"
+    logentries_log_set: "Heroku"
+    logentries_log_name: "lootcrate-qa2"
 qa3:
     host: 'ec2-54-225-239-220.compute-1.amazonaws.com'
     port: '5842'
@@ -63,6 +75,9 @@ qa3:
     base_url: "https://qa3.lootcrate.com/?username=lootcrateis25timesgreaterthanthecompetition"
     recurly_api_key: "05a550e0a0b24b3bbb27e2b3d126e09c"
     recurly_subdomain: "lootcrate-sandbox"
+    logentries_key: "47b54bc8-dea1-44c2-8982-c495bd51313b"
+    logentries_log_set: "Heroku"
+    logentries_log_name: "lootcrate-qa3"
 qa4:
     host: 'ec2-54-83-46-181.compute-1.amazonaws.com'
     port: '5882'
@@ -76,6 +91,9 @@ qa4:
     base_url: "https://qa4.lootcrate.com/?username=lootcrateis25timesgreaterthanthecompetition"
     recurly_api_key: "05a550e0a0b24b3bbb27e2b3d126e09c"
     recurly_subdomain: "lootcrate-sandbox"
+    logentries_key: "fbaabc4b-596d-44b0-8c7a-51cebf6f2bfe"
+    logentries_log_set: "Heroku"
+    logentries_log_name: "lootcrate-qa4"
 qa5:
     host: 'ec2-54-83-202-245.compute-1.amazonaws.com'
     port: '5652'
@@ -89,6 +107,9 @@ qa5:
     base_url: "https://qa5.lootcrate.com/?username=lootcrateis25timesgreaterthanthecompetition"
     recurly_api_key: "05a550e0a0b24b3bbb27e2b3d126e09c"
     recurly_subdomain: "lootcrate-sandbox"
+    logentries_key: "b6149969-8fe9-4946-b161-fb6ace5e72e8"
+    logentries_log_set: "Heroku"
+    logentries_log_name: "lootcrate-qa5"
 load-test:
     host: 'ec2-50-17-192-85.compute-1.amazonaws.com'
     port: '5502'
@@ -102,6 +123,9 @@ load-test:
     base_url: "https://lootcrate-load-test.herokuapp.com/?username=lootcrateis25timesgreaterthanthecompetition"
     recurly_api_key: "05a550e0a0b24b3bbb27e2b3d126e09c"
     recurly_subdomain: "lootcrate-sandbox"
+    logentries_key: "ef574943-9874-4a1c-a24c-29c4e50a5464"
+    logentries_log_set: "Heroku"
+    logentries_log_name: "lootcrate-load-test"
 local:
     host: 'localhost'
     port: '5432'

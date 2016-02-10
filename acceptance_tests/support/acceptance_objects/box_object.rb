@@ -12,7 +12,8 @@ class Box
   @base_url = nil
 
   attr_accessor :user, :host, :port, :password, :dbname, :redis_url, :prefix,
-                 :admin, :app, :base_url, :recurly_api_key, :recurly_subdomain
+                 :admin, :app, :base_url, :recurly_api_key, :recurly_subdomain,
+                 :logentries_key, :logentries_log_set, :logentries_log_name
 
   def initialize(env_name = "qa")
     @env_name = env_name
@@ -24,7 +25,8 @@ class Box
     config_vars = ["user", "host", "port",
                   "password", "dbname", "redis_url",
                   "prefix", "admin", "app", "base_url",
-                  "recurly_api_key", "recurly_subdomain"]
+                  "recurly_api_key", "recurly_subdomain",
+                  "logentries_key", "logentries_log_set", "logentries_log_name"]
     config_vars.each do |v|
       self.instance_variable_set('@' + v, cd[e][v])
     end
