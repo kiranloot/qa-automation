@@ -10,6 +10,6 @@ Then (/^the user (should|shouldn't) see the login to redeem button$/) do |visibl
   end
 end
 
-Then (/^the user should see coming soon placeholders$/) do
-  sleep(10)
+Then (/^the user should see no active subscription message$/) do
+  assert_text("No qualified active subscription found for this month")
 end

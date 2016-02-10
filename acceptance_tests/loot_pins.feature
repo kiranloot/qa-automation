@@ -13,4 +13,4 @@ Feature: Loot Pins
             When the user logs in
             And the user visits the pins page
         Then the user shouldn't see the login to redeem button
-        And the user should see coming soon placeholders
+        And the user should see no active subscription message

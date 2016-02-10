@@ -80,6 +80,11 @@ def setup_qa_database
   add_inventory_to_all
   add_user_to_db('admin@example.com','$2a$10$gMQ0WYqkPAFZPMJYQTjcZeOWreqJisY0UDypiG.hggS7B2ZYEM93C','admin_users')
   add_cms_user_to_db('cmsadmin@example.com','$2a$10$gMQ0WYqkPAFZPMJYQTjcZeOWreqJisY0UDypiG.hggS7B2ZYEM93C','cms_users')
+  clear_crate_themes
+  add_crate_theme('JAN2016','Invasion')
+  add_crate_theme('FEB2016','')
+  add_crate_theme('MAR2016','')
+  add_crate_theme('APR2016','')
 end
 
 def add_inventory_to_all(units = 600000)
@@ -99,6 +104,18 @@ def sellout_product(name)
   skus.each do |sku|
     sellout_variant(sku)
   end
+end
+
+def clear_crate_themes
+  query = "truncate crate_themes"
+  @conn.exec(query)
+end
+
+def add_crate_theme(monthyear,theme_name)
+  query = """
+    INSERT INTO crate_themes (name, month_year, product_id, created_at, updated_at) values ('#{theme_name}','#{monthyear}', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+  """
+  @conn.exec(query)
 end
 
 def get_all_variant_skus_for_product(name)
