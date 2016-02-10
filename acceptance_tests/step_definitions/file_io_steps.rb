@@ -2,7 +2,7 @@
 Given /^there is a (.*) file in the tmp dir$/ do |filename|
   yml = YAML.load(File.open("tmp/#{filename}"))
   $test.user.email = yml["email"]
-  $test.user.recurly_rebill_date = yml["rebill"].new_offset(-8.0/24)
+  $test.user.recurly_rebill_date = yml["rebill"]
   puts $test.user.recurly_rebill_date
   $test.user.new_rebill_date = $test.convert_time_to_display_rebill(yml["rebill"])
 end
