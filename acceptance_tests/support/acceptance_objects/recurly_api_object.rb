@@ -178,7 +178,7 @@ class RecurlyAPI
     sub = account.subscriptions.first
     adjusted_rebill_date = Time.new + minutes * 60
     account.subscriptions.first.postpone(adjusted_rebill_date)
-    $test.user.new_rebill_date = get_rebill_date
+    $test.user.new_rebill_date = get_rebill_date 
   end
 
   def account_has_invoices?(amount)
