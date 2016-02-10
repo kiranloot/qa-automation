@@ -10,7 +10,7 @@ include Capybara::DSL
   end
 
   def login_to_redeem_button_visible?
-    assert_text("LOG IN TO REDEEM") 
+    page.has_content?("LOG IN TO REDEEM") 
   end
 
 end

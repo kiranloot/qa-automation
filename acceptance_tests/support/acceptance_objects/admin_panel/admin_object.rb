@@ -69,6 +69,11 @@ class AdminPage < Page
     wait_for_ajax
   end
 
+  def click_loot_pin_codes
+    find_link("Loot Pin Codes").click
+    wait_for_ajax
+  end
+
   def table_scan_for(target_element)
     while (first(target_element, maximum: 1).nil?)
       find_link("Next ›").click
