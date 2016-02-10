@@ -7,7 +7,7 @@ Feature: Rebilling setup actions
             And the user selects the Loot Crate crate
             And the user selects a one month subscription plan
             And the user submits valid subscription information
-            And the recurly rebill date is pushed 1 minute into the future
+            And the recurly rebill date is pushed 2 minute into the future
         Then write this subscription's information into a file named successfull_rebill.yml in the tmp dir
 
     @time_based_setup
@@ -17,9 +17,22 @@ Feature: Rebilling setup actions
             And the user selects the Loot Crate crate
             And the user selects a one month subscription plan
             And the user submits valid subscription information
-            And the recurly rebill date is pushed 1 minute into the future
+            And the recurly rebill date is pushed 2 minute into the future
             And the recurly credit card information is modified to be declined
         Then write this subscription's information into a file named past_due_rebill.yml in the tmp dir
+
+    @time_based_setup
+    Scenario: Setup an expired subscription
+        Given a registered user with no prior subscription
+            When the user logs in
+            And the user selects the Loot Crate crate
+            And the user selects a one month subscription plan
+            And the user submits valid subscription information
+            And the user logs in
+            And the user visits the my account page
+            And the user cancels their subscription
+            And the recurly rebill date is pushed 2 minute into the future
+        Then write this subscription's information into a file named expired_rebill.yml in the tmp dir
 
     #TO DO:
     #Scenario: A subscription skipped right before it's rebill date will still get charged

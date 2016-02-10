@@ -260,8 +260,8 @@ class MyAccountPage < Page
   end
 
   def select_shirt_size(sub_id, size)
-    find('#s2id_subscription_subscription_variants_attributes_0_variant_id').click
-    find('.select2-result-label', :text => size).click
+    find('#select2-subscription_subscription_variants_attributes_0_variant_id-container').click
+    find('.select2-results__option', :text => size).click
     $test.user.shirt_size = size
     $test.user.display_shirt_size = $test.user.get_display_shirt_size(size)
   end
@@ -300,9 +300,9 @@ class MyAccountPage < Page
   end
 
   def select_shipping_state(sub_id, state)
-    find("#s2id_shipping_address_state#{sub_id}").click
+    find("#select2-shipping_address_state#{sub_id}-container").click
     wait_for_ajax
-    find(".select2-result-label", :text => state).click
+    find(".select2-results__option", :text => state).click
     $test.user.ship_state = state
   end
 
@@ -340,9 +340,9 @@ class MyAccountPage < Page
   end
 
   def select_billing_state(sub_id, state)
-    find("#s2id_payment_method_state#{sub_id}").click
+    find("#select2-payment_method_state#{sub_id}-container").click
     wait_for_ajax
-    find('.select2-result-label', :text => state).click
+    find('.select2-results__option', :text => state).click
     $test.user.bill_state = state
   end
 

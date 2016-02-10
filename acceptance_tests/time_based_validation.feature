@@ -15,3 +15,9 @@ Feature: Rebilling validation tests
         Then the recurly account's last invoice should be past_due
         And the subscriptions rebill date should be adjusted by 1 month
         And the subscription's status should be Past Due
+
+    @time_based_validation
+    Scenario: Verify an expired rebill
+        Given there is a expired_rebill.yml file in the tmp dir
+        And the subscriptions rebill date should be adjusted by 0 month
+        Then the subscription's status should be Canceled

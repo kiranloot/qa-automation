@@ -143,9 +143,9 @@ class RecurlyAPI
     billing.save
   end
 
-  def get_rebill_date
+  def get_rebill_date(with_tz_offset = -8.0/24)
     account = get_account
-    account.subscriptions.first.current_period_ends_at
+    account.subscriptions.first.current_period_ends_at.new_offset(with_tz_offset)
   end
 
   def get_status
@@ -178,7 +178,7 @@ class RecurlyAPI
     sub = account.subscriptions.first
     adjusted_rebill_date = Time.new + minutes * 60
     account.subscriptions.first.postpone(adjusted_rebill_date)
-    $test.user.new_rebill_date = adjusted_rebill_date
+    $test.user.new_rebill_date = get_rebill_date 
   end
 
   def account_has_invoices?(amount)
@@ -217,12 +217,13 @@ class RecurlyAPI
   def verify_rebill_date
     account = get_account
     #Conditional statement to handle the UTC date change by 4pm PST
-    if DateTime.now.strftime('%H').to_i >= 16
-      calculated_rebill_date = $test.calculate_rebill_date(true)
-    else
-      calculated_rebill_date = $test.calculate_rebill_date
-    end
-    actual_rebill_date = get_subscription_info(account).current_period_ends_at
+    #if DateTime.now.strftime('%H').to_i >= 16
+      #calculated_rebill_date = $test.calculate_rebill_date(true)
+    #else
+    calculated_rebill_date = $test.calculate_rebill_date
+    #end
+    #actual_rebill_date = get_subscription_info(account).current_period_ends_at.new_offset(-8.0/24)
+    actual_rebill_date = get_rebill_date
     expect(actual_rebill_date.strftime('%Y')).to eq(calculated_rebill_date['year'])
     expect(actual_rebill_date.strftime('%B')).to eq(calculated_rebill_date['month'])
     expect(actual_rebill_date.strftime('%d')).to eq(calculated_rebill_date['day'])

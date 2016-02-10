@@ -57,7 +57,7 @@ Then(/^the recurly subscription should have the correct rebill date$/)do
   date_hash = $test.calculate_rebill_date
   month_int = Date::MONTHNAMES.index(date_hash['month'])
   date_hash['month'] = month_int < 10 ? "0" + month_int.to_s : month_int.to_s
-  recurly_rebill_date = $test.recurly.get_rebill_date.new_offset(-8.0/24).to_s
+  recurly_rebill_date = $test.recurly.get_rebill_date.to_s
   recurly_hash = {}
   recurly_hash['year'], recurly_hash['month'], recurly_hash['day'] = recurly_rebill_date.scan(/\d+/)
   ['year','month','day'].each do |key|
