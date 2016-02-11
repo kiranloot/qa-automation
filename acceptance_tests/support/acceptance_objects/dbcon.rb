@@ -80,6 +80,7 @@ def setup_qa_database
   add_inventory_to_all
   add_user_to_db('admin@example.com','$2a$10$gMQ0WYqkPAFZPMJYQTjcZeOWreqJisY0UDypiG.hggS7B2ZYEM93C','admin_users')
   add_cms_user_to_db('cmsadmin@example.com','$2a$10$gMQ0WYqkPAFZPMJYQTjcZeOWreqJisY0UDypiG.hggS7B2ZYEM93C','cms_users')
+  #make month generation dynamic
   clear_crate_themes
   add_crate_theme('JAN2016','Invasion')
   add_crate_theme('FEB2016','')
@@ -130,6 +131,24 @@ def update_created_at_for_sub(sub_id, new_timestamp)
     UPDATE subscriptions SET created_at = #{new_timestamp} where id = #{sub_id}
   """
   @conn.exec(query)
+end
+
+def associate_sub_id_with_a_pin_code
+  sub_id = get_subscriptions($test.user.email)[0]['subscription_id']
+  get_pin_query = """
+    SELECT id,code FROM loot_pin_codes limit 1
+  """
+  pin = @conn.exec(get_pin_query)
+  pin_id = pin[0]['id']
+  pin_code = pin[0]['code']
+  update_query = """
+    UPDATE loot_pin_codes SET subscription_id = #{sub_id} WHERE id = #{pin_id}
+  """
+  @conn.exec(update_query)
+  puts sub_id
+  puts pin_id
+  puts pin_code
+  pin_code
 end
 
 def get_all_variant_skus_for_product(name)

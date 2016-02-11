@@ -13,4 +13,15 @@ include Capybara::DSL
     page.has_content?("LOG IN TO REDEEM") 
   end
 
+  def select_qualified_subscription(name, monthyear)
+    monthyear.downcase! 
+    find("#select2-#{monthyear}-container").click
+    wait_for_ajax
+    find(".select2-results__option", :text => name).click
+  end
+
+  def code_displayed?
+    assert_text($test.user.pin_code)
+  end
+
 end
