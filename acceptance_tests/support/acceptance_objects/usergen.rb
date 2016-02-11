@@ -87,6 +87,10 @@ class UserGen
     :registered_with_active
   end
 
+  def an_active_subscription_last_month
+    :registered_with_active_last_month
+  end
+
   def an_active_anime_subscription
     :registered_with_active_anime
   end

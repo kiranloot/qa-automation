@@ -118,6 +118,20 @@ def add_crate_theme(monthyear,theme_name)
   @conn.exec(query)
 end
 
+def move_sub_to_prev_month(sub_id)
+  query = """
+    SELECT created_at FROM subscriptions WHERE id = #{sub_id}
+  """
+  update_created_at_for_sub(sub_id, "CURRENT_TIMESTAMP - interval '1 month'")
+end
+
+def update_created_at_for_sub(sub_id, new_timestamp)
+  query = """
+    UPDATE subscriptions SET created_at = #{new_timestamp} where id = #{sub_id}
+  """
+  @conn.exec(query)
+end
+
 def get_all_variant_skus_for_product(name)
   query = "select v.sku from variants v join products p on v.product_id = p.id where p.name = '#{name}'"
   results = @conn.exec(query)

@@ -25,6 +25,11 @@ When /create a\s(.*)\smonth subscription/ do |months|
   step "the user logs out"
 end
 
+When /move subscription to last month/ do
+  sub_id = $test.db.get_subscriptions($test.user.email)[0]['subscription_id']
+  $test.db.move_sub_to_prev_month(sub_id)
+end
+
 When /create a (\w*) month (.*) subscription/ do |months,crate|
   step "the user logs in"
   step "the user selects the #{crate} crate"

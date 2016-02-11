@@ -6,7 +6,7 @@ Feature: Loot Pins
             When the user visits the pins page
         Then the user should see the login to redeem button
 
-    @KrisWIP
+    @ready
     Scenario: A user with no core subscription visits the pins page
         Given a registered user with no prior subscription
         And the system has Core Crate pin codes for the current month
@@ -14,3 +14,13 @@ Feature: Loot Pins
             And the user visits the pins page
         Then the user shouldn't see the login to redeem button
         And the user should see no active subscription message
+
+    @KrisWIP
+    Scenario: A user with last months active core subscription visits the pins page
+        Given a registered user with an active subscription last month
+        And the system has Core Crate pin codes for the last month
+            When the user logs in
+            And the user visits the pins page
+        Then the user shouldn't see the login to redeem button
+        #And the user should see no active subscription message
+   

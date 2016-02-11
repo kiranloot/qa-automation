@@ -23,7 +23,7 @@ Given /^The (.*) level up product is (.*)$/ do |product,inv_status|
   #$test.set_subject_user
 end
 
-Given(/^the system has (.*) pin codes for the current month$/) do |product|
+Given(/^the system has (.*) pin codes for last month$/) do |product|
   step "an admin user with access to their info"
   step "the user visits the admin page"
   step "logs in as an admin"
@@ -31,7 +31,7 @@ Given(/^the system has (.*) pin codes for the current month$/) do |product|
   $test.current_page = AdminPinsPage.new
   $test.current_page.click_import_codes
   $test.current_page.select_product(product)
-  $test.current_page.fill_in_month_year('FEB2016')
+  $test.current_page.fill_in_month_year('JAN2016')
   $test.current_page.fill_in_redeption_url('www.google.com')
   $test.current_page.upload_file('./test-pin-short.csv')
   $test.current_page.click_commit

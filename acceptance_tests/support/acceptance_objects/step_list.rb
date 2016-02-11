@@ -57,4 +57,9 @@ class StepList
     "performs an immediate cancellation on the user account",
     "logs out of admin"]
   end
+
+  def registered_with_active_last_month
+    ["create a one month subscription",
+    "move subscription to last month"]
+  end
 end
