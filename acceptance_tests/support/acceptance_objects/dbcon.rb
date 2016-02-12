@@ -83,10 +83,20 @@ def setup_qa_database
   #make month generation dynamic
   truncate_table('crate_themes')
   truncate_table('loot_pin_codes')
-  add_crate_theme('JAN2016','Invasion')
-  add_crate_theme('FEB2016','')
-  add_crate_theme('MAR2016','')
-  add_crate_theme('APR2016','')
+  months = generate_theme_months
+  month_themes = {
+    months[0] => 'theme',
+    months[1] => '',
+    months[2] => '',
+    months[3] => ''
+  }
+  month_themes.keys.each do |key|
+    add_crate_theme(key,month_themes[key])
+  end
+end
+
+def generate_theme_months
+  return ['JAN2016','FEB2016','MAR2016','APR2016']
 end
 
 def add_inventory_to_all(units = 600000)
