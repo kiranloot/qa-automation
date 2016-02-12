@@ -80,6 +80,37 @@ def setup_qa_database
   add_inventory_to_all
   add_user_to_db('admin@example.com','$2a$10$gMQ0WYqkPAFZPMJYQTjcZeOWreqJisY0UDypiG.hggS7B2ZYEM93C','admin_users')
   add_cms_user_to_db('cmsadmin@example.com','$2a$10$gMQ0WYqkPAFZPMJYQTjcZeOWreqJisY0UDypiG.hggS7B2ZYEM93C','cms_users')
+  #make month generation dynamic
+  truncate_table('crate_themes')
+  truncate_table('loot_pin_codes')
+  months = generate_theme_months
+  month_themes = {
+    months[0] => 'theme',
+    months[1] => '',
+    months[2] => '',
+    months[3] => ''
+  }
+  month_themes.keys.each do |key|
+    add_crate_theme(key,month_themes[key])
+  end
+end
+
+def generate_theme_months
+  theme_months = []
+  t = (DateTime.now << 1).to_time
+  theme_months << t.strftime("%^b%Y")
+  3.times do
+    t = (t.to_datetime >> 1).to_time 
+    theme_months << t.strftime("%^b%Y")
+  end
+  return theme_months 
+end
+
+def return_first_theme_month
+  query = """
+    SELECT month_year FROM crate_themes ORDER BY id limit 1
+  """
+  @conn.exec(query)[0]['month_year']
 end
 
 def add_inventory_to_all(units = 600000)
@@ -99,6 +130,56 @@ def sellout_product(name)
   skus.each do |sku|
     sellout_variant(sku)
   end
+end
+
+
+def truncate_table(table_name)
+  query = "truncate #{table_name}"
+  @conn.exec(query)
+end
+
+def add_crate_theme(monthyear,theme_name)
+  query = """
+    INSERT INTO crate_themes (name, month_year, product_id, created_at, updated_at) values ('#{theme_name}','#{monthyear}', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+  """
+  @conn.exec(query)
+end
+
+def move_sub_to_prev_month(sub_id)
+  query = """
+    SELECT created_at FROM subscriptions WHERE id = #{sub_id}
+  """
+  update_created_at_for_sub(sub_id, "CURRENT_TIMESTAMP - interval '1 month'")
+end
+
+def update_created_at_for_sub(sub_id, new_timestamp)
+  query = """
+    UPDATE subscriptions SET created_at = #{new_timestamp} where id = #{sub_id}
+  """
+  @conn.exec(query)
+end
+
+def associate_sub_id_with_a_pin_code
+  sub_id = get_subscriptions($test.user.email)[0]['subscription_id']
+  check_sub_query = """
+    SELECT * FROM loot_pin_codes WHERE subscription_id = #{sub_id}
+  """
+  check_results = @conn.exec(check_sub_query)
+  if check_results.any?
+    pin_code = check_results[0]['code']
+  else
+    get_pin_query = """
+      SELECT id,code FROM loot_pin_codes limit 1
+    """
+    pin = @conn.exec(get_pin_query)
+    pin_id = pin[0]['id']
+    pin_code = pin[0]['code']
+    update_query = """
+      UPDATE loot_pin_codes SET subscription_id = #{sub_id} WHERE id = #{pin_id}
+    """
+    @conn.exec(update_query)
+  end
+  pin_code
 end
 
 def get_all_variant_skus_for_product(name)
