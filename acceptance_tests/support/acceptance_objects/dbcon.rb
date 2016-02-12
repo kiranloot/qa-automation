@@ -106,6 +106,13 @@ def generate_theme_months
   return theme_months 
 end
 
+def return_first_theme_month
+  query = """
+    SELECT month_year FROM crate_themes ORDER BY id limit 1
+  """
+  @conn.exec(query)[0]['month_year']
+end
+
 def add_inventory_to_all(units = 600000)
   query = "update inventory_units set total_available = #{units}"
   @conn.exec(query)

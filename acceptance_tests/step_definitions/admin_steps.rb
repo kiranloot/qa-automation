@@ -32,7 +32,7 @@ Given(/^the system has (.*) pin codes for last month$/) do |product|
   $test.current_page.click_import_codes
   $test.current_page.select_product(product)
   #replace with a method to select the last month
-  $test.current_page.fill_in_month_year('JAN2016')
+  $test.current_page.fill_in_month_year($test.db.return_first_theme_month)
   $test.current_page.fill_in_redeption_url('www.google.com')
   $test.current_page.upload_file('./test-pin-short.csv')
   $test.current_page.click_commit

@@ -6,7 +6,7 @@ end
 
 #WHENS
 When (/^the user selects their subscription/) do
-  $test.current_page.select_qualified_subscription('Loot Crate Subscription 1', 'JAN2016')
+  $test.current_page.select_qualified_subscription('Loot Crate Subscription 1', $test.db.return_first_theme_month)
 end
 
 #THENS
