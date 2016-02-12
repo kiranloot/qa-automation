@@ -96,7 +96,14 @@ def setup_qa_database
 end
 
 def generate_theme_months
-  return ['JAN2016','FEB2016','MAR2016','APR2016']
+  theme_months = []
+  t = (DateTime.now << 1).to_time
+  theme_months << t.strftime("%^b%Y")
+  3.times do
+    t = (t.to_datetime >> 1).to_time 
+    theme_months << t.strftime("%^b%Y")
+  end
+  return theme_months 
 end
 
 def add_inventory_to_all(units = 600000)
