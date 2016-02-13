@@ -7,7 +7,7 @@ class Test
  require 'yaml'
  require 'pry'
  require 'faker'
- attr_accessor :user, :admin_user, :cms_user, :pages, :current_page, :test_data, :db, :affiliate, :recurly, :box, :sailthru, :mailinator, :log
+ attr_accessor :user, :admin_user, :cms_user, :pages, :current_page, :test_data, :db, :affiliate, :recurly, :box, :sailthru, :mailinator
  include Capybara::DSL
  include RSpec::Matchers
  include WaitForAjax
@@ -24,7 +24,6 @@ class Test
   @box = box
   @mailinator = mailinator_api
   @recurly = RecurlyAPI.new(box)
-  @log = LogMonitor.new(box)
  end
 
  def update_test_data(value)

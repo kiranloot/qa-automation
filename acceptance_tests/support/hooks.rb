@@ -64,7 +64,7 @@ Before do
   if(!$test.user.is_country_us?)
     $test.user.set_ship_to_country("United States")
   end
-  @logtime = {'start' => DateTime.now.strftime('%Q')}
+  # @logtime = {'start' => DateTime.now.strftime('%Q')}
 end
 
 Before ('@alchemy_text') do
@@ -77,8 +77,8 @@ After do
   #  reset_session!
   #end
   #page.execute_script "window.close();"
-  @logtime['end'] = DateTime.now.strftime('%Q')
-  $test.log.get_errors_log(@logtime['start'], @logtime['end'])
+  # @logtime['end'] = DateTime.now.strftime('%Q')
+  # $test.log.get_errors_log(@logtime['start'], @logtime['end'])
   page.driver.quit()
 end
 

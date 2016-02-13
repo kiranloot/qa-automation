@@ -19,6 +19,8 @@ conn.finish
 #Verification that config vars on the test environment don't point to prod
 QAEnvironmentValidator.verify
 
+logtime = {'start' => DateTime.now.strftime('%Q')}
+
 case driver
 when 'local'
   Capybara.default_driver = :selenium
@@ -66,6 +68,9 @@ when 'appium'
 end
 
 at_exit do
+ logtime['end'] = DateTime.now.strftime('%Q')
+ puts 'this is the end'
+ LogMonitor.new.get_errors_log(logtime['start'], logtime['end'])
  r = HRedis.new
  r.connect
  r.kill_wait_set
