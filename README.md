@@ -61,10 +61,11 @@ An example of the command to do so is below:
 SITE=qa3 parallel_cucumber -o \'--tags @ready\' -n 8  acceptance_tests --serialize-stdout
 ```
 The `-n` value can be adjusted if you want more or fewer instances of your browser running at the same time (8 has worked out for us, historically).
+The `--tags @ready` keeps the suite focused on only scenarios that are marked as ready for use in the full test suite.
 
 Mobile testing is supported for a handful of tests to date. To execute them will require setting up the Appium automated mobile testing framework and having XCode installed on your machine. Once those are set up, run the following to execute all mobile-ready tests:
 ```shell
-cucumber SITE=qa --tags @mobile_ready
+cucumber SITE=qa DRIVER=appium --tags @mobile_ready
 ```
 
 
