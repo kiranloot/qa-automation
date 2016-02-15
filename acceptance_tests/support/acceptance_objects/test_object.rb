@@ -107,6 +107,7 @@ class Test
      find("#header-firefly-lnk").click
      $test.current_page = FireflyLandingPage.new
    end
+   $test.user.crate_type = crate
    wait_for_ajax
  end
 

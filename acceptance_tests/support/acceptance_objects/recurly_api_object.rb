@@ -30,12 +30,8 @@ class RecurlyAPI
     else
       if $test.user.subscription_name.include? '1 Year Subscription'
         recurly_sub = $test.user.subscription_name.gsub(/1 Year/, "12 Month")
-      elsif $test.user.subscription_name.include? 'Firefly'
-        recurly_sub = $test.user.subscription_name.gsub(/Crate/, "Month")
-        digit = recurly_sub.gsub(/[^\d]/, '')
-        #multiplying the number of crates to 2 to get the months
-        digit = (digit.to_i * 2).to_s
-        recurly_sub = recurly_sub.gsub(/\d/, digit)
+      elsif $test.user.crate_type == "Firefly®"
+        recurly_sub = 'Firefly ' + $test.user.subscription_name
       else
         recurly_sub = $test.user.subscription_name
       end

@@ -15,9 +15,9 @@ include WaitForAjax
       'twelve' => 'twelve-month'
     }
     @plan_display_names = {
-      'two' => 'Firefly 1 Crate Subscription',
-      'six' => 'Firefly 3 Crate Subscription',
-      'twelve' => 'Firefly 6 Crate Subscription'
+      'two' => '2 Month Subscription',
+      'six' => '6 Month Subscription',
+      'twelve' => '12 Month Subscription'
     }
   end
 
