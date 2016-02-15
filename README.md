@@ -69,7 +69,7 @@ cucumber SITE=qa --tags @mobile_ready
 
 
 ## After-Test Features
-At the end of any test run, the results are printed to html files in the `/reports` folder. They are named 'lastrun[x].html'. Each parallel instance will post its own html file, and the `[x]` will display the number for that particular thread. Feel free to browse them after a test run and find out what failed/succeeded.
+At the end of any test run, the results are printed to html files in the `/reports` folder. They are named `lastrun[x].html`. Each parallel instance will post its own html file, and the `[x]` will display the number for that particular thread. Feel free to browse them after a test run and find out what failed/succeeded.
 
 In addition, There will be 'rerun[x].txt' files that will list files that list the scenarios that failed in a test run. To rerun those tests, run the following command (adjust SITE or other parameters as needed):
 ```shell
