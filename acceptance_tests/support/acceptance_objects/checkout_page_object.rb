@@ -21,6 +21,12 @@ include Capybara::DSL
       '33124' => 'Sales Tax FL (7.0',
       '15201' => 'Sales Tax PA (7.0'
     }
+    @plans = {
+      'one' => '1 Month',
+      'three' => '3 Month',
+      'six' => '6 Month',
+      'twelve' => '12 Month'
+    }
     setup
   end
 
@@ -42,6 +48,15 @@ include Capybara::DSL
     #stub
   end
 
+  def select_upsell_plan(plan)
+    find(".checkout-upsell [role=combobox]").click
+    wait_for_ajax
+    find("li.select2-results__option", :text => @plans[plan]).click
+    wait_for_ajax
+    $test.user.subscription_name = "#{@plans[plan]} Subscription"
+  end
+
+
   def enter_first_name(name)
     fill_in("checkout_shipping_address_first_name", :with => name)
   end
@@ -57,7 +72,7 @@ include Capybara::DSL
   def enter_shipping_address_line_2(street_2)
     fill_in("checkout_shipping_address_line_2", :with => street_2)
   end
-  
+
   def enter_shipping_city(city)
     fill_in("checkout_shipping_address_city", :with => city)
   end
@@ -145,7 +160,7 @@ include Capybara::DSL
     end
     unless user.coupon_code.nil?
       click_coupon_checkbox
-      enter_coupon_code(user.coupon_code) 
+      enter_coupon_code(user.coupon_code)
       validate_coupon_code
       @discount_applied = page.has_content?("Valid coupon: save $")
     end
@@ -194,6 +209,6 @@ include Capybara::DSL
 
   def shirt_variant_soldout?(variant)
     find("div#s2id_option_type_shirt > a").click
-    expect(find("li.select2-result-unselectable div", :text => variant)).to be_truthy 
+    expect(find("li.select2-result-unselectable div", :text => variant)).to be_truthy
   end
 end

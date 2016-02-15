@@ -50,6 +50,10 @@ When /the user upgrades to a (.*) month subscription/ do |months|
   $test.user.upgrade_plan(months)
 end
 
+When /^the user chooses a (.*) month subscription upgrade$/ do |months|
+    $test.current_page.select_upsell_plan(months)
+end
+
 When /the user reactivates their subscription/ do
   $test.current_page.reactivate_subscription
 end
@@ -65,7 +69,7 @@ end
 
 When /^the user selects a (.*) month subscription plan/ do |months|
   $test.current_page.select_plan(months)
-end 
+end
 
 When /^the user submits (.*?) information/ do |arg_string|
   args = arg_string.split(" ")
@@ -78,7 +82,7 @@ When /^the user edits their (.*)$/ do |info|
   sub_id = $test.db.get_subscriptions($test.user.email)[0]['subscription_id']
   step "the user visits the my account page"
   case info
-  when 'subscription info' 
+  when 'subscription info'
     $test.current_page.edit_subscription_info(sub_id)
     $test.current_page.fill_in_subscription_name(sub_id, "NEW SUB NAME")
     $test.current_page.select_shirt_size(sub_id, "Womens - S")
@@ -106,7 +110,7 @@ When /^the user edits their (.*)$/ do |info|
 end
 
 #THENS
-Then /the new subscription should be added to the user account/ do 
+Then /the new subscription should be added to the user account/ do
   step "the user visits the my account page"
   $test.current_page.verify_subscription_added
 end
@@ -138,7 +142,7 @@ Then /the subscription status should be set to active with a skip/ do
   $test.current_page.month_skipped?
 end
 
-Then /the promo discount should be applied to the transaction/ do 
+Then /the promo discount should be applied to the transaction/ do
   $test.current_page.discount_applied?
 end
 
@@ -176,7 +180,7 @@ Then (/^the billing address change should be reflected in the user account$/) do
   step "the user visits the home page"
   step "the user logs in"
   step "the user visits the my account page"
-  $test.current_page.billing_info_updated? 
+  $test.current_page.billing_info_updated?
 end
 
 Then /the updated information should be reflected when the user views their info/ do
