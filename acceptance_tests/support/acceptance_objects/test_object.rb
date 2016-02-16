@@ -211,6 +211,7 @@ class Test
 
  def enter_login_info
    @current_page.enter_login_info(@user.email, @user.password)
+   wait_for_ajax
  end
 
  def parse_with_args(arg_string)

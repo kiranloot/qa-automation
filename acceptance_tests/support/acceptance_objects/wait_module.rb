@@ -1,11 +1,11 @@
 module WaitForAjax
 
   def wait_for_ajax
+    if ENV['BROWSER'] == 'safari'
+      sleep(1)
+    end
     Timeout.timeout(Capybara.default_max_wait_time) do
-      active = page.evaluate_script('jQuery.active')
-      until active == 0
-        active = page.evaluate_script('jQuery.active')
-      end
+      loop until page.driver.evaluate_script('jQuery.active === 0')
     end
   end
 
