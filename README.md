@@ -35,12 +35,43 @@ If Bundler is not installed, run the following command:
 gem install bundler
 ```
 
+## Cucumber Variables
+There are certain variables that you can pass into a run to control where it run and how
+
+#####SITE
+`SITE = <qa,qa2,qa3,qa4,qa5,goliath,staging> (default = qa)`
+
+Controls which environment you want to run the tests against
+
+#####DRIVER
+`DRIVER = <local,remote,appium> (default = local)`
+
+Controls which driver you want to use
+
+'local' => will launch each thread in a self contained selenium instance using the gem in the repo
+
+'remote' => will launch tests against a selenium grid instance specified by REMOTE_URL (see below)
+
+'appium' => will launch tests against a local appium server with default settings.  Works only with ios currently.  Run with the @mobile_ready tag (see below)
+
+#####REMOTE_URL
+`REMOTE_URL = <url_running_grid_hub) (default = http://127.0.0.1:4444/wd/hub)`
+
+If using the DRIVER=remote option, this specifies the url that is running the hub.
+
+#####BROWSER
+`BROWSER = <chrome,ie,firefox,safari> (default = chrome)`
+
+Specifies which browser to launch tests in.
+ 
+NOTE - Only chrome is fully supported now.  Safari will work with tests tagged with @safari_ready only run serially.  Firefox and IE tests have not been fully vetted out at the time of writing.
+
 ## Running tests
 In order to run tests, from the root directory, run:
 
 `cucumber --tags @\<tags\> SITE=\<qa,qa2,goliath,staging\>`
 
-Running tests tagged with the ready flag against qa2
+To run the whole regression suite, run tests tagged with @ready. For instance:
 ```
 cucumber --tags @ready SITE=qa2
 ```
