@@ -11,7 +11,7 @@ Feature: Level Up
             And the user should receive a level up email
             And recurly should have a one month subscription for the socks crate
 
-    @ready
+    @ready @safari_ready
     Scenario: A user without an active subscription can add a one month sock subscription
         Given a registered user with no prior subscription
             When the user logs in

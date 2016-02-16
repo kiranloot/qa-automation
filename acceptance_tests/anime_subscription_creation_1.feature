@@ -11,7 +11,7 @@ Feature: Anmie Subscription Creation
             And the user should receive a anime confirmation email
             And the recurly subscription data is fully validated
 
-    @ready @mobile_ready
+    @ready @mobile_ready @safari_ready
     Scenario: Registered user creates three month anime subscription
         Given a registered user with no prior Subscription
             When the user logs in

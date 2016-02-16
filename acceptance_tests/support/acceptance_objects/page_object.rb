@@ -60,6 +60,7 @@ class Page
     page.find_link("finish_step_one").click
     fill_in("new_user_password_modal",:with => password)
     page.find_button("create_account_modal").click
+    wait_for_ajax
   end
 
   def modal_forgot_password(email)
