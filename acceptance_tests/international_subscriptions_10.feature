@@ -1,11 +1,11 @@
 @regression @extended @world_subs @selenium
 Feature: International Subscriptions
     @ready
-    Scenario: Switzerland user signs up for random month subscription
-        Given a registered user with a Switzerland address
+    Scenario: Argentina user signs up for random month subscription
+        Given a registered user with a Argentina address
             When the user logs in
             And the user selects the Loot Crate crate
-            And the user sets their country to Switzerland
+            And the user sets their country to Argentina
             And the user selects a random month subscription plan
             And the user submits valid subscription information
         Then the new subscription should be added to the user account
@@ -14,11 +14,11 @@ Feature: International Subscriptions
         And the user should receive a subscription confirmation email
 
     @ready
-    Scenario: United Kingdom user signs up for random month subscription
-        Given a registered user with a UnitedKingdom address
+    Scenario: Chile user signs up for random month subscription
+        Given a registered user with a Chile address
             When the user logs in
             And the user selects the Loot Crate crate
-            And the user sets their country to United Kingdom
+            And the user sets their country to Chile
             And the user selects a random month subscription plan
             And the user submits valid subscription information
         Then the new subscription should be added to the user account
@@ -27,11 +27,11 @@ Feature: International Subscriptions
         And the user should receive a subscription confirmation email
 
     @ready
-    Scenario: Mexico user signs up for random month subscription
-        Given a registered user with a Mexico address
+    Scenario: Colombia user signs up for random month subscription
+        Given a registered user with a Colombia address
             When the user logs in
             And the user selects the Loot Crate crate
-            And the user sets their country to Mexico
+            And the user sets their country to Colombia
             And the user selects a random month subscription plan
             And the user submits valid subscription information
         Then the new subscription should be added to the user account

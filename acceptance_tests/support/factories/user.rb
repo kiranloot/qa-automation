@@ -56,7 +56,7 @@ FactoryGirl.define do
       last_name "LUSubscription"
       email { "_regwlusub_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
     end
-    trait :one_month do 
+    trait :one_month do
       registered_with_active
     end
     trait :interational do
@@ -412,6 +412,66 @@ FactoryGirl.define do
       ship_zip "WC1H 8JJ"
       email { "_gb_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
       country_code "GB"
+    end
+    trait :mexico do
+      first_name "Mexico"
+      last_name {Date.today.strftime("%b") + Date.today.day.to_s}
+      ship_street "Calle Falso 1234"
+      ship_city "Mirador"
+      ship_state "Chihuahua"
+      ship_zip "77520"
+      email { "_gb_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country_code "MX"
+    end
+    trait :argentina do
+      first_name "Argentina"
+      last_name {Date.today.strftime("%b") + Date.today.day.to_s}
+      ship_street "Calle Falsa 1234"
+      ship_city "San Salvador de Jujuy"
+      ship_state "Jujuy"
+      ship_zip "77520"
+      email { "_gb_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country_code "AR"
+    end
+    trait :chile do
+      first_name "Chile"
+      last_name {Date.today.strftime("%b") + Date.today.day.to_s}
+      ship_street "Calle Falsa 1234"
+      ship_city "Molina"
+      ship_state "Maule"
+      ship_zip "07304"
+      email { "_gb_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country_code "CL"
+    end
+    trait :colombia do
+      first_name "Colombia"
+      last_name {Date.today.strftime("%b") + Date.today.day.to_s}
+      ship_street "Calle Falsa 1234"
+      ship_city "Chaparral"
+      ship_state "Tolima"
+      ship_zip "73168"
+      email { "_gb_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country_code "CO"
+    end
+    trait :southkorea do
+      first_name "South Korea"
+      last_name {Date.today.strftime("%b") + Date.today.day.to_s}
+      ship_street "123 가짜 거리"
+      ship_city "Dongjak"
+      ship_state "Seoul Teugbyeolsi"
+      ship_zip "11200"
+      email { "_gb_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country_code "KR"
+    end
+    trait :turkey do
+      first_name "Turkey"
+      last_name {Date.today.strftime("%b") + Date.today.day.to_s}
+      ship_street "123 Sahte Sokak"
+      ship_city "Çilimli"
+      ship_state "Düzce"
+      ship_zip "1905"
+      email { "_gb_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country_code "TR"
     end
     trait :multi_use_fixed_promo do
       coupon_code  {$test.test_data["promos"]["multi_use"]}
