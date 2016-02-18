@@ -106,6 +106,9 @@ class Test
    when "Firefly®"
      find("#header-firefly-lnk").click
      $test.current_page = FireflyLandingPage.new
+   when "Gaming"
+     find("#header-gaming-lnk").click
+     $test.current_page = GamingLandingPage.new
    end
    $test.user.crate_type = crate
    wait_for_ajax

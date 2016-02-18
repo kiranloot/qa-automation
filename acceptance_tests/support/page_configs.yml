@@ -42,6 +42,12 @@ firefly_landing:
  url: "/crates/firefly"
 firefly_subscribe:
  url: "/crates/anime/plans"
+gaming_landing:
+ url: "/crates/gaming"
+gaming_subscribe:
+ url: "/crates/gaming/plans"
+gaming_checkout:
+ url: "gaming-1-month-subscription/checkouts/new"
 pewdiepie:
  url: "/referrers/pewdiepie"
 boogie2988:
