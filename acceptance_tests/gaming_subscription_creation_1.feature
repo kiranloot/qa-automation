@@ -1,5 +1,5 @@
 @regression @core @gaming_sub_creation @selenium
-Feature: Subscription Creation
+Feature: Gaming Subscription Creation
     @ready
     Scenario: Registered user creates one month gaming crate subscription
         Given a registered user with no prior subscription
