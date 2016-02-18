@@ -29,6 +29,10 @@ include WaitForAjax
   end
 
   def load_checkout_page_object
-    $test.current_page = LootcrateCheckoutPage.new
+    if ENV['DRIVER'] == 'appium'
+      $test.current_page = LootcrateMobileCheckoutPage.new
+    else
+      $test.current_page = LootcrateCheckoutPage.new
+    end
   end
 end
