@@ -24,7 +24,7 @@ include WaitForAjax
   end
 
   def load_checkout_page_object
-    if ENV["DRIVER"] = 'appium'
+    if ENV["DRIVER"] == 'appium'
       $test.current_page = PetsMobileCheckoutPage.new
     else
       $test.current_page = PetsCheckoutPage.new
