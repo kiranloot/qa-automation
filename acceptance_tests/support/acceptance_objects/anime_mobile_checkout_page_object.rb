@@ -1,16 +1,10 @@
-require_relative "anime_checkout_page_object"
+require_relative "mobile_checkout_page_object"
 
-class AnimeMobileCheckoutPage < AnimeCheckoutPage
+class AnimeMobileCheckoutPage < MobileCheckoutPage
 
   def initialze
     super
     @page_type = "anime_checkout"
     setup
-  end
-
-  def select_shirt_size(size)
-    find("#option_type_shirt").click
-    wait_for_ajax
-    find(".select2-results__option", :text => size).click
   end
 end

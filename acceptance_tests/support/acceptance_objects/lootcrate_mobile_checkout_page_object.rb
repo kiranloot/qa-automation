@@ -1,6 +1,6 @@
-require_relative "lootcrate_checkout_page_object"
+require_relative "mobile_checkout_page_object"
 
-class LootcrateMobileCheckoutPage < LootcrateCheckoutPage
+class LootcrateMobileCheckoutPage < MobileCheckoutPage
 
   def initialze
     super
@@ -8,9 +8,4 @@ class LootcrateMobileCheckoutPage < LootcrateCheckoutPage
     setup
   end
 
-  def select_shirt_size(size)
-    find("#option_type_shirt").click
-    wait_for_ajax
-    find(".select2-results__option", :text => size).click
-  end
 end
