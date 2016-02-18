@@ -1,4 +1,4 @@
-@core @regression @account @selenium
+@core @regression @account @selenium @admin
 Feature: Admin Subscriptions Page
     @ready
     Scenario: View a subscription via admin panel
