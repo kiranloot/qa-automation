@@ -235,6 +235,8 @@ class User
       target_content = 'Subscription Unskipped'
     elsif type == 'firefly confirmation'
       target_content = 'Firefly® Cargo Crate Order Confirmation'
+    elsif type == 'gaming confirmation'
+      target_content = "You’re confirmed for Loot Gaming!"
     end
     email_pass = false
     subjects = []
