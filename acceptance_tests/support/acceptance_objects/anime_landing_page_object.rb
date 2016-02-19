@@ -24,6 +24,10 @@ include WaitForAjax
   end
 
   def load_checkout_page_object
-    $test.current_page = AnimeCheckoutPage.new
+    if ENV['DRIVER'] == 'appium'
+      $test.current_page = AnimeMobileCheckoutPage.new
+    else
+      $test.current_page = AnimeCheckoutPage.new
+    end
   end
 end
