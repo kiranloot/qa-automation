@@ -67,9 +67,15 @@ include WaitForAjax
   # else
   #   puts "ERROR: Unknown Shipping Domain"
   # end
+    price_hash = $test.price_estimate_data[country]
     #total US price
-    for k, v in $test.price_estimate_data[country]['us_totals']
+    for k, v in price_hash['us_totals']
       price = find("div.#{k}").find("p.total_price").text
+      expect("Total Price: #{v}").to eq (price)
+    end
+    #total local prices
+    for k, v in price_hash['local_totals']
+      price = find("div.#{k}").find("ul.local-currency > li:nth-of-type(3)").text
       expect("Total Price: #{v}").to eq (price)
     end
   end
