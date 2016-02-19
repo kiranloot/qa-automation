@@ -55,18 +55,23 @@ include WaitForAjax
     #stub = to be overridden by children
   end
 
-  def verify_plan_prices(domain)
-    if domain == 'international'
-      for k, v in $test.test_data['international_plan_cost']
-        assert_text(v.to_s)
-      end
-    elsif domain == 'domestic'
-      for k, v in $test.test_data['international_plan_cost']
-        assert_text("Total Price: $" + v.to_s)
-      end
-   else
-     puts "ERROR: Unknown Shipping Domain"
-   end
+  def verify_plan_prices(country)
+  #  if domain == 'international'
+  #    for k, v in $test.test_data['international_plan_cost']
+  #      assert_text(v.to_s)
+  #    end
+  #  elsif domain == 'domestic'
+  #    for k, v in $test.test_data['international_plan_cost']
+  #      assert_text("Total Price: $" + v.to_s)
+  #    end
+  # else
+  #   puts "ERROR: Unknown Shipping Domain"
+  # end
+    #total US price
+    for k, v in $test.price_estimate_data[country]['us_totals']
+      price = find("div.#{k}").find("p.total_price").text
+      expect("Total Price: #{v}").to eq (price)
+    end
   end
  
   def proration_applied?(old_plan, new_plan, date_subscribed)
