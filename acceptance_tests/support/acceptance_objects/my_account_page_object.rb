@@ -106,10 +106,10 @@ class MyAccountPage < Page
     go_to_subscriptions
     open_payment_tab
     assert_text($test.user.full_name)
-    assert_text($test.user.bill_street)
-    assert_text($test.user.bill_city)
-    assert_text($test.user.bill_state)
-    assert_text($test.user.bill_zip)
+    assert_text($test.user.address.bill_street)
+    assert_text($test.user.address.bill_city)
+    assert_text($test.user.address.bill_state)
+    assert_text($test.user.address.bill_zip)
     assert_text($test.user.last_four)
   end
  
@@ -331,24 +331,24 @@ class MyAccountPage < Page
 
   def fill_in_billing_address_1(sub_id, address)
     fill_in("payment_method_line_1_#{sub_id}", :with => address)
-    $test.user.bill_street = address
+    $test.user.address.bill_street = address
   end
 
   def fill_in_billing_city(sub_id, city)
     fill_in("payment_method_city#{sub_id}", :with => city)
-    $test.user.bill_city = city
+    $test.user.address.bill_city = city
   end
 
   def select_billing_state(sub_id, state)
     find("#select2-payment_method_state#{sub_id}-container").click
     wait_for_ajax
     find('.select2-results__option', :text => state).click
-    $test.user.bill_state = state
+    $test.user.address.bill_state = state
   end
 
   def fill_in_billing_zip(sub_id, zip_code)
     fill_in("payment_method_zip#{sub_id}", :with => zip_code)
-    $test.user.bill_zip = zip_code
+    $test.user.address.bill_zip = zip_code
   end
 
   def click_update
