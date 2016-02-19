@@ -30,15 +30,3 @@ Feature: Subscription Creation
         Then standard new subscription pass criteria should pass
             And recurly should have a matching subscription
             And the recurly subscription data is fully validated
-
-    @ready @recurly @mobile_ready
-    Scenario: Registered user creates six month subscription
-        Given a registered user with no prior Subscription
-        And   a different billing address
-            When the user logs in
-            And the user selects the Loot Crate crate
-            And the user selects a six month subscription plan
-            And the user submits valid subscription and billing information
-        Then standard new subscription pass criteria should pass
-            And recurly should have a matching subscription
-            And the recurly subscription data is fully validated
