@@ -16,6 +16,10 @@ Given /^an? (.*) user with (.*)/ do |user_type, with_args|
   end
 end
 
+Given /^a different billing address$/ do
+  $test.configure_billing_address
+end
+
 #WHENS
 When /create a\s(.*)\smonth subscription/ do |months|
   step "the user logs in"
@@ -72,10 +76,15 @@ When /^the user selects a (.*) month subscription plan/ do |months|
 end
 
 When /^the user submits (.*?) information/ do |arg_string|
+  addbilling = false
+  if arg_string.include?(" and billing")
+    addbilling = true
+    arg_string.slice!(" and billing")
+  end
   args = arg_string.split(" ")
   adjective = args.shift
   type = args.reject(&:empty?).join(' ')
-  $test.submit_information(adjective, type)
+  $test.submit_information(adjective, type, addbilling)
 end
 
 When /^the user edits their (.*)$/ do |info|

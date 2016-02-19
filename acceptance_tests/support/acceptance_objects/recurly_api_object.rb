@@ -64,10 +64,10 @@ class RecurlyAPI
   def verify_billing_address
     account = get_account
     info = account.billing_info
-    expect(info[:address1]).to eq($test.user.bill_street)
-    expect(info[:address2] || "").to eq($test.user.bill_street_2 || "")
-    expect(info[:city]).to eq($test.user.bill_city)
-    expect(info[:zip]).to eq($test.user.bill_zip)
+    expect(info[:address1]).to eq($test.user.address.bill_street)
+    expect(info[:address2] || "").to eq($test.user.address.bill_street_2 || "")
+    expect(info[:city]).to eq($test.user.address.bill_city)
+    expect(info[:zip]).to eq($test.user.address.bill_zip)
   end
 
   def verify_billing_address_has_no_state
@@ -174,7 +174,7 @@ class RecurlyAPI
     sub = account.subscriptions.first
     adjusted_rebill_date = Time.new + minutes * 60
     account.subscriptions.first.postpone(adjusted_rebill_date)
-    $test.user.new_rebill_date = get_rebill_date 
+    $test.user.new_rebill_date = get_rebill_date
   end
 
   def account_has_invoices?(amount)
