@@ -19,33 +19,33 @@ recurly:
 fallout4:
  url: "/fallout4"
 lootcrate_landing:
- url: "/crates/lootcrate"
+ url: "/subscription-crates/lootcrate"
 lootcrate_subscribe:
- url: "/crates/lootcrate/plans"
+ url: "/subscription-subscription-crates/lootcrate/plans"
 lootcrate_checkout:
  url: "/1-month-subscription/checkouts/new"
 levelup_subscribe:
  url: "/level_up"
 anime_landing:
- url: "/crates/anime"
+ url: "/subscription-crates/anime"
 anime_subscribe:
- url: "/crates/anime/plans"
+ url: "/subscription-crates/anime/plans"
 anime_checkout:
  url: "/anime-1-month-subscription/checkouts/new"
 pets_landing:
- url: "/crates/pets"
+ url: "/subscription-crates/pets"
 pets_subscribe:
- url: "/crates/pets/plans"
+ url: "/subscription-crates/pets/plans"
 pets_checkout:
  url: "/pets-1-month-subscription/checkouts/new"
 firefly_landing:
- url: "/crates/firefly"
+ url: "/subscription-crates/firefly"
 firefly_subscribe:
- url: "/crates/anime/plans"
+ url: "/subscription-crates/anime/plans"
 gaming_landing:
- url: "/crates/gaming"
+ url: "/subscription-crates/gaming"
 gaming_subscribe:
- url: "/crates/gaming/plans"
+ url: "/subscription-crates/gaming/plans"
 gaming_checkout:
  url: "gaming-1-month-subscription/checkouts/new"
 pewdiepie:
