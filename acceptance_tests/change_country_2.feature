@@ -1,4 +1,4 @@
-@core @regression @selenium
+@core @regression @selenium @intl_pricing
 Feature: Change Country Subscribe Page Prices
     @ready
     Scenario Outline: Change from US to International Country and verify pricing.
@@ -9,7 +9,7 @@ Feature: Change Country Subscribe Page Prices
             And the user sets their country to <country>
         Then the <country> price for all plans should be displayed
     Examples:
-      | country   |
-      | Argentina |
-      | Australia |
-      | Austria   |
+      | country |
+      | Belgium |
+      | Canada  |
+      | Chile   |
