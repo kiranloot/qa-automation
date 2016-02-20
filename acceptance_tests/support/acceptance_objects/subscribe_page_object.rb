@@ -76,7 +76,11 @@ include WaitForAjax
     #total local prices
     for month, expected_price in price_hash['local_totals']
       price = find("div.#{month}").find("ul.local-currency > li:nth-of-type(3)").text
-      expect("Total Price: #{expected_price}").to eq (price)
+      if country == "Germany"
+        expect("Gesamtpreis: #{expected_price}").to eq (price)
+      else
+        expect("Total Price: #{expected_price}").to eq (price)
+      end
     end
     #per month US prices
     for month, expected_price in price_hash['us_per_month']

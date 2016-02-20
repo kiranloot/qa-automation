@@ -10,6 +10,6 @@ Feature: Change Country Subscribe Page Prices
         Then the <country> price for all plans should be displayed
     Examples:
       | country        |
-      | Columbia       |
+      | Colombia       |
       | Czech Republic |
       | Denmark        |
