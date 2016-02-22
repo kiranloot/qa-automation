@@ -315,7 +315,7 @@ class Test
   end
 
   def calculate_rebill_date(utc=false)
-    if /Anime/.match($test.user.subscription_name)
+    if /Anime/.match($test.user.subscription_name) || /Gaming/.match($test.user.subscription_name)
       end_date = 28
     else
       end_date = 20
