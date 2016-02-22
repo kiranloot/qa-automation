@@ -20,7 +20,7 @@ class AdminVariantsPage < AdminPage
   def verify_total_committed(variant_id)
     table_scan_for("#variant_#{variant_id}")
     queried_total = $test.db.get_total_committed(variant_id)
-
+    total_committed = nil
     3.times do
       total_committed = find(:css, "#variant_#{variant_id} td.col-total_commited").text
       if total_committed == queried_total
