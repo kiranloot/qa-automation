@@ -9,6 +9,7 @@ Feature: Sailthru Integration
             And the user submits valid subscription information
         Then the user's email should have a Level Up subscription status of active in sailthru
 
+    @ready
     Scenario: Verify sailthru creation via newsletter modal
     	Given an unregistered user
         And the user's email does not exist in sailthru
@@ -16,6 +17,7 @@ Feature: Sailthru Integration
         And the user joins through the newsletter modal
       Then the user's email should be in the Loot Crate Master List bucket in sailthru
 
+    @ready
     Scenario: Valid signup through the Loot Crate join modal
     	Given an unregistered user
         And the user's email does not exist in sailthru

@@ -1,6 +1,7 @@
 @regression @core @firefly_subscription_creation @selenium
 Feature: Firefly Subscription Creation
 
+    @ready
     Scenario Outline: User from France/Germany/Italy creates a firefly random month subscription
         Given a registered user with a <country> address
             When the user logs in
