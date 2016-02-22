@@ -4,7 +4,7 @@ Feature: Firefly Subscription Creation
     Scenario Outline: User from France/Germany/Italy creates a firefly random month subscription
         Given a registered user with a <country> address
             When the user logs in
-            And the user selects the Firefly® crate
+            And the user selects the Firefly™ crate
             And the user sets their country to <country>
             And the user selects a random month subscription plan
             And the user submits valid subscription information
