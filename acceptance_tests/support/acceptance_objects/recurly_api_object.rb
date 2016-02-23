@@ -64,10 +64,10 @@ class RecurlyAPI
   def verify_billing_address
     account = get_account
     info = account.billing_info
-    expect(info[:address1]).to eq($test.user.address.bill_street)
-    expect(info[:address2] || "").to eq($test.user.address.bill_street_2 || "")
-    expect(info[:city]).to eq($test.user.address.bill_city)
-    expect(info[:zip]).to eq($test.user.address.bill_zip)
+    expect(info[:address1]).to eq($test.user.billing_address.street)
+    expect(info[:address2] || "").to eq($test.user.billing_address.street_2 || "")
+    expect(info[:city]).to eq($test.user.billing_address.city)
+    expect(info[:zip]).to eq($test.user.billing_address.zip)
   end
 
   def verify_billing_address_has_no_state

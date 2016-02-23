@@ -196,12 +196,13 @@ class Test
    ug = UserGen.new(type, with_string)
    @user = ug.build
    @user.set_full_name
-   @user.address = Address.new(@user.ship_street, @user.ship_city, @user.ship_zip, @user.ship_state)
+   #Several tests still rely on matching billing/shipping info, so the following two methods are temporarily necessary
+   @user.billing_address = Address.new(@user.ship_street, @user.ship_city, @user.ship_zip, @user.ship_state)
    @user.match_billing_shipping_address
   end
 
   def configure_billing_address
-    @user.address = FactoryGirl.build(:address, @user.country_code.to_sym)
+    @user.billing_address = FactoryGirl.build(:address, @user.country_code.to_sym)
   end
 
 

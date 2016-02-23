@@ -191,10 +191,10 @@ include Capybara::DSL
 
     if addbilling
       click_use_shipping_address_checkbox
-      enter_billing_address_1(user.address.bill_street)
-      enter_billing_city(user.address.bill_city)
-      enter_billing_zip(user.address.bill_zip)
-      select_billing_state(user.address.bill_state)
+      enter_billing_address_1(user.billing_address.street)
+      enter_billing_city(user.billing_address.city)
+      enter_billing_zip(user.billing_address.zip)
+      select_billing_state(user.billing_address.state)
     end
 
     click_legal_checkbox
