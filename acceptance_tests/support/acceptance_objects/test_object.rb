@@ -103,7 +103,7 @@ class Test
    when "Pets"
      find("#header-pets-lnk").click
      $test.current_page = PetsLandingPage.new
-   when "Firefly®"
+   when "Firefly"
      find("#header-firefly-lnk").click
      $test.current_page = FireflyLandingPage.new
    when "Gaming"
