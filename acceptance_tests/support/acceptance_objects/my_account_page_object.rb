@@ -4,7 +4,7 @@ require "capybara/cucumber"
 require "pry"
 require "humanize"
 require "date"
-  
+
 class MyAccountPage < Page
   include Capybara::DSL
   include WaitForAjax
@@ -46,7 +46,7 @@ class MyAccountPage < Page
   def verify_subscription_added
     grab_user_data
     go_to_subscriptions
-    expect(@subscription_name).not_to be_nil 
+    expect(@subscription_name).not_to be_nil
     assert_text(@subscription_name)
     assert_text("Active")
     wait_for_ajax
@@ -106,13 +106,13 @@ class MyAccountPage < Page
     go_to_subscriptions
     open_payment_tab
     assert_text($test.user.full_name)
-    assert_text($test.user.bill_street)
-    assert_text($test.user.bill_city)
-    assert_text($test.user.bill_state)
-    assert_text($test.user.bill_zip)
+    assert_text($test.user.billing_address.street)
+    assert_text($test.user.billing_address.city)
+    assert_text($test.user.billing_address.state)
+    assert_text($test.user.billing_address.zip)
     assert_text($test.user.last_four)
   end
- 
+
   def get_expected_next_bill_date(subscription_name, compare_date: nil)
     #if /1 Year Subscription/.match(subscription_name)
     #  months = 12
@@ -127,7 +127,7 @@ class MyAccountPage < Page
   end
 
   def localize_date(day, month, year)
-    
+
     #if selected language is german:
     # return day + ". " + month + " " + year
     #else
@@ -308,7 +308,7 @@ class MyAccountPage < Page
 
   def edit_billing_info(sub_id)
     go_to_subscriptions
-    open_payment_tab 
+    open_payment_tab
     sleep(1)
     find(:css, "#panel-two-cog-#{sub_id}-lnk > i").click
     find_link("Edit").click
@@ -331,24 +331,24 @@ class MyAccountPage < Page
 
   def fill_in_billing_address_1(sub_id, address)
     fill_in("payment_method_line_1_#{sub_id}", :with => address)
-    $test.user.bill_street = address
+    $test.user.billing_address.street = address
   end
 
   def fill_in_billing_city(sub_id, city)
     fill_in("payment_method_city#{sub_id}", :with => city)
-    $test.user.bill_city = city
+    $test.user.billing_address.city = city
   end
 
   def select_billing_state(sub_id, state)
     find("#select2-payment_method_state#{sub_id}-container").click
     wait_for_ajax
     find('.select2-results__option', :text => state).click
-    $test.user.bill_state = state
+    $test.user.billing_address.state = state
   end
 
   def fill_in_billing_zip(sub_id, zip_code)
     fill_in("payment_method_zip#{sub_id}", :with => zip_code)
-    $test.user.bill_zip = zip_code
+    $test.user.billing_address.zip = zip_code
   end
 
   def click_update
@@ -365,7 +365,7 @@ class MyAccountPage < Page
 
   def unskip_subscription
     find_link('Un-Skip').click
-    find_link('Confirm').click  
+    find_link('Confirm').click
   end
 
   def unskip_confirmation

@@ -87,6 +87,24 @@ include Capybara::DSL
     fill_in("checkout_shipping_address_zip", :with => zip)
   end
 
+  def enter_billing_address_1(address)
+    fill_in("checkout_billing_address_line_1", :with => address)
+  end
+
+  def enter_billing_city(city)
+    fill_in("checkout_billing_address_city", :with => city)
+  end
+
+  def enter_billing_zip(zip)
+    fill_in("checkout_billing_address_zip", :with => zip)
+  end
+
+  def select_billing_state(state)
+    find("span#select2-checkout_billing_address_state-container").click
+    wait_for_ajax
+    find(".select2-results__option", :text => state).click
+  end
+
   def enter_name_on_card(name)
     fill_in("checkout_billing_address_full_name", :with => name)
   end
@@ -126,7 +144,7 @@ include Capybara::DSL
   end
 
   def click_use_shipping_address_checkbox
-    find("#billing").click
+    find(".billing label[for=billing]").click
   end
 
   def click_legal_checkbox
@@ -139,7 +157,7 @@ include Capybara::DSL
     sleep(10)
   end
 
-  def submit_checkout_information(user, type)
+  def submit_checkout_information(user, type, addbilling=false)
     select_shirt_size(user.shirt_size)
     #will only run on pets crate
     select_pet_shirt_size(user.pet_shirt_size)
@@ -170,6 +188,15 @@ include Capybara::DSL
     enter_cvv(user.cvv)
     select_cc_exp_month(user.cc_exp_month)
     select_cc_exp_year(user.cc_exp_year)
+
+    if addbilling
+      click_use_shipping_address_checkbox
+      enter_billing_address_1(user.billing_address.street)
+      enter_billing_city(user.billing_address.city)
+      enter_billing_zip(user.billing_address.zip)
+      select_billing_state(user.billing_address.state)
+    end
+
     click_legal_checkbox
     click_subscribe
     unless type == 'invalid'

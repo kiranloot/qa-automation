@@ -196,8 +196,15 @@ class Test
    ug = UserGen.new(type, with_string)
    @user = ug.build
    @user.set_full_name
+   #Several tests still rely on matching billing/shipping info, so the following two methods are temporarily necessary
+   @user.billing_address = Address.new(@user.ship_street, @user.ship_city, @user.ship_zip, @user.ship_state)
    @user.match_billing_shipping_address
   end
+
+  def configure_billing_address
+    @user.billing_address = FactoryGirl.build(:address, @user.country_code.to_sym)
+  end
+
 
  def affiliate_working?
    visit_page(:home)
@@ -265,7 +272,7 @@ class Test
    @current_page.submit_signup
  end
 
-  def submit_information(adjective, type)
+  def submit_information(adjective, type, addbilling=false)
     if type == 'signup' || type == 'registration'
       if adjective == 'valid'
         get_valid_signup_information
@@ -276,7 +283,7 @@ class Test
       enter_password
       submit_signup
     elsif type =='subscription'
-      @current_page.submit_checkout_information(@user, adjective)
+      @current_page.submit_checkout_information(@user, adjective, addbilling)
     elsif type == 'credit card'
       @current_page.submit_credit_card_information_only(@user, adjective)
     end
