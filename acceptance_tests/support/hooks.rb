@@ -19,7 +19,9 @@ box = Box.new(env)
 $env_base_url = box.base_url
 
 $env_test_data_file_path ||= "acceptance_tests/support/qa_test_data.yml"
+$env_price_esitmate_data_file_path ||= "acceptance_tests/support/price_estimate_test_data.yml"
 test_data = YAML.load(File.open($env_test_data_file_path))
+price_estimate_test_data = YAML.load(File.open($env_price_esitmate_data_file_path))
 
 pages = {
   home: HomePage,
@@ -57,7 +59,7 @@ Before do
     page.driver.browser.manage.window.resize_to(1800, 1100)
   end
   visit $env_base_url
-  $test = Test.new( test_data, HomePage.new, pages, DBCon.new, box, MailinatorAPI.new)
+  $test = Test.new( test_data, price_estimate_test_data, HomePage.new, pages, DBCon.new, box, MailinatorAPI.new)
   $test.user = User.new($test)
   $test.admin_user = FactoryGirl.build(:user, :admin)
   #If US flag isn't showing, set it to US

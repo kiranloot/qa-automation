@@ -55,18 +55,43 @@ include WaitForAjax
     #stub = to be overridden by children
   end
 
-  def verify_plan_prices(domain)
-    if domain == 'international'
-      for k, v in $test.test_data['international_plan_cost']
-        assert_text(v.to_s)
+  def verify_plan_prices(country)
+  #  if domain == 'international'
+  #    for k, v in $test.test_data['international_plan_cost']
+  #      assert_text(v.to_s)
+  #    end
+  #  elsif domain == 'domestic'
+  #    for k, v in $test.test_data['international_plan_cost']
+  #      assert_text("Total Price: $" + v.to_s)
+  #    end
+  # else
+  #   puts "ERROR: Unknown Shipping Domain"
+  # end
+    price_hash = $test.price_estimate_data[country]
+    #total US price
+    for month, expected_price in price_hash['us_totals']
+      price = find("div.#{month}").find("p.total_price").text
+      expect("Total Price: #{expected_price}").to eq (price)
+    end
+    #total local prices
+    for month, expected_price in price_hash['local_totals']
+      price = find("div.#{month}").find("ul.local-currency > li:nth-of-type(3)").text
+      if country == "Germany"
+        expect("Gesamtpreis: #{expected_price}").to eq (price)
+      else
+        expect("Total Price: #{expected_price}").to eq (price)
       end
-    elsif domain == 'domestic'
-      for k, v in $test.test_data['international_plan_cost']
-        assert_text("Total Price: $" + v.to_s)
-      end
-   else
-     puts "ERROR: Unknown Shipping Domain"
-   end
+    end
+    #per month US prices
+    for month, expected_price in price_hash['us_per_month']
+      price = find("div.#{month}").find("p.price").text
+      expect(expected_price).to eq (price)
+    end
+    #per month local prices
+    for month, expected_price in price_hash['local_per_month']
+      price = find("div.#{month}").find("ul.local-currency > li:nth-of-type(2)").text
+     expect("#{expected_price} /mo").to eq(price)
+    end
   end
  
   def proration_applied?(old_plan, new_plan, date_subscribed)

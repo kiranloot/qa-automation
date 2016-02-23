@@ -1,0 +1,662 @@
+Argentina:
+  local_totals:
+    one-month: '$ 429.00'
+    three-month: '$ 1,205.00'
+    six-month: '$ 2,323.00'
+    twelve-month: '$ 4,474.00'
+  local_per_month:
+    one-month: '$ 429.00'
+    three-month: '$ 402.00'
+    six-month: '$ 387.00'
+    twelve-month: '$ 373.00'
+  us_totals:
+    one-month: '$29.95'
+    three-month: '$84.00'
+    six-month: '$162.00'
+    twelve-month: '$312.00'
+  us_per_month:
+    one-month: '$29.95'
+    three-month: '$28.00'
+    six-month: '$27.00'
+    twelve-month: '$26.00'
+Australia:
+  local_totals:
+    one-month: '$ 41.00'
+    three-month: '$ 116.00'
+    six-month: '$ 224.00'
+    twelve-month: '$ 432.00'
+  local_per_month:
+    one-month: '$ 41.00'
+    three-month: '$ 39.00'
+    six-month: '$ 37.00'
+    twelve-month: '$ 36.00'
+  us_totals:
+    one-month: '$29.95'
+    three-month: '$84.00'
+    six-month: '$162.00'
+    twelve-month: '$312.00'
+  us_per_month:
+    one-month: '$29.95'
+    three-month: '$28.00'
+    six-month: '$27.00'
+    twelve-month: '$26.00'
+Austria:
+  local_totals:
+    one-month: '€ 28.00'
+    three-month: '€ 77.00'
+    six-month: '€ 149.00'
+    twelve-month: '€ 287.00'
+  local_per_month:
+    one-month: '€ 28.00'
+    three-month: '€ 26.00'
+    six-month: '€ 25.00'
+    twelve-month: '€ 24.00'
+  us_totals:
+    one-month: '$29.95'
+    three-month: '$84.00'
+    six-month: '$162.00'
+    twelve-month: '$312.00'
+  us_per_month:
+    one-month: '$29.95'
+    three-month: '$28.00'
+    six-month: '$27.00'
+    twelve-month: '$26.00'
+Belgium:
+  local_totals:
+    one-month: '€ 28.00'
+    three-month: '€ 77.00'
+    six-month: '€ 149.00'
+    twelve-month: '€ 287.00'
+  local_per_month:
+    one-month: '€ 28.00'
+    three-month: '€ 26.00'
+    six-month: '€ 25.00'
+    twelve-month: '€ 24.00'
+  us_totals:
+    one-month: '$29.95'
+    three-month: '$84.00'
+    six-month: '$162.00'
+    twelve-month: '$312.00'
+  us_per_month:
+    one-month: '$29.95'
+    three-month: '$28.00'
+    six-month: '$27.00'
+    twelve-month: '$26.00'
+Canada:
+  local_totals:
+    one-month: '$ 41.00'
+    three-month: '$ 114.00'
+    six-month: '$ 219.00'
+    twelve-month: '$ 423.00'
+  local_per_month:
+    one-month: '$ 41.00'
+    three-month: '$ 38.00'
+    six-month: '$ 37.00'
+    twelve-month: '$ 35.00'
+  us_totals:
+    one-month: '$29.95'
+    three-month: '$84.00'
+    six-month: '$162.00'
+    twelve-month: '$312.00'
+  us_per_month:
+    one-month: '$29.95'
+    three-month: '$28.00'
+    six-month: '$27.00'
+    twelve-month: '$26.00'
+Chile:
+  local_totals:
+    one-month: '$ 21,119.00'
+    three-month: '$ 59,233.00'
+    six-month: '$ 114,234.00'
+    twelve-month: '$ 220,007.00'
+  local_per_month:
+    one-month: '$ 21,119.00'
+    three-month: '$ 19,744.00'
+    six-month: '$ 19,039.00'
+    twelve-month: '$ 18,334.00'
+  us_totals:
+    one-month: '$29.95'
+    three-month: '$84.00'
+    six-month: '$162.00'
+    twelve-month: '$312.00'
+  us_per_month:
+    one-month: '$29.95'
+    three-month: '$28.00'
+    six-month: '$27.00'
+    twelve-month: '$26.00'
+Colombia:
+  local_totals:
+    one-month: '$ 99,841.00'
+    three-month: '$ 280,022.00'
+    six-month: '$ 540,043.00'
+    twelve-month: '$ 1,040,083.00'
+  local_per_month:
+    one-month: '$ 99,841.00'
+    three-month: '$ 93,341.00'
+    six-month: '$ 90,007.00'
+    twelve-month: '$ 86,674.00'
+  us_totals:
+    one-month: '$29.95'
+    three-month: '$84.00'
+    six-month: '$162.00'
+    twelve-month: '$312.00'
+  us_per_month:
+    one-month: '$29.95'
+    three-month: '$28.00'
+    six-month: '$27.00'
+    twelve-month: '$26.00'
+Czech Republic:
+  local_totals:
+    one-month: 'Kč 742.00'
+    three-month: 'Kč 2,081.00'
+    six-month: 'Kč 4,012.00'
+    twelve-month: 'Kč 7,728.00'
+  local_per_month:
+    one-month: 'Kč 742.00'
+    three-month: 'Kč 694.00'
+    six-month: 'Kč 669.00'
+    twelve-month: 'Kč 644.00'
+  us_totals:
+    one-month: '$29.95'
+    three-month: '$84.00'
+    six-month: '$162.00'
+    twelve-month: '$312.00'
+  us_per_month:
+    one-month: '$29.95'
+    three-month: '$28.00'
+    six-month: '$27.00'
+    twelve-month: '$26.00'
+Denmark:
+  local_totals:
+    one-month: 'kr 205.00'
+    three-month: 'kr 575.00'
+    six-month: 'kr 1,109.00'
+    twelve-month: 'kr 2,137.00'
+  local_per_month:
+    one-month: 'kr 205.00'
+    three-month: 'kr 192.00'
+    six-month: 'kr 185.00'
+    twelve-month: 'kr 178.00'
+  us_totals:
+    one-month: '$29.95'
+    three-month: '$84.00'
+    six-month: '$162.00'
+    twelve-month: '$312.00'
+  us_per_month:
+    one-month: '$29.95'
+    three-month: '$28.00'
+    six-month: '$27.00'
+    twelve-month: '$26.00'
+Finland:
+  local_totals:
+    one-month: '€ 28.00'
+    three-month: '€ 77.00'
+    six-month: '€ 149.00'
+    twelve-month: '€ 287.00'
+  local_per_month:
+    one-month: '€ 28.00'
+    three-month: '€ 26.00'
+    six-month: '€ 25.00'
+    twelve-month: '€ 24.00'
+  us_totals:
+    one-month: '$29.95'
+    three-month: '$84.00'
+    six-month: '$162.00'
+    twelve-month: '$312.00'
+  us_per_month:
+    one-month: '$29.95'
+    three-month: '$28.00'
+    six-month: '$27.00'
+    twelve-month: '$26.00'
+France:
+  local_totals:
+    one-month: '€ 30.00'
+    three-month: '€ 84.00'
+    six-month: '€ 162.00'
+    twelve-month: '€ 312.00'
+  local_per_month:
+    one-month: '€ 30.00'
+    three-month: '€ 28.00'
+    six-month: '€ 27.00'
+    twelve-month: '€ 26.00'
+  us_totals:
+    one-month: '$29.95'
+    three-month: '$84.00'
+    six-month: '$162.00'
+    twelve-month: '$312.00'
+  us_per_month:
+    one-month: '$29.95'
+    three-month: '$28.00'
+    six-month: '$27.00'
+    twelve-month: '$26.00'
+Germany:
+  local_totals:
+    one-month: '€ 28.00'
+    three-month: '€ 77.00'
+    six-month: '€ 149.00'
+    twelve-month: '€ 287.00'
+  local_per_month:
+    one-month: '€ 28.00'
+    three-month: '€ 26.00'
+    six-month: '€ 25.00'
+    twelve-month: '€ 24.00'
+  us_totals:
+    one-month: '$29.95'
+    three-month: '$84.00'
+    six-month: '$162.00'
+    twelve-month: '$312.00'
+  us_per_month:
+    one-month: '$29.95'
+    three-month: '$28.00'
+    six-month: '$27.00'
+    twelve-month: '$26.00'
+Hungary:
+  local_totals:
+    one-month: 'Ft 8,614.00'
+    three-month: 'Ft 24,159.00'
+    six-month: 'Ft 46,593.00'
+    twelve-month: 'Ft 89,734.00'
+  local_per_month:
+    one-month: 'Ft 8,614.00'
+    three-month: 'Ft 8,053.00'
+    six-month: 'Ft 7,765.00'
+    twelve-month: 'Ft 7,478.00'
+  us_totals:
+    one-month: '$29.95'
+    three-month: '$84.00'
+    six-month: '$162.00'
+    twelve-month: '$312.00'
+  us_per_month:
+    one-month: '$29.95'
+    three-month: '$28.00'
+    six-month: '$27.00'
+    twelve-month: '$26.00'
+Iceland:
+  local_totals:
+    one-month: 'kr 3,883.00'
+    three-month: 'kr 10,890.00'
+    six-month: 'kr 21,002.00'
+    twelve-month: 'kr 40,448.00'
+  local_per_month:
+    one-month: 'kr 3,883.00'
+    three-month: 'kr 3,630.00'
+    six-month: 'kr 3,500.00'
+    twelve-month: 'kr 3,371.00'
+  us_totals:
+    one-month: '$29.95'
+    three-month: '$84.00'
+    six-month: '$162.00'
+    twelve-month: '$312.00'
+  us_per_month:
+    one-month: '$29.95'
+    three-month: '$28.00'
+    six-month: '$27.00'
+    twelve-month: '$26.00'
+Ireland:
+  local_totals:
+    one-month: '€ 28.00'
+    three-month: '€ 77.00'
+    six-month: '€ 149.00'
+    twelve-month: '€ 287.00'
+  local_per_month:
+    one-month: '€ 28.00'
+    three-month: '€ 26.00'
+    six-month: '€ 25.00'
+    twelve-month: '€ 24.00'
+  us_totals:
+    one-month: '$29.95'
+    three-month: '$84.00'
+    six-month: '$162.00'
+    twelve-month: '$312.00'
+  us_per_month:
+    one-month: '$29.95'
+    three-month: '$28.00'
+    six-month: '$27.00'
+    twelve-month: '$26.00'
+Italy:
+  local_totals:
+    one-month: '€ 28.00'
+    three-month: '€ 77.00'
+    six-month: '€ 149.00'
+    twelve-month: '€ 287.00'
+  local_per_month:
+    one-month: '€ 28.00'
+    three-month: '€ 26.00'
+    six-month: '€ 25.00'
+    twelve-month: '€ 24.00'
+  us_totals:
+    one-month: '$29.95'
+    three-month: '$84.00'
+    six-month: '$162.00'
+    twelve-month: '$312.00'
+  us_per_month:
+    one-month: '$29.95'
+    three-month: '$28.00'
+    six-month: '$27.00'
+    twelve-month: '$26.00'
+Luxembourg:
+  local_totals:
+    one-month: '€ 28.00'
+    three-month: '€ 77.00'
+    six-month: '€ 149.00'
+    twelve-month: '€ 287.00'
+  local_per_month:
+    one-month: '€ 28.00'
+    three-month: '€ 26.00'
+    six-month: '€ 25.00'
+    twelve-month: '€ 24.00'
+  us_totals:
+    one-month: '$29.95'
+    three-month: '$84.00'
+    six-month: '$162.00'
+    twelve-month: '$312.00'
+  us_per_month:
+    one-month: '$29.95'
+    three-month: '$28.00'
+    six-month: '$27.00'
+    twelve-month: '$26.00'
+Mexico:
+  local_totals:
+    one-month: '$ 550.00'
+    three-month: '$ 1,541.00'
+    six-month: '$ 2,973.00'
+    twelve-month: '$ 5,725.00'
+  local_per_month:
+    one-month: '$ 550.00'
+    three-month: '$ 514.00'
+    six-month: '$ 495.00'
+    twelve-month: '$ 477.00'
+  us_totals:
+    one-month: '$29.95'
+    three-month: '$84.00'
+    six-month: '$162.00'
+    twelve-month: '$312.00'
+  us_per_month:
+    one-month: '$29.95'
+    three-month: '$28.00'
+    six-month: '$27.00'
+    twelve-month: '$26.00'
+Netherlands:
+  local_totals:
+    one-month: '€ 28.00'
+    three-month: '€ 77.00'
+    six-month: '€ 149.00'
+    twelve-month: '€ 287.00'
+  local_per_month:
+    one-month: '€ 28.00'
+    three-month: '€ 26.00'
+    six-month: '€ 25.00'
+    twelve-month: '€ 24.00'
+  us_totals:
+    one-month: '$29.95'
+    three-month: '$84.00'
+    six-month: '$162.00'
+    twelve-month: '$312.00'
+  us_per_month:
+    one-month: '$29.95'
+    three-month: '$28.00'
+    six-month: '$27.00'
+    twelve-month: '$26.00'
+New Zealand:
+  local_totals:
+    one-month: '$ 45.00'
+    three-month: '$ 127.00'
+    six-month: '$ 244.00'
+    twelve-month: '$ 470.00'
+  local_per_month:
+    one-month: '$ 45.00'
+    three-month: '$ 42.00'
+    six-month: '$ 41.00'
+    twelve-month: '$ 39.00'
+  us_totals:
+    one-month: '$29.95'
+    three-month: '$84.00'
+    six-month: '$162.00'
+    twelve-month: '$312.00'
+  us_per_month:
+    one-month: '$29.95'
+    three-month: '$28.00'
+    six-month: '$27.00'
+    twelve-month: '$26.00'
+Norway:
+  local_totals: 
+    one-month: 'kr 261.00'
+    three-month: 'kr 731.00'
+    six-month: 'kr 1,410.00'
+    twelve-month: 'kr 2,716.00'
+  local_per_month:
+    one-month: 'kr 261.00'
+    three-month: 'kr 244.00'
+    six-month: 'kr 235.00'
+    twelve-month: 'kr 226.00'
+  us_totals:
+    one-month: '$29.95'
+    three-month: '$84.00'
+    six-month: '$162.00'
+    twelve-month: '$312.00'
+  us_per_month:
+    one-month: '$29.95'  
+    three-month: '$28.00'
+    six-month: '$27.00'
+    twelve-month: '$26.00'
+Poland:
+  local_totals: 
+    one-month: 'zł 119.00'
+    three-month: 'zł 335.00'
+    six-month: 'zł 646.00'
+    twelve-month: 'zł 1,243.00'
+  local_per_month:
+    one-month: 'zł 119.00'
+    three-month: 'zł 112.00'
+    six-month: 'zł 108.00'
+    twelve-month: 'zł 104.00'
+  us_totals:
+    one-month: '$29.95'
+    three-month: '$84.00'
+    six-month: '$162.00'
+    twelve-month: '$312.00'
+  us_per_month:
+    one-month: '$29.95'  
+    three-month: '$28.00'
+    six-month: '$27.00'
+    twelve-month: '$26.00'
+Portugal:
+  local_totals:
+    one-month: '€ 28.00'
+    three-month: '€ 77.00'
+    six-month: '€ 149.00'
+    twelve-month: '€ 287.00'
+  local_per_month:
+    one-month: '€ 28.00'
+    three-month: '€ 26.00'
+    six-month: '€ 25.00'
+    twelve-month: '€ 24.00'
+  us_totals:
+    one-month: '$29.95'
+    three-month: '$84.00'
+    six-month: '$162.00'
+    twelve-month: '$312.00'
+  us_per_month:
+    one-month: '$29.95'
+    three-month: '$28.00'
+    six-month: '$27.00'
+    twelve-month: '$26.00'
+Singapore:
+  local_totals:
+    one-month: '$ 42.00'
+    three-month: '$ 118.00'
+    six-month: '$ 228.00'
+    twelve-month: '$ 439.00'
+  local_per_month:
+    one-month: '$ 42.00'
+    three-month: '$ 39.00'
+    six-month: '$ 38.00'
+    twelve-month: '$ 37.00'
+  us_totals:
+    one-month: '$29.95'
+    three-month: '$84.00'
+    six-month: '$162.00'
+    twelve-month: '$312.00'
+  us_per_month:
+    one-month: '$29.95'
+    three-month: '$28.00'
+    six-month: '$27.00'
+    twelve-month: '$26.00'
+South Africa:
+  local_totals:
+    one-month: 'R 436.00'
+    three-month: 'R 1,223.00'
+    six-month: 'R 2,359.00'
+    twelve-month: 'R 4,543.00'
+  local_per_month:
+    one-month: 'R 436.00'
+    three-month: 'R 408.00'
+    six-month: 'R 393.00'
+    twelve-month: 'R 379.00'
+  us_totals:
+    one-month: '$29.95'
+    three-month: '$84.00'
+    six-month: '$162.00'
+    twelve-month: '$312.00'
+  us_per_month:
+    one-month: '$29.95'
+    three-month: '$28.00'
+    six-month: '$27.00'
+    twelve-month: '$26.00'
+South Korea:
+  local_totals:
+    one-month: '₩ 36,089.00'
+    three-month: '₩ 101,219.00'
+    six-month: '₩ 195,208.00'
+    twelve-month: '₩ 375,957.00'
+  local_per_month:
+    one-month: '₩ 36,089.00'
+    three-month: '₩ 33,740.00'
+    six-month: '₩ 32,535.00'
+    twelve-month: '₩ 31,330.00'
+  us_totals:
+    one-month: '$29.95'
+    three-month: '$84.00'
+    six-month: '$162.00'
+    twelve-month: '$312.00'
+  us_per_month:
+    one-month: '$29.95'
+    three-month: '$28.00'
+    six-month: '$27.00'
+    twelve-month: '$26.00'
+Spain:
+  local_totals:
+    one-month: '€ 28.00'
+    three-month: '€ 77.00'
+    six-month: '€ 149.00'
+    twelve-month: '€ 287.00'
+  local_per_month:
+    one-month: '€ 28.00'
+    three-month: '€ 26.00'
+    six-month: '€ 25.00'
+    twelve-month: '€ 24.00'
+  us_totals:
+    one-month: '$29.95'
+    three-month: '$84.00'
+    six-month: '$162.00'
+    twelve-month: '$312.00'
+  us_per_month:
+    one-month: '$29.95'
+    three-month: '$28.00'
+    six-month: '$27.00'
+    twelve-month: '$26.00'
+Sweden:
+  local_totals:
+    one-month: 'kr 255.00'
+    three-month: 'kr 714.00'
+    six-month: 'kr 1,378.00'
+    twelve-month: 'kr 2,653.00'
+  local_per_month:
+    one-month: 'kr 255.00'
+    three-month: 'kr 238.00'
+    six-month: 'kr 230.00'
+    twelve-month: 'kr 221.00'
+  us_totals:
+    one-month: '$29.95'
+    three-month: '$84.00'
+    six-month: '$162.00'
+    twelve-month: '$312.00'
+  us_per_month:
+    one-month: '$29.95'
+    three-month: '$28.00'
+    six-month: '$27.00'
+    twelve-month: '$26.00'
+Switzerland:
+  local_totals:
+    one-month: 'CHF 30.00'
+    three-month: 'CHF 84.00'
+    six-month: 'CHF 162.00'
+    twelve-month: 'CHF 311.00'
+  local_per_month:
+    one-month: 'CHF 30.00'
+    three-month: 'CHF 28.00'
+    six-month: 'CHF 27.00'
+    twelve-month: 'CHF 26.00'
+  us_totals:
+    one-month: '$29.95'
+    three-month: '$84.00'
+    six-month: '$162.00'
+    twelve-month: '$312.00'
+  us_per_month:
+    one-month: '$29.95'
+    three-month: '$28.00'
+    six-month: '$27.00'
+    twelve-month: '$26.00'
+Turkey:
+  local_totals:
+    one-month: '₺ 87.00'
+    three-month: '₺ 245.00'
+    six-month: '₺ 473.00'
+    twelve-month: '₺ 911.00'
+  local_per_month:
+    one-month: '₺ 87.00'
+    three-month: '₺ 82.00'
+    six-month: '₺ 79.00'
+    twelve-month: '₺ 76.00'
+  us_totals:
+    one-month: '$29.95'
+    three-month: '$84.00'
+    six-month: '$162.00'
+    twelve-month: '$312.00'
+  us_per_month:
+    one-month: '$29.95'
+    three-month: '$28.00'
+    six-month: '$27.00'
+    twelve-month: '$26.00'
+United Kingdom:
+  local_totals:
+    one-month: '£ 20.00'
+    three-month: '£ 56.00'
+    six-month: '£ 108.00'
+    twelve-month: '£ 208.00'
+  local_per_month:
+    one-month: '£ 20.00'
+    three-month: '£ 19.00'
+    six-month: '£ 18.00'
+    twelve-month: '£ 17.00'
+  us_totals:
+    one-month: '$29.95'
+    three-month: '$84.00'
+    six-month: '$162.00'
+    twelve-month: '$312.00'
+  us_per_month:
+    one-month: '$29.95'
+    three-month: '$28.00'
+    six-month: '$27.00'
+    twelve-month: '$26.00'
+United States:
+  us_totals:
+    one-month: '$19.95'
+    three-month: '$57.75'
+    six-month: '$113.70'
+    twelve-month: '$215.40'
+  us_per_month:
+    one-month: '$13.95'
+    three-month: '$13.25'
+    six-month: '$12.95'
+    twelve-month: '$11.95'

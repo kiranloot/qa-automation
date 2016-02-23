@@ -7,18 +7,31 @@ class Test
  require 'yaml'
  require 'pry'
  require 'faker'
- attr_accessor :user, :admin_user, :cms_user, :pages, :current_page, :test_data, :db, :affiliate, :recurly, :box, :sailthru, :mailinator
+ attr_accessor :user, 
+   :admin_user, 
+   :cms_user,
+   :pages,
+   :current_page,
+   :test_data,
+   :price_estimate_data,
+   :db,
+   :affiliate,
+   :recurly,
+   :box,
+   :sailthru,
+   :mailinator
  include Capybara::DSL
  include RSpec::Matchers
  include WaitForAjax
 
- def initialize(test_data, start_page, pages, db, box, mailinator_api)
+ def initialize(test_data, price_data, start_page, pages, db, box, mailinator_api)
   @affiliate = nil
   @user = nil
   @admin_user = nil
   @sailthru = SailthruAPI.new
   @current_page = start_page
   @test_data = test_data
+  @price_estimate_data = price_data
   @pages = pages
   @db = db
   @box = box
