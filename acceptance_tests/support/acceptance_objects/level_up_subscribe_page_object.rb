@@ -100,7 +100,7 @@ include WaitForAjax
     find(:id,dd_id).click
     wait_for_ajax
     #select plan
-    find('ul.select2-results__options > li',:text => @plan_drop_down_text[months]).click
+    find('ul.select2-results__option > li',:text => @plan_drop_down_text[months]).click
     if product == 'wearable'
       select_wearable_shirt_size('Mens - S')
       select_wearable_waist_size('Mens - S')

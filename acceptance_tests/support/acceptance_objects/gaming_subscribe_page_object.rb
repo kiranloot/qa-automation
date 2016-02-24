@@ -9,10 +9,10 @@ include WaitForAjax
     @page_type = "gaming_subscribe"
     setup
     @plan_display_names = {
-      'one' => 'Gaming 1 Month Subscription',
-      'three' => 'Gaming 3 Month Subscription',
-      'six' => 'Gaming 6 Month Subscription',
-      'twelve' => 'Gaming 1 Year Subscription'
+      'one' => 'Gaming 1 Month Plan Subscription',
+      'three' => 'Gaming 3 Month Plan Subscription',
+      'six' => 'Gaming 6 Month Plan Subscription',
+      'twelve' => 'Gaming 1 Year Plan Subscription'
     }
   end
 

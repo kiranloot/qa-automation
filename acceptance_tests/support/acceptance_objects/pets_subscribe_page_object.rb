@@ -9,10 +9,10 @@ include WaitForAjax
     @page_type = "pets_subscribe"
     setup
     @plan_display_names = {
-      'one' => 'Pets 1 Month Subscription',
-      'three' => 'Pets 3 Month Subscription',
-      'six' => 'Pets 6 Month Subscription',
-      'twelve' => 'Pets 1 Year Subscription'
+      'one' => 'Pets 1 Month Plan Subscription',
+      'three' => 'Pets 3 Month Plan Subscription',
+      'six' => 'Pets 6 Month Plan Subscription',
+      'twelve' => 'Pets 1 Year Plan Subscription'
     }
   end
 
