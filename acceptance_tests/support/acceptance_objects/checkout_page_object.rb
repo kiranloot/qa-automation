@@ -235,7 +235,7 @@ include Capybara::DSL
   end
 
   def shirt_variant_soldout?(variant)
-    find("div#s2id_option_type_shirt > a").click
-    expect(find("li.select2-result-unselectable div", :text => variant)).to be_truthy
+    find("#select2-option_type_shirt-container").click
+    expect(find("li.select2-results__option[aria-disabled='true']", :text => variant)).to be_truthy
   end
 end

@@ -142,7 +142,7 @@ include WaitForAjax
   def level_up_variant_soldout?(variant, product)
     scroll_to(product)
     #will vary shirts/waist sizes in a different commit
-    find(:div, "div#level-up-#{product}-crate div#s2id_variants-shirt").click
-    expect(find("li.select2-result-unselectable div", :text => variant)).to be_truthy
+    find(:div, "div#level-up-#{product}-crate span#select2-variants-shirt-container").click
+    expect(find("li.select2-results__option[aria-disabled='true'", :text => variant)).to be_truthy
   end
 end
