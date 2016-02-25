@@ -14,9 +14,9 @@ include WaitForAjax
       'twelve' => 'twelve-month'
     }
     @plan_display_names = {
-      'two' => '2 Month Subscription',
-      'six' => '6 Month Subscription',
-      'twelve' => '12 Month Subscription'
+      'two' => '2 Month Plan Subscription',
+      'six' => '6 Month Plan Subscription',
+      'twelve' => '12 Month Plan Subscription'
     }
   end
 

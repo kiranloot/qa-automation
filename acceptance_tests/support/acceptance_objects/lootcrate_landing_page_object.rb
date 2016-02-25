@@ -10,10 +10,10 @@ include WaitForAjax
     @tracking_script_lines << "lca.page('core_crates', 'show', '');"
     setup
     @plan_display_names = {
-      'one' => '1 Month Subscription',
-      'three' => '3 Month Subscription',
-      'six' => '6 Month Subscription',
-      'twelve' => '12 Month Subscription'
+      'one' => '1 Month Plan Subscription',
+      'three' => '3 Month Plan Subscription',
+      'six' => '6 Month Plan Subscription',
+      'twelve' => '12 Month Plan Subscription'
     }
   end
 

@@ -38,10 +38,10 @@ include WaitForAjax
       'onelevel-up-tshirt' => 'LC - LU - T-Shirt - 1 month'
     }
     @plan_drop_down_text = {
-      'one' => '1 Month',
-      'three' => '3 month', 
-      'six' => '6 month',
-      'twelve' => '12 month'
+      'one' => '1 Month Plan',
+      'three' => '3 Month Plan', 
+      'six' => '6 Month Plan',
+      'twelve' => '12 Month Plan'
     }
   end
 

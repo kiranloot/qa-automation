@@ -70,12 +70,12 @@ include WaitForAjax
     price_hash = $test.price_estimate_data[country]
     #total US price
     for month, expected_price in price_hash['us_totals']
-      price = find("div.#{month}").find("p.total_price").text
+      price = find("div.#{month}").find("p.total-price").text
       expect("Total Price: #{expected_price}").to eq (price)
     end
     #total local prices
     for month, expected_price in price_hash['local_totals']
-      price = find("div.#{month}").find("ul.local-currency > li:nth-of-type(3)").text
+      price = find("div.#{month}").find("p.local-total").text
       if country == "Germany"
         expect("Gesamtpreis: #{expected_price}").to eq (price)
       else
@@ -84,12 +84,12 @@ include WaitForAjax
     end
     #per month US prices
     for month, expected_price in price_hash['us_per_month']
-      price = find("div.#{month}").find("p.price").text
+      price = find("div.#{month}").find("p.plan-price").text
       expect(expected_price).to eq (price)
     end
     #per month local prices
     for month, expected_price in price_hash['local_per_month']
-      price = find("div.#{month}").find("ul.local-currency > li:nth-of-type(2)").text
+      price = find("div.#{month}").find("p.local-price").text
      expect("#{expected_price} /mo").to eq(price)
     end
   end

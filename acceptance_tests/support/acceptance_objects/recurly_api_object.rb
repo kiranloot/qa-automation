@@ -41,6 +41,8 @@ class RecurlyAPI
       end
     end
     account = get_account
+    #remove the word "Plan" from the validation
+    recurly_sub = recurly_sub.gsub(/Plan /,"")
     expect(account.subscriptions.first.plan.name).to eq(recurly_sub)
   end
 
