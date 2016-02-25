@@ -39,9 +39,9 @@ include WaitForAjax
     }
     @plan_drop_down_text = {
       'one' => '1 Month Plan plan',
-      'three' => '3 month Plan plan', 
-      'six' => '6 month Plan plan',
-      'twelve' => '12 month Plan plan'
+      'three' => '3 Month Plan plan', 
+      'six' => '6 Month Plan plan',
+      'twelve' => '12 Month Plan plan'
     }
   end
 

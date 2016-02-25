@@ -53,7 +53,7 @@ include Capybara::DSL
     wait_for_ajax
     find("li.select2-results__option", :text => @plans[plan]).click
     wait_for_ajax
-    $test.user.subscription_name = "#{@plans[plan]} Subscription"
+    $test.user.subscription_name = "#{@plans[plan]} Plan Subscription"
   end
 
 
