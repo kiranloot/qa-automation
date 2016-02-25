@@ -143,6 +143,6 @@ include WaitForAjax
     scroll_to(product)
     #will vary shirts/waist sizes in a different commit
     find(:div, "div#level-up-#{product}-crate span#select2-variants-shirt-container").click
-    expect(find("li.select2-results__option[aria-disabled='true'", :text => variant)).to be_truthy
+    expect(find("li.select2-results__option[aria-disabled='true']", :text => variant)).to be_truthy
   end
 end
