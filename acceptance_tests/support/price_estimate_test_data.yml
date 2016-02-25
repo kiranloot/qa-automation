@@ -168,25 +168,25 @@ Czech Republic:
     twelve-month: '$26.00'
 Denmark:
   local_totals:
-    one-month: 'kr 205.00'
-    three-month: 'kr 575.00'
-    six-month: 'kr 1,109.00'
-    twelve-month: 'kr 2,137.00'
+    one-month: 'kr 274.00'
+    three-month: 'kr 781.00'
+    six-month: 'kr 1,520.00'
+    twelve-month: 'kr 2,959.00'
   local_per_month:
-    one-month: 'kr 205.00'
-    three-month: 'kr 192.00'
-    six-month: 'kr 185.00'
-    twelve-month: 'kr 178.00'
+    one-month: 'kr 274.00'
+    three-month: 'kr 260.00'
+    six-month: 'kr 253.00'
+    twelve-month: 'kr 247.00'
   us_totals:
-    one-month: '$29.95'
-    three-month: '$84.00'
-    six-month: '$162.00'
-    twelve-month: '$312.00'
+    one-month: '$39.95'
+    three-month: '$114.00'
+    six-month: '$222.00'
+    twelve-month: '$432.00'
   us_per_month:
-    one-month: '$29.95'
-    three-month: '$28.00'
-    six-month: '$27.00'
-    twelve-month: '$26.00'
+    one-month: '$39.95'
+    three-month: '$38.00'
+    six-month: '$37.00'
+    twelve-month: '$36.00'
 Finland:
   local_totals:
     one-month: '€ 28.00'
