@@ -62,12 +62,13 @@ When /the user reactivates their subscription/ do
   $test.current_page.reactivate_subscription
 end
 
-When /the user logs (.*)$/ do |in_out|
-  in_out = in_out.strip.downcase
-  if in_out == "in"
-    $test.log_in_or_register
-  else
-    $test.log_out
+When /the user logs (in|out)$/ do |in_out|
+  case in_out
+  when "in"
+    step "the user visits the signup page"
+    $test.current_page.log_in_or_register
+  when "out"
+    $test.current_page.log_out
   end
 end
 

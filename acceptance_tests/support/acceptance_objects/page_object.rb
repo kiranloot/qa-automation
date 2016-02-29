@@ -33,17 +33,24 @@ class Page
     $test.current_page = self
   end
 
-  #Keep in parent object. Used for modal and signup page logins.
-  def enter_login_info(e, p)
+  def click_logo
+    find(:css, "a.logo-link").click
+  end
+
+  def log_out
+    click_logo
+    click_link("My Account")
+    click_link("Log Out")
     wait_for_ajax
-    #if page.has_content?("LOGIN")
-    #  page.find(:xpath, $test.test_data["locators"]["flip_member"]).click
-    #end
-    page.find_field('user_email')
-    fill_in('user_email',:with => e )
-    fill_in('user_password', :with => p)
-    click_button("Log In")
-    wait_for_ajax
+  end
+
+  def is_logged_in?
+    click_logo
+    assert_text("My Account")
+  end
+
+  def click_hamburger
+    find(:css, 'button.navbar-toggle').click
   end
 
   def modal_signup(email, password, test_data)
