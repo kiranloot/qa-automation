@@ -257,9 +257,7 @@ class Test
       else
         get_invalid_signup_information
       end
-      enter_email
-      enter_password
-      submit_signup
+      @current_page.enter_register_info(@user)
     elsif type =='subscription'
       @current_page.submit_checkout_information(@user, adjective, addbilling)
     elsif type == 'credit card'
