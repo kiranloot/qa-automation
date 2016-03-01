@@ -3,7 +3,7 @@
 #WHENS
 When /^The user clicks on the reset link in their email$/ do
   email = $test.mailinator.download_first_email($test.user.email)
-  reset_link = /(http:\/\/mandrillapp.com\/track\/click\/\d*\/#{ENV['SITE']}.*)>/.match(email.body)
+  reset_link = email.find_link('RESET PASSWORD')[:href]
   visit(reset_link)
   $test.current_page = PasswordResetPage.new
 end

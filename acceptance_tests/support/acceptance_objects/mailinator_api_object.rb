@@ -27,6 +27,6 @@ class MailinatorAPI
       end
       sleep(1)
     end
-    return message.download
+    return Capybara::Node::Simple.new(message.download.body_html)
   end
 end
