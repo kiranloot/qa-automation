@@ -52,4 +52,9 @@ include WaitForAjax
     find(:css, 'button span.publish').click
     wait_for_ajax
   end
+
+  def preview_pane_no_errors?
+    expect(page).to have_no_selector('div.error-page-400')
+    expect(page).to have_no_selector('div.error-page-500')
+  end
 end

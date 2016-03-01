@@ -25,3 +25,7 @@ end
 Then(/^the user should see the new alchemy content on the page$/) do
   assert_text(@alchemy_rand_string)
 end
+
+Then (/^the user should not see any errors in the alchemy preview pane$/) do
+  $test.current_page.preview_pane_no_errors?
+end
