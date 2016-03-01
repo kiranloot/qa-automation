@@ -45,7 +45,6 @@ class MyAccountPage < Page
     grab_user_data
     go_to_subscriptions
     expect(@subscription_name).not_to be_nil
-    assert_text(@subscription_name)
     assert_text("Active")
     wait_for_ajax
     assert_text(get_expected_next_bill_date(@subscription_name)) unless @rebill
@@ -208,11 +207,11 @@ class MyAccountPage < Page
   end
 
   def click_subs_link
-    find("#account-menu-subscriptions-lnk").click
+    find_link("Subscriptions").click
   end
 
   def click_account_info_link
-    page.find_link("Account Info").click
+    find_link("Account Info").click
   end
 
   def reactivate_subscription
