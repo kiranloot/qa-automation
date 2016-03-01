@@ -100,7 +100,7 @@ class Test
    find(:css,'a.logo-link').click
    wait_for_ajax
    if ENV['DRIVER'] == 'appium'
-     click_hamburger
+     @current_page.click_hamburger
    end
    click_link("Pick a Crate")
    case crate
@@ -126,42 +126,7 @@ class Test
    $test.user.crate_type = crate
    wait_for_ajax
  end
-
- def click_hamburger
-   find(:css, 'button.navbar-toggle').click
- end
-
- def log_in_or_register
-   if ENV['DRIVER'] == 'appium'
-     click_hamburger
-   end
-   if !page.has_content?("Log In")
-     log_out
-   end
-   @current_page = SignupPage.new
-   @current_page.visit_page
-   if $test.db.user_exists?($test.user.email)
-     sleep(1)
-     find(:css, '#new-customer-container span.goOrange').click
-     wait_for_ajax
-     unless (page.has_css?('#user_email'))
-       find(:css, '#new-customer-container span.goOrange').click
-     end
-     enter_login_info
-   else
-     enter_email
-     enter_password
-     submit_signup
-   end
-   wait_for_ajax
- end
-#Move to parent page object
- def log_out
-   find(:css, "a.logo-link").click
-   click_link("My Account")
-   click_link("Log Out")
-   wait_for_ajax
- end
+ 
 #Remove middle man
  def get_valid_signup_information
   @user.password = @test_data["signup"]["valid_pw"]
@@ -184,10 +149,6 @@ class Test
  def get_invalid_signup_information
    @user.password = @test_data["signup"]["invalid_pw"]
    @user.email = @test_data["signup"]["invalid_email"]
- end
-
- def enter_email
-  @current_page.pop_email(@user.email)
  end
 
  def get_registered_email(has_prior)
@@ -292,9 +253,7 @@ class Test
       else
         get_invalid_signup_information
       end
-      enter_email
-      enter_password
-      submit_signup
+      @current_page.enter_register_info(@user)
     elsif type =='subscription'
       @current_page.submit_checkout_information(@user, adjective, addbilling)
     elsif type == 'credit card'
