@@ -30,13 +30,11 @@ class MyAccountPage < Page
   end
 
   def go_to_subscriptions
-    open_account_menu
     click_subs_link
     wait_for_ajax
   end
 
   def go_to_account_info
-    open_account_menu
     click_account_info_link
     wait_for_ajax
   end
@@ -197,7 +195,6 @@ class MyAccountPage < Page
   end
 
   def skip_during_cancel
-    open_account_menu
     click_subs_link
     open_payment_tab
     for i in 0..2
@@ -216,10 +213,6 @@ class MyAccountPage < Page
 
   def click_account_info_link
     page.find_link("Account Info").click
-  end
-
-  def open_account_menu
-    page.find_button("account-section-menu").click
   end
 
   def reactivate_subscription
