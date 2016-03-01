@@ -1,5 +1,5 @@
 require 'mailinator'
-  
+
 class MailinatorAPI
   def initialize
     @api_key = '6f138ae31e8d48cd9c41d61f2150307c'
@@ -20,13 +20,13 @@ class MailinatorAPI
   def download_first_email(email_address)
     inbox = Mailinator::Inbox.get(email_address)
     message = nil
-    5.times do 
-      message = inbox.messages.first.download
+    5.times do
+      message = inbox.messages.first
       unless message.nil?
         break
       end
       sleep(1)
     end
-    return message 
+    return Capybara::Node::Simple.new(message.download.body_html)
   end
-end 
+end

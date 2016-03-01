@@ -11,6 +11,8 @@ include Capybara::DSL
     fill_in("user_password_confirmation", :with => password)
     find(:id, "change-my-password-btn").click
     wait_for_ajax
+    find("#message-close-lnk").click
+    wait_for_ajax
     $test.user.password = password
   end
 
@@ -32,7 +34,7 @@ include Capybara::DSL
 #    find(:id, 'one-month').click
   #  $test.current_page = self
   #end
-  
+
   def signup_failed?
     if page.has_css?('input#new_user_password.title.modal-join.required.dianaTone.error') &&
         #new_user_password

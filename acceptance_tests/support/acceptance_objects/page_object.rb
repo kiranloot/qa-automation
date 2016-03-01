@@ -70,6 +70,7 @@ class Page
     find_link("Forgot Password?").click
     fill_in("user_email", :with => email)
     find(:id, "reset-password-btn").click
+    wait_for_ajax
     page.has_content?('You will receive an email with instructions on how to reset your password in a few minutes.')
   end
 
@@ -121,7 +122,7 @@ class Page
         "lca.identify();"
     ]
     #will append variable lines to the above based on the page we are visiting
-    lines += @tracking_script_lines 
+    lines += @tracking_script_lines
     lines.each do |line|
       expect(html).to include(line), "Did not find tracking line:'#{line}' in the html."
     end
