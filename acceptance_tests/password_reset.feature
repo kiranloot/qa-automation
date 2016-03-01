@@ -1,6 +1,6 @@
 @regression @password @extended
 Feature: Password reset
-    @tofix
+    @ready
     Scenario: User can reset password via the forgot password link
         Given an registered user with no prior subscription
             When the user logs in
