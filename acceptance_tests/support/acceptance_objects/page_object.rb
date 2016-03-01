@@ -33,6 +33,11 @@ class Page
     $test.current_page = self
   end
 
+  def no_errors?
+    expect(page).to have_no_selector('div.error-page-404')
+    expect(page).to have_no_selector('div.error-page-500')
+  end
+
   def click_logo
     find(:css, "a.logo-link").click
   end

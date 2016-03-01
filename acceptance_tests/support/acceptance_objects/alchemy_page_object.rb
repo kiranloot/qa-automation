@@ -54,7 +54,9 @@ include WaitForAjax
   end
 
   def preview_pane_no_errors?
-    expect(page).to have_no_selector('div.error-page-400')
-    expect(page).to have_no_selector('div.error-page-500')
+    find('iframe#alchemy_preview_window')
+    within_frame('alchemy_preview_window'){
+      no_errors?
+    }
   end
 end
