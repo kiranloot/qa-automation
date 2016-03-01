@@ -151,10 +151,6 @@ class Test
    @user.email = @test_data["signup"]["invalid_email"]
  end
 
-# def enter_email
-#  @current_page.pop_email(@user.email)
-# end
-
  def get_registered_email(has_prior)
    if !has_prior
      email =  @test_data["emails"]["registered_no_prior"]
