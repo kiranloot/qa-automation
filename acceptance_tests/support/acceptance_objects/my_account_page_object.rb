@@ -74,7 +74,7 @@ class MyAccountPage < Page
   def subscription_cancelled?
     go_to_subscriptions
     assert_text("Reactivate")
-    assert_text("Canceled")
+    assert_text("CANCELED")
   end
 
   def subscription_updated?
@@ -139,14 +139,15 @@ class MyAccountPage < Page
         break
       end
     end
-    assert_text("Pending Cancellation")
+    assert_text("PENDING CANCELLATION")
     assert_text("REMOVE CANCELLATION")
   end
 
   def month_skipped?
     go_to_subscriptions
     #TO DO - add validation for skipped month
-    assert_text("Active (You have skipped")
+    assert_text("SKIPPED")
+    assert_text("(You have skipped")
   end
 
   def cannot_skip_again?
