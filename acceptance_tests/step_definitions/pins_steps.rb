@@ -4,11 +4,6 @@ Given(/^the subscription id is associated with one of the pin codes in the datab
   $test.user.pin_code = $test.db.associate_sub_id_with_a_pin_code
 end
 
-#WHENS
-When (/^the user selects their subscription/) do
-  $test.current_page.select_qualified_subscription('Loot Crate Subscription 1', $test.db.return_first_theme_month)
-end
-
 #THENS
 Then (/^the user (should|shouldn't) see the login to redeem button$/) do |visible|
   case visible
@@ -25,4 +20,8 @@ end
 
 Then (/^the pin code should appear on the page$/) do
   $test.current_page.code_displayed?
+end
+
+Then (/^the user is able to select their subscription in the dropdown$/) do
+  $test.current_page.select_qualified_subscription('Loot Crate Subscription 1', $test.db.return_first_theme_month)
 end
