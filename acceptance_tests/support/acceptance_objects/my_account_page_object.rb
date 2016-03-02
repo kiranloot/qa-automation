@@ -225,7 +225,18 @@ class MyAccountPage < Page
   def reactivate_subscription
     go_to_subscriptions
     find_link("Reactivate").click
+    unless $test.user.promo.nil?
+      apply_coupon
+    end
     find_button("Submit").click
+  end
+
+  def apply_coupon
+    fill_in("coupon_code", :with => $test.user.promo.coupon_code)
+    find_link("Validate Coupon").click
+    wait_for_ajax
+    expect(find("div#coupon-status").text).not_to eq("Invalid Coupon")
+    sleep(5)
   end
 
   def open_payment_tab

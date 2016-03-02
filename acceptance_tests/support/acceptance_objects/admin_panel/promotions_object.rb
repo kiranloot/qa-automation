@@ -6,23 +6,24 @@ class AdminPromotionsPage < AdminPage
   end
 
   #need to remove test data and break up
-  def create_promotion(promo_type, adjustment_amount = 10, adjustment_type = 'Fixed') 
+  def create_promotion(promo)
+    # Note: Coupon code is generated in this method due to one time use codes
+    # being pretty strictly tied to the generation of the promotion itself
     find_link("New Promotion").click
     rand_code = (0...8).map { ('a'..'z').to_a[rand(26)] }.join
-    $test.user.base_coupon_code = rand_code
+    promo.base_coupon_code = rand_code
     fill_in_promotion_description("Promotion Created by Automation")
     select_start_date("1")
-    select_trigger_event("SIGNUP")
+    select_trigger_event(promo.trigger)
     select_domestic_core_crate
-    select_adjustment_type(adjustment_type)
-    fill_in_promotion_adjustment_amount(adjustment_amount)
+    select_adjustment_type(promo.adjustment_type)
+    fill_in_promotion_adjustment_amount(promo.adjustment_amount)
     fill_in_promotion_coupon_prefix(rand_code)
-    case promo_type
-    when 'multi use'
+    if promo.one_time_use?
       fill_in_promotion_name("Multi Use Automation Promo #{rand_code}")
       fill_in_promotion_conversion_limit("10")
       click_create_promotion
-    when 'one time use'
+    else
       fill_in_promotion_name("One Time Automation Promo #{rand_code}")
       click_one_time_use_checkbox
       fill_in_character_length("15")
@@ -30,10 +31,11 @@ class AdminPromotionsPage < AdminPage
       click_create_promotion
       rand_code = get_one_time_promo_code(rand_code)
     end
-    $test.user.promo_type = promo_type
-    $test.user.adjustment_type = adjustment_type
-    $test.user.adjustment_amount = adjustment_amount.to_f
-    $test.user.coupon_code = rand_code
+    $test.user.promo.coupon_code = rand_code
+  end
+
+  def generate_coupon_code
+    #
   end
 
   def fill_in_promotion_name(name)
@@ -65,7 +67,7 @@ class AdminPromotionsPage < AdminPage
   end
 
   def fill_in_promotion_adjustment_amount(amount)
-    fill_in("promotion_adjustment_amount", :with => amount) 
+    fill_in("promotion_adjustment_amount", :with => amount)
   end
 
   def select_start_date(date)

@@ -13,7 +13,7 @@ class User
     :subscription_name, :level_up_subscription_name, :new_user_sub_name,:new_rebill_date, :bill_zip,
     :bill_city, :bill_street, :bill_street_2, :bill_state, :need_sub, :rebill_date_db, :last_four, :trait, :recurly_level_up_plan,
     :country_code, :recurly_billing_state_code, :cc_invalid, :cc_exp_month, :cc_exp_year, :pet_shirt_size, :pet_collar_size, :promo_type,
-    :adjustment_type, :adjustment_amount, :recurly_rebill_date, :unisex_shirt_size, :pin_code, :crate_type, :billing_address
+    :promo, :adjustment_type, :adjustment_amount, :recurly_rebill_date, :unisex_shirt_size, :pin_code, :crate_type, :billing_address
 
   @@sizes = {"male" =>  {0 => "Mens - S", 1 => "Mens - M", 2 => "Mens - L", 3 => "Mens - XL",
                          4 => "Mens - XXL", 5 => "Mens - XXXL" },
@@ -69,6 +69,7 @@ class User
     @country_code = nil
     @recurly_billing_state_code = nil
     @recurly_level_up_plan = nil
+    @promo = nil
     @promo_type = nil
     @adjustment_type = nil
     @adjustment_amount = nil
@@ -337,5 +338,38 @@ class User
     @bill_city = @ship_city
     @bill_zip = @ship_zip
     @bill_state = @ship_state
+  end
+
+  ##Promotion creation methods
+  def process_promotion_type(promo_type)
+    promo_traits = []
+
+    if promo_type.include?('reactivat')
+      promo_traits << :trigger_reactivation
+    end
+    if promo_type.include?('one time use')
+      promo_traits << :one_time_use
+    end
+    if promo_type.include?('upgrade')
+      promo_traits << :trigger_upgrade
+    end
+    promo_traits
+  end
+
+  def get_promotion_adjustment_type(type)
+    case type
+    when /[Pp]ercent/
+      type_trait = :percent
+    else
+      type_trait = :fixed
+    end
+    type_trait
+  end
+
+  def create_user_promotion(promo_type, adjustment_type = 'Fixed', adjustment_amount=10)
+    traits = process_promotion_type(promo_type)
+    traits << get_promotion_adjustment_type(adjustment_type)
+    promo = FactoryGirl.build(:promotion, *traits, adjustment_amount: adjustment_amount.to_f)
+    $test.user.promo = promo
   end
 end
