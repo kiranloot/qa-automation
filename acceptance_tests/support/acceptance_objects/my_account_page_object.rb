@@ -39,6 +39,11 @@ class MyAccountPage < Page
     wait_for_ajax
   end
 
+  def go_to_order_and_tracking
+    click_order_and_tracking_link
+    wait_for_ajax
+  end
+
   #need to make this validation more specific
   #in the case that the page has multiple subs
   def verify_subscription_added
@@ -216,6 +221,10 @@ class MyAccountPage < Page
     find_link("Account Info").click
   end
 
+  def click_order_and_tracking_link
+    find_link("Order & Tracking").click
+  end
+
   def reactivate_subscription
     go_to_subscriptions
     find_link("Reactivate").click
@@ -364,6 +373,7 @@ class MyAccountPage < Page
 
   def tracking_info_displayed?
     go_to_subscriptions
+    go_to_order_and_tracking
     assert_text('Tracking')
     assert_text('ABC123')
   end
