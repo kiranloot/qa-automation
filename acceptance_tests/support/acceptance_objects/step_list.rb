@@ -33,6 +33,14 @@ class StepList
     ["create a one month subscription"]
   end
 
+  def promo
+    ["an admin user with access to their info",
+    "the user visits the admin page",
+    "logs in as an admin",
+    "the admin user navigates to the admin promotions page",
+    "admin creates the new promotion"]
+  end
+
   def multi_use_fixed_promo
     ["an admin user with access to their info",
     "the user visits the admin page",

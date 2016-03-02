@@ -20,6 +20,13 @@ Given /^a different billing address$/ do
   $test.configure_billing_address
 end
 
+Given /^has a (.*) promo code for (\d*) (\w*)/ do |promo_type, adjustment_amount, adjustment_type|
+  $test.user.create_user_promotion(promo_type, adjustment_type, adjustment_amount)
+  StepList.new('promo').each do |s|
+    step s
+  end
+end
+
 #WHENS
 When /create a\s(.*)\smonth subscription/ do |months|
   step "the user logs in"
