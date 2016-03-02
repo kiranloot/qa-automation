@@ -80,7 +80,6 @@ def setup_qa_database
   add_inventory_to_all
   add_user_to_db('admin@example.com','$2a$10$gMQ0WYqkPAFZPMJYQTjcZeOWreqJisY0UDypiG.hggS7B2ZYEM93C','admin_users')
   add_cms_user_to_db('cmsadmin@example.com','$2a$10$gMQ0WYqkPAFZPMJYQTjcZeOWreqJisY0UDypiG.hggS7B2ZYEM93C','cms_users')
-  #make month generation dynamic
   truncate_table('crate_themes')
   truncate_table('loot_pin_codes')
   months = generate_theme_months
@@ -97,7 +96,13 @@ end
 
 def generate_theme_months
   theme_months = []
-  t = (DateTime.now << 1).to_time
+  curr_date_time = DateTime.now
+  date = curr_date_time.strftime('%-d').to_i
+  if date < 20
+    t = (curr_date_time << 1).to_time
+  else
+    t = (curr_date_time).to_time
+  end
   theme_months << t.strftime("%^b%Y")
   3.times do
     t = (t.to_datetime >> 1).to_time 
@@ -146,10 +151,15 @@ def add_crate_theme(monthyear,theme_name)
 end
 
 def move_sub_to_prev_month(sub_id)
+  date = DateTime.now.strftime('%-d').to_i
   query = """
     SELECT created_at FROM subscriptions WHERE id = #{sub_id}
   """
-  update_created_at_for_sub(sub_id, "CURRENT_TIMESTAMP - interval '1 month'")
+  if date < 20
+    update_created_at_for_sub(sub_id, "CURRENT_TIMESTAMP - interval '1 month'")
+  else
+    update_created_at_for_sub(sub_id, "CURRENT_TIMESTAMP - (12 * interval '1 day')")
+  end
 end
 
 def update_created_at_for_sub(sub_id, new_timestamp)
