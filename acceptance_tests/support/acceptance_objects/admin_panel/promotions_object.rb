@@ -34,10 +34,6 @@ class AdminPromotionsPage < AdminPage
     $test.user.promo.coupon_code = rand_code
   end
 
-  def generate_coupon_code
-    #
-  end
-
   def fill_in_promotion_name(name)
     fill_in("promotion_name", :with => name)
   end
