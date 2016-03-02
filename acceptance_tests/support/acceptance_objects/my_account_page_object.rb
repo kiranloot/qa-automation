@@ -249,7 +249,7 @@ class MyAccountPage < Page
   end
 
   def subscription_reactivated?
-    assert_text("Active")
+    assert_text("ACTIVE")
     expect(page.has_content?("UPGRADE")).to be_truthy
   end
 
