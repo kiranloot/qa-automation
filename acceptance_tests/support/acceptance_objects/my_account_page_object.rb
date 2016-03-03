@@ -50,7 +50,7 @@ class MyAccountPage < Page
     grab_user_data
     go_to_subscriptions
     expect(@subscription_name).not_to be_nil
-    #assert_text(@subscription_name)
+    assert_text(@subscription_name)
     assert_text("ACTIVE")
     wait_for_ajax
     assert_text(get_expected_next_bill_date(@subscription_name)) unless @rebill
@@ -67,7 +67,7 @@ class MyAccountPage < Page
   #in the case that the page has multiple subs
   def verify_levelup_subscription_added
     go_to_subscriptions
-    #assert_text($test.user.level_up_subscription_name)
+    assert_text($test.user.level_up_subscription_name)
   end
 
   def verify_user_information
@@ -78,7 +78,7 @@ class MyAccountPage < Page
 
   def subscription_cancelled?
     go_to_subscriptions
-    assert_text("Reactivate")
+    assert_text("REACTIVATE")
     assert_text("CANCELED")
   end
 
@@ -227,7 +227,7 @@ class MyAccountPage < Page
 
   def reactivate_subscription
     go_to_subscriptions
-    find_link("Reactivate").click
+    find_link("REACTIVATE").click
     unless $test.user.promo.nil?
       apply_coupon
     end
