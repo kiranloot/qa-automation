@@ -15,7 +15,7 @@ include Capybara::DSL
 
   def select_qualified_subscription(name, monthyear)
     monthyear.downcase! 
-    find("#select2-#{monthyear}-container").click
+    find("#select2-pin_id-container").click
     wait_for_ajax
     find(".select2-results__option", :text => name).click
   end

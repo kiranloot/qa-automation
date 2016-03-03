@@ -37,7 +37,17 @@ When /create a\s(.*)\smonth subscription/ do |months|
 end
 
 When /move subscription to last month/ do
-  sub_id = $test.db.get_subscriptions($test.user.email)[0]['subscription_id']
+  #spin for 5 seconds until you get results
+  sub_id = nil
+  5.times do 
+    results = $test.db.get_subscriptions($test.user.email)
+    if results.any?
+      sub_id = results[0]['subscription_id']
+      break
+    else
+      sleep(1)
+    end
+  end
   $test.db.move_sub_to_prev_month(sub_id)
 end
 

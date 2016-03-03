@@ -22,6 +22,5 @@ Feature: Loot Pins
         And the subscription id is associated with one of the pin codes in the database
             When the user logs in
             And the user visits the pins page
-            And the user selects their subscription
-       Then the pin code should appear on the page 
+       Then the user is able to select their subscription in the dropdown 
    
