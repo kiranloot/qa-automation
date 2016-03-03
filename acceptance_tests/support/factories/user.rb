@@ -274,7 +274,7 @@ FactoryGirl.define do
       country_code "IE"
     end
     trait :israel do
-      first_name "israel"
+      first_name "Israel"
       last_name {Date.today.strftime("%b") + Date.today.day.to_s}
       ship_street "1234 Israel Test"
       ship_city "Jerusalem"
@@ -364,7 +364,7 @@ FactoryGirl.define do
       country_code "SG"
     end
     trait :southafrica do
-      first_name "SouthAfrica"
+      first_name "South Africa"
       last_name {Date.today.strftime("%b") + Date.today.day.to_s}
       ship_street "1234 South Africa Test"
       ship_city "Johannesburg"

@@ -33,7 +33,7 @@ Feature: International Subscriptions
             And the user selects the Loot Crate crate
             And the user selects a random month subscription plan
             And the user sets their country in the checkout dropdown to United Kingdom
-            And the user submits valid subscription information
+            And the user submits valid subscription and billing information
         Then the new subscription should be added to the user account
         And recurly should have a matching international subscription
         And the recurly billing address should have no state

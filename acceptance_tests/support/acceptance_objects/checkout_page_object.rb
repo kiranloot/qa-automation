@@ -189,6 +189,12 @@ include Capybara::DSL
 
     if addbilling
       click_use_shipping_address_checkbox
+      unless find("div.checkout_billing_address_country .select2-selection__rendered").text == user.first_name
+        find("div.checkout_billing_address_country #select2-checkout_billing_address_country-container").click
+        wait_for_ajax
+        find(".select2-results__option", :text => user.first_name).click
+        wait_for_ajax
+      end
       enter_billing_address_1(user.billing_address.street)
       enter_billing_city(user.billing_address.city)
       enter_billing_zip(user.billing_address.zip)
