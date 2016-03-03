@@ -52,4 +52,11 @@ include WaitForAjax
     find(:css, 'button span.publish').click
     wait_for_ajax
   end
+
+  def preview_pane_no_errors?
+    find('iframe#alchemy_preview_window')
+    within_frame('alchemy_preview_window'){
+      no_errors?
+    }
+  end
 end
