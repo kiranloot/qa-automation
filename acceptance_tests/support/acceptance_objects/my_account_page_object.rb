@@ -227,7 +227,7 @@ class MyAccountPage < Page
 
   def reactivate_subscription
     go_to_subscriptions
-    find_link("REACTIVATE").click
+    find_link("Reactivate").click
     unless $test.user.promo.nil?
       apply_coupon
     end
