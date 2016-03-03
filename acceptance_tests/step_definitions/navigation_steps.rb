@@ -48,9 +48,13 @@ When /we do the memory dance for (.*) minutes/ do |minutes|
   dancer = Dancer.new(minutes.to_i)
 end
 
-When /the user sets their country to (.*)/ do |country|
+When /the user sets their country( in the checkout dropdown)? to (.*)?/ do |dropdown, country|
   country.strip!
-  $test.user.set_ship_to_country(country)
+  if dropdown
+    $test.current_page.set_ship_to_country(country)
+  else
+    $test.user.set_ship_to_country(country)
+  end
 end
 
 When /^the user waits for the newsletter modal to appear$/ do

@@ -145,6 +145,16 @@ include Capybara::DSL
     sleep(10)
   end
 
+  def set_ship_to_country(country)
+    find("div.checkout_shipping_address_country span.select2-selection").click
+    wait_for_ajax
+    find("li.select2-results__option", :text => country).click
+    wait_for_ajax
+    # expect(find('.currentflag img')[:src]).to include("flags/#{$test.user.country_code.downcase}_flag-")
+    # find('.currentflag img', :src => "flags/#{$test.user.country_code.downcase}_flag-")
+    find(:xpath, "//img[contains(@src, '#{$test.user.country_code.downcase}_flag-')]")
+  end
+
   def submit_checkout_information(user, type, addbilling=false)
     select_shirt_size(user.shirt_size)
     #will only run on pets crate
