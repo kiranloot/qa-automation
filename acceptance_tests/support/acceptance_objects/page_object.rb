@@ -103,22 +103,20 @@ class Page
     wait_for_ajax
     #Gather all links on the page
     all_links = page.all(:css, 'a')
-
-    # #Create http object
-    # http = Net::HTTP.new(a[:href])
+    exclusions = ['play.google.com', 'youtube.com', 'thedailycrate.com']
 
     all_links.each do |a|
       uri = URI(a[:href])
       #Skip Google/Youtube links due to SSL constraint. Must manually test for now.
       # TODO: Research a solution to the SSL issue
-      if a[:href].include?('play.google.com')
-      elsif a[:href].include?('youtube.com')
+      if exclusions.any? { |word| a[:href].include?(word) }
+        #skip
       else
+        # puts 'Checking ' + a[:href] + ' ...'
         resp = Net::HTTP.get_response(uri)
 
         # TODO: Research a better solution for 301 and 302 redirect response codes.
-        expect(["200", "301", "302"]).to include(resp.code)
-        puts "#{a[:href]}\nResponse Code: #{resp.code}\n"
+        expect(["200", "301", "302"]).to include(resp.code), "Link to #{a[:href]} returned response code: #{resp.code}"
       end
     end
   end
