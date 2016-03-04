@@ -13,7 +13,7 @@ class User
     :subscription_name, :level_up_subscription_name, :new_user_sub_name,:new_rebill_date, :bill_zip,
     :bill_city, :bill_street, :bill_street_2, :bill_state, :need_sub, :rebill_date_db, :last_four, :trait, :recurly_level_up_plan,
     :country_code, :recurly_billing_state_code, :cc_invalid, :cc_exp_month, :cc_exp_year, :pet_shirt_size, :pet_collar_size, :promo_type,
-    :promo, :adjustment_type, :adjustment_amount, :recurly_rebill_date, :unisex_shirt_size, :pin_code, :crate_type, :billing_address
+    :promo, :adjustment_type, :adjustment_amount, :recurly_rebill_date, :unisex_shirt_size, :pin_code, :crate_type, :billing_address, :country
 
   @@sizes = {"male" =>  {0 => "Mens - S", 1 => "Mens - M", 2 => "Mens - L", 3 => "Mens - XL",
                          4 => "Mens - XXL", 5 => "Mens - XXXL" },

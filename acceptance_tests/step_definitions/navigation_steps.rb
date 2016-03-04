@@ -51,7 +51,7 @@ end
 When /the user sets their country( in the checkout dropdown)? to (.*)?/ do |dropdown, country|
   country.strip!
   if dropdown
-    $test.current_page.set_ship_to_country(country)
+    $test.current_page.select_shipping_country(country)
   else
     $test.user.set_ship_to_country(country)
   end

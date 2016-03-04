@@ -145,14 +145,19 @@ include Capybara::DSL
     sleep(10)
   end
 
-  def set_ship_to_country(country)
+  def select_shipping_country(country)
     find("div.checkout_shipping_address_country span.select2-selection").click
     wait_for_ajax
     find("li.select2-results__option", :text => country).click
     wait_for_ajax
-    # expect(find('.currentflag img')[:src]).to include("flags/#{$test.user.country_code.downcase}_flag-")
-    # find('.currentflag img', :src => "flags/#{$test.user.country_code.downcase}_flag-")
     find(:xpath, "//img[contains(@src, '#{$test.user.country_code.downcase}_flag-')]")
+  end
+
+  def select_billing_country(country)
+    find("div.checkout_billing_address_country #select2-checkout_billing_address_country-container").click
+    wait_for_ajax
+    find(".select2-results__option", :text => country).click
+    wait_for_ajax
   end
 
   def submit_checkout_information(user, type, addbilling=false)
@@ -189,11 +194,8 @@ include Capybara::DSL
 
     if addbilling
       click_use_shipping_address_checkbox
-      unless find("div.checkout_billing_address_country .select2-selection__rendered").text == user.first_name
-        find("div.checkout_billing_address_country #select2-checkout_billing_address_country-container").click
-        wait_for_ajax
-        find(".select2-results__option", :text => user.first_name).click
-        wait_for_ajax
+      unless find("div.checkout_billing_address_country .select2-selection__rendered").text == user.country
+        select_billing_country(user.country)
       end
       enter_billing_address_1(user.billing_address.street)
       enter_billing_city(user.billing_address.city)

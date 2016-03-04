@@ -2,7 +2,7 @@
 Feature: International Subscriptions
     @ready
     Scenario: South Korea user signs up for random month subscription
-        Given a registered user with a SouthKorea address
+        Given a registered user with a South Korea address
             When the user logs in
             And the user selects the Loot Crate crate
             And the user sets their country to South Korea
@@ -28,7 +28,7 @@ Feature: International Subscriptions
 
     @ready
     Scenario: British user sets country at the checkout page
-        Given a registered user with a UnitedKingdom address
+        Given a registered user with a United Kingdom address
             When the user logs in
             And the user selects the Loot Crate crate
             And the user selects a random month subscription plan
