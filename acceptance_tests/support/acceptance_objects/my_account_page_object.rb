@@ -30,14 +30,17 @@ class MyAccountPage < Page
   end
 
   def go_to_subscriptions
-    open_account_menu
     click_subs_link
     wait_for_ajax
   end
 
   def go_to_account_info
-    open_account_menu
     click_account_info_link
+    wait_for_ajax
+  end
+
+  def go_to_order_and_tracking
+    click_order_and_tracking_link
     wait_for_ajax
   end
 
@@ -48,7 +51,7 @@ class MyAccountPage < Page
     go_to_subscriptions
     expect(@subscription_name).not_to be_nil
     assert_text(@subscription_name)
-    assert_text("Active")
+    assert_text("ACTIVE")
     wait_for_ajax
     assert_text(get_expected_next_bill_date(@subscription_name)) unless @rebill
     assert_text(@rebill) if @rebill
@@ -75,8 +78,8 @@ class MyAccountPage < Page
 
   def subscription_cancelled?
     go_to_subscriptions
-    assert_text("Reactivate")
-    assert_text("Canceled")
+    assert_text("REACTIVATE")
+    assert_text("CANCELED")
   end
 
   def subscription_updated?
@@ -141,14 +144,15 @@ class MyAccountPage < Page
         break
       end
     end
-    assert_text("Pending Cancellation")
+    assert_text("PENDING CANCELLATION")
     assert_text("REMOVE CANCELLATION")
   end
 
   def month_skipped?
     go_to_subscriptions
     #TO DO - add validation for skipped month
-    assert_text("Active (You have skipped")
+    assert_text("SKIPPED")
+    assert_text("(You have skipped")
   end
 
   def cannot_skip_again?
@@ -197,7 +201,6 @@ class MyAccountPage < Page
   end
 
   def skip_during_cancel
-    open_account_menu
     click_subs_link
     open_payment_tab
     for i in 0..2
@@ -211,15 +214,15 @@ class MyAccountPage < Page
   end
 
   def click_subs_link
-    find("#account-menu-subscriptions-lnk").click
+    find_link("Subscriptions").click
   end
 
   def click_account_info_link
-    page.find_link("Account Info").click
+    find_link("Account Info").click
   end
 
-  def open_account_menu
-    page.find_button("account-section-menu").click
+  def click_order_and_tracking_link
+    find_link("Order & Tracking").click
   end
 
   def reactivate_subscription
@@ -255,7 +258,7 @@ class MyAccountPage < Page
   end
 
   def subscription_reactivated?
-    assert_text("Active")
+    assert_text("ACTIVE")
     expect(page.has_content?("UPGRADE")).to be_truthy
   end
 
@@ -370,6 +373,7 @@ class MyAccountPage < Page
 
   def tracking_info_displayed?
     go_to_subscriptions
+    go_to_order_and_tracking
     assert_text('Tracking')
     assert_text('ABC123')
   end

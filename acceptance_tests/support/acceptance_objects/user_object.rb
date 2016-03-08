@@ -283,8 +283,8 @@ class User
      current_plan = Plan.new(current_month_int, Date.today, false)
      upgrade_plan_target = Plan.new(upgrade_month_int, Date.today, true)
    end
+   #should probably be moved to the my accounts page object
    @test.visit_page(:my_account)
-   page.find_button("account-section-menu").click
    click_link("Subscriptions")
    click_link("Upgrade")
    select(upgrade_plan_target.subscription_display_name, :from => @test.test_data['locators']['upgrade_select'])
