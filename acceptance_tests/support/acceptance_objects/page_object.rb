@@ -3,7 +3,8 @@ require 'net/http'
 require 'rspec/matchers'
 require 'pry'
 require_relative 'wait_module'
-class Page
+class
+Page
   attr_accessor :base_url, :page_type
   require 'yaml'
   include Capybara::DSL
@@ -97,6 +98,11 @@ class Page
     find('#modal-mce-email').send_keys(email)
     find_button('modal-mc-embedded-subscribe').click
     wait_for_ajax
+  end
+
+  def footer_email_signup
+    test = page.find(:id, 'footer-mce-email')
+    puts test
   end
 
   def check_link_integrity

@@ -31,4 +31,4 @@ Feature: Level Up
             And the user selects a level up three month subscription for the level-up-bundle-socks-wearable crate
             And the user submits valid subscription information
         Then the new level up subscription should be added to the user account
-            And the user should receive a level up email           
+            And the user should receive a level up email

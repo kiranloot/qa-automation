@@ -7,7 +7,7 @@ require_relative 'acceptance_objects/dbcon'
 require_relative 'acceptance_objects/qa_env_validator'
 
 ENV['RUN_TIMESTAMP'] = Time.now().utc.to_s
-ENV['SITE'] ||= 'qa'
+ENV['SITE'] ||= 'qa4'
 
 driver = ENV['DRIVER'] ||= 'local'
 browser = ENV['BROWSER'] ||= 'chrome'

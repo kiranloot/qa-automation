@@ -24,4 +24,5 @@ class HomePage < Page
     fill_in('email', :with => email)
     find(:id,'footer-mc-embedded-subscribe').click
   end
+
 end
