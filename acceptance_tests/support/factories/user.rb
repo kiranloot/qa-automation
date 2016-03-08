@@ -10,6 +10,7 @@ FactoryGirl.define do
     password "password"
     email { "_test_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
     initialize_with {new($test)}
+    country "United States"
     country_code "US"
     trait :registered do
       first_name "Registered"
@@ -160,6 +161,7 @@ FactoryGirl.define do
       ship_state "Hovedstaden"
       ship_zip "1566"
       email { "_dk_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country "Denmark"
       country_code "DK"
     end
     trait :australia do
@@ -170,6 +172,7 @@ FactoryGirl.define do
       ship_state "Queensland"
       ship_zip "2148"
       email { "_au_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country "Australia"
       country_code "AU"
     end
     trait :austria do
@@ -180,6 +183,7 @@ FactoryGirl.define do
       ship_state "Salzburg"
       ship_zip "5020"
       email { "_at_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country "Austria"
       country_code "AT"
     end
     trait :belgium do
@@ -190,6 +194,7 @@ FactoryGirl.define do
       ship_state "Vlaams Gewest"
       ship_zip "2000"
       email { "_be_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country "Belgium"
       country_code "BE"
     end
     trait :canada do
@@ -200,6 +205,7 @@ FactoryGirl.define do
       ship_state "Ontario"
       ship_zip "M4C 1B5"
       email { "_ca_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country "Canada"
       country_code "CA"
       recurly_billing_state_code "ON"
     end
@@ -211,6 +217,7 @@ FactoryGirl.define do
       ship_state "Olomoucký kraj"
       ship_zip "100 00"
       email { "_cz_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country "Czech Republic"
       country_code "CZ"
     end
     trait :finland do
@@ -221,6 +228,7 @@ FactoryGirl.define do
       ship_state "Uusimaa"
       ship_zip "00100"
       email { "_fi_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country "Finland"
       country_code "FI"
     end
     trait :france do
@@ -231,6 +239,7 @@ FactoryGirl.define do
       ship_state "Île-de-France"
       ship_zip "75001"
       email { "_fr_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country "France"
       country_code "FR"
     end
     trait :germany do
@@ -241,6 +250,7 @@ FactoryGirl.define do
       ship_state "Berlin"
       ship_zip "10405"
       email { "_de_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country "Germany"
       country_code "DE"
     end
     trait :hungary do
@@ -251,6 +261,7 @@ FactoryGirl.define do
       ship_state "Dunaújváros"
       ship_zip "1011"
       email { "_hu_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country "Hungary"
       country_code "HU"
     end
     trait :iceland do
@@ -261,6 +272,7 @@ FactoryGirl.define do
       ship_state "Reykjavík"
       ship_zip "101"
       email { "_is_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country "Iceland"
       country_code "IS"
     end
     trait :ireland do
@@ -271,16 +283,18 @@ FactoryGirl.define do
       ship_state "Leinster"
       ship_zip "KHG RT76"
       email { "_ie_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country "Ireland"
       country_code "IE"
     end
     trait :israel do
-      first_name "israel"
+      first_name "Israel"
       last_name {Date.today.strftime("%b") + Date.today.day.to_s}
       ship_street "1234 Israel Test"
       ship_city "Jerusalem"
       ship_state "Tel-Aviv"
       ship_zip "61071"
       email { "_il_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country "Israel"
       country_code "IL"
     end
     trait :italy do
@@ -291,6 +305,7 @@ FactoryGirl.define do
       ship_state "Campania"
       ship_zip "80079"
       email { "_it_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country "Italy"
       country_code "IT"
     end
     trait :luxembourg do
@@ -301,6 +316,7 @@ FactoryGirl.define do
       ship_state "Luxembourg"
       ship_zip "9011"
       email { "_lu_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country "Luxembourg"
       country_code "LU"
     end
     trait :netherlands do
@@ -311,6 +327,7 @@ FactoryGirl.define do
       ship_state "Noord-Holland"
       ship_zip "1011"
       email { "_nl_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country "Netherlands"
       country_code "NL"
     end
     trait :newzealand do
@@ -321,6 +338,7 @@ FactoryGirl.define do
       ship_state "North Island"
       ship_zip "0632"
       email { "_nz_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country "New Zealand"
       country_code "NZ"
     end
     trait :norway do
@@ -331,6 +349,7 @@ FactoryGirl.define do
       ship_state "Oslo"
       ship_zip "0001"
       email { "_no_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country "Norway"
       country_code "NO"
     end
     trait :poland do
@@ -341,6 +360,7 @@ FactoryGirl.define do
       ship_state "Mazowieckie"
       ship_zip "00-001"
       email { "_pl_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country "Poland"
       country_code "PL"
     end
     trait :portugal do
@@ -351,6 +371,7 @@ FactoryGirl.define do
       ship_state "Lisboa"
       ship_zip "1000"
       email { "_pt_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country "Portugal"
       country_code "PT"
     end
     trait :singapore do
@@ -361,16 +382,18 @@ FactoryGirl.define do
       ship_state "Central Singapore"
       ship_zip "308215"
       email { "_sg_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country "Singapore"
       country_code "SG"
     end
     trait :southafrica do
-      first_name "SouthAfrica"
+      first_name "South Africa"
       last_name {Date.today.strftime("%b") + Date.today.day.to_s}
       ship_street "1234 South Africa Test"
       ship_city "Johannesburg"
       ship_state "Gauteng"
       ship_zip "2001"
       email { "_za_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country "South Africa"
       country_code "ZA"
     end
     trait :spain do
@@ -381,6 +404,7 @@ FactoryGirl.define do
       ship_state "Madrid, Comunidad de"
       ship_zip "28000"
       email { "_es_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country "Spain"
       country_code "ES"
     end
     trait :sweden do
@@ -391,6 +415,7 @@ FactoryGirl.define do
       ship_state "Gotlands län"
       ship_zip "110 00"
       email { "_se_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country "Sweden"
       country_code "SE"
     end
     trait :switzerland do
@@ -401,6 +426,7 @@ FactoryGirl.define do
       ship_state "Zürich"
       ship_zip "8000"
       email { "_ch_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country "Switzerland"
       country_code "CH"
     end
     trait :unitedkingdom do
@@ -411,6 +437,7 @@ FactoryGirl.define do
       ship_state "England and Wales"
       ship_zip "WC1H 8JJ"
       email { "_gb_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country "United Kingdom"
       country_code "GB"
     end
     trait :mexico do
@@ -421,6 +448,7 @@ FactoryGirl.define do
       ship_state "Chihuahua"
       ship_zip "77520"
       email { "_gb_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country "Mexico"
       country_code "MX"
     end
     trait :argentina do
@@ -431,6 +459,7 @@ FactoryGirl.define do
       ship_state "Jujuy"
       ship_zip "77520"
       email { "_gb_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country "Argentina"
       country_code "AR"
     end
     trait :chile do
@@ -441,6 +470,7 @@ FactoryGirl.define do
       ship_state "Maule"
       ship_zip "07304"
       email { "_gb_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country "Chile"
       country_code "CL"
     end
     trait :colombia do
@@ -451,6 +481,7 @@ FactoryGirl.define do
       ship_state "Tolima"
       ship_zip "73168"
       email { "_gb_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country "Colombia"
       country_code "CO"
     end
     trait :southkorea do
@@ -461,6 +492,7 @@ FactoryGirl.define do
       ship_state "Seoul Teugbyeolsi"
       ship_zip "11200"
       email { "_gb_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country "South Korea"
       country_code "KR"
     end
     trait :turkey do
@@ -471,6 +503,7 @@ FactoryGirl.define do
       ship_state "Düzce"
       ship_zip "1905"
       email { "_gb_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      country "Turkey"
       country_code "TR"
     end
     trait :multi_use_fixed_promo do
