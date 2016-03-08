@@ -61,6 +61,10 @@ When /^the user waits for the newsletter modal to appear$/ do
   $test.current_page.wait_for_modal
 end
 
+When /^the user checks that all links are valid and responding properly$/ do
+  $test.current_page.check_link_integrity
+end
+
 #THENS
 Then /^cool stuff should happen/ do
   $test.current_page.be_at_recurly_sandbox
