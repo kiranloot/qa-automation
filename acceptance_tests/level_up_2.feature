@@ -22,3 +22,15 @@ Feature: Level Up
         Then the new level up subscription should be added to the user account
             And the user should receive a level up email
             And recurly should have a three month subscription for the wearable crate
+
+    @ready @recurly
+    Scenario: A user with an active subscription can add a six month t-shirt & accessory subscription
+        Given a registered user with an active subscription
+            When the user logs in
+            And the user selects the Level Up crate
+            And the user selects a level up six month subscription for the level-up-bundle-tshirt-accessories crate
+            And the user submits valid credit card information
+        Then the new level up subscription should be added to the user account
+            And the user should receive a level up email
+            And recurly should have a six month subscription for the tshirt \+ accessories crate
+            And the recurly subscription should have the correct rebill date
