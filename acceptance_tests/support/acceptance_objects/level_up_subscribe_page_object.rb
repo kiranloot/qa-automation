@@ -30,8 +30,12 @@ include WaitForAjax
       'onelevel-up-bundle-socks-wearable-crate' => 'Level Up Bundle (socks & wearable) 1 Month',
       'threelevel-up-bundle-socks-wearable-crate' => 'Level Up Bundle (socks & wearable) 3 Month',
       'sixlevel-up-bundle-socks-wearable-crate' => 'Level Up Bundle (socks & wearable) 6 Month',
-      'twelvelevel-up-bundle-socks-wearable-crate' => 'Level Up Bundle (socks & wearable) 12 Month'
-      
+      'twelvelevel-up-bundle-socks-wearable-crate' => 'Level Up Bundle (socks & wearable) 12 Month',
+      'onelevel-up-bundle-tshirt-accessories' => 'Level Up T-Shirt + Accessories Bundle 1 Month',
+      'threelevel-up-bundle-tshirt-accessories' => 'Level Up T-Shirt + Accessories Bundle 3 Month',
+      'sixlevel-up-bundle-tshirt-accessories' => 'Level Up T-Shirt + Accessories Bundle 6 Month',
+      'twelvelevel-up-bundle-tshirt-accessories' => 'Level Up T-Shirt + Accessories Bundle 12 Month',
+
     }
     @recurly_plan_names = {
       'sixaccessory' => 'LC - LU - Accessory - 6 month',
@@ -39,19 +43,20 @@ include WaitForAjax
     }
     @plan_drop_down_text = {
       'one' => '1 Month Plan',
-      'three' => '3 Month Plan', 
+      'three' => '3 Month Plan',
       'six' => '6 Month Plan',
       'twelve' => '12 Month Plan'
     }
   end
 
   def visit_page
-    visit @base_url 
+    visit @base_url
     $test.current_page = self
-  end 
+  end
 
   def scroll_to(product)
-    click_link("Level Up")
+    # first(".banner-content").click_link("LEVEL UP")
+    find('#opt-cta').click
     sleep(2)
     # case product
     # when 'socks'
@@ -75,22 +80,37 @@ include WaitForAjax
 
   def select_wearable_waist_size(size)
     find('div#wearable-crate span#select2-variants-waist-container').click
-    find(:css, ".select2-results__option", :text => size).click  
+    find(:css, ".select2-results__option", :text => size).click
   end
 
   def select_bundle_shirt_size(size)
     find('div#level-up-bundle-socks-wearable-crate span#select2-variants-shirt-container').click
-    find(:css, ".select2-results__option", :text => size).click  
+    find(:css, ".select2-results__option", :text => size).click
   end
 
   def select_bundle_waist_size(size)
     find('div#level-up-bundle-socks-wearable-crate span#select2-variants-waist-container').click
-    find(:css, ".select2-results__option", :text => size).click  
+    find(:css, ".select2-results__option", :text => size).click
   end
 
   def select_shirt_size(size)
     find('div#level-up-tshirt-crate span#select2-variants-shirt-container').click
     find(:css, ".select2-results__option", :text => size).click
+  end
+
+  def select_accessory_waist_size(size)
+    find('#accessory-crate #select2-variants-waist-container').click
+    find('.select2-results__option', :text => size).click
+  end
+
+  def select_tshirt_accessory_shirt_size(size)
+    find('#level-up-bundle-tshirt-accessories-crate #select2-variants-shirt-container').click
+    find('.select2-results__option', :text => size).click
+  end
+
+  def select_tshirt_accessory_waist_size(size)
+    find('#level-up-bundle-tshirt-accessories-crate #select2-variants-waist-container').click
+    find('.select2-results__option', :text => size).click
   end
 
   def select_plan(product, months)
@@ -109,6 +129,11 @@ include WaitForAjax
       select_bundle_waist_size('Mens - S')
     elsif product == 'level-up-tshirt'
       select_shirt_size('Mens - S')
+    elsif product == 'accessory'
+      select_accessory_waist_size('Womens - S')
+    elsif product == 'level-up-bundle-tshirt-accessories'
+      select_tshirt_accessory_shirt_size('Mens - S')
+      select_tshirt_accessory_waist_size('Womens - S')
     end
     first(:id,div_id).find_link("level up").click
     wait_for_ajax
@@ -118,7 +143,7 @@ include WaitForAjax
     load_checkout_page_object
   end
 
-  def load_checkout_page_object 
+  def load_checkout_page_object
     $test.current_page = LevelUpCheckoutPage.new
   end
 

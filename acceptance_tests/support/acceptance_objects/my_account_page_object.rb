@@ -225,6 +225,10 @@ class MyAccountPage < Page
     find_link("Order & Tracking").click
   end
 
+  def open_account_menu
+    page.find("#account-section-menu").click
+  end
+
   def reactivate_subscription
     go_to_subscriptions
     find_link("Reactivate").click
