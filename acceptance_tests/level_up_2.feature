@@ -23,7 +23,7 @@ Feature: Level Up
             And the user should receive a level up email
             And recurly should have a three month subscription for the wearable crate
 
-    @ready @recurly
+    @ready @mobile_ready
     Scenario: A user with an active subscription can add a six month t-shirt & accessory subscription
         Given a registered user with an active subscription
             When the user logs in
