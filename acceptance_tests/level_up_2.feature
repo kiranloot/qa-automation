@@ -12,7 +12,7 @@ Feature: Level Up
             And recurly should have a six month subscription for the accessory crate
             And the recurly subscription should have the correct rebill date
 
-    @ready
+    @ready @mobile_ready
     Scenario: A user with an active subscription can add a three month wearable subscription
         Given a registered user with an active subscription
         When the user logs in

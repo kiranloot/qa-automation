@@ -211,7 +211,6 @@ include Capybara::DSL
   end
 
   def submit_credit_card_information_only(user, type)
-    puts $test.current_page
     enter_name_on_card(user.full_name)
     if type == 'invalid'
       enter_credit_card_number(user.cc_invalid)
