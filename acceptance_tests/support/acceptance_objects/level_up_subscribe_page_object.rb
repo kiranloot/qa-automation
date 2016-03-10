@@ -117,7 +117,7 @@ include WaitForAjax
     scroll_to(product)
     div_id = product + '-crate'
     dd_id = 'select2-' + div_id + '-container'
-    find(:id,dd_id).click
+    find("##{dd_id}").click
     wait_for_ajax
     #select plan
     find('ul.select2-results__options > li',:text => @plan_drop_down_text[months]).click
@@ -135,7 +135,7 @@ include WaitForAjax
       select_tshirt_accessory_shirt_size('Mens - S')
       select_tshirt_accessory_waist_size('Womens - S')
     end
-    first(:id,div_id).find_link("level up").click
+    first("##{div_id}").find_link("level up").click
     wait_for_ajax
     plan = months + product
     update_target_plan(plan)
@@ -144,7 +144,11 @@ include WaitForAjax
   end
 
   def load_checkout_page_object
-    $test.current_page = LevelUpCheckoutPage.new
+    if ENV['DRIVER'] == 'appium'
+      $test.current_page = LevelUpCheckoutPage.new
+    else
+      $test.current_page = LevelUpMobileCheckoutPage.new
+    end
   end
 
   def update_target_plan(plan)

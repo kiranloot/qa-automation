@@ -1,7 +1,7 @@
 require_relative "mobile_checkout_page_object"
 
 class PetsMobileCheckoutPage < MobileCheckoutPage
-  def initialze
+  def initialize
     super
     @page_type = "pets_checkout"
     setup
