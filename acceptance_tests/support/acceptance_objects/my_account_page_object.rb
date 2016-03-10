@@ -124,7 +124,7 @@ class MyAccountPage < Page
     #end
     if compare_date.nil?
       rebill_date = $test.calculate_rebill_date
-      compare_date = localize_date(rebill_date['day'], rebill_date['month'], rebill_date['year'])
+      compare_date = localize_date(rebill_date['day'], rebill_date['month_abbr'], rebill_date['year'])
     end
     return compare_date
   end
