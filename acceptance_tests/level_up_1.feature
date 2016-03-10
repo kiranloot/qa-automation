@@ -1,6 +1,6 @@
 @core @regression @levelup @selenium
 Feature: Level Up
-    @ready @recurly
+    @ready @recurly @mobile_ready
     Scenario: A user with an active subscription can add a one month sock subscription
         Given a registered user with an active subscription
             When the user logs in
