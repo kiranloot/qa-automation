@@ -309,6 +309,7 @@ class Test
     end
     return{
       'month' => rebill_day.strftime('%B'),
+      'month_abbr' => rebill_day.strftime('%b'),
       'day' => rebill_day.strftime('%d'),
       'year' => rebill_day.strftime('%Y')
     }
