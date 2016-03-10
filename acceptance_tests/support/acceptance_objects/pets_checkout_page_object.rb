@@ -2,7 +2,7 @@ require_relative "checkout_page_object"
 
 class PetsCheckoutPage < CheckoutPage
 
-  def initialze
+  def initialize
     super
     @page_type = "pets_checkout"
     setup

@@ -1,6 +1,6 @@
 @core @regression @levelup @selenium
 Feature: Level Up
-    @ready @recurly
+    @ready @recurly @mobile_ready
     Scenario: A user with an active subscription can add a six month accessory subscription
         Given a registered user with an active subscription
             When the user logs in
@@ -12,7 +12,7 @@ Feature: Level Up
             And recurly should have a six month subscription for the accessory crate
             And the recurly subscription should have the correct rebill date
 
-    @ready
+    @ready @mobile_ready
     Scenario: A user with an active subscription can add a three month wearable subscription
         Given a registered user with an active subscription
         When the user logs in
@@ -23,7 +23,7 @@ Feature: Level Up
             And the user should receive a level up email
             And recurly should have a three month subscription for the wearable crate
 
-    @ready @recurly
+    @ready @mobile_ready
     Scenario: A user with an active subscription can add a six month t-shirt & accessory subscription
         Given a registered user with an active subscription
             When the user logs in

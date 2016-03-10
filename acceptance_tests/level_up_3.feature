@@ -13,7 +13,7 @@ Feature: Level Up
             And the user should receive a level up email
             And recurly should have a matching international subscription
 
-    @ready
+    @ready @mobile_ready
     Scenario: A user without an active subscription can add a one month shirt subscription
     Given a registered user with no prior subscription
         When the user logs in
@@ -23,7 +23,7 @@ Feature: Level Up
         Then the new level up subscription should be added to the user account
             And the user should receive a level up email
             
-    @ready
+    @ready @mobile_ready
     Scenario: A user without an active subscription can add a three month bundle subscription
     Given a registered user with no prior subscription
         When the user logs in
