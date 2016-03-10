@@ -122,6 +122,12 @@ class Test
    when "Gaming"
      find("#header-gaming-lnk").click
      $test.current_page = GamingLandingPage.new
+   when "Star Wars™"
+       find("#header-sw-lnk").click
+       $test.current_page = StarWarsLandingPage.new
+   when "Call of Duty®"
+       find("#header-cod-lnk").click
+       $test.current_page = CallofdutyLandingPage.new
    end
    $test.user.crate_type = crate
    wait_for_ajax
@@ -322,6 +328,10 @@ class Test
     date = time[8..9]
     month = Date::MONTHNAMES[month.to_i]
     return"#{month} #{date}, #{year}"
+  end
+
+  def email_footer_not_visible()
+    expect(page).not_to have_field('#footer-mce-email', :type => 'email')
   end
 
   def all_coupon_codes_unique?

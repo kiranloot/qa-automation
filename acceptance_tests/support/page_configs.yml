@@ -58,3 +58,8 @@ alchemy:
  url: "/alchemy/login"
 pins:
  url: "/pins"
+star_wars_landing:
+ url: "/limited-edition-crates/star-wars-crate"
+call_of_duty_landing:
+ url: "/limited-edition-crates/callofduty-crate"
+
