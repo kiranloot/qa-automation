@@ -1,6 +1,6 @@
 @regression @core @subscription_creation @selenium
 Feature: Subscription Creation
-    @ready @mobile_ready @safari_ready
+    @ready @safari_ready
     Scenario: Registered user creates one month subscription
         Given a registered user with no prior subscription
             When the user logs in
@@ -11,7 +11,7 @@ Feature: Subscription Creation
             And the user should receive a subscription confirmation email
             And the recurly subscription should have the correct rebill date
 
-    @ready @mobile_ready
+    @ready 
     Scenario: Registered user creates three month subscription
         Given a registered user with no prior Subscription
             When the user logs in
