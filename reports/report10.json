@@ -1,0 +1,2213 @@
+[
+  {
+    "uri": "acceptance_tests/change_country_1.feature",
+    "id": "change-country-subscribe-page-prices",
+    "keyword": "Feature",
+    "name": "Change Country Subscribe Page Prices",
+    "description": "",
+    "line": 2,
+    "tags": [
+      {
+        "name": "@core",
+        "line": 1
+      },
+      {
+        "name": "@regression",
+        "line": 1
+      },
+      {
+        "name": "@selenium",
+        "line": 1
+      },
+      {
+        "name": "@intl_pricing",
+        "line": 1
+      }
+    ],
+    "elements": [
+      {
+        "id": "change-country-subscribe-page-prices;change-from-us-to-international-country-and-verify-pricing.;;2",
+        "keyword": "Scenario Outline",
+        "name": "Change from US to International Country and verify pricing.",
+        "description": "",
+        "line": 13,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@core",
+            "line": 1
+          },
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@intl_pricing",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 3
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 16368
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 46716
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8430887606
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "an unregistered user",
+            "line": 13,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 187277104
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user visits the signup page",
+            "line": 13,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4755873112
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user submits valid signup information",
+            "line": 13,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:96"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5098513822
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user visits the lootcrate_subscribe page",
+            "line": 13,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1899260486
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user sets their country to Argentina",
+            "line": 13,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:51"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8188727032
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the Argentina price for all plans should be displayed",
+            "line": 13,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:98"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2267774812
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 71337289
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 33285
+            }
+          }
+        ]
+      },
+      {
+        "id": "change-country-subscribe-page-prices;change-from-us-to-international-country-and-verify-pricing.;;3",
+        "keyword": "Scenario Outline",
+        "name": "Change from US to International Country and verify pricing.",
+        "description": "",
+        "line": 14,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@core",
+            "line": 1
+          },
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@intl_pricing",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 3
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10632
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 35439
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 38469702953
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "an unregistered user",
+            "line": 14,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 500326
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user visits the signup page",
+            "line": 14,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3193268974
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user submits valid signup information",
+            "line": 14,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:96"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9444574658
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user visits the lootcrate_subscribe page",
+            "line": 14,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3011805951
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user sets their country to Australia",
+            "line": 14,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:51"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 13282594453
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the Australia price for all plans should be displayed",
+            "line": 14,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:98"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4000353547
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 70226017
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 17715
+            }
+          }
+        ]
+      },
+      {
+        "id": "change-country-subscribe-page-prices;change-from-us-to-international-country-and-verify-pricing.;;4",
+        "keyword": "Scenario Outline",
+        "name": "Change from US to International Country and verify pricing.",
+        "description": "",
+        "line": 15,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@core",
+            "line": 1
+          },
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@intl_pricing",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 3
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10281
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 32065
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 22991542076
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "an unregistered user",
+            "line": 15,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 373245
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user visits the signup page",
+            "line": 15,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2673001269
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user submits valid signup information",
+            "line": 15,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:96"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4470564223
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user visits the lootcrate_subscribe page",
+            "line": 15,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2482563466
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user sets their country to Austria",
+            "line": 15,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:51"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11680805396
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the Austria price for all plans should be displayed",
+            "line": 15,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:98"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3439215323
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 118914866
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 25428
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "uri": "acceptance_tests/international_subscriptions_3.feature",
+    "id": "international-subscriptions",
+    "keyword": "Feature",
+    "name": "International Subscriptions",
+    "description": "",
+    "line": 2,
+    "tags": [
+      {
+        "name": "@regression",
+        "line": 1
+      },
+      {
+        "name": "@extended",
+        "line": 1
+      },
+      {
+        "name": "@world_subs",
+        "line": 1
+      },
+      {
+        "name": "@selenium",
+        "line": 1
+      }
+    ],
+    "elements": [
+      {
+        "id": "international-subscriptions;finland-user-signs-up-for-random-month-subscription",
+        "keyword": "Scenario",
+        "name": "Finland user signs up for random month subscription",
+        "description": "",
+        "line": 4,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@extended",
+            "line": 1
+          },
+          {
+            "name": "@world_subs",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 3
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 14313
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 32812
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 18616502514
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "a registered user with a Finland address",
+            "line": 5,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 722656637
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user logs in",
+            "line": 6,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:82"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9510442589
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user selects the Loot Crate crate",
+            "line": 7,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10675036746
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user sets their country to Finland",
+            "line": 8,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:51"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10290842658
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user selects a random month subscription plan",
+            "line": 9,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:92"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7933276989
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user submits valid subscription information",
+            "line": 10,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:96"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 19316776308
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the new subscription should be added to the user account",
+            "line": 11,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:140"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 13453306445
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "recurly should have a matching international subscription",
+            "line": 12,
+            "match": {
+              "location": "acceptance_tests/step_definitions/recurly_steps.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 445174506
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the recurly billing address should have no state",
+            "line": 13,
+            "match": {
+              "location": "acceptance_tests/step_definitions/recurly_steps.rb:43"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 377067354
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user should receive a subscription confirmation email",
+            "line": 14,
+            "match": {
+              "location": "acceptance_tests/step_definitions/email_steps.rb:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1917798028
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 75034458
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 21007
+            }
+          }
+        ]
+      },
+      {
+        "id": "international-subscriptions;france-user-signs-up-for-random-month-subscription",
+        "keyword": "Scenario",
+        "name": "France user signs up for random month subscription",
+        "description": "",
+        "line": 17,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@extended",
+            "line": 1
+          },
+          {
+            "name": "@world_subs",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 16
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11311
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 31377
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9927183614
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "a registered user with a France address",
+            "line": 18,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 593013090
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user logs in",
+            "line": 19,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:82"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10588603329
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user selects the Loot Crate crate",
+            "line": 20,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10382426939
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user sets their country to France",
+            "line": 21,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:51"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 13185953093
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user selects a random month subscription plan",
+            "line": 22,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:92"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9378342283
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user submits valid subscription information",
+            "line": 23,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:96"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 17395622748
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the new subscription should be added to the user account",
+            "line": 24,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:140"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 16804809292
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "recurly should have a matching international subscription",
+            "line": 25,
+            "match": {
+              "location": "acceptance_tests/step_definitions/recurly_steps.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 887891199
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the recurly billing address should have no state",
+            "line": 26,
+            "match": {
+              "location": "acceptance_tests/step_definitions/recurly_steps.rb:43"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 326340932
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user should receive a subscription confirmation email",
+            "line": 27,
+            "match": {
+              "location": "acceptance_tests/step_definitions/email_steps.rb:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1622675945
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 76299374
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 19831
+            }
+          }
+        ]
+      },
+      {
+        "id": "international-subscriptions;germany-user-signs-up-for-random-month-subscription",
+        "keyword": "Scenario",
+        "name": "Germany user signs up for random month subscription",
+        "description": "",
+        "line": 30,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@extended",
+            "line": 1
+          },
+          {
+            "name": "@world_subs",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 29
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10865
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 29307
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11555615469
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "a registered user with a Germany address",
+            "line": 31,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 574859052
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user logs in",
+            "line": 32,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:82"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7435469164
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user selects the Loot Crate crate",
+            "line": 33,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6337572692
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user sets their country to Germany",
+            "line": 34,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:51"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9148022699
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user selects a random month subscription plan",
+            "line": 35,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:92"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8383826736
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user submits valid subscription information",
+            "line": 36,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:96"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 15839807413
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the new subscription should be added to the user account",
+            "line": 37,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:140"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8906963688
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "recurly should have a matching international subscription",
+            "line": 38,
+            "match": {
+              "location": "acceptance_tests/step_definitions/recurly_steps.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 369212328
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the recurly billing address should have no state",
+            "line": 39,
+            "match": {
+              "location": "acceptance_tests/step_definitions/recurly_steps.rb:43"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 359678152
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user should receive a german subscription confirmation email",
+            "line": 40,
+            "match": {
+              "location": "acceptance_tests/step_definitions/email_steps.rb:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1584881197
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 81437155
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 19783
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "uri": "acceptance_tests/join.feature",
+    "id": "test",
+    "keyword": "Feature",
+    "name": "Test",
+    "description": "",
+    "line": 2,
+    "tags": [
+      {
+        "name": "@ready",
+        "line": 1
+      }
+    ],
+    "elements": [
+      {
+        "id": "test;valid-signup-through-the-loot-crate-join-modal",
+        "keyword": "Scenario",
+        "name": "Valid signup through the Loot Crate join modal",
+        "description": "",
+        "line": 3,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@ready",
+            "line": 1
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10626
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 21214
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 24020027665
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "an unregistered user",
+            "line": 4,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 343905
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user selects the Loot Crate crate",
+            "line": 5,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7693039323
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user joins through the modal",
+            "line": 6,
+            "match": {
+              "location": "acceptance_tests/step_definitions/signup_steps.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9404436907
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the user should be logged in",
+            "line": 7,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:90"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5411884683
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 70212402
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 17114
+            }
+          }
+        ]
+      },
+      {
+        "id": "test;valid-signup-through-the-anime-join-modal",
+        "keyword": "Scenario",
+        "name": "Valid signup through the Anime join modal",
+        "description": "",
+        "line": 10,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@ready",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 9
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10387
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 21613
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9139317544
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "an unregistered user",
+            "line": 11,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 407892
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user selects the Anime crate",
+            "line": 12,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6806665657
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user joins through the modal",
+            "line": 13,
+            "match": {
+              "location": "acceptance_tests/step_definitions/signup_steps.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7825651073
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the user should be logged in",
+            "line": 14,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:90"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4670536798
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 70109046
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 19478
+            }
+          }
+        ]
+      },
+      {
+        "id": "test;valid-signup-through-the-level-up-join-modal",
+        "keyword": "Scenario",
+        "name": "Valid signup through the Level Up join modal",
+        "description": "",
+        "line": 17,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@ready",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 16
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10413
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 21101
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5738967425
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "an unregistered user",
+            "line": 18,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 459626
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user selects the Level Up crate",
+            "line": 19,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9239218240
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user joins through the modal",
+            "line": 20,
+            "match": {
+              "location": "acceptance_tests/step_definitions/signup_steps.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7843657085
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the user should be logged in",
+            "line": 21,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:90"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4131258002
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 71456648
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 17052
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "uri": "acceptance_tests/segment_tracking_1.feature",
+    "id": "segment-tracking",
+    "keyword": "Feature",
+    "name": "Segment Tracking",
+    "description": "",
+    "line": 2,
+    "tags": [
+      {
+        "name": "@regression",
+        "line": 1
+      },
+      {
+        "name": "@core",
+        "line": 1
+      },
+      {
+        "name": "@segment_tracking",
+        "line": 1
+      },
+      {
+        "name": "@selenium",
+        "line": 1
+      }
+    ],
+    "elements": [
+      {
+        "id": "segment-tracking;ensure-the-home-page-has-segment-tracking",
+        "keyword": "Scenario",
+        "name": "Ensure the home page has segment tracking",
+        "description": "",
+        "line": 4,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@core",
+            "line": 1
+          },
+          {
+            "name": "@segment_tracking",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 3
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10609
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 32868
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4912487624
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "an unregistered user",
+            "line": 5,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 303906
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user visits the homepage",
+            "line": 6,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2924238264
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the tracking partial should exist on the page",
+            "line": 7,
+            "match": {
+              "location": "acceptance_tests/step_definitions/segment_tracking_steps.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 148799539
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 69767813
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 23273
+            }
+          }
+        ]
+      },
+      {
+        "id": "segment-tracking;ensure-the-signup-page-has-segment-tracking",
+        "keyword": "Scenario",
+        "name": "Ensure the signup page has segment tracking",
+        "description": "",
+        "line": 10,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@core",
+            "line": 1
+          },
+          {
+            "name": "@segment_tracking",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 9
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9961
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 28558
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7999238915
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "an unregistered user",
+            "line": 11,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 378143
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user visits the signup page",
+            "line": 12,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2484297731
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the tracking partial should exist on the page",
+            "line": 13,
+            "match": {
+              "location": "acceptance_tests/step_definitions/segment_tracking_steps.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 176252979
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 66944341
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 19211
+            }
+          }
+        ]
+      },
+      {
+        "id": "segment-tracking;ensure-the-lootcrate-landing-page-has-segment-tracking",
+        "keyword": "Scenario",
+        "name": "Ensure the lootcrate landing page has segment tracking",
+        "description": "",
+        "line": 16,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@core",
+            "line": 1
+          },
+          {
+            "name": "@segment_tracking",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 15
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10925
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 26436
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11228543058
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "an unregistered user",
+            "line": 17,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 429207
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user visits the lootcrate_landing page",
+            "line": 18,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3839372962
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the tracking partial should exist on the page",
+            "line": 19,
+            "match": {
+              "location": "acceptance_tests/step_definitions/segment_tracking_steps.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 199067975
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 69360081
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 18681
+            }
+          }
+        ]
+      },
+      {
+        "id": "segment-tracking;ensure-the-anime-landing-page-has-segment-tracking",
+        "keyword": "Scenario",
+        "name": "Ensure the anime landing page has segment tracking",
+        "description": "",
+        "line": 22,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@core",
+            "line": 1
+          },
+          {
+            "name": "@segment_tracking",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 21
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10575
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 30998
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6839939720
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "an unregistered user",
+            "line": 23,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 470792
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user visits the anime_landing page",
+            "line": 24,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3096834390
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the tracking partial should exist on the page",
+            "line": 25,
+            "match": {
+              "location": "acceptance_tests/step_definitions/segment_tracking_steps.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 282251482
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 68899123
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 15995
+            }
+          }
+        ]
+      },
+      {
+        "id": "segment-tracking;ensure-the-pets-landing-page-has-segment-tracking",
+        "keyword": "Scenario",
+        "name": "Ensure the pets landing page has segment tracking",
+        "description": "",
+        "line": 28,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@core",
+            "line": 1
+          },
+          {
+            "name": "@segment_tracking",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 27
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11467
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 26001
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5828272661
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "an unregistered user",
+            "line": 29,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 469581
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user visits the pets_landing page",
+            "line": 30,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2560293698
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the tracking partial should exist on the page",
+            "line": 31,
+            "match": {
+              "location": "acceptance_tests/step_definitions/segment_tracking_steps.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 873160403
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 68580704
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 25006
+            }
+          }
+        ]
+      },
+      {
+        "id": "segment-tracking;ensure-the-level-up-subscribe-page-has-segment-tracking",
+        "keyword": "Scenario",
+        "name": "Ensure the level up subscribe page has segment tracking",
+        "description": "",
+        "line": 34,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@core",
+            "line": 1
+          },
+          {
+            "name": "@segment_tracking",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 33
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11054
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 26924
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8695317222
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "an unregistered user",
+            "line": 35,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 364270
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user visits the levelup_subscribe page",
+            "line": 36,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11029932766
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the tracking partial should exist on the page",
+            "line": 37,
+            "match": {
+              "location": "acceptance_tests/step_definitions/segment_tracking_steps.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 263374076
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 69294701
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 24865
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

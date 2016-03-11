@@ -1,0 +1,569 @@
+[
+  {
+    "uri": "acceptance_tests/affiliates.feature",
+    "id": "affiliates",
+    "keyword": "Feature",
+    "name": "Affiliates",
+    "description": "",
+    "line": 2,
+    "tags": [
+      {
+        "name": "@regression",
+        "line": 1
+      },
+      {
+        "name": "@extended",
+        "line": 1
+      },
+      {
+        "name": "@affiliates",
+        "line": 1
+      },
+      {
+        "name": "@selenium",
+        "line": 1
+      }
+    ],
+    "elements": [
+      {
+        "id": "affiliates;create-new-affiliate-and-verify-redirect",
+        "keyword": "Scenario",
+        "name": "Create new affiliate and verify redirect",
+        "description": "",
+        "line": 4,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@extended",
+            "line": 1
+          },
+          {
+            "name": "@affiliates",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 3
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 18422
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 58866
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10120354084
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "an admin user",
+            "line": 5,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 659959
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user visits the admin page",
+            "line": 6,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1914788094
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "logs in as an admin",
+            "line": 7,
+            "match": {
+              "location": "acceptance_tests/step_definitions/admin_steps.rb:43"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 18253768392
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user creates a new affiliate",
+            "line": 8,
+            "match": {
+              "location": "acceptance_tests/step_definitions/admin_steps.rb:59"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 14603383590
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the affiliate should be created successfully",
+            "line": 9,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:102"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 950539824
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the affiliate redirect should function correctly",
+            "line": 10,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:106"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12139998935
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 72722500
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 27821
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "uri": "acceptance_tests/anime_subscription_creation_2.feature",
+    "id": "subscription-creation",
+    "keyword": "Feature",
+    "name": "Subscription Creation",
+    "description": "",
+    "line": 2,
+    "tags": [
+      {
+        "name": "@regression",
+        "line": 1
+      },
+      {
+        "name": "@core",
+        "line": 1
+      },
+      {
+        "name": "@anime_subscription_creation",
+        "line": 1
+      },
+      {
+        "name": "@selenium",
+        "line": 1
+      }
+    ],
+    "elements": [
+      {
+        "id": "subscription-creation;registered-user-creates-twelve-month-anime-subscription-plan",
+        "keyword": "Scenario",
+        "name": "Registered user creates twelve month anime subscription plan",
+        "description": "",
+        "line": 4,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@core",
+            "line": 1
+          },
+          {
+            "name": "@anime_subscription_creation",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 3
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10497
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 32152
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 14698062173
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "a registered user with no prior subscription",
+            "line": 5,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 683208233
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user logs in",
+            "line": 6,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:82"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8143813550
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user selects the Anime crate",
+            "line": 7,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11202762980
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user selects a twelve month subscription plan",
+            "line": 8,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:92"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7374315154
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user submits valid subscription information",
+            "line": 9,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:96"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 16592438791
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "standard new subscription pass criteria should pass",
+            "line": 10,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:150"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10253886681
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 70379204
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 22040
+            }
+          }
+        ]
+      },
+      {
+        "id": "subscription-creation;international-user-signs-up-for-random-month-anime-subscription",
+        "keyword": "Scenario",
+        "name": "International user signs up for random month Anime subscription",
+        "description": "",
+        "line": 13,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@core",
+            "line": 1
+          },
+          {
+            "name": "@anime_subscription_creation",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 12
+          },
+          {
+            "name": "@mobile_ready",
+            "line": 12
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10788
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 41305
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 15836112803
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "a registered user with a Austria address",
+            "line": 14,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 615411442
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user logs in",
+            "line": 15,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:82"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6486435525
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user selects the Anime crate",
+            "line": 16,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10926730746
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user sets their country to Austria",
+            "line": 17,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:51"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12695800073
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user selects a random month subscription plan",
+            "line": 18,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:92"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7325568419
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user submits valid subscription information",
+            "line": 19,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:96"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10479981947
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the new subscription should be added to the user account",
+            "line": 20,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:140"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8116380101
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "recurly should have a matching international subscription",
+            "line": 21,
+            "match": {
+              "location": "acceptance_tests/step_definitions/recurly_steps.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 396413486
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the recurly billing address should have no state",
+            "line": 22,
+            "match": {
+              "location": "acceptance_tests/step_definitions/recurly_steps.rb:43"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 339740545
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user should receive a anime confirmation email",
+            "line": 23,
+            "match": {
+              "location": "acceptance_tests/step_definitions/email_steps.rb:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1525606216
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 73918863
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 16036
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

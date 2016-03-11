@@ -1,0 +1,1361 @@
+[
+  {
+    "uri": "acceptance_tests/admin_addresses.feature",
+    "id": "admin-adressess-page",
+    "keyword": "Feature",
+    "name": "Admin adressess page",
+    "description": "",
+    "line": 2,
+    "tags": [
+      {
+        "name": "@selenium",
+        "line": 1
+      },
+      {
+        "name": "@regression",
+        "line": 1
+      },
+      {
+        "name": "@admin",
+        "line": 1
+      }
+    ],
+    "elements": [
+      {
+        "id": "admin-adressess-page;admin-user-can-search-for-a-user-address-by-first-and-last-name-successfully",
+        "keyword": "Scenario",
+        "name": "Admin user can search for a user address by first and last name successfully",
+        "description": "",
+        "line": 4,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@admin",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 3
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 16759
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 80410
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7095296120
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "a registered user with an active subscription",
+            "line": 5,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4345218492
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "an admin user with access to their info",
+            "line": 6,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 567055465
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the admin user visits the admin page",
+            "line": 7,
+            "match": {
+              "location": "acceptance_tests/step_definitions/admin_steps.rb:50"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2553112055
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "logs in as an admin",
+            "line": 8,
+            "match": {
+              "location": "acceptance_tests/step_definitions/admin_steps.rb:43"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 14139113814
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "searches for the user's address info by full name",
+            "line": 9,
+            "match": {
+              "location": "acceptance_tests/step_definitions/admin_steps.rb:111"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 33159297625
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the user's address info should be correctly displayed",
+            "line": 10,
+            "match": {
+              "location": "acceptance_tests/step_definitions/admin_steps.rb:196"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6110136249
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 68028291
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 23259
+            }
+          }
+        ]
+      },
+      {
+        "id": "admin-adressess-page;admin-user-can-search-for-a-user-address-by-address-line-1-successfully",
+        "keyword": "Scenario",
+        "name": "Admin user can search for a user address by address line 1 successfully",
+        "description": "",
+        "line": 13,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@admin",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 12
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10175
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 22697
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 22021619505
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "a registered user with an active subscription",
+            "line": 14,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3681504923
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "an admin user with access to their info",
+            "line": 15,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 673096567
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the admin user visits the admin page",
+            "line": 16,
+            "match": {
+              "location": "acceptance_tests/step_definitions/admin_steps.rb:50"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1156195708
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "logs in as an admin",
+            "line": 17,
+            "match": {
+              "location": "acceptance_tests/step_definitions/admin_steps.rb:43"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5334657460
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "searches for the user's address info by address line 1",
+            "line": 18,
+            "match": {
+              "location": "acceptance_tests/step_definitions/admin_steps.rb:130"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 14922290983
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the user's address info should be correctly displayed",
+            "line": 19,
+            "match": {
+              "location": "acceptance_tests/step_definitions/admin_steps.rb:196"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 21095425298
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 67493947
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 39219
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "uri": "acceptance_tests/cancellation_3.feature",
+    "id": "subscription-cancellation",
+    "keyword": "Feature",
+    "name": "Subscription Cancellation",
+    "description": "",
+    "line": 2,
+    "tags": [
+      {
+        "name": "@core",
+        "line": 1
+      },
+      {
+        "name": "@regression",
+        "line": 1
+      },
+      {
+        "name": "@cancellation",
+        "line": 1
+      },
+      {
+        "name": "@selenium",
+        "line": 1
+      }
+    ],
+    "elements": [
+      {
+        "id": "subscription-cancellation;cancel-level-up-sub-immediately-through-admin",
+        "keyword": "Scenario",
+        "name": "Cancel level up sub immediately through admin",
+        "description": "",
+        "line": 4,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@core",
+            "line": 1
+          },
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@cancellation",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@level_up",
+            "line": 3
+          },
+          {
+            "name": "@admin",
+            "line": 3
+          },
+          {
+            "name": "@ready",
+            "line": 3
+          },
+          {
+            "name": "@recurly",
+            "line": 3
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10436
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 37180
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 30241617731
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "a registered user with an active level up subscription",
+            "line": 5,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3690234448
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "an admin user with access to their info",
+            "line": 6,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 499500377
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the admin user visits the admin page",
+            "line": 7,
+            "match": {
+              "location": "acceptance_tests/step_definitions/admin_steps.rb:50"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1493703043
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "logs in as an admin",
+            "line": 8,
+            "match": {
+              "location": "acceptance_tests/step_definitions/admin_steps.rb:43"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6502162312
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "performs an immediate cancellation on the user account",
+            "line": 9,
+            "match": {
+              "location": "acceptance_tests/step_definitions/admin_steps.rb:105"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 22751267139
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the subscription should have a status of CANCELED in the admin panel",
+            "line": 10,
+            "match": {
+              "location": "acceptance_tests/step_definitions/admin_steps.rb:145"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11807764251
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user account should reflect the cancellation",
+            "line": 11,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:180"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 45260347553
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the recurly subscription should be expired",
+            "line": 12,
+            "match": {
+              "location": "acceptance_tests/step_definitions/recurly_steps.rb:31"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 375190740
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 72533423
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 25348
+            }
+          }
+        ]
+      },
+      {
+        "id": "subscription-cancellation;cancel-pets-sub-immediately-through-admin",
+        "keyword": "Scenario",
+        "name": "Cancel pets sub immediately through admin",
+        "description": "",
+        "line": 15,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@core",
+            "line": 1
+          },
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@cancellation",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@pets",
+            "line": 14
+          },
+          {
+            "name": "@admin",
+            "line": 14
+          },
+          {
+            "name": "@ready",
+            "line": 14
+          },
+          {
+            "name": "@recurly",
+            "line": 14
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11686
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 39342
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10686150771
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "a registered user with an active pets subscription",
+            "line": 16,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2668537021
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "an admin user with access to their info",
+            "line": 17,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 614061062
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the admin user visits the admin page",
+            "line": 18,
+            "match": {
+              "location": "acceptance_tests/step_definitions/admin_steps.rb:50"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1519212918
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "logs in as an admin",
+            "line": 19,
+            "match": {
+              "location": "acceptance_tests/step_definitions/admin_steps.rb:43"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5014227666
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "performs an immediate cancellation on the user account",
+            "line": 20,
+            "match": {
+              "location": "acceptance_tests/step_definitions/admin_steps.rb:105"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 27416586397
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the subscription should have a status of CANCELED in the admin panel",
+            "line": 21,
+            "match": {
+              "location": "acceptance_tests/step_definitions/admin_steps.rb:145"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 14766351320
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user account should reflect the cancellation",
+            "line": 22,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:180"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 42928702797
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the recurly subscription should be expired",
+            "line": 23,
+            "match": {
+              "location": "acceptance_tests/step_definitions/recurly_steps.rb:31"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 406496866
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 72981127
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 19076
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "uri": "acceptance_tests/international_subscriptions_11.feature",
+    "id": "international-subscriptions",
+    "keyword": "Feature",
+    "name": "International Subscriptions",
+    "description": "",
+    "line": 2,
+    "tags": [
+      {
+        "name": "@regression",
+        "line": 1
+      },
+      {
+        "name": "@extended",
+        "line": 1
+      },
+      {
+        "name": "@world_subs",
+        "line": 1
+      },
+      {
+        "name": "@selenium",
+        "line": 1
+      }
+    ],
+    "elements": [
+      {
+        "id": "international-subscriptions;south-korea-user-signs-up-for-random-month-subscription",
+        "keyword": "Scenario",
+        "name": "South Korea user signs up for random month subscription",
+        "description": "",
+        "line": 4,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@extended",
+            "line": 1
+          },
+          {
+            "name": "@world_subs",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 3
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10310
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 30997
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 22232601900
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "a registered user with a South Korea address",
+            "line": 5,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 693347628
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user logs in",
+            "line": 6,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:82"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6068210989
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user selects the Loot Crate crate",
+            "line": 7,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9119731746
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user sets their country to South Korea",
+            "line": 8,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:51"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 14071549646
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user selects a random month subscription plan",
+            "line": 9,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:92"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7025163069
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user submits valid subscription information",
+            "line": 10,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:96"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 14750252117
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the new subscription should be added to the user account",
+            "line": 11,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:140"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10226247888
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "recurly should have a matching international subscription",
+            "line": 12,
+            "match": {
+              "location": "acceptance_tests/step_definitions/recurly_steps.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 394152065
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the recurly billing address should have no state",
+            "line": 13,
+            "match": {
+              "location": "acceptance_tests/step_definitions/recurly_steps.rb:43"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 362825146
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user should receive a subscription confirmation email",
+            "line": 14,
+            "match": {
+              "location": "acceptance_tests/step_definitions/email_steps.rb:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1568028820
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 124781582
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 22781
+            }
+          }
+        ]
+      },
+      {
+        "id": "international-subscriptions;turkey-user-signs-up-for-random-month-subscription",
+        "keyword": "Scenario",
+        "name": "Turkey user signs up for random month subscription",
+        "description": "",
+        "line": 17,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@extended",
+            "line": 1
+          },
+          {
+            "name": "@world_subs",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 16
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10790
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 45467
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11261846823
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "a registered user with a Turkey address",
+            "line": 18,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 767283400
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user logs in",
+            "line": 19,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:82"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7655091775
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user selects the Loot Crate crate",
+            "line": 20,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9371099643
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user sets their country to Turkey",
+            "line": 21,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:51"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 16901079155
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user selects a random month subscription plan",
+            "line": 22,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:92"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9779278138
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user submits valid subscription information",
+            "line": 23,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:96"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 21694105616
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the new subscription should be added to the user account",
+            "line": 24,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:140"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 22431571496
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "recurly should have a matching international subscription",
+            "line": 25,
+            "match": {
+              "location": "acceptance_tests/step_definitions/recurly_steps.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 358934390
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the recurly billing address should have no state",
+            "line": 26,
+            "match": {
+              "location": "acceptance_tests/step_definitions/recurly_steps.rb:43"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 316303865
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user should receive a subscription confirmation email",
+            "line": 27,
+            "match": {
+              "location": "acceptance_tests/step_definitions/email_steps.rb:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1570814903
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 72565083
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 17721
+            }
+          }
+        ]
+      },
+      {
+        "id": "international-subscriptions;british-user-sets-country-at-the-checkout-page",
+        "keyword": "Scenario",
+        "name": "British user sets country at the checkout page",
+        "description": "",
+        "line": 30,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@extended",
+            "line": 1
+          },
+          {
+            "name": "@world_subs",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 29
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10720
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 33209
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8123169184
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "a registered user with a United Kingdom address",
+            "line": 31,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 566943902
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user logs in",
+            "line": 32,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:82"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 20586350665
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user selects the Loot Crate crate",
+            "line": 33,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9988654847
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user selects a random month subscription plan",
+            "line": 34,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:92"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5859188867
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user sets their country in the checkout dropdown to United Kingdom",
+            "line": 35,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:51"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4560491174
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user submits valid subscription and billing information",
+            "line": 36,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:96"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 35278302739
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the new subscription should be added to the user account",
+            "line": 37,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:140"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 14356250850
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "recurly should have a matching international subscription",
+            "line": 38,
+            "match": {
+              "location": "acceptance_tests/step_definitions/recurly_steps.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 404118804
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the recurly billing address should have no state",
+            "line": 39,
+            "match": {
+              "location": "acceptance_tests/step_definitions/recurly_steps.rb:43"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 513743684
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user should receive a subscription confirmation email",
+            "line": 40,
+            "match": {
+              "location": "acceptance_tests/step_definitions/email_steps.rb:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1556638566
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 71722508
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 16355
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

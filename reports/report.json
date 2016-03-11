@@ -1,0 +1,1165 @@
+[
+  {
+    "uri": "acceptance_tests/change_country_4.feature",
+    "id": "change-country-subscribe-page-prices",
+    "keyword": "Feature",
+    "name": "Change Country Subscribe Page Prices",
+    "description": "",
+    "line": 2,
+    "tags": [
+      {
+        "name": "@core",
+        "line": 1
+      },
+      {
+        "name": "@regression",
+        "line": 1
+      },
+      {
+        "name": "@selenium",
+        "line": 1
+      },
+      {
+        "name": "@intl_pricing",
+        "line": 1
+      }
+    ],
+    "elements": [
+      {
+        "id": "change-country-subscribe-page-prices;change-from-us-to-international-country-and-verify-pricing.;;2",
+        "keyword": "Scenario Outline",
+        "name": "Change from US to International Country and verify pricing.",
+        "description": "",
+        "line": 13,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@core",
+            "line": 1
+          },
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@intl_pricing",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 3
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 16337
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 64009
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9382463989
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "an unregistered user",
+            "line": 13,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 184994699
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user visits the signup page",
+            "line": 13,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3453322103
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user submits valid signup information",
+            "line": 13,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:96"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3632361018
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user visits the lootcrate_subscribe page",
+            "line": 13,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1937020646
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user sets their country to Finland",
+            "line": 13,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:51"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10166088371
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the Finland price for all plans should be displayed",
+            "line": 13,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:98"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2542429963
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 76896877
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 22380
+            }
+          }
+        ]
+      },
+      {
+        "id": "change-country-subscribe-page-prices;change-from-us-to-international-country-and-verify-pricing.;;3",
+        "keyword": "Scenario Outline",
+        "name": "Change from US to International Country and verify pricing.",
+        "description": "",
+        "line": 14,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@core",
+            "line": 1
+          },
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@intl_pricing",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 3
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11117
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 39145
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 21813015042
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "an unregistered user",
+            "line": 14,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 383026
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user visits the signup page",
+            "line": 14,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4227575015
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user submits valid signup information",
+            "line": 14,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:96"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7017628533
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user visits the lootcrate_subscribe page",
+            "line": 14,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2586482358
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user sets their country to France",
+            "line": 14,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:51"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8409535433
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the France price for all plans should be displayed",
+            "line": 14,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:98"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1890330906
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 68004878
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 17914
+            }
+          }
+        ]
+      },
+      {
+        "id": "change-country-subscribe-page-prices;change-from-us-to-international-country-and-verify-pricing.;;4",
+        "keyword": "Scenario Outline",
+        "name": "Change from US to International Country and verify pricing.",
+        "description": "",
+        "line": 15,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@core",
+            "line": 1
+          },
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@intl_pricing",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 3
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11486
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 34183
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11878105042
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "an unregistered user",
+            "line": 15,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 338763
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user visits the signup page",
+            "line": 15,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1992638377
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user submits valid signup information",
+            "line": 15,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:96"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3790550190
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user visits the lootcrate_subscribe page",
+            "line": 15,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2653000949
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user sets their country to Germany",
+            "line": 15,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:51"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8055548685
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the Germany price for all plans should be displayed",
+            "line": 15,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:98"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2003328057
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 73509109
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 18834
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "uri": "acceptance_tests/change_country_9.feature",
+    "id": "change-country-subscribe-page-prices",
+    "keyword": "Feature",
+    "name": "Change Country Subscribe Page Prices",
+    "description": "",
+    "line": 2,
+    "tags": [
+      {
+        "name": "@core",
+        "line": 1
+      },
+      {
+        "name": "@regression",
+        "line": 1
+      },
+      {
+        "name": "@selenium",
+        "line": 1
+      },
+      {
+        "name": "@intl_pricing",
+        "line": 1
+      }
+    ],
+    "elements": [
+      {
+        "id": "change-country-subscribe-page-prices;change-from-us-to-international-country-and-verify-pricing.;;2",
+        "keyword": "Scenario Outline",
+        "name": "Change from US to International Country and verify pricing.",
+        "description": "",
+        "line": 13,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@core",
+            "line": 1
+          },
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@intl_pricing",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 3
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11077
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 24592
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 19003220698
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "an unregistered user",
+            "line": 13,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 416968
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user visits the signup page",
+            "line": 13,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4036340462
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user submits valid signup information",
+            "line": 13,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:96"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6207048072
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user visits the lootcrate_subscribe page",
+            "line": 13,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4051690072
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user sets their country to South Africa",
+            "line": 13,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:51"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11917487662
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the South Africa price for all plans should be displayed",
+            "line": 13,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:98"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3704748541
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 74824016
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 18354
+            }
+          }
+        ]
+      },
+      {
+        "id": "change-country-subscribe-page-prices;change-from-us-to-international-country-and-verify-pricing.;;3",
+        "keyword": "Scenario Outline",
+        "name": "Change from US to International Country and verify pricing.",
+        "description": "",
+        "line": 14,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@core",
+            "line": 1
+          },
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@intl_pricing",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 3
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10430
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 30302
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 37714049450
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "an unregistered user",
+            "line": 14,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 452951
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user visits the signup page",
+            "line": 14,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3759976123
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user submits valid signup information",
+            "line": 14,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:96"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5685292550
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user visits the lootcrate_subscribe page",
+            "line": 14,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3266803559
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user sets their country to South Korea",
+            "line": 14,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:51"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9638286816
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the South Korea price for all plans should be displayed",
+            "line": 14,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:98"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2635389971
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 69824032
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 23731
+            }
+          }
+        ]
+      },
+      {
+        "id": "change-country-subscribe-page-prices;change-from-us-to-international-country-and-verify-pricing.;;4",
+        "keyword": "Scenario Outline",
+        "name": "Change from US to International Country and verify pricing.",
+        "description": "",
+        "line": 15,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@core",
+            "line": 1
+          },
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@intl_pricing",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 3
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11992
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 26419
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 22417232086
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "an unregistered user",
+            "line": 15,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 531190
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user visits the signup page",
+            "line": 15,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2551600216
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user submits valid signup information",
+            "line": 15,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:96"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4958762012
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user visits the lootcrate_subscribe page",
+            "line": 15,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3359042316
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user sets their country to Spain",
+            "line": 15,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:51"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11151211080
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the Spain price for all plans should be displayed",
+            "line": 15,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:98"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3175274551
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 71955066
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 24913
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "uri": "acceptance_tests/reactivation.feature",
+    "id": "subscription-reactivation",
+    "keyword": "Feature",
+    "name": "Subscription reactivation",
+    "description": "",
+    "line": 2,
+    "tags": [
+      {
+        "name": "@core",
+        "line": 1
+      },
+      {
+        "name": "@regression",
+        "line": 1
+      },
+      {
+        "name": "@selenium",
+        "line": 1
+      }
+    ],
+    "elements": [
+      {
+        "id": "subscription-reactivation;user-reactivates-cancelled-subscription",
+        "keyword": "Scenario",
+        "name": "User reactivates cancelled subscription",
+        "description": "",
+        "line": 4,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@core",
+            "line": 1
+          },
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 3
+          },
+          {
+            "name": "@recurly",
+            "line": 3
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 13378
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 31404
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8646089558
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "a registered user with a canceled subscription",
+            "line": 5,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 106396090795
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user logs in",
+            "line": 6,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:82"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 27029248320
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user visits the my account page",
+            "line": 7,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2638539418
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user reactivates their subscription",
+            "line": 8,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:78"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 15782725533
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the reactivation should be reflected in the user account",
+            "line": 9,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:188"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3777211013
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the subscription should be successfully reactivated in the admin panel",
+            "line": 10,
+            "match": {
+              "location": "acceptance_tests/step_definitions/admin_steps.rb:153"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 21330309059
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the recurly subscription should be active",
+            "line": 11,
+            "match": {
+              "location": "acceptance_tests/step_definitions/recurly_steps.rb:31"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 440280879
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 74324207
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 16560
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

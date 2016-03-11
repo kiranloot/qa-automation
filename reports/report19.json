@@ -1,0 +1,1104 @@
+[
+  {
+    "uri": "acceptance_tests/anime_subscription_creation_1.feature",
+    "id": "anmie-subscription-creation",
+    "keyword": "Feature",
+    "name": "Anmie Subscription Creation",
+    "description": "",
+    "line": 2,
+    "tags": [
+      {
+        "name": "@regression",
+        "line": 1
+      },
+      {
+        "name": "@core",
+        "line": 1
+      },
+      {
+        "name": "@anime_subscription_creation",
+        "line": 1
+      },
+      {
+        "name": "@selenium",
+        "line": 1
+      }
+    ],
+    "elements": [
+      {
+        "id": "anmie-subscription-creation;registered-user-creates-one-month-anime-subscription",
+        "keyword": "Scenario",
+        "name": "Registered user creates one month anime subscription",
+        "description": "",
+        "line": 4,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@core",
+            "line": 1
+          },
+          {
+            "name": "@anime_subscription_creation",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 3
+          },
+          {
+            "name": "@recurly",
+            "line": 3
+          },
+          {
+            "name": "@mobile_ready",
+            "line": 3
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 17887
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 68814
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8689584949
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "a registered user with no prior subscription",
+            "line": 5,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 829715860
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user logs in",
+            "line": 6,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:82"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6658495075
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user selects the Anime crate",
+            "line": 7,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4404575173
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user selects a one month subscription plan",
+            "line": 8,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:92"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6162576577
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user submits valid subscription information",
+            "line": 9,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:96"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 20443550632
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the new subscription should be added to the user account",
+            "line": 10,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:140"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9171611471
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user should receive a anime confirmation email",
+            "line": 11,
+            "match": {
+              "location": "acceptance_tests/step_definitions/email_steps.rb:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1487076717
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the recurly subscription data is fully validated",
+            "line": 12,
+            "match": {
+              "location": "acceptance_tests/step_definitions/recurly_steps.rb:68"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2134533702
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 70918474
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 20012
+            }
+          }
+        ]
+      },
+      {
+        "id": "anmie-subscription-creation;registered-user-creates-three-month-anime-subscription",
+        "keyword": "Scenario",
+        "name": "Registered user creates three month anime subscription",
+        "description": "",
+        "line": 15,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@core",
+            "line": 1
+          },
+          {
+            "name": "@anime_subscription_creation",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 14
+          },
+          {
+            "name": "@safari_ready",
+            "line": 14
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9912
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 36571
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 13531396779
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "a registered user with no prior Subscription",
+            "line": 16,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 709369980
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user logs in",
+            "line": 17,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:82"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9697572220
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user selects the Anime crate",
+            "line": 18,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10904273189
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user selects a three month subscription plan",
+            "line": 19,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:92"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5221193801
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user submits valid subscription information",
+            "line": 20,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:96"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 16052749268
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "standard new subscription pass criteria should pass",
+            "line": 21,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:150"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9121860814
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the recurly subscription should have the correct rebill date",
+            "line": 22,
+            "match": {
+              "location": "acceptance_tests/step_definitions/recurly_steps.rb:55"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 369256008
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 71896312
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 27653
+            }
+          }
+        ]
+      },
+      {
+        "id": "anmie-subscription-creation;registered-user-creates-six-month-anime-subscription",
+        "keyword": "Scenario",
+        "name": "Registered user creates six month anime subscription",
+        "description": "",
+        "line": 25,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@core",
+            "line": 1
+          },
+          {
+            "name": "@anime_subscription_creation",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 24
+          },
+          {
+            "name": "@recurly",
+            "line": 24
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10848
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 25667
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 15430783074
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "a registered user with no prior Subscription",
+            "line": 26,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 508904097
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user logs in",
+            "line": 27,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:82"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9055607461
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user selects the Anime crate",
+            "line": 28,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 13147548900
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user selects a six month subscription plan",
+            "line": 29,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:92"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9169209529
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user submits valid subscription information",
+            "line": 30,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:96"
+            },
+            "result": {
+              "status": "failed",
+              "error_message": "Connection timed out - connect(2) for \"172.31.27.124\" port 4444 (Errno::ETIMEDOUT)\n./acceptance_tests/support/acceptance_objects/checkout_page_object.rb:105:in `enter_cvv'\n./acceptance_tests/support/acceptance_objects/checkout_page_object.rb:191:in `submit_checkout_information'\n./acceptance_tests/support/acceptance_objects/test_object.rb:264:in `submit_information'\n./acceptance_tests/step_definitions/user_subscription_steps.rb:105:in `/^the user submits (.*?) information/'\nacceptance_tests/anime_subscription_creation_1.feature:30:in `And the user submits valid subscription information'",
+              "duration": 133330649334
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "standard new subscription pass criteria should pass",
+            "line": 31,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:150"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "recurly should have a matching subscription",
+            "line": 32,
+            "match": {
+              "location": "acceptance_tests/step_definitions/recurly_steps.rb:15"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "failed",
+              "error_message": "Session [9cb060f9-1281-41df-9151-f15814f33f5f] was terminated due to TIMEOUT (org.openqa.grid.common.exception.GridException) (Selenium::WebDriver::Error::UnknownError)\n[remote server] org.openqa.grid.internal.ActiveTestSessions(ActiveTestSessions.java):105:in `getExistingSession'\n[remote server] org.openqa.grid.internal.Registry(Registry.java):425:in `getExistingSession'\n[remote server] org.openqa.grid.web.servlet.handler.RequestHandler(RequestHandler.java):240:in `getSession'\n[remote server] org.openqa.grid.web.servlet.handler.RequestHandler(RequestHandler.java):120:in `process'\n[remote server] org.openqa.grid.web.servlet.DriverServlet(DriverServlet.java):83:in `process'\n[remote server] org.openqa.grid.web.servlet.DriverServlet(DriverServlet.java):73:in `doDelete'\n[remote server] javax.servlet.http.HttpServlet(HttpServlet.java):713:in `service'\n[remote server] javax.servlet.http.HttpServlet(HttpServlet.java):790:in `service'\n[remote server] org.seleniumhq.jetty9.servlet.ServletHolder(ServletHolder.java):808:in `handle'\n[remote server] org.seleniumhq.jetty9.servlet.ServletHandler(ServletHandler.java):587:in `doHandle'\n[remote server] org.seleniumhq.jetty9.server.session.SessionHandler(SessionHandler.java):221:in `doHandle'\n[remote server] org.seleniumhq.jetty9.server.handler.ContextHandler(ContextHandler.java):1127:in `doHandle'\n[remote server] org.seleniumhq.jetty9.servlet.ServletHandler(ServletHandler.java):515:in `doScope'\n[remote server] org.seleniumhq.jetty9.server.session.SessionHandler(SessionHandler.java):185:in `doScope'\n[remote server] org.seleniumhq.jetty9.server.handler.ContextHandler(ContextHandler.java):1061:in `doScope'\n[remote server] org.seleniumhq.jetty9.server.handler.ScopedHandler(ScopedHandler.java):141:in `handle'\n[remote server] org.seleniumhq.jetty9.server.handler.HandlerWrapper(HandlerWrapper.java):97:in `handle'\n[remote server] org.seleniumhq.jetty9.server.Server(Server.java):499:in `handle'\n[remote server] org.seleniumhq.jetty9.server.HttpChannel(HttpChannel.java):310:in `handle'\n[remote server] org.seleniumhq.jetty9.server.HttpConnection(HttpConnection.java):257:in `onFillable'\n[remote server] org.seleniumhq.jetty9.io.AbstractConnection$2(AbstractConnection.java):540:in `run'\n[remote server] org.seleniumhq.jetty9.util.thread.QueuedThreadPool(QueuedThreadPool.java):635:in `runJob'\n[remote server] org.seleniumhq.jetty9.util.thread.QueuedThreadPool$3(QueuedThreadPool.java):555:in `run'\n[remote server] java.lang.Thread(Thread.java):745:in `run'\n./acceptance_tests/support/hooks.rb:81:in `After'",
+              "duration": 1918290
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 26231
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "uri": "acceptance_tests/cancellation_2.feature",
+    "id": "subscription-cancellation",
+    "keyword": "Feature",
+    "name": "Subscription Cancellation",
+    "description": "",
+    "line": 2,
+    "tags": [
+      {
+        "name": "@core",
+        "line": 1
+      },
+      {
+        "name": "@regression",
+        "line": 1
+      },
+      {
+        "name": "@cancellation",
+        "line": 1
+      },
+      {
+        "name": "@selenium",
+        "line": 1
+      }
+    ],
+    "elements": [
+      {
+        "id": "subscription-cancellation;a-user-cancels-their-level-up-subscription",
+        "keyword": "Scenario",
+        "name": "A user cancels their level up subscription",
+        "description": "",
+        "line": 4,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@core",
+            "line": 1
+          },
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@cancellation",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 3
+          },
+          {
+            "name": "@recurly",
+            "line": 3
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11773
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 36106
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7644593834
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "a registered user with an active level up subscription",
+            "line": 5,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4137986917
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user logs in",
+            "line": 6,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:82"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 24480492990
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user visits the my account page",
+            "line": 7,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1908215393
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user cancels their subscription",
+            "line": 8,
+            "match": {
+              "location": "acceptance_tests/step_definitions/skip_cancel_steps.rb:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 17221643197
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the subscription status should be set to pending cancellation",
+            "line": 9,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:164"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6130295430
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user should receive a levelup cancellation email",
+            "line": 10,
+            "match": {
+              "location": "acceptance_tests/step_definitions/email_steps.rb:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1504334374
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the recurly subscription should be canceled",
+            "line": 11,
+            "match": {
+              "location": "acceptance_tests/step_definitions/recurly_steps.rb:31"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 392781244
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 69143678
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 17944
+            }
+          }
+        ]
+      },
+      {
+        "id": "subscription-cancellation;a-user-cancels-their-pets-subscription",
+        "keyword": "Scenario",
+        "name": "A user cancels their pets subscription",
+        "description": "",
+        "line": 14,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@core",
+            "line": 1
+          },
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@cancellation",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 13
+          },
+          {
+            "name": "@recurly",
+            "line": 13
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11418
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 28458
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 25851622923
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "a registered user with an active pets subscription",
+            "line": 15,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4484691747
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user logs in",
+            "line": 16,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:82"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 26949716218
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user visits the my account page",
+            "line": 17,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5077148272
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user cancels their subscription",
+            "line": 18,
+            "match": {
+              "location": "acceptance_tests/step_definitions/skip_cancel_steps.rb:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 19928882551
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the subscription status should be set to pending cancellation",
+            "line": 19,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:164"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11255700186
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user should receive a pets cancellation email",
+            "line": 20,
+            "match": {
+              "location": "acceptance_tests/step_definitions/email_steps.rb:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1534284658
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the recurly subscription should be canceled",
+            "line": 21,
+            "match": {
+              "location": "acceptance_tests/step_definitions/recurly_steps.rb:31"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 395768480
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 70632196
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 21098
+            }
+          }
+        ]
+      },
+      {
+        "id": "subscription-cancellation;cancel-anime-sub-immediately-through-admin",
+        "keyword": "Scenario",
+        "name": "Cancel anime sub immediately through admin",
+        "description": "",
+        "line": 24,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@core",
+            "line": 1
+          },
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@cancellation",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@admin",
+            "line": 23
+          },
+          {
+            "name": "@ready",
+            "line": 23
+          },
+          {
+            "name": "@recurly",
+            "line": 23
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11043
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 33129
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9791432206
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "a registered user with an active anime subscription",
+            "line": 25,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4521828615
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "an admin user with access to their info",
+            "line": 26,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 569658357
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the admin user visits the admin page",
+            "line": 27,
+            "match": {
+              "location": "acceptance_tests/step_definitions/admin_steps.rb:50"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1498548815
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "logs in as an admin",
+            "line": 28,
+            "match": {
+              "location": "acceptance_tests/step_definitions/admin_steps.rb:43"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8423759936
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "performs an immediate cancellation on the user account",
+            "line": 29,
+            "match": {
+              "location": "acceptance_tests/step_definitions/admin_steps.rb:105"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 26982830144
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the subscription should have a status of CANCELED in the admin panel",
+            "line": 30,
+            "match": {
+              "location": "acceptance_tests/step_definitions/admin_steps.rb:145"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12062374280
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user account should reflect the cancellation",
+            "line": 31,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:180"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 41358028764
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the recurly subscription should be expired",
+            "line": 32,
+            "match": {
+              "location": "acceptance_tests/step_definitions/recurly_steps.rb:31"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 388842600
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 71073988
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 14292
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

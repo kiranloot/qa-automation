@@ -1,0 +1,1269 @@
+[
+  {
+    "uri": "acceptance_tests/account_registration.feature",
+    "id": "account-registration",
+    "keyword": "Feature",
+    "name": "Account Registration",
+    "description": "",
+    "line": 2,
+    "tags": [
+      {
+        "name": "@core",
+        "line": 1
+      },
+      {
+        "name": "@regression",
+        "line": 1
+      },
+      {
+        "name": "@account",
+        "line": 1
+      },
+      {
+        "name": "@selenium",
+        "line": 1
+      }
+    ],
+    "elements": [
+      {
+        "id": "account-registration;valid-signup-through-signup-page.",
+        "keyword": "Scenario",
+        "name": "Valid signup through signup page.",
+        "description": "",
+        "line": 4,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@core",
+            "line": 1
+          },
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@account",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 3
+          },
+          {
+            "name": "@sign",
+            "line": 3
+          },
+          {
+            "name": "@safari_ready",
+            "line": 3
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 17608
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 51858
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8292098366
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "an unregistered user",
+            "line": 5,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 182069814
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user visits the signup page",
+            "line": 6,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4279502002
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user submits valid signup information",
+            "line": 7,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:96"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3581076745
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the user should be on the lootcrate_subscribe page",
+            "line": 8,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:85"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10840938
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user should be logged in",
+            "line": 9,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:90"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8449516700
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 69202547
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 22468
+            }
+          }
+        ]
+      },
+      {
+        "id": "account-registration;valid-signup-through-the-modal",
+        "keyword": "Scenario",
+        "name": "Valid signup through the modal",
+        "description": "",
+        "line": 12,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@core",
+            "line": 1
+          },
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@account",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 11
+          },
+          {
+            "name": "@modal",
+            "line": 11
+          },
+          {
+            "name": "@safari_ready",
+            "line": 11
+          }
+        ],
+        "comments": [
+          {
+            "value": "# TODO :And the database entry for the user should be created",
+            "line": 10
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10972
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 37563
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 20128547285
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "an unregistered user",
+            "line": 13,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 385503
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user visits the homepage",
+            "line": 14,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4115109740
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user joins through the modal",
+            "line": 15,
+            "match": {
+              "location": "acceptance_tests/step_definitions/signup_steps.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 17724263597
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the user should be logged in",
+            "line": 16,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:90"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5572274258
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 68822639
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 19446
+            }
+          }
+        ]
+      },
+      {
+        "id": "account-registration;user-attempts-to-register-and-account-using-invalid-signup-data",
+        "keyword": "Scenario",
+        "name": "User attempts to register and account using invalid signup data",
+        "description": "",
+        "line": 18,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@core",
+            "line": 1
+          },
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@account",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 17
+          },
+          {
+            "name": "@safari_ready",
+            "line": 17
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11522
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 27543
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 23149058002
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "an unregistered user",
+            "line": 19,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 380838
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user visits the signup page",
+            "line": 20,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5418709967
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user submits invalid signup information",
+            "line": 21,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:96"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 16450745374
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "signup should not succeed",
+            "line": 22,
+            "match": {
+              "location": "acceptance_tests/step_definitions/signup_steps.rb:21"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 96735450
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 67979659
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 16722
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "uri": "acceptance_tests/level_up_2.feature",
+    "id": "level-up",
+    "keyword": "Feature",
+    "name": "Level Up",
+    "description": "",
+    "line": 2,
+    "tags": [
+      {
+        "name": "@core",
+        "line": 1
+      },
+      {
+        "name": "@regression",
+        "line": 1
+      },
+      {
+        "name": "@levelup",
+        "line": 1
+      },
+      {
+        "name": "@selenium",
+        "line": 1
+      }
+    ],
+    "elements": [
+      {
+        "id": "level-up;a-user-with-an-active-subscription-can-add-a-six-month-accessory-subscription",
+        "keyword": "Scenario",
+        "name": "A user with an active subscription can add a six month accessory subscription",
+        "description": "",
+        "line": 4,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@core",
+            "line": 1
+          },
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@levelup",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 3
+          },
+          {
+            "name": "@recurly",
+            "line": 3
+          },
+          {
+            "name": "@mobile_ready",
+            "line": 3
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11247
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 35339
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 18064161936
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "a registered user with an active subscription",
+            "line": 5,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3127135842
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user logs in",
+            "line": 6,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:82"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 26050090600
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user selects the Level Up crate",
+            "line": 7,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8863571333
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user selects a level up six month subscription for the accessory crate",
+            "line": 8,
+            "match": {
+              "location": "acceptance_tests/step_definitions/level_up_steps.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 13653268499
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user submits valid credit card information",
+            "line": 9,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:96"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 14694947723
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the new level up subscription should be added to the user account",
+            "line": 10,
+            "match": {
+              "location": "acceptance_tests/step_definitions/level_up_steps.rb:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11967514659
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user should receive a level up email",
+            "line": 11,
+            "match": {
+              "location": "acceptance_tests/step_definitions/email_steps.rb:12"
+            },
+            "result": {
+              "status": "failed",
+              "error_message": "\n        Did not find an email with subject line 'Level Up Purchase Confirmation' for email _regnoprior_alyson.lueilwitz505@mailinator.com\n        Subject lines found: []\n\n      (RSpec::Expectations::ExpectationNotMetError)\n./acceptance_tests/support/acceptance_objects/user_object.rb:256:in `verify_email'\n./acceptance_tests/support/acceptance_objects/test_object.rb:276:in `verify_email'\n./acceptance_tests/step_definitions/email_steps.rb:13:in `/the user should receive an? (.*?) email/'\nacceptance_tests/level_up_2.feature:11:in `And the user should receive a level up email'",
+              "duration": 16530543116
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "recurly should have a six month subscription for the accessory crate",
+            "line": 12,
+            "match": {
+              "location": "acceptance_tests/step_definitions/recurly_steps.rb:27"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the recurly subscription should have the correct rebill date",
+            "line": 13,
+            "match": {
+              "location": "acceptance_tests/step_definitions/recurly_steps.rb:55"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 71718839
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 21772
+            }
+          }
+        ]
+      },
+      {
+        "id": "level-up;a-user-with-an-active-subscription-can-add-a-three-month-wearable-subscription",
+        "keyword": "Scenario",
+        "name": "A user with an active subscription can add a three month wearable subscription",
+        "description": "",
+        "line": 16,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@core",
+            "line": 1
+          },
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@levelup",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 15
+          },
+          {
+            "name": "@mobile_ready",
+            "line": 15
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11779
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 55501
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6020456035
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "a registered user with an active subscription",
+            "line": 17,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3223558297
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user logs in",
+            "line": 18,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:82"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 22353493388
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user selects the Level Up crate",
+            "line": 19,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8387941571
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user selects a level up three month subscription for the wearable crate",
+            "line": 20,
+            "match": {
+              "location": "acceptance_tests/step_definitions/level_up_steps.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11044929404
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user submits valid credit card information",
+            "line": 21,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:96"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12732820898
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the new level up subscription should be added to the user account",
+            "line": 22,
+            "match": {
+              "location": "acceptance_tests/step_definitions/level_up_steps.rb:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8162293115
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user should receive a level up email",
+            "line": 23,
+            "match": {
+              "location": "acceptance_tests/step_definitions/email_steps.rb:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1495337406
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "recurly should have a three month subscription for the wearable crate",
+            "line": 24,
+            "match": {
+              "location": "acceptance_tests/step_definitions/recurly_steps.rb:27"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 385727506
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 70198785
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 20892
+            }
+          }
+        ]
+      },
+      {
+        "id": "level-up;a-user-with-an-active-subscription-can-add-a-six-month-t-shirt-&-accessory-subscription",
+        "keyword": "Scenario",
+        "name": "A user with an active subscription can add a six month t-shirt & accessory subscription",
+        "description": "",
+        "line": 27,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@core",
+            "line": 1
+          },
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@levelup",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 26
+          },
+          {
+            "name": "@mobile_ready",
+            "line": 26
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10092
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 66864
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6742871135
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "a registered user with an active subscription",
+            "line": 28,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3055088180
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user logs in",
+            "line": 29,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:82"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 22696651391
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user selects the Level Up crate",
+            "line": 30,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8757116942
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user selects a level up six month subscription for the level-up-bundle-tshirt-accessories crate",
+            "line": 31,
+            "match": {
+              "location": "acceptance_tests/step_definitions/level_up_steps.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11310111074
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user submits valid credit card information",
+            "line": 32,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:96"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12841189313
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the new level up subscription should be added to the user account",
+            "line": 33,
+            "match": {
+              "location": "acceptance_tests/step_definitions/level_up_steps.rb:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12350269014
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user should receive a level up email",
+            "line": 34,
+            "match": {
+              "location": "acceptance_tests/step_definitions/email_steps.rb:12"
+            },
+            "result": {
+              "status": "failed",
+              "error_message": "\n        Did not find an email with subject line 'Level Up Purchase Confirmation' for email _regnoprior_riley.runolfsdottir943@mailinator.com\n        Subject lines found: []\n\n      (RSpec::Expectations::ExpectationNotMetError)\n./acceptance_tests/support/acceptance_objects/user_object.rb:256:in `verify_email'\n./acceptance_tests/support/acceptance_objects/test_object.rb:276:in `verify_email'\n./acceptance_tests/step_definitions/email_steps.rb:13:in `/the user should receive an? (.*?) email/'\nacceptance_tests/level_up_2.feature:34:in `And the user should receive a level up email'",
+              "duration": 16580117008
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "recurly should have a six month subscription for the tshirt \\+ accessories crate",
+            "line": 35,
+            "match": {
+              "location": "acceptance_tests/step_definitions/recurly_steps.rb:27"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the recurly subscription should have the correct rebill date",
+            "line": 36,
+            "match": {
+              "location": "acceptance_tests/step_definitions/recurly_steps.rb:55"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 122244284
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 16114
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "uri": "acceptance_tests/upgrades.feature",
+    "id": "subscription-upgrades",
+    "keyword": "Feature",
+    "name": "Subscription Upgrades",
+    "description": "",
+    "line": 2,
+    "tags": [
+      {
+        "name": "@core",
+        "line": 1
+      },
+      {
+        "name": "@regression",
+        "line": 1
+      },
+      {
+        "name": "@selenium",
+        "line": 1
+      }
+    ],
+    "elements": [
+      {
+        "id": "subscription-upgrades;user-upgrades-from-one-month-to-three-month-subscription-plan",
+        "keyword": "Scenario",
+        "name": "User upgrades from one month to three month subscription plan",
+        "description": "",
+        "line": 4,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@core",
+            "line": 1
+          },
+          {
+            "name": "@regression",
+            "line": 1
+          },
+          {
+            "name": "@selenium",
+            "line": 1
+          },
+          {
+            "name": "@ready",
+            "line": 3
+          },
+          {
+            "name": "@recurly",
+            "line": 3
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11331
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 31655
+            }
+          },
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:54"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12036641526
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "a registered user with a one month subscription",
+            "line": 5,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:7"
+            },
+            "result": {
+              "status": "failed",
+              "error_message": "execution expired (Timeout::Error)\n./acceptance_tests/support/acceptance_objects/wait_module.rb:8:in `block in wait_for_ajax'\n./acceptance_tests/support/acceptance_objects/wait_module.rb:7:in `wait_for_ajax'\n./acceptance_tests/support/acceptance_objects/subscribe_page_object.rb:45:in `select_plan'\n./acceptance_tests/step_definitions/user_subscription_steps.rb:93:in `/^the user selects a (.*) month subscription plan/'\n./acceptance_tests/step_definitions/user_subscription_steps.rb:34:in `/create a\\s(.*)\\smonth subscription/'\n./acceptance_tests/step_definitions/user_subscription_steps.rb:14:in `block (2 levels) in <top (required)>'\n./acceptance_tests/step_definitions/user_subscription_steps.rb:13:in `/^an? (.*) user with (.*)/'\nacceptance_tests/upgrades.feature:5:in `Given a registered user with a one month subscription'",
+              "duration": 36171944390
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user notes the recurly rebill date",
+            "line": 6,
+            "match": {
+              "location": "acceptance_tests/step_definitions/recurly_steps.rb:10"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user logs in",
+            "line": 7,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:82"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user visits the my account page",
+            "line": 8,
+            "match": {
+              "location": "acceptance_tests/step_definitions/navigation_steps.rb:34"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user upgrades to a three month subscription",
+            "line": 9,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:70"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the new subscription should be added to the user account",
+            "line": 10,
+            "match": {
+              "location": "acceptance_tests/step_definitions/user_subscription_steps.rb:140"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user should receive an upgrade email",
+            "line": 11,
+            "match": {
+              "location": "acceptance_tests/step_definitions/email_steps.rb:12"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "recurly should now have a three month subscription plan",
+            "line": 12,
+            "match": {
+              "location": "acceptance_tests/step_definitions/recurly_steps.rb:23"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the recurly account's last transaction should have tax calculated",
+            "line": 13,
+            "match": {
+              "location": "acceptance_tests/step_definitions/recurly_steps.rb:51"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the recurly rebill date should be 2 months ahead",
+            "line": 14,
+            "match": {
+              "location": "acceptance_tests/step_definitions/recurly_steps.rb:109"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "acceptance_tests/support/hooks.rb:75"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 71342723
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-2.6.2/lib/capybara/cucumber.rb:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 21025
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
