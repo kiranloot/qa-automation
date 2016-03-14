@@ -18,4 +18,8 @@ class PetsMobileCheckoutPage < MobileCheckoutPage
   def select_pet_collar_size(size)
     select "#{size}", :from => "option_type_collar"
   end
+
+  def select_human_wearable_size(size)
+    select "#{size}", :from => "option_type_human-wearable"
+  end
 end

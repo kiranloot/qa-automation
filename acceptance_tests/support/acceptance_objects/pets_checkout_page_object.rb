@@ -24,6 +24,12 @@ class PetsCheckoutPage < CheckoutPage
     find('.select2-results__option', :text => size).click
   end
 
+  def select_human_wearable_size(size)
+    find('#select2-option_type_human-wearable-container').click
+    wait_for_ajax
+    find('.select2-results__option', :text => size).click
+  end
+
   def verify_confirmation_page
     assert_text('Thanks for subscribing to Loot Pets!')
   end
