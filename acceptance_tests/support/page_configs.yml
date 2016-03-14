@@ -42,6 +42,8 @@ firefly_landing:
  url: "/subscription-crates/firefly"
 firefly_subscribe:
  url: "/subscription-crates/anime/plans"
+firefly_checkout:
+ url: "/firefly-2-month-subscription/checkouts/new"
 gaming_landing:
  url: "/subscription-crates/gaming"
 gaming_subscribe:
