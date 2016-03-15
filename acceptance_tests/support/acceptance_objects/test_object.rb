@@ -267,12 +267,6 @@ class Test
     end
   end
 
-  #def verify_email(type)
-  #  type.downcase!
-  #  type.strip!
-  #  @mailinator.verify_email(type, $test.user.email)
-  #end
-
   def give_user_to_admin
     admin_user = FactoryGirl.build(:user, :admin)
     admin_user.subject_user = @user
