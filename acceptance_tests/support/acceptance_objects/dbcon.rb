@@ -78,8 +78,8 @@ end
 
 def setup_qa_database
   add_inventory_to_all
-  add_user_to_db('admin@example.com','$2a$10$gMQ0WYqkPAFZPMJYQTjcZeOWreqJisY0UDypiG.hggS7B2ZYEM93C','admin_users')
-  add_cms_user_to_db('cmsadmin@example.com','$2a$10$gMQ0WYqkPAFZPMJYQTjcZeOWreqJisY0UDypiG.hggS7B2ZYEM93C','cms_users')
+  add_user_to_db('admin@example.com','$2a$10$fU57w9XvSrQZ7Cp0kNk/TugqlooF93LdX0Xf3mlLOm/c6PRMxE2.K','admin_users')
+  add_cms_user_to_db('cmsadmin@example.com','$2a$10$fU57w9XvSrQZ7Cp0kNk/TugqlooF93LdX0Xf3mlLOm/c6PRMxE2.K','cms_users')
   #make month generation dynamic
   truncate_table('crate_themes')
   truncate_table('loot_pin_codes')
