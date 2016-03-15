@@ -31,27 +31,29 @@ class MailinatorAPI
     return Capybara::Node::Simple.new(message.download.body_html)
   end
 
+  def email_in_inbox?(email, expected_subjects)
+    expected_subjects.each do |subject|
+      if get_email_subject_lines_from_inbox(email).include? subject
+        return true
+      end
+    end
+    return false
+  end
+
   def verify_email(type,email)
-    email_data = YAML.load(File.open('acceptance_tests/support/email_data.yml'))
-    target_content = email_data[type]['subject_line']
-    target_content_new = email_data[type]['subject_line2']
-    email_pass = nil
-    subjects = []
-    5.times do
-      subjects = get_email_subject_lines_from_inbox(email)
-      if subjects.include? target_content
+    valid_subject_lines = YAML.load(File.open('acceptance_tests/support/email_data.yml'))[type]['subject_lines']
+    email_pass = false
+    10.times do
+      if email_in_inbox?(email, valid_subject_lines)
         email_pass = true
-      elsif subjects.include? target_content_new
-        email_pass = true
+        break
       else
-        email_pass = false
         sleep(3)
       end
     end
     expect(email_pass).to be_truthy,
       """
-        Did not find an email with subject line '#{target_content}' for email #{email}
-        Subject lines found: #{subjects}
-     """
+        Did not find an email with subject line(s) '#{valid_subject_lines}' for email #{email}
+      """
   end
 end
