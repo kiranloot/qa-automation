@@ -211,59 +211,6 @@ class User
     return @tax_applied
   end
 
-  def verify_email(type, mailer)
-    if type == 'subscription confirmation'
-      target_content = 'Welcome to Loot Crate!'
-      target_content_new = 'Your Order is Confirmed! Welcome to Loot Crate!'
-    elsif type == 'german subscription confirmation'
-      target_content = 'Herzlich willkommen bei Loot Crate!'
-      target_content_new = 'Your Order is Confirmed! Welcome to Loot Crate!'
-    elsif type == 'subscription cancellation'
-      target_content = 'Your subscription has been cancelled'
-    elsif type == 'upgrade'
-      target_content = 'Subscription Upgraded'
-    elsif type == 'gaming upgrade'
-      target_content = 'Upgrade Complete!'
-    elsif type == 'skip'
-      target_content = 'Subscription Skipped'
-    elsif type == 'level up'
-      target_content = 'Level Up Purchase Confirmation'
-    elsif type == 'levelup cancellation'
-      target_content = 'Level Up Cancellation Confirmation'
-    elsif type == 'anime confirmation'
-      target_content = 'Loot Anime Order Confirmation'
-    elsif type == 'pets confirmation'
-      target_content = 'Loot Pets Order Confirmation'
-    elsif type == 'anime cancellation' || type == 'pets cancellation'
-      target_content = 'Cancellation Successful'
-    elsif type == 'unskip'
-      target_content = 'Subscription Unskipped'
-    elsif type == 'firefly confirmation'
-      target_content = 'Firefly® Cargo Crate Order Confirmation'
-    elsif type == 'gaming confirmation'
-      target_content = "You’re confirmed for Loot Gaming!"
-    end
-    email_pass = false
-    subjects = []
-    5.times do
-      subjects = $test.mailinator.get_email_subject_lines_from_inbox(@email)
-      if subjects.include? target_content
-        email_pass = true
-      elsif subjects.include? target_content_new
-        email_pass = true
-      else
-        email_pass = false
-        sleep(3)
-      end
-    end
-    expect(email_pass).to be_truthy,
-      """
-        Did not find an email with subject line '#{target_content}' for email #{@email}
-        Subject lines found: #{subjects}
-
-     """
-  end
-
   def word_for_digits(i)
     words = ["zero", "one", "two", "three", "four",
              "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve"]
