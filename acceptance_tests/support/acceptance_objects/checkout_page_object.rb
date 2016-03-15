@@ -32,6 +32,10 @@ include Capybara::DSL
     #stub
   end
 
+  def select_human_wearable_size(size)
+    #stub
+  end
+
   def select_unisex_shirt_size(size)
     #stub
   end
@@ -165,6 +169,7 @@ include Capybara::DSL
     #will only run on pets crate
     select_pet_shirt_size(user.pet_shirt_size)
     select_pet_collar_size(user.pet_collar_size)
+    select_human_wearable_size(user.human_wearable_size)
     #will only run for firefly
     select_unisex_shirt_size(user.unisex_shirt_size)
     enter_first_name(user.first_name)
