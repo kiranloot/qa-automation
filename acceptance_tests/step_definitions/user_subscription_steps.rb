@@ -39,7 +39,7 @@ end
 When /move subscription to last month/ do
   #spin for 5 seconds until you get results
   sub_id = nil
-  5.times do 
+  5.times do
     results = $test.db.get_subscriptions($test.user.email)
     if results.any?
       sub_id = results[0]['subscription_id']

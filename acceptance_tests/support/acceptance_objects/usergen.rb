@@ -28,7 +28,7 @@ class UserGen
     m = months_check(args)
     ret = is_address(a[1].tr(' ', '')) if a
     @location_trait = true if a
-    ret = months(m[1]) if m
+    ret = months(m[1].tr(' ', '_')) if m
     @month_trait = true if m
     ret
   end

@@ -60,6 +60,9 @@ FactoryGirl.define do
     trait :one_month do
       registered_with_active
     end
+    trait :anime_one_month do
+      registered_with_active
+    end
     trait :interational do
       first_name {"INTL" + first_name}
       email {"intl" + email}
