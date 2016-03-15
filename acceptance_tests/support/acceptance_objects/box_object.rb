@@ -16,7 +16,7 @@ class Box
 
   def initialize(env_name = "qa")
     @env_name = env_name
-    config_data = YAML.load(File.open('acceptance_tests/support/server_configs.yml'))
+    config_data = YAML.load(File.open(ENV['SERVER_CONFIGS']))
     setup(config_data, @env_name)
   end
 

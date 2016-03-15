@@ -8,6 +8,8 @@ require_relative 'acceptance_objects/qa_env_validator'
 
 ENV['RUN_TIMESTAMP'] = Time.now().utc.to_s
 ENV['SITE'] ||= 'qa'
+ENV['SERVER_CONFIGS'] ||= "#{ENV['HOME']}/server_configs.yml"
+ENV['PROD_CONFIGS'] ||= "#{ENV['HOME']}/prod_configs.yml"
 
 driver = ENV['DRIVER'] ||= 'local'
 browser = ENV['BROWSER'] ||= 'chrome'
