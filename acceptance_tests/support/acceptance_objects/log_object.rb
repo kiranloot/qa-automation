@@ -5,7 +5,7 @@ require 'yaml'
 class LogMonitor
   include RSpec::Matchers
   def initialize
-    file_data = YAML.load(File.open('acceptance_tests/support/server_configs.yml'))[ENV['SITE']]
+    file_data = YAML.load(File.open(ENV['SERVER_CONFIGS']))[ENV['SITE']]
     @logentries_key = file_data['logentries_key']
     @logentries_log_set = file_data['logentries_log_set']
     @logentries_log_name = file_data['logentries_log_name']
