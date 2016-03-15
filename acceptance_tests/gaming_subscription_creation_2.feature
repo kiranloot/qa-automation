@@ -9,7 +9,7 @@ Feature: Gaming Subscription Creation
             And the user submits valid subscription information
         Then standard new subscription pass criteria should pass
 
-    @ready
+    @ready @mobile_ready
     Scenario: International user signs up for random month gaming subscription
         Given a registered user with a unitedkingdom address
             When the user logs in
