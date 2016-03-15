@@ -33,6 +33,10 @@ include WaitForAjax
   end
 
   def load_checkout_page_object
-    $test.current_page = FireflyCheckoutPage.new
+    if ENV['DRIVER'] == 'appium'
+      $test.current_page = FireflyMobileCheckoutPage.new
+    else
+      $test.current_page = FireflyCheckoutPage.new
+    end
   end
 end

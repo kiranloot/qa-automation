@@ -20,7 +20,7 @@ Feature: Firefly Subscription Creation
             And the user submits valid subscription information
         Then standard new subscription pass criteria should pass
 
-    @ready @safari_ready @test_chris
+    @ready @safari_ready @mobile_ready
     Scenario: Registered user creates a firefly twelve month subscription
         Given a registered user with no prior Subscription
             When the user logs in 

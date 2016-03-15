@@ -2,7 +2,7 @@ require_relative "checkout_page_object"
 
 class FireflyCheckoutPage < CheckoutPage
 
-  def initialze
+  def initialize
     super
     @page_type = "firefly_checkout"
     setup

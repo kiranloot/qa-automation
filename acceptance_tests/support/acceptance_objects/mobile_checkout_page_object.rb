@@ -2,7 +2,7 @@ require_relative "checkout_page_object"
 
 class MobileCheckoutPage < CheckoutPage
 
-  def initialze
+  def initialize
     super
     @page_type = "lootcrate_checkout"
     setup

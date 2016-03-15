@@ -20,7 +20,7 @@ Feature: Gaming Subscription Creation
             And the user submits valid subscription information
         Then standard new subscription pass criteria should pass
 
-    @ready @recurly
+    @ready @recurly @mobile_ready
     Scenario: Registered user creates six month gaming crate subscription
         Given a registered user with no prior Subscription
             When the user logs in 
