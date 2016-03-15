@@ -41,6 +41,10 @@ class StepList
     ["create a one month Gaming subscription"]
   end
 
+  def pets_one_month
+    ["create a one month Pets subscription"]
+  end
+
   def promo
     ["an admin user with access to their info",
     "the user visits the admin page",

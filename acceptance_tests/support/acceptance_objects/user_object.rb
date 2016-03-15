@@ -222,6 +222,8 @@ class User
       target_content = 'Your subscription has been cancelled'
     elsif type == 'upgrade'
       target_content = 'Subscription Upgraded'
+    elsif type == 'gaming upgrade'
+      target_content = 'Upgrade Complete!'
     elsif type == 'skip'
       target_content = 'Subscription Skipped'
     elsif type == 'level up'
@@ -300,7 +302,9 @@ class User
     when /Anime/
       return "Anime #{upgrade_month_int} Month Subscription"
     when /Gaming/
-      return "Gaming #{upgrade_month_int} Month Subscription"
+      return "Loot Gaming #{upgrade_month_int} Month Subscription"
+    when /Pets/
+      return "Pets #{upgrade_month_int} Month Subscription"
     else
       return plan.subscription_display_name.gsub(/Month Subscription/,"Month Plan Subscription")
     end
