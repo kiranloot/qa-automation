@@ -222,6 +222,8 @@ class User
       target_content = 'Your subscription has been cancelled'
     elsif type == 'upgrade'
       target_content = 'Subscription Upgraded'
+    elsif type == 'gaming upgrade'
+      target_content = 'Upgrade Complete!'
     elsif type == 'skip'
       target_content = 'Subscription Skipped'
     elsif type == 'level up'
@@ -291,7 +293,20 @@ class User
    select(upgrade_plan_target.subscription_display_name, :from => @test.test_data['locators']['upgrade_select'])
    click_button("SUBMIT")
    wait_for_ajax
-   @subscription_name = upgrade_plan_target.subscription_display_name.gsub(/Month Subscription/,"Month Plan Subscription")
+   @subscription_name = update_subscription_name(upgrade_month_int, upgrade_plan_target)
+  end
+
+  def update_subscription_name(upgrade_month_int, plan)
+    case @subscription_name
+    when /Anime/
+      return "Anime #{upgrade_month_int} Month Subscription"
+    when /Gaming/
+      return "Loot Gaming #{upgrade_month_int} Month Subscription"
+    when /Pets/
+      return "Pets #{upgrade_month_int} Month Subscription"
+    else
+      return plan.subscription_display_name.gsub(/Month Subscription/,"Month Plan Subscription")
+    end
   end
 
   def is_country_us?

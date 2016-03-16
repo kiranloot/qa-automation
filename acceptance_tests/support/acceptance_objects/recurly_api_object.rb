@@ -54,7 +54,16 @@ class RecurlyAPI
 
   def verify_subscription_upgrade (months)
     account = get_account
-    newPlan = "#{get_months(months)} Month Subscription"
+    case $test.user.subscription_name
+    when /Anime/
+      newPlan = "Anime #{get_months(months)} Month Subscription"
+    when /Gaming/
+      newPlan = "Gaming #{get_months(months)} Month Subscription"
+    when /Pets/
+      newPlan = "Pets #{get_months(months)} Month Subscription"
+    else
+      newPlan = "#{get_months(months)} Month Subscription"
+    end
     expect(account.subscriptions.first.pending_subscription.plan.name).to eq(newPlan)
   end
 
