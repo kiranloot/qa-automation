@@ -293,7 +293,6 @@ class User
    select(upgrade_plan_target.subscription_display_name, :from => @test.test_data['locators']['upgrade_select'])
    click_button("SUBMIT")
    wait_for_ajax
-  #  @subscription_name = upgrade_plan_target.subscription_display_name.gsub(/Month Subscription/,"Month Plan Subscription")
    @subscription_name = update_subscription_name(upgrade_month_int, upgrade_plan_target)
   end
 
