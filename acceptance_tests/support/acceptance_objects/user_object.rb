@@ -27,7 +27,7 @@ class User
   def initialize(test)
     @trait = nil
     @email = "placeholder"
-    @password ="password"
+    @password = "qateam123"
     @first_name = "placeholder"
     @last_name = "placeholder"
     @full_name = @first_name + " " + @last_name
