@@ -144,9 +144,8 @@ include Capybara::DSL
   end
 
   def verify_confirmation_page
-    #stub
     wait_for_ajax
-    sleep(10)
+    find(".confirmation-wrapper")
   end
 
   def select_shipping_country(country)
