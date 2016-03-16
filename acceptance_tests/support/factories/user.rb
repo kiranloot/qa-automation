@@ -69,6 +69,9 @@ FactoryGirl.define do
     trait :pets_one_month do
       registered_with_active
     end
+    trait :wearable_one_month do
+      registered_with_active
+    end
     trait :interational do
       first_name {"INTL" + first_name}
       email {"intl" + email}

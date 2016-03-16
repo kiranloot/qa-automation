@@ -60,7 +60,7 @@ class RecurlyAPI
     when /Gaming/
       newPlan = "Gaming #{get_months(months)} Month Subscription"
     when /Pets/
-      newPlan = "Pets #{upgrade_month_int} Month Subscription"
+      newPlan = "Pets #{get_months(months)} Month Subscription"
     else
       newPlan = "#{get_months(months)} Month Subscription"
     end
