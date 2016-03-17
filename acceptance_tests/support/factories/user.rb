@@ -527,6 +527,7 @@ FactoryGirl.define do
     trait :registered_with_active_and_tracking do
       heroku = HerokuAPI.new
       email { heroku.create_user_with_acive_sub_and_tracking_info }
+      password "password"
     end
   end
 

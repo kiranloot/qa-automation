@@ -18,7 +18,7 @@ Feature: Admin Subscriptions Page
             And updates the subscription's information
         Then the updated information should be reflected when the user views the subscription
 
-    @ready
+    @ready @kris_testing
     Scenario: Mark a subscription as having an invalid address
         Given a registered user with an active subscription
             And an admin user with access to their info
@@ -26,3 +26,4 @@ Feature: Admin Subscriptions Page
             And logs in as an admin
             And flags the subscription as having an invalid address
         Then the subscription should have a status of ACTIVE / HOLD in the admin panel
+        Then the subscription status should be set to on hold

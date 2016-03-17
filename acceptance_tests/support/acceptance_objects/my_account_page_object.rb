@@ -44,6 +44,27 @@ class MyAccountPage < Page
     wait_for_ajax
   end
 
+  def check_displayed_status(status)
+    assert_text(status)
+    case status
+    when 'ACTIVE'
+      assert_selector('div.status-active')
+      assert_selector('div.status-active-tab')
+    when 'SKIPPED'
+      assert_selector('div.status-skipped')
+      assert_selector('div.status-skipped-tab')
+    when 'PENDING CANCELLATION'
+      assert_selector('div.status-pending-cancellation')
+      assert_selector('div.status-pending-cancellation-tab')
+    when 'CANCELED'
+      assert_selector('div.status-canceled')
+      assert_selector('div.status-canceled-tab')
+    when 'ON HOLD'
+      assert_selector('div.status-on-hold')
+      assert_selector('div.status-on-hold-tab')
+    end
+  end
+
   #need to make this validation more specific
   #in the case that the page has multiple subs
   def verify_subscription_added
@@ -51,7 +72,7 @@ class MyAccountPage < Page
     go_to_subscriptions
     expect(@subscription_name).not_to be_nil
     assert_text(@subscription_name)
-    assert_text("ACTIVE")
+    check_displayed_status("ACTIVE")
     wait_for_ajax
     assert_text(get_expected_next_bill_date(@subscription_name)) unless @rebill
     assert_text(@rebill) if @rebill
@@ -79,7 +100,7 @@ class MyAccountPage < Page
   def subscription_cancelled?
     go_to_subscriptions
     assert_text("REACTIVATE")
-    assert_text("CANCELED")
+    check_displayed_status("CANCELED")
   end
 
   def subscription_updated?
@@ -145,15 +166,19 @@ class MyAccountPage < Page
         break
       end
     end
-    assert_text("PENDING CANCELLATION")
+    check_displayed_status("PENDING CANCELLATION")
     assert_text("REMOVE CANCELLATION")
   end
 
   def month_skipped?
     go_to_subscriptions
-    #TO DO - add validation for skipped month
-    assert_text("SKIPPED")
+    check_displayed_status("SKIPPED")
     assert_text("(You have skipped")
+  end
+
+  def sub_on_hold?
+    go_to_subscriptions
+    check_displayed_status("ON HOLD")
   end
 
   def cannot_skip_again?
@@ -259,7 +284,7 @@ class MyAccountPage < Page
   end
 
   def subscription_reactivated?
-    assert_text("ACTIVE")
+    check_displayed_status("ACTIVE")
     expect(page.has_content?("UPGRADE")).to be_truthy
   end
 

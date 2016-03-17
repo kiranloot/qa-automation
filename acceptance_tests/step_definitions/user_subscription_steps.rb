@@ -172,6 +172,13 @@ Then /the subscription status should be set to active with a skip/ do
   $test.current_page.month_skipped?
 end
 
+Then /the subscription status should be set to on hold/ do
+  step "the user visits the home page"
+  step "the user logs in"
+  step "the user visits the my account page"
+  $test.current_page.sub_on_hold?
+end
+
 Then /the promo discount should be applied to the transaction/ do
   $test.current_page.discount_applied?
 end
