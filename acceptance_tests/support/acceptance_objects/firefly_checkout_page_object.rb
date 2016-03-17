@@ -8,10 +8,6 @@ class FireflyCheckoutPage < CheckoutPage
     setup
   end
 
-  def verify_confirmation_page
-    assert_text("FIREFLY™ CARGO CRATE ORDER CONFIRMED!")
-  end
-
   def select_shirt_size(size)
     #stub
   end
