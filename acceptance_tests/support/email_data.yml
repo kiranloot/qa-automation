@@ -42,3 +42,6 @@ firefly confirmation:
 gaming confirmation:
  subject_lines:
  - 'You’re confirmed for Loot Gaming!'
+gaming upgrade:
+ subject_lines:
+ - 'Upgrade Complete!'
