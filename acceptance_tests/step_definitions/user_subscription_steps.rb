@@ -108,6 +108,9 @@ end
 When /^the user edits their (.*)$/ do |info|
   sub_id = $test.db.get_subscriptions($test.user.email)[0]['subscription_id']
   step "the user visits the my account page"
+  if ENV['DRIVER'] == 'appium'
+    $test.current_page = MyAccountMobilePage.new
+  end
   case info
   when 'subscription info'
     $test.current_page.edit_subscription_info(sub_id)

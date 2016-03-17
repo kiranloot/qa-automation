@@ -84,6 +84,7 @@ class MyAccountPage < Page
 
   def subscription_updated?
     go_to_subscriptions
+    open_looter_info_tab
     assert_text($test.user.new_user_sub_name)
     assert_text($test.user.shirt_size)
     assert_text($test.user.new_rebill_date)
