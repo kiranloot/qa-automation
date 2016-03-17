@@ -59,6 +59,9 @@ class MyAccountPage < Page
     when 'CANCELED'
       assert_selector('div.status-canceled')
       assert_selector('div.status-canceled-tab')
+    when 'ON HOLD'
+      assert_selector('div.status-on-hold')
+      assert_selector('div.status-on-hold-tab')
     end
   end
 
@@ -97,7 +100,7 @@ class MyAccountPage < Page
   def subscription_cancelled?
     go_to_subscriptions
     assert_text("REACTIVATE")
-    assert_text("CANCELED")
+    check_displayed_status("CANCELED")
   end
 
   def subscription_updated?
@@ -162,14 +165,19 @@ class MyAccountPage < Page
         break
       end
     end
-    assert_text("PENDING CANCELLATION")
+    check_displayed_status("PENDING CANCELLATION")
     assert_text("REMOVE CANCELLATION")
   end
 
   def month_skipped?
     go_to_subscriptions
-    assert_text("SKIPPED")
+    check_displayed_status("SKIPPED")
     assert_text("(You have skipped")
+  end
+
+  def sub_on_hold?
+    go_to_subscriptions
+    check_displayed_status("ON HOLD")
   end
 
   def cannot_skip_again?
@@ -275,7 +283,7 @@ class MyAccountPage < Page
   end
 
   def subscription_reactivated?
-    assert_text("ACTIVE")
+    check_displayed_status("ACTIVE")
     expect(page.has_content?("UPGRADE")).to be_truthy
   end
 
