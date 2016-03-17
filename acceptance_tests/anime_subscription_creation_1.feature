@@ -1,5 +1,5 @@
 @regression @core @anime_subscription_creation @selenium
-Feature: Anmie Subscription Creation
+Feature: Anime Subscription Creation
     @ready @recurly @mobile_ready
     Scenario: Registered user creates one month anime subscription
         Given a registered user with no prior subscription

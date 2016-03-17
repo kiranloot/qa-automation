@@ -258,8 +258,8 @@ class User
 
   def is_country_us?
     wait_for_ajax
-    page.has_css?('.country-selector-lnk > span > img')
-    return /assets\/flags\/us_flag/.match(first('.country-selector-lnk > span > img')['src'])
+    page.has_css?('.country-selector-lnk img')
+    return /assets\/flags\/us_flag/.match(first('.country-selector-lnk img')[:src])
   end
 
   def set_ship_to_country(country, top_bot: nil)
