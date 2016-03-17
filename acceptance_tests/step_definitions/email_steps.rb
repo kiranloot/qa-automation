@@ -10,5 +10,7 @@ end
 
 #THENS
 Then /the user should receive an? (.*?) email/ do |type|
-  $test.verify_email(type)
+  type.downcase!
+  type.strip!
+  $test.mailinator.verify_email(type,$test.user.email)
 end

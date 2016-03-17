@@ -1,0 +1,47 @@
+subscription confirmation:
+ subject_lines:
+ - 'Welcome to Loot Crate!'
+ - 'Your Order is Confirmed! Welcome to Loot Crate!'
+subscription cancellation:
+ subject_lines:
+ - 'Your subscription has been cancelled'
+german subscription confirmation:
+  subject_lines:
+  - 'Herzlich willkommen bei Loot Crate!'
+  - 'Your Order is Confirmed! Welcome to Loot Crate!'
+upgrade:
+ subject_lines:
+  - 'Subscription Upgraded'
+skip:
+ subject_lines:
+ - 'Subscription Skipped'
+level up:
+ subject_lines:
+ - 'Level Up Purchase Confirmation'
+levelup cancellation:
+ subject_lines:
+ - 'Level Up Cancellation Confirmation'
+anime confirmation:
+ subject_lines:
+ - 'Loot Anime Order Confirmation'
+pets confirmation:
+ subject_lines:
+ - 'Loot Pets Order Confirmation'
+anime cancellation:
+ subject_lines:
+ - 'Cancellation Successful'
+pets cancellation:
+ subject_lines:
+ - 'Cancellation Successful'
+unskip:
+ subject_lines:
+ - 'Subscription Unskipped'
+firefly confirmation:
+ subject_lines:
+ - 'Firefly® Cargo Crate Order Confirmation'
+gaming confirmation:
+ subject_lines:
+ - 'You’re confirmed for Loot Gaming!'
+gaming upgrade:
+ subject_lines:
+ - 'Upgrade Complete!'

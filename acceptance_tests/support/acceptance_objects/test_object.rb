@@ -267,15 +267,6 @@ class Test
     end
   end
 
-  def verify_email(type)
-    type.downcase!
-    type.strip!
-    #@current_page = Mailinator.new
-    #@current_page.visit_page
-    #the verify email function probably belongs in the mailinator object
-    @user.verify_email(type, current_page)
-  end
-
   def give_user_to_admin
     admin_user = FactoryGirl.build(:user, :admin)
     admin_user.subject_user = @user
