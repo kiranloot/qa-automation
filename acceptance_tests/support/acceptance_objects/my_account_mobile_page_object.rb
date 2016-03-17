@@ -12,4 +12,15 @@ class MyAccountMobilePage < MyAccountPage
     select "#{state}", :from => "shipping_address_state#{sub_id}"
     $test.user.ship_state = state
   end
+
+  def select_billing_state(sub_id, state)
+    select "#{state}", :from => "payment_method_state#{sub_id}"
+    $test.user.billing_address.state = state
+  end
+
+  def select_shirt_size(sub_id, size)
+    select "#{size}", :from => 'subscription_subscription_variants_attributes_0_variant_id'
+    $test.user.shirt_size = size
+    $test.user.display_shirt_size = $test.user.get_display_shirt_size(size)
+  end
 end
