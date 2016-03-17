@@ -44,6 +44,24 @@ class MyAccountPage < Page
     wait_for_ajax
   end
 
+  def check_displayed_status(status)
+    assert_text(status)
+    case status
+    when 'ACTIVE'
+      assert_selector('div.status-active')
+      assert_selector('div.status-active-tab')
+    when 'SKIPPED'
+      assert_selector('div.status-skipped')
+      assert_selector('div.status-skipped-tab')
+    when 'PENDING CANCELLATION'
+      assert_selector('div.status-pending-cancellation')
+      assert_selector('div.status-pending-cancellation-tab')
+    when 'CANCELED'
+      assert_selector('div.status-canceled')
+      assert_selector('div.status-canceled-tab')
+    end
+  end
+
   #need to make this validation more specific
   #in the case that the page has multiple subs
   def verify_subscription_added
@@ -51,7 +69,7 @@ class MyAccountPage < Page
     go_to_subscriptions
     expect(@subscription_name).not_to be_nil
     assert_text(@subscription_name)
-    assert_text("ACTIVE")
+    check_displayed_status("ACTIVE")
     wait_for_ajax
     assert_text(get_expected_next_bill_date(@subscription_name)) unless @rebill
     assert_text(@rebill) if @rebill
@@ -150,7 +168,6 @@ class MyAccountPage < Page
 
   def month_skipped?
     go_to_subscriptions
-    #TO DO - add validation for skipped month
     assert_text("SKIPPED")
     assert_text("(You have skipped")
   end
