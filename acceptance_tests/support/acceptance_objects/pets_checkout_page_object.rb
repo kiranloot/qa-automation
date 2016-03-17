@@ -29,8 +29,4 @@ class PetsCheckoutPage < CheckoutPage
     wait_for_ajax
     find('.select2-results__option', :text => size).click
   end
-
-  def verify_confirmation_page
-    assert_text('Thanks for subscribing to Loot Pets!')
-  end
 end

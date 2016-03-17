@@ -8,8 +8,4 @@ include Capybara::DSL
     @page_type = "gaming_checkout"
     setup
   end
-
-  def verify_confirmation_page
-    assert_text("MISSION ACCOMPLISHED!")
-  end
 end
