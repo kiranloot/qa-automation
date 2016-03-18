@@ -1,5 +1,5 @@
 @ready
-Feature: Test 
+Feature: Signup through modal
 Scenario: Valid signup through the Loot Crate join modal 
 	Given an unregistered user
 	And the user selects the Loot Crate crate 
