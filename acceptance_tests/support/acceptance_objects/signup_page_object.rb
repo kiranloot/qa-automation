@@ -60,14 +60,18 @@ include Capybara::DSL
 
   def submit_signup
     click_button("CREATE YOUR ACCOUNT")
-    page.has_css?("#one-month")
+    find("#one-month")
   end
 
   def submit_login
     click_button("Log In")
-    page.has_css?("#one-month")
+    if /(active|month)/.match($test.user.trait)
+      find("#account-menu-subscriptions-lnk")
+    else
+      find("#one-month")
+    end
   end
-  
+
   def signup_failed?
     if page.has_css?('input#new_user_password.title.modal-join.required.dianaTone.error') &&
         #new_user_password
