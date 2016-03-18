@@ -300,8 +300,9 @@ class MyAccountPage < Page
   end
 
   def select_shirt_size(sub_id, size)
-    find('#select2-subscription_subscription_variants_attributes_0_variant_id-container').click
-    find('.select2-results__option', :text => size).click
+    #find('#select2-subscription_subscription_variants_attributes_0_variant_id-container').click
+    #find('.select2-results__option', :text => size).click
+    select "#{size}", :from => 'subscription_subscription_variants_attributes_0_variant_id'
     $test.user.shirt_size = size
     $test.user.display_shirt_size = $test.user.get_display_shirt_size(size)
   end
@@ -340,9 +341,10 @@ class MyAccountPage < Page
   end
 
   def select_shipping_state(sub_id, state)
-    find("#select2-shipping_address_state#{sub_id}-container").click
-    wait_for_ajax
-    find(".select2-results__option", :text => state).click
+    #find("#select2-shipping_address_state#{sub_id}-container").click
+    #wait_for_ajax
+    #find(".select2-results__option", :text => state).click
+    select "#{state}", :from => "shipping_address_state#{sub_id}" 
     $test.user.ship_state = state
   end
 
