@@ -45,6 +45,7 @@ Page
 
   def log_out
     click_logo
+    find("#header-carousel")
     if ENV['DRIVER'] == 'appium'
       find(".navbar-toggle").click
       wait_for_ajax
