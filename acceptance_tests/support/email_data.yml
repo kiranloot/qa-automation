@@ -17,7 +17,7 @@ skip:
  - 'Subscription Skipped'
 level up:
  subject_lines:
- - 'Level Up Purchase Confirmation'
+ - 'Level Up Successful!'
 levelup cancellation:
  subject_lines:
  - 'Level Up Cancellation Confirmation'
