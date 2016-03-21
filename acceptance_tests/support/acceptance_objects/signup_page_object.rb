@@ -65,7 +65,7 @@ include Capybara::DSL
 
   def submit_login
     click_button("Log In")
-    if /(active|month)/.match($test.user.trait)
+    if /(active|month|canceled)/.match($test.user.trait)
       find("#account-menu-subscriptions-lnk")
     else
       find("#one-month")
