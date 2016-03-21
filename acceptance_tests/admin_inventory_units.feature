@@ -2,7 +2,6 @@
 Feature: Admin Inventory Units Page
     @ready
     Scenario: Check Inventory Count
-    Given     an admin user with access to their info
     When      the user queries inventory for Anime Crate item named Womens - L
     And       the admin user visits the admin page
     And       logs in as an admin
@@ -11,7 +10,6 @@ Feature: Admin Inventory Units Page
 
     @ready
     Scenario: Check Variant Inventory Count
-    Given     an admin user with access to their info
     When      the user queries inventory for Anime Crate item named Womens - L
     And       the admin user visits the admin page
     And       logs in as an admin

@@ -60,12 +60,12 @@ include Capybara::DSL
 
   def submit_signup
     click_button("CREATE YOUR ACCOUNT")
-    find("#one-month")
+    wait_for_ajax
   end
 
   def submit_login
     click_button("Log In")
-    if /(active|month)/.match($test.user.trait)
+    if /(active|month|canceled)/.match($test.user.trait) || /subscriptions/.match(current_url)
       find("#account-menu-subscriptions-lnk")
     else
       find("#one-month")

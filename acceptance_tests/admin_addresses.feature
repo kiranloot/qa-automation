@@ -3,7 +3,6 @@ Feature: Admin adressess page
     @ready
     Scenario: Admin user can search for a user address by first and last name successfully
         Given a registered user with an active subscription
-            And an admin user with access to their info
         When the admin user visits the admin page
             And logs in as an admin 
             And searches for the user's address info by full name
@@ -12,7 +11,6 @@ Feature: Admin adressess page
     @ready
     Scenario: Admin user can search for a user address by address line 1 successfully
         Given a registered user with an active subscription
-            And an admin user with access to their info
         When the admin user visits the admin page
             And logs in as an admin
             And searches for the user's address info by address line 1

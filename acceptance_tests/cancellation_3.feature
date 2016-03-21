@@ -3,7 +3,6 @@ Feature: Subscription Cancellation
     @level_up @admin @ready @recurly
     Scenario: Cancel level up sub immediately through admin
         Given a registered user with an active level up subscription
-            And an admin user with access to their info
             When the admin user visits the admin page
             And logs in as an admin
             And performs an immediate cancellation on the user account
@@ -14,7 +13,6 @@ Feature: Subscription Cancellation
     @pets @admin @ready @recurly
     Scenario: Cancel pets sub immediately through admin
         Given a registered user with an active pets subscription
-            And an admin user with access to their info
             When the admin user visits the admin page
             And logs in as an admin
             And performs an immediate cancellation on the user account
