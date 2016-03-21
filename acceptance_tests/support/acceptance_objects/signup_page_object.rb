@@ -60,7 +60,7 @@ include Capybara::DSL
 
   def submit_signup
     click_button("CREATE YOUR ACCOUNT")
-    find("#one-month")
+    wait_for_ajax
   end
 
   def submit_login
