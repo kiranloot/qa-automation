@@ -50,24 +50,21 @@ class StepList
   end
 
   def promo
-    ["an admin user with access to their info",
-    "the user visits the admin page",
+    ["the user visits the admin page",
     "logs in as an admin",
     "the admin user navigates to the admin promotions page",
     "admin creates the new promotion"]
   end
 
   def multi_use_fixed_promo
-    ["an admin user with access to their info",
-    "the user visits the admin page",
+    ["the user visits the admin page",
     "logs in as an admin",
     "the admin user navigates to the admin promotions page",
     "admin creates a new multi use promotion with a 10 Fixed discount and passes to user"]
   end
 
   def one_time_use_percentage_promo
-    ["an admin user with access to their info",
-    "the user visits the admin page",
+    ["the user visits the admin page",
     "logs in as an admin",
     "the admin user navigates to the admin promotions page",
     "admin creates a new one time use promotion with a 10 Percentage discount and passes to user"]
@@ -75,7 +72,6 @@ class StepList
 
   def canceled
     ["create a one month subscription",
-    "an admin user with access to their info",
     "the user visits the admin page",
     "logs in as an admin",
     "performs an immediate cancellation on the user account",

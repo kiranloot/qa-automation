@@ -23,7 +23,6 @@ Feature: Subscription Cancellation
     @admin @ready @recurly
     Scenario: Cancel anime sub immediately through admin
         Given a registered user with an active anime subscription
-            And an admin user with access to their info
             When the admin user visits the admin page
             And logs in as an admin
             And performs an immediate cancellation on the user account

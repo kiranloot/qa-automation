@@ -8,7 +8,6 @@ Given /^The (.*) level up product is (.*)$/ do |product,inv_status|
   when "accessory"
     variant_id = $test.db.get_variant_id("unisex-accessories","Level Up Accessories")
   end
-  step "an admin user with access to their info"
   step "the user visits the admin page"
   step "logs in as an admin"
   $test.current_page.click_variants
@@ -24,7 +23,6 @@ Given /^The (.*) level up product is (.*)$/ do |product,inv_status|
 end
 
 Given(/^the system has (.*) pin codes for last month$/) do |product|
-  step "an admin user with access to their info"
   step "the user visits the admin page"
   step "logs in as an admin"
   $test.current_page.click_loot_pin_codes
@@ -151,7 +149,6 @@ Then /the subscription information should be displayed/ do
 end
 
 Then /the subscription should be successfully reactivated in the admin panel/ do
-  step "an admin user with access to their info"
   step "the user visits the admin page"
   step "logs in as an admin"
   $test.current_page.click_subscriptions
@@ -165,7 +162,6 @@ Then /^the updated information should be reflected when the admin views the user
 end
 
 Then (/^the subscription information change should be reflected in the admin panel$/) do
-  step "an admin user with access to their info"
   step "the user visits the admin page"
   step "logs in as an admin"
   $test.current_page.click_subscriptions
@@ -174,7 +170,6 @@ Then (/^the subscription information change should be reflected in the admin pan
 end
 
 Then (/^the correct subscription information should be displayed in the admin panel$/) do
-  step "an admin user with access to their info"
   step "the user visits the admin page"
   step "logs in as an admin"
   $test.current_page.click_subscriptions
@@ -184,7 +179,6 @@ Then (/^the correct subscription information should be displayed in the admin pa
 end
 
 Then (/^the correct subscription billing information should be displayed in the admin panel$/) do
-  step "an admin user with access to their info"
   step "the user visits the admin page"
   step "logs in as an admin"
   $test.current_page.click_subscriptions
@@ -198,7 +192,6 @@ Then /the user's address info should be correctly displayed/ do
 end
 
 Then /the shipment tracking information should be visible via the admin panel/ do
-  step "an admin user with access to their info"
   step "the user visits the admin page"
   step "logs in as an admin"
   $test.current_page.click_subscriptions
