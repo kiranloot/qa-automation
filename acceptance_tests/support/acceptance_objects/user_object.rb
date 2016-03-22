@@ -13,7 +13,7 @@ class User
     :subscription_name, :level_up_subscription_name, :new_user_sub_name,:new_rebill_date, :bill_zip,
     :bill_city, :bill_street, :bill_street_2, :bill_state, :need_sub, :rebill_date_db, :last_four, :trait, :recurly_level_up_plan,
     :country_code, :recurly_billing_state_code, :cc_invalid, :cc_exp_month, :cc_exp_year, :pet_shirt_size, :pet_collar_size, :human_wearable_size, :promo_type,
-    :promo, :adjustment_type, :adjustment_amount, :recurly_rebill_date, :unisex_shirt_size, :pin_code, :crate_type, :billing_address, :country
+    :promo, :adjustment_type, :adjustment_amount, :recurly_rebill_date, :unisex_shirt_size, :pin_code, :crate_type, :billing_address, :country, :subscription
 
   @@sizes = {"male" =>  {0 => "Mens - S", 1 => "Mens - M", 2 => "Mens - L", 3 => "Mens - XL",
                          4 => "Mens - XXL", 5 => "Mens - XXXL" },
@@ -230,30 +230,18 @@ class User
      puts "Current plan Months: " + current_month_int
      puts "Upgrade plan Months: " + upgrade_month_int
    else
-     current_plan = Plan.new(current_month_int, Date.today, false)
-     upgrade_plan_target = Plan.new(upgrade_month_int, Date.today, true)
+     current_plan = $test.user.subscription
+     upgrade_plan_target = current_plan.class.new(months, current_plan.product)
    end
    #should probably be moved to the my accounts page object
    @test.visit_page(:my_account)
    click_link("Subscriptions")
    click_link("Upgrade")
-   select(upgrade_plan_target.subscription_display_name, :from => @test.test_data['locators']['upgrade_select'])
+   select(upgrade_plan_target.upgrade_string, :from => @test.test_data['locators']['upgrade_select'])
    click_button("SUBMIT")
    wait_for_ajax
-   @subscription_name = update_subscription_name(upgrade_month_int, upgrade_plan_target)
-  end
-
-  def update_subscription_name(upgrade_month_int, plan)
-    case @subscription_name
-    when /Anime/
-      return "Anime #{upgrade_month_int} Month Subscription"
-    when /Gaming/
-      return "Loot Gaming #{upgrade_month_int} Month Subscription"
-    when /Pets/
-      return "Pets #{upgrade_month_int} Month Subscription"
-    else
-      return plan.subscription_display_name.gsub(/Month Subscription/,"Month Plan Subscription")
-    end
+   @subscription_name = upgrade_plan_target.name
+   @subscription = upgrade_plan_target
   end
 
   def is_country_us?

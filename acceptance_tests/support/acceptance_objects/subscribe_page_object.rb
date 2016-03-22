@@ -17,7 +17,7 @@ include WaitForAjax
   end
 
   def visit_page
-    visit @base_url 
+    visit @base_url
     $test.current_page = self
   end
 
@@ -32,7 +32,12 @@ include WaitForAjax
     #stub
   end
 
+  def create_user_subscription(plan)
+    $test.user.subscription = Subscription.new(plan, $test.user.crate_type)
+  end
+
   def select_plan(plan)
+    create_user_subscription(plan)
     click_get_loot
     if plan == 'random'
       rand_key = @plans.keys.sample
@@ -93,7 +98,7 @@ include WaitForAjax
      expect("#{expected_price} /mo").to eq(price)
     end
   end
- 
+
   def proration_applied?(old_plan, new_plan, date_subscribed)
     old = Plan.new(old_plan, date_subscribed, false)
     new = Plan.new(new_plan, date_subscribed, true)

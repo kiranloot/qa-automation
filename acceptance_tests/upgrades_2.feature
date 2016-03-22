@@ -25,3 +25,16 @@ Feature: Subscription Upgrades
         And  recurly should now have a three month subscription plan
         And  the recurly account's last transaction should have tax calculated
         And  the recurly rebill date should be 2 months ahead
+
+    @ready
+    Scenario: Registered user upgrades an existing gaming subscription
+        Given a registered user with a wearable one month subscription
+        And   the user notes the recurly rebill date
+            When the user logs in
+            And  the user visits the my account page
+            And  the user upgrades to a three month subscription
+        Then the new subscription should be added to the user account
+        And  the user should receive a upgrade email
+        And  recurly should now have a three month subscription plan
+        And  the recurly account's last transaction should have tax calculated
+        And  the recurly rebill date should be 2 months ahead

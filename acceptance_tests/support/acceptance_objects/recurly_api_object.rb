@@ -19,8 +19,8 @@ class RecurlyAPI
 
   def verify_subscription_type(country_code = "US")
     #Do if this is a level up sub
-    if $test.user.recurly_level_up_plan
-      recurly_sub = $test.user.recurly_level_up_plan
+    if $test.user.subscription.class == LevelUpSubscription
+      recurly_sub = $test.user.subscription.recurly_name
       if country_code == "US"
         recurly_sub = recurly_sub + " - US"
       else
@@ -54,15 +54,16 @@ class RecurlyAPI
 
   def verify_subscription_upgrade (months)
     account = get_account
-    case $test.user.subscription_name
-    when /Anime/
-      newPlan = "Anime #{get_months(months)} Month Subscription"
-    when /Gaming/
-      newPlan = "Gaming #{get_months(months)} Month Subscription"
-    when /Pets/
-      newPlan = "Pets #{get_months(months)} Month Subscription"
+    if $test.user.subscription.class == LevelUpSubscription
+      recurly_sub = $test.user.subscription.recurly_name
+      if $test.user.country_code == "US"
+        newPlan = recurly_sub + " - US"
+      else
+        newPlan = recurly_sub + " - Intl"
+      end
+    #do if this is any other sub
     else
-      newPlan = "#{get_months(months)} Month Subscription"
+      newPlan = $test.user.subscription.recurly_name
     end
     expect(account.subscriptions.first.pending_subscription.plan.name).to eq(newPlan)
   end

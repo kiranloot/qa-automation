@@ -113,7 +113,12 @@ include WaitForAjax
     find('.select2-results__option', :text => size).click
   end
 
+  def create_user_subscription(plan, product)
+    $test.user.subscription = LevelUpSubscription.new(plan, product)
+  end
+
   def select_plan(product, months)
+    create_user_subscription(months, product)
     scroll_to(product)
     div_id = product + '-crate'
     dd_id = 'select2-' + div_id + '-container'
