@@ -63,11 +63,26 @@ when 'appium'
       :deviceName => 'iPhone 6',
       :platformName => 'ios',
       :version => '9.2',
-      :app => 'safari'
+      :app => 'safari',
     }
     Capybara::Selenium::Driver.new(app, {:browser => :remote, :url => "http://localhost:4723/wd/hub/", :desired_capabilities => caps})
   end
   Capybara.default_driver = :iphone
+
+when 'appium-ios-app'
+  require 'appium_capybara'
+  Capybara.register_driver :iphone do |app|
+    caps = {
+      :deviceName => 'iPhone 6',
+      :platformName => 'ios',
+      :version => '9.2',
+      :app => 'com.lootcrate.lootcrate',
+      :uuid => 'd6e77c996570e350e5e96632f9a320fffbcd60fa'
+    }
+    Capybara::Selenium::Driver.new(app, {:browser => :remote, :url => "http://localhost:4723/wd/hub/", :desired_capabilities => caps})
+  end
+  Capybara.default_driver = :iphone
+  Capybara.default_selector = :xpath
 end
 
 at_exit do
