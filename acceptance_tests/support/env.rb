@@ -63,7 +63,7 @@ when 'appium'
       :deviceName => 'iPhone 6',
       :platformName => 'ios',
       :version => '9.2',
-      :app => 'safari',
+      :app => 'safari'
     }
     Capybara::Selenium::Driver.new(app, {:browser => :remote, :url => "http://localhost:4723/wd/hub/", :desired_capabilities => caps})
   end
