@@ -1,5 +1,5 @@
 @regression @core @anime_subscription_creation @selenium
-Feature: Subscription Creation
+Feature: Anime Subscription Creation
     @ready
     Scenario: Registered user creates twelve month anime subscription plan
         Given a registered user with no prior subscription

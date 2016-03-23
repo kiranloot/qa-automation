@@ -7,8 +7,8 @@ class Test
  require 'yaml'
  require 'pry'
  require 'faker'
- attr_accessor :user, 
-   :admin_user, 
+ attr_accessor :user,
+   :admin_user,
    :cms_user,
    :pages,
    :current_page,
@@ -79,7 +79,7 @@ class Test
 #Move to parent page object
  def is_logged_in?
    find(:css,'a.logo-link').click
-   assert_text("My Account")
+   assert_text("MY ACCOUNT")
  end
 
  def link_not_visible(link)
@@ -132,7 +132,7 @@ class Test
    $test.user.crate_type = crate
    wait_for_ajax
  end
- 
+
 #Remove middle man
  def get_valid_signup_information
   @user.password = @test_data["signup"]["valid_pw"]

@@ -258,8 +258,8 @@ class User
 
   def is_country_us?
     wait_for_ajax
-    page.has_css?('.country-selector-lnk > span > img')
-    return /assets\/flags\/us_flag/.match(first('.country-selector-lnk > span > img')['src'])
+    page.has_css?('.country-selector-lnk img')
+    return /assets\/flags\/us_flag/.match(first('.country-selector-lnk img')[:src])
   end
 
   def set_ship_to_country(country, top_bot: nil)
@@ -268,7 +268,7 @@ class User
     if ENV['DRIVER'] == 'appium'
       find(:css, "div.country-selector-mobile  a").click
     else
-      find(:css, "#navbar-collapse > ul > li.country-selector.dropdown.country-selector-desktop > a").click
+      find(:css, "div.country-selector.dropdown.country-selector-desktop > a").click
     end
     page.all("span.select2-selection__rendered")[1].click
     wait_for_ajax
