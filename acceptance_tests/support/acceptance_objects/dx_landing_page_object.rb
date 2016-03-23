@@ -13,7 +13,7 @@ include WaitForAjax
       'one' => '1 Month Plan Subscription',
       'three' => '3 Month Plan Subscription',
       'six' => '6 Month Plan Subscription',
-      'twelve' => '1 Year Plan Subscription'
+      'twelve' => '12 Month Plan Subscription'
     }
   end
 
