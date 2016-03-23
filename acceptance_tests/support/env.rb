@@ -30,7 +30,8 @@ when 'local'
   Capybara.register_driver :selenium do |app|
     case browser
     when 'chrome'
-      Capybara::Selenium::Driver.new(app, :browser => :chrome,)
+      profile = { 'chromeOptions' => { 'prefs' => { 'download.default_directory' => './downloads' } } }
+      Capybara::Selenium::Driver.new(app, :browser => :chrome, :desired_capabilities => profile)
     when 'firefox'
       Capybara::Selenium::Driver.new(app, :browser => :firefox,)
     when 'ie'

@@ -139,6 +139,14 @@ When /^the user queries inventory for (.*) item named (.*)$/ do |product, varian
   @inventory_item = $test.db.get_inventory_item_id_and_count(product, variant)
 end
 
+When /clicks on the Request Shipping Manifest CSV button/ do
+  $test.current_page.click_request_manifest
+end
+
+When /clicks on the Shipping Manifest CSV List button/ do
+  $test.current_page.click_manifest_list
+end
+
 #THENS
 Then /the subscription should have a status of (.*) in the admin panel/ do |status|
   $test.current_page.subscription_status_is(status)
