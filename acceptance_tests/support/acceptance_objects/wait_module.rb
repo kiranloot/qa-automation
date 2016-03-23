@@ -1,7 +1,7 @@
 module WaitForAjax
 
   def wait_for_ajax
-    if ENV['BROWSER'] == 'safari'
+    if ENV['BROWSER'] == 'safari' || ENV['DRIVER'] == 'appium'
       sleep(1)
     end
     Timeout.timeout(Capybara.default_max_wait_time) do
