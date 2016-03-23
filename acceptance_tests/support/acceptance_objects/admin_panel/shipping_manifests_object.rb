@@ -16,5 +16,6 @@ class AdminShippingManifestsPage < AdminPage
   def click_manifest_list
     click_link('Shipping Manifest CSV List')
     expect(find('.admin_shipping_fulfillment_csvs')).to be_truthy
+    $test.current_page = AdminShippingManifestCSVListPage.new
   end
 end
