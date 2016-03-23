@@ -123,11 +123,14 @@ class Test
      find("#header-gaming-lnk").click
      $test.current_page = GamingLandingPage.new
    when "Star Wars™"
-       find("#header-sw-lnk").click
-       $test.current_page = StarWarsLandingPage.new
+     find("#header-sw-lnk").click
+     $test.current_page = StarWarsLandingPage.new
    when "Call of Duty®"
-       find("#header-cod-lnk").click
-       $test.current_page = CallofdutyLandingPage.new
+     find("#header-cod-lnk").click
+     $test.current_page = CallofdutyLandingPage.new
+   when "DX"
+     find("#header-lcdx-lnk").click  
+     $test.current_page = DXLandingPage.new
    end
    $test.user.crate_type = crate
    wait_for_ajax
