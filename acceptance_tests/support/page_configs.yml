@@ -49,7 +49,13 @@ gaming_landing:
 gaming_subscribe:
  url: "/subscription-crates/gaming/plans"
 gaming_checkout:
- url: "gaming-1-month-subscription/checkouts/new"
+ url: "/gaming-1-month-subscription/checkouts/new"
+dx_landing:
+ url: "/subscription-crates/lcdx"
+dx_subscribe:
+ url: "/subscription-crates/lcdx/plans"
+dx_checkout:
+ url: "/lcdx-1-month-subscription/checkouts/new"
 pewdiepie:
  url: "/referrers/pewdiepie"
 boogie2988:

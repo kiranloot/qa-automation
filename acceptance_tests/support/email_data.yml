@@ -46,3 +46,6 @@ gaming confirmation:
 gaming upgrade:
  subject_lines:
  - 'Upgrade Complete!'
+dx confirmation:
+ subject_lines:
+ - 'Loot Crate DX Order Confirmation'

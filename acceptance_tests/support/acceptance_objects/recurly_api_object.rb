@@ -32,6 +32,8 @@ class RecurlyAPI
         recurly_sub = $test.user.subscription_name.gsub(/1 Year/, "12 Month")
       elsif $test.user.crate_type == "Firefly"
         recurly_sub = 'Firefly ' + $test.user.subscription_name
+      elsif $test.user.crate_type == "DX"
+        recurly_sub = 'Lcdx ' + $test.user.subscription_name
       else
         recurly_sub = $test.user.subscription_name
       end
