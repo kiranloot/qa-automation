@@ -139,6 +139,33 @@ When /^the user queries inventory for (.*) item named (.*)$/ do |product, varian
   @inventory_item = $test.db.get_inventory_item_id_and_count(product, variant)
 end
 
+When /clicks on the Request Shipping Manifest CSV button/ do
+  $test.current_page.click_request_manifest
+end
+
+When /clicks on the Shipping Manifest CSV List button/ do
+  $test.current_page.click_manifest_list
+end
+
+When /verifies that the top entry's aasm state is 'completed_successfully'/ do
+  6.times do
+    if $test.current_page.aasm_completed?
+      break
+    else
+      sleep(5)
+      page.driver.browser.navigate.refresh
+    end
+  end
+end
+
+When /clicks 'view' for the manifest/ do
+  $test.current_page.click_first_view_link
+end
+
+When /clicks the Download button/ do
+  $test.current_page.click_download
+end
+
 #THENS
 Then /the subscription should have a status of (.*) in the admin panel/ do |status|
   $test.current_page.subscription_status_is(status)
@@ -206,4 +233,8 @@ end
 
 Then /^the inventory value should match the queried value$/ do
   $test.current_page.verify_inventory_count(@inventory_item)
+end
+
+Then /the downloaded file should be present in the downloads folder/ do
+  $test.current_page.verify_download
 end

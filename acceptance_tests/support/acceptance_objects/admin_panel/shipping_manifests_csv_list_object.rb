@@ -1,0 +1,27 @@
+require_relative "admin_object"
+require_relative "../download_helpers"
+class AdminShippingManifestCSVListPage < AdminPage
+  include DownloadHelpers
+  def initialize
+    super
+  end
+
+  def aasm_completed?
+    first('.col-aasm_state', :maximum => 10).text == 'completd_successfully'
+  end
+
+  def click_first_view_link
+    first('td.col-actions').click_link('View')
+    expect(find('.row-csv_filename')).to be_truthy
+  end
+
+  def click_download
+    find('#titlebar_right').click_link('Download')
+    download_content
+  end
+
+  def verify_download
+    expect(downloads.any?).to be_truthy
+    clear_downloads
+  end
+end
