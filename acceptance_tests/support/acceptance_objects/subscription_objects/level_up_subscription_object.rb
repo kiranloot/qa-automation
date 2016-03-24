@@ -10,7 +10,7 @@ class LevelUpSubscription < Subscription
   def set_name
     case product
     when 'accessory'
-      @recurly_name = "LC - LU - Accessory - 3 month"
+      @recurly_name = "LC - LU - Accessory - #{@months} month"
       @name = "Level Up Accessories #{@months} Month"
     when 'level-up-bundle-tshirt-accessories'
       @recurly_name = "LC - LU - Bundle (socks + wearables) - #{@months} month"
@@ -22,7 +22,7 @@ class LevelUpSubscription < Subscription
       @recurly_name = "LC - LU - T-Shirt - #{@months} month"
       @name = "Level Up T-Shirt #{@months} Month"
     when 'wearable'
-      @recurly_name = "LC - LU - Wearable - 3 month"
+      @recurly_name = "LC - LU - Wearable - #{@months} month"
       @name = "Level Up Wearable #{@months} Month"
     when 'level-up-bundle-socks-wearable'
       @recurly_name = "LC - LU - Bundle (socks + wearables) - #{@months} month"
