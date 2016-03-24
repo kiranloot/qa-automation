@@ -49,6 +49,10 @@ class StepList
     ["create a level up one month wearable subscription"]
   end
 
+  def level_up_tshirt_one_month
+    ["create a level up one month level-up-tshirt subscription"]
+  end
+
   def promo
     ["the user visits the admin page",
     "logs in as an admin",

@@ -27,8 +27,8 @@ Feature: Subscription Upgrades
         And  the recurly rebill date should be 2 months ahead
 
     @ready
-    Scenario: Registered user upgrades an existing gaming subscription
-        Given a registered user with a wearable one month subscription
+    Scenario: Registered user upgrades an existing level up t-shirt subscription
+        Given a registered user with a level-up-tshirt one month subscription
         And   the user notes the recurly rebill date
             When the user logs in
             And  the user visits the my account page

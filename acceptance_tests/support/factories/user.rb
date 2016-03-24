@@ -72,6 +72,9 @@ FactoryGirl.define do
     trait :wearable_one_month do
       registered_with_active
     end
+    trait :level_up_tshirt_one_month do
+      registered_with_active
+    end
     trait :interational do
       first_name {"INTL" + first_name}
       email {"intl" + email}

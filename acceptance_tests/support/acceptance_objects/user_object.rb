@@ -237,7 +237,7 @@ class User
    @test.visit_page(:my_account)
    click_link("Subscriptions")
    click_link("Upgrade")
-   select(upgrade_plan_target.upgrade_string, :from => @test.test_data['locators']['upgrade_select'])
+   select(upgrade_plan_target.upgrade_string, :from => 'upgrade_plan_name')
    click_button("SUBMIT")
    wait_for_ajax
    @subscription_name = upgrade_plan_target.name

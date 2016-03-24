@@ -19,7 +19,7 @@ class LevelUpSubscription < Subscription
       @recurly_name = "LC - LU - Socks - #{@months} month"
       @name = "Level Up Socks #{@months} Month"
     when 'level-up-tshirt'
-      @recurly_name = "LC - LU - Socks - #{@months} month"
+      @recurly_name = "LC - LU - T-Shirt - #{@months} month"
       @name = "Level Up T-Shirt #{@months} Month"
     when 'wearable'
       @recurly_name = "LC - LU - Wearable - 3 month"
