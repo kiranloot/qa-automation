@@ -54,17 +54,21 @@ pages = {
 Before do
   Capybara.default_max_wait_time = 15
   Capybara.use_default_driver
-  unless ENV['DRIVER'] == 'appium'
+  unless ENV['DRIVER'] == 'appium' || 'appium-ios-app'
     page.driver.browser.manage.window.move_to(0, 0)
     page.driver.browser.manage.window.resize_to(1800, 1100)
   end
-  visit $env_base_url
   $test = Test.new( test_data, price_estimate_test_data, HomePage.new, pages, DBCon.new, box, MailinatorAPI.new)
   $test.user = User.new($test)
   $test.admin_user = FactoryGirl.build(:user, :admin)
   #If US flag isn't showing, set it to US
-  if(!$test.user.is_country_us?)
-    $test.user.set_ship_to_country("United States")
+  unless ENV['DRIVER'] == 'appium-ios-app'
+    visit $env_base_url
+    if(!$test.user.is_country_us?)
+      $test.user.set_ship_to_country("United States")
+    end
+  else
+    $test.current_page = MobileAppLoginPage.new
   end
 end
 
