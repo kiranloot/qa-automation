@@ -148,11 +148,11 @@ When /clicks on the Shipping Manifest CSV List button/ do
 end
 
 When /verifies that the top entry's aasm state is 'completed_successfully'/ do
-  5.times do
+  6.times do
     if $test.current_page.aasm_completed?
       break
     else
-      sleep(1)
+      sleep(5)
       page.driver.browser.navigate.refresh
     end
   end
