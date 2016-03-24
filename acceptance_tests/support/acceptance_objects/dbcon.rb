@@ -97,7 +97,12 @@ end
 
 def generate_theme_months
   theme_months = []
-  t = (DateTime.now << 1).to_time
+  now = DateTime.now
+  if now.strftime("%-d").to_i < 20
+    t = (now << 1).to_time
+  else
+    t = now.to_time
+  end
   theme_months << t.strftime("%^b%Y")
   3.times do
     t = (t.to_datetime >> 1).to_time 
