@@ -5,7 +5,7 @@ module WaitForAjax
       sleep(1)
     end
     Timeout.timeout(Capybara.default_max_wait_time) do
-      loop until page.driver.evaluate_script('jQuery.active === 0')
+      loop until page.driver.evaluate_script("!(typeof jQuery === 'undefined') || jQuery.active === 0")
     end
   end
 
