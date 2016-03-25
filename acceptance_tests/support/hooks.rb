@@ -54,7 +54,7 @@ pages = {
 Before do
   Capybara.default_max_wait_time = 15
   Capybara.use_default_driver
-  unless ENV['DRIVER'] == 'appium' || 'appium-ios-app'
+  unless ENV['DRIVER'] == 'appium' || ENV['DRIVER'] == 'appium-ios-app'
     page.driver.browser.manage.window.move_to(0, 0)
     page.driver.browser.manage.window.resize_to(1800, 1100)
   end
