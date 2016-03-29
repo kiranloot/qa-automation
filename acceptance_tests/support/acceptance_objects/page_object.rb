@@ -137,7 +137,7 @@ Page
         "var lca_user = {};",
         "var lca = LC_Analytics(lca_user);",
         "lca.anonIdCookie();",
-        "lca.trackInitialPlan();",
+        #"lca.trackInitialPlan();",
         "lca.activeSubsCookie();",
         "lca.alias();",
         "lca.identify();"
