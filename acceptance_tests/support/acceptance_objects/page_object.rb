@@ -165,7 +165,7 @@ Page
       "planName: '1-month-subscription',",
       "planCountry: 'US',",
       "planPrice: 19.95,",
-      "initialPlan: LC_Analytics().getInitialPlan(),",
+      #"initialPlan: LC_Analytics().getInitialPlan(),",
       "shippingCountry: 'US',",
       "productName: 'Core Crate',",
       "paymentMethod: 'credit card',",
