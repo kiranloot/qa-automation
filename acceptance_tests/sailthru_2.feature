@@ -9,7 +9,7 @@ Feature: Sailthru Integration
             And the user submits valid subscription information
         Then the user's email should have a Level Up subscription status of active in sailthru
 
-    @ready
+    @tofix
     Scenario: Verify sailthru creation via newsletter modal
     	Given an unregistered user
         And the user's email does not exist in sailthru
