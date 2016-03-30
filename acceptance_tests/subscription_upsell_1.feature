@@ -1,6 +1,6 @@
 @regression @core @subscription_creation @selenium
 Feature: Subscription Creation
-    @ready
+    @ignore
     Scenario Outline: Registered user upsold to longer subscription
         Given a registered user with no prior subscription
             When the user logs in

@@ -137,7 +137,7 @@ Page
         "var lca_user = {};",
         "var lca = LC_Analytics(lca_user);",
         "lca.anonIdCookie();",
-        "lca.trackInitialPlan();",
+        #"lca.trackInitialPlan();",
         "lca.activeSubsCookie();",
         "lca.alias();",
         "lca.identify();"
@@ -165,7 +165,7 @@ Page
       "planName: '1-month-subscription',",
       "planCountry: 'US',",
       "planPrice: 19.95,",
-      "initialPlan: LC_Analytics().getInitialPlan(),",
+      #"initialPlan: LC_Analytics().getInitialPlan(),",
       "shippingCountry: 'US',",
       "productName: 'Core Crate',",
       "paymentMethod: 'credit card',",
