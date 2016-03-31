@@ -1,9 +1,37 @@
 #only run if all_rerun.txt exists?
 #only run if there are no more than x failures
-threads = 8
-tmp_dir = "tmp/reruns/"
-site = "qa3"
-rerun_file = "all_rerun.txt"
+
+args = ARGV if ARGV
+
+def SITE(s)
+  @SITE = s
+end
+
+def TEMP_DIR(t)
+  @TEMP_DIR = t
+end
+
+def n(n)
+  @n = n
+end
+
+@TEMP_DIR = "tmp/reruns/"
+@SITE ||= "qa"
+@n ||= "5"
+@RERUN_FILE ||= "all_rerun.txt"
+
+if args
+  args.each do |arg|
+    m = arg[/[^=]+/]
+    p = arg.partition('=').last
+    send("#{m}", p)
+ end
+end
+
+threads = @n
+tmp_dir = @TEMP_DIR
+site = @SITE
+rerun_file = @RERUN_FILE
 output = `cucumber SITE=qa @#{rerun_file} SERVER_CONFIGS=${HOME}/server_configs.yml --dry-run`
 
 system "rm #{tmp_dir}rerun_*.feature"
