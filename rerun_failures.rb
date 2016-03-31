@@ -11,7 +11,7 @@ current_file = "rerun_#{iterator}.feature"
 
 lines.each do |line|
   line = line.gsub(/#.*/,"")
-  if line =~ /@/ 
+  if line =~ /@/ || line =~ /scenarios/ 
     #do nothing
   elsif line =~ /Feature:/ && write_flag == false
     write_flag = true
@@ -19,9 +19,11 @@ lines.each do |line|
       f.write(line + "\n")
     end
   elsif line =~ /Feature:/ && write_flag == true
-    write_flag = false
     iterator += 1
     current_file = "rerun_#{iterator}.feature"
+    File.open("tmp/reruns/#{current_file}","w") do |f|
+      f.write(line + "\n")
+    end
   elsif write_flag == true
     File.open("tmp/reruns/#{current_file}","a") do |f|
       f.write(line + "\n")
