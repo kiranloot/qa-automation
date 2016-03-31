@@ -34,6 +34,7 @@ site = @SITE
 rerun_file = @RERUN_FILE
 output = `cucumber SITE=qa @#{rerun_file} SERVER_CONFIGS=${HOME}/server_configs.yml --dry-run`
 
+system "mkdir #{tmp_dir}"
 system "rm #{tmp_dir}rerun_*.feature"
 
 lines = output.split("\n")
