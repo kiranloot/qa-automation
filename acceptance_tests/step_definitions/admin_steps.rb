@@ -34,7 +34,7 @@ Given(/^the system has (.*) pin codes for last month$/) do |product|
   $test.current_page.fill_in_redeption_url('www.google.com')
   $test.current_page.upload_file('./test-pin-short.csv')
   $test.current_page.click_commit
-  step "logs out of admin"
+  #step "logs out of admin"
 end
 
 #WHENS
