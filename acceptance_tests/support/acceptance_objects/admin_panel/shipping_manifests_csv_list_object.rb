@@ -7,7 +7,7 @@ class AdminShippingManifestCSVListPage < AdminPage
   end
 
   def aasm_completed?
-    first('.col-aasm_state', :maximum => 10).text == 'completd_successfully'
+    first('td.col-aasm_state').text == 'completed_successfully'
   end
 
   def click_first_view_link
