@@ -56,7 +56,8 @@ include WaitForAjax
 
   def scroll_to(product)
     # first(".banner-content").click_link("LEVEL UP")
-    find('#opt-cta').click
+    find('#show-luhiw-video-test').click
+    # find('#opt-cta').click
     sleep(2)
     # case product
     # when 'socks'
