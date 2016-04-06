@@ -71,7 +71,6 @@ include Capybara::DSL
 
   def select_shipping_state(state)
     find("span.select2-selection[aria-labelledby='select2-checkout_shipping_address_state-container']").click
-    wait_for_ajax
     find(".select2-results__option", :text => state).click
   end
 
