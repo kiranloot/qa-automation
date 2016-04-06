@@ -43,6 +43,12 @@ include WaitForAjax
     }
   end
 
+  def wait_for_preview_to_update(text)
+    within_frame('alchemy_preview_window'){
+      page.has_content?(text)
+    }
+  end
+
   def click_save
     click_button("Save")
     wait_for_ajax

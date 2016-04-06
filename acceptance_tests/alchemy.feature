@@ -1,6 +1,6 @@
 @regression @core @alchemy @selenium
 Feature: Alchemy CMS
-    @tofix @alchemy_text
+    @ready @alchemy_text
     Scenario: Check an alchemy text publish
         Given an alchemy user
             When the user visits the alchemy page
