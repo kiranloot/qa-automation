@@ -12,9 +12,11 @@ german subscription confirmation:
 upgrade:
  subject_lines:
   - 'Subscription Upgraded'
+  - 'Subion Upgraded'
 skip:
  subject_lines:
  - 'Subscription Skipped'
+ - 'Subion Skipped'
 level up:
  subject_lines:
  - 'Level Up Purchase Confirmation'

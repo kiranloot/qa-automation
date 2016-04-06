@@ -79,6 +79,9 @@ FactoryGirl.define do
       first_name {"INTL" + first_name}
       email {"intl" + email}
     end
+    trait :international_one_month do
+      email {"_intlonemonth_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+    end
     trait :california do
       first_name "California"
       last_name {Date.today.strftime("%b") + Date.today.day.to_s}

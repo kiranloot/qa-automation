@@ -65,7 +65,13 @@ class RecurlyAPI
       end
     #do if this is any other sub
     else
-      newPlan = $test.user.subscription.recurly_name
+      country_code = $test.user.country_code
+      if country_code == "US"
+        newPlan = $test.user.subscription.recurly_name
+      else
+        country_code[1] = country_code[1].downcase
+        newPlan = country_code + " " + $test.user.subscription.recurly_name
+      end
     end
     expect(account.subscriptions.first.pending_subscription.plan.name).to eq(newPlan)
   end

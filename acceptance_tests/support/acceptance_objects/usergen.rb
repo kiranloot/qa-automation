@@ -107,6 +107,10 @@ class UserGen
     :registered_with_active_and_tracking
   end
 
+  def an_international_one_month_subscription
+    :international_one_month
+  end
+
   def simple_registered
     FactoryGirl.build(:user, :registered)
   end

@@ -33,6 +33,10 @@ class StepList
     ["create a one month subscription"]
   end
 
+  def international_one_month
+    ["create an international one month Loot Crate subscription with a France address"]
+  end
+
   def anime_one_month
     ["create a one month Anime subscription"]
   end

@@ -48,8 +48,13 @@ Then(/^the recurly billing address should have the correct state$/) do
   $test.recurly.verify_billing_address_has_state($test.user.recurly_billing_state_code)
 end
 
-Then(/^the recurly account's last transaction should have tax calculated$/) do
-  expect($test.recurly.get_last_invoice_for_account.tax_in_cents).to be_truthy
+Then(/^the recurly account's last transaction (should|shouldn't) have tax calculated$/) do |action|
+  if action == "should"
+    expect($test.recurly.get_last_invoice_for_account.tax_in_cents).to be_truthy
+    expect($test.recurly.get_last_invoice_for_account.tax_in_cents).not_to eq(0)
+  elsif action == "shouldn't"
+    expect($test.recurly.get_last_invoice_for_account.tax_in_cents).to eq(0)
+  end
 end
 
 Then(/^the recurly subscription should have the correct rebill date$/)do
