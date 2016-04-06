@@ -15,6 +15,7 @@ end
 
 When(/^the user saves the alchemy page$/) do
   $test.current_page.click_save
+  $test.current_page.wait_for_preview_to_update(@alchemy_rand_string)
 end
 
 When(/^the user publishes the alchemy page$/) do
