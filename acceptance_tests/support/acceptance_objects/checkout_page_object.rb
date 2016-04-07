@@ -207,11 +207,25 @@ include Capybara::DSL
       select_billing_state(user.billing_address.state)
     end
 
+    if intl_captcha?
+      click_captcha
+    end
+
     click_legal_checkbox
     click_subscribe
     unless type == 'invalid'
       verify_confirmation_page
     end
+  end
+
+  def intl_captcha?
+      ["MX","CL","CO"].include? $test.user.country_code
+  end
+
+  def click_captcha
+    within_frame("undefined"){
+      find("div.rc-anchor-content").click
+    }
   end
 
   def submit_credit_card_information_only(user, type)
