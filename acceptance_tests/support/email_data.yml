@@ -5,6 +5,7 @@ subscription confirmation:
 subscription cancellation:
  subject_lines:
  - 'Your subscription has been cancelled'
+ - 'Your subion has been cancelled'
 german subscription confirmation:
   subject_lines:
   - 'Herzlich willkommen bei Loot Crate!'
@@ -39,6 +40,7 @@ pets cancellation:
 unskip:
  subject_lines:
  - 'Subscription Unskipped'
+ - 'Subion Unskipped'
 firefly confirmation:
  subject_lines:
  - 'Firefly® Cargo Crate Order Confirmation'
