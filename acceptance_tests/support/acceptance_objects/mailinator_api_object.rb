@@ -18,17 +18,16 @@ class MailinatorAPI
     return subjects
   end
 
-  def download_first_email(email_address)
-    inbox = Mailinator::Inbox.get(email_address)
+  def download_first_email(email_address, attempts = 10)
     message = nil
-    5.times do
-      message = inbox.messages.first
+    attempts.times do
+      message = Mailinator::Inbox.get(email_address).messages.first
       unless message.nil?
         break
       end
       sleep(1)
     end
-    return Capybara::Node::Simple.new(message.download.body_html)
+    Capybara::Node::Simple.new(message.download.body_html)
   end
 
   def email_in_inbox?(email, expected_subjects)
