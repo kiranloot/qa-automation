@@ -152,7 +152,7 @@ include Capybara::DSL
     wait_for_ajax
     find("li.select2-results__option", :text => country).click
     wait_for_ajax
-    find(:xpath, "//img[contains(@src, '#{$test.user.country_code.downcase}_flag-')]")
+    $test.user.verify_country_flag
   end
 
   def select_billing_country(country)

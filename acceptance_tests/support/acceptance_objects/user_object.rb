@@ -250,7 +250,15 @@ class User
     return /assets\/flags\/us_flag/.match(first('.country-selector-lnk img')[:src])
   end
 
+  def verify_country_flag
+    find(:xpath, "//img[contains(@src, '#{@country_code.downcase}_flag-')]")
+  end
+
   def set_ship_to_country(country, top_bot: nil)
+    unless $test.user.country == country
+      $test.user.country_code = FactoryGirl.build(:user, country.tr(' ', '').downcase.to_sym).country_code
+      $test.user.country = country
+    end
     wait_for_ajax
     sleep(5)
     if ENV['DRIVER'] == 'appium'
@@ -265,6 +273,7 @@ class User
       sleep(5)
     end
     wait_for_ajax
+    verify_country_flag
   end
 
   def discount_applied?

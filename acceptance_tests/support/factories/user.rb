@@ -227,7 +227,7 @@ FactoryGirl.define do
       country_code "CA"
       recurly_billing_state_code "ON"
     end
-    trait :czech do
+    trait :czechrepublic do
       first_name "Czech"
       last_name {Date.today.strftime("%b") + Date.today.day.to_s}
       ship_street "1234 Czech Test"
