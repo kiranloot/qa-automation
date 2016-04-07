@@ -78,7 +78,7 @@ class Test
  end
 #Move to parent page object
  def is_logged_in?
-   find(:css,'a.logo-link').click
+   find('#header-logo-lnk').click
    assert_text("MY ACCOUNT")
  end
 
@@ -97,7 +97,7 @@ class Test
  end
 
  def select_crate(crate)
-   find(:css,'a.logo-link').click
+   find('#header-logo-lnk').click
    wait_for_ajax
    if ENV['DRIVER'] == 'appium'
      @current_page.click_hamburger
