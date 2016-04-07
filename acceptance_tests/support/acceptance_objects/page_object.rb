@@ -40,7 +40,7 @@ Page
   end
 
   def click_logo
-    find(:css, "a.logo-link").click
+    find('#header-logo-lnk').click
   end
 
   def log_out
