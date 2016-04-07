@@ -70,7 +70,7 @@ include WaitForAjax
     # page.execute_script "window.scrollBy(0,#{scroll_val})"
     page.execute_script "window.scrollBy(0,10000)"
     expect(page).to have_css(".tips.cr-animate-gen.animated.fadeInUp")
-    find('.footer-bottom').click
+    #find('.footer-bottom').click
     page.execute_script "window.scrollBy(0,-10000)"
   end
 
