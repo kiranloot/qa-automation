@@ -55,22 +55,10 @@ include WaitForAjax
   end
 
   def scroll_to(product)
-    # first(".banner-content").click_link("LEVEL UP")
-    find('#show-luhiw-video-test').click
-    # find('#opt-cta').click
+    find('#lu_plans').click
     sleep(2)
-    # case product
-    # when 'socks'
-    #   scroll_val = 0
-    # when 'accessory'
-    #   scroll_val = 500
-    # when 'wearable'
-    #   scroll_val = 1000
-    # end
-    # page.execute_script "window.scrollBy(0,#{scroll_val})"
     page.execute_script "window.scrollBy(0,10000)"
     expect(page).to have_css(".tips.cr-animate-gen.animated.fadeInUp")
-    #find('.footer-bottom').click
     page.execute_script "window.scrollBy(0,-10000)"
   end
 
