@@ -59,6 +59,16 @@ When /create a (\w*) month (.*) subscription/ do |months,crate|
   step "the user logs out"
 end
 
+When /create an international (\w*) month (.*) subscription with a (.*) address/ do |months,crate,country|
+  step "a registered user with a #{country} address"
+  step "the user logs in"
+  step "the user selects the #{crate} crate"
+  step "the user sets their country to #{country}"
+  step "the user selects a #{months} month subscription plan"
+  step "the user submits valid subscription information"
+  step "the user logs out"
+end
+
 When /create a level up (\w*) month (.*) subscription/ do |months, product|
   step "the user logs in"
   step "the user selects the Level Up crate"
