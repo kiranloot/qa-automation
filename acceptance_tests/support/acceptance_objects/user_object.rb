@@ -251,7 +251,7 @@ class User
   end
 
   def verify_country_flag
-    find(:xpath, "//div[contains(@class, 'country-selector')]/*/img[contains(@src, '#{@country_code.downcase}_flag-')]")
+    find(:xpath, "//div[@class='super-nav']//div[contains(@class, 'country-selector')]//img[contains(@src, '#{@country_code.downcase}_flag-')]")
   end
 
   def set_ship_to_country(country, top_bot: nil)
