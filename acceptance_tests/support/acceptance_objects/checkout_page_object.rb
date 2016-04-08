@@ -71,7 +71,12 @@ include Capybara::DSL
 
   def select_shipping_state(state)
     find("span.select2-selection[aria-labelledby='select2-checkout_shipping_address_state-container']").click
-    find(".select2-results__option", :text => state).click
+    if find_all('.select2-results__option').any?
+      find('.select2-search__field').send_keys(state)
+      find("#select2-checkout_shipping_address_state-results .select2-results__option", :text => state).click
+    else
+      raise 'No states located in the state selection dropdown'
+    end
   end
 
   def enter_shipping_zip_code(zip)
