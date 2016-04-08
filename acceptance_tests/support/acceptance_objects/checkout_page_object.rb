@@ -18,6 +18,18 @@ include Capybara::DSL
     setup
   end
 
+  def verify_states_dropdown
+    continue = false
+    2.times do
+      if find_all('.select2-results__option').any?
+        continue = true
+        break
+      else
+
+      end
+    end
+  end
+
   def select_shirt_size(size)
     find("#select2-option_type_shirt-container").click
     wait_for_ajax
@@ -70,8 +82,17 @@ include Capybara::DSL
   end
 
   def select_shipping_state(state)
-    find("span.select2-selection[aria-labelledby='select2-checkout_shipping_address_state-container']").click
-    if find_all('.select2-results__option').any?
+    continue = false
+    2.times do
+      find("span.select2-selection[aria-labelledby='select2-checkout_shipping_address_state-container']").click
+      if find_all('.select2-results__option').any?
+        continue = true
+        break
+      else
+        page.driver.browser.navigate.refresh
+      end
+    end
+    if continue
       find('.select2-search__field').send_keys(state)
       find("#select2-checkout_shipping_address_state-results .select2-results__option", :text => state).click
     else
@@ -168,12 +189,12 @@ include Capybara::DSL
   end
 
   def submit_checkout_information(user, type, addbilling=false)
+    select_shipping_state(user.ship_state)
     select_shirt_size(user.shirt_size)
     #will only run on pets crate
     select_pet_shirt_size(user.pet_shirt_size)
     select_pet_collar_size(user.pet_collar_size)
     select_human_wearable_size(user.human_wearable_size)
-    select_shipping_state(user.ship_state)
     #will only run for firefly
     select_unisex_shirt_size(user.unisex_shirt_size)
     enter_first_name(user.first_name)
