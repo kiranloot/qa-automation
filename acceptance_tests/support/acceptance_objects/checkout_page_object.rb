@@ -81,9 +81,9 @@ include Capybara::DSL
     fill_in("checkout_shipping_address_city", :with => city)
   end
 
-  def select_shipping_state(state)
+  def select_shipping_state(state, refresh_count=2)
     continue = false
-    2.times do
+    refresh_count.times do
       find("span.select2-selection[aria-labelledby='select2-checkout_shipping_address_state-container']").click
       if find_all('.select2-results__option').any?
         continue = true
