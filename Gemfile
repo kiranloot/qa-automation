@@ -25,3 +25,4 @@ gem 'appium_capybara'
 gem 'poltergeist', require: false
 gem 'platform-api'
 gem 'recurly', '~> 2.4.2'
+gem 'heroku-api'

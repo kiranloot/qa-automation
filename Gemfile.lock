@@ -111,6 +111,9 @@ GEM
       moneta
       multi_json (>= 1.9.2)
       netrc
+    heroku-api (0.3.23)
+      excon (~> 0.44)
+      multi_json (~> 1.8)
     humanize (1.1.0)
     i18n (0.7.0)
     json (1.8.3)
@@ -237,6 +240,7 @@ DEPENDENCIES
   dotenv-rails
   factory_girl_rails (>= 4.1.0)
   faker
+  heroku-api
   humanize
   mailinator
   parallel_tests
@@ -251,4 +255,4 @@ DEPENDENCIES
   selenium-webdriver
 
 BUNDLED WITH
-   1.10.5
+   1.11.2
