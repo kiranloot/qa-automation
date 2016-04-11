@@ -237,7 +237,7 @@ include Capybara::DSL
 
   def click_captcha
     within_frame("undefined"){
-      find("div.rc-anchor-content").click
+      find("span.recaptcha-checkbox").click
     }
   end
 
