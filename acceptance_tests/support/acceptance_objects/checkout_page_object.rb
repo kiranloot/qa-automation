@@ -18,18 +18,6 @@ include Capybara::DSL
     setup
   end
 
-  def verify_states_dropdown
-    continue = false
-    2.times do
-      if find_all('.select2-results__option').any?
-        continue = true
-        break
-      else
-
-      end
-    end
-  end
-
   def select_shirt_size(size)
     find("#select2-option_type_shirt-container").click
     wait_for_ajax
