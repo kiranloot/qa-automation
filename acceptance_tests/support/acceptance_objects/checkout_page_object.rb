@@ -69,10 +69,23 @@ include Capybara::DSL
     fill_in("checkout_shipping_address_city", :with => city)
   end
 
-  def select_shipping_state(state)
-    find("span.select2-selection[aria-labelledby='select2-checkout_shipping_address_state-container']").click
-    wait_for_ajax
-    find(".select2-results__option", :text => state).click
+  def select_shipping_state(state, refresh_count=2)
+    continue = false
+    refresh_count.times do
+      find("span.select2-selection[aria-labelledby='select2-checkout_shipping_address_state-container']").click
+      if find_all('.select2-results__option').any?
+        continue = true
+        break
+      else
+        page.driver.browser.navigate.refresh
+      end
+    end
+    if continue
+      find('.select2-search__field').send_keys(state)
+      find("#select2-checkout_shipping_address_state-results .select2-results__option", :text => state).click
+    else
+      raise 'No states located in the state selection dropdown'
+    end
   end
 
   def enter_shipping_zip_code(zip)
@@ -153,7 +166,7 @@ include Capybara::DSL
     wait_for_ajax
     find("li.select2-results__option", :text => country).click
     wait_for_ajax
-    find(:xpath, "//img[contains(@src, '#{$test.user.country_code.downcase}_flag-')]")
+    $test.user.verify_country_flag
   end
 
   def select_billing_country(country)
@@ -164,6 +177,7 @@ include Capybara::DSL
   end
 
   def submit_checkout_information(user, type, addbilling=false)
+    select_shipping_state(user.ship_state)
     select_shirt_size(user.shirt_size)
     #will only run on pets crate
     select_pet_shirt_size(user.pet_shirt_size)
@@ -175,7 +189,6 @@ include Capybara::DSL
     enter_last_name(user.last_name)
     enter_shipping_address_line_1(user.ship_street)
     enter_shipping_city(user.ship_city)
-    select_shipping_state(user.ship_state)
     enter_shipping_zip_code(user.ship_zip)
     enter_name_on_card(user.full_name)
     if type == 'invalid'

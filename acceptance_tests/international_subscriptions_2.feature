@@ -28,7 +28,7 @@ Feature: International Subscriptions
 
     @ready
     Scenario: Czech Republic user signs up for random month subscription
-      Given a registered user with a Czech address
+      Given a registered user with a Czech Republic address
         When the user logs in
         And the user selects the Loot Crate crate
         And the user sets their country to Czech Republic
@@ -37,4 +37,4 @@ Feature: International Subscriptions
       Then the new subscription should be added to the user account
       And recurly should have a matching international subscription
       And the recurly billing address should have no state
-      And the user should receive a subscription confirmation email 
+      And the user should receive a subscription confirmation email

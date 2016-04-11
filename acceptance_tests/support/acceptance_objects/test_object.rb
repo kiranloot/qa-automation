@@ -129,7 +129,7 @@ class Test
      find("#header-cod-lnk").click
      $test.current_page = CallofdutyLandingPage.new
    when "DX"
-     find("#header-lcdx-lnk").click  
+     find("#header-lcdx-lnk").click
      $test.current_page = DXLandingPage.new
    end
    $test.user.crate_type = crate
