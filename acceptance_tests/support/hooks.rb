@@ -10,8 +10,6 @@ Dir["acceptance_objects/*"].each do |file|
   require file
 end
 
-include HerokuManager
-
 ENV['ASPECTOR_LOG_LEVEL'] = 'NONE'
 
 env = ENV['SITE']
@@ -54,7 +52,6 @@ pages = {
 }
 
 Before do
-  HerokuManager.scale_web_dynos(ENV['WEB_DYNOS'].to_i)
   Capybara.default_max_wait_time = 15
   Capybara.use_default_driver
   unless ENV['DRIVER'] == 'appium' || ENV['DRIVER'] == 'appium-ios-app'
@@ -81,7 +78,6 @@ end
 
 After do
   $test.db.finish
-  HerokuManager.scale_web_dynos(1)
   #unless ENV['DRIVER'] == 'appium'
   #  reset_session!
   #end
