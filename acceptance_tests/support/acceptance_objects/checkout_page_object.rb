@@ -237,7 +237,7 @@ include Capybara::DSL
 
   def click_captcha
     within_frame("undefined"){
-      find("div.rc-anchor-content").click
+      find("span.recaptcha-checkbox").click
     }
   end
 
@@ -254,6 +254,13 @@ include Capybara::DSL
     click_legal_checkbox
     click_subscribe
     verify_confirmation_page
+  end
+
+  def credit_card_fields_gone?
+    expect(page).not_to have_selector("#checkout_credit_card_number")
+    expect(page).not_to have_selector("#checkout_credit_card_cvv")
+    expect(page).not_to have_selector("#select2-checkout_credit_card_expiration_date_2i-container")
+    expect(page).not_to have_selector("#select2-checkout_credit_card_expiration_date_1i-container")
   end
 
   def discount_applied?

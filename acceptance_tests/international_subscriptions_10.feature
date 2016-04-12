@@ -13,7 +13,7 @@ Feature: International Subscriptions
         And the recurly billing address should have no state
         And the user should receive a subscription confirmation email
 
-    @ready
+    @ready @captcha
     Scenario: Chile user signs up for random month subscription
         Given a registered user with a Chile address
             When the user logs in
@@ -26,7 +26,7 @@ Feature: International Subscriptions
         And the recurly billing address should have no state
         And the user should receive a subscription confirmation email
 
-    @ready
+    @ready @captcha
     Scenario: Colombia user signs up for random month subscription
         Given a registered user with a Colombia address
             When the user logs in

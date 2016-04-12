@@ -270,3 +270,8 @@ end
 Then /^the landing page should reflect the sellout$/ do
   assert_text("SOLD OUT!")
 end
+
+Then /^the user should not see the credit card information fields$/ do
+  $test.current_page.credit_card_fields_gone?
+end
+
