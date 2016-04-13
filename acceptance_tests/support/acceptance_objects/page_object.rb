@@ -186,17 +186,16 @@ Page
       expect(html).to include(line), "Did not find conversion tracking line:'#{line}' in the html."
     end
   end
-    #Jose trailing slash automation
+  #Jose trailing slash automation
+  def home_page_nav_append_slash
+    @trail_url = @base_url + "/"
+    visit(@trail_url)
+  end
 
-	def append_slash
-		@trail_url = @base_url + "/"
-		visit(@trail_url)
-	end
-	
-	def redirect_no_trailing_slash?
-		wait_for_ajax()
-		expect(page.current_url).to eq(@base_url)
-	end
+  def redirect_no_trailing_slash?
+    wait_for_ajax()
+    expect(page.current_url).to eq(@base_url)
+  end
 end
 
 
