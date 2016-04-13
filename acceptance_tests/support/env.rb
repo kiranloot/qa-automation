@@ -1,22 +1,34 @@
 require 'selenium-webdriver'
 require 'capybara/cucumber'
 require 'parallel_tests'
-require 'rspec/expectations'
 require 'time'
-require_relative 'acceptance_objects/dbcon'
 require_relative 'acceptance_objects/qa_env_validator'
 
 ENV['RUN_TIMESTAMP'] = Time.now().utc.to_s
 ENV['SITE'] ||= 'qa'
 ENV['SERVER_CONFIGS'] ||= "#{ENV['HOME']}/server_configs.yml"
 ENV['PROD_CONFIGS'] ||= "#{ENV['HOME']}/prod_configs.yml"
+ENV['CACHE_CLEAR'] ||= 'yes'
 
 driver = ENV['DRIVER'] ||= 'local'
 browser = ENV['BROWSER'] ||= 'chrome'
 
-conn = DBCon.new
-ParallelTests.first_process? ? conn.setup_qa_database : sleep(1)
-conn.finish
+if ParallelTests.first_process?
+  require_relative 'acceptance_objects/dbcon'
+  conn = DBCon.new
+  conn.setup_qa_database
+  conn.finish
+
+  if ENV['CACHE_CLEAR'] == 'yes'
+    require_relative 'acceptance_objects/memcachier_object'
+    HerokuAPI.new.clear_rails_cache
+    puts 'Rails cache flushed.'
+
+    memcache = Memcachier.new
+    memcache.flush
+    puts 'Memcachier cache flushed.'
+  end
+end
 
 #Verification that config vars on the test environment don't point to prod
 QAEnvironmentValidator.verify
