@@ -1,5 +1,6 @@
 require 'net/http'
 require 'platform-api'
+require_relative 'box_object'
 
 class HerokuAPI
   require 'yaml'
