@@ -28,6 +28,10 @@ class HerokuAPI
     parse_dyno_log_for_email(dyno)
   end
 
+  def clear_rails_cache
+    run_command("rake tmp:clear")
+  end
+
   def run_command(command)
     @heroku.dyno.create(@app, {"command" => command, "attach" => "false"})
   end

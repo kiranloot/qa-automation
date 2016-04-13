@@ -86,6 +86,7 @@ GEM
       nokogiri (~> 1.5)
       railties (>= 3, < 5)
     cucumber-wire (0.0.1)
+    dalli (2.7.4)
     debugger-linecache (1.2.0)
     diff-lcs (1.2.5)
     dotenv (1.0.2)
@@ -234,6 +235,7 @@ DEPENDENCIES
   capybara (>= 1.1.2)
   capybara-console
   cucumber-rails
+  dalli
   dotenv-rails
   factory_girl_rails (>= 4.1.0)
   faker
