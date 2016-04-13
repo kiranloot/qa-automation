@@ -1,6 +1,6 @@
 @core @regression @selenium 
 Feature: Trailing slash existence in URL
-  @jose
+  @ready
   Scenario: User enters a trailing slash in the current URL
     Given an unregistered user 
         When the user visits the home page
