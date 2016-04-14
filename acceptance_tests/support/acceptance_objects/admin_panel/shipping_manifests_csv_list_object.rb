@@ -16,12 +16,16 @@ class AdminShippingManifestCSVListPage < AdminPage
   end
 
   def click_download
-    find('#titlebar_right').click_link('Download')
-    download_content
+    unless ENV['DRIVER'] == 'remote'
+      find('#titlebar_right').click_link('Download')
+      download_content
+    end
   end
 
   def verify_download
-    expect(downloads.any?).to be_truthy
-    clear_downloads
+    unless ENV['DRIVER'] == 'remote'
+      expect(downloads.any?).to be_truthy
+      clear_downloads
+    end
   end
 end
