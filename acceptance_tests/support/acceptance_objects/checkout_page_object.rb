@@ -177,9 +177,7 @@ include Capybara::DSL
   end
 
   def submit_checkout_information(user, type, addbilling=false)
-    if intl_captcha?
-      click_captcha
-    end
+    click_captcha if intl_captcha?
     select_shipping_state(user.ship_state)
     select_shirt_size(user.shirt_size)
     #will only run on pets crate
