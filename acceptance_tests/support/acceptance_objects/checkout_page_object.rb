@@ -134,14 +134,17 @@ include Capybara::DSL
 
   def click_coupon_checkbox
     find("div.coupon-field-show-checkbox").click
+    wait_for_ajax
   end
 
   def enter_coupon_code(code)
     fill_in("checkout_coupon_code", :with => code)
+    wait_for_ajax
   end
 
   def validate_coupon_code
     find("#validate-coupon").click
+    wait_for_ajax
   end
 
   def click_subscribe
@@ -196,19 +199,18 @@ include Capybara::DSL
     else
       enter_credit_card_number(user.cc)
     end
-    unless user.promo.nil?
-      click_coupon_checkbox
-      enter_coupon_code(user.promo.coupon_code)
-      validate_coupon_code
-      @discount_applied = page.has_content?("Valid coupon: save $")
-    end
     if @zip_tax_hash.keys.include? $test.user.ship_zip
       @tax_displayed = page.has_content? @zip_tax_hash[$test.user.ship_zip]
     end
     enter_cvv(user.cvv)
     select_cc_exp_month(user.cc_exp_month)
     select_cc_exp_year(user.cc_exp_year)
-
+    unless user.promo.nil?
+      click_coupon_checkbox
+      enter_coupon_code(user.promo.coupon_code)
+      validate_coupon_code
+      @discount_applied = page.has_content?("Valid coupon: save -$")
+    end
     if addbilling
       click_use_shipping_address_checkbox
       unless find("div.checkout_billing_address_country .select2-selection__rendered").text == user.country
