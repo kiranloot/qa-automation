@@ -29,6 +29,14 @@ class Subscription
     else
       @recurly_name = @name
     end
+
+    year_check(@name)
+  end
+
+  def year_check(name)
+    if (@months == '12') && (name.match(/(Anime|Gaming|Pets)/))
+      name.gsub!(/12 Month/, '1 Year')
+    end
   end
 
   def upgrade_string

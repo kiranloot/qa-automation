@@ -40,6 +40,10 @@ FactoryGirl.define do
       name {"Lcdx #{months} Month Subscription"}
       recurly_name {name}
     end
+
+    trait :year do
+      name {name.gsub(/12 Month/, '1 Year')}
+    end
   end
 
   factory :levelupsubscription, class:LevelUpSubscription do
