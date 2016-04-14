@@ -200,7 +200,7 @@ include Capybara::DSL
       click_coupon_checkbox
       enter_coupon_code(user.promo.coupon_code)
       validate_coupon_code
-      @discount_applied = page.has_content?("Valid coupon: save $")
+      @discount_applied = page.has_content?("Valid coupon: save -$")
     end
     if @zip_tax_hash.keys.include? $test.user.ship_zip
       @tax_displayed = page.has_content? @zip_tax_hash[$test.user.ship_zip]
