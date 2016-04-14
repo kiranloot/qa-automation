@@ -174,8 +174,6 @@ class LevelUpSubscribePage < SubscribePage
     first("##{div_id}").find_link("level up").click
     wait_for_ajax
     plan = months + product
-    update_target_plan(plan)
-    update_recurly_plan(plan)
     load_checkout_page_object
   end
 

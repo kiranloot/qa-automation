@@ -87,7 +87,7 @@ class AdminSubscriptionsPage < AdminPage
     na_month = next_assessment[5..6]
     na_date = next_assessment[8..9]
     find(:id, 'subscription_next_assessment_at').click
-    cur_date = find(:css, 'a.ui-state-active').text 
+    cur_date = find(:css, 'a.ui-state-active').text
     cur_date.to_i > 27 ? new_na_date = 1 : new_na_date = (cur_date.to_i + 1)
     find_link(new_na_date.to_s).click
     new_na_date < 10 ? new_na_date = "0" + new_na_date.to_s : new_na_date = new_na_date.to_s
@@ -110,7 +110,7 @@ class AdminSubscriptionsPage < AdminPage
     #$test.set_subject_user
     assert_text($test.user.email)
     assert_text($test.user.shirt_size)
-    assert_text($test.user.subscription_name.downcase)
+    assert_text($test.user.subscription.plan_title.downcase)
     assert_text($test.user.ship_zip)
     assert_text($test.user.ship_city)
     assert_text($test.user.ship_street)

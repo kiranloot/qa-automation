@@ -1,13 +1,13 @@
 require_relative 'subscription_object'
 
 class LevelUpSubscription < Subscription
-  attr_accessor :name, :months, :product, :shirt_size, :waist_size, :recurly_name
+  attr_accessor :name, :months, :product, :shirt_size, :waist_size, :recurly_name, :plan_title
 
-  def initialize(months, product=nil)
+  def initialize(months='one', product=nil)
     super
   end
 
-  def set_name
+  def set_name(months)
     case product
     when /(accessory|for her)/
       @recurly_name = "LC - LU - Accessory - #{@months} month"

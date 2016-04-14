@@ -10,10 +10,10 @@ include Capybara::DSL
     @tax_displayed = nil
     @zip_tax_hash = YAML.load(File.open("acceptance_tests/support/tax_amounts.yml"))
     @plans = {
-      'one' => '1 Month',
-      'three' => '3 Month',
-      'six' => '6 Month',
-      'twelve' => '12 Month'
+      'one' => '1',
+      'three' => '3',
+      'six' => '6',
+      'twelve' => '12'
     }
     setup
   end
@@ -45,7 +45,8 @@ include Capybara::DSL
     wait_for_ajax
     find("li.select2-results__option", :text => @plans[plan]).click
     wait_for_ajax
-    $test.user.subscription_name = "#{@plans[plan]} Plan Subscription"
+    $test.user.subscription.months = @plans[plan]
+    $test.user.set_name
   end
 
 

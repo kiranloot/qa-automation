@@ -346,7 +346,19 @@ def get_plan_title(h, sub_id)
       h["plan_name"] = row["title"]
     end
   end
+end
 
+def get_product(sub_id)
+  q = """
+  SELECT pr.name product_name,
+         pr.brand
+  FROM products pr
+  JOIN plans p ON pr.id = p.product_id
+  JOIN subscriptions s ON p.id = s.plan_id
+  WHERE s.id = #{sub_id}
+  """
+  result = @conn.exec(q)
+  result[0]
 end
 
 def shirt_size_query(sub_id)
@@ -487,51 +499,60 @@ def one_active_query(timestamp, crate_type = 'Core Crate')
 t = timestamp
 q = """
 with actives AS(
-select u.email as email, s.user_id, s.subscription_status as status,
-s.cancel_at_end_of_period as eop, s.id as subs,
-s.next_assessment_at as rebill,
-sa.flagged_invalid_at as flagged,
-sa.state as shipping_state,
-sa.zip as shipping_zip,
-ba.state as billing_state,
-ba.zip as billing_zip,
-p.id as plan_id,
-ssm.month_year as skipped_month
-from users u
-inner join subscriptions s
-on s.user_id = u.id
-inner join addresses sa
-on s.shipping_address_id = sa.id
-inner join addresses ba
-on s.billing_address_id = ba.id
-inner join plans p
-on s.plan_id = p.id
-left outer join subscription_skipped_months ssm
-on s.id = ssm.subscription_id
-where s.created_at < '#{t}'
-and s.updated_at < '#{t}'
-and email like '\\_%@mailinator.com'
-and email not like '_updated%'
+SELECT u.email as email,
+       s.user_id,
+       s.subscription_status as status,
+       s.cancel_at_end_of_period as eop,
+       s.id as subs,
+       s.next_assessment_at as rebill,
+       sa.flagged_invalid_at as flagged,
+       sa.state as shipping_state,
+       sa.zip as shipping_zip,
+       ba.state as billing_state,
+       ba.zip as billing_zip,
+       p.id as plan_id,
+       ssm.month_year as skipped_month
+FROM users u
+INNER JOIN subscriptions s on s.user_id = u.id
+INNER JOIN addresses sa on s.shipping_address_id = sa.id
+INNER JOIN addresses ba on s.billing_address_id = ba.id
+INNER JOIN plans p on s.plan_id = p.id
+LEFT OUTER JOIN subscription_skipped_months ssm on s.id = ssm.subscription_id
+WHERE s.created_at < '#{t}'
+AND   s.updated_at < '#{t}'
+AND   email like '\\_%@mailinator.com'
+AND   email not like '_updated%'
 ),
 
-sc AS(select email, count(subs) as c from actives
-group by email),
+sc AS(
+SELECT email,
+       count(subs) as c
+FROM actives
+GROUP BY email),
 
-info AS(select email, plan_id, subs, rebill, status, flagged, shipping_state, shipping_zip, billing_state, billing_zip, eop, skipped_month from actives)
+info AS(SELECT email, plan_id, subs, rebill, status, flagged, shipping_state, shipping_zip, billing_state, billing_zip, eop, skipped_month FROM actives)
 
-select sc.email, c, i.subs, i.rebill from sc
-inner join info i on i.email = sc.email
-where c = 1
-and i.status = 'active'
-and i.flagged is NULL
-and i.shipping_state = 'CA'
-and i.shipping_zip = '90210'
-and i.billing_state = 'CA'
-and i.billing_zip = '90210'
-and i.eop is null
-and i.skipped_month is null
-and i.plan_id in (
-  select pl.id from plans pl join products pr on pl.product_id = pr.id where pr.name = '#{crate_type}' and pl.is_legacy is false and pl.country = 'US'
+SELECT sc.email,
+       c,
+       i.subs,
+       i.rebill
+FROM sc
+INNER JOIN info i on i.email = sc.email
+WHERE c = 1
+AND i.status = 'active'
+AND i.flagged is NULL
+AND i.shipping_state = 'CA'
+AND i.shipping_zip = '90210'
+AND i.billing_state = 'CA'
+AND i.billing_zip = '90210'
+AND i.eop is null
+AND i.skipped_month is null
+AND i.plan_id in (
+  SELECT pl.id from plans pl
+  JOIN products pr on pl.product_id = pr.id
+  WHERE pr.name = '#{crate_type}'
+  AND pl.is_legacy is false
+  AND pl.country = 'US'
 )
 limit 1
 """
@@ -539,42 +560,45 @@ q
 end
 
 def registered_one_active(crate_type = 'Core Crate', test_run_timestamp = ENV['RUN_TIMESTAMP'])
-t = test_run_timestamp
-wait_count = 0
-@redis.connect
-while @redis.should_wait?
-  wait_count += 1
-end
-#puts wait_count
-@redis.set_wait
-ret_hash = {}
-
-q = one_active_query(t,crate_type)
-  @conn.exec(q) do |result|
-    result.each do |row|
-      ret_hash["email"] =  row["email"]
-      ret_hash["sub"] = row["subs"]
-      ret_hash["rebill_date_db"] = row["rebill"]
+  t = test_run_timestamp
+  wait_count = 0
+  @redis.connect
+  while @redis.should_wait?
+    wait_count += 1
+  end
+  #puts wait_count
+  @redis.set_wait
+  ret_hash = {}
+  q = one_active_query(t,crate_type)
+    @conn.exec(q) do |result|
+      result.each do |row|
+        ret_hash["email"] =  row["email"]
+        ret_hash["sub"] = row["subs"]
+        ret_hash["rebill_date_db"] = row["rebill"]
+      end
     end
+    #add subscription data here
+  if ret_hash["email"]
+    alter_sub(ret_hash["sub"])
+    get_shirt_size(ret_hash)
+    get_address("billing", ret_hash)
+    get_address("shipping", ret_hash)
+
+    product = get_product(ret_hash["sub"])
+    ret_hash['product'] = product['product_name']
+    ret_hash['brand'] = product['brand']
+
+    get_plan_months(ret_hash, ret_hash["sub"])
+    get_plan_title(ret_hash, ret_hash["sub"])
   end
 
-if ret_hash["email"]
-  alter_sub(ret_hash["sub"])
-  get_shirt_size(ret_hash)
-  get_address("billing", ret_hash)
-  get_address("shipping", ret_hash)
-  get_plan_months(ret_hash, ret_hash["sub"])
-  get_plan_title(ret_hash, ret_hash["sub"])
-end
-
-@redis.clear_wait
-@redis.quit
-if ret_hash["email"] == nil
-  return nil
-else
-  return ret_hash
-end
-
+  @redis.clear_wait
+  @redis.quit
+  if ret_hash["email"] == nil
+    return nil
+  else
+    return ret_hash
+  end
 end
 
 def get_inventory_item_id_and_count(product, variant)

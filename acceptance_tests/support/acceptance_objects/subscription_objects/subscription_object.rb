@@ -1,38 +1,31 @@
 class Subscription
-  attr_accessor :name, :months, :product, :shirt_size, :waist_size, :recurly_name, :gender, :rebill_date, :recurly_rebill
+  attr_accessor :name, :months, :product, :shirt_size, :waist_size, :recurly_name, :plan_title, :gender, :rebill_date, :recurly_rebill
 
-  def initialize(months, product=nil)
-    @@plans = {
-      'one' => '1',
-      'two' => '2',
-      'three' => '3',
-      'six' => '6',
-      'twelve' => '12'
-    }
-    @months = @@plans[months]
+  def initialize(months='one', product=nil)
+    @months = plans[months]
     @product = product
-    set_name
+    set_name(@months)
     set_gender_and_sizes
   end
 
-  def set_name
+  def set_name(months)
     case @product
     when 'Pets'
-      @name = "Pets #{@months} Month Subscription"
+      @name = "Pets #{months} Month Subscription"
     when 'Anime'
-      @name = "Anime #{@months} Month Subscription"
+      @name = "Anime #{months} Month Subscription"
     when 'Firefly'
-      @name = "#{@months} Month Plan Subscription"
+      @name = "#{months} Month Plan Subscription"
     when 'Gaming'
-      @name = "Gaming #{@months} Month Subscription"
+      @name = "Gaming #{months} Month Subscription"
     when 'Lcdx'
-      @name = "Lcdx #{@months} Month Subscription"
+      @name = "Lcdx #{months} Month Subscription"
     else
-      @name = "#{@months} Month Plan Subscription"
+      @name = "#{months} Month Plan Subscription"
     end
 
     if @product == "Loot Crate"
-      @recurly_name = "#{@months} Month Subscription"
+      @recurly_name = "#{months} Month Subscription"
     else
       @recurly_name = @name
     end
@@ -63,5 +56,16 @@ class Subscription
 
   def odd_cycle?
     /(Gaming|Anime)/.match(@product)
+  end
+
+  private
+  def plans
+    {
+      'one' => '1',
+      'two' => '2',
+      'three' => '3',
+      'six' => '6',
+      'twelve' => '12'
+    }
   end
 end
