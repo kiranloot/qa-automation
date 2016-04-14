@@ -30,12 +30,12 @@ class Subscription
       @recurly_name = @name
     end
 
-    year_check(@name)
+    year_check
   end
 
-  def year_check(name)
-    if (@months == '12') && (name.match(/(Anime|Gaming|Pets)/))
-      name.gsub!(/12 Month/, '1 Year')
+  def year_check
+    if (@months == '12') && (@name.match(/(Anime|Gaming|Pets)/))
+      @name = @name.gsub(/12 Month/, '1 Year')
     end
   end
 

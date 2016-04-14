@@ -10,6 +10,10 @@ FactoryGirl.define do
     waist_size 'Womens - S'
     recurly_name {"#{months} Month Subscription"}
 
+    trait :year do
+      name {name.gsub(/12 Month/, '1 Year')}
+    end
+
     trait :core_crate do
     end
     trait :loot_crate do
@@ -19,20 +23,33 @@ FactoryGirl.define do
       product 'Anime'
       name {"Anime #{months} Month Subscription"}
       recurly_name {name}
+      year
+    end
+    trait :anime do
+      anime_crate
     end
 
     trait :pets_crate do
       name {"Pets #{months} Month Subscription"}
       recurly_name {name}
     end
+    trait :pets do
+      pets_crate
+    end
 
     trait :gaming_crate do
       name {"Gaming #{months} Month Subscription"}
       recurly_name {name}
     end
+    trait :gaming do
+      gaming_crate
+    end
 
     trait :firefly_cargo_crate do
       product 'Firefly'
+    end
+    trait :firefly do
+      firefly_cargo_crate
     end
 
     trait :loot_crate_dx do
@@ -40,9 +57,8 @@ FactoryGirl.define do
       name {"Lcdx #{months} Month Subscription"}
       recurly_name {name}
     end
-
-    trait :year do
-      name {name.gsub(/12 Month/, '1 Year')}
+    trait :lcdx do
+      loot_crate_dx
     end
   end
 
@@ -57,6 +73,9 @@ FactoryGirl.define do
     trait :level_up_accessories do
       #matches default values
     end
+    trait :accessory do
+      level_up_accessories
+    end
 
     trait :level_up_bundle_tshirt_accessories do
       product 'level-up-bundle-tshirt-accessories'
@@ -68,6 +87,9 @@ FactoryGirl.define do
       product 'socks'
       name "Level Up Socks #{months} Month"
       recurly_name "LC - LU - Socks - #{months} month"
+    end
+    trait :socks do
+      level_up_socks
     end
 
     trait :level_up_tshirt do
