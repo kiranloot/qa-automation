@@ -164,6 +164,21 @@ def update_created_at_for_sub(sub_id, new_timestamp)
   @conn.exec(query)
 end
 
+def pins_generated?(attempts = 10)
+  pins_check_query = """
+    SELECT * FROM loot_pin_codes
+  """
+  attempts.times do
+    results = @conn.exec(pins_check_query)
+    if results.any?
+      return true
+    else
+      sleep(1)
+    end
+  end 
+  return false
+end
+
 def associate_sub_id_with_a_pin_code
   sub_id = get_subscriptions($test.user.email)[0]['subscription_id']
   check_sub_query = """
