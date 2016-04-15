@@ -35,7 +35,7 @@ Given(/^the system has (.*) pin codes for last month$/) do |product|
   $test.current_page.upload_file('./test-pin-short.csv')
   $test.current_page.click_commit
   sleep(3)
-  expect($test.db.pins_generated?).to be true, "Found no pins in the database after attempting to generate in admin."
+  expect($test.db.pins_generated?).to eq(true), "Found no pins in the database after attempting to generate in admin."
   #step "logs out of admin"
 end
 
