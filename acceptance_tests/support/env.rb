@@ -21,12 +21,16 @@ if ParallelTests.first_process?
 
   if ENV['CACHE_CLEAR'] == 'yes'
     require_relative 'acceptance_objects/memcachier_object'
+    require_relative 'acceptance_objects/fastly_object'
     HerokuAPI.new.clear_rails_cache
     puts 'Rails cache flushed.'
 
     memcache = Memcachier.new
     memcache.flush
     puts 'Memcachier cache flushed.'
+
+    FastlyAPI.new.purge_cache
+    puts 'Fastly cache purged'
   end
 end
 
