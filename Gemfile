@@ -26,3 +26,4 @@ gem 'poltergeist', require: false
 gem 'platform-api'
 gem 'recurly', '~> 2.4.2'
 gem 'dalli'
+gem 'fastly'
