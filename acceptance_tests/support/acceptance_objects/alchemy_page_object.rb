@@ -11,7 +11,7 @@ include WaitForAjax
   end
 
   def visit_page
-    visit @base_url 
+    visit @base_url
     $test.current_page = self
   end
 
@@ -34,13 +34,32 @@ include WaitForAjax
     wait_for_ajax
   end
 
+  def get_original_text_value(essence_name)
+    iframe_id = find(:css, 'label', :text => essence_name).first(:xpath,'.//..').find(:css, 'iframe')[:id]
+    within_frame(iframe_id){
+      el = find(:id, 'tinymce').text
+      return el
+    }
+  end
+
+  def get_original_text_value_basic(essence_name)
+    find(:css, 'label', :text => essence_name).first(:xpath,'.//..').find('input[type=text]').value
+  end
+
   def edit_text_essence(essence_name, text)
     iframe_id = find(:css, 'label', :text => essence_name).first(:xpath,'.//..').find(:css, 'iframe')[:id]
     within_frame(iframe_id){
       el = find(:id, 'tinymce')
-      el.click
-      el.send_keys(text)
+      # el.click
+      # el.send_keys(text)
+      el.set(text)
     }
+  end
+
+  def basic_edit(essence_name, text)
+    field = find(:css, 'label', :text => essence_name).first(:xpath,'.//..').find('input[type=text]')
+    field.click
+    field.set(text)
   end
 
   def wait_for_preview_to_update(text)
@@ -52,17 +71,24 @@ include WaitForAjax
   def click_save
     click_button("Save")
     wait_for_ajax
+    find('div#flash_notices')
   end
 
   def click_publish
     find(:css, 'button span.publish').click
     wait_for_ajax
+    find('div#flash_notices')
   end
 
   def preview_pane_no_errors?
-    find('iframe#alchemy_preview_window')
+    iframe
     within_frame('alchemy_preview_window'){
       no_errors?
     }
+  end
+
+  private
+  def iframe
+    find('iframe#alchemy_preview_window')
   end
 end
