@@ -10,6 +10,5 @@ class FastlyAPI
 
   def purge_cache
     @service.purge_all
-    puts "Fastly cache cleared"
   end 
 end
