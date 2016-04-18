@@ -8,23 +8,23 @@ When(/^the user edits the (.*) page$/) do |page|
   $test.current_page.open_alchemy_page(page)
 end
 
-When(/^changes the (.*) text to a random string( and stores the original)?$/) do |essence, store|
-  if store
-    @original_value = $test.current_page.get_original_text_value(essence)
-    $old_val_richtext = $test.db.get_richtext_alchemy_essence(@original_value)
-  end
-  @alchemy_rand_string = ('a'..'z').to_a.shuffle[0,8].join
-  $test.current_page.edit_text_essence(essence, @alchemy_rand_string)
-end
+When(/^changes the (.*) (basic|rich) text field to a random string( and stores the original)?$/) do |essence, field, store|
+  #Use this method when modifying a richtext field in alchemy
+  @alchemy_rand_string = ('a'..'z').to_a.shuffle[0,8].join.upcase
+  if field == 'rich'
+    if store
+      @original_value = $test.current_page.get_original_text_value(essence)
+      $old_val_richtext = $test.db.get_richtext_alchemy_essence(@original_value)
+    end
+    $test.current_page.edit_text_essence(essence, @alchemy_rand_string)
 
-When /^edits the (.*) field to a random string( and stores the original)?$/ do |essence, store|
-  #Use this method when editing a basic, no-style text field in alchemy
-  if store
-    @original_value = $test.current_page.get_original_text_value_basic(essence)
-    $old_val = @original_value
+  elsif field == 'basic'
+    if store
+      @original_value = $test.current_page.get_original_text_value_basic(essence)
+      $old_val = @original_value
+    end
+    $test.current_page.basic_edit(essence, @alchemy_rand_string)
   end
-  @alchemy_rand_string = ('a'..'z').to_a.shuffle[0,8].join
-  $test.current_page.basic_edit(essence, @alchemy_rand_string)
 end
 
 When(/^the user saves the alchemy page$/) do

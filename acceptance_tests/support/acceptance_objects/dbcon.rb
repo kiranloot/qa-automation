@@ -242,6 +242,7 @@ def get_text_alchemy_essence_id(text)
 end
 
 def set_text_alchemy_essence_to(id, body)
+  body = body.gsub(/'/, "''")
   query = "UPDATE alchemy_essence_texts SET body = '#{body}' WHERE id = #{id}"
   @conn.exec(query)
 end
@@ -254,7 +255,8 @@ def get_richtext_alchemy_essence(text)
 end
 
 def set_richtext_alchemy_essence_to(id, body, stripped_body)
-  binding.pry
+  body = body.gsub(/'/, "''")
+  stripped_body = stripped_body.gsub(/'/, "''")
   query = """
     UPDATE alchemy_essence_richtexts SET body = '#{body}', stripped_body = '#{stripped_body}' WHERE id = #{id}
   """

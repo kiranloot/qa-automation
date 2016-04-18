@@ -21,11 +21,6 @@ include WaitForAjax
     }
   end
 
-  def visit_page
-    visit @base_url
-    $test.current_page = self
-  end
-
   def click_get_loot
     find(:css, "#alchemy_firefly_header_carousel").find_link("GET FIREFLY LOOT").click
     $test.current_page = FireflySubscribePage.new

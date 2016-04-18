@@ -44,7 +44,6 @@ pages = {
   firefly_subscribe: FireflySubscribePage,
   firefly_checkout: FireflyCheckoutPage,
   gaming_landing: GamingLandingPage,
-  pets_landing: PetsLandingPage,
   lcdx_landing: DXLandingPage,
   pewdiepie: PewdiepiePage,
   boogie2988: Boogie2988Page,

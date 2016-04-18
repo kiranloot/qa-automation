@@ -17,11 +17,6 @@ include WaitForAjax
     }
   end
 
-  def visit_page
-    visit @base_url
-    $test.current_page = self
-  end
-
   def click_get_loot
     find(:css, "#alchemy_core_header_carousel").find_link("GET LOOT CRATE").click
     $test.current_page = LootcrateSubscribePage.new
