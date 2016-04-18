@@ -11,9 +11,9 @@ Feature: Alchemy CMS
             And the user publishes the alchemy page
             And the user visits the <page> page
         Then the user should see the new alchemy content on the page
-        Then the user resets the <essence> field on the <alchemy_page> page, then verifies on <page>
+        #Then the user resets the <essence> field on the <alchemy_page> page, then verifies on <page>
         Examples:
         | alchemy_page               | essence                | page              |
         | gaming-crate_monthly_theme | Divider label subtitle | gaming_landing    |
-        | pets-crate_monthly_theme   | Divider label subtitle | pets_landing      |
-        | core-crate_monthly_theme   | Divider label subtitle | lootcrate_landing |
+      #  | pets-crate_monthly_theme   | Divider label subtitle | pets_landing      |
+      #  | core-crate_monthly_theme   | Divider label subtitle | lootcrate_landing |

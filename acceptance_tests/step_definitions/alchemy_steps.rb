@@ -9,15 +9,21 @@ When(/^the user edits the (.*) page$/) do |page|
 end
 
 When(/^changes the (.*) text to a random string( and stores the original)?$/) do |essence, store|
+  if store
+    @original_value = $test.current_page.get_original_text_value(essence)
+    $old_val_richtext = $test.db.get_richtext_alchemy_essence(@original_value)
+  end
   @alchemy_rand_string = ('a'..'z').to_a.shuffle[0,8].join
-  @original_value = $test.current_page.get_original_text_value(essence) if store
   $test.current_page.edit_text_essence(essence, @alchemy_rand_string)
 end
 
 When /^edits the (.*) field to a random string( and stores the original)?$/ do |essence, store|
   #Use this method when editing a basic, no-style text field in alchemy
+  if store
+    @original_value = $test.current_page.get_original_text_value_basic(essence)
+    $old_val = @original_value
+  end
   @alchemy_rand_string = ('a'..'z').to_a.shuffle[0,8].join
-  @original_value = $test.current_page.get_original_text_value_basic(essence) if store
   $test.current_page.basic_edit(essence, @alchemy_rand_string)
 end
 
@@ -28,6 +34,7 @@ end
 
 When(/^the user publishes the alchemy page$/) do
   $test.current_page.click_publish
+  $text_id = $test.db.get_text_alchemy_essence_id(@alchemy_rand_string) if $old_val
 end
 
 #THENS

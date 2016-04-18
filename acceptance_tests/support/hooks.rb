@@ -75,10 +75,6 @@ Before do
   end
 end
 
-Before ('@alchemy_text') do
-  $text_id = $test.db.get_richtext_alchemy_essence_id("What is Loot Crate™?")
-end
-
 After do
   $test.db.finish
   #unless ENV['DRIVER'] == 'appium'
@@ -89,7 +85,14 @@ After do
 end
 
 After ('@alchemy_text') do
-  $test.db.set_richtext_alchemy_essence_to($text_id, "<p>What is Loot Crate™?</p>", 'What is Loot Crate™?')
+  $test.db.set_text_alchemy_essence_to($text_id, $old_val) if $old_val
+  $test.db.set_richtext_alchemy_essence_to($old_val_richtext['id'],
+                                           $old_val_richtext['body'],
+                                           $old_val_richtext['stripped_body']
+                                           ) if $old_val_richtext
+  #nil out values since they persist across tests
+  $old_val = nil
+  $old_val_richtext = nil
 end
 
 After ('@sellout') do

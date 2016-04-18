@@ -57,6 +57,7 @@ include WaitForAjax
   end
 
   def basic_edit(essence_name, text)
+    $new_val = text
     field = find(:css, 'label', :text => essence_name).first(:xpath,'.//..').find('input[type=text]')
     field.click
     field.set(text)

@@ -197,6 +197,3 @@ Page
     expect(page.current_url).to eq(@base_url)
   end
 end
-
-
-	
