@@ -17,6 +17,7 @@ class AdminSubscriptionsPage < AdminPage
     sleep(1)
     page.driver.browser.switch_to.alert.accept
     wait_for_ajax
+    assert_text('Successfully cancelled subscription.')
   end
 
   def cancellation_successful?
