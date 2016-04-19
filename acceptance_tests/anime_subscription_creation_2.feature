@@ -1,4 +1,4 @@
-@regression @core @anime_subscription_creation @selenium
+@regression @core @anime_subscription_creation @anime_inv_req @selenium
 Feature: Anime Subscription Creation
     @ready
     Scenario: Registered user creates twelve month anime subscription plan

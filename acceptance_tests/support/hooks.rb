@@ -77,6 +77,17 @@ Before do
   end
 end
 
+Before ('@anime_inv_req') do |scenario|
+ sleep(1) until $test.redis.set_members('tests_selling_out_anime_inv')
+ $test.redis.set_add('tests_using_anime_inv', scenario.getName())
+end
+
+Before ('@anime_inv_sellout') do |scenario|
+ sleep(1) until $test.redis.set_members('tests_using_anime_inv')
+ $test.redis.set_add('tests_selling_out_anime_inv', scenario.getName())
+ $test.db.sellout_plan() #anime_plans
+end
+
 After do
   $test.db.finish
   #unless ENV['DRIVER'] == 'appium'
@@ -97,6 +108,15 @@ After ('@alchemy_text') do
   $old_val_richtext = nil
 end
 
-After ('@sellout') do
-  $test.db.add_inventory_to_all
+After ('@anime_inv_req') do |scenario|
+  $test.redis.set_remove('tests_using_anime_inv', scenario.getName())
 end
+
+After ('@anime_inv_sellout') do |scenario|
+  $test.redis.set_remove('tests_selling_out_anime_inv', scenario.getName())
+  $test.db.return_inventory() #anime_plans
+end
+
+#After ('@sellout') do
+#  $test.db.add_inventory_to_all
+#end
