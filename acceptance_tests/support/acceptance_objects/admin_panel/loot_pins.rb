@@ -24,6 +24,11 @@ class AdminPinsPage < AdminPage
   end
 
   def upload_file(file_path = '')
+    #if we're running selenium grid, this code will send the file to upload over the wire to the node that needs it.
+    if ENV['DRIVER'] == 'remote'
+      selenium_driver = page.driver.browser
+      selenium_driver.file_detector = lambda {|args| args.first.to_s if File.exists?(args.first.to_s)}
+    end
     attach_file('file', File.absolute_path(file_path))
   end
 
