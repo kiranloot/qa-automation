@@ -123,15 +123,16 @@ def add_inventory_to_all(units = 600000)
   @conn.exec(query)
 end
 
-def add_inventory_to_product(units = 600000, product) 
+def add_inventory_to_product(product, units = 600000) 
   query = """
-    UPDATE inventory_units SET total_availalbe = #{units}
+    UPDATE inventory_units SET total_available = #{units}
     WHERE variant_id IN (
       SELECT v.id FROM variants v
       JOIN products p ON v.product_id = p.id
       WHERE p.name = '#{product}'
     )
   """
+  @conn.exec(query)
 end
 
 def sellout_variant(sku)
