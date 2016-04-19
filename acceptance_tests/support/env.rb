@@ -1,13 +1,15 @@
+ENV['SERVER_CONFIGS'] ||= "#{ENV['HOME']}/server_configs.yml"
+ENV['PROD_CONFIGS'] ||= "#{ENV['HOME']}/prod_configs.yml"
+
 require 'selenium-webdriver'
 require 'capybara/cucumber'
 require 'parallel_tests'
 require 'time'
 require_relative 'acceptance_objects/qa_env_validator'
+require_relative 'acceptance_objects/inventory_flag_manager'
 
 ENV['RUN_TIMESTAMP'] = Time.now().utc.to_s
 ENV['SITE'] ||= 'qa'
-ENV['SERVER_CONFIGS'] ||= "#{ENV['HOME']}/server_configs.yml"
-ENV['PROD_CONFIGS'] ||= "#{ENV['HOME']}/prod_configs.yml"
 ENV['CACHE_CLEAR'] ||= 'yes'
 
 driver = ENV['DRIVER'] ||= 'local'
@@ -36,6 +38,8 @@ end
 
 #Verification that config vars on the test environment don't point to prod
 QAEnvironmentValidator.verify
+#Sets inventory flags so that sellout tests don't sell out inventory being used
+InventoryFlagManager.set_all_flags
 
 logtime = {'start' => DateTime.now.strftime('%Q')}
 
@@ -105,6 +109,7 @@ at_exit do
  logtime['end'] = DateTime.now.strftime('%Q')
  puts 'this is the end'
  LogMonitor.new.get_errors_log(logtime['start'], logtime['end'])
+ InventoryFlagManager.remove_all_flags
  r = HRedis.new
  r.connect
  r.kill_wait_set

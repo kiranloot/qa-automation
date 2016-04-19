@@ -77,15 +77,14 @@ Before do
   end
 end
 
-Before ('@anime_inv_req') do |scenario|
- sleep(1) until $test.redis.set_members('tests_selling_out_anime_inv')
- $test.redis.set_add('tests_using_anime_inv', scenario.getName())
+Before ('@anime_inv_req') do
+ sleep(1) until InventoryFlagManager.zero_or_less?('tests_selling_out_anime_inv')
+ InventoryFlagManager.increment_flag('tests_using_anime_inv')
 end
 
-Before ('@anime_inv_sellout') do |scenario|
- sleep(1) until $test.redis.set_members('tests_using_anime_inv')
- $test.redis.set_add('tests_selling_out_anime_inv', scenario.getName())
- $test.db.sellout_plan() #anime_plans
+Before ('@anime_inv_sellout') do
+ sleep(1) until InventoryFlagManager.zero_or_less?('tests_using_anime_inv')
+ InventoryFlagManager.increment_flag('tests_selling_out_anime_inv')
 end
 
 After do
@@ -108,13 +107,13 @@ After ('@alchemy_text') do
   $old_val_richtext = nil
 end
 
-After ('@anime_inv_req') do |scenario|
-  $test.redis.set_remove('tests_using_anime_inv', scenario.getName())
+After ('@anime_inv_req') do
+  InventoryFlagManager.decrement_flag('tests_using_anime_inv')
 end
 
-After ('@anime_inv_sellout') do |scenario|
-  $test.redis.set_remove('tests_selling_out_anime_inv', scenario.getName())
-  $test.db.return_inventory() #anime_plans
+After ('@anime_inv_sellout') do
+  $test.db.add_inventory_to_product('Anime Crate')
+  InventoryFlagManager.decrement_flag('tests_selling_out_anime_inv')
 end
 
 #After ('@sellout') do

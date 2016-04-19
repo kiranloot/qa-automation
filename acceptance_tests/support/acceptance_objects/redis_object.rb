@@ -4,9 +4,8 @@ class HRedis
   
   attr_accessor :url
 
-  def initialize
-    @site = ENV['SITE']
-    @url = Box.new(@site).redis_url
+  def initialize(box = Box.new(ENV['SITE']))
+    @url = box.redis_url
     @uri = URI.parse(@url)
   end
   
@@ -29,6 +28,10 @@ class HRedis
     #adds value to set stored at key name.
     #if key does not exist, new set is created at key
     @redis.sadd name, value
+  end
+
+  def set(name, value)
+    @redis.set name, value
   end
 
   def set_remove(name, value)
@@ -70,9 +73,24 @@ class HRedis
   def kill_wait_set
     del(wait_set) if exists(wait_set)
   end
+
+  def increment_set(key)
+    @redis.incr key
+  end
+
+  def decrement_set(key)
+    @redis.decr key
+  end
+
+  def zero_or_more?(key)
+    @redis.get(key).to_i >= 0
+  end
+
+  def zero_or_less?(key)
+    @redis.get(key).to_i <= 0
+  end
   
   def quit
     @redis.quit
   end
-
 end
