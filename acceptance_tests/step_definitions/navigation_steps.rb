@@ -65,6 +65,16 @@ When /^the user checks that all links are valid and responding properly$/ do
   $test.current_page.check_link_integrity
 end
 
+When /^navigates to (.*)$/ do |destination|
+  case destination
+  when 'an invalid checkout page'
+    bad_plan = "#{Faker::Name.first_name}-#{Faker::Name.last_name}-#{Faker::Number.number(4)}"
+    visit "https://#{ENV['SITE']}.lootcrate.com/#{bad_plan}/checkouts/new"
+  else
+    visit destination
+  end
+end
+
 #THENS
 Then /^cool stuff should happen/ do
   $test.current_page.be_at_recurly_sandbox
@@ -120,4 +130,8 @@ end
 
 Then /the user should see the (.*) link/ do |link|
   $test.link_visible(link)
+end
+
+Then /^the user should be redirected to the plan selection page for core crate$/ do
+  expect(current_url).to eq("https://#{ENV['SITE']}.lootcrate.com/subscription-crates/core-crate/plans")
 end
