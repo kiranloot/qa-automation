@@ -274,4 +274,3 @@ end
 Then /^the user should not see the credit card information fields$/ do
   $test.current_page.credit_card_fields_gone?
 end
-

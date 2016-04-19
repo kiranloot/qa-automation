@@ -105,10 +105,10 @@ def generate_theme_months
   end
   theme_months << t.strftime("%^b%Y")
   3.times do
-    t = (t.to_datetime >> 1).to_time 
+    t = (t.to_datetime >> 1).to_time
     theme_months << t.strftime("%^b%Y")
   end
-  return theme_months 
+  return theme_months
 end
 
 def return_first_theme_month
@@ -126,7 +126,7 @@ end
 def sellout_variant(sku)
   variant_id_query = "select id from variants where sku = '#{sku}'"
   id = @conn.exec(variant_id_query)[0]['id']
-  query = "update inventory_units set total_available = 0 where variant_id=#{id}" 
+  query = "update inventory_units set total_available = 0 where variant_id=#{id}"
   @conn.exec(query)
 end
 
@@ -175,7 +175,7 @@ def pins_generated?(attempts = 10)
     else
       sleep(1)
     end
-  end 
+  end
   return false
 end
 
@@ -236,14 +236,27 @@ def add_cms_user_to_db(email, pass_hash, table)
   end
 end
 
-def get_richtext_alchemy_essence_id(text)
-  query = """
-    SELECT id FROM alchemy_essence_richtexts WHERE body LIKE '%#{text}%'
-  """
+def get_text_alchemy_essence_id(text)
+  query = "SELECT id FROM alchemy_essence_texts WHERE body = '#{text}'"
   @conn.exec(query)[0]['id']
 end
 
+def set_text_alchemy_essence_to(id, body)
+  body = body.gsub(/'/, "''")
+  query = "UPDATE alchemy_essence_texts SET body = '#{body}' WHERE id = #{id}"
+  @conn.exec(query)
+end
+
+def get_richtext_alchemy_essence(text)
+  query = """
+    SELECT id, body, stripped_body FROM alchemy_essence_richtexts WHERE body LIKE '%#{text}%'
+  """
+  @conn.exec(query)[0]
+end
+
 def set_richtext_alchemy_essence_to(id, body, stripped_body)
+  body = body.gsub(/'/, "''")
+  stripped_body = stripped_body.gsub(/'/, "''")
   query = """
     UPDATE alchemy_essence_richtexts SET body = '#{body}', stripped_body = '#{stripped_body}' WHERE id = #{id}
   """
