@@ -6,6 +6,12 @@ signup:
  url: "/users/sign_up"
 checkout:
  url: "/1-month-subscription/checkouts/new"
+core:
+  url: "/lp/lootcrate-1"
+anime:
+  url: "/lp/lootanime-1"
+gaming:
+  url: "/lp/lootgaming-1"
 generic:
  url: "/?username=lootcrateis25timesgreaterthanthecompetition"
 subscribe:
@@ -70,4 +76,3 @@ star_wars_landing:
  url: "/limited-edition-crates/star-wars-crate"
 call_of_duty_landing:
  url: "/limited-edition-crates/callofduty-crate"
-

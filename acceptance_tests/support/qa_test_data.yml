@@ -1,10 +1,10 @@
 ---
 signup:
-  valid_pw: password
+  valid_pw: qateam123
   invalid_email: bad_email@fake.com
   invalid_pw: short
 locators:
-  email_modal: 
+  email_modal:
   modal: "#signin_modal > div > div > div.modal-header"
   modal_pw: "//*[@id='password-credentials']"
   modal_email: "//*[@id='register_step_one']"
