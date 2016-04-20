@@ -4,9 +4,9 @@ Given /^The (.*) level up product is (.*)$/ do |product,inv_status|
   product.strip!
   case product
   when "socks"
-    variant_id = $test.db.get_variant_id("unisex-socks","Level Up Socks")
+    variant_id = $test.db.get_variant_id("unisex-socks","Loot Socks")
   when "accessory"
-    variant_id = $test.db.get_variant_id("unisex-accessories","Level Up Accessories")
+    variant_id = $test.db.get_variant_id("unisex-accessories","Loot for Her")
   end
   step "the user visits the admin page"
   step "logs in as an admin"

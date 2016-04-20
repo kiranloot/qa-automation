@@ -28,7 +28,7 @@ Feature: Subscription Upgrades
 
     @ready
     Scenario: Registered user upgrades an existing level up t-shirt subscription
-        Given a registered user with a level-up-tshirt one month subscription
+        Given a registered user with a tees one month subscription
         And   the user notes the recurly rebill date
             When the user logs in
             And  the user visits the my account page

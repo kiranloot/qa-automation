@@ -18,7 +18,7 @@ class StepList
   end
 
   def registered_with_active_level_up
-    ["create a level up three month accessory subscription"]
+    ["create a level up three month for her subscription"]
   end
 
   def registered_with_active_anime
@@ -53,8 +53,8 @@ class StepList
     ["create a level up one month wearable subscription"]
   end
 
-  def level_up_tshirt_one_month
-    ["create a level up one month level-up-tshirt subscription"]
+  def tees_one_month
+    ["create a level up one month tees subscription"]
   end
 
   def promo

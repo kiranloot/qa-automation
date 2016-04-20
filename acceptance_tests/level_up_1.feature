@@ -28,4 +28,5 @@ Feature: Level Up
         And The socks level up product is sold out
             When the user logs in
             And the user selects the Level Up crate
+            And selects the socks level up crate
         Then the socks crate should be sold out

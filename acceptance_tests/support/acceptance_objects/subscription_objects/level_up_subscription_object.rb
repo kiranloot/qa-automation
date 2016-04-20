@@ -9,24 +9,24 @@ class LevelUpSubscription < Subscription
 
   def set_name
     case product
-    when 'accessory'
+    when /(accessory|for her)/
       @recurly_name = "LC - LU - Accessory - #{@months} month"
-      @name = "Level Up Accessories #{@months} Month"
-    when 'level-up-bundle-tshirt-accessories'
-      @recurly_name = "LC - LU - Bundle (socks + wearables) - #{@months} month"
-      @name = "Level Up T-Shirt + Accessories Bundle #{@months} Month"
+      @name = "Loot for Her #{@months} Month Subscription"
+    when /(level-up-bundle-tshirt-accessories|for her \+ tee)/
+      @recurly_name = "LC - LU - Bundle (tshirt + accessories) - #{@months} month"
+      @name = "Loot for Her + Loot Tees #{@months} Month Subscription"
     when 'socks'
       @recurly_name = "LC - LU - Socks - #{@months} month"
-      @name = "Level Up Socks #{@months} Month"
-    when 'level-up-tshirt'
+      @name = "Loot Socks #{@months} Month"
+    when /(level-up-tshirt|tees)/
       @recurly_name = "LC - LU - T-Shirt - #{@months} month"
-      @name = "Level Up T-Shirt #{@months} Month"
-    when 'wearable'
+      @name = "Loot Tees #{@months} Month"
+    when /wearables?/
       @recurly_name = "LC - LU - Wearable - #{@months} month"
-      @name = "Level Up Wearable #{@months} Month"
-    when 'level-up-bundle-socks-wearable'
+      @name = "Loot Wearables #{@months} Month"
+    when /(level-up-bundle-socks-wearable|socks + wearable)/
       @recurly_name = "LC - LU - Bundle (socks + wearables) - #{@months} month"
-      @name = "Level Up Bundle (socks & wearable) #{@months} Month"
+      @name = "Loot Socks + Loot Wearables #{@months} Month"
     end
   end
 

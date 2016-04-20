@@ -1,5 +1,27 @@
-When /the user selects a level up (.*) month subscription for the (.*) crate/ do |months, product|
-  $test.current_page.select_plan(product,months)
+When /the user selects a level up (.*) month subscription for the (.*) (crate|bundle)/ do |months, product, item|
+  bundle = item == 'crate' ? false : true
+  $test.current_page.choose_bundle(product, bundle)
+  $test.current_page.choose_duration(months)
+  $test.current_page.choose_sizes($test.user.subscription)
+  $test.current_page.continue_to_checkout
+end
+
+When /selects the (.*) level up (crate|bundle)/ do |crate, item|
+  bundle = item == 'crate' ? false : true
+  $test.current_page.choose_bundle(crate, bundle)
+end
+
+When /selects the (.*) month duration/ do |months|
+  $test.current_page.choose_duration(months)
+end
+
+When /sets the sizes to (.*), shirt (.*), and waist (.*)$/ do |gender, shirt_size, waist_size|
+  $test.user.subscription.set_gender_and_sizes(gender, shirt_size, waist_size)
+  $test.current_page.choose_sizes($test.user.subscription)
+end
+
+When /continues to checkout$/ do
+  $test.current_page.continue_to_checkout
 end
 
 Then /the new level up subscription should be added to the user account/ do
@@ -12,6 +34,5 @@ Then /the (.*) option for level up (.*) should be soldout/ do |variant, product|
 end
 
 Then /the (.*) crate should be sold out/ do |product|
-  $test.current_page.sold_out?(product)
+  $test.current_page.sold_out?
 end
-

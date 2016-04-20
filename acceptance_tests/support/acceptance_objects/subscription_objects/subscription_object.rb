@@ -1,5 +1,5 @@
 class Subscription
-  attr_accessor :name, :months, :product, :shirt_size, :waist_size, :recurly_name
+  attr_accessor :name, :months, :product, :shirt_size, :waist_size, :recurly_name, :gender
 
   def initialize(months, product=nil)
     @@plans = {
@@ -10,10 +10,9 @@ class Subscription
       'twelve' => '12'
     }
     @months = @@plans[months]
-    @shirt_size = 'Mens - S'
-    @waist_size = 'Womens - S'
     @product = product
     set_name
+    set_gender_and_sizes
   end
 
   def set_name
@@ -47,10 +46,10 @@ class Subscription
     end
   end
 
-
-
-  def recurly_subscription_name
-    # Use subscription data to assemble the subscription name as it's
-    # displayed on recurly
+  def set_gender_and_sizes(gender='womens', shirt_size ='s', waist_size='s')
+    @gender = gender
+    @shirt_size = shirt_size
+    @waist_size = waist_size
   end
+
 end
