@@ -78,13 +78,17 @@ Before do
 end
 
 Before ('@anime_inv_req') do
- sleep(1) until InventoryFlagManager.zero_or_less?('tests_selling_out_anime_inv')
- InventoryFlagManager.increment_flag('tests_using_anime_inv')
+  Timeout.timeout(60) do
+    sleep 0.1 until InventoryFlagManager.zero_or_less?('tests_selling_out_anime_inv')
+  end
+  InventoryFlagManager.increment_flag('tests_using_anime_inv')
 end
 
 Before ('@anime_inv_sellout') do
- sleep(1) until InventoryFlagManager.zero_or_less?('tests_using_anime_inv')
- InventoryFlagManager.increment_flag('tests_selling_out_anime_inv')
+  Timeout.timeout(60) do
+    sleep 0.1 until InventoryFlagManager.zero_or_less?('tests_using_anime_inv')
+  end
+  InventoryFlagManager.increment_flag('tests_selling_out_anime_inv')
 end
 
 After do
