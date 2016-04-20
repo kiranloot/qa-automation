@@ -91,6 +91,20 @@ Before ('@anime_inv_sellout') do
   InventoryFlagManager.increment_flag('tests_selling_out_anime_inv')
 end
 
+Before ('@pets_inv_req') do
+  Timeout.timeout(60) do
+    sleep 0.1 until InventoryFlagManager.zero_or_less?('tests_selling_out_pets_inv')
+  end
+  InventoryFlagManager.increment_flag('tests_using_pets_inv')
+end
+
+Before ('@pets_inv_sellout') do
+  Timeout.timeout(60) do
+    sleep 0.1 until InventoryFlagManager.zero_or_less?('tests_using_pets_inv')
+  end
+  InventoryFlagManager.increment_flag('tests_selling_out_pets_inv')
+end
+
 After do
   $test.db.finish
   #unless ENV['DRIVER'] == 'appium'
@@ -118,6 +132,15 @@ end
 After ('@anime_inv_sellout') do
   $test.db.add_inventory_to_product('Anime Crate')
   InventoryFlagManager.decrement_flag('tests_selling_out_anime_inv')
+end
+
+After ('@pets_inv_req') do
+  InventoryFlagManager.decrement_flag('tests_using_pets_inv')
+end
+
+After ('@pets_inv_sellout') do
+  $test.db.add_inventory_to_product('Pets Crate')
+  InventoryFlagManager.decrement_flag('tests_selling_out_pets_inv')
 end
 
 #After ('@sellout') do

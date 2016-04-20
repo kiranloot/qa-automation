@@ -2,7 +2,9 @@ module InventoryFlagManager
   require_relative 'redis_object'
   @flags = [
       "tests_selling_out_anime_inv",
-      "tests_using_anime_inv"
+      "tests_using_anime_inv",
+      "tests_selling_out_pets_inv",
+      "tests_using_pets_inv",
     ]
   @redis = HRedis.new
   def self.set_all_flags

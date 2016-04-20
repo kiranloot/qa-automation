@@ -1,4 +1,4 @@
-@regression @core @pets_subscription_creation @selenium
+@regression @core @pets_subscription_creation @pets_inv_req @selenium
 Feature: Pets Subscription Creation
     @ready
     Scenario: Registered user creates one month pets subscription
