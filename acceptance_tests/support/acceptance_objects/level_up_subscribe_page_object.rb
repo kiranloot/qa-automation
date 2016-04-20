@@ -1,8 +1,10 @@
 require_relative "subscribe_page_object"
 
 class LevelUpSubscribePage < SubscribePage
-include Capybara::DSL
-include WaitForAjax
+  include Capybara::DSL
+  include WaitForAjax
+
+  attr_accessor :crate, :months
 
   def initialize
     super
@@ -10,42 +12,21 @@ include WaitForAjax
     @tracking_script_lines << "lca.page('level_up', 'index', '');"
     @tracking_script_lines << "lca.clickTracking();"
     setup
-    @plan_display_names = {
-      'onesocks' => 'Level Up Socks 1 Month',
-      'threesocks' => 'Level Up Socks 3 Month',
-      'sixsocks' => 'Level Up Socks 6 Month',
-      'twelvesocks' => 'Level Up Socks 12 Month',
-      'oneaccessory' => 'Level Up Accessories 1 Month',
-      'threeaccessory' => 'Level Up Accessories 3 Month',
-      'sixaccessory' => 'Level Up Accessories 6 Month',
-      'twelveaccessory' => 'Level Up Accessories 12 Month',
-      'onewearable' => 'Level Up Wearable 1 Month',
-      'threewearable' => 'Level Up Wearable 3 Month',
-      'sixwearable' => 'Level Up Wearable 6 Month',
-      'twelvewearable' => 'Level Up Wearable 12 Month',
-      'onelevel-up-tshirt' => 'Level Up T-Shirt 1 Month',
-      'threelevel-up-tshirt' => 'Level Up T-Shirt 3 Month',
-      'sixlevel-up-tshirt' => 'Level Up T-Shirt 6 Month',
-      'twelvelevel-up-tshirt' => 'Level Up T-Shirt 12 Month',
-      'onelevel-up-bundle-socks-wearable-crate' => 'Level Up Bundle (socks & wearable) 1 Month',
-      'threelevel-up-bundle-socks-wearable-crate' => 'Level Up Bundle (socks & wearable) 3 Month',
-      'sixlevel-up-bundle-socks-wearable-crate' => 'Level Up Bundle (socks & wearable) 6 Month',
-      'twelvelevel-up-bundle-socks-wearable-crate' => 'Level Up Bundle (socks & wearable) 12 Month',
-      'onelevel-up-bundle-tshirt-accessories' => 'Level Up T-Shirt + Accessories Bundle 1 Month',
-      'threelevel-up-bundle-tshirt-accessories' => 'Level Up T-Shirt + Accessories Bundle 3 Month',
-      'sixlevel-up-bundle-tshirt-accessories' => 'Level Up T-Shirt + Accessories Bundle 6 Month',
-      'twelvelevel-up-bundle-tshirt-accessories' => 'Level Up T-Shirt + Accessories Bundle 12 Month',
 
+    @plan_header_text = {
+      'one' => '1 month',
+      'three' => '3 months',
+      'six' => '6 months',
+      'twelve' => '12 months'
     }
-    @recurly_plan_names = {
-      'sixaccessory' => 'LC - LU - Accessory - 6 month',
-      'onelevel-up-tshirt' => 'LC - LU - T-Shirt - 1 month'
-    }
-    @plan_drop_down_text = {
-      'one' => '1 Month Plan',
-      'three' => '3 Month Plan',
-      'six' => '6 Month Plan',
-      'twelve' => '12 Month Plan'
+
+    @crate_names_and_labels = {
+      'for her' => 'Get Loot for Her',
+      'socks' => 'Get Loot Socks',
+      'tees' => 'Get Loot Tees',
+      'wearables' => 'Get Loot Wearables',
+      'socks + wearable' => 'Socks + Wearable',
+      'for her + tee' => 'For Her + Tee'
     }
   end
 
@@ -61,6 +42,67 @@ include WaitForAjax
     expect(page).to have_css(".tips.cr-animate-gen.animated.fadeInUp")
     page.execute_script "window.scrollBy(0,-10000)"
   end
+
+  def load_checkout_page_object
+    if ENV['DRIVER'] == 'appium'
+      $test.current_page = LevelUpMobileCheckoutPage.new
+    else
+      $test.current_page = LevelUpCheckoutPage.new
+    end
+  end
+
+  def sold_out?
+    expect(page).to have_css("#btn-info-soldout")
+    expect(page).to have_css("#btn-info-soldout-notify")
+  end
+
+  def choose_bundle(crate, bundle=false)
+    @crate = crate
+    if bundle
+      panel = find('h2', :text => @crate_names_and_labels[crate].upcase).find(:xpath, '..')
+      panel.find_link('Get Bundle').click
+    else
+      find_link(@crate_names_and_labels[crate]).click
+    end
+    wait_for_ajax
+  end
+
+  def choose_duration(months)
+    @months = months
+    find('h3.title', :text => @plan_header_text[months].upcase)
+      .find(:xpath, '..').find('button').click
+    build_subscription(@months, @crate)
+    wait_for_ajax
+  end
+
+  def build_subscription(months, crate)
+    $test.user.subscription = LevelUpSubscription.new(months, crate)
+    $test.user.subscription_name = $test.user.subscription.name
+  end
+
+  def choose_sizes(subscription)
+    unless subscription.product == 'socks'
+      size_section = find("section#section-lu-sizes")
+      find("#sizes-btn-#{subscription.gender}").click if size_section.text.include?('MENS WOMENS')
+      find("#sizes-btn-shirt-#{subscription.gender}-#{subscription.shirt_size}").click if size_section.text.include?('SHIRT SIZE')
+      find("#sizes-btn-waist-womens-#{subscription.waist_size}").click if size_section.text.include?('WAIST SIZE')
+      wait_for_ajax
+    end
+  end
+
+  def continue_to_checkout
+    if $test.user.subscription.product == 'socks'
+      find('#plans-btn-next').click
+    else
+      find("#sizes-btn-next").click
+    end
+    load_checkout_page_object
+  end
+
+
+
+
+  ##### Legacy Level Up Methods #####
 
   def select_wearable_shirt_size(size)
     find('div#wearable-crate span#select2-variants-shirt-container').click
@@ -137,14 +179,6 @@ include WaitForAjax
     load_checkout_page_object
   end
 
-  def load_checkout_page_object
-    if ENV['DRIVER'] == 'appium'
-      $test.current_page = LevelUpMobileCheckoutPage.new
-    else
-      $test.current_page = LevelUpCheckoutPage.new
-    end
-  end
-
   def update_target_plan(plan)
     #For now, updating both level_up_subscription_name and subscription_name
     #TODO - need to get rid of level_up_subscription name and just have subscription name do all the validations
@@ -154,12 +188,6 @@ include WaitForAjax
 
   def update_recurly_plan(plan)
     $test.user.recurly_level_up_plan = @recurly_plan_names[plan]
-  end
-
-  def sold_out?(product)
-    scroll_to(product)
-    expect(page).to have_css("##{product}-crate h3.soldout-stamp")
-    expect(page).to have_css("##{product}-crate a.soldout-description")
   end
 
   def level_up_variant_soldout?(variant, product)
