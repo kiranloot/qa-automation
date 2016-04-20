@@ -6,11 +6,11 @@ signup:
  url: "/users/sign_up"
 checkout:
  url: "/1-month-subscription/checkouts/new"
-core:
+core_opc:
   url: "/lp/lootcrate-1"
-anime:
+anime_opc:
   url: "/lp/lootanime-1"
-gaming:
+gaming_opc:
   url: "/lp/lootgaming-1"
 generic:
  url: "/?username=lootcrateis25timesgreaterthanthecompetition"

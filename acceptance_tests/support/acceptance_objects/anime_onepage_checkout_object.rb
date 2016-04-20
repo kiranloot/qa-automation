@@ -1,4 +1,4 @@
-require_relative "core_page_checkout_object"
+require_relative "core_onepage_checkout_object"
 
 class AnimeOnePageCheckout < OnePageCheckout
 include Capybara::DSL

@@ -11,7 +11,7 @@ Feature: Subscription Creation
             And the user should receive a <email_type> email
             And the recurly subscription should have the correct rebill date
         Examples:
-        | page   | email_type                |
-        | core   | subscription confirmation |
-        | anime  | anime confirmation        |
-        | gaming | gaming confirmation       |
+        | page       | email_type                |
+        | core_opc   | subscription confirmation |
+        | anime_opc  | anime confirmation        |
+        | gaming_opc | gaming confirmation       |
