@@ -34,12 +34,12 @@ if ParallelTests.first_process?
     FastlyAPI.new.purge_cache
     puts 'Fastly cache purged'
   end
+  #Sets inventory flags so that sellout tests don't sell out inventory being used
+  InventoryFlagManager.set_all_flags
 end
 
 #Verification that config vars on the test environment don't point to prod
 QAEnvironmentValidator.verify
-#Sets inventory flags so that sellout tests don't sell out inventory being used
-InventoryFlagManager.set_all_flags
 
 logtime = {'start' => DateTime.now.strftime('%Q')}
 
@@ -109,7 +109,6 @@ at_exit do
  logtime['end'] = DateTime.now.strftime('%Q')
  puts 'this is the end'
  LogMonitor.new.get_errors_log(logtime['start'], logtime['end'])
- InventoryFlagManager.remove_all_flags
  r = HRedis.new
  r.connect
  r.kill_wait_set
