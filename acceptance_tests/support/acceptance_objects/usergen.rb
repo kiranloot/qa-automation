@@ -151,15 +151,17 @@ class UserGen
   end
 
   def build
-   u = nil
-   u = get_user_from_db(@type, @trait) if @trait
-   unless u
-   u = self.send("simple_"+ @type) unless @trait
-   u =  FactoryGirl.build(:user, @trait) if @trait && !(@type == "admin")
-   u = admin_and_subject if @trait == :subject_user && @type == "admin"
-   end
-   u.trait = @trait
-   u
+  #  u = nil
+    if @trait
+      u = get_user_from_db(@type, @trait)
+      unless u
+        u =  FactoryGirl.build(:user, @trait) if (@type != "admin")
+        u = admin_and_subject if @trait == :subject_user && @type == "admin"
+      end
+    else
+      u = self.send("simple_"+ @type)
+    end
+    u.trait = @trait
+    u
   end
-
 end

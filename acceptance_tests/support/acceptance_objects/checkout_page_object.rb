@@ -181,8 +181,8 @@ include Capybara::DSL
 
   def submit_checkout_information(user, type, addbilling=false)
     click_captcha if intl_captcha?
-    select_shipping_state(user.ship_state)
     select_shirt_size(user.shirt_size)
+    select_shipping_state(user.ship_state)
     #will only run on pets crate
     select_pet_shirt_size(user.pet_shirt_size)
     select_pet_collar_size(user.pet_collar_size)
@@ -280,5 +280,16 @@ include Capybara::DSL
   def shirt_variant_soldout?(variant)
     find("#select2-option_type_shirt-container").click
     expect(find("li.select2-results__option[aria-disabled='true']", :text => variant)).to be_truthy
+  end
+
+  private
+  def sub_plans
+    {
+      'one' => 'one-month',
+      'two' => 'two-month',
+      'three' => 'three-month',
+      'six' => 'six-month',
+      'twelve' => 'twelve-month'
+    }
   end
 end

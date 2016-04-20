@@ -63,6 +63,15 @@ Page
     find(:css, 'button.navbar-toggle').click
   end
 
+  def page_scroll(counter=3)
+    counter.times do
+      find(".loaded").click
+      wait_for_ajax
+    end
+    page.execute_script "window.scrollBy(0,10000)"
+    page.execute_script "window.scrollBy(0,-10000)"
+  end
+
   def modal_signup(email, password, test_data)
     wait_for_ajax
     page.find_link("Log In").click
