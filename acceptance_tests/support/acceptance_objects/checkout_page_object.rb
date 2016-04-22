@@ -69,7 +69,7 @@ include Capybara::DSL
     fill_in("checkout_shipping_address_city", :with => city)
   end
 
-  def select_shipping_state(state, refresh_count=3)
+  def select_shipping_state(state, refresh_count=5)
     continue = false
     dropdown_button = find("span.select2-selection[aria-labelledby='select2-checkout_shipping_address_state-container']")
     refresh_count.times do
@@ -80,6 +80,7 @@ include Capybara::DSL
       else
         # page.driver.browser.navigate.refresh
         dropdown_button.click
+        sleep 1
       end
     end
     if continue
