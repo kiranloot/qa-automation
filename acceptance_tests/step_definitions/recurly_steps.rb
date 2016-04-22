@@ -8,7 +8,9 @@ When(/^the recurly credit card information is modified to be declined$/) do
 end
 
 When /the user notes the recurly rebill date$/ do
-  @original_rebill = $test.recurly.get_rebill_date
+  # @original_rebill = $test.recurly.get_rebill_date
+  $test.user.subscription.set_rebill_info
+  @original_rebill = $test.user.subscription.recurly_rebill
 end
 
 #THENS

@@ -79,6 +79,7 @@ end
 
 When /the user upgrades to a (.*) month subscription/ do |months|
   $test.user.upgrade_plan(months)
+  $test.user.subscription.set_rebill_info
 end
 
 When /^the user chooses a (.*) month subscription upgrade$/ do |months|

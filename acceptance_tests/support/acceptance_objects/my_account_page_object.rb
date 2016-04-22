@@ -74,8 +74,12 @@ class MyAccountPage < Page
     assert_text(@subscription_name)
     check_displayed_status("ACTIVE")
     wait_for_ajax
-    assert_text(get_expected_next_bill_date(@subscription_name)) unless @rebill
-    assert_text(@rebill) if @rebill
+    if $test.user.subscription.rebill_date
+      assert_text(localize_date($test.user.subscription.rebill_date['day'], $test.user.subscription.rebill_date['month_abbr'], $test.user.subscription.rebill_date['year']))
+    else
+      assert_text(get_expected_next_bill_date(@subscription_name)) unless @rebill
+      assert_text(@rebill) if @rebill
+    end
     assert_text(@first_name)
     assert_text(@last_name)
     assert_text(@ship_street)
@@ -344,7 +348,7 @@ class MyAccountPage < Page
     #find("#select2-shipping_address_state#{sub_id}-container").click
     #wait_for_ajax
     #find(".select2-results__option", :text => state).click
-    select "#{state}", :from => "shipping_address_state#{sub_id}" 
+    select "#{state}", :from => "shipping_address_state#{sub_id}"
     $test.user.ship_state = state
   end
 

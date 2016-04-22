@@ -1,5 +1,5 @@
 class Subscription
-  attr_accessor :name, :months, :product, :shirt_size, :waist_size, :recurly_name, :gender
+  attr_accessor :name, :months, :product, :shirt_size, :waist_size, :recurly_name, :gender, :rebill_date, :recurly_rebill
 
   def initialize(months, product=nil)
     @@plans = {
@@ -52,4 +52,16 @@ class Subscription
     @waist_size = waist_size
   end
 
+  def set_rebill_info
+    @rebill_date = $test.calculate_rebill_date
+    @recurly_rebill = $test.recurly.get_rebill_date
+    if (odd_cycle? && DateTime.now.day.between?(20, 27))
+      @rebill_date['day'] = DateTime.now.day.to_s
+      @recurly_rebill = @recurly_rebill + (Time.now.day - @recurly_rebill.day)
+    end
+  end
+
+  def odd_cycle?
+    /(Gaming|Anime)/.match(@product)
+  end
 end
