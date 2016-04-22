@@ -47,6 +47,16 @@ FactoryGirl.define do
       last_name "Subscription"
       email { "_regwanimesub_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
     end
+    trait :registered_with_active_gaming do
+      first_name "ActiveGaming"
+      last_name "Subscription"
+      email { "_regwgamessub_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+    end
+    trait :registered_with_active_firefly do
+      first_name "ActiveFirefly"
+      last_name "Subscription"
+      email { "_regwfireflyssub_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+    end
     trait :registered_with_active_level_up do
       first_name "Active"
       last_name "LUSubscription"

@@ -37,6 +37,12 @@ anime cancellation:
 pets cancellation:
  subject_lines:
  - 'Cancellation Successful'
+gaming cancellation:
+  subject_lines:
+  - 'Cancellation Confirmed.'
+firefly cancellation:
+  subject_lines:
+  - 'Cancellation Successful'
 unskip:
  subject_lines:
  - 'Subscription Unskipped'
