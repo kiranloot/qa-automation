@@ -5,7 +5,7 @@ include Capybara::DSL
 
   def initialize
     super
-    @page_type = "gaming"
+    @page_type = "gaming_opc"
     $test.user.crate_type = "Gaming"
     setup
   end

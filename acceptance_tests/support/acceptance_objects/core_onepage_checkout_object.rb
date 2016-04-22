@@ -5,7 +5,7 @@ include Capybara::DSL
 
   def initialize
     super
-    @page_type = "core"
+    @page_type = "core_opc"
     $test.user.crate_type = "Loot Crate"
     setup
   end

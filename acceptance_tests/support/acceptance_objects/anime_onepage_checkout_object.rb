@@ -5,7 +5,7 @@ include Capybara::DSL
 
   def initialize
     super
-    @page_type = "anime"
+    @page_type = "anime_opc"
     $test.user.crate_type = "Anime"
     setup
   end
