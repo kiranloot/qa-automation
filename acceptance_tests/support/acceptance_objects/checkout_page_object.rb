@@ -69,22 +69,25 @@ include Capybara::DSL
     fill_in("checkout_shipping_address_city", :with => city)
   end
 
-  def select_shipping_state(state, refresh_count=2)
+  def select_shipping_state(state, refresh_count=5)
     continue = false
+    dropdown_button = find("span.select2-selection[aria-labelledby='select2-checkout_shipping_address_state-container']")
     refresh_count.times do
-      find("span.select2-selection[aria-labelledby='select2-checkout_shipping_address_state-container']").click
+      dropdown_button.click
       if find_all('.select2-results__option').any?
         continue = true
         break
       else
-        page.driver.browser.navigate.refresh
+        # page.driver.browser.navigate.refresh
+        dropdown_button.click
+        sleep 1
       end
     end
     if continue
       find('.select2-search__field').send_keys(state)
       find("#select2-checkout_shipping_address_state-results .select2-results__option", :text => state).click
     else
-      raise 'No states located in the state selection dropdown'
+      raise "No states located in the state selection dropdown.\nAttempted reopening state selector menu #{refresh_count.to_s} time(s)."
     end
   end
 
