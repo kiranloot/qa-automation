@@ -77,6 +77,34 @@ Before do
   end
 end
 
+Before ('@anime_inv_req') do
+  Timeout.timeout(360) do
+    sleep 0.1 until InventoryFlagManager.zero_or_less?('tests_selling_out_anime_inv')
+  end
+  InventoryFlagManager.increment_flag('tests_using_anime_inv')
+end
+
+Before ('@anime_inv_sellout') do
+  Timeout.timeout(360) do
+    sleep 0.1 until InventoryFlagManager.zero_or_less?('tests_using_anime_inv')
+  end
+  InventoryFlagManager.increment_flag('tests_selling_out_anime_inv')
+end
+
+Before ('@pets_inv_req') do
+  Timeout.timeout(360) do
+    sleep 0.1 until InventoryFlagManager.zero_or_less?('tests_selling_out_pets_inv')
+  end
+  InventoryFlagManager.increment_flag('tests_using_pets_inv')
+end
+
+Before ('@pets_inv_sellout') do
+  Timeout.timeout(360) do
+    sleep 0.1 until InventoryFlagManager.zero_or_less?('tests_using_pets_inv')
+  end
+  InventoryFlagManager.increment_flag('tests_selling_out_pets_inv')
+end
+
 After do
   $test.db.finish
   #unless ENV['DRIVER'] == 'appium'
@@ -97,6 +125,24 @@ After ('@alchemy_text') do
   $old_val_richtext = nil
 end
 
-After ('@sellout') do
-  $test.db.add_inventory_to_all
+After ('@anime_inv_req') do
+  InventoryFlagManager.decrement_flag('tests_using_anime_inv')
 end
+
+After ('@anime_inv_sellout') do
+  $test.db.add_inventory_to_product('Anime Crate')
+  InventoryFlagManager.decrement_flag('tests_selling_out_anime_inv')
+end
+
+After ('@pets_inv_req') do
+  InventoryFlagManager.decrement_flag('tests_using_pets_inv')
+end
+
+After ('@pets_inv_sellout') do
+  $test.db.add_inventory_to_product('Pets Crate')
+  InventoryFlagManager.decrement_flag('tests_selling_out_pets_inv')
+end
+
+#After ('@sellout') do
+#  $test.db.add_inventory_to_all
+#end

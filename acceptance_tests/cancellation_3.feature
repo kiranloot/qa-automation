@@ -10,7 +10,7 @@ Feature: Subscription Cancellation
             And the user account should reflect the cancellation
             And the recurly subscription should be expired
 
-    @pets @admin @ready @recurly
+    @pets @admin @ready @recurly @pets_inv_req
     Scenario: Cancel pets sub immediately through admin
         Given a registered user with an active pets subscription
             When the admin user visits the admin page

@@ -10,7 +10,7 @@ Feature: Subscription Cancellation
             And the user should receive a levelup cancellation email
             And the recurly subscription should be canceled
 
-    @ready @recurly
+    @ready @recurly @pets_inv_req
     Scenario: A user cancels their pets subscription
         Given a registered user with an active pets subscription
             When the user logs in
@@ -20,7 +20,7 @@ Feature: Subscription Cancellation
             And the user should receive a pets cancellation email
             And the recurly subscription should be canceled
 
-    @admin @ready @recurly
+    @admin @ready @recurly @anime_inv_req
     Scenario: Cancel anime sub immediately through admin
         Given a registered user with an active anime subscription
             When the admin user visits the admin page

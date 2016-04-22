@@ -123,6 +123,18 @@ def add_inventory_to_all(units = 600000)
   @conn.exec(query)
 end
 
+def add_inventory_to_product(product, units = 600000) 
+  query = """
+    UPDATE inventory_units SET total_available = #{units}
+    WHERE variant_id IN (
+      SELECT v.id FROM variants v
+      JOIN products p ON v.product_id = p.id
+      WHERE p.name = '#{product}'
+    )
+  """
+  @conn.exec(query)
+end
+
 def sellout_variant(sku)
   variant_id_query = "select id from variants where sku = '#{sku}'"
   id = @conn.exec(variant_id_query)[0]['id']
