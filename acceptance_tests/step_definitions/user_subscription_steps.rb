@@ -280,3 +280,7 @@ end
 Then /^the user should not see the credit card information fields$/ do
   $test.current_page.credit_card_fields_gone?
 end
+
+Then /^the user should be redirected to the plan unavailable page$/ do
+  assert_text("THIS CRATE IS NOT AVAILABLE FOR YOUR COUNTRY")
+end
