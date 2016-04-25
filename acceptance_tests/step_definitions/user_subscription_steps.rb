@@ -268,8 +268,13 @@ Then /^the (.*) option should be soldout/ do |variant|
   $test.current_page.shirt_variant_soldout?(variant)
 end
 
-Then /^the landing page should reflect the sellout$/ do
-  assert_text("SOLD OUT!")
+Then /^the landing page (should|should not) reflect the sellout$/ do |action|
+  $test.current_page.page_scroll
+  if action == 'should'
+    expect(page).to have_css("#cms-core-crate-theme-section-soldout")
+  elsif action == 'should not'
+    expect(page).to have_no_css("#cms-core-crate-theme-section-soldout")
+  end
 end
 
 Then /^the user should not see the credit card information fields$/ do
