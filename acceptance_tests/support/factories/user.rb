@@ -534,6 +534,9 @@ FactoryGirl.define do
       country "Turkey"
       country_code "TR"
     end
+    trait :japan do
+      country_code "JP"
+    end
     trait :multi_use_fixed_promo do
       coupon_code  {$test.test_data["promos"]["multi_use"]}
     end
