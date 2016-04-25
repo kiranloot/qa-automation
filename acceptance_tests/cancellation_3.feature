@@ -20,3 +20,12 @@ Feature: Subscription Cancellation
             And the user account should reflect the cancellation
             And the recurly subscription should be expired
 
+    @ready
+    Scenario: Subscriber cancels a gaming crate subscription
+        Given   a registered user with an active gaming subscription
+          When  the user logs in
+          And   the user visits the my account page
+          And   the user cancels their subscription
+        Then    the subscription status should be set to pending cancellation
+          And   the user should receive a gaming cancellation email
+          And   the recurly subscription should be canceled

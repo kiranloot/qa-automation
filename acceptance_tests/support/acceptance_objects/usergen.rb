@@ -95,6 +95,14 @@ class UserGen
     :registered_with_active_anime
   end
 
+  def an_active_gaming_subscription
+    :registered_with_active_gaming
+  end
+
+  def an_active_firefly_subscription
+    :registered_with_active_firefly
+  end
+
   def an_active_level_up_subscription
     :registered_with_active_level_up
   end
