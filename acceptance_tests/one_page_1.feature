@@ -1,7 +1,7 @@
 @regression @core @subscription_creation @selenium
-Feature: Subscription Creation
+Feature: Subscription Creation - One Page Checkout
     @ready @safari_ready
-    Scenario Outline: Unregistered user creates one month subscription
+    Scenario Outline: Unregistered user creates one month core/anime/gaming subscription using one page checkout
         Given an unregistered user
             When the user visits the <page> page
             And the user selects a one month subscription plan
