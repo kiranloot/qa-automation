@@ -150,6 +150,11 @@ When /^the user edits their (.*)$/ do |info|
   end
 end
 
+When /goes to the edit subscription info section/ do
+  sub_id = $test.db.get_subscriptions($test.user.email)[0]['subscription_id']
+  $test.current_page.edit_subscription_info(sub_id)
+end
+
 #THENS
 Then /the new subscription should be added to the user account/ do
   step "the user visits the my account page"
@@ -283,4 +288,8 @@ end
 
 Then /^the user should be redirected to the plan unavailable page$/ do
   assert_text("THIS CRATE IS NOT AVAILABLE FOR YOUR COUNTRY")
+end
+
+Then /^the list of subscription variants should have no blank or nil options$/ do
+  $test.current_page.verify_populated_dropdown
 end

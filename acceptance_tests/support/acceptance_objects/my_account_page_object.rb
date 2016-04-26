@@ -311,6 +311,14 @@ class MyAccountPage < Page
     $test.user.display_shirt_size = $test.user.get_display_shirt_size(size)
   end
 
+  def verify_populated_dropdown
+    options = find_all("#subscription_subscription_variants_attributes_0_variant_id option")
+    options.each do |o|
+      expect(o.text).to be_truthy
+      expect(o.text).not_to eq('')
+    end
+  end
+
   def edit_shipping_address(sub_id)
     go_to_subscriptions
     open_shipping_tab
