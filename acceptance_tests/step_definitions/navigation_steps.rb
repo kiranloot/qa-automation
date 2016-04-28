@@ -135,3 +135,7 @@ end
 Then /^the user should be redirected to the plan selection page for core crate$/ do
   expect(current_url).to eq("https://#{ENV['SITE']}.lootcrate.com/subscription-crates/core-crate/plans")
 end
+
+Then /^the countdown timer should be working$/ do
+  $test.current_page.verify_timer_shipping
+end
