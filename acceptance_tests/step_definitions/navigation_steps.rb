@@ -137,5 +137,5 @@ Then /^the user should be redirected to the plan selection page for core crate$/
 end
 
 Then /^the countdown timer should be working$/ do
-  $test.current_page.verify_timer_shipping
+  $test.current_page.check_countdown_timer
 end

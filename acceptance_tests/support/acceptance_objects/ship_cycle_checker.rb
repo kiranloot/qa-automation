@@ -7,10 +7,6 @@ module ShipCycleChecker
     else
       end_date = 20
     end
-    puts Date.today.day
-    puts crate
-    puts end_date
-    puts Date.today.day > start_date && Date.today.day < end_date
     return Date.today.day > start_date && Date.today.day < end_date
   end
 end

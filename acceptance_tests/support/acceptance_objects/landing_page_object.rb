@@ -9,7 +9,6 @@ include WaitForAjax
     super
     @page_type = "landing_page"
     @tracking_script_lines << "lca.page('core_crates', 'show', '');"
-    setup
   end
 
   def click_get_loot

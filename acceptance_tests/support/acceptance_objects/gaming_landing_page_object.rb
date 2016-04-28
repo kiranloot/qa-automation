@@ -1,6 +1,6 @@
-require_relative "subscribe_page_object"
+require_relative "landing_page_object"
 
-class GamingLandingPage < SubscribePage
+class GamingLandingPage < LandingPage
 include Capybara::DSL
 include WaitForAjax
 
