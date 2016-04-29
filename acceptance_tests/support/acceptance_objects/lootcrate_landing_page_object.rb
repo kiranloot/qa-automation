@@ -6,7 +6,9 @@ include WaitForAjax
 
   def initialize
     super
+    @page_type = "lootcrate_landing"
     @tracking_script_lines << "lca.page('core_crates', 'show', '');"
+    setup
     @plan_display_names = {
       'one' => '1 Month Plan Subscription',
       'three' => '3 Month Plan Subscription',
