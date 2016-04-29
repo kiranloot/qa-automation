@@ -9,7 +9,7 @@ Feature: DX sellouts
             And the user selects a one month subscription plan
         Then the Mens - S option should be soldout 
 
-    @ready @anime_inv_sellout
+    @ready @dx_inv_sellout
     Scenario: The DX crate sells out
         Given an unregistered user
         And the Loot Crate DX product is sold out
