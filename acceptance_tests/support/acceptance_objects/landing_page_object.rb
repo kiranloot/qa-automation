@@ -36,4 +36,8 @@ include WaitForAjax
     expect(find("#dmin").text).to eq("PI")
     expect(find("#dsec").text).to eq("NG!")
   end
+
+  def verify_timer_counting
+    #TO DO
+  end
 end
