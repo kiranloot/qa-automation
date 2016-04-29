@@ -105,6 +105,48 @@ Before ('@pets_inv_sellout') do
   InventoryFlagManager.increment_flag('tests_selling_out_pets_inv')
 end
 
+Before ('@gaming_inv_req') do
+  Timeout.timeout(360) do
+    sleep 0.1 until InventoryFlagManager.zero_or_less?('tests_selling_out_gaming_inv')
+  end
+  InventoryFlagManager.increment_flag('tests_using_gaming_inv')
+end
+
+Before ('@gaming_inv_sellout') do
+  Timeout.timeout(360) do
+    sleep 0.1 until InventoryFlagManager.zero_or_less?('tests_using_gaming_inv')
+  end
+  InventoryFlagManager.increment_flag('tests_selling_out_gaming_inv')
+end
+
+Before ('@firefly_inv_req') do
+  Timeout.timeout(360) do
+    sleep 0.1 until InventoryFlagManager.zero_or_less?('tests_selling_out_firefly_inv')
+  end
+  InventoryFlagManager.increment_flag('tests_using_firefly_inv')
+end
+
+Before ('@firefly_inv_sellout') do
+  Timeout.timeout(360) do
+    sleep 0.1 until InventoryFlagManager.zero_or_less?('tests_using_firefly_inv')
+  end
+  InventoryFlagManager.increment_flag('tests_selling_out_firefly_inv')
+end
+
+Before ('@dx_inv_req') do
+  Timeout.timeout(360) do
+    sleep 0.1 until InventoryFlagManager.zero_or_less?('tests_selling_out_dx_inv')
+  end
+  InventoryFlagManager.increment_flag('tests_using_dx_inv')
+end
+
+Before ('@dx_inv_sellout') do
+  Timeout.timeout(360) do
+    sleep 0.1 until InventoryFlagManager.zero_or_less?('tests_using_dx_inv')
+  end
+  InventoryFlagManager.increment_flag('tests_selling_out_dx_inv')
+end
+
 After do
   $test.db.finish
   #unless ENV['DRIVER'] == 'appium'
@@ -141,6 +183,33 @@ end
 After ('@pets_inv_sellout') do
   $test.db.add_inventory_to_product('Pets Crate')
   InventoryFlagManager.decrement_flag('tests_selling_out_pets_inv')
+end
+
+After ('@gaming_inv_req') do
+  InventoryFlagManager.decrement_flag('tests_using_gaming_inv')
+end
+
+After ('@gaming_inv_sellout') do
+  $test.db.add_inventory_to_product('Gaming Crate')
+  InventoryFlagManager.decrement_flag('tests_selling_out_gaming_inv')
+end
+
+After ('@firefly_inv_req') do
+  InventoryFlagManager.decrement_flag('tests_using_firefly_inv')
+end
+
+After ('@firefly_inv_sellout') do
+  $test.db.add_inventory_to_product('Firefly Cargo Crate')
+  InventoryFlagManager.decrement_flag('tests_selling_out_firefly_inv')
+end
+
+After ('@dx_inv_req') do
+  InventoryFlagManager.decrement_flag('tests_using_dx_inv')
+end
+
+After ('@dx_inv_sellout') do
+  $test.db.add_inventory_to_product('Loot Crate DX')
+  InventoryFlagManager.decrement_flag('tests_selling_out_dx_inv')
 end
 
 #After ('@sellout') do

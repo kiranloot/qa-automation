@@ -1,6 +1,6 @@
 @core @regression @cancellation @selenium
 Feature: Subscription Cancellation
-    @level_up @admin @ready @recurly
+    @level_up @admin @ready @recurly @firefly_inv_req
     Scenario:   Subscriber cancels a firefly crate subscription
         Given   a registered user with an active firefly subscription
           When  the user logs in
@@ -10,7 +10,7 @@ Feature: Subscription Cancellation
           And   the user should receive a firefly cancellation email
           And   the recurly subscription should be canceled
 
-    @ready
+    @ready @gaming_inv_req
     Scenario:   Subscriber immediately cancels a gaming crate subscription
         Given   a registered user with an active gaming subscription
           When  the admin user visits the admin page
@@ -20,7 +20,7 @@ Feature: Subscription Cancellation
           And   the user account should reflect the cancellation
           And   the recurly subscription should be expired
 
-    @ready
+    @ready @firefly_inv_req
     Scenario:   Subscriber immediately cancels a firefly crate subscription
         Given   a registered user with an active firefly subscription
           When  the admin user visits the admin page

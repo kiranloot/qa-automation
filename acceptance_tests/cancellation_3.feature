@@ -20,7 +20,7 @@ Feature: Subscription Cancellation
             And the user account should reflect the cancellation
             And the recurly subscription should be expired
 
-    @ready
+    @ready @gaming_inv_req
     Scenario: Subscriber cancels a gaming crate subscription
         Given   a registered user with an active gaming subscription
           When  the user logs in

@@ -1,4 +1,4 @@
-@regression @core @firefly_subscription_creation @selenium
+@regression @core @firefly_subscription_creation @firefly_inv_req @selenium
 Feature: Firefly Subscription Creation
 
     @ready
