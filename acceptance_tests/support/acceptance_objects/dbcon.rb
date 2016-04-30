@@ -123,7 +123,7 @@ def add_inventory_to_all(units = 600000)
   @conn.exec(query)
 end
 
-def add_inventory_to_product(product, units = 600000) 
+def add_inventory_to_product(product, units = 600000)
   query = """
     UPDATE inventory_units SET total_available = #{units}
     WHERE variant_id IN (
@@ -286,6 +286,7 @@ def get_subscriptions(user_email)
   query = "SELECT u.email as email, s.id as subscription_id, s.plan_id as plan_id
             FROM subscriptions s
             JOIN users u on s.user_id = u.id
+            ORDER BY s.id desc
             WHERE u.email = \'#{user_email}\'"
   @conn.exec(query)
 end

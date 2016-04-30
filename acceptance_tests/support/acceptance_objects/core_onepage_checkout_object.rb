@@ -27,6 +27,7 @@ include Capybara::DSL
     end
     find(:css, "##{target}").click
     wait_for_ajax
+    create_user_subscription(plan)
     update_target_plan(plan)
   end
 
