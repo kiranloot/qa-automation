@@ -21,12 +21,12 @@ class LevelUpSubscribePage < SubscribePage
     }
 
     @crate_names_and_labels = {
-      'for her' => 'Get Loot for Her',
-      'socks' => 'Get Loot Socks',
-      'tees' => 'Get Loot Tees',
-      'wearables' => 'Get Loot Wearables',
-      'socks + wearable' => 'Socks + Wearable',
-      'for her + tee' => 'For Her + Tee'
+      'for her' => 'Loot for Her',
+      'socks' => 'Loot Socks',
+      'tees' => 'Loot Tees',
+      'wearables' => 'Loot Wearables',
+      'socks + wearable' => 'Loot Socks + Loot Wearables',
+      'for her + tee' => 'Loot for Her + Loot Tees'
     }
   end
 
@@ -58,11 +58,11 @@ class LevelUpSubscribePage < SubscribePage
 
   def choose_bundle(crate, bundle=false)
     @crate = crate
+    panel = find('#level-up-nav')
     if bundle
-      panel = find('h2', :text => @crate_names_and_labels[crate].upcase).find(:xpath, '..')
-      panel.find_link('Get Bundle').click
+      panel.find('#level-up-nav-bundles-btn').click
     else
-      find_link(@crate_names_and_labels[crate]).click
+      panel.find_link(@crate_names_and_labels[crate]).click
     end
     wait_for_ajax
   end
