@@ -62,7 +62,7 @@ class LevelUpSubscribePage < SubscribePage
     if bundle
       panel.find('#level-up-nav-bundles-btn').click
     end
-    find_link(@crate_names_and_labels[crate]).click
+    panel.find_link(@crate_names_and_labels[crate]).click
     wait_for_ajax
   end
 
