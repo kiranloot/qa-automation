@@ -24,6 +24,8 @@ recurly:
  url: "https://recurly.com"
 fallout4:
  url: "/fallout4"
+landing:
+ url: "/subscription-crates/lootcrate"
 lootcrate_landing:
  url: "/subscription-crates/lootcrate"
 lootcrate_subscribe:
