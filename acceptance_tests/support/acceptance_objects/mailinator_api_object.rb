@@ -40,19 +40,23 @@ class MailinatorAPI
   end
 
   def verify_email(type,email)
-    valid_subject_lines = YAML.load(File.open('acceptance_tests/support/email_data.yml'))[type]['subject_lines']
-    email_pass = false
-    10.times do
-      if email_in_inbox?(email, valid_subject_lines)
-        email_pass = true
-        break
-      else
-        sleep(3)
+    if ENV['MAIL_CHECK'] == 'yes'
+      valid_subject_lines = YAML.load(File.open('acceptance_tests/support/email_data.yml'))[type]['subject_lines']
+      email_pass = false
+      10.times do
+        if email_in_inbox?(email, valid_subject_lines)
+          email_pass = true
+          break
+        else
+          sleep(3)
+        end
       end
+      expect(email_pass).to be_truthy,
+        """
+          Did not find an email with subject line(s) '#{valid_subject_lines}' for email #{email}
+        """
+    else
+      puts "Email verification skipped!"
     end
-    expect(email_pass).to be_truthy,
-      """
-        Did not find an email with subject line(s) '#{valid_subject_lines}' for email #{email}
-      """
   end
 end
