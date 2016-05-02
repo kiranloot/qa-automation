@@ -286,8 +286,8 @@ def get_subscriptions(user_email)
   query = "SELECT u.email as email, s.id as subscription_id, s.plan_id as plan_id
             FROM subscriptions s
             JOIN users u on s.user_id = u.id
-            ORDER BY s.id desc
-            WHERE u.email = \'#{user_email}\'"
+            WHERE u.email = \'#{user_email}\'
+            ORDER BY s.id desc"
   @conn.exec(query)
 end
 
