@@ -120,7 +120,7 @@ class RecurlyAPI
   def verify_cc_info
     account = get_account
     expect(account.billing_info.first_six).to eq($test.user.cc.to_s[0..5])
-    expect(account.billing_info.last_four).to eq($test.user.last_four)
+    expect(account.billing_info.last_four).to eq($test.user.subscription.billing_info.last_four)
   end
 
   def get_subscription_info(account)

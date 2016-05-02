@@ -183,7 +183,8 @@ include Capybara::DSL
     wait_for_ajax
   end
 
-  def submit_checkout_information(user, type, addbilling=false)
+  def submit_checkout_information(type, addbilling=false)
+    user.subscription.billing_info.invalidate if type == 'invalid'
     click_captcha if intl_captcha?
     select_shirt_size(user.shirt_size)
     select_shipping_state(user.ship_state)
@@ -199,17 +200,13 @@ include Capybara::DSL
     enter_shipping_city(user.ship_city)
     enter_shipping_zip_code(user.ship_zip)
     enter_name_on_card(user.full_name)
-    if type == 'invalid'
-      enter_credit_card_number(user.cc_invalid)
-    else
-      enter_credit_card_number(user.cc)
-    end
+    enter_credit_card_number(user.subscription.billing_info.cc_number)
     if @zip_tax_hash.keys.include? $test.user.ship_zip
       @tax_displayed = page.has_content? @zip_tax_hash[$test.user.ship_zip]
     end
-    enter_cvv(user.cvv)
-    select_cc_exp_month(user.cc_exp_month)
-    select_cc_exp_year(user.cc_exp_year)
+    enter_cvv(user.subscription.billing_info.cvv)
+    select_cc_exp_month(user.subscription.billing_info.exp_month)
+    select_cc_exp_year(user.subscription.billing_info.exp_year)
     unless user.promo.nil?
       click_coupon_checkbox
       enter_coupon_code(user.promo.coupon_code)
@@ -244,16 +241,13 @@ include Capybara::DSL
     }
   end
 
-  def submit_credit_card_information_only(user, type)
+  def submit_credit_card_information_only(type)
+    user.subscription.billing_info.invalidate if type == 'invalid'
     enter_name_on_card(user.full_name)
-    if type == 'invalid'
-      enter_credit_card_number(user.cc_invalid)
-    else
-      enter_credit_card_number(user.cc)
-    end
-    enter_cvv(user.cvv)
-    select_cc_exp_month(user.cc_exp_month)
-    select_cc_exp_year(user.cc_exp_year)
+    enter_credit_card_number(user.subscription.billing_info.cc_number)
+    enter_cvv(user.subscription.billing_info.cvv)
+    select_cc_exp_month(user.subscription.billing_info.exp_month)
+    select_cc_exp_year(user.subscription.billing_info.exp_year)
     click_legal_checkbox
     click_subscribe
     verify_confirmation_page
@@ -295,5 +289,9 @@ include Capybara::DSL
       'six' => 'six-month',
       'twelve' => 'twelve-month'
     }
+  end
+
+  def user
+    $test.user
   end
 end

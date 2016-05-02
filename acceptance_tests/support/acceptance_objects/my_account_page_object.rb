@@ -139,7 +139,7 @@ class MyAccountPage < Page
     assert_text($test.user.billing_address.city)
     assert_text($test.user.billing_address.state)
     assert_text($test.user.billing_address.zip)
-    assert_text($test.user.last_four)
+    assert_text($test.user.subscription.billing_info.last_four)
   end
 
   def get_expected_next_bill_date(subscription_name, compare_date: nil)
@@ -375,12 +375,12 @@ class MyAccountPage < Page
 
   def fill_in_cc_number(cc)
     find(:css, "input.number").set(cc)
-    $test.user.cc = cc
+    $test.user.subscription.billing_info.set_cc_num(cc)
   end
 
   def fill_in_cvv_number(cvv)
     find(:css, "input.cvv").set(cvv)
-    $test.user.cvv = cvv
+    $test.user.subscription.billing_info.cvv = cvv
   end
 
   def fill_in_billing_address_1(sub_id, address)

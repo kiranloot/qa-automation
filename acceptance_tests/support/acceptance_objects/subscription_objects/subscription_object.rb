@@ -85,20 +85,6 @@ class Subscription
     @recurly_sub_id ||= $test.recurly.get_account
   end
 
-
-####Billing Info object to better 'package' billing values together####
-  class BillingInfo
-    attr_accessor :cc_number, :last_four, :billing_address
-    def initialize(cc_number = '4111111111111111', billing_address=FactoryGirl.build(:address))
-      set_cc_num(cc_number)
-    end
-
-    def set_cc_num(cc_num)
-      @cc_number = cc_num
-      @last_four = @cc_number.split(//).last(4).join
-    end
-  end
-
   private
   def plans
     {

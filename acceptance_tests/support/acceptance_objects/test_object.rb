@@ -264,9 +264,9 @@ class Test
       end
       @current_page.enter_register_info(@user)
     elsif type =='subscription'
-      @current_page.submit_checkout_information(@user, adjective, addbilling)
+      @current_page.submit_checkout_information(adjective, addbilling)
     elsif type == 'credit card'
-      @current_page.submit_credit_card_information_only(@user, adjective)
+      @current_page.submit_credit_card_information_only(adjective)
     end
   end
 
