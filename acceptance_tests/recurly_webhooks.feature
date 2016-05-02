@@ -1,6 +1,6 @@
 @webhooks
 Feature: Ensure Recurly Webhooks all complete successfully
-    @webhooks_indev
+    @ready
     Scenario: All Recurly Webhooks associated with subscription creation complete successfully
         Given a registered user with no prior subscription
             When the user logs in
