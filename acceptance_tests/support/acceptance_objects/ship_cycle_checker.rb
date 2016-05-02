@@ -7,6 +7,6 @@ module ShipCycleChecker
     else
       end_date = 20
     end
-    return Date.today.day > start_date && Date.today.day < end_date
+    return Date.today.day < end_date
   end
 end

@@ -38,6 +38,10 @@ include WaitForAjax
   end
 
   def verify_timer_counting
-    #TO DO
+    page_scroll
+    expect(find("#dday").text.to_i).to be >= 0
+    expect(find("#dhour").text.to_i).to be >= 0
+    expect(find("#dmin").text.to_i).to be >= 0
+    expect(find("#dsec").text.to_i).to be >= 0
   end
 end
