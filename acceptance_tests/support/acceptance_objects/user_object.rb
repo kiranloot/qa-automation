@@ -84,10 +84,21 @@ class User
     input_hash.each do |k,v|
       self.instance_variable_set('@'+ k, v)
     end
+    @subscription = process_sub_data(input_hash)
     target_plan(input_hash)
     @shirt_size = scrub_shirt_size(@shirt_size)
     @rebill_date_db = scrub_rebill_date(@rebill_date_db)
     set_full_name
+  end
+
+  def process_sub_data(sub_data)
+    sub_type = sub_data['brand'] == 'Level Up' ? :levelupsubscription : :subscription
+    sub_trait = sub_data['product'].gsub(/(\+|-)/, '').tr(' ', '_').downcase.to_sym
+    FactoryGirl.build(
+      sub_type,
+      sub_trait,
+      months: sub_data['plan_months']
+    )
   end
 
   def need_sub?
@@ -106,7 +117,7 @@ class User
     plan_name = input_hash['plan_name']
     #remove the "Loot Crate" from the subscription name
     plan_name = plan_name.gsub(/Loot Crate/, '')
-    @subscription_name = plan_name
+    @subscription.plan_title = plan_name
   end
 
   def set_full_name
@@ -219,7 +230,7 @@ class User
 
   def upgrade_plan(months)
    upgrade_month_int = 0
-   current_month_int = @subscription_name.gsub(/\D/, '').to_i
+   current_month_int = @subscription.name.gsub(/\D/, '').to_i
     for i in 0..12
      if i.humanize == months
       upgrade_month_int = i
@@ -240,7 +251,7 @@ class User
    select(upgrade_plan_target.upgrade_string, :from => 'upgrade_plan_name')
    click_button("SUBMIT")
    wait_for_ajax
-   @subscription_name = upgrade_plan_target.name
+   @subscription.name = upgrade_plan_target.name
    @subscription = upgrade_plan_target
   end
 
@@ -285,10 +296,10 @@ class User
   end
 
   def plan_months
-    if @subscription_name =~ /1 Year Subscription/
+    if @subscription.name =~ /1 Year Subscription/
       return 12
     else
-      @subscription_name.gsub(/[^\d]/, '').to_i
+      @subscription.name.gsub(/[^\d]/, '').to_i
     end
   end
 

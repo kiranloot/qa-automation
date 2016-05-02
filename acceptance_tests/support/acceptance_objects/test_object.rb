@@ -294,18 +294,18 @@ class Test
   end
 
   def calculate_rebill_date(utc=false)
-    if /(Anime|Gaming)/.match($test.user.subscription_name)
+    if /(Anime|Gaming)/.match($test.user.subscription.name)
       end_date = 28
     else
       end_date = 20
     end
     utc ? sub_day = Time.now.utc.to_date : sub_day = Date.today
     if sub_day.day > 5 && sub_day.day < end_date
-      rebill_day = Date.new((sub_day >> $test.user.plan_months).year,
-                            (sub_day >> $test.user.plan_months).month,
+      rebill_day = Date.new((sub_day >> $test.user.subscription.months.to_i).year,
+                            (sub_day >> $test.user.subscription.months.to_i).month,
                             (utc ? 6 : 5))
     else
-      rebill_day = sub_day >> $test.user.plan_months
+      rebill_day = sub_day >> $test.user.subscription.months.to_i
     end
     return{
       'month' => rebill_day.strftime('%B'),

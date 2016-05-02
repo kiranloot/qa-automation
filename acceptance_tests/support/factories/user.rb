@@ -566,6 +566,7 @@ FactoryGirl.define do
       heroku = HerokuAPI.new
       email { heroku.create_user_with_acive_sub_and_tracking_info }
       password "password"
+      subscription {FactoryGirl.build(:subscription)}
     end
   end
 

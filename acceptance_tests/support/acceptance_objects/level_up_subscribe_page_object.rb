@@ -84,8 +84,8 @@ class LevelUpSubscribePage < SubscribePage
     unless subscription.product == 'socks'
       size_section = find("section#section-lu-sizes")
       find("#sizes-btn-#{subscription.gender}").click if size_section.text.include?('MENS WOMENS')
-      find("#sizes-btn-shirt-#{subscription.gender}-#{subscription.shirt_size}").click if size_section.text.include?('SHIRT SIZE')
-      find("#sizes-btn-waist-womens-#{subscription.waist_size}").click if size_section.text.include?('WAIST SIZE')
+      find("#sizes-btn-shirt-#{subscription.gender}-#{subscription.sizes[:shirt]}").click if size_section.text.include?('SHIRT SIZE')
+      find("#sizes-btn-waist-womens-#{subscription.sizes[:waist]}").click if size_section.text.include?('WAIST SIZE')
       wait_for_ajax
     end
   end
@@ -174,8 +174,6 @@ class LevelUpSubscribePage < SubscribePage
     first("##{div_id}").find_link("level up").click
     wait_for_ajax
     plan = months + product
-    update_target_plan(plan)
-    update_recurly_plan(plan)
     load_checkout_page_object
   end
 

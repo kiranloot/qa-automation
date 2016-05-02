@@ -47,7 +47,6 @@ include WaitForAjax
   end
 
   def select_plan(plan)
-    create_user_subscription(plan)
     click_get_loot
     if plan == 'random'
       rand_key = @plans.keys.sample
@@ -58,12 +57,8 @@ include WaitForAjax
     end
     find(:css, "##{target}").click
     wait_for_ajax
-    update_target_plan(plan)
+    rand_key ? create_user_subscription(rand_key) : create_user_subscription(plan)
     load_checkout_page_object
-  end
-
-  def update_target_plan(plan)
-    $test.user.subscription_name = @plan_display_names[plan]
   end
 
   def load_checkout_page_object

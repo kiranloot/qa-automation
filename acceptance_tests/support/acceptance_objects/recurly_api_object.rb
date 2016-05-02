@@ -28,14 +28,14 @@ class RecurlyAPI
       end
     #do if this is any other sub
     else
-      if $test.user.subscription_name.include? '1 Year Subscription'
-        recurly_sub = $test.user.subscription_name.gsub(/1 Year/, "12 Month")
+      if $test.user.subscription.name.include? '1 Year Subscription'
+        recurly_sub = $test.user.subscription.name.gsub(/1 Year/, "12 Month")
       elsif $test.user.crate_type == "Firefly"
-        recurly_sub = 'Firefly ' + $test.user.subscription_name
+        recurly_sub = 'Firefly ' + $test.user.subscription.name
       elsif $test.user.crate_type == "DX"
-        recurly_sub = 'Lcdx ' + $test.user.subscription_name
+        recurly_sub = 'Lcdx ' + $test.user.subscription.name
       else
-        recurly_sub = $test.user.subscription_name
+        recurly_sub = $test.user.subscription.name
       end
       unless country_code == "US"
         country_code[1] = country_code[1].downcase

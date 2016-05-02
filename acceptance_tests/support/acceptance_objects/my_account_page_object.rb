@@ -19,7 +19,7 @@ class MyAccountPage < Page
     @subscription_name = nil
     @rebill = nil
     if $test.user
-      @subscription_name = $test.user.subscription_name
+      @subscription_name = $test.user.subscription.name
       @rebill = $test.user.rebill_date_db
     end
   end
@@ -200,7 +200,7 @@ class MyAccountPage < Page
 
   def cancel_subscription
     go_to_subscriptions
-    get_expected_next_bill_date($test.user.subscription_name)
+    get_expected_next_bill_date($test.user.subscription.name)
     click_cancel_subscription
     find_link("Cancel Subscription").click
     sleep(1)
