@@ -9,10 +9,10 @@ class User
 
   attr_accessor :email, :password, :street, :city, :ship_state, :ship_zip, :zip,
     :first_name, :last_name, :full_name, :shirt_size, :display_shirt_size, :new_shirt_size,
-    :cc, :cvv, :ship_street, :ship_street_2, :ship_city, :affiliate, :base_coupon_code, :coupon_code, :discount_applied,
+    :ship_street, :ship_street_2, :ship_city, :affiliate, :base_coupon_code, :coupon_code, :discount_applied,
     :subscription_name, :level_up_subscription_name, :new_user_sub_name,:new_rebill_date, :bill_zip,
-    :bill_city, :bill_street, :bill_street_2, :bill_state, :need_sub, :rebill_date_db, :last_four, :trait, :recurly_level_up_plan,
-    :country_code, :recurly_billing_state_code, :cc_invalid, :cc_exp_month, :cc_exp_year, :pet_shirt_size, :pet_collar_size, :human_wearable_size, :promo_type,
+    :bill_city, :bill_street, :bill_street_2, :bill_state, :need_sub, :rebill_date_db, :trait, :recurly_level_up_plan,
+    :country_code, :recurly_billing_state_code, :pet_shirt_size, :pet_collar_size, :human_wearable_size, :promo_type,
     :promo, :adjustment_type, :adjustment_amount, :recurly_rebill_date, :unisex_shirt_size, :pin_code, :crate_type, :billing_address, :country, :subscription
 
   @@sizes = {"male" =>  {0 => "Mens - S", 1 => "Mens - M", 2 => "Mens - L", 3 => "Mens - XL",
@@ -43,12 +43,6 @@ class User
     @ship_street = "1234 Fake St"
     @ship_street_2 = nil
     @ship_state = "CA"
-    @cc = "4111111111111111"
-    @cc_invalid = "4567890133334444"
-    @cc_exp_month = "01 - January"
-    @cc_exp_year = "2020"
-    @cvv = "333"
-    @last_four = "1111"
     @test = test
     @use_shipping = true
     @bill_zip = "90210"

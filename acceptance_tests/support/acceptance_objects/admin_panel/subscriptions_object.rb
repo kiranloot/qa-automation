@@ -123,7 +123,7 @@ class AdminSubscriptionsPage < AdminPage
     assert_text($test.user.bill_street)
     assert_text($test.user.bill_city)
     assert_text($test.user.bill_zip)
-    assert_text($test.user.last_four)
+    assert_text($test.user.subscription.billing_info.last_four)
   end
 
   def subscription_info_updated?

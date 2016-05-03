@@ -140,8 +140,8 @@ When /^the user edits their (.*)$/ do |info|
   when 'billing information'
     $test.current_page.edit_billing_info(sub_id)
     $test.current_page.fill_in_cc_name(sub_id, Faker::Name.name)
-    $test.current_page.fill_in_cc_number($test.user.cc)
-    $test.current_page.fill_in_cvv_number($test.user.cvv)
+    $test.current_page.fill_in_cc_number($test.user.subscription.billing_info.cc_number)
+    $test.current_page.fill_in_cvv_number($test.user.subscription.billing_info.cvv)
     $test.current_page.fill_in_billing_address_1(sub_id, Faker::Address.street_address)
     $test.current_page.fill_in_billing_city(sub_id, Faker::Address.city)
     $test.current_page.select_billing_state(sub_id, Faker::Address.state_abbr)
