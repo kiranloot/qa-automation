@@ -24,11 +24,12 @@ include Capybara::DSL
     else
       target = sub_plans[plan]
     end
-    find_all('.col-sm-3')[0].click
+    find('#plans').click
     find(:css, "##{target}").click
     wait_for_ajax
     create_user_subscription(plan)
     update_target_plan(plan)
+    find('#new_checkout').click
   end
 
   def create_user_subscription(plan)

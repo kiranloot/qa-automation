@@ -39,6 +39,7 @@ include WaitForAjax
 
   def select_plan(plan)
     click_get_loot
+    find('ol.meter')
     if plan == 'random'
       rand_key = @plans.keys.sample
       target = @plans[rand_key]
