@@ -19,9 +19,8 @@ Feature: Ensure Recurly Webhooks all complete successfully
 
     @WIP
     Scenario: All Recurly Webhooks associated with editing billing address complete successfully
-        Given a registered user with no prior subscription
+        Given a registered user with an active subscription
             When the user logs in
-            And the user selects the Loot Crate crate
-            And the user selects a one month subscription plan
-            And the user submits valid subscription information
+            When the user logs in
+            And the user edits their billing information
         Then the webhooks fired during editing billing address should all have a status of completed_successfully
