@@ -20,7 +20,7 @@ include Capybara::DSL
 
   def select_shirt_size(size)
     find("#select2-option_type_shirt-container").click
-    wait_for_ajax
+    # wait_for_ajax
     find(".select2-results__option", :text => size).click
   end
 
@@ -75,6 +75,8 @@ include Capybara::DSL
     dropdown_button = find("span.select2-selection[aria-labelledby='select2-checkout_shipping_address_state-container']")
     refresh_count.times do
       dropdown_button.click
+      find('.select2-search__field').send_keys(state)
+      wait_for_ajax
       if find_all('.select2-results__option').any?
         continue = true
         break
@@ -85,7 +87,7 @@ include Capybara::DSL
       end
     end
     if continue
-      find('.select2-search__field').send_keys(state)
+      # find('.select2-search__field').send_keys(state)
       find("#select2-checkout_shipping_address_state-results .select2-results__option", :text => state).click
     else
       raise "No states located in the state selection dropdown.\nAttempted reopening state selector menu #{refresh_count.to_s} time(s)."
@@ -187,7 +189,6 @@ include Capybara::DSL
     user.subscription.billing_info.invalidate if type == 'invalid'
     click_captcha if intl_captcha?
     select_shirt_size(user.shirt_size)
-    select_shipping_state(user.ship_state)
     #will only run on pets crate
     select_pet_shirt_size(user.pet_shirt_size)
     select_pet_collar_size(user.pet_collar_size)
@@ -198,6 +199,7 @@ include Capybara::DSL
     enter_last_name(user.last_name)
     enter_shipping_address_line_1(user.ship_street)
     enter_shipping_city(user.ship_city)
+    select_shipping_state(user.ship_state)
     enter_shipping_zip_code(user.ship_zip)
     enter_name_on_card(user.full_name)
     enter_credit_card_number(user.subscription.billing_info.cc_number)
