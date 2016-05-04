@@ -330,6 +330,10 @@ def registered_with_active_dx
   registered_one_active('Loot Crate DX')
 end
 
+def registered_with_active_gaming
+  registered_one_active('Gaming Crate')
+end
+
 def get_address(type, sub)
       send("#{type}_from_hash", sub) if sub.class == Hash
       send("#{type}_from_sub_id", sub) if sub.class == String

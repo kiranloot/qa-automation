@@ -236,14 +236,9 @@ Then /the updated (.*) should be reflected when the user views the subscription/
     $test.current_page.subscription_updated?
   when 'pets information'
     $test.current_page.subscription_updated?('pets')
+  when 'shipping information'
+    $test.current_page.shipping_info_updated?
   end
-end
-
-Then /^the updated shipping information should be reflected when the user views the subscription$/ do
-  step "the user visits the home page"
-  step "the user logs in"
-  step "the user visits the my account page"
-  $test.current_page.shipping_info_updated?
 end
 
 Then (/^the billing address change should be reflected in the user account$/) do
