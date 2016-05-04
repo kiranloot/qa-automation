@@ -275,7 +275,7 @@ include Capybara::DSL
 
   def submit_credit_card_information_only(type)
     user.subscription.billing_info.invalidate if type == 'invalid'
-    enter_name_on_card(user.full_name)
+    enter_name_on_card
     enter_credit_card_number(user.subscription.billing_info.cc_number)
     enter_cvv(user.subscription.billing_info.cvv)
     enter_cc_exp_month(user.subscription.billing_info.exp_month)

@@ -313,7 +313,7 @@ class MyAccountPage < Page
   def select_shirt_size(sub_id, size)
     #find('#select2-subscription_subscription_variants_attributes_0_variant_id-container').click
     #find('.select2-results__option', :text => size).click
-    select "#{size}", :from => 'subscription_subscription_variants_attributes_0_variant_id'
+    select "#{size}", :from => "subscription_id_#{sub_id}_Shirt_Size"
     $test.user.subscription.sizes[:shirt] = size
   end
 
@@ -404,19 +404,38 @@ class MyAccountPage < Page
     find_link("Edit").click
   end
 
-  def fill_in_cc_name(sub_id, name)
-    fill_in("payment_method_full_name#{sub_id}", :with => name)
-    $test.user.full_name = name
+  def fill_in_cc_name(sub_id, new_name=Faker::Name.name.split)
+    fill_in("payment_method_first_name_#{sub_id}", :with => new_name[0])
+    fill_in("payment_method_last_name_#{sub_id}", :with => new_name[1])
+    $test.user.full_name = new_name.join(' ')
+    $test.user.first_name = new_name[0]
+    $test.user.last_name = new_name[1]
   end
 
   def fill_in_cc_number(cc)
-    find(:css, "input.number").set(cc)
+    within_frame(find("#payment_method_cc iframe")){
+      fill_in("recurly-hosted-field-input", :with => cc)
+    }
     $test.user.subscription.billing_info.set_cc_num(cc)
   end
 
   def fill_in_cvv_number(cvv)
-    find(:css, "input.cvv").set(cvv)
+    within_frame(find("#payment_method_cvv iframe")){
+      fill_in("recurly-hosted-field-input", :with => cvv)
+    }
     $test.user.subscription.billing_info.cvv = cvv
+  end
+
+  def enter_cc_exp_month(month)
+    within_frame(find("#payment_method_month iframe")){
+      fill_in("recurly-hosted-field-input", :with => month)
+    }
+  end
+
+  def enter_cc_exp_year(year)
+    within_frame(find("#payment_method_year iframe")){
+      fill_in("recurly-hosted-field-input", :with => year)
+    }
   end
 
   def fill_in_billing_address_1(sub_id, address)
