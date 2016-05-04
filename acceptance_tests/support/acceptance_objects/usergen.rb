@@ -111,6 +111,10 @@ class UserGen
     :registered_with_active_pets
   end
 
+  def an_active_dx_subscription
+    :registered_with_active_dx
+  end
+
   def an_active_subscription_with_tracking_information
     :registered_with_active_and_tracking
   end

@@ -37,6 +37,10 @@ class StepList
     ["create a random month Pets subscription"]
   end
 
+  def registered_with_active_dx
+    ["create a random month DX subscription"]
+  end
+
   def one_month
     ["create a one month subscription"]
   end

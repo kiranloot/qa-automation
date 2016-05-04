@@ -64,8 +64,13 @@ FactoryGirl.define do
     end
     trait :registered_with_active_pets do
       first_name "Active"
-      last_name "LUSubscription"
-      email { "_regwlusub_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+      last_name "PetsSubscription"
+      email { "_regwpetssub_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
+    end
+    trait :registered_with_active_dx do
+      first_name "Active"
+      last_name "DXSubscription"
+      email { "_regwdxsub_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com" }
     end
     trait :one_month do
       registered_with_active
