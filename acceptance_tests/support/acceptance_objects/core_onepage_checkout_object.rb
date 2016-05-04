@@ -16,8 +16,7 @@ include Capybara::DSL
   end
 
   def select_plan(plan)
-    create_user_subscription(plan)
-    page_scroll(0)
+    page_scroll
     if plan == 'random'
       rand_key = sub_plans.keys.sample
       target = sub_plans[rand_key]
@@ -25,10 +24,12 @@ include Capybara::DSL
     else
       target = sub_plans[plan]
     end
+    find('#plans').click
     find(:css, "##{target}").click
     wait_for_ajax
     create_user_subscription(plan)
     update_target_plan(plan)
+    find('#new_checkout').click
   end
 
   def create_user_subscription(plan)
