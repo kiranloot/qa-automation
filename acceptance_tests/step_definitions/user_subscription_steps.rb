@@ -133,6 +133,13 @@ When /^the user edits their (.*)$/ do |info|
     $test.current_page.fill_in_subscription_name(sub_id, "NEW SUB NAME")
     $test.current_page.select_shirt_size(sub_id, "Unisex - S")
     $test.current_page.click_update
+  when 'pet subscription info'
+    $test.current_page.edit_subscription_info(sub_id)
+    $test.current_page.fill_in_subscription_name(sub_id, "NEW SUB NAME")
+    $test.current_page.select_pet_collar_size(sub_id, "Dog - L")
+    $test.current_page.select_pet_wearable_size(sub_id, "Dog - L")
+    $test.current_page.select_human_wearable_size(sub_id, "Unisex - L")
+    $test.current_page.click_update
   when 'shipping address'
     $test.current_page.edit_shipping_address(sub_id)
     $test.current_page.fill_in_shipping_first_name(sub_id, Faker::Name.first_name)
@@ -220,11 +227,16 @@ Then /the reactivation should be reflected in the user account/ do
   $test.current_page.subscription_reactivated?
 end
 
-Then /the updated information should be reflected when the user views the subscription/ do
+Then /the updated (.*) should be reflected when the user views the subscription/ do |info_type|
   step "the user visits the home page"
   step "the user logs in"
   step "the user visits the my account page"
-  $test.current_page.subscription_updated?
+  case info_type
+  when 'information'
+    $test.current_page.subscription_updated?
+  when 'pets information'
+    $test.current_page.subscription_updated?('pets')
+  end
 end
 
 Then /^the updated shipping information should be reflected when the user views the subscription$/ do

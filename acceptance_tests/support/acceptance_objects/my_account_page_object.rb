@@ -107,12 +107,19 @@ class MyAccountPage < Page
     check_displayed_status("CANCELED")
   end
 
-  def subscription_updated?
+  def subscription_updated?(size_type = 'shirt')
     go_to_subscriptions
     open_looter_info_tab
     assert_text($test.user.new_user_sub_name)
-    assert_text($test.user.shirt_size)
     assert_text($test.user.new_rebill_date)
+    case size_type 
+    when 'shirt'
+      assert_text($test.user.shirt_size)
+    when 'pets'
+      assert_text($test.user.pet_collar_size)
+      assert_text($test.user.pet_shirt_size)
+      assert_text($test.user.human_wearable_size)
+    end
   end
 
   def rebill_date_updated?
@@ -309,6 +316,36 @@ class MyAccountPage < Page
     select "#{size}", :from => 'subscription_subscription_variants_attributes_0_variant_id'
     $test.user.shirt_size = size
     $test.user.display_shirt_size = $test.user.get_display_shirt_size(size)
+  end
+
+  #pets variants show up in a random order
+  #this function is to help find the correct drop down give a label
+  def find_size_dropdown_id(label)
+    size_dd_elements = page.all('div.subscription_subscription_variants_variant')
+    size_dd_elements.each do |element|
+      if element.find('label').text == label
+        return element.find('select')['id']
+      end
+    end
+    raise "No dropdown with label #{label}!"
+  end
+
+  def select_human_wearable_size(sub_id, size)
+    id = find_size_dropdown_id("Human Wearable Size")
+    select "#{size}", :from => id
+    $test.user.human_wearable_size = size
+  end
+
+  def select_pet_collar_size(sub_id, size)
+    id = find_size_dropdown_id("Collar Size")
+    select "#{size}", :from => id
+    $test.user.pet_collar_size = size
+  end
+
+  def select_pet_wearable_size(sub_id, size)
+    id = find_size_dropdown_id("Pet Wearable Size")
+    select "#{size}", :from => id
+    $test.user.pet_shirt_size = size
   end
 
   def verify_populated_dropdown
