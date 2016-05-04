@@ -15,3 +15,11 @@ Feature: User Detail Editing
             And the user edits their subscription info
         Then the updated information should be reflected when the user views the subscription
             And the subscription information change should be reflected in the admin panel
+
+    @ready
+    Scenario: The user edits their gaming subscriptions subscription info
+        Given a registered user with an active gaming subscription
+            When the user logs in
+            And the user edits their subscription info
+        Then the updated information should be reflected when the user views the subscription
+            And the subscription information change should be reflected in the admin panel
