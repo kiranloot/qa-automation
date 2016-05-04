@@ -505,6 +505,7 @@ SELECT u.email as email,
        s.subscription_status as status,
        s.cancel_at_end_of_period as eop,
        s.id as subs,
+       s.name as name,
        s.next_assessment_at as rebill,
        sa.flagged_invalid_at as flagged,
        sa.state as shipping_state,
@@ -531,7 +532,7 @@ SELECT email,
 FROM actives
 GROUP BY email),
 
-info AS(SELECT email, plan_id, subs, rebill, status, flagged, shipping_state, shipping_zip, billing_state, billing_zip, eop, skipped_month FROM actives)
+info AS(SELECT email, plan_id, subs, name, rebill, status, flagged, shipping_state, shipping_zip, billing_state, billing_zip, eop, skipped_month FROM actives)
 
 SELECT sc.email,
        c,
@@ -540,6 +541,7 @@ SELECT sc.email,
 FROM sc
 INNER JOIN info i on i.email = sc.email
 WHERE c = 1
+AND i.name != 'NEW SUB NAME'
 AND i.status = 'active'
 AND i.flagged is NULL
 AND i.shipping_state = 'CA'

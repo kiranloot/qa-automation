@@ -8,7 +8,7 @@ Feature: User Detail Editing
         Then the updated information should be reflected when the user views the subscription
             And the subscription information change should be reflected in the admin panel
 
-    @tofix @kristry
+    @ready
     Scenario: The user edits their pets subscriptions subscription info
         Given a registered user with an active pets subscription
             When the user logs in
@@ -16,7 +16,7 @@ Feature: User Detail Editing
         Then the updated pets information should be reflected when the user views the subscription
             And the pet subscription information change should be reflected in the admin panel
 
-    @tofix
+    @kristry
     Scenario: The user edits their dx subscriptions subscription info
         Given a registered user with an active dx subscription
             When the user logs in
