@@ -13,7 +13,7 @@ Feature: User Detail Editing
         Given a registered user with an active pets subscription
             When the user logs in
             And the user edits their pet subscription info
-        Then the updated information should be reflected when the user views the subscription
+        Then the updated pets information should be reflected when the user views the subscription
             And the pet subscription information change should be reflected in the admin panel
 
     @tofix
