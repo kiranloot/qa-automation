@@ -104,10 +104,6 @@ When /^the user selects a (.*) month subscription plan/ do |months|
   $test.current_page.select_plan(months)
 end
 
-When /^the user selects the (.*) crate for Level Up$/ do |lu_crate|
-  $test.current_page.choose_bundle(lu_crate)
-end
-
 When /^the user submits (.*?) information/ do |arg_string|
   addbilling = false
   if arg_string.include?(" and billing")
