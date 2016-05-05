@@ -1,7 +1,6 @@
 @regression @core @sellout @selenium
-Feature: Level Up Selluuts
-#move this later
-    @kristry
+Feature: Level Up Sellouts
+    @ready @lutshirt_inv_sellout
     Scenario: A single size sells out for level up tshirts
         Given an unregistered user
         And the level-up-tshirt-crate-mens-l-shirt variant is sold out
