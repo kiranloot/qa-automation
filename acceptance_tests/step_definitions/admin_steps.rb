@@ -190,12 +190,17 @@ Then /^the updated information should be reflected when the admin views the user
   $test.current_page.user_information_displayed?
 end
 
-Then (/^the subscription information change should be reflected in the admin panel$/) do
+Then (/^the (.*) change should be reflected in the admin panel$/) do |sub_type|
   step "the user visits the admin page"
   step "logs in as an admin"
   $test.current_page.click_subscriptions
   $test.current_page = AdminSubscriptionsPage.new
-  $test.current_page.subscription_info_updated?
+  case sub_type
+  when "subscription information"
+    $test.current_page.subscription_info_updated?
+  when "pet subscription information"
+    $test.current_page.subscription_info_updated?('pets')
+  end
 end
 
 Then (/^the correct subscription information should be displayed in the admin panel$/) do

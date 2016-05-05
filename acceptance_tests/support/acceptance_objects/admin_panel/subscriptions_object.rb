@@ -126,11 +126,18 @@ class AdminSubscriptionsPage < AdminPage
     assert_text($test.user.subscription.billing_info.last_four)
   end
 
-  def subscription_info_updated?
+  def subscription_info_updated?(size_type = 'shirt')
     show_subscription
     #$test.set_subject_user
     assert_text($test.user.new_user_sub_name)
-    assert_text($test.user.shirt_size)
+    case size_type
+    when 'shirt'
+      assert_text($test.user.shirt_size)
+    when 'pets'
+      assert_text($test.user.pet_collar_size)
+      assert_text($test.user.pet_shirt_size)
+      assert_text($test.user.human_wearable_size)
+    end
   end
 
   def sub_tracking_information_displayed?
