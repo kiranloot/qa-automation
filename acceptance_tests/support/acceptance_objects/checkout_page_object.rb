@@ -117,9 +117,9 @@ include Capybara::DSL
     find(".select2-results__option", :text => state).click
   end
 
-  def enter_name_on_card
-    fill_in("checkout_billing_address_first_name", :with => user.first_name)
-    fill_in("checkout_billing_address_last_name", :with => user.last_name)
+  def enter_name_on_card(first_name=user.first_name, last_name=user.last_name)
+    fill_in("checkout_billing_address_first_name", :with => first_name)
+    fill_in("checkout_billing_address_last_name", :with => last_name)
   end
 
   def enter_credit_card_number(number)
