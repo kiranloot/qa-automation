@@ -147,6 +147,34 @@ Before ('@dx_inv_sellout') do
   InventoryFlagManager.increment_flag('tests_selling_out_dx_inv')
 end
 
+Before ('@lusocks_inv_req') do
+  Timeout.timeout(360) do
+    sleep 0.1 until InventoryFlagManager.zero_or_less?('tests_selling_out_lusocks_inv')
+  end
+  InventoryFlagManager.increment_flag('tests_using_lusocks_inv')
+end
+
+Before ('@lusocks_inv_sellout') do
+  Timeout.timeout(360) do
+    sleep 0.1 until InventoryFlagManager.zero_or_less?('tests_using_lusocks_inv')
+  end
+  InventoryFlagManager.increment_flag('tests_selling_out_lusocks_inv')
+end
+
+Before ('@lutshirt_inv_req') do
+  Timeout.timeout(360) do
+    sleep 0.1 until InventoryFlagManager.zero_or_less?('tests_selling_out_lutshirt_inv')
+  end
+  InventoryFlagManager.increment_flag('tests_using_lusocks_inv')
+end
+
+Before ('@lutshirt_inv_sellout') do
+  Timeout.timeout(360) do
+    sleep 0.1 until InventoryFlagManager.zero_or_less?('tests_using_lutshirt_inv')
+  end
+  InventoryFlagManager.increment_flag('tests_selling_out_lutshirt_inv')
+end
+
 After do
   $test.db.finish
   #unless ENV['DRIVER'] == 'appium'
@@ -212,6 +240,20 @@ After ('@dx_inv_sellout') do
   InventoryFlagManager.decrement_flag('tests_selling_out_dx_inv')
 end
 
-#After ('@sellout') do
-#  $test.db.add_inventory_to_all
-#end
+After ('@lusocks_inv_req') do
+  InventoryFlagManager.decrement_flag('tests_using_lusocks_inv')
+end
+
+After ('@lusocks_inv_sellout') do
+  $test.db.add_inventory_to_product('Loot Socks')
+  InventoryFlagManager.decrement_flag('tests_selling_out_lusocks_inv')
+end
+
+After ('@lutshirt_inv_req') do
+  InventoryFlagManager.decrement_flag('tests_using_lutshirt_inv')
+end
+
+After ('@lutshirt_inv_sellout') do
+  $test.db.add_inventory_to_product('Loot Tees')
+  InventoryFlagManager.decrement_flag('tests_selling_out_lutshirt_inv')
+end

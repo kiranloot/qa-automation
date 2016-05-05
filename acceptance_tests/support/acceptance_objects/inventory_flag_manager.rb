@@ -10,7 +10,11 @@ module InventoryFlagManager
       "tests_selling_out_firefly_inv",
       "tests_using_firefly_inv",
       "tests_selling_out_dx_inv",
-      "tests_using_dx_inv"
+      "tests_using_dx_inv",
+      "tests_selling_out_lusocks_inv",
+      "tests_using_lusocks_inv",
+      "tests_selling_out_lutshirt_inv",
+      "tests_using_lushirt_inv"
     ]
   @redis = HRedis.new
   def self.set_all_flags
