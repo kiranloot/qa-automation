@@ -16,3 +16,10 @@ Feature: Anime sellouts
             When the user logs in
             And the user selects the Anime crate
         Then the landing page should reflect the sellout
+
+    @ready @anime_inv_sellout
+    Scenario: User goes to one page checkout for a sold out crate
+        Given an unregistered user
+        And   the Anime Crate product is sold out
+            When the user visits the anime_opc page
+        Then the opc page should reflect the sellout
