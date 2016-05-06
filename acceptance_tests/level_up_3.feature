@@ -23,7 +23,7 @@ Feature: Level Up
         Then the new level up subscription should be added to the user account
             And the user should receive a level up email
 
-    @ready @mobile_ready
+    @ready @mobile_ready @lutshirt_inv_req
     Scenario: A user without an active subscription can add a three month bundle subscription
     Given a registered user with no prior subscription
         When the user logs in

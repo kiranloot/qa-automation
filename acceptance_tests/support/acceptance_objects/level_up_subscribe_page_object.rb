@@ -56,6 +56,12 @@ class LevelUpSubscribePage < SubscribePage
     expect(page).to have_css("#btn-info-soldout-notify")
   end
 
+  def lu_variant_sold_out?(gender,size = nil,waist = nil)
+    choose_duration('one')
+    choose_gender(gender)
+    expect(find("#sizes-btn-shirt-#{gender}-#{size}")['disabled']).to be_truthy
+  end
+
   def choose_bundle(crate, bundle=false)
     @crate = crate
     panel = find('#level-up-nav')
@@ -79,10 +85,14 @@ class LevelUpSubscribePage < SubscribePage
     $test.user.subscription_name = $test.user.subscription.name
   end
 
+  def choose_gender(gender)
+    find("#sizes-btn-#{gender}").click
+  end
+
   def choose_sizes(subscription)
     unless subscription.product == 'socks'
       size_section = find("section#section-lu-sizes")
-      find("#sizes-btn-#{subscription.gender}").click if size_section.text.include?('MENS WOMENS')
+      choose_gender(subscription.gender) if size_section.text.include?('MENS WOMENS')
       find("#sizes-btn-shirt-#{subscription.gender}-#{subscription.sizes[:shirt]}").click if size_section.text.include?('SHIRT SIZE')
       find("#sizes-btn-waist-womens-#{subscription.sizes[:waist]}").click if size_section.text.include?('WAIST SIZE')
       wait_for_ajax
