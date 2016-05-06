@@ -462,6 +462,10 @@ def verify_webhooks(webhook_event, webhook_status)
       "closed_invoice_notification",
       "new_account_notification",
     ]
+  when "cancellation"
+    expected_webhooks = [
+      "canceled_subscription_notification"
+    ]
   end
   expected_webhooks.each do |webhook|
     q = """
