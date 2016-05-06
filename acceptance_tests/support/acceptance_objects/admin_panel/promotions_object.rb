@@ -121,7 +121,7 @@ class AdminPromotionsPage < AdminPage
 
   def select_adjustment_type(type)
     find(:id, 'promotion_adjustment_type').click
-    find(:css, 'option', :text => type).click
+    find(:css, '#promotion_adjustment_type option', :text => type).click
   end
 
   def get_one_time_promo_code(code)
