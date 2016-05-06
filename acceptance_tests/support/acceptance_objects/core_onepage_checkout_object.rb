@@ -44,6 +44,17 @@ include Capybara::DSL
     $test.user.subscription_name = plan_display_names[plan]
   end
 
+  def crate_sold_out?
+    find('#plans').text.include?('SOLD OUT')
+  end
+
+  def shirt_variant_soldout?(variant)
+    page_scroll
+    find('#plans').click
+    find("#select2-option_type_shirt-container").click
+    expect(find("li.select2-results__option[aria-disabled='true']", :text => variant)).to be_truthy
+  end
+
   ####
   # Method overrides below don't appear to be used, but were implemented at one point.
   # Leaving commented here in case they wind up being used after all.
