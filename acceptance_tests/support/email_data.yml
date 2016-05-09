@@ -43,6 +43,9 @@ gaming cancellation:
 firefly cancellation:
   subject_lines:
   - 'Cancellation Successful'
+dx cancellation:
+  subject_lines:
+  - 'Loot Crate DX Cancellation Successful'
 unskip:
  subject_lines:
  - 'Subscription Unskipped'
