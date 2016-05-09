@@ -79,12 +79,12 @@ class HerokuAPI
     end
   end
 
-  def enable_webhooks
+  def enable_webhook_dynos
     set_dyno_formation(@webhooks_app, 'web', 1)
     set_dyno_formation(@webhooks_app, 'sidekiq', 1)
   end
 
-  def disable_webhooks
+  def disable_webhook_dynos
     set_dyno_formation(@webhooks_app, 'web', 0)
     set_dyno_formation(@webhooks_app, 'sidekiq', 0)
   end
