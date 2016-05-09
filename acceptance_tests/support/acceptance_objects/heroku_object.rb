@@ -1,6 +1,7 @@
 require 'net/http'
 require 'platform-api'
 require_relative 'box_object'
+require_relative 'qa_env_validator'
 
 class HerokuAPI
   require 'yaml'
@@ -80,11 +81,13 @@ class HerokuAPI
   end
 
   def enable_webhook_dynos
+    QAEnvironmentValidator.verify_not_prod_webhooks(@webhooks_app)
     set_dyno_formation(@webhooks_app, 'web', 1)
     set_dyno_formation(@webhooks_app, 'sidekiq', 1)
   end
 
   def disable_webhook_dynos
+    QAEnvironmentValidator.verify_not_prod_webhooks(@webhooks_app)
     set_dyno_formation(@webhooks_app, 'web', 0)
     set_dyno_formation(@webhooks_app, 'sidekiq', 0)
   end

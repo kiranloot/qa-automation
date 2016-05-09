@@ -42,4 +42,10 @@ module QAEnvironmentValidator
       end
     end
   end
+
+  def self.verify_not_prod_webhooks(app)
+    if app == 'lootcrate-webhooks'
+      raise "===\nAutomation is pointing to production webhooks!\n==="
+    end 
+  end
 end
