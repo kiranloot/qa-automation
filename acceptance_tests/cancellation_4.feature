@@ -11,7 +11,7 @@ Feature: Subscription Cancellation
           And   the recurly subscription should be canceled
 
     @ready @gaming_inv_req
-    Scenario:   Subscriber immediately cancels a gaming crate subscription
+    Scenario:   Admin immediately cancels a gaming crate subscription
         Given   a registered user with an active gaming subscription
           When  the admin user visits the admin page
           And   logs in as an admin
@@ -21,7 +21,7 @@ Feature: Subscription Cancellation
           And   the recurly subscription should be expired
 
     @ready @firefly_inv_req
-    Scenario:   Subscriber immediately cancels a firefly crate subscription
+    Scenario:   Admin immediately cancels a firefly crate subscription
         Given   a registered user with an active firefly subscription
           When  the admin user visits the admin page
           And   logs in as an admin
