@@ -31,7 +31,7 @@ class LevelUpSubscription < Subscription
   end
 
   def set_gender_and_sizes(gender=random_gender, shirt_size=random_size, waist_size=random_size)
-    @gender = gender.downcase
+    @gender = (@product == 'for her') ? 'womens' : gender.downcase
     @sizes[:shirt] = shirt_size
     @sizes[:waist] = waist_size
   end
