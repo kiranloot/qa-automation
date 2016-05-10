@@ -85,8 +85,8 @@ class Subscription
     @recurly_sub_id ||= $test.recurly.get_account
   end
 
-  def random_size
-    size_names.sample
+  def random_size(size_list='size_names')
+    size_lists[size_list].sample
   end
 
   def random_gender
@@ -104,7 +104,23 @@ class Subscription
     }
   end
 
+  def size_lists
+    {
+      'size_names' => size_names,
+      'pet_shirt' => pet_shirt_sizes,
+      'pet_collar' => pet_collar_sizes
+    }
+  end
+
   def size_names
     ['S', 'M', 'L', 'XL', 'XXL', 'XXXL']
+  end
+
+  def pet_shirt_sizes 
+    ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL']
+  end
+
+  def pet_collar_sizes
+    ['S', 'M', 'L']
   end
 end

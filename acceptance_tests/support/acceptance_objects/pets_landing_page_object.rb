@@ -25,8 +25,8 @@ include WaitForAjax
 
     def create_user_subscription(plan)
     super
-    $test.user.subscription.sizes[:pet_shirt] = "Dog - #{pet_shirt_sizes.sample}"
-    $test.user.subscription.sizes[:pet_collar] = "Dog - #{pet_collar_sizes.sample}"
+    $test.user.subscription.sizes[:pet_shirt] = "Dog - #{$test.user.subscription.random_size('pet_shirt')}"
+    $test.user.subscription.sizes[:pet_collar] = "Dog - #{$test.user.subscription.random_size('pet_collar')}"
   end
 
   def load_checkout_page_object
@@ -35,14 +35,5 @@ include WaitForAjax
     else
       $test.current_page = PetsCheckoutPage.new
     end
-  end
-
-  private
-  def pet_shirt_sizes 
-    ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL']
-  end
-
-  def pet_collar_sizes
-    ['S', 'M', 'L']
   end
 end
