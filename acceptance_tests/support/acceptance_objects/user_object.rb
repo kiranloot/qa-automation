@@ -7,22 +7,14 @@ class User
   include RSpec::Matchers
   include WaitForAjax
 
-  attr_accessor :email, :password, :street, :city, :ship_state, :ship_zip, :zip,
-    :first_name, :last_name, :full_name, :shirt_size, :display_shirt_size, :new_shirt_size,
-    :ship_street, :ship_street_2, :ship_city, :affiliate, :base_coupon_code, :coupon_code, :discount_applied,
-    :subscription_name, :level_up_subscription_name, :new_user_sub_name,:new_rebill_date, :bill_zip,
-    :bill_city, :bill_street, :bill_street_2, :bill_state, :need_sub, :rebill_date_db, :trait, :recurly_level_up_plan,
-    :country_code, :recurly_billing_state_code, :pet_shirt_size, :pet_collar_size, :human_wearable_size, :promo_type,
-    :promo, :adjustment_type, :adjustment_amount, :recurly_rebill_date, :unisex_shirt_size, :pin_code, :crate_type, :billing_address, :country, :subscription
-
-  @@sizes = {"male" =>  {0 => "Mens - S", 1 => "Mens - M", 2 => "Mens - L", 3 => "Mens - XL",
-                         4 => "Mens - XXL", 5 => "Mens - XXXL" },
-           "female" => {0 => "Womens - S", 1 => "Womens - M", 2 => "Womens - L", 3 => "Womens - XL",
-                        4 => "Womens - XXL", 5 => "Womens - XXXL"}}
-
-  @@pet_shirt_sizes = ['Dog - XS', 'Dog - S', 'Dog - M', 'Dog - L', 'Dog - XL', 'Dog - XXL', 'Dog - XXXL']
-  @@pet_collar_sizes = ['Dog - S', 'Dog - M', 'Dog - L']
-  @@unisex_sizes = ['Unisex - S', 'Unisex - M', 'Unisex - L', 'Unisex - XL', 'Unisex - XXL', 'Unisex - XXX']
+  attr_accessor :email, :password, :street, :city, :ship_state, :ship_zip, :zip, :first_name, 
+                :last_name, :full_name, :new_shirt_size, :ship_street, :ship_street_2, :ship_city, 
+                :affiliate, :base_coupon_code, :coupon_code, :discount_applied, :subscription_name, 
+                :level_up_subscription_name, :new_user_sub_name,:new_rebill_date, :bill_zip, :bill_city, 
+                :bill_street, :bill_street_2, :bill_state, :need_sub, :rebill_date_db, :trait, 
+                :recurly_level_up_plan, :country_code, :recurly_billing_state_code, :promo_type, :promo, 
+                :adjustment_type, :adjustment_amount, :recurly_rebill_date, :pin_code, :crate_type, 
+                :billing_address, :country, :subscription
 
   def initialize(test)
     @trait = nil
@@ -31,13 +23,6 @@ class User
     @first_name = "placeholder"
     @last_name = "placeholder"
     @full_name = @first_name + " " + @last_name
-    @gender = ["male","female"].sample
-    @shirt_size = @@sizes[@gender][rand(6)]
-    @unisex_shirt_size = @@unisex_sizes.sample
-    @pet_shirt_size = @@pet_shirt_sizes.sample
-    @pet_collar_size = @@pet_collar_sizes.sample
-    @human_wearable_size = @@unisex_sizes.sample
-    @display_shirt_size = get_display_shirt_size(@shirt_size)
     @ship_zip = "90210"
     @ship_city = "Beverly Hills"
     @ship_street = "1234 Fake St"
@@ -88,11 +73,18 @@ class User
   def process_sub_data(sub_data)
     sub_type = sub_data['brand'] == 'Level Up' ? :levelupsubscription : :subscription
     sub_trait = sub_data['product'].gsub(/(\+|-)/, '').tr(' ', '_').downcase.to_sym
-    FactoryGirl.build(
+    u = FactoryGirl.build(
       sub_type,
       sub_trait,
-      months: sub_data['plan_months']
+      months: sub_data['plan_months'],
+      sizes: {:shirt => sub_data['shirt_size']}
     )
+    if sub_type == :levelupsubscription
+      size_info = sub_data['shirt_size'].downcase.split(' - ')
+      u.gender = size_info[0]
+      u.sizes = {:shirt => size_info[1]}
+    end
+    u
   end
 
   def need_sub?

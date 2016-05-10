@@ -23,6 +23,12 @@ include WaitForAjax
     wait_for_ajax
   end
 
+    def create_user_subscription(plan)
+    super
+    $test.user.subscription.sizes[:pet_shirt] = "Dog - #{$test.user.subscription.random_size('pet_shirt')}"
+    $test.user.subscription.sizes[:pet_collar] = "Dog - #{$test.user.subscription.random_size('pet_collar')}"
+  end
+
   def load_checkout_page_object
     if ENV["DRIVER"] == 'appium'
       $test.current_page = PetsMobileCheckoutPage.new

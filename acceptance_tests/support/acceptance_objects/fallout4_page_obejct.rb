@@ -21,11 +21,6 @@ include WaitForAjax
     wait_for_ajax
   end
 
-  def submit_valid_fallout4_information
-    $test.user.shirt_size = 'Unisex - M'
-    $test.user.submit_subscription_info
-  end
-
   def fallout4_confirmation_displayed?
     assert_text('ORDER SUCCESSFUL')
     assert_text('Congratulations Vault Dweller')
