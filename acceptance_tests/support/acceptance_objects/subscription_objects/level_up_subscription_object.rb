@@ -1,7 +1,7 @@
 require_relative 'subscription_object'
 
 class LevelUpSubscription < Subscription
-  attr_accessor :name, :months, :product, :shirt_size, :waist_size, :recurly_name, :plan_title
+  attr_accessor :name, :months, :product, :recurly_name, :plan_title
 
   def initialize(months='one', product=nil)
     super
@@ -30,8 +30,19 @@ class LevelUpSubscription < Subscription
     end
   end
 
+  def set_gender_and_sizes(gender=random_gender, shirt_size=random_size, waist_size=random_size)
+    @gender = gender.downcase
+    @sizes[:shirt] = shirt_size
+    @sizes[:waist] = waist_size
+  end
+
   def recurly_subscription_name
     # Use subscription data to assemble the subscription name as it's
     # displayed on recurly
+  end
+
+  private
+  def size_names
+    ['s', 'm', 'l', 'xl', '2xl', '3xl']
   end
 end

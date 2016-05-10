@@ -1,6 +1,6 @@
 class Subscription
-  attr_accessor :name, :months, :product, :shirt_size, :waist_size, :recurly_name,
-                :plan_title, :gender, :rebill_date, :recurly_rebill, :sizes,
+  attr_accessor :name, :months, :product, :recurly_name, :plan_title, 
+                :gender, :rebill_date, :recurly_rebill, :sizes,
                 :billing_address, :shipping_address, :billing_info
 
   def initialize(months='one', product=nil)
@@ -53,10 +53,10 @@ class Subscription
     end
   end
 
-  def set_gender_and_sizes(gender='womens', shirt_size ='s', waist_size='s')
+  def set_gender_and_sizes(gender=random_gender, shirt_size=random_size)
     @gender = gender
-    @sizes[:shirt] = shirt_size
-    @sizes[:waist] = waist_size
+    @sizes[:shirt] = "#{@gender} - #{shirt_size}"
+    @sizes[:unisex_shirt] = "Unisex - #{random_size}"
   end
 
   def set_rebill_info
@@ -85,6 +85,14 @@ class Subscription
     @recurly_sub_id ||= $test.recurly.get_account
   end
 
+  def random_size
+    size_names.sample
+  end
+
+  def random_gender
+    ['Mens', 'Womens'].sample
+  end
+
   private
   def plans
     {
@@ -94,5 +102,9 @@ class Subscription
       'six' => '6',
       'twelve' => '12'
     }
+  end
+
+  def size_names
+    ['S', 'M', 'L', 'XL', 'XXL', 'XXXL']
   end
 end

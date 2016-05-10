@@ -77,8 +77,7 @@ class AdminSubscriptionsPage < AdminPage
   def select_shirt_size(size)
     find(:id, 'subscription_subscription_variants_attributes_0_variant_id').click
     find(:css, '#subscription_subscription_variants_attributes_0_variant_id > option', :text => size).click
-    $test.user.shirt_size = size
-    $test.user.display_shirt_size = $test.user.get_display_shirt_size(size)
+    $test.user.subscription.sizes[:shirt] = size
   end
 
   def move_rebill_date_one_day
@@ -109,7 +108,7 @@ class AdminSubscriptionsPage < AdminPage
   def subscription_information_displayed?
     #$test.set_subject_user
     assert_text($test.user.email)
-    assert_text($test.user.shirt_size)
+    assert_text($test.user.subscription.sizes[:shirt])
     assert_text($test.user.subscription.plan_title.downcase)
     assert_text($test.user.ship_zip)
     assert_text($test.user.ship_city)
@@ -132,11 +131,11 @@ class AdminSubscriptionsPage < AdminPage
     assert_text($test.user.new_user_sub_name)
     case size_type
     when 'shirt'
-      assert_text($test.user.shirt_size)
+      assert_text($test.user.subscription.sizes[:shirt])
     when 'pets'
-      assert_text($test.user.pet_collar_size)
-      assert_text($test.user.pet_shirt_size)
-      assert_text($test.user.human_wearable_size)
+      assert_text($test.user.subscription.sizes[:pet_collar])
+      assert_text($test.user.subscription.sizes[:pet_shirt])
+      assert_text($test.user.subscription.sizes[:unisex_shirt])
     end
   end
 

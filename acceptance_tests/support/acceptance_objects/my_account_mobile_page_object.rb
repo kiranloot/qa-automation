@@ -20,7 +20,6 @@ class MyAccountMobilePage < MyAccountPage
 
   def select_shirt_size(sub_id, size)
     select "#{size}", :from => 'subscription_subscription_variants_attributes_0_variant_id'
-    $test.user.shirt_size = size
-    $test.user.display_shirt_size = $test.user.get_display_shirt_size(size)
+    $test.user.subscription.sizes[:shirt] = size
   end
 end

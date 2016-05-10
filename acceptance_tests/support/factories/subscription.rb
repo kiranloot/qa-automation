@@ -6,8 +6,6 @@ FactoryGirl.define do
     product 'Loot Crate'
     months '1'
     name {"#{months} Month Plan Subscription"}
-    shirt_size 'Mens - S'
-    waist_size 'Womens - S'
     recurly_name {"#{months} Month Subscription"}
 
     trait :year do
@@ -66,8 +64,6 @@ FactoryGirl.define do
     product 'accessory'
     months '1'
     name {"Level Up Accessories #{months} Month"}
-    shirt_size 'Mens - S'
-    waist_size 'Womens - S'
     recurly_name {"LC - LU - Accessory - #{months} month"}
 
     trait :level_up_accessories do

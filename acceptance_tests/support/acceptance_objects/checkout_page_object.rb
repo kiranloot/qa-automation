@@ -188,13 +188,13 @@ include Capybara::DSL
   def submit_checkout_information(type, addbilling=false)
     user.subscription.billing_info.invalidate if type == 'invalid'
     click_captcha if intl_captcha?
-    select_shirt_size(user.shirt_size)
+    select_shirt_size(user.subscription.sizes[:shirt])
     #will only run on pets crate
-    select_pet_shirt_size(user.pet_shirt_size)
-    select_pet_collar_size(user.pet_collar_size)
-    select_human_wearable_size(user.human_wearable_size)
+    select_pet_shirt_size(user.subscription.sizes[:pet_shirt])
+    select_pet_collar_size(user.subscription.sizes[:pet_collar])
+    select_human_wearable_size(user.subscription.sizes[:unisex_shirt])
     #will only run for firefly
-    select_unisex_shirt_size(user.unisex_shirt_size)
+    select_unisex_shirt_size(user.subscription.sizes[:unisex_shirt])
     enter_first_name(user.first_name)
     enter_last_name(user.last_name)
     enter_shipping_address_line_1(user.ship_street)

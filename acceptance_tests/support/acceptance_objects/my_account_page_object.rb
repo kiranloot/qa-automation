@@ -114,11 +114,11 @@ class MyAccountPage < Page
     assert_text($test.user.new_rebill_date)
     case size_type 
     when 'shirt'
-      assert_text($test.user.shirt_size)
+      assert_text($test.user.subscription.sizes[:shirt])
     when 'pets'
-      assert_text($test.user.pet_collar_size)
-      assert_text($test.user.pet_shirt_size)
-      assert_text($test.user.human_wearable_size)
+      assert_text($test.user.subscription.sizes[:pet_collar])
+      assert_text($test.user.subscription.sizes[:pet_shirt])
+      assert_text($test.user.subscription.sizes[:unisex_shirt])
     end
   end
 
@@ -314,8 +314,7 @@ class MyAccountPage < Page
     #find('#select2-subscription_subscription_variants_attributes_0_variant_id-container').click
     #find('.select2-results__option', :text => size).click
     select "#{size}", :from => 'subscription_subscription_variants_attributes_0_variant_id'
-    $test.user.shirt_size = size
-    $test.user.display_shirt_size = $test.user.get_display_shirt_size(size)
+    $test.user.subscription.sizes[:shirt] = size
   end
 
   #pets variants show up in a random order
@@ -333,19 +332,19 @@ class MyAccountPage < Page
   def select_human_wearable_size(sub_id, size)
     id = find_size_dropdown_id("Human Wearable Size")
     select "#{size}", :from => id
-    $test.user.human_wearable_size = size
+    $test.user.subscription.sizes[:unisex_shirt] = size
   end
 
   def select_pet_collar_size(sub_id, size)
     id = find_size_dropdown_id("Collar Size")
     select "#{size}", :from => id
-    $test.user.pet_collar_size = size
+    $test.user.subscription.sizes[:pet_collar] = size
   end
 
   def select_pet_wearable_size(sub_id, size)
     id = find_size_dropdown_id("Pet Wearable Size")
     select "#{size}", :from => id
-    $test.user.pet_shirt_size = size
+    $test.user.subscription.sizes[:pet_shirt] = size
   end
 
   def verify_populated_dropdown
