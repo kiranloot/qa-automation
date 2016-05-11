@@ -163,7 +163,7 @@ include Capybara::DSL
     if current_url.include?('checkouts/new') || current_url.include?('/lp/')
       top_element = 
         self.class.to_s.include?('OnePageCheckout') ? '#one_page_checkout-new' : 'div.loot-container'
-      possible_toast = find(top_element).first('div')
+      possible_toast = find("#{top_element} > div:first-of-type")
       if possible_toast.text.include?('prevented your checkout from')
         fields = find_all('.error')
         elements = []
