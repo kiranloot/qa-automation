@@ -21,6 +21,7 @@ include Capybara::DSL
   def select_shirt_size(size)
     find("#select2-option_type_shirt-container").click
     # wait_for_ajax
+    find('.select2-search__field').send_keys(size)
     find(".select2-results__option", :text => size).click
   end
 
@@ -155,6 +156,26 @@ include Capybara::DSL
 
   def click_subscribe
     find("#checkout").click
+    wait_for_ajax
+  end
+
+  def assert_no_errors
+    if current_url.include?('checkouts/new') || current_url.include?('/lp/')
+      top_element = 
+        self.class.to_s.include?('OnePageCheckout') ? '#one_page_checkout-new' : 'div.loot-container'
+      possible_toast = find(top_element).first('div')
+      if possible_toast.text.include?('prevented your checkout from')
+        fields = find_all('.error')
+        elements = []
+        fields.each do |field|
+          elements << field[:id]
+        end
+        raise """
+        Checkout failed due to the following elements: #{elements.join(', ')} 
+        NOTE: Elements part of recurly checkout may not be noted here.
+        """
+      end
+    end
   end
 
   def click_use_shipping_address_checkbox
@@ -167,6 +188,8 @@ include Capybara::DSL
 
   def verify_confirmation_page
     wait_for_ajax
+    find('.loading')
+    expect(current_url).to include('payment_completed')
     find(".confirmation-wrapper")
   end
 
@@ -225,10 +248,10 @@ include Capybara::DSL
       enter_billing_zip(user.billing_address.zip)
       select_billing_state(user.billing_address.state)
     end
-
     click_legal_checkbox
     click_subscribe
     unless type == 'invalid'
+      assert_no_errors
       verify_confirmation_page
     end
   end
@@ -252,6 +275,7 @@ include Capybara::DSL
     select_cc_exp_year(user.subscription.billing_info.exp_year)
     click_legal_checkbox
     click_subscribe
+    assert_no_errors unless type == 'invalid'
     verify_confirmation_page
   end
 
