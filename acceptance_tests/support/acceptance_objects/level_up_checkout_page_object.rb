@@ -13,7 +13,9 @@ include Capybara::DSL
   end
 
   def verify_confirmation_page
+    Capybara.default_max_wait_time = 30
     wait_for_ajax
     find("#payment_completed-index")
+    Capybara.default_max_wait_time = 15
   end
 end
