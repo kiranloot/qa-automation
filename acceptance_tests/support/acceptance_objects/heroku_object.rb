@@ -1,6 +1,7 @@
 require 'net/http'
 require 'platform-api'
 require_relative 'box_object'
+require_relative 'qa_env_validator'
 
 class HerokuAPI
   require 'yaml'
@@ -12,6 +13,7 @@ class HerokuAPI
     #@page_configs = YAML.load(File.open("acceptance_tests/support/acceptance_objects/page_configs.yml"))
     #@env = ENV['SITE']
     @app = box.app
+    @webhooks_app = box.webhooks_app
   end
 
   def create_user_with_active_sub
@@ -68,5 +70,25 @@ class HerokuAPI
       "tail" => "false"})
     uri = URI(log_session["logplex_url"])
     Net::HTTP.get(uri)
+  end
+
+  def set_dyno_formation(app, type, count)
+    @heroku.formation.update(app, type, {'quantity' => count})
+    new_count = @heroku.formation.info(app, type)['quantity']
+    if count != new_count
+      raise "Heroku webhooks instance #{app} incorrectly set"
+    end
+  end
+
+  def enable_webhook_dynos
+    QAEnvironmentValidator.verify_not_prod_webhooks(@webhooks_app)
+    set_dyno_formation(@webhooks_app, 'web', 1)
+    set_dyno_formation(@webhooks_app, 'sidekiq', 1)
+  end
+
+  def disable_webhook_dynos
+    QAEnvironmentValidator.verify_not_prod_webhooks(@webhooks_app)
+    set_dyno_formation(@webhooks_app, 'web', 0)
+    set_dyno_formation(@webhooks_app, 'sidekiq', 0)
   end
 end

@@ -37,6 +37,7 @@ if ParallelTests.first_process?
   end
   #Sets inventory flags so that sellout tests don't sell out inventory being used
   InventoryFlagManager.set_all_flags
+  HerokuAPI.new.enable_webhook_dynos
 end
 
 #Verification that config vars on the test environment don't point to prod
@@ -107,6 +108,9 @@ when 'appium-ios-app'
 end
 
 at_exit do
+ if ParallelTests.number_of_running_processes <= 1
+  HerokuAPI.new.disable_webhook_dynos
+ end
  logtime['end'] = DateTime.now.strftime('%Q')
  puts 'this is the end'
  LogMonitor.new.get_errors_log(logtime['start'], logtime['end'])
