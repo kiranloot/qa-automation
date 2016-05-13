@@ -16,11 +16,13 @@ class MobileCheckoutPage < CheckoutPage
     select "#{state}", :from => "checkout_shipping_address_state"
   end
 
-  def select_cc_exp_month(month)
-    select "#{month}", :from => "checkout_credit_card_expiration_date_2i"
-  end
+  ### Commenting out these methods until we are able to more comprehensively test them out. ###
 
-  def select_cc_exp_year(year)
-    select "#{year}", :from => "checkout_credit_card_expiration_date_1i"
-  end 
+  # def enter_cc_exp_month(month)
+  #   select "#{month}", :from => "checkout_credit_card_expiration_date_2i"
+  # end
+  #
+  # def enter_cc_exp_year(year)
+  #   select "#{year}", :from => "checkout_credit_card_expiration_date_1i"
+  # end
 end

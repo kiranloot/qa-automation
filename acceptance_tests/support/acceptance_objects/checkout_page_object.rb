@@ -117,26 +117,33 @@ include Capybara::DSL
     find(".select2-results__option", :text => state).click
   end
 
-  def enter_name_on_card(name)
-    fill_in("checkout_billing_address_full_name", :with => name)
+  def enter_name_on_card(first_name=user.first_name, last_name=user.last_name)
+    fill_in("checkout_billing_address_first_name", :with => first_name)
+    fill_in("checkout_billing_address_last_name", :with => last_name)
   end
 
   def enter_credit_card_number(number)
-    fill_in("checkout_credit_card_number", :with => number)
+    within_frame(find("#checkout_credit_card_number iframe")){
+      fill_in("recurly-hosted-field-input", :with => number)
+    }
   end
 
-  def enter_cvv(cvv)
-    fill_in("checkout_credit_card_cvv", :with => cvv)
+  def enter_cvv(number)
+    within_frame(find("#checkout_credit_card_cvv iframe")){
+      fill_in("recurly-hosted-field-input", :with => number)
+    }
   end
 
-  def select_cc_exp_month(month)
-    find("#select2-checkout_credit_card_expiration_date_2i-container").click
-    find(".select2-results__option", :text => month).click
+  def enter_cc_exp_month(month)
+    within_frame(find("#checkout_credit_card_expiration_date_2i iframe")){
+      fill_in("recurly-hosted-field-input", :with => month)
+    }
   end
 
-  def select_cc_exp_year(year)
-    find("#select2-checkout_credit_card_expiration_date_1i-container").click
-    find(".select2-results__option", :text => year).click
+  def enter_cc_exp_year(year)
+    within_frame(find("#checkout_credit_card_expiration_date_1i iframe")){
+      fill_in("recurly-hosted-field-input", :with => year)
+    }
   end
 
   def click_coupon_checkbox
@@ -224,14 +231,14 @@ include Capybara::DSL
     enter_shipping_city(user.ship_city)
     select_shipping_state(user.ship_state)
     enter_shipping_zip_code(user.ship_zip)
-    enter_name_on_card(user.full_name)
+    enter_name_on_card
     enter_credit_card_number(user.subscription.billing_info.cc_number)
     if @zip_tax_hash.keys.include? $test.user.ship_zip
       @tax_displayed = page.has_content? @zip_tax_hash[$test.user.ship_zip]
     end
     enter_cvv(user.subscription.billing_info.cvv)
-    select_cc_exp_month(user.subscription.billing_info.exp_month)
-    select_cc_exp_year(user.subscription.billing_info.exp_year)
+    enter_cc_exp_month(user.subscription.billing_info.exp_month)
+    enter_cc_exp_year(user.subscription.billing_info.exp_year)
     unless user.promo.nil?
       click_coupon_checkbox
       enter_coupon_code(user.promo.coupon_code)
@@ -268,11 +275,11 @@ include Capybara::DSL
 
   def submit_credit_card_information_only(type)
     user.subscription.billing_info.invalidate if type == 'invalid'
-    enter_name_on_card(user.full_name)
+    enter_name_on_card
     enter_credit_card_number(user.subscription.billing_info.cc_number)
     enter_cvv(user.subscription.billing_info.cvv)
-    select_cc_exp_month(user.subscription.billing_info.exp_month)
-    select_cc_exp_year(user.subscription.billing_info.exp_year)
+    enter_cc_exp_month(user.subscription.billing_info.exp_month)
+    enter_cc_exp_year(user.subscription.billing_info.exp_year)
     click_legal_checkbox
     click_subscribe
     assert_no_errors unless type == 'invalid'

@@ -3,7 +3,7 @@ class BillingInfo
   def initialize(cc_number = '4111111111111111')
     set_cc_num(cc_number)
     @cvv = '123'
-    @exp_month = "01 - January"
+    @exp_month = "01"
     @exp_year = (Time.now.year+1).to_s
     @billing_address = FactoryGirl.build(:address)
   end
