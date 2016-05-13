@@ -81,16 +81,19 @@ class AdminSubscriptionsPage < AdminPage
   end
 
   def move_rebill_date_one_day
-    next_assessment = find(:id, 'subscription_next_assessment_at').value
+    next_assessment_field = find(:id, 'subscription_next_assessment_at')
+    next_assessment = next_assessment_field.value
     na_year = next_assessment[0..3]
     na_month = next_assessment[5..6]
     na_date = next_assessment[8..9]
-    find(:id, 'subscription_next_assessment_at').click
+    next_assessment_field.click
     cur_date = find(:css, 'a.ui-state-active').text
     cur_date.to_i > 27 ? new_na_date = 1 : new_na_date = (cur_date.to_i + 1)
     find_link(new_na_date.to_s).click
+    selected_date = next_assessment_field.value + ' 12:01:00'
+    page.execute_script("$('#subscription_next_assessment_at').val('#{selected_date}')")
     new_na_date < 10 ? new_na_date = "0" + new_na_date.to_s : new_na_date = new_na_date.to_s
-    na_month = Date::MONTHNAMES[na_month.to_i]
+    na_month = Date::ABBR_MONTHNAMES[na_month.to_i]
     $test.user.new_rebill_date = "#{na_month} #{new_na_date}, #{na_year}"
   end
 
