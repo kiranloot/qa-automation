@@ -224,6 +224,16 @@ class Test
     end
   end
 
+  def get_valid_signup_information
+    @user.password = "qateam123"
+    @user.email = "_unreg_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com"
+  end
+
+  def get_invalid_signup_information
+    @user.password = "fakefake"
+    @user.email = "fakeeamil"
+  end
+
   def give_user_to_admin
     admin_user = FactoryGirl.build(:user, :admin)
     admin_user.subject_user = @user
