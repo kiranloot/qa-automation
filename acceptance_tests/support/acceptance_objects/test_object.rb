@@ -12,8 +12,8 @@ class Test
    :cms_user,
    :pages,
    :current_page,
-   :test_data,
    :price_estimate_data,
+   :plan_cost_data,
    :db,
    :affiliate,
    :recurly,
@@ -24,43 +24,19 @@ class Test
  include RSpec::Matchers
  include WaitForAjax
 
- def initialize(test_data, price_data, start_page, pages, db, box, mailinator_api)
+ def initialize(price_data, cost_data, start_page, pages, db, box, mailinator_api)
   @affiliate = nil
   @user = nil
   @admin_user = nil
   @sailthru = SailthruAPI.new
   @current_page = start_page
-  @test_data = test_data
   @price_estimate_data = price_data
+  @plan_cost_data = cost_data
   @pages = pages
   @db = db
   @box = box
   @mailinator = mailinator_api
   @recurly = RecurlyAPI.new(box)
- end
-
- def update_test_data(value)
-   should_write = true
-  if value == "valid_email"
-    data = increment_digits(@test_data["signup"][value])
-    @test_data["signup"][value] = data
-  elsif value == "email_sequence"
-    data = @test_data["user"][value]
-  elsif value == "registered_no_prior"
-    data = increment_digits(@test_data["emails"]["registered_no_prior"])
-    @test_data["emails"]["registered_no_prior"] = data
-  elsif  value == "registered_with_active"
-    data = increment_digits(@test_data["emails"]["registered_with_active"])
-    @test_data["emails"]["registered_with_active"] = data
-  else
-    should_write = false
-  end
-
-  if should_write
-    File.open($env_test_data_file_path, 'w') {|f| f.write @test_data.to_yaml}
-  else
-    puts "Test data not updated: unrecognized data identifier."
-  end
  end
 
  def increment_digits(input_string)
@@ -74,7 +50,7 @@ class Test
 
  def modal_signup
    wait_for_ajax
-   @current_page.modal_signup(@user.email, @user.password, @test_data)
+   @current_page.modal_signup(@user.email, @user.password)
  end
 #Move to parent page object
  def is_logged_in?
@@ -136,12 +112,6 @@ class Test
    wait_for_ajax
  end
 
-#Remove middle man
- def get_valid_signup_information
-  @user.password = @test_data["signup"]["valid_pw"]
-  @user.email = "_unreg_" + Faker::Internet.user_name + rand(999).to_s + "@mailinator.com"
- end
-
  def is_at(page)
    if @current_page.instance_of?(@pages[page])
      return true
@@ -153,22 +123,6 @@ class Test
        return false
      end
    end
- end
-#Remove middle man
- def get_invalid_signup_information
-   @user.password = @test_data["signup"]["invalid_pw"]
-   @user.email = @test_data["signup"]["invalid_email"]
- end
-
- def get_registered_email(has_prior)
-   if !has_prior
-     email =  @test_data["emails"]["registered_no_prior"]
-     update_test_data("registered_no_prior")
-   else
-     email = @test_data["emails"]["registered_with_active"]
-     update_test_data("registered_with_active")
-   end
-   return email
  end
 
  def enter_password

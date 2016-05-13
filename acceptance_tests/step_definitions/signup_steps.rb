@@ -3,7 +3,7 @@ When /^the user joins through the (.*?)\s?modal/ do |newsletter|
   if newsletter == 'newsletter'
     $test.current_page.newsletter_modal_signup($test.user.email)
   else
-    $test.get_valid_signup_information
+    #$test.get_valid_signup_information
     $test.modal_signup
   end
 end
