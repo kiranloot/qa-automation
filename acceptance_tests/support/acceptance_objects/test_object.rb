@@ -230,8 +230,8 @@ class Test
   end
 
   def get_invalid_signup_information
-    @user.password = "fakefake"
-    @user.email = "fakeeamil"
+    @user.password = "short"
+    @user.email = "bad_email@fake.com"
   end
 
   def give_user_to_admin
