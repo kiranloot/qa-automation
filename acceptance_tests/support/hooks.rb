@@ -18,10 +18,10 @@ box = Box.new(env)
 
 $env_base_url = box.base_url
 
-$env_price_esitmate_data_file_path ||= "acceptance_tests/support/price_estimate_test_data.yml"
-$env_plan_cost_data_file_path ||= "acceptance_tests/support/plan_cost_test_data.yml"
-price_estimate_test_data = YAML.load(File.open($env_price_esitmate_data_file_path))
-plan_cost_test_data = YAML.load(File.open($env_plan_cost_data_file_path))
+@env_price_esitmate_data_file_path ||= "acceptance_tests/support/price_estimate_test_data.yml"
+@env_plan_cost_data_file_path ||= "acceptance_tests/support/plan_cost_test_data.yml"
+price_estimate_test_data = YAML.load(File.open(@env_price_esitmate_data_file_path))
+plan_cost_test_data = YAML.load(File.open(@env_plan_cost_data_file_path))
 
 pages = {
   home: HomePage,
