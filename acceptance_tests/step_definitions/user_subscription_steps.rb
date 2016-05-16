@@ -110,7 +110,6 @@ When /^the user submits (.*?) information/ do |arg_string|
     addbilling = true
     arg_string.slice!(" and billing")
   end
-  binding.pry
   args = arg_string.split(" ")
   adjective = args.shift
   type = args.reject(&:empty?).join(' ')
