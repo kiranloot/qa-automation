@@ -1,6 +1,6 @@
 class RecurlyPage < Page
   require 'aspector'
-  require_relative 'wait_module'
+  require_relative 'modules/wait_module'
   include WaitForAjax
   @@set_one = [:on_account_tab, :on_subscriptions_tab]
   def initialize

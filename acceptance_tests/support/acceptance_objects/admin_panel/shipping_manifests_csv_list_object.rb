@@ -1,5 +1,5 @@
 require_relative "admin_object"
-require_relative "../download_helpers"
+require_relative "../modules/download_helpers"
 class AdminShippingManifestCSVListPage < AdminPage
   include DownloadHelpers
   def initialize

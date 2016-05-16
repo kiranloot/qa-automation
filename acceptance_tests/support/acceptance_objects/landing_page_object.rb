@@ -1,5 +1,5 @@
 require_relative "subscribe_page_object"
-require_relative "ship_cycle_checker"
+require_relative "modules/ship_cycle_checker"
 
 class LandingPage < SubscribePage
 include Capybara::DSL

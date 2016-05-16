@@ -1,7 +1,7 @@
 require 'net/http'
 require 'platform-api'
 require_relative 'box_object'
-require_relative 'qa_env_validator'
+require_relative 'modules/qa_env_validator'
 
 class HerokuAPI
   require 'yaml'
