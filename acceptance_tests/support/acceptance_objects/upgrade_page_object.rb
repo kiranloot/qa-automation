@@ -31,9 +31,9 @@ class UpgradePage < Page
     state = $test.user.ship_state
     current_plan = $test.user.plan_months
     plan_cost = if state == 'CA'
-        $test.test_data['ca_plan_cost']
+        $test.plan_cost_test_data['ca_plan_cost']
       else
-        $test.test_data['plan_cost']
+        $test.plan_cost_test_data['plan_cost']
       end
 
     case type

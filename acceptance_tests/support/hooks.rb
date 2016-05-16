@@ -18,10 +18,10 @@ box = Box.new(env)
 
 $env_base_url = box.base_url
 
-$env_test_data_file_path ||= "acceptance_tests/support/qa_test_data.yml"
-$env_price_esitmate_data_file_path ||= "acceptance_tests/support/price_estimate_test_data.yml"
-test_data = YAML.load(File.open($env_test_data_file_path))
-price_estimate_test_data = YAML.load(File.open($env_price_esitmate_data_file_path))
+@env_price_esitmate_data_file_path ||= "acceptance_tests/support/price_estimate_test_data.yml"
+@env_plan_cost_data_file_path ||= "acceptance_tests/support/plan_cost_test_data.yml"
+price_estimate_test_data = YAML.load(File.open(@env_price_esitmate_data_file_path))
+plan_cost_test_data = YAML.load(File.open(@env_plan_cost_data_file_path))
 
 pages = {
   home: HomePage,
@@ -63,7 +63,7 @@ Before do
     page.driver.browser.manage.window.move_to(0, 0)
     page.driver.browser.manage.window.resize_to(1800, 1100)
   end
-  $test = Test.new( test_data, price_estimate_test_data, HomePage.new, pages, DBCon.new, box, MailinatorAPI.new)
+  $test = Test.new( price_estimate_test_data, plan_cost_test_data, HomePage.new, pages, DBCon.new, box, MailinatorAPI.new )
   $test.user = User.new($test)
   $test.admin_user = FactoryGirl.build(:user, :admin)
   #If US flag isn't showing, set it to US

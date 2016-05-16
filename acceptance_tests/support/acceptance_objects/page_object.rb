@@ -71,20 +71,20 @@ Page
     end
   end
 
-  def modal_signup(email, password, test_data)
+  def modal_signup(email, password)
     wait_for_ajax
-    page.find_link("Log In").click
+    find_link("Log In").click
     sleep(1)
-    page.find_link("Forgot Password?")
-    page.find_link("Join")
+    find_link("Forgot Password?")
+    find_link("Join")
     page.has_content?("Welcome Back!")
-    page.find(:css, test_data["locators"]["modal_join"]).click
+    find('#signin_modal > div > div > div.modal-footer > p > a').click
     page.has_content?("Join the Looter community!")
     fill_in("new_user_email_modal", :with => email)
-    page.find_field("new_user_email_modal").value
-    page.find_link("finish_step_one").click
+    find_field("new_user_email_modal").value
+    find_link("finish_step_one").click
     fill_in("new_user_password_modal",:with => password)
-    page.find_button("create_account_modal").click
+    find_button("create_account_modal").click
     wait_for_ajax
   end
 

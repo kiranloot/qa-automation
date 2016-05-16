@@ -562,10 +562,10 @@ FactoryGirl.define do
       country_code "BR"
     end
     trait :multi_use_fixed_promo do
-      coupon_code  {$test.test_data["promos"]["multi_use"]}
+      coupon_code  {'nousea'}
     end
     trait :one_time_use_percentage_promo do
-      coupon_code  {$test.test_data["promos"]["multi_use"]}
+      coupon_code  {'nousea'}
     end
     trait :registered_with_active_and_tracking do
       heroku = HerokuAPI.new

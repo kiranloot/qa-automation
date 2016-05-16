@@ -58,17 +58,6 @@ include WaitForAjax
   end
 
   def verify_plan_prices(country)
-  #  if domain == 'international'
-  #    for k, v in $test.test_data['international_plan_cost']
-  #      assert_text(v.to_s)
-  #    end
-  #  elsif domain == 'domestic'
-  #    for k, v in $test.test_data['international_plan_cost']
-  #      assert_text("Total Price: $" + v.to_s)
-  #    end
-  # else
-  #   puts "ERROR: Unknown Shipping Domain"
-  # end
     price_hash = $test.price_estimate_data[country]
     #total US price
     for month, expected_price in price_hash['us_totals']
