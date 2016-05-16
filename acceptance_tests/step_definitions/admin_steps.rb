@@ -1,27 +1,4 @@
 #GIVENS
-Given /^The (.*) level up product is (.*)$/ do |product,inv_status|
-  inv_status.strip!
-  product.strip!
-  case product
-  when "socks"
-    variant_id = $test.db.get_variant_id("unisex-socks","Loot Socks")
-  when "accessory"
-    variant_id = $test.db.get_variant_id("unisex-accessories","Loot for Her")
-  end
-  step "the user visits the admin page"
-  step "logs in as an admin"
-  $test.current_page.click_variants
-  $test.current_page = AdminVariantsPage.new
-  case inv_status
-  when "sold out"
-    $test.current_page.set_variant_inventory(variant_id,0)
-  when "available"
-    $test.current_page.set_variant_inventory(variant_id,30000)
-  end
-  step "logs out of admin"
-  #$test.set_subject_user
-end
-
 Given(/^the system has (.*) pin codes for last month$/) do |product|
   step "the user visits the admin page"
   step "logs in as an admin"

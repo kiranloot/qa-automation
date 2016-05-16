@@ -28,15 +28,3 @@ Then /the new level up subscription should be added to the user account/ do
   step "the user visits the my account page"
   $test.current_page.verify_levelup_subscription_added
 end
-
-Then /^the (mens|womens) (s|m|l|xl|2xl|3xl|4xl|5xl) option for level up tshirt should be soldout/ do |gender, size|
-  $test.current_page.lu_variant_sold_out?(gender, size)
-end
-
-#Then /the (.*) option for level up (.*) should be soldout/ do |variant, product|
-#  $test.current_page.level_up_variant_soldout?(variant, product)
-#end
-
-Then /the (.*) crate should be sold out/ do |product|
-  $test.current_page.sold_out?
-end

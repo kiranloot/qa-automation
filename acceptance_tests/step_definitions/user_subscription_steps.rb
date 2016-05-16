@@ -283,28 +283,6 @@ Then /^the subscription's status should be (.*)$/ do |status|
   assert_text(status)
 end
 
-Then /^the (.*) option should be soldout/ do |variant|
-  $test.current_page.shirt_variant_soldout?(variant)
-end
-
-Then /^the landing page (should|should not) reflect the sellout$/ do |action|
-  $test.current_page.page_scroll
-  if action == 'should'
-    expect(page).to have_css(".soldout-container")
-  elsif action == 'should not'
-    expect(page).to have_no_css(".soldout-container")
-  end
-end
-
-Then /^the opc page (should|should not) reflect the sellout$/ do |action|
-  $test.current_page.page_scroll
-  if action == 'should'
-    expect($test.current_page.crate_sold_out?).to be_truthy
-  elsif action == 'should not'
-    expect($test.current_page.crate_sold_out?).to be_falsey
-  end
-end
-
 Then /^the user should not see the credit card information fields$/ do
   $test.current_page.credit_card_fields_gone?
 end

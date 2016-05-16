@@ -12,6 +12,7 @@ class Subscription
     @shipping_address = nil #Pending refactor of how this info will get moved here
     @promotion = nil #Pending refactor of how this info will get moved here
     @billing_info = BillingInfo.new
+    set_variant_sku
   end
 
   def set_name(months)
@@ -71,6 +72,12 @@ class Subscription
   def set_cc_num(cc_number='4111111111111111')
     @billing_info.cc_number = cc_number
     @billing_info.last_four = cc_number.split(//).last(4).join
+  end
+
+  def set_variant_sku
+    #TODO: needs to be replaces with an array of skus
+    #for level up and pets to work.
+    @variant_sku = (@product.downcase + "-crate-" + @sizes[:shirt].downcase + "-shirt").gsub(/\s/,'')
   end
 
   def odd_cycle?
