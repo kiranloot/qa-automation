@@ -290,9 +290,9 @@ end
 Then /^the landing page (should|should not) reflect the sellout$/ do |action|
   $test.current_page.page_scroll
   if action == 'should'
-    expect(page).to have_css("#cms-core-crate-theme-section-soldout")
+    expect(page).to have_css(".soldout-container")
   elsif action == 'should not'
-    expect(page).to have_no_css("#cms-core-crate-theme-section-soldout")
+    expect(page).to have_no_css(".soldout-container")
   end
 end
 
