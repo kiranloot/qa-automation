@@ -2,7 +2,7 @@ require 'capybara/cucumber'
 require 'net/http'
 require 'rspec/matchers'
 require 'pry'
-require_relative 'wait_module'
+require_relative 'modules/wait_module'
 class MobileAppPage
   require 'yaml'
   include Capybara::DSL

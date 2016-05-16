@@ -1,5 +1,5 @@
 module QAEnvironmentValidator
-  require_relative 'heroku_object'
+  require_relative '../heroku_object'
   def self.verify
     heroku = HerokuAPI.new
     config = heroku.heroku.config_var.info(heroku.app)

@@ -2,7 +2,7 @@ require 'capybara/cucumber'
 require 'net/http'
 require 'rspec/matchers'
 require 'pry'
-require_relative 'wait_module'
+require_relative 'modules/wait_module'
 class
 Page
   attr_accessor :base_url, :page_type

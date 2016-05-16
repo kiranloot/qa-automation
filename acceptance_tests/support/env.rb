@@ -5,8 +5,8 @@ require 'selenium-webdriver'
 require 'capybara/cucumber'
 require 'parallel_tests'
 require 'time'
-require_relative 'acceptance_objects/qa_env_validator'
-require_relative 'acceptance_objects/inventory_flag_manager'
+require_relative 'acceptance_objects/modules/qa_env_validator'
+require_relative 'acceptance_objects/modules/inventory_flag_manager'
 
 ENV['RUN_TIMESTAMP'] = Time.now().utc.to_s
 ENV['SITE'] ||= 'qa'

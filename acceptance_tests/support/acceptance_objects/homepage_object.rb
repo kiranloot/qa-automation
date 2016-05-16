@@ -1,5 +1,5 @@
 require_relative "page_object"
-require_relative "wait_module"
+require_relative "modules/wait_module"
 require "capybara/cucumber"
 require "pry"
 class HomePage < Page

@@ -1,5 +1,5 @@
 module InventoryFlagManager
-  require_relative 'redis_object'
+  require_relative '../redis_object'
   @flags = [
       "tests_selling_out_anime_inv",
       "tests_using_anime_inv",

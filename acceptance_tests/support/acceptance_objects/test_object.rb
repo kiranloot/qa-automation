@@ -2,7 +2,7 @@ class Test
  require_relative 'user_object'
  require_relative 'homepage_object'
  require_relative 'signup_page_object'
- require_relative 'wait_module'
+ require_relative 'modules/wait_module'
  require_relative 'heroku_object'
  require 'yaml'
  require 'pry'
