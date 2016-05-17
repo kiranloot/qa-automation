@@ -38,7 +38,6 @@ class User
     @base_coupon_code = nil
     @tax_applied = false
     @discount_applied = nil
-    #@subject_user = nil
     @new_user_sub_name = nil
     @new_shirt_size= nil
     @need_sub = true
@@ -60,6 +59,7 @@ class User
       self.instance_variable_set('@'+ k, v)
     end
     @subscription = process_sub_data(input_hash)
+    puts @subscription.product
     target_plan(input_hash)
     @shirt_size = scrub_shirt_size(@shirt_size)
     @subscription.db_rebill = scrub_rebill_date(@rebill_date_db)
@@ -69,7 +69,6 @@ class User
   def process_sub_data(sub_data)
     sub_type = sub_data['brand'] == 'Level Up' ? :levelupsubscription : :subscription
     sub_trait = sub_data['product'].gsub(/(\+|-)/, '').tr(' ', '_').downcase.to_sym
-    puts sub_trait
     u = FactoryGirl.build(
       sub_type,
       sub_trait,

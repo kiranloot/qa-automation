@@ -83,9 +83,9 @@ Before ('@anime_inv_req') do
   Timeout.timeout(360) do
     sleep 0.1 until InventoryFlagManager.zero_or_less?('tests_selling_out_anime_inv')
   end
-  #Timeout.timeout(360) do
-  #  sleep 0.1 until InventoryFlagManager.zero_or_less?('tests_freezing_anime_inv')
-  #end
+  Timeout.timeout(360) do
+    sleep 0.1 until InventoryFlagManager.zero_or_less?('tests_freezing_anime_inv')
+  end
   InventoryFlagManager.increment_flag('tests_using_anime_inv')
 end
 
