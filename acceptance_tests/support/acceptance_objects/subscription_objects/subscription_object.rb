@@ -77,6 +77,8 @@ class Subscription
   def set_variant_sku
     #TODO: needs to be replaces with an array of skus
     #for level up and pets to work.
+    puts @product
+    puts @sizes[:shirt]
     @variant_sku = (@product.downcase + "-crate-" + @sizes[:shirt].downcase + "-shirt").gsub(/\s/,'')
   end
 

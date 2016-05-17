@@ -69,6 +69,7 @@ class User
   def process_sub_data(sub_data)
     sub_type = sub_data['brand'] == 'Level Up' ? :levelupsubscription : :subscription
     sub_trait = sub_data['product'].gsub(/(\+|-)/, '').tr(' ', '_').downcase.to_sym
+    puts sub_trait
     u = FactoryGirl.build(
       sub_type,
       sub_trait,

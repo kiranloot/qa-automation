@@ -89,6 +89,10 @@ class HRedis
   def zero_or_less?(key)
     @redis.get(key).to_i <= 0
   end
+
+  def keys
+    @redis.keys('*')
+  end
   
   def quit
     @redis.quit

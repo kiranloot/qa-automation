@@ -2,14 +2,6 @@
 Given /that I want to test the db and redis objects/ do
   $test.db.registered_one_active
 end
-
-Given /^the (.*) variant is sold out$/ do |sku|
-  $test.db.sellout_variant(sku)
-end
-
-Given /^the (.*) product is sold out$/ do |product|
-  $test.db.sellout_product(product)
-end
 #WHENS
 
 
