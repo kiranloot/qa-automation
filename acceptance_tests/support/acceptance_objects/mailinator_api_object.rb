@@ -1,7 +1,6 @@
 require 'mailinator'
 
 class MailinatorAPI
-  include RSpec::Matchers
   def initialize
     @api_key = '6f138ae31e8d48cd9c41d61f2150307c'
     Mailinator.configure do |config|

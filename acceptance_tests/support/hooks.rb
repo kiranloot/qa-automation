@@ -5,6 +5,8 @@ require 'active_support'
 require 'rspec/expectations'
 require 'platform-api'
 require 'date'
+include RSpec::Matchers
+
 Dir["acceptance_objects/*"].each do |file|
   puts file
   require file

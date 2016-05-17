@@ -4,14 +4,13 @@ class User
   require 'humanize'
   require 'rspec/matchers'
   include Capybara::DSL
-  include RSpec::Matchers
   include WaitForAjax
 
   attr_accessor :email, :password, :street, :city, :ship_state, :ship_zip, :zip, :first_name, 
                 :last_name, :full_name, :new_shirt_size, :ship_street, :ship_street_2, :ship_city, 
                 :affiliate, :base_coupon_code, :coupon_code, :discount_applied, :subscription_name, 
-                :level_up_subscription_name, :new_user_sub_name,:new_rebill_date, :bill_zip, :bill_city, 
-                :bill_street, :bill_street_2, :bill_state, :need_sub, :rebill_date_db, :trait, 
+                :level_up_subscription_name, :new_user_sub_name, :new_rebill_date, :bill_zip, :bill_city, 
+                :bill_street, :bill_street_2, :bill_state, :need_sub, :trait, 
                 :recurly_level_up_plan, :country_code, :recurly_billing_state_code, :promo_type, :promo, 
                 :adjustment_type, :adjustment_amount, :recurly_rebill_date, :pin_code, :crate_type, 
                 :billing_address, :country, :subscription
@@ -42,10 +41,7 @@ class User
     #@subject_user = nil
     @new_user_sub_name = nil
     @new_shirt_size= nil
-    @new_rebill_date= nil
-    @recurl_rebill_date= nil
     @need_sub = true
-    @rebill_date_db = nil
     @country_code = nil
     @recurly_billing_state_code = nil
     @recurly_level_up_plan = nil
@@ -66,7 +62,7 @@ class User
     @subscription = process_sub_data(input_hash)
     target_plan(input_hash)
     @shirt_size = scrub_shirt_size(@shirt_size)
-    @rebill_date_db = scrub_rebill_date(@rebill_date_db)
+    @subscription.db_rebill = scrub_rebill_date(@rebill_date_db)
     set_full_name
   end
 

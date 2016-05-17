@@ -1,7 +1,6 @@
 require 'recurly'
 
 class RecurlyAPI
-  include RSpec::Matchers
   def initialize(box)
     Recurly.api_key = box.recurly_api_key
     Recurly.subdomain = box.recurly_subdomain
@@ -194,7 +193,7 @@ class RecurlyAPI
     sub = account.subscriptions.first
     adjusted_rebill_date = Time.new + minutes * 60
     account.subscriptions.first.postpone(adjusted_rebill_date)
-    $test.user.new_rebill_date = get_rebill_date
+    $test.user.subscription.recurly_rebill = get_rebill_date
   end
 
   def account_has_invoices?(amount)
@@ -228,20 +227,5 @@ class RecurlyAPI
     upgrade_info['rebill_date'] = subscription.current_period_ends_at
     upgrade_info['cost'] = subscription['pending_subscription']['unit_amount_in_cents']
     upgrade_info
-  end
-
-  def verify_rebill_date
-    account = get_account
-    #Conditional statement to handle the UTC date change by 4pm PST
-    #if DateTime.now.strftime('%H').to_i >= 16
-      #calculated_rebill_date = $test.calculate_rebill_date(true)
-    #else
-    calculated_rebill_date = $test.calculate_rebill_date
-    #end
-    #actual_rebill_date = get_subscription_info(account).current_period_ends_at.new_offset(-8.0/24)
-    actual_rebill_date = get_rebill_date
-    expect(actual_rebill_date.strftime('%Y')).to eq(calculated_rebill_date['year'])
-    expect(actual_rebill_date.strftime('%B')).to eq(calculated_rebill_date['month'])
-    expect(actual_rebill_date.strftime('%d')).to eq(calculated_rebill_date['day'])
   end
 end

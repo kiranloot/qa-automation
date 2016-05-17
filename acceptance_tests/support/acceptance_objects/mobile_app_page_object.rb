@@ -6,7 +6,6 @@ require_relative 'modules/wait_module'
 class MobileAppPage
   require 'yaml'
   include Capybara::DSL
-  include RSpec::Matchers
   include WaitForAjax
   def initialize
   end

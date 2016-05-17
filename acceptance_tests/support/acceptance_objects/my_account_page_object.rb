@@ -20,7 +20,7 @@ class MyAccountPage < Page
     @rebill = nil
     if $test.user
       @subscription_name = $test.user.subscription.name
-      @rebill = $test.user.rebill_date_db
+      @rebill = $test.user.subscription.db_rebill
     end
   end
 
@@ -75,9 +75,11 @@ class MyAccountPage < Page
     check_displayed_status("ACTIVE")
     wait_for_ajax
     if $test.user.subscription.rebill_date
-      assert_text(localize_date($test.user.subscription.rebill_date['day'], $test.user.subscription.rebill_date['month_abbr'], $test.user.subscription.rebill_date['year']))
+      rb = $test.user.subscription.rebill_date
+      assert_text(localize_date(rb['day'], rb['month_abbr'], rb['year']))
     else
-      assert_text(get_expected_next_bill_date(@subscription_name)) unless @rebill
+      # assert_text(get_expected_next_bill_date(@subscription_name)) unless @rebill
+      assert_text(RebillCalc.calculate_rebill_date.values_at('day', 'month_abbr', 'year').join(' ')) unless @rebill
       assert_text(@rebill) if @rebill
     end
     assert_text(@first_name)
@@ -156,7 +158,7 @@ class MyAccountPage < Page
     #  months = subscription_name.gsub(/\D/, '').to_i
     #end
     if compare_date.nil?
-      rebill_date = $test.calculate_rebill_date
+      rebill_date = RebillCalc.calculate_rebill_date
       compare_date = localize_date(rebill_date['day'], rebill_date['month_abbr'], rebill_date['year'])
     end
     return compare_date
@@ -207,7 +209,7 @@ class MyAccountPage < Page
 
   def cancel_subscription
     go_to_subscriptions
-    get_expected_next_bill_date($test.user.subscription.name)
+    # get_expected_next_bill_date($test.user.subscription.name)
     click_cancel_subscription
     find_link("Cancel Subscription").click
     sleep(1)
