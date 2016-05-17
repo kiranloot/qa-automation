@@ -7,5 +7,5 @@ Feature: Total committed invention increases by one when customer checks out
             And the user selects the Anime crate
             And the user selects a one month subscription plan
             And the user notes the current inventory count for their variant
-#            And the user submits valid subscription information
-#        Then the total committed for the purchased crate should increase by one
+            And the user submits valid subscription information
+        Then the total committed for the purchased crate should increase by one

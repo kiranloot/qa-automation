@@ -32,8 +32,7 @@ end
 
 #WHENS
 When /^the user notes the current inventory count for their variant$/ do
-  puts $test.user.subscription.variant_sku
-  #@old_inventory = $test.db.get_total_committed_for($test.user.subscription.variant_sku)
+  @old_inventory = $test.db.get_total_committed_by_sku($test.user.subscription.variant_sku).to_i
 end
 
 #THENS
@@ -70,7 +69,7 @@ end
 Then /^the total committed for the purchased crate should increase by one$/ do
   @inventory_increased = false
   10.times do
-    @new_inventory = $test.db.get_total_committed_for($test.user.variant)
+    @new_inventory = $test.db.get_total_committed_by_sku($test.user.subscription.variant_sku).to_i
     if (@new_inventory - @old_inventory) == 1
       @inventory_increased = true
       break
