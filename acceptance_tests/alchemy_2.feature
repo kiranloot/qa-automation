@@ -12,7 +12,7 @@ Feature: Alchemy CMS
             And the user visits the <page> page
         Then the user should see the new alchemy content on the page
         Examples:
-        | alchemy_page               | essence                | page              |
-        | gaming-crate_monthly_theme | Divider label subtitle | gaming_landing    |
-        | pets-crate_monthly_theme   | Divider label subtitle | pets_landing      |
-        | core-crate_monthly_theme   | Divider label subtitle | lootcrate_landing |
+        | alchemy_page               | essence     | page              |
+        | gaming-crate_monthly_theme | Timer title | gaming_landing    |
+        | pets-crate_monthly_theme   | Timer title | pets_landing      |
+        | core-crate_monthly_theme   | Timer title | lootcrate_landing |
