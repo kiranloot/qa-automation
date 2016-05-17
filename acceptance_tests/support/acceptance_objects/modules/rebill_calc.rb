@@ -21,8 +21,7 @@ module RebillCalc
     }
   end
 
-  def self.localized_rebill
-    rb = calculate_rebill_date
+  def self.localized_rebill(rb=calculate_rebill_date)
     "#{rb['month_abbr']} #{rb['day']}, #{rb['year']}"
   end
 
