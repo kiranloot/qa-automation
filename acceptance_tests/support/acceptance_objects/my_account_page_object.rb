@@ -78,8 +78,7 @@ class MyAccountPage < Page
       rb = $test.user.subscription.rebill_date
       assert_text(localize_date(rb['day'], rb['month_abbr'], rb['year']))
     else
-      # assert_text(get_expected_next_bill_date(@subscription_name)) unless @rebill
-      assert_text(RebillCalc.calculate_rebill_date.values_at('day', 'month_abbr', 'year').join(' ')) unless @rebill
+      assert_text(RebillCalc.localized_rebill) unless @rebill
       assert_text(@rebill) if @rebill
     end
     assert_text(@first_name)

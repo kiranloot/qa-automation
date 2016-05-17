@@ -21,6 +21,11 @@ module RebillCalc
     }
   end
 
+  def self.localized_rebill
+    rb = calculate_rebill_date
+    "#{rb['month_abbr']} #{rb['day']}, #{rb['year']}"
+  end
+
   def self.get_recurly_rebill(with_tz_offset = -8.0/24)
     $test.recurly.get_rebill_date(with_tz_offset)
   end
