@@ -478,14 +478,13 @@ def verify_webhooks(webhook_event, webhook_status)
       where raw_payload like '%#{webhook}%'
       and raw_payload like '%#{$test.user.email}%'
     """
-    for n in 1..20
-      #puts q
+    results = nil
+    30.times do
       results = @conn.exec(q)
-      if results.any?
-        #puts results[0]['aasm_state']
-        if results[0]['aasm_state'] == webhook_status
-          break
-        end
+      if results.any? && results[0]['aasm_state'] == webhook_status
+        break
+      else
+        sleep(1)
       end
     end
     if results[0]['aasm_state'] != webhook_status
