@@ -3,7 +3,6 @@ require 'json'
 require 'yaml'
 
 class LogMonitor
-  include RSpec::Matchers
   def initialize
     file_data = YAML.load(File.open(ENV['SERVER_CONFIGS']))[ENV['SITE']]
     @logentries_key = file_data['logentries_key']

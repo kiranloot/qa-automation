@@ -1,6 +1,6 @@
 class Subscription
   attr_accessor :name, :months, :product, :recurly_name, :plan_title, 
-                :gender, :rebill_date, :recurly_rebill, :sizes,
+                :gender, :rebill_date, :db_rebill, :recurly_rebill, :sizes,
                 :billing_address, :shipping_address, :billing_info
 
   def initialize(months='one', product=nil)
@@ -60,8 +60,8 @@ class Subscription
   end
 
   def set_rebill_info
-    @rebill_date = $test.calculate_rebill_date
-    @recurly_rebill = $test.recurly.get_rebill_date
+    @rebill_date = RebillCalc.calculate_rebill_date
+    @recurly_rebill = RebillCalc.get_recurly_rebill
     if (odd_cycle? && DateTime.now.day.between?(20, 27))
       @rebill_date['day'] = DateTime.now.day.to_s
       @recurly_rebill = @recurly_rebill + (Time.now.day - @recurly_rebill.day)

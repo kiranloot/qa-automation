@@ -8,7 +8,6 @@ Page
   attr_accessor :base_url, :page_type
   require 'yaml'
   include Capybara::DSL
-  include RSpec::Matchers
   include WaitForAjax
   def initialize(box = Box.new(ENV['SITE']))
     @page_configs = YAML.load(File.open("acceptance_tests/support/page_configs.yml"))

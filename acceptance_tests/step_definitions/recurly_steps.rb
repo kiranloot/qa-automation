@@ -1,6 +1,6 @@
 #WHENS
 When(/^the recurly rebill date is pushed (.*) minute into the future$/) do |minutes|
-  $test.user.recurly_rebill_date = $test.recurly.update_next_renewal_date(minutes.to_i)
+  $test.user.subscription.recurly_rebill = $test.recurly.update_next_renewal_date(minutes.to_i)
 end
 
 When(/^the recurly credit card information is modified to be declined$/) do
@@ -60,16 +60,7 @@ Then(/^the recurly account's last transaction (should|shouldn't) have tax calcul
 end
 
 Then(/^the recurly subscription should have the correct rebill date$/)do
-  #should probably move this into a function
-  date_hash = $test.calculate_rebill_date
-  month_int = Date::MONTHNAMES.index(date_hash['month'])
-  date_hash['month'] = month_int < 10 ? "0" + month_int.to_s : month_int.to_s
-  recurly_rebill_date = $test.recurly.get_rebill_date.to_s
-  recurly_hash = {}
-  recurly_hash['year'], recurly_hash['month'], recurly_hash['day'] = recurly_rebill_date.scan(/\d+/)
-  ['year','month','day'].each do |key|
-    expect(recurly_hash[key]).to eq date_hash[key]
-  end
+  RebillCalc.verify_recurly_rebill_date
 end
 
 Then(/^the recurly subscription data is fully validated$/)do
@@ -77,7 +68,7 @@ Then(/^the recurly subscription data is fully validated$/)do
   $test.recurly.verify_full_name
   $test.recurly.verify_cc_info
   $test.recurly.verify_billing_address
-  $test.recurly.verify_rebill_date
+  RebillCalc.verify_rebill_date
 end
 
 Then(/^the recurly coupon is correctly created$/) do
@@ -114,10 +105,6 @@ Then(/^the recurly account's last invoice should be (.*)$/) do |status|
 end
 
 Then /the recurly rebill date should be (.*) months? (ahead|behind)$/ do |months, direction|
-  if direction == 'ahead'
-    original_rebill_ymd = (@original_rebill >> months.to_i).strftime('%F')
-  elsif direction == 'behind'
-    original_rebill_ymd = (@original_rebill << months.to_i).strftime('%F')
-  end
-  expect($test.recurly.get_rebill_date.strftime('%F')).to eq(original_rebill_ymd)
+  original_rebill_ymd = RebillCalc.adjusted_rebill_date(@original_rebill, months.to_i, direction)
+  expect(RebillCalc.get_recurly_rebill.strftime('%F')).to eq(original_rebill_ymd)
 end
