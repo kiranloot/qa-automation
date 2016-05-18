@@ -94,7 +94,13 @@ class LevelUpSubscribePage < SubscribePage
       size_section = find("section#section-lu-sizes")
       choose_gender(subscription.gender) if size_section.text.include?('MENS WOMENS')
       find("#sizes-btn-shirt-#{subscription.gender}-#{subscription.sizes[:shirt]}").click if size_section.text.include?('SHIRT SIZE')
-      find("#sizes-btn-waist-#{subscription.gender}-#{subscription.sizes[:waist]}").click if size_section.text.include?('WAIST SIZE')
+      if size_section.text.include?('WAIST SIZE')
+        if subscription.product == 'for her + tee'
+          find("#sizes-btn-waist-womens-#{subscription.sizes[:waist]}").click
+        else
+          find("#sizes-btn-waist-#{subscription.gender}-#{subscription.sizes[:waist]}").click
+        end
+      end
       wait_for_ajax
     end
   end
