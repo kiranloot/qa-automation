@@ -7,6 +7,7 @@ class Test
  require 'yaml'
  require 'pry'
  require 'faker'
+ require 'time'
  attr_accessor :user,
    :admin_user,
    :cms_user,
@@ -15,6 +16,7 @@ class Test
    :price_estimate_data,
    :plan_cost_data,
    :db,
+   :start_time,
    :affiliate,
    :recurly,
    :box,
@@ -37,6 +39,7 @@ class Test
   @box = box
   @mailinator = mailinator_api
   @recurly = RecurlyAPI.new(box)
+  @start_time = Time.now
  end
 
  def increment_digits(input_string)
