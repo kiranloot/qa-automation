@@ -59,7 +59,6 @@ class User
       self.instance_variable_set('@'+ k, v)
     end
     @subscription = process_sub_data(input_hash)
-    puts @subscription.product
     target_plan(input_hash)
     @shirt_size = scrub_shirt_size(@shirt_size)
     @subscription.db_rebill = scrub_rebill_date(@rebill_date_db)
