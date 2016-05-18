@@ -473,13 +473,14 @@ def verify_webhooks(webhook_event, webhook_status)
   end
   expected_webhooks.each do |webhook|
     q = """
-      select aasm_state
+      select aasm_state, created_at
       from recurly_push_notifications
       where raw_payload like '%#{webhook}%'
       and raw_payload like '%#{$test.user.email}%'
+      and created_at > '#{$test.start_time}'
     """
     results = nil
-    30.times do
+    15.times do
       results = @conn.exec(q)
       if results.any? && results[0]['aasm_state'] == webhook_status
         break
