@@ -1,4 +1,4 @@
-@regression @core @selenium
+@regression
 Feature: Product page redirect
     @ready
     Scenario: Registered user tries to navigate to a checkout page for an unknown product

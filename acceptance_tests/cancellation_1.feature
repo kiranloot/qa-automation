@@ -1,4 +1,4 @@
-@core @regression @cancellation @selenium
+@cancellation
 Feature: Subscription Cancellation
     @ready @gp @recurly
     Scenario: Subscriber cancels a subscription

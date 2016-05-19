@@ -1,4 +1,4 @@
-@regression @core @anime_country_restrictions @selenium
+@anime_country_restrictions
 Feature: Singapore, South Korea and Japan blocked from buying anime crate
     @ready
     Scenario Outline: A user with a Singapore/South Korea/Japan address cannot purchase the anime crate

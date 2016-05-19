@@ -1,4 +1,4 @@
-@regression @core @sellout @selenium
+@sellout
 Feature: Anime sellouts 
     @ready @anime_inv_sellout
     Scenario: A single size sells out for anime

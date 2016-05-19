@@ -1,4 +1,4 @@
-@core @regression @selenium 
+@regression
 Feature: Trailing slash existence in URL
   @ready
   Scenario: User enters a trailing slash in the current URL

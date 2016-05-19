@@ -1,4 +1,4 @@
-@core @regression @account @selenium
+@account
 Feature: User Detail Editing
     @ready @recurly @safari_ready @mobile_ready
     Scenario: The user edits their subscription's shipping address

@@ -1,4 +1,4 @@
-@core @regression @account @selenium
+@account
 Feature: User Detail Editing
     @ready @safari_ready @mobile_ready
     Scenario: Verify the variants dropdown in Edit Sub Info panel has no blank or nil entries

@@ -1,4 +1,4 @@
-@regression @core @gaming_sub_creation @gaming_inv_req @selenium
+@gaming_sub_creation @gaming_inv_req
 Feature: Gaming Subscription Creation
     @ready
     Scenario: Registered user creates one month gaming crate subscription

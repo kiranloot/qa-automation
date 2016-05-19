@@ -1,4 +1,4 @@
-@regression @core @firefly_subscription_creation @firefly_inv_req @selenium
+@firefly_subscription_creation @firefly_inv_req
 Feature: Firefly Subscription Creation
     @ready
     Scenario: Registered user creates a firefly two month subscription

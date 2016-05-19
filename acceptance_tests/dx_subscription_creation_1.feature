@@ -1,4 +1,4 @@
-@regression @core @dx_subscription_creation @dx_inv_req @selenium
+@dx_subscription_creation @dx_inv_req
 Feature: DX Subscription Creation
     @ready @recurly 
     Scenario: Registered user creates a one month dx crate subscription

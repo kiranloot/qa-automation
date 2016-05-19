@@ -1,4 +1,4 @@
-@regression @extended @affiliates @selenium
+@extended @affiliates
 Feature: Affiliates
     @ready
     Scenario: Create new affiliate and verify redirect

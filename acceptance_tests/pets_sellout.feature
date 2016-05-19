@@ -1,4 +1,4 @@
-@regression @core @sellout @selenium
+@sellout
 Feature: Pets sellouts 
     @ready @pets_inv_sellout
     Scenario: A single size sells out for pets

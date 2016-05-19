@@ -1,4 +1,4 @@
-@regression @core @gaming_sub_creation @gaming_inv_req @selenium
+@gaming_sub_creation @gaming_inv_req
 Feature: Gaming Subscription Creation
     @ready
     Scenario: Registered user creates twelve month gaming subscription plan

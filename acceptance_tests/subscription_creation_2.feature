@@ -1,4 +1,4 @@
-@regression @core @subscription_creation @selenium
+@subscription_creation
 Feature: Subscription Creation
     @ready
     Scenario: Registered user creates twelve month subscription plan

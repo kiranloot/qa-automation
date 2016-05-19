@@ -1,4 +1,4 @@
-@selenium @regression @admin
+@admin
 Feature: Admin adressess page
     @ready
     Scenario: Admin user can search for a user address by first and last name successfully

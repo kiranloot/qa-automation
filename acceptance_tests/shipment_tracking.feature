@@ -1,4 +1,4 @@
-@regression @core @tracking @selenium
+@tracking
 Feature: Displaying shipment tracking information
     @ready
     Scenario: Registered user with an active subscription is able to view their tracking information

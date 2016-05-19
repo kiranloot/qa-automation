@@ -1,4 +1,4 @@
-@referrer @regression
+@referrer
 Feature: Referrer pages
 @ready
 Scenario: Can visit pewdiepie page

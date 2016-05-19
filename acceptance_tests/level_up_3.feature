@@ -1,4 +1,4 @@
-@core @regression @levelup @selenium
+@levelup
 Feature: Level Up
     @ready @recurly
     Scenario: A user with an active subscription can add an international six month accessory subscription

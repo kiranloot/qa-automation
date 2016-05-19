@@ -1,4 +1,4 @@
-@core @regression @account @selenium
+@account
 Feature: User Detail Editing
     @ready @firefly_inv_req
     Scenario: The user edits their firefly subscriptions subscription info

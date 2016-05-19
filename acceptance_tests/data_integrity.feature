@@ -1,4 +1,3 @@
-@regression @core @selenium
 Feature: Data integrity checks 
     @ready
     Scenario: All generated coupon codes are unique

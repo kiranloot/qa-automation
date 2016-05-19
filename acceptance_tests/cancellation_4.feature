@@ -1,4 +1,4 @@
-@core @regression @cancellation @selenium
+@cancellation
 Feature: Subscription Cancellation
     @level_up @admin @ready @recurly @firefly_inv_req
     Scenario:   Subscriber cancels a firefly crate subscription

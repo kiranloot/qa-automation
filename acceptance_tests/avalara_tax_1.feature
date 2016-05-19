@@ -1,4 +1,4 @@
-@regression @core @tax @selenium
+@tax
 Feature: Tax Calculation
     @ready
     Scenario: A california user is charged tax when checking out

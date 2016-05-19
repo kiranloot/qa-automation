@@ -1,4 +1,4 @@
-@regression @core @sailthru @selenium
+@sailthru
 Feature: Sailthru Integration
     @ready
     Scenario: Creating a sub should submit the user's email to sailthru

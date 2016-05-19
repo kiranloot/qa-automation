@@ -1,4 +1,4 @@
-@regression @core @dx_subscription_creation @dx_inv_req @selenium
+@dx_subscription_creation @dx_inv_req
 Feature: DX Subscription Creation
     @ready
     Scenario: Registered user creates twelve month dx subscription plan

@@ -1,4 +1,4 @@
-@core @regression @levelup @selenium
+@levelup
 Feature: Level Up
     @ready @recurly @mobile_ready
     Scenario: A user with an active subscription can add a six month accessory subscription

@@ -1,4 +1,4 @@
-@regression @core @alchemy @selenium
+@alchemy
 Feature: Alchemy CMS
     @ready @alchemy_text
     Scenario: Check an alchemy text publish
