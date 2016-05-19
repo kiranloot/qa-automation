@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56c1c2ad-0159-42ba-9268-e19424f40027" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/acceptance_tests/step_definitions/admin_steps.rb" afterPath="$PROJECT_DIR$/acceptance_tests/step_definitions/admin_steps.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/acceptance_tests/support/acceptance_objects/test_object.rb" afterPath="$PROJECT_DIR$/acceptance_tests/support/acceptance_objects/test_object.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/acceptance_tests/support/factories/user.rb" afterPath="$PROJECT_DIR$/acceptance_tests/support/factories/user.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/acceptance_tests/support/acceptance_objects/user_object.rb" afterPath="$PROJECT_DIR$/acceptance_tests/support/acceptance_objects/user_object.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/acceptance_tests/support/acceptance_objects/dbcon.rb" afterPath="$PROJECT_DIR$/acceptance_tests/support/acceptance_objects/dbcon.rb" />
     </list>
     <ignored path="qa-automation.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dbcon.rb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dbcon.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/acceptance_tests/support/acceptance_objects/dbcon.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="659" column="14" selection-start-line="659" selection-start-column="14" selection-end-line="659" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.8659004">
+              <caret line="659" column="12" selection-start-line="659" selection-start-column="12" selection-end-line="659" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -123,10 +119,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_object.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="user_object.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/acceptance_tests/support/acceptance_objects/user_object.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.383142">
+            <state vertical-scroll-proportion="0.0">
               <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
@@ -144,12 +140,12 @@
         <option value="$PROJECT_DIR$/acceptance_tests/support/factories/user.rb" />
         <option value="$PROJECT_DIR$/acceptance_tests/anime_subscription_creation_1.feature" />
         <option value="$PROJECT_DIR$/acceptance_tests/step_definitions/admin_steps.rb" />
-        <option value="$PROJECT_DIR$/acceptance_tests/support/acceptance_objects/dbcon.rb" />
         <option value="$PROJECT_DIR$/acceptance_tests/anime_crunchyroll_savings_1.feature" />
         <option value="$PROJECT_DIR$/acceptance_tests/support/hooks.rb" />
         <option value="$PROJECT_DIR$/acceptance_tests/step_definitions/anime_crunchyroll_savings_steps.rb" />
         <option value="$PROJECT_DIR$/acceptance_tests/support/acceptance_objects/test_object.rb" />
         <option value="$PROJECT_DIR$/acceptance_tests/support/acceptance_objects/user_object.rb" />
+        <option value="$PROJECT_DIR$/acceptance_tests/support/acceptance_objects/dbcon.rb" />
       </list>
     </option>
   </component>
@@ -161,8 +157,8 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="3575" />
-    <option name="y" value="-340" />
+    <option name="x" value="3636" />
+    <option name="y" value="-384" />
     <option name="width" value="1560" />
     <option name="height" value="904" />
   </component>
@@ -450,7 +446,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="3575" y="-340" width="1560" height="904" extended-state="0" />
+    <frame x="3636" y="-384" width="1560" height="904" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -807,14 +803,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/acceptance_tests/support/acceptance_objects/dbcon.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="659" column="14" selection-start-line="659" selection-start-column="14" selection-end-line="659" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/acceptance_tests/support/hooks.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -857,8 +845,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/acceptance_tests/support/acceptance_objects/user_object.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.383142">
+        <state vertical-scroll-proportion="0.0">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/acceptance_tests/support/acceptance_objects/dbcon.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8659004">
+          <caret line="659" column="12" selection-start-line="659" selection-start-column="12" selection-end-line="659" selection-end-column="12" />
           <folding />
         </state>
       </provider>

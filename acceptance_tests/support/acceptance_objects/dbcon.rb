@@ -657,7 +657,7 @@ end
 
 def delete_cruncyroll_account_link
   q = "DELETE from auth_providers;"
-  @conn.exe(q)
+  @conn.exec(q)
 end
 
 end
