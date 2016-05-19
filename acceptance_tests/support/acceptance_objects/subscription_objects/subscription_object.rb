@@ -73,6 +73,12 @@ class Subscription
     @billing_info.last_four = cc_number.split(//).last(4).join
   end
 
+  def variant_sku
+    #WARNING: Will only work with certain subs
+    #Will need to fix to work with Level up and probably pets
+    (@product.downcase + "-crate-" + @sizes[:shirt].downcase + "-shirt").gsub(/\s/,'')
+  end
+
   def odd_cycle?
     /(Gaming|Anime)/.match(@product)
   end

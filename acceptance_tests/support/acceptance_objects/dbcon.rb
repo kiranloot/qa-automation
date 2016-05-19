@@ -633,6 +633,16 @@ def get_inventory_item_id_and_count(product, variant)
   results[0]
 end
 
+def get_total_committed_by_sku(sku)
+  q = """
+  SELECT total_committed FROM inventory_units ui
+  JOIN variants v on ui.variant_id = v.id
+  WHERE v.sku = '#{sku}';
+  """
+  results = @conn.exec(q)
+  results[0]['total_committed']
+end
+
 def get_total_committed(variant_id)
   q = """
   SELECT count(s.*) FROM subscription_variants sv

@@ -38,7 +38,6 @@ class User
     @base_coupon_code = nil
     @tax_applied = false
     @discount_applied = nil
-    #@subject_user = nil
     @new_user_sub_name = nil
     @new_shirt_size= nil
     @need_sub = true

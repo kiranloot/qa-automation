@@ -3,6 +3,7 @@ module InventoryFlagManager
   @flags = [
       "tests_selling_out_anime_inv",
       "tests_using_anime_inv",
+      "tests_freezing_anime_inv",
       "tests_selling_out_pets_inv",
       "tests_using_pets_inv",
       "tests_selling_out_gaming_inv",
@@ -22,6 +23,14 @@ module InventoryFlagManager
     #List of flags used
     @flags.each do |flag|
       @redis.set(flag,0)
+    end
+    @redis.quit
+  end
+
+  def self.output_flags
+    @redis.connect
+    @flags.each do |flag|
+      puts @redis.set_members(flag)
     end
     @redis.quit
   end

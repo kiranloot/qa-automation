@@ -45,6 +45,7 @@ include Capybara::DSL
   end
 
   def crate_sold_out?
+    wait_for_ajax
     find('#plans').text.include?('SOLD OUT')
   end
 
