@@ -6,6 +6,7 @@ class User
   include Capybara::DSL
   include WaitForAjax
 
+
   attr_accessor :email, :password, :street, :city, :ship_state, :ship_zip, :zip, :first_name, 
                 :last_name, :full_name, :new_shirt_size, :ship_street, :ship_street_2, :ship_city, 
                 :affiliate, :base_coupon_code, :coupon_code, :discount_applied, :subscription_name, 
@@ -13,7 +14,8 @@ class User
                 :bill_street, :bill_street_2, :bill_state, :need_sub, :trait, 
                 :recurly_level_up_plan, :country_code, :recurly_billing_state_code, :promo_type, :promo, 
                 :adjustment_type, :adjustment_amount, :recurly_rebill_date, :pin_code, :crate_type, 
-                :billing_address, :country, :subscription
+                :billing_address, :country, :subscription, :crunchyroll_premium_plus_email, :crunchyroll_premium_plus_pwd, :crunchyroll_premium_email,
+                :crunchyroll_premium_pwd, :crunchyroll_free_trial_email, :crunchyroll_free_trial_pwd
 
   def initialize(test)
     @trait = nil
@@ -51,6 +53,14 @@ class User
     @pin_code = nil
     @crate_type = nil
     @billing_address = nil
+    @crunchyroll_premium_plus_email = "jeffrey.wu@lootcrate.com"
+    @crunchyroll_premium_plus_pwd = "qalootcrate123"
+    @crunchyroll_premium_email = "jeffreyleung@alumni.calpoly.edu"
+    @crunchyroll_premium_pwd = "lctest"
+    @crunchyroll_free_trial_email = "Art.chompaisal@lootcrate.com"
+    @crunchyroll_free_trial_pwd = "CrunchyRoll"
+
+
   end
 
 

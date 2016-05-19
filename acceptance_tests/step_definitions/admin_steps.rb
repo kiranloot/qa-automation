@@ -66,6 +66,7 @@ When /views the user's information/ do
   $test.current_page.click_users
   $test.current_page = AdminUsersPage.new
   $test.current_page.view_user
+  sleep 10
 end
 
 When /updates the user's information/ do

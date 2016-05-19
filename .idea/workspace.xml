@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56c1c2ad-0159-42ba-9268-e19424f40027" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/acceptance_tests/anime_crunchyroll_savings_1.feature" afterPath="$PROJECT_DIR$/acceptance_tests/anime_crunchyroll_savings_1.feature" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/acceptance_tests/support/acceptance_objects/dbcon.rb" afterPath="$PROJECT_DIR$/acceptance_tests/support/acceptance_objects/dbcon.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/acceptance_tests/support/hooks.rb" afterPath="$PROJECT_DIR$/acceptance_tests/support/hooks.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/qa-automation.iml" afterPath="$PROJECT_DIR$/.idea/qa-automation.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/acceptance_tests/step_definitions/admin_steps.rb" afterPath="$PROJECT_DIR$/acceptance_tests/step_definitions/admin_steps.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/acceptance_tests/support/acceptance_objects/test_object.rb" afterPath="$PROJECT_DIR$/acceptance_tests/support/acceptance_objects/test_object.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/acceptance_tests/support/factories/user.rb" afterPath="$PROJECT_DIR$/acceptance_tests/support/factories/user.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/acceptance_tests/support/acceptance_objects/user_object.rb" afterPath="$PROJECT_DIR$/acceptance_tests/support/acceptance_objects/user_object.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="qa-automation.iws" />
@@ -105,10 +103,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="anime_crunchyroll_savings_steps.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="anime_crunchyroll_savings_steps.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/acceptance_tests/step_definitions/anime_crunchyroll_savings_steps.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.041152265">
+            <state vertical-scroll-proportion="-1.1111112">
               <caret line="2" column="44" selection-start-line="2" selection-start-column="44" selection-end-line="2" selection-end-column="44" />
               <folding />
             </state>
@@ -119,7 +117,17 @@
         <entry file="file://$PROJECT_DIR$/acceptance_tests/support/acceptance_objects/test_object.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+              <caret line="354" column="5" selection-start-line="354" selection-start-column="5" selection-end-line="354" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user_object.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/acceptance_tests/support/acceptance_objects/user_object.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.383142">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -134,14 +142,14 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/acceptance_tests/support/factories/user.rb" />
-        <option value="$PROJECT_DIR$/acceptance_tests/support/acceptance_objects/user_object.rb" />
         <option value="$PROJECT_DIR$/acceptance_tests/anime_subscription_creation_1.feature" />
         <option value="$PROJECT_DIR$/acceptance_tests/step_definitions/admin_steps.rb" />
         <option value="$PROJECT_DIR$/acceptance_tests/support/acceptance_objects/dbcon.rb" />
-        <option value="$PROJECT_DIR$/acceptance_tests/support/acceptance_objects/test_object.rb" />
         <option value="$PROJECT_DIR$/acceptance_tests/anime_crunchyroll_savings_1.feature" />
         <option value="$PROJECT_DIR$/acceptance_tests/support/hooks.rb" />
         <option value="$PROJECT_DIR$/acceptance_tests/step_definitions/anime_crunchyroll_savings_steps.rb" />
+        <option value="$PROJECT_DIR$/acceptance_tests/support/acceptance_objects/test_object.rb" />
+        <option value="$PROJECT_DIR$/acceptance_tests/support/acceptance_objects/user_object.rb" />
       </list>
     </option>
   </component>
@@ -153,10 +161,10 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="4" />
-    <option name="y" value="23" />
-    <option name="width" value="1436" />
-    <option name="height" value="877" />
+    <option name="x" value="3575" />
+    <option name="y" value="-340" />
+    <option name="width" value="1560" />
+    <option name="height" value="904" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -442,11 +450,11 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="4" y="23" width="1436" height="877" extended-state="6" />
+    <frame x="3575" y="-340" width="1560" height="904" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3758967" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34519103" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -671,14 +679,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/acceptance_tests/support/acceptance_objects/user_object.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="78" column="28" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/acceptance_tests/step_definitions/email_steps.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -831,14 +831,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/acceptance_tests/support/acceptance_objects/test_object.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/acceptance_tests/subscription_creation_1.feature">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -849,8 +841,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/acceptance_tests/step_definitions/anime_crunchyroll_savings_steps.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.041152265">
+        <state vertical-scroll-proportion="-1.1111112">
           <caret line="2" column="44" selection-start-line="2" selection-start-column="44" selection-end-line="2" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/acceptance_tests/support/acceptance_objects/test_object.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="354" column="5" selection-start-line="354" selection-start-column="5" selection-end-line="354" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/acceptance_tests/support/acceptance_objects/user_object.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.383142">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
       </provider>

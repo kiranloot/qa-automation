@@ -21,7 +21,8 @@ class Test
    :recurly,
    :box,
    :sailthru,
-   :mailinator
+   :mailinator,
+   :crunchyroll_user
  include Capybara::DSL
  include WaitForAjax
 
@@ -39,6 +40,32 @@ class Test
   @mailinator = mailinator_api
   @recurly = RecurlyAPI.new(box)
   @start_time = Time.now
+
+  @crunchyroll_user = nil
+ end
+
+ def update_test_data(value)
+   should_write = true
+  if value == "valid_email"
+    data = increment_digits(@test_data["signup"][value])
+    @test_data["signup"][value] = data
+  elsif value == "email_sequence"
+    data = @test_data["user"][value]
+  elsif value == "registered_no_prior"
+    data = increment_digits(@test_data["emails"]["registered_no_prior"])
+    @test_data["emails"]["registered_no_prior"] = data
+  elsif  value == "registered_with_active"
+    data = increment_digits(@test_data["emails"]["registered_with_active"])
+    @test_data["emails"]["registered_with_active"] = data
+  else
+    should_write = false
+  end
+
+  if should_write
+    File.open($env_test_data_file_path, 'w') {|f| f.write @test_data.to_yaml}
+  else
+    puts "Test data not updated: unrecognized data identifier."
+  end
  end
 
  def increment_digits(input_string)
@@ -272,4 +299,58 @@ class Test
     return codes.uniq.length == codes.length
   end
 
+  def enter_crunchyroll_user (user_name)
+    page.find(:id, 'crunchyroll-cta').click
+    within_frame(find('#crunchyrollModal iframe')){
+      fill_in('partners_login_form_name', :with => user_name)
+    }
+  end
+
+  def enter_crunchyroll_password(password)
+    within_frame(find('#crunchyrollModal iframe')){
+    fill_in('partners_login_form_password', :with => password)
+    page.find('#log_in_submit_button').click
+    }
+  end
+
+  def crunchyroll_discount_applied(coupon)
+    # message_1 = page.find('.crunchy-verified').text
+    message_2 = "Your Premium Account is Verified!"
+    # expect(page).to have_content(message_1)
+    expect(page).to have_content(message_2)
+
+    case coupon
+      when "one"
+        #would like to get_total_cost method from plan_object
+        total = (29.95 - 5.00).to_f
+        expect(page).to have_content("Coupon $5.00")
+        expect(page).to have_content(total)
+        expect(page).to have_content("You are saving an additional $5.00!")
+      when "three"
+        total = (86.85 - 10.00).to_f
+        expect(page).to have_content("Coupon $10.00")
+        expect(page).to have_content(total)
+        expect(page).to have_content("You are saving an additional $10.00!")
+      when "six"
+        total = (170.70 - 20.00).to_f
+        expect(page).to have_content("Coupon $20.00")
+        expect(page).to have_content(total)
+        expect(page).to have_content("You are saving an additional $20.00!")
+      when "twelve"
+        total = (335.40 - 40.00).to_f
+        expect(page).to have_content("Coupon $40.00")
+        expect(page).to have_content(total)
+        expect(page).to have_content("You are saving an additional $40.00!")
+    end
+  end
+  def crunchyroll_discount_isnot_applied
+    message_1 = "The Crunchyroll account you are attempting to verify is already associated with a Loot Anime subscription. Please try a different account."
+    expect(page).to have_content(message_1)
+    expect(page).to have_no_content("Coupon $5.00")
+  end
+  def delete_link_with_crunchyroll_account
+    page.execute_script "window.scrollBy(0,10000)"
+    page.find(".col-delete a").click
+    expect(page).to have_content("Provider link deleted for 'crunchyroll'")
+  end
 end

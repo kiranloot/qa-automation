@@ -573,6 +573,7 @@ FactoryGirl.define do
       password "password"
       subscription {FactoryGirl.build(:subscription)}
     end
+
   end
 
  end
