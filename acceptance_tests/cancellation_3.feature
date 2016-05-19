@@ -1,4 +1,4 @@
-@core @regression @cancellation @selenium
+@cancellation
 Feature: Subscription Cancellation
     @level_up @admin @ready @recurly
     Scenario: Cancel level up sub immediately through admin

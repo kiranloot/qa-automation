@@ -1,4 +1,4 @@
-@core @regression @account @selenium @admin
+@account @admin
 Feature: Admin Inventory Units Page
     @ready @anime_inv_req
     Scenario: Check Inventory Count

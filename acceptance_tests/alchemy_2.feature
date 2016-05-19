@@ -1,4 +1,4 @@
-@regression @core @alchemy @selenium
+@alchemy
 Feature: Alchemy CMS
     @ready @alchemy_text
     Scenario Outline: Validate gaming/pets/core theme page publish

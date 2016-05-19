@@ -1,4 +1,4 @@
-@core @regression @selenium @intl_pricing
+@intl_pricing
 Feature: Change Country Subscribe Page Prices
     @ready
     Scenario Outline: Change from US to International Country and verify pricing.

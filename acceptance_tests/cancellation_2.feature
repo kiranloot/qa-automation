@@ -1,4 +1,4 @@
-@core @regression @cancellation @selenium
+@cancellation
 Feature: Subscription Cancellation
     @ready @recurly
     Scenario: A user cancels their level up subscription

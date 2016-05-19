@@ -1,4 +1,4 @@
-@regression @core @inventory_checks @selenium
+@inventory_checks
 Feature: Total committed invention increases by one when customer checks out
     @ready @anime_inv_freeze
     Scenario: Total committed increases when customer purches an anime crate

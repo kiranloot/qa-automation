@@ -1,4 +1,4 @@
-@regression @core @sailthru @selenium
+@sailthru
 Feature: Sailthru Integration
     @ready
     Scenario: Sailthru update on new Level Up subscriber

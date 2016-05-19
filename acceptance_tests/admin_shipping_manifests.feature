@@ -1,4 +1,4 @@
-@selenium @regression @admin
+@admin
 Feature: Admin Shipping Manifests
     @ready
     Scenario: Ensure shipping manifest page loads

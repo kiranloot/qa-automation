@@ -1,4 +1,4 @@
-@regression @core @sellout @selenium
+@sellout
 Feature: Level Up Sellouts
     @ready @lutshirt_inv_sellout
     Scenario: A single size sells out for level up tshirts

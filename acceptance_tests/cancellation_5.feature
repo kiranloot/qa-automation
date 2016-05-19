@@ -1,4 +1,4 @@
-@core @regression @cancellation @selenium @krisindev
+@cancellation @krisindev
 Feature: Subscription Cancellation
     @dx @admin @ready @recurly @dx_inv_req
     Scenario:   Subscriber cancels a DX crate subscription

@@ -1,4 +1,4 @@
-@core @regression @skipamonth @selenium
+@skipamonth
 Feature: Skip a Month
     @ready
     Scenario: Skip core crate

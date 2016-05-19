@@ -1,4 +1,3 @@
-@core @regression @selenium
 Feature: Subscription Upgrades
     @ready @recurly @kris_indev
     Scenario: User upgrades an international subscription

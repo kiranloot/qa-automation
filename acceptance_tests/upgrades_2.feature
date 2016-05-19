@@ -1,4 +1,3 @@
-@core @regression @selenium
 Feature: Subscription Upgrades
     @ready @recurly
     Scenario: User upgrades an existing pets subscription

@@ -1,4 +1,4 @@
-@regression @core @segment_tracking @selenium
+@segment_tracking
 Feature: Segment Tracking
     @ready
     Scenario: Ensure the checkout page has segment tracking

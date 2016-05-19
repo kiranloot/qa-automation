@@ -1,4 +1,4 @@
-@mobile_app @regression @account @selenium
+@mobile_app @account
 Feature:Mobile App Account Registration 
     @mobile_app_ready
     Scenario: Valid signup through mobile app

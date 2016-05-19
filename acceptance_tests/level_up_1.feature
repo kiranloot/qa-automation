@@ -1,4 +1,4 @@
-@core @regression @levelup @selenium @lusocks_inv_req
+@levelup @lusocks_inv_req
 Feature: Level Up
     @ready @recurly @mobile_ready
     Scenario: A user with an active subscription can add a one month sock subscription

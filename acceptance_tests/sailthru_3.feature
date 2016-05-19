@@ -1,4 +1,4 @@
-@regression @core @sailthru @selenium
+@sailthru
 Feature: Sailthru Integration
     @ready
     Scenario: User signs up for newsletter on home page

@@ -1,4 +1,4 @@
-@regression @core @sellout @selenium
+@sellout
 Feature: DX sellouts 
     @ready @dx_inv_sellout
     Scenario: A single size sells out for dx

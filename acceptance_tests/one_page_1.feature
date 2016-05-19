@@ -1,4 +1,4 @@
-@regression @core @subscription_creation @selenium
+@subscription_creation
 Feature: Subscription Creation - One Page Checkout
     @ready @safari_ready
     Scenario Outline: Unregistered user creates one month core/anime/gaming subscription using one page checkout

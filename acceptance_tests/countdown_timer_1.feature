@@ -1,4 +1,4 @@
-@countdown_timer @selenium
+@countdown_timer
 Feature: Countdown Timers
     @ready
     Scenario: Verify countdown timer for Core crate

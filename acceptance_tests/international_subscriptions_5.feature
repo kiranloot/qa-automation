@@ -1,4 +1,4 @@
-@regression @extended @world_subs @selenium
+@extended @world_subs
 Feature: International Subscriptions
     @ready
     Scenario: Israel user signs up for random month subscription

@@ -1,4 +1,4 @@
-@regression @core @sellout @selenium
+@sellout
 Feature: Gaming sellouts 
     @ready @gaming_inv_sellout
     Scenario: A single size sells out for gaming

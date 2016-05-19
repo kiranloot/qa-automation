@@ -1,4 +1,4 @@
-@core @regression @account @selenium
+@account
 Feature: Navigation checks
     @ready @sign @safari_ready
     Scenario: Check link integrity on home page

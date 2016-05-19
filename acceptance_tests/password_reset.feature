@@ -1,4 +1,4 @@
-@regression @password @extended
+@password @extended
 Feature: Password reset
     @ready
     Scenario: User can reset password via the forgot password link

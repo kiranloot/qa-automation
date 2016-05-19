@@ -1,4 +1,4 @@
-@regression @core @lootpins @selenium
+@lootpins
 Feature: Loot Pins
     @ready
     Scenario: A unregistered user visits the pins page

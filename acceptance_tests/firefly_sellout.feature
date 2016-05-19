@@ -1,4 +1,4 @@
-@regression @core @sellout @selenium
+@sellout
 Feature: Firefly sellouts 
     @ready @firefly_inv_sellout
     Scenario: A single size sells out for firefly
