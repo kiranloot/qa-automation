@@ -1,4 +1,3 @@
-@regression
 Feature: Subscription Upgrades
     @ready @recurly
     Scenario: User upgrades from one month to three month subscription plan

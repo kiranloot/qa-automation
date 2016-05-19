@@ -1,4 +1,3 @@
-@regression
 Feature: Promotion codes
     @ready
     Scenario: User applies valid multi use promo code at signup.

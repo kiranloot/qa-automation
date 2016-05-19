@@ -1,4 +1,3 @@
-@regression
 Feature: Remove Sign Up email field from the footer for logged in user
   @ready
   Scenario Outline: Sign UP email field is removed from the footer for core and specialty crate for the logged in looter

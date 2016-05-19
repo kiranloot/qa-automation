@@ -1,4 +1,3 @@
-@regression
 Feature: Subscription Upgrades
     @ready @recurly @kris_indev
     Scenario: User upgrades an international subscription

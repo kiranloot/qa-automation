@@ -1,4 +1,3 @@
-@regression
 Feature: Subscription reactivation
     @ready @recurly
     Scenario: User reactivates cancelled subscription
