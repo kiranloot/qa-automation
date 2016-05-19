@@ -13,6 +13,7 @@ Feature: Anime Subscription Creation with cruncyroll discount
     And logs in as an admin
     And views the user's information
     And the user click delete button
+  @view_user2
   Scenario: Registered user creates three month anime subscription
     Given a registered user with no prior subscription
     When the user logs in

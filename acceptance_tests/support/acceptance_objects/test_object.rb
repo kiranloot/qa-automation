@@ -271,4 +271,5 @@ class Test
     end
     return codes.uniq.length == codes.length
   end
+
 end

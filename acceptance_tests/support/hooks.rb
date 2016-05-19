@@ -270,3 +270,7 @@ After ('@lutshirt_inv_sellout') do
   $test.db.add_inventory_to_product('Loot Tees')
   InventoryFlagManager.decrement_flag('tests_selling_out_lutshirt_inv')
 end
+
+After('@view_user2') do
+  $test.db.delete_cruncyroll_account_link
+end

@@ -655,4 +655,9 @@ def get_total_committed(variant_id)
   results[0]['count']
 end
 
+def delete_cruncyroll_account_link
+  q = "DELETE from auth_providers;"
+  @conn.exe(q)
+end
+
 end
