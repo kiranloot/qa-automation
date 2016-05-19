@@ -110,6 +110,7 @@ end
 at_exit do
  if ParallelTests.number_of_running_processes <= 1
   HerokuAPI.new.disable_webhook_dynos
+  Memcachier.new.flush
  end
  logtime['end'] = DateTime.now.strftime('%Q')
  puts 'this is the end'
