@@ -300,7 +300,7 @@ class Test
   end
 
   def enter_crunchyroll_user (user_name)
-    page.find(:id, 'crunchyroll-cta').click
+    #page.find(:id, 'crunchyroll-cta').click
     within_frame(find('#crunchyrollModal iframe')){
       fill_in('partners_login_form_name', :with => user_name)
     }
@@ -356,5 +356,10 @@ class Test
   def go_to_my_account
     click_link("My Account")
     click_link("Manage Account")
+  end
+  def cr_account_verified
+    #message2 = page.find(".crunchyroll-text").text
+    message1 = "Your Premium Account is Verified!"
+    expect(page).to have_content(message1)
   end
 end

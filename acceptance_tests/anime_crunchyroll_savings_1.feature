@@ -1,4 +1,4 @@
-
+@ready
   #validate discount with crunchyroll primium plus account
 Feature: Anime Subscription Creation with cruncyroll discount
   @cr_ready
@@ -16,7 +16,7 @@ Feature: Anime Subscription Creation with cruncyroll discount
     And logs in as an admin
     And views the user's information
     And the user delete crunchyroll_link with lootcrate account
-
+  @cr_ready
   Scenario: Registered user creates three month anime subscription
     Given a registered user with no prior subscription
     When the user logs in
@@ -27,7 +27,7 @@ Feature: Anime Subscription Creation with cruncyroll discount
     And the user submits valid subscription information
     Then the new subscription should be added to the user account
     And the recurly subscription data is fully validated
-
+  @cr_ready
   Scenario: Registered user creates six month anime subscription
     Given a registered user with no prior subscription
     When the user logs in
@@ -38,7 +38,7 @@ Feature: Anime Subscription Creation with cruncyroll discount
     And the user submits valid subscription information
     Then the new subscription should be added to the user account
     And the recurly subscription data is fully validated
-
+  @cr_ready
   Scenario: Registered user creates tweel month anime subscription
     Given a registered user with no prior subscription
     When the user logs in
@@ -51,6 +51,7 @@ Feature: Anime Subscription Creation with cruncyroll discount
     And the recurly subscription data is fully validated
 
  #validate discount with crunchyroll primium account
+  @cr_ready
   Scenario: Registered user creates one month anime subscription
     Given a registered user with no prior subscription
     When the user logs in
@@ -71,7 +72,7 @@ Feature: Anime Subscription Creation with cruncyroll discount
     And the user selects a one month subscription plan
     And the crunchyroll user login with primium plus account
     And the verify crunchyroll one month coupon applied
-
+  @cr_linked
   Scenario: Registered user creates one month anime subscription
     Given a registered user with no prior subscription
     When the user logs in
@@ -91,8 +92,6 @@ Feature: Anime Subscription Creation with cruncyroll discount
     And the user submits valid subscription information
     And the user go to my_account
     And the user link LC account with crunchyroll account
+    And the cruncyroll account is verified
 
-#    Then the new subscription should be added to the user account
-    #And the user visits the my account page
-#    And the user visits the my account page
-#    And the user links cruncyroll account
+

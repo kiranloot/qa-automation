@@ -1,5 +1,6 @@
 
 And(/^the crunchyroll user login with primium plus account$/) do
+  page.find(:id, 'crunchyroll-cta').click
   cr_primium_plus_email = $test.user.crunchyroll_premium_plus_email
   cr_primium_pls_pwd = $test.user.crunchyroll_premium_plus_pwd
   $test.enter_crunchyroll_user(cr_primium_plus_email)
@@ -13,6 +14,7 @@ And(/^the verify crunchyroll (.*) month coupon applied$/) do |coupon|
 end
 
 And(/^the crunchyroll user login with primium account$/) do
+  page.find(:id, 'crunchyroll-cta').click
   cr_primium_email = $test.user.crunchyroll_premium_email
   cr_primium_pwd = $test.user.crunchyroll_premium_pwd
   $test.enter_crunchyroll_user(cr_primium_email)
@@ -42,4 +44,8 @@ And(/^the user link LC account with crunchyroll account$/) do
   cr_primium_pls_pwd = $test.user.crunchyroll_premium_plus_pwd
   $test.enter_crunchyroll_user(cr_primium_plus_email)
   $test.enter_crunchyroll_password(cr_primium_pls_pwd)
+end
+
+And(/^the cruncyroll account is verified$/) do
+  $test.cr_account_verified
 end

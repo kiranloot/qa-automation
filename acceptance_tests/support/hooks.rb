@@ -184,6 +184,10 @@ Before ('@lutshirt_inv_sellout') do
   InventoryFlagManager.increment_flag('tests_selling_out_lutshirt_inv')
 end
 
+Before ('@cr_ready') do
+  $test.db.delete_cruncyroll_account_link
+end
+
 After do
   $test.db.finish
   #unless ENV['DRIVER'] == 'appium'
@@ -271,6 +275,6 @@ After ('@lutshirt_inv_sellout') do
   InventoryFlagManager.decrement_flag('tests_selling_out_lutshirt_inv')
 end
 
-After('@view_user2') do
+After('@cr_ready') do
   $test.db.delete_cruncyroll_account_link
 end
