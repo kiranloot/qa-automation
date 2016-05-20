@@ -650,7 +650,6 @@ def get_total_committed(variant_id)
   WHERE sv.variant_id = #{variant_id}
   AND s.subscription_status in ('active', 'past_due');
   """
-
   results = @conn.exec(q)
   results[0]['count']
 end

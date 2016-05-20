@@ -353,4 +353,8 @@ class Test
     page.find(".col-delete a").click
     expect(page).to have_content("Provider link deleted for 'crunchyroll'")
   end
+  def go_to_my_account
+    click_link("My Account")
+    click_link("Manage Account")
+  end
 end
